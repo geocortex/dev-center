@@ -14,7 +14,11 @@ module.exports = {
                 alt: "Geocortex Logo",
                 src: "img/logo.png",
             },
-            links: [{ to: "docs/web/overview", label: "Web", position: "left" }],
+            links: [
+                { to: "docs/web/overview", label: "Web", position: "left" },
+                { to: "docs/mobile/overview", label: "Mobile", position: "left" },
+                { to: "docs/workflow/overview", label: "Workflow", position: "left" },
+            ],
         },
         footer: {
             style: "dark",

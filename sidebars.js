@@ -6,5 +6,7 @@
  */
 
 module.exports = {
-  web: ['web/overview']
+    web: ["web/overview"],
+    workflow: ["workflow/overview"],
+    mobile: ["mobile/overview"],
 };
