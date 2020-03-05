@@ -22,3 +22,11 @@
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
+
+.navbar .navbar__logo {
+  height: 50%
+}
+
+.navbar__brand strong {
+  font-weight: var(--ifm-font-weight-light) !important;
+}
