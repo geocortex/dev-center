@@ -2,11 +2,11 @@ const title = "Developer Center";
 module.exports = {
     title,
     tagline: "by developers, for developers",
-    url: "https://your-docusaurus-test-site.com",
-    baseUrl: "/",
+    url: "https://geocortex.github.io/",
+    baseUrl: "/dev-center",
     favicon: "img/favicon.png",
     organizationName: "geocortex", // Usually your GitHub org/user name.
-    projectName: "geocortex developer center", // Usually your repo name.
+    projectName: "dev-center", // Usually your repo name.
     themeConfig: {
         navbar: {
             title,
