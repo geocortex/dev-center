@@ -15,7 +15,7 @@ module.exports = {
         src: 'img/logo.png',
       },
       links: [
-        {to: 'docs/doc1', label: 'Docs', position: 'left'}
+        {to: 'docs/web/overview', label: 'Web', position: 'left'}
       ],
     },
     footer: {
