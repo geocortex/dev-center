@@ -1,0 +1,13 @@
+.productsContainer {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.products {
+    justify-content: space-around;
+}
