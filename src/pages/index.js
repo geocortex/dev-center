@@ -42,7 +42,7 @@ function Home() {
     return (
         <Layout
             title={`${siteConfig.title}`}
-            description="Description will go into a meta tag in <head />"
+            description="Developer documentation and code samples for Geocortex Products."
         >
             <header className={classnames("hero hero--primary", styles.heroBanner)}>
                 <div className="container">

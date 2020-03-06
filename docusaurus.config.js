@@ -22,8 +22,21 @@ module.exports = {
         },
         footer: {
             style: "dark",
-            links: [],
-            copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+            links: [
+                {
+                    title: "Geocortex",
+                    items: [
+                        {
+                            label: "Geocortex.com",
+                            to: "https://geocortex.com",
+                        },
+                        {
+                            label: "Geocortex Documentation Center",
+                            to: "https://docs.geocortex.com",
+                        },
+                    ],
+                },
+            ],
         },
     },
     presets: [
