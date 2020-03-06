@@ -47,7 +47,6 @@ function Home() {
             <header className={classnames("hero hero--primary", styles.heroBanner)}>
                 <div className="container">
                     <h1 className="hero__title">Geocortex Developer Center</h1>
-                    <p className="hero__subtitle">{siteConfig.tagline}</p>
                 </div>
             </header>
             <main>
