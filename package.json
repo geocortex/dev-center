@@ -16,7 +16,8 @@
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "remark-external-links": "^5.0.0"
   },
   "browserslist": {
     "production": [

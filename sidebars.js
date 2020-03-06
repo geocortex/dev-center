@@ -17,13 +17,13 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Getting Started with the SDK",
-            items: ["mobile/getting-started/installation"],
+            label: "Concepts",
+            items: ["mobile/concepts/layout"],
         },
         {
             type: "category",
-            label: "Concepts",
-            items: ["mobile/concepts/layout"],
+            label: "Getting Started with the SDK",
+            items: ["mobile/getting-started/installation"],
         },
     ],
 };

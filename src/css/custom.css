@@ -14,6 +14,7 @@
     --ifm-color-primary-lighter: #71b88e;
     --ifm-color-primary-lightest: #a1d0b4;
     --ifm-code-font-size: 95%;
+    --ifm-font-family-base: "Segoe UI", "Helvetica Neue", "Droid Sans", Helvetica, Arial, sans-serif;
 }
 
 .docusaurus-highlight-code-line {
