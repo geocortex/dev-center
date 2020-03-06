@@ -40,4 +40,5 @@ module.exports = {
             },
         ],
     ],
+    plugins: [require.resolve("./src/plugins/dev-webpack/index.js")],
 };
