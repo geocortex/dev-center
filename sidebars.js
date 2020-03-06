@@ -8,5 +8,22 @@
 module.exports = {
     web: ["web/overview"],
     workflow: ["workflow/overview"],
-    mobile: ["mobile/overview"],
+    mobile: [
+        "mobile/overview",
+        {
+            type: "category",
+            label: "Use Cases",
+            items: ["mobile/use-cases/placeholder"],
+        },
+        {
+            type: "category",
+            label: "Getting Started with the SDK",
+            items: ["mobile/getting-started/installation"],
+        },
+        {
+            type: "category",
+            label: "Concepts",
+            items: ["mobile/concepts/layout"],
+        },
+    ],
 };
