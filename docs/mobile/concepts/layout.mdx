@@ -1,0 +1,123 @@
+---
+id: layout
+title: App Layout
+---
+
+import styles from "./concepts.module.css";
+
+:::note Before learning about layout...
+Check out the [Key Concepts](/docs/mobile/concepts/key-concepts).
+:::
+
+A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as blueprints on which a Mobile Application is built.
+
+Take this example of a app layout with a map and a compass.
+
+```xml
+<layout>
+    <map id="map-primary" config="default" >
+        <compass padding="0.5" id ="compass"/>
+    </map>
+</layout>
+```
+
+The first thing it does is delcare a map that is linked to "default" configuration that specifies what content to load.
+Next, a compass is embedded within the map. This does two things:
+
+1. Visually places the element inside the map
+2. Tells the compass to display a value relative to the map it is placed in (more about this later...)
+
+:::tip Want to follow along?
+Check out the [Quick Start](/docs/mobile/getting-started/quick-start) and [edit the default app layout](/docs/mobile/getting-started/layout-config).
+:::
+
+But what if I want the compass to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
+
+## Slotting
+
+The position of a component within it's parent is controlled by what slot it is placed into.
+
+For example, this configuration will place the compass in the top right of the map.
+
+<!-- TODO - actually test all these layouts.... -->
+
+```xml
+<layout>
+    <map id="map-primary" config="default" >
+        <compass padding="0.5" id ="compass" slot="top-right"/>
+    </map>
+</layout>
+```
+
+If a slot configuration is not given, the component will slot itself into a default position.
+
+TODO - API docs for what slots go where
+
+Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
+
+## Stacks and Splits
+
+The basic `stack` and `split` components form building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
+
+Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes.
+
+Stacks and splits are used to partition the viewer into rectangular sectors, each filled with whichever components you desire.
+
+The best way to think of stacks is that every item within them is being ordered top to bottom:
+
+```xml
+<stack>
+    <text text="item1"/>
+    <text text="item2"/>
+    <text text="item3"/>
+</stack>
+```
+
+<img className={styles.stackSplitImage} src="/img/stack-split-1.png" />
+
+The best way to think of splits is that every item within them is being ordered left to right:
+
+```xml
+<split>
+    <text text="item1"/>
+    <text text="item2"/>
+    <text text="item3"/>
+</split>
+```
+
+<img className={styles.stackSplitImage} src="/img/stack-split-2.png" />
+
+When creating complex layouts with embedded stacks and splits, it's good to picture building it from the inside out:
+
+```xml
+<stack>
+    <split>
+        <text text="item1"/>
+        <stack>
+            <text text="item2"/>
+            <text text="item3"/>
+        </stack>
+    </split>
+    <split>
+        <text text="item4"/>
+        <text text="item5"/>
+        <text text="item6"/>
+    </split>
+</stack>
+```
+
+We start by building the first inner-most stack:
+
+<img className={styles.stackSplitImage} src="/img/stack-split-4.png" />
+
+Then slot that into the split one level up:
+
+<img className={styles.stackSplitImage} src="/img/stack-split-5.png" />
+
+We then build the next split:
+
+<img className={styles.stackSplitImage} src="/img/stack-split-6.png" />
+
+And finally slot those two splits into the outer-most stack:
+
+<img className={styles.stackSplitImage} src="/img/stack-split-3.png" />
