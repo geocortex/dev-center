@@ -45,7 +45,7 @@ module.exports = {
             {
                 docs: {
                     sidebarPath: require.resolve("./sidebars.js"),
-                    editUrl: "https://github.com/geocortex/dev-center/edit/master/website/",
+                    editUrl: "https://github.com/geocortex/dev-center/edit/master/",
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
