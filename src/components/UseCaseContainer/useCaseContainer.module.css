@@ -1,0 +1,9 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.root > * {
+    margin: 1.5em;
+}

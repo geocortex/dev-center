@@ -18,7 +18,7 @@ module.exports = {
         {
             type: "category",
             label: "Concepts",
-            items: ["mobile/concepts/layout"],
+            items: ["mobile/concepts/key-concepts", "mobile/concepts/layout"],
         },
         {
             type: "category",

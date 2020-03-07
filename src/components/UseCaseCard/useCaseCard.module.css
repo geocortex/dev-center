@@ -1,0 +1,8 @@
+.root {
+    width: 20em;
+    height: 15em;
+}
+
+.root > * {
+    height: 100%;
+}

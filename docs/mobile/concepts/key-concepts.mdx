@@ -1,0 +1,43 @@
+---
+id: key-concepts
+title: Key Concepts
+---
+
+import classnames from "classnames";
+import DesignerCallout from "../designer-callout.md";
+
+## Applications
+
+The core element of the Mobile Framework is an _Application_. Applications can be configured with the Geocortex Mobile Designer, and the deployed to end users who consume them.
+
+<DesignerCallout />
+
+Applications are composed of three main components:
+
+#### 1. App Layout XML that represents the visual layout of the application.
+
+```xml
+<layout >
+    <map id="map-primary" config="default" />
+</layout>
+```
+
+#### 2. Configuration JSON for the application.
+
+```json
+{
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+        }
+    ]
+}
+```
+
+#### 3. The Geocortex Mobile code which renders the layout and powers functionality.
+
+<br />
+
+These three components are the building blocks behind an application, with the `layout.xml` and `app.config` files being the driving forces that control how an application looks, how it responds to user interaction, and what data it consumes. Extensive customization can be done simply by modifying these two files, without requiring any custom code.

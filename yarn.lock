@@ -1052,7 +1052,7 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@mdx-js/mdx@^1.5.1":
+"@mdx-js/mdx@^1.5.1", "@mdx-js/mdx@^1.5.7":
   version "1.5.7"
   resolved "https://packages.latitudegeo.com/npm/latitude/@mdx-js/mdx/-/mdx-1.5.7.tgz#9167273da888ef4c545a5601bc5da989dfccb3a7"
   integrity sha1-kWcnPaiI70xUWlYBvF2pid/Ms6c=
@@ -1076,10 +1076,19 @@
     unist-builder "2.0.3"
     unist-util-visit "2.0.2"
 
-"@mdx-js/react@^1.5.1":
+"@mdx-js/react@^1.5.1", "@mdx-js/react@^1.5.7":
   version "1.5.7"
   resolved "https://packages.latitudegeo.com/npm/latitude/@mdx-js/react/-/react-1.5.7.tgz#dd7e08c9cdd3c3af62c9594c2c9003a3d05e34fd"
   integrity sha1-3X4Iyc3Tw69iyVlMLJADo9BeNP0=
+
+"@mdx-js/runtime@^1.5.7":
+  version "1.5.7"
+  resolved "https://packages.latitudegeo.com/npm/latitude/@mdx-js/runtime/-/runtime-1.5.7.tgz#6271ed4612eca80bd4ceaeea017b0ba4eabf7193"
+  integrity sha512-99UaDLTdfjKm7c/yoWmNbihwW/nJFanhaAULGmGZYcaemjh98skwRVh9d0B2i5xFHxnUmO3c/BdgtawTku4f5g==
+  dependencies:
+    "@mdx-js/mdx" "^1.5.7"
+    "@mdx-js/react" "^1.5.7"
+    buble-jsx-only "^0.19.8"
 
 "@mdx-js/util@^1.5.7":
   version "1.5.7"
@@ -1376,12 +1385,22 @@ accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
     mime-types "~2.1.24"
     negotiator "0.6.2"
 
+acorn-dynamic-import@^4.0.0:
+  version "4.0.0"
+  resolved "https://packages.latitudegeo.com/npm/latitude/acorn-dynamic-import/-/acorn-dynamic-import-4.0.0.tgz#482210140582a36b83c3e342e1cfebcaa9240948"
+  integrity sha1-SCIQFAWCo2uDw+NC4c/ryqkkCUg=
+
+acorn-jsx@^5.0.1:
+  version "5.2.0"
+  resolved "https://packages.latitudegeo.com/npm/latitude/acorn-jsx/-/acorn-jsx-5.2.0.tgz#4c66069173d6fdd68ed85239fc256226182b2ebe"
+  integrity sha1-TGYGkXPW/daO2FI5/CViJhgrLr4=
+
 acorn-walk@^6.1.1:
   version "6.2.0"
   resolved "https://packages.latitudegeo.com/npm/latitude/acorn-walk/-/acorn-walk-6.2.0.tgz#123cb8f3b84c2171f1f7fb252615b1c78a6b1a8c"
   integrity sha1-Ejy487hMIXHx9/slJhWxx4prGow=
 
-acorn@^6.0.7, acorn@^6.2.1:
+acorn@^6.0.7, acorn@^6.1.1, acorn@^6.2.1:
   version "6.4.0"
   resolved "https://packages.latitudegeo.com/npm/latitude/acorn/-/acorn-6.4.0.tgz#b659d2ffbafa24baf5db1cdbb2c94a983ecd2784"
   integrity sha1-tlnS/7r6JLr12xzbsslKmD7NJ4Q=
@@ -1961,6 +1980,19 @@ browserslist@^4.0.0, browserslist@^4.6.4, browserslist@^4.8.3, browserslist@^4.8
     caniuse-lite "^1.0.30001030"
     electron-to-chromium "^1.3.363"
     node-releases "^1.1.50"
+
+buble-jsx-only@^0.19.8:
+  version "0.19.8"
+  resolved "https://packages.latitudegeo.com/npm/latitude/buble-jsx-only/-/buble-jsx-only-0.19.8.tgz#6e3524aa0f1c523de32496ac9aceb9cc2b493867"
+  integrity sha512-7AW19pf7PrKFnGTEDzs6u9+JZqQwM1VnLS19OlqYDhXomtFFknnoQJAPHeg84RMFWAvOhYrG7harizJNwUKJsA==
+  dependencies:
+    acorn "^6.1.1"
+    acorn-dynamic-import "^4.0.0"
+    acorn-jsx "^5.0.1"
+    chalk "^2.4.2"
+    magic-string "^0.25.3"
+    minimist "^1.2.0"
+    regexpu-core "^4.5.4"
 
 buffer-from@^1.0.0:
   version "1.1.1"
@@ -5360,6 +5392,13 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+magic-string@^0.25.3:
+  version "0.25.7"
+  resolved "https://packages.latitudegeo.com/npm/latitude/magic-string/-/magic-string-0.25.7.tgz#3f497d6fd34c669c6798dcb821f2ef31f5445051"
+  integrity sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==
+  dependencies:
+    sourcemap-codec "^1.4.4"
+
 make-dir@^2.0.0:
   version "2.1.0"
   resolved "https://packages.latitudegeo.com/npm/latitude/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
@@ -7525,7 +7564,7 @@ regexp.prototype.flags@^1.2.0:
     define-properties "^1.1.3"
     es-abstract "^1.17.0-next.1"
 
-regexpu-core@^4.6.0:
+regexpu-core@^4.5.4, regexpu-core@^4.6.0:
   version "4.6.0"
   resolved "https://packages.latitudegeo.com/npm/latitude/regexpu-core/-/regexpu-core-4.6.0.tgz#2037c18b327cfce8a6fea2a4ec441f2432afb8b6"
   integrity sha1-IDfBizJ8/Oim/qKk7EQfJDKvuLY=
@@ -8196,6 +8235,11 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://packages.latitudegeo.com/npm/latitude/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
+
+sourcemap-codec@^1.4.4:
+  version "1.4.8"
+  resolved "https://packages.latitudegeo.com/npm/latitude/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
+  integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
 space-separated-tokens@^1.0.0, space-separated-tokens@^1.1.2:
   version "1.1.5"
