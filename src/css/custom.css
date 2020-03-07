@@ -31,3 +31,11 @@
 .navbar__brand strong {
     font-weight: var(--ifm-font-weight-light) !important;
 }
+
+.alert.alert--success a {
+    --ifm-link-color: var(--ifm-color-secondary);
+}
+
+.alert.alert--success a:hover {
+    color: var(--ifm-color-secondary-darker);
+}

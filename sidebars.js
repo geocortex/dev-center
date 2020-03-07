@@ -18,12 +18,20 @@ module.exports = {
         {
             type: "category",
             label: "Concepts",
-            items: ["mobile/concepts/key-concepts", "mobile/concepts/layout"],
+            items: [
+                "mobile/concepts/key-concepts",
+                "mobile/concepts/layout",
+                "mobile/concepts/app-config",
+                "mobile/concepts/commands-operations",
+                "mobile/concepts/services",
+                "mobile/concepts/components",
+                "mobile/concepts/advanced-topics",
+            ],
         },
         {
             type: "category",
             label: "Getting Started with the SDK",
-            items: ["mobile/getting-started/installation"],
+            items: ["mobile/getting-started/quick-start"],
         },
     ],
 };
