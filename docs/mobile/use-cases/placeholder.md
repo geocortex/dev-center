@@ -1,4 +1,0 @@
----
-id: placeholder
-title: Placeholder
----

@@ -1,0 +1,68 @@
+---
+id: commands-operations
+title: Commands and Operations
+---
+import UseCaseCard from "../../../src/components/UseCaseCard/UseCaseCard";
+import UseCaseContainer from "../../../src/components/UseCaseContainer/UseCaseContainer";
+
+:::note Before learning about commands and operations...
+Check out the [Key Concepts](/docs/mobile/concepts/key-concepts).
+:::
+
+TODO - better name for command/operation. Behaviour?
+
+
+Commands and Operations are runnable, independant units of work within GXM. Using the SDK, it's possible to define custom commands and operations for use throughout the application. TODO - how do we show people what is available? Commands are units of work which may take an input but do not produce an output, and operations differ because they produce output. Commands and Operations are grouped by namespace, for example
+
+TODO - how deep here... naming conventions? or should that be in the section about adding a command/operation
+
+```
+auth.sign-in
+auth.sign-out
+edit.add-feature
+edit.delete-features
+```
+
+Commands and Operations are most commonly used to configure the behaviour of [Components](./components). For example, here's configuration of a Feature Details component with various commands and operations.
+
+```json
+{
+  "$type": "feature-details",
+  "id": "feature-details",
+  "featureActions": "item://menu/feature-actions",
+  "onFeatureShow": "highlights.add-focus",
+  "onFeatureHide": "highlights.remove-focus",
+  "onFeatureDelete": [
+    "highlights.remove-focus",
+    "highlights.remove",
+    "edit.delete-features",
+    "results.hide-details",
+    "results.remove"
+  ]
+}
+```
+
+Configuration properties that accept a command/operation can take a single operation (such as with onFeatureHide) or they can take multiple commands/operations (such as with onFeatureDelete). In this example, when a feature is deleted the focus and highlights are removed, the feature is deleted from the layer, the results details are hidden, and the feature is removed from the results list. Since these commands/operations are running from the context of a Feature Details component, the first command/operation receives the relevant feature as it's input. If the commands/operations and chained, the next behaviour in line will receieve one of two possible inputs.
+
+1. If the previous behaviour was a command (which doesn't produce output), then the original input is passed on to the next behaviour.
+2. If the previous behaviour was an operation (which produces an output), then the output of that operation is passed onto the next behaviour.
+
+In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example. 
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations Schema"
+        description="Check out the available commands and operations."
+        link="/docs/mobile/api/commands-operations"
+    />
+    <UseCaseCard
+        title="Configure Commands and Operations"
+        description="Change built in behaviour or add new behaviour using App Configuration and Layout."
+        link="/docs/mobile/concepts/app-config"
+    />
+    <UseCaseCard
+        title="Build your own Commands and Operations"
+        description="Use the SDK to implement custom Commands and Operations."
+        link="/docs/mobile/use-cases/custom-command-operation"
+    />
+</UseCaseContainer>

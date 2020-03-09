@@ -13,7 +13,7 @@ module.exports = {
         {
             type: "category",
             label: "Use Cases",
-            items: ["mobile/use-cases/placeholder"],
+            items: ["mobile/use-cases/custom-command-operation"],
         },
         {
             type: "category",
@@ -32,6 +32,14 @@ module.exports = {
             type: "category",
             label: "Getting Started with the SDK",
             items: ["mobile/getting-started/quick-start"],
+        },
+        {
+            type: "category",
+            label: "API",
+            items: [
+                "mobile/api/overview",
+                "mobile/api/commands-operations"
+            ],
         },
     ],
 };
