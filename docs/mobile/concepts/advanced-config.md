@@ -5,7 +5,11 @@ title: Advanced Config
 
 ## Advanced Config
 
-### Item URI's
+### Item URI's and Resource URIs
+
+### Layout resource
+
+TODO - tags? Kenny?
 
 TODO - advanced cases?
 default app items?

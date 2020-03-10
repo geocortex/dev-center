@@ -55,7 +55,6 @@ module.exports = {
                     type: "category",
                     label: "Advanced Topics",
                     items: [
-                        "mobile/concepts/services",
                         "mobile/concepts/advanced-layout",
                         "mobile/concepts/advanced-config",
                     ],
