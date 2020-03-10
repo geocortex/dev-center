@@ -5,6 +5,8 @@ title: Advanced Config
 
 ## Advanced Config
 
+### Item URI's
+
 TODO - advanced cases?
 default app items?
 

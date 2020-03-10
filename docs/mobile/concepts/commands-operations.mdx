@@ -25,6 +25,8 @@ edit.add-feature
 edit.delete-features
 ```
 
+### Argument Passing
+
 Commands and Operations are most commonly used to configure the behaviour of [Components](./components). For example, here's configuration of a Feature Details component with various commands and operations.
 
 ```json
@@ -77,11 +79,9 @@ If you chose, you can overide the default arguments passed into a command or ope
 
 This will override the default arugment passing/chaining behaviour for that command/operation. Each command has typed arguments that can be browsed in the API. (TODO - this may not be true for MVP). For example, `map.rotate-by` takes a object of type [`MapRotateArgs`](TODO link to api), which has the property `Rotation` of type `double`. In the App Config, the `Rotation` property can be camelCase'd instead of PascalCased.  
 
-### I Want To Menu Example
+### Example
 
-TODO - another example with a menu
-TODO - Fix this broken example
-Multiple commands, with one being an operation then a command, full layout, app json example
+TODO - do I introduce the concept of "extensions" somewhere?
 
 <Tabs
   defaultValue="app"
@@ -91,81 +91,116 @@ Multiple commands, with one being an operation then a command, full layout, app 
     { label: 'User Interface', value: 'ui', }
   ]
 }>
-  <TabItem value="app">
+<TabItem value="app">
 
-  ```json
-  {
-    "name": "Commands/Operations Configuration Sample",
-    "settings": {
-      "defaultVisibility": "true",
-      "applicationName": "Commands/Operations Configuration Sample",
-      "defaultWidth": 800,
-      "defaultHeight": 600
+```json
+{
+    "name":"Commands/Operations Configuration Sample",
+    "settings":{
+        "defaultVisibility":"true",
+        "applicationName":"Commands/Operations Configuration Sample",
+        "defaultWidth":800,
+        "defaultHeight":600
     },
-    "items": [
-      {
-        "$type": "layout",
-        "id": "desktop-layout",
-        "url": "resource://layout.xml",
-        "tags": [ "mobile", "large" ]
-      },
-      {
-        "$type": "menu",
-        "id": "iwtm",
-        "items": [
-          {
-            "title": "Refresh App",
-            "isEnabled": true,
-            "iconId": "sync",
-            "action": "app.refresh"
-          },
-          {
-            "title": "Select and Identify",
-            "isEnabled": true,
-            "iconId": "identify",
-            "action": [
-              "map.get-geometry-from-selector",
-              "tasks.identify"
+    "items":[
+        {
+            "$type":"layout",
+            "id":"desktop-layout",
+            "url":"resource://layout-large.xml",
+            "tags":[
+                "mobile",
+                "large"
             ]
-          }
-        ]
-      }
+        },
+        {
+            "$type":"map-extension",
+            "id":"demoMap",
+            "webMap":"448e4e75180441709a3df35aea2bca5b",
+            "onClick":[
+                "tasks.identify",
+                "highlights.add-focus",
+                "highlights.pulse"
+            ]
+        },
+        {
+            "$type":"menu",
+            "id":"iwtm",
+            "items":[
+                {
+                    "title":"Return to Default Map View",
+                    "isEnabled":true,
+                    "iconId":"zoom_initial",
+                    "action":[
+                        {
+                            "name":"map.zoom-to-initial-viewpoint",
+                            "arguments":{
+                                "maps":"item://map-extension/demoMap"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
     ]
-  }
+}
   ```
 
-  </TabItem>
-  <TabItem value="layout">
+</TabItem>
+<TabItem value="layout">
 
   ```
-  <?xml version="1.0" encoding="utf-8" ?>
-  <layout
-      xmlns="https://geocortex.com/layout/v1"
-      xmlns:gxm="https://geocortex.com/layout/mobile/v1"
-      xmlns:ui-test="https://geocortex.com/layout/mobile/v1/ui-test"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd
-        https://geocortex.com/layout/mobile/v1/ui-test ./layout-ui-test.xsd">
-    <gxm:taskbar id="taskbar" orientation="vertical">
-      <!-- Taskbar main content -->
-      <map id="page1-map1" slot="main">
-        <stack margin="0.8" slot="top-right" halign="end">
-          <iwtm config="iwtm" id="IWTM"> 
-            <user slot="bottom"/>
-          </iwtm>
-        </stack>
-      </map>
-    </gxm:taskbar>
-  </layout>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+  xmlns="https://geocortex.com/layout/v1"
+  xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+  xmlns:ui-test="https://geocortex.com/layout/mobile/v1/ui-test"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd
+	https://geocortex.com/layout/mobile/v1/ui-test ./layout-ui-test.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+    <map config="demoMap" slot="main">
+    <stack margin="0.8" slot="top-right">
+      <iwtm config="iwtm" />
+    </stack>
+    </map>
+  </gxm:taskbar>
+</layout>
   ```
 
-  </TabItem>
-  <TabItem value="ui">
-    <img src="/img/iwtm-config-example.png" />
-  </TabItem>
+</TabItem>
+<TabItem value="ui">
+  <video loop muted controls>
+    <source src="/video/commands-operations-demo.webm" type="video/webm"/>
+    Your browser does not support the video tag.
+  </video>
+</TabItem>
 </Tabs>
 
-TODO - commands and operations in layout.... should I even?
+This example demonstrates two different types of argument passing behaviour. The first action in the app config is a command/operation chain defined on the onClick property of a map. This chain consists of three operations and commands, a `task.identify`, a `highlights.add-focus`, and a `highlights.pulse`. `tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from it's current [context](TODO - little blurb on context). Since this chain is run on a map click, the context argument passed in has the shape 
+```json
+{
+  "geometry": "Esri.Point(<map-click-location>)",
+  ... <other props>
+}
+```
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [API Documentation](TODO api docs link), `tasks.identify` has output with the shape
+```json
+{
+  "features": [<feature1>, <feature2>, ...],
+  "results": [<Result(feature1)>, <Result(feature2)>, ...],
+  ... <other props>
+}
+```
+`highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation (or the original input if no operations have run), so it will also receive the output of `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
+
+:::tip 
+Check out [Change Default Behaviour](/docs/mobile/use-cases/change-default-behaviour) for more ways to override default behaviour like a Map's on click event.  
+:::
+
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a [MapExtensionArgs](API Link), which is provided as a named argument. The `maps` property in the argument references the demoMap in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](./advanced-config#item-uris) for more details. 
+
+TODO - I don't like this sentence
+Mobile has a large array of built in command and operations that you can chain to power custom behaviour. Command and Operations can also be extended through the SDK if you need to implement new behaviour. 
 
 <UseCaseContainer>
     <UseCaseCard
@@ -184,3 +219,7 @@ TODO - commands and operations in layout.... should I even?
         link="/docs/mobile/use-cases/custom-command-operation"
     />
 </UseCaseContainer>
+
+TODO - commands and operations in layout.... should I even?
+
+TODO - call out running command chains in workflow?
