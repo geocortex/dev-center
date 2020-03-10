@@ -12,7 +12,7 @@ The core element of the Mobile Framework is an _Application_. Applications can b
 
 <DesignerCallout />
 
-Applications are composed of three main components:
+Applications are composed of three main pieces:
 
 #### 1. App Layout XML that represents the visual layout of the application.
 
@@ -22,10 +22,13 @@ Applications are composed of three main components:
 </layout>
 ```
 
+An app layout is composed of components, which are the conceptual building blocks of an application. Components can define their own UI, consume configuration, and can be nested and interact with other components. 
+
 #### 2. Configuration JSON for the application.
 
 ```json
 {
+    "name": "Basic",
     "items": [
         {
             "$type": "map-extension",
@@ -36,8 +39,14 @@ Applications are composed of three main components:
 }
 ```
 
+An App Config file is composed of some basic highlevel configuration and a list of items. App Items can correspond to components in the layout, portal items, or (TODO - what other types of things can app layouts correspond to).
+
+
 #### 3. The Geocortex Mobile code which renders the layout and powers functionality.
+
+The Geocortex Mobile Framework consumes layout and app config to create fully functional Mobile Mapping applications. You can use this framework out of the box, or extend it using the Mobile SDK. 
 
 <br />
 
-These three components are the building blocks behind an application, with the `layout.xml` and `app.config` files being the driving forces that control how an application looks, how it responds to user interaction, and what data it consumes. Extensive customization can be done simply by modifying these two files, without requiring any custom code.
+These three pieces are the building blocks behind an application, with the `layout.xml` and `app.config` files being the driving forces that control how an application looks, how it responds to user interaction, and what data it consumes. Extensive customization can be done simply by modifying these two files, without requiring any custom code.
+

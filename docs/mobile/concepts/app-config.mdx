@@ -1,0 +1,153 @@
+---
+id: app-config
+title: App Config
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import UseCaseCard from "../../../src/components/UseCaseCard/UseCaseCard";
+import UseCaseContainer from "../../../src/components/UseCaseContainer/UseCaseContainer";
+
+:::note Before learning about app config...
+Check out the [Key Concepts](/docs/mobile/concepts/key-concepts).
+:::
+
+While [layouts](./layout) depict the visual structure of how components are going to appear in the viewer, app config is used to define the functional structure within a given component.
+
+  - Think of the app config as the structural materials for building a house (wood, bricks, etc.) and the layout as the blueprints for the house.
+
+  - The materials are the fundamental building blocks that create the house itself, and the blueprints allow for them to be structured together into something that people can interact with.
+
+Every component within the viewer that requires functional, compositional content needs to be configured within the viewer's corresponding app config.
+
+:::tip Want to follow along?
+Check out the [Quick Start](/docs/mobile/getting-started/quick-start) and [edit the default app config and layout](/docs/mobile/getting-started/layout-config).
+:::
+
+## Anatomy of an App config.
+
+App Config files are composed of two main components:
+
+1. High level configuration values
+2. Configuration for individual app "items"
+
+App "items" can be components, such as menus or maps, portal items, and more. All item app configuration is specified within the `items` array of the `app.json` file.
+
+#### Basic App Config with IWTM
+
+The I Want To Menu (IWTM) gets its functional structure from the app (list items and their functionalities) and its visual structure from the layout. 
+
+In the following example, the app structures a menu with one button, and the layout creates the IWTM button in the viewer and populates its contents with the corresponding 'menu' item in the app.
+
+<Tabs
+  defaultValue="app"
+  values={[
+    { label: 'app.json', value: 'app', },
+    { label: 'layout.xml', value: 'layout', },
+    { label: 'User Interface', value: 'ui', }
+  ]
+}>
+  <TabItem value="app">
+
+  ```json
+  {
+    "name": "App Configuration Sample",
+    "settings": {
+      "defaultVisibility": "true",
+      "applicationName": "App Configuration Sample",
+      "defaultWidth": 800,
+      "defaultHeight": 600
+    },
+    "items": [
+      {
+        "$type": "layout",
+        "id": "desktop-layout",
+        "url": "resource://layout.xml",
+        "tags": [ "mobile", "large" ]
+      },
+      {
+        "$type": "menu",
+        "id": "iwtm",
+        "items": [
+          {
+            "title": "Refresh App",
+            "isEnabled": true,
+            "iconId": "sync",
+            "action": "app.refresh"
+          },
+          {
+            "title": "Display Debug Console",
+            "isEnabled": true,
+            "iconId": "debug",
+            "action": [
+              "debug-console.display"
+            ]
+          }
+        ]
+      },
+    ]
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="layout">
+
+  ```
+  <?xml version="1.0" encoding="utf-8" ?>
+  <layout
+      xmlns="https://geocortex.com/layout/v1"
+      xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+      xmlns:ui-test="https://geocortex.com/layout/mobile/v1/ui-test"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd
+        https://geocortex.com/layout/mobile/v1/ui-test ./layout-ui-test.xsd">
+    <gxm:taskbar id="taskbar" orientation="vertical">
+      <!-- Taskbar main content -->
+      <map id="page1-map1" slot="main">
+        <stack margin="0.8" slot="top-right" halign="end">
+          <iwtm config="iwtm" id="IWTM"> 
+            <user slot="bottom"/>
+          </iwtm>
+        </stack>
+      </map>
+    </gxm:taskbar>
+  </layout>
+  ```
+
+  </TabItem>
+  <TabItem value="ui">
+    <img src="/img/iwtm-config-example.png" />
+  </TabItem>
+</Tabs>
+
+Each app item has a different `$type` and different configurable properties associated with it. For details on each app item, refer to TODO. The example application has two items in the app config:
+
+1. A layout `$type` item which serves as a default layout and references the layout.xml
+2. A menu `$type` item which provides config for the I Want To Menu in the layout.
+    * In the layout, the `<itwm>` component has the config attribute set with the value `iwtm`. Connecting components in this way allows you to loosely couple UI to content.
+
+:::important
+The functionality of the `config` attribute is dependent on the fact that IDs across app items of the same type are unique. That is, two items of types `layer-extension` and `map-extension` can both have the ID `default`, but two items of the same type `layer-extension` cannot have the same ID `default`.
+:::
+
+## Next Steps: Commands and Operations
+
+This example demonstrated a simple application which has a single menu, but the pattern of loosely coupling layout components with items in app config can allow you to build powerful apps with multiple layouts for different form factors and use cases. What we didn't cover in this example was how the menu items are powered. How can we make a menu item, and more generically, a button press or other app interaction, power actions in the application? The answer is to link app items to Commands and Operations. 
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations"
+        description="Learn about Commands and Operations and how to configure them."
+        link="/docs/mobile/concepts/commands-operations"
+    />
+    <UseCaseCard
+        title="Advanced App Config Topics"
+        description="Learn more about what you can accomplish with App Config."
+        link="/docs/mobile/concepts/advanced-config"
+    />
+    <UseCaseCard
+        title="Explore Mobile's built in components"
+        description="Dive into Mobile's rich component library in the SDK."
+        link="/docs/mobile/api/components"
+    />
+</UseCaseContainer>

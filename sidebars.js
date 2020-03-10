@@ -13,7 +13,35 @@ module.exports = {
         {
             type: "category",
             label: "Use Cases",
-            items: ["mobile/use-cases/custom-command-operation"],
+            items: [
+                {
+                    type: "category",
+                    label: "Basics",
+                    items: [
+                        "mobile/use-cases/look-feel",
+                        "mobile/use-cases/change-default-behaviour",
+                    ]
+                },
+                {
+                    type: "category",
+                    label: "Workflow",
+                    items: [
+                        "mobile/use-cases/run-workflow-map-click",
+                        "mobile/use-cases/display-custom-form",
+                        "mobile/use-cases/implement-custom-workflow-form-element",
+                        "mobile/use-cases/implement-workflow-activity",
+                    ],
+                },
+                {    
+                    type: "category",
+                    label: "Advanced",
+                    items: [
+                        "mobile/use-cases/background-service",
+                        "mobile/use-cases/implement-command-operation",
+                        "mobile/use-cases/implement-component-with-ui",
+                    ] 
+                }
+            ],
         },
         {
             type: "category",
@@ -23,15 +51,24 @@ module.exports = {
                 "mobile/concepts/layout",
                 "mobile/concepts/app-config",
                 "mobile/concepts/commands-operations",
-                "mobile/concepts/services",
-                "mobile/concepts/components",
-                "mobile/concepts/advanced-topics",
+                {
+                    type: "category",
+                    label: "Advanced Topics",
+                    items: [
+                        "mobile/concepts/services",
+                        "mobile/concepts/advanced-layout",
+                        "mobile/concepts/advanced-config"
+                    ]
+                },
             ],
         },
         {
             type: "category",
             label: "Getting Started with the SDK",
-            items: ["mobile/getting-started/quick-start"],
+            items: [
+                "mobile/getting-started/quick-start",
+                "mobile/getting-started/layout-config"
+            ],
         },
         {
             type: "category",

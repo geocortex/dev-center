@@ -1,6 +1,6 @@
 ---
-id: advanced-topics
-title: Advanced Topics
+id: advanced-layout
+title: Advanced Layout
 ---
 
 ## Advanced Layout
