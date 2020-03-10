@@ -1,0 +1,69 @@
+---
+id: quick-start
+title: Quick Start
+---
+
+import DesignerCallout from "../designer-callout.md";
+
+<DesignerCallout />
+
+## First Time Setup
+
+If the built in configurability of Mobile does not serve your purposes, then it might be time to dive into the Mobile SDK. Building applications on top of the Mobile SDK requires enaging in the development, testing, and deployment of a Custom Application, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](http://localhost:3000/docs/mobile/overview#start-with-your-use-case).
+
+If you still think you need to use the Mobile SDK, then lets get started!
+
+### Licensing
+
+TODO - it's not decided yet
+
+### Requirements
+
+Visual Studio 2019 or higher on Windows is the only officially supported development enviroment for the Mobile SDK. Other development enviroments may be possible, but have not been verified.
+
+### Getting Up and Running
+
+A [Mobile Quick Start Repository](https://github.com/geocortex/mobile-quick-start) is provided which launches a basic bootstrapped mobile application. This quick start is essentially a [Xamarin Forms Quickstart Application](https://docs.microsoft.com/en-us/xamarin/get-started/quickstarts/single-page?pivots=windows) that intialized and boots mobile on each platform. To get up and running, simply check out the [Mobile Quick Start Repository](https://github.com/geocortex/mobile-quick-start) and start the solution on the appropiate platform.
+
+### Anatomy of the Quick Start
+
+Mobile is built on [Xamarin Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/), a framework for building cross platform native apps. As a consequence, building non trivial extensions to mobile will require some Xamarin development knowledge. TODO I don't like this last sentence.
+
+The quick start is broken down into four projects, one for each platform, along with a shared master project. This is a standard Xamarin Forms setup, as described [in their documentation](https://docs.microsoft.com/en-us/xamarin/get-started/quickstarts/deepdive?pivots=windows#anatomy-of-a-xamarinforms-application). Changes have been made to each project to support the bootstrapping of a mobile application using the SDK.
+
+#### Entry Point
+
+Each platform has platform specific setup and an entry point, after which they all boostrap the application through the platform agnostic project. In the platform agnostic project, the `OnStart` method of `App.cs` calls the Mobile SDK Bootstrapper, and loads and displays the application with the given `app.json` configuration.
+
+###### Android
+
+The `OnCreate` method of the `MainActivity.cs` file in the Android specific project handles Android specific setup.
+
+###### IOS
+
+The `FinishedLaunching` method of the `AppDelegate.cs` in the IOS specific project handles IOS specific setup.
+
+###### Universal Windows
+
+The constructors of the `App.xaml.cs` and `MainPage.xaml.cs` files in the UWP specific project handles Windows specific setup.
+
+### Error Handling
+
+In each of the platform specific setups, there is a call to the `HandleExceptions` method. This method tells Mobile to handle exceptions and display an Error. If you need to have control over global error handling, you can implement your own global exception handling for the Xamarin Application. [This Stack Overflow post](https://stackoverflow.com/questions/39503390/global-exception-handling-in-xamarin-cross-platform) is a good starting point for implementating global error handling.
+
+### Editing the Layout and Config
+
+Many changes to Mobile will require editing the Layout and Config for your custom application. The App Config and layout files are contained in the shared platform agnostic project. Each of the platform specific projects links to these files as an asset or a reference, so editing the files in the platform agnostic project will change them for all platforms. Check out [Layout](/docs/mobile/concepts/layout) and [App Config](/docs/mobile/concepts/app-config) to learn more about customizing mobile with these files.
+
+### Development Patterns
+
+TODO - should I have for the most part here?
+The Mobile project, for the most part, follows the development practices outlined in [Enterprise Application Patterns using Xamarin.Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/).
+
+TODO - autofac?
+
+### Deployment
+
+The quick start provided is a standard Xamarin forms application, and can be deployed in accordance to [Xamarin's guidelines](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/deploy-test/).
+
+TODO Licensing?

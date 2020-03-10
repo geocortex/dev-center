@@ -195,3 +195,7 @@ Color properties can be excluded from a theme; The application will choose a def
 ### Changing the Visual Layout of an Application
 
 How elements are laid out in a Mobile Application is defined by an apps Layout. [This article](/docs/mobile/concepts/layout) will teach you how to configure an App's layout and how to leverage it to customize the appearance of Mobile.
+
+TODO - swapping out icons? @Kenny best practices?
+
+TODO - specific example with the quickstart?

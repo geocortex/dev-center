@@ -20,7 +20,7 @@ module.exports = {
                     items: [
                         "mobile/use-cases/look-feel",
                         "mobile/use-cases/change-default-behaviour",
-                    ]
+                    ],
                 },
                 {
                     type: "category",
@@ -32,15 +32,15 @@ module.exports = {
                         "mobile/use-cases/implement-workflow-activity",
                     ],
                 },
-                {    
+                {
                     type: "category",
                     label: "Advanced",
                     items: [
                         "mobile/use-cases/background-service",
                         "mobile/use-cases/implement-command-operation",
                         "mobile/use-cases/implement-component-with-ui",
-                    ] 
-                }
+                    ],
+                },
             ],
         },
         {
@@ -57,8 +57,8 @@ module.exports = {
                     items: [
                         "mobile/concepts/services",
                         "mobile/concepts/advanced-layout",
-                        "mobile/concepts/advanced-config"
-                    ]
+                        "mobile/concepts/advanced-config",
+                    ],
                 },
             ],
         },
@@ -67,16 +67,13 @@ module.exports = {
             label: "Getting Started with the SDK",
             items: [
                 "mobile/getting-started/quick-start",
-                "mobile/getting-started/layout-config"
+                "mobile/getting-started/adding-assemblies",
             ],
         },
         {
             type: "category",
             label: "API",
-            items: [
-                "mobile/api/overview",
-                "mobile/api/commands-operations"
-            ],
+            items: ["mobile/api/overview", "mobile/api/commands-operations"],
         },
     ],
 };
