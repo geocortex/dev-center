@@ -1,0 +1,80 @@
+---
+id: change-default-behaviour
+title: Change Default Application Behaviour
+---
+
+import UseCaseContainer from "../../../src/components/UseCaseContainer";
+import UseCaseCard from "../../../src/components/UseCaseCard";
+
+Many of the behaviours of Mobile's built in components have configurable behaviours through the [App Config](/docs/mobile/concepts/app-config). If you browse the `app.json` that is included with the [Quick Start](/docs/mobile/getting-started/quick-start), you'll see properties like `action` or `onClick` in items that take an array of Commands/Operations.
+
+```json
+{
+    "items": [
+        ...
+        {
+            "$type": "map-extension",
+            "id": "map1",
+            "webMap": "c6008288a95247428fc55d9aaa72b670",
+            "onClick": [ "tasks.identify", "highlights.pulse", "results.display" ]
+        },
+        ...
+        {
+            "$type": "menu-item",
+            "id": "addPointAtCenterAction",
+            "title": "Add Measurement Point at Center",
+            "action": [
+                {
+                    "name": "sketching.add-point-at-center",
+                    "arguments": {
+                        "maps": "item://map-extension/map1"
+                    }
+                }
+            ]
+        },
+        ...
+    ]
+}
+```
+
+All behaviours defined in this manner are configurable. Commands/Operations can be removed from the chain, behaviours can be replaced with a `workflow.run` command that [executes custom behaviour](./change-default-search-behaviour), or even the name of a [custom Command/Operation](./implement-command-operation).
+
+## Example
+
+This configuration for the `map1` Map Extension in the Quick Start App Config will remove the pulsing of highlights on an identify and zoom to the identified features instead.
+
+```json
+{
+    "$type": "map-extension",
+    "id": "map1",
+    "webMap": "c6008288a95247428fc55d9aaa72b670",
+    "onClick": [ "tasks.identify", "results.display", "map.zoom-to-features" ]
+},
+```
+
+# Next Steps
+
+Mobile comes with many built in Commands/Operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviours without writing custom code. If you cannot create the behaviour you want with workflow, it might be time to look into using the Mobile SDK to implement a custom Command/Operation.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations"
+        description="Learn more about Commands and Operations"
+        link="/docs/mobile/concepts/commands-operations"
+    />
+    <UseCaseCard
+        title="Change Mobile's Default Search Behaviour"
+        description="Learn how to Geocortex Workflow to override Mobile's default search behaviour"
+        link="./change-default-search-behaviour"
+    />
+    <UseCaseCard
+        title="Geocortex Workflow"
+        description="Learn more about Geocortex Workflow"
+        link="/docs/workflow/overview"
+    />
+    <UseCaseCard
+        title="Implement Custom Command/Operation"
+        description="Implement a custom Command/Operation with the Mobile SDK"
+        link="./implement-command-operation"
+    />
+</UseCaseContainer>
