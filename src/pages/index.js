@@ -3,8 +3,8 @@ import classnames from "classnames";
 import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
-import ProductList from "../components/ProductList/ProductList";
-import ProductCard from "../components/ProductCard/ProductCard";
+import ProductContainer from "../components/ProductContainer";
+import ProductCard from "../components/ProductCard";
 
 const products = [
     {
@@ -51,11 +51,11 @@ function Home() {
                 </div>
             </header>
             <main>
-                <ProductList>
+                <ProductContainer>
                     {products.map((props, idx) => (
                         <ProductCard key={idx} {...props} />
                     ))}
-                </ProductList>
+                </ProductContainer>
             </main>
         </Layout>
     );

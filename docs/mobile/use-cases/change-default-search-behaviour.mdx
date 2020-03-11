@@ -1,0 +1,130 @@
+---
+id: change-default-search-behaviour
+title: Change Mobile's Default Search Behaviour
+---
+import UseCaseContainer from "../../../src/components/UseCaseContainer"
+import UseCaseCard from "../../../src/components/UseCaseCard"
+
+Mobile comes with Search functionality out of the box. Searching in Mobile will return results from all possible layer's that can be searched on the Map (TODO... is this true?). What if you want to replace the functionality with your own search? Or filter the results returned by the default search? Mobile designer can't accomplish this, but it can be accomplished by leveraging workflow and editing the [App Config](/docs/mobile/concepts/app-config).
+
+## What your Building
+
+We will modify the default search behaviour of the [Quick Start](/docs/mobile/getting-started/quick-start) application on the Fire Hydrants layer include a filter option that only shows fire hydrants without a hydrants survey.
+
+![Search Workflow with Alert](/img/custom-search-workflow-finished.png)
+
+## Download and Run the Quick Start
+
+1. Download the [Quick Start](/docs/mobile/getting-started/quick-start) application and open it in Visual Studio. Run the application. 
+2. Turn off visibility for all Feature Layers except for "Fire Hydrants"
+2. Run "Return to Default Map View" in the I Want to Menu if you panned or zoomed the map.
+3. Open the search panel and search for `active`.
+
+You should see some number of results. If you look at the details for some of the Fire Hydrants, you'll notice some have Fire Hydrant Surveys and some don't. We will build a workflow that will only return the Fire Hydrants without a related survey when you search for `active filter:nosurveys`
+
+## Setup the Workflow to Run on Search
+
+The first thing we need to do is override the default search behaviour. We can do this by editing the "Search" component of the [App Config](/docs/mobile/getting-started/quick-start#editing-the-layout-and-config). The default behaviour for search is a Command/Operation chain that runs `tasks.search` and then `results.display`.
+
+###### Default Search Config
+
+```json
+{
+    "$type": "search",
+    "id": "search",
+    "onSearch": [ "tasks.search", "results.display" ],
+    "onClear": [ "search.clear", "results.clear" ],
+    "maxResults": 50
+}
+```
+
+We are going to replace the Command/Operation chain with a `workflow.run` command that replicates this behaviour.
+
+1. Open up [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
+2. Add an "Alert" activity as a test. 
+3. Copy the ID of the the workflow from the URL
+
+![Workflow URL with ID](/img/custom-search-workflow-url.png)
+
+4. Add the workflow as an App Item to your App Config.
+
+```json
+{
+    "items": [
+        ...
+        {
+            "$type": "workflow",
+            "id": "filterSearchWorkflow",
+            "title": "Filter Search Workflow",
+            "portalItem": "<your-workflow-id-here>"
+        },
+        ...
+    ]
+}
+```
+
+5. Configure the `onSearch` property of the Search Component in the App Config to run the workflow.
+
+
+```json
+{
+    "$type": "search",
+    "id": "search",
+    "onSearch": [
+        {
+            "name": "workflow.run",
+            "arguments": {
+              "id": "filterSearchWorkflow"
+            }
+        }
+    ],
+    "onClear": [ "search.clear", "results.clear" ],
+    "maxResults": 50
+}
+```
+
+6. Run the app and test your workflow. You should see your alert pop up when you try to search for something. 
+
+![Search Workflow with Alert](/img/custom-search-workflow-alert.png)
+
+7. Open up your Workflow in the Designer again. The default behaviour we just overode can be recreated with the use of "RunCommand" and "RunOperation" activities. `tasks.search` is an Operation, so it needs a RunOperation Activity, and `results.display` is a Command so it needs a RunCommand Activity. Chain these two activities together, passing the [workflow context](TODO - link to workflow context article) to `tasks.search` and then passing the output of that operation to `results.display`. 
+
+![Search Workflow with Original Operations](/img/custom-search-workflow-recreated.png)
+
+8. Save the Workflow and reload the application. Test Search and ensure it works as it originally did.
+
+:::tip
+Check out [Change Default Application Behaviour](./change-default-behaviour) for more ways to override default behaviour like search.
+:::
+
+## Extend the Workflow to Filter the Results.
+
+At this point, you can choose to extend the search behaviour with workflow in whatever way is appropiate for your usecase. You could execute a different search for external results and add them to the set of results displayed, you could filter out specific results from the search, or you could replace the default search operation with an entirely different search operation. For this example, a workflow was created which checks the incoming search text for the text "filter:nosurvey" and then filters results to Fire Hydrants without a survey. The workflow [can be found here](https://latitudegeo.maps.arcgis.com/home/item.html?id=bc7647d4485743e98ea42cd69ee4aa66).
+
+# Next Steps
+
+This pattern of configuring behaviour with a workflow can be applied throughout configuration on numerous components. You can use a workflow to control the behaviour of the Map, Feature Details, Geolocate, Custom Components, and more. Often, a workflow can be created and used to execute custom behaviour instead of a custom Command/Operation.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Geocortex Workflow"
+        description="Learn more about Geocortex Workflow"
+        link="/docs/workflow/overview"
+    />
+    <UseCaseCard
+        title="Change Default Behaviour"
+        description="Learn more about overriding default behaviours"
+        link="./change-default-behaviour"
+    />
+    <UseCaseCard
+        title="Implement Custom Command/Operation"
+        description="Implement a custom Command/Operation with the Mobile SDK"
+        link="./implement-command-operation"
+    />
+    <UseCaseCard
+        title="Custom Search Workflow with Filter"
+        description="The custom Search workflow with a filter used in this example"
+        link="https://latitudegeo.maps.arcgis.com/home/item.html?id=bc7647d4485743e98ea42cd69ee4aa66#"
+    />
+
+</UseCaseContainer>

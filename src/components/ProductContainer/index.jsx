@@ -1,8 +1,8 @@
 import classnames from "classnames";
 import React from "react";
-import styles from "./productList.module.css";
+import styles from "./productContainer.module.css";
 
-export default function ProductList({ children }) {
+export default function ProductContainer({ children }) {
     return (
         <section className={styles.productsContainer}>
             <div className={classnames(styles.products, "row")}>{children}</div>

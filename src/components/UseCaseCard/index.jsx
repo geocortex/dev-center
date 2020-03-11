@@ -4,16 +4,16 @@ import styles from "./useCaseCard.module.css";
 
 export default function UseCaseCard({ title, description, link }) {
     return (
-        <div class={classnames("card-demo", styles.root)}>
-            <div class="card">
-                <div class="card__header">
+        <div className={classnames("card-demo", styles.root)}>
+            <div className="card">
+                <div className="card__header">
                     <h3>{title}</h3>
                 </div>
-                <div class="card__body">
+                <div className="card__body">
                     <p>{description}</p>
                 </div>
-                <div class="card__footer">
-                    <button class="button button--secondary button--block">
+                <div className="card__footer">
+                    <button className="button button--secondary button--block">
                         <a href={link}>Get Started</a>
                     </button>
                 </div>

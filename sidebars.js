@@ -26,7 +26,7 @@ module.exports = {
                     type: "category",
                     label: "Workflow",
                     items: [
-                        "mobile/use-cases/run-workflow-map-click",
+                        "mobile/use-cases/change-default-search-behaviour",
                         "mobile/use-cases/display-custom-form",
                         "mobile/use-cases/implement-custom-workflow-form-element",
                         "mobile/use-cases/implement-workflow-activity",
@@ -66,7 +66,9 @@ module.exports = {
             label: "Getting Started with the SDK",
             items: [
                 "mobile/getting-started/quick-start",
+                "mobile/getting-started/samples",
                 "mobile/getting-started/adding-assemblies",
+                "mobile/getting-started/internationalization",
             ],
         },
         {
