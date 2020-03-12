@@ -39,6 +39,7 @@ module.exports = {
                         "mobile/use-cases/implement-command-operation",
                         "mobile/use-cases/implement-component-with-ui",
                         "mobile/use-cases/implement-background-service",
+                        "mobile/use-cases/implement-event",
                     ],
                 },
             ],
@@ -51,6 +52,7 @@ module.exports = {
                 "mobile/concepts/layout",
                 "mobile/concepts/app-config",
                 "mobile/concepts/commands-operations",
+                "mobile/concepts/events",
                 {
                     type: "category",
                     label: "Advanced Topics",
@@ -74,7 +76,11 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: ["mobile/api/overview", "mobile/api/commands-operations"],
+            items: [
+                "mobile/api/overview",
+                "mobile/api/commands-operations",
+                "mobile/api/events"
+            ],
         },
     ],
 };

@@ -120,7 +120,7 @@ In the following example, the app structures a menu with one button, and the lay
   </TabItem>
 </Tabs>
 
-The I Want to Menu Component in the layout is bound to the I Want to Menu Configuration in the config by the attribute `config=iwtm`, where `iwtm` corresponds to the ID of the I Want To Menu Configuration in the config. All components can be bound to config in this manner, and multiple components can be bound to the same configuration.
+The I Want to Menu Component in the layout is bound to the I Want to Menu Configuration in the config by the attribute `config="iwtm"`, where `iwtm` corresponds to the ID of the I Want To Menu Configuration in the config. All components can be bound to config in this manner, and multiple components can be bound to the same configuration.
 
 Each app item has a different `$type` and different configurable properties associated with it. For details on each app item, refer to TODO. The example application has two items in the app config:
 
@@ -129,12 +129,6 @@ Each app item has a different `$type` and different configurable properties asso
 
 :::important
 The functionality of the `config` attribute is dependent on the fact that IDs across app items of the same type are unique. That is, two items of types `layer-extension` and `map-extension` can both have the ID `default`, but two items of the same type `layer-extension` cannot have the same ID `default`.
-:::
-
-:::warning
-Most of the components in the application were designed to only support a single instance. Mobile was not designed to support multiple maps, and along with that the map related components (Layer List, Results List, Scale Bar, etc) also do not support multiple instances. High level root components (Like the Task Bar or I Want To Menu) also have limited or no support for multiple instances. If you include multiple instances in your application, undefined behaviour may occur.
-
-Layout primitives such as [stacks, splits](/docs/mobile/concepts/layout#stacks-and-splits) and panels can have many instances, along with the components which are not tied to a particular map, such as Buttons, Text, or Workflow.
 :::
 
 ## Next Steps: Commands and Operations
