@@ -24,7 +24,7 @@ module.exports = {
             style: "dark",
             links: [
                 {
-                    title: "Geocortex",
+                    title: "About",
                     items: [
                         {
                             label: "Geocortex.com",
@@ -33,6 +33,27 @@ module.exports = {
                         {
                             label: "Geocortex Documentation Center",
                             to: "https://docs.geocortex.com",
+                        },
+                        {
+                            label: "Geocortex Github",
+                            to: "https://github.com/geocortex/dev-center",
+                        },
+                    ],
+                },
+                {
+                    title: "Geocortex Apps",
+                    items: [
+                        {
+                            label: "Geocortex Web",
+                            to: "https://apps.geocortex.com/webviewer/designer/",
+                        },
+                        {
+                            label: "Geocortex Mobile",
+                            to: "https://apps.geocortex.com/mobileviewer/designer/",
+                        },
+                        {
+                            label: "Geocortex Workflow",
+                            to: "https://apps.geocortex.com/workflow/designer/",
                         },
                     ],
                 },
