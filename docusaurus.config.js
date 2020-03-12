@@ -38,6 +38,9 @@ module.exports = {
                 },
             ],
         },
+        prism: {
+            additionalLanguages: ["csharp"],
+        },
     },
     presets: [
         [
