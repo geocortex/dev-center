@@ -20,7 +20,7 @@ This article will walk you through implementing a custom Command in Mobile that 
 Every Command or Operation in Mobile needs to be registered and implemented by a Service or Component. (TODO - @Jeff is this strictly true? ), so the first thing that needs to be done is to create a  service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
-2. In the file, add a new class `AlertService` and register it with Autofac
+2. In the file, add a new service class `AlertService` and register it with Autofac
 
 ```csharp
 using App1.Services.AlertService;

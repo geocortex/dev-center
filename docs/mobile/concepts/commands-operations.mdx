@@ -2,6 +2,7 @@
 id: commands-operations
 title: Commands and Operations
 ---
+import DemoVideo from "../../../src/components/DemoVideo";
 import UseCaseCard from "../../../src/components/UseCaseCard";
 import UseCaseContainer from "../../../src/components/UseCaseContainer";
 import Tabs from '@theme/Tabs';
@@ -150,7 +151,7 @@ TODO - do I introduce the concept of "extensions" somewhere?
 </TabItem>
 <TabItem value="layout">
 
-  ```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
   xmlns="https://geocortex.com/layout/v1"
@@ -167,14 +168,11 @@ TODO - do I introduce the concept of "extensions" somewhere?
     </map>
   </gxm:taskbar>
 </layout>
-  ```
+```
 
 </TabItem>
 <TabItem value="ui">
-  <video loop muted controls>
-    <source src="/video/commands-operations-demo.webm" type="video/webm"/>
-    Your browser does not support the video tag.
-  </video>
+  <DemoVideo src="/video/commands-operations-demo.webm" />
 </TabItem>
 </Tabs>
 

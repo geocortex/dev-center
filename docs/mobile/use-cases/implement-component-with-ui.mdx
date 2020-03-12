@@ -1,0 +1,354 @@
+---
+id: implement-component-with-ui
+title: Implement a Custom Component with a Visual Interface
+---
+import DemoVideo from "../../../src/components/DemoVideo";
+import PrereqsSnippet from "./prereqs-snippet.md"
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+TODO... worth it to have a callout here?
+
+Implementing a custom component in Mobile gives you one of the highest degrees of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so be sure you have tried simplier options like [Commands and Operations](/docs/mobile/concepts/commands-operations) or [Workflow](/docs/mobile/use-cases/change-default-search-behaviour) first.
+
+<PrereqsSnippet/>
+
+## Create a Component Skeleton
+
+Create a new file `Components/HarmlessComponent.cs` under the platform agnostic project.
+In the file, add a new component class `HarmlessComponent` and register it with Autofac
+
+```csharp
+using App1;
+using App1.Components;
+using Geocortex.Mobile.Composition.Layout;
+using System.Xml.Linq;
+using Xamarin.Forms;
+
+[assembly: Component(typeof(HarmlessComponent), "operation", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    class HarmlessComponent : ComponentBase
+    {
+        protected override VisualElement Create(XNode node)
+        {
+            return new Label(){ "My Custom Component" };
+        }
+    }
+}
+```
+
+:::info
+TODO - this is a shared snippet.... make it actually shared?
+The two key components of this snippet are the `[assembly: Component(...)]` tag and the class extension `HarmlessComponent : ComponentBase`. These two pieces register the Component with Mobile and cause it to be initialized on startup.
+:::
+
+## Add the Component to your Layout
+
+First, the [layout](/docs/concepts/layout) needs to be told where to find your component. 
+    * In order to find your component, you have to tell the layout what namespace it belongs too. In the assembly attribute of the `HarmlessComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this namespace as an attribute on the layout. In this example, it's added with the alias `custom`.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:ui-test="https://geocortex.com/layout/mobile/v1/ui-test"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    xmlns:custom="https://your.org/layout/app1">
+  ...
+</layout>
+```
+
+Now that the `custom` namespace has been added, the component can be added to the layout. For this example, it was added into a [Panel](TODO link to component docs) that lives in the [Taskbar](TODO link to component docs).
+
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'layout.xml', value: 'layout', },
+    { label: 'User Interface', value: 'ui', }
+  ]
+}>
+<TabItem value="layout">
+
+```xml
+<layout ...>
+  ...
+  <gxm:taskbar>
+    ...
+    <!--Taskbar / custom component-->
+    <panel>
+        <custom:harmless-component icon="warning"/>
+    </panel>
+  </gxm:taskbar>
+  ...
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+    <img src="/img/custom-component-with-ui-first-pass.png" alt="Custom Component with Text Block"/>
+</TabItem>
+</Tabs>
+
+## Use XAML to define your UI
+
+[XAML is a markup language created by Microsoft](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/), and one of the reccomended patterns for defining UI in Xamarin Forms. We can modify our component to reference a XAML view.
+
+1. Right click on the `Components` folder and select "Add" > "New Item" > "Content View"
+2. Rename the files and classes within to `HarmlessComponentView.xaml` and `HarmlessComponentView.xaml.cs`
+3. Modify the `HarmlessComponent` to return this new View for it's content.
+
+<Tabs defaultValue="component"
+  values={[
+    { label: 'HarmlessComponent.cs', value: 'component', },
+    { label: 'HarmlessComponentView.xaml', value: 'view', },
+    { label: 'HarmlessComponentView.xaml.cs', value: 'code-behind', }
+  ]
+}>
+<TabItem value="component">
+
+```csharp
+using App1;
+using App1.Components;
+using Geocortex.Mobile.Composition.Layout;
+using System.Xml.Linq;
+using Xamarin.Forms;
+
+[assembly: Component(typeof(HarmlessComponent), "harmless-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    class HarmlessComponent : ComponentBase
+    {
+        protected override VisualElement Create(XNode node)
+        {
+            return new HarmlessComponentView();
+        }
+    }
+}
+
+```
+
+</TabItem>
+<TabItem value="view">
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Components.HarmlessComponentView">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="Hello Xamarin.Forms!" />
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>
+```
+
+</TabItem>
+<TabItem value="code-behind">
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace App1.Components
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HarmlessComponentView : ContentView
+    {
+        public HarmlessComponentView()
+        {
+            InitializeComponent();
+        }
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Congradulations! You've now built a working component with UI that is exposed in Mobile. 
+
+## Extend your Component with Custom Code
+
+From here, you can implement your own buisness logic and interfaces, create custom [Commands and Operations](/docs/use-cases/implement-command-operation) that are powered by and/or interact with your component, and much more. [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml. 
+
+:::info
+Mobile comes built in [Enhanced Components](TODO - enhanced components link) that can ease development and styling of custom User Interfaces
+:::
+
+### Example: Doomsday Cookie Clicker
+
+Here's an example of the `HarmlessComponent` modified and extended to be not so harmless. It uses a [MVVM pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm) to power the user interface, as is best practice reccomended by Xamarin.
+
+<Tabs defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'View', value: 'view', },
+    { label: 'Code Behind', value: 'code-behind', },
+    { label: 'View Model', value: 'view-model', },
+    { label: 'User Interface', value: 'ui', }
+  ]
+}>
+<TabItem value="component">
+
+```csharp
+using App1;
+using App1.Components;
+using Geocortex.Mobile.Composition.Layout;
+using System.Xml.Linq;
+using Xamarin.Forms;
+
+[assembly: Component(typeof(HarmlessComponent), "harmless-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    class HarmlessComponent : ComponentBase
+    {
+        protected override VisualElement Create(XNode node)
+        {
+            return new HarmlessComponentView(new HarmlessComponentViewModel())
+            {
+            };
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="view">
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:App1.Components"
+             mc:Ignorable="d"
+             x:Class="App1.Components.HarmlessComponentView">
+  <ContentView.Resources>
+    <ResourceDictionary>
+      <local:BooleanNegationConverter x:Key="BoolNegate" />
+    </ResourceDictionary>
+  </ContentView.Resources>
+  <ContentView.Content>
+        <StackLayout Margin="20">
+            <StackLayout Spacing="20" IsVisible="{Binding IsDoomsday, Converter={StaticResource BoolNegate}}">
+                <Label Text="Don't you dare click the button"></Label>
+                <Button Text="I said don't click me." Clicked="Button_Clicked" IsEnabled="{Binding IsDoomsday, Converter={StaticResource BoolNegate}}"></Button>
+                <ProgressBar ProgressColor="Red" Progress="{Binding Progress}" />
+            </StackLayout>
+            <StackLayout Spacing="20" IsVisible="{Binding IsDoomsday}">
+                <Label  FontSize="Large" TextColor="Red" Text="BOOM"></Label>
+                <Label  Text="Look what you did, now the world is ended and I didn't even get to finish my ice cream."></Label>
+            </StackLayout>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
+```
+
+</TabItem>
+<TabItem value="code-behind">
+
+```csharp
+using App1.Components;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Infrastructure.Messaging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+[assembly: View(typeof(HarmlessComponentView))]
+namespace App1.Components
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HarmlessComponentView : ContentView
+    {
+        private UIOperations _uiOperations;
+        public HarmlessComponentViewModel ViewModel => BindingContext as HarmlessComponentViewModel;
+        public HarmlessComponentView(HarmlessComponentViewModel viewModel, UIOperations uiOperations)
+        {
+            _uiOperations = uiOperations;
+            BindingContext = viewModel;
+            InitializeComponent();
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            if (!ViewModel.IsDoomsday)
+            {
+                ViewModel.Progress += 0.2;
+                if (ViewModel.Progress >= 1.0)
+                {
+                    ViewModel.IsDoomsday = true;
+                    _uiOperations.Alert.Execute(new UIAlertArgs() { Title = "Oh No....", Message = "What have you done....", ButtonText = "Accept your fate." });
+                }
+            }
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="view-model">
+
+```csharp
+using App1.Components;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Views;
+
+[assembly: ViewModel(typeof(HarmlessComponentViewModel))]
+namespace App1.Components
+{
+    public class HarmlessComponentViewModel : NotifyPropertyBase
+    {
+        private double _progress = 0;
+        
+        private bool _isDoomsday = false;
+
+        public double Progress
+        {
+            get => _progress;
+            set => SetProperty(ref _progress, value);
+        }
+
+        public bool IsDoomsday
+        {
+            get => _isDoomsday;
+            set => SetProperty(ref _isDoomsday, value);
+        }
+    }
+}
+
+```
+
+</TabItem>
+<TabItem value="ui">
+    <DemoVideo src="/video/component-with-ui-demo.webm" />
+</TabItem>
+</Tabs>
+
+TODO - do we need a section on autofac
+
+This example refactored the original example to use [Autofac Dependency Injection](https://autofaccn.readthedocs.io/en/latest/register/registration.html) to instantiate the View and ViewModel. Setting up your classes so dependencies are handled by Autofac in the constructor allows you to allow inject Mobile classes registered with Autofac, like how Mobile's `UIOperations` class is injected into the view. 
+
+:::note
+Another thing to notice about this example is the ViewModel's use of [`NotifyPropertyBase`](TODO - link to NotifyPropertyBase section). `NotifyPropertyBase` is a helper base class for ViewModels in Mobile which implements [`INotifyPropertyChanged`](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=netstandard-2.1). This enables the View to receive updates about ViewModel changes. Each of the properties in the `HarmlessComponentViewModel` call the `NotifyPropertyBase.SetProperty`, which informs the View to update it's content if neccesary.
+:::
