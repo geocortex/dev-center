@@ -36,9 +36,9 @@ module.exports = {
                     type: "category",
                     label: "Advanced",
                     items: [
-                        "mobile/use-cases/background-service",
                         "mobile/use-cases/implement-command-operation",
                         "mobile/use-cases/implement-component-with-ui",
+                        "mobile/use-cases/implement-background-service",
                     ],
                 },
             ],

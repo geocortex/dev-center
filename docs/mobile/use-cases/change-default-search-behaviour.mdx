@@ -4,6 +4,7 @@ title: Change Mobile's Default Search Behaviour
 ---
 import UseCaseContainer from "../../../src/components/UseCaseContainer"
 import UseCaseCard from "../../../src/components/UseCaseCard"
+import PrereqsSnippet from "./prereqs-snippet.md"
 
 Mobile comes with Search functionality out of the box. Searching in Mobile will return results from all possible layer's that can be searched on the Map (TODO... is this true?). What if you want to replace the functionality with your own search? Or filter the results returned by the default search? Mobile designer can't accomplish this, but it can be accomplished by leveraging workflow and editing the [App Config](/docs/mobile/concepts/app-config).
 
@@ -13,9 +14,11 @@ We will modify the default search behaviour of the [Quick Start](/docs/mobile/ge
 
 ![Search Workflow with Alert](/img/custom-search-workflow-finished.png)
 
-## Download and Run the Quick Start
+<PrereqsSnippet/>
 
-1. Download the [Quick Start](/docs/mobile/getting-started/quick-start) application and open it in Visual Studio. Run the application. 
+## Initial Setup
+
+1. Run the Quick start
 2. Turn off visibility for all Feature Layers except for "Fire Hydrants"
 2. Run "Return to Default Map View" in the I Want to Menu if you panned or zoomed the map.
 3. Open the search panel and search for `active`.

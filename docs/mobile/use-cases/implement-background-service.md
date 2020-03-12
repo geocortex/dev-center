@@ -1,4 +1,4 @@
 ---
-id: background-service
+id: implement-background-service
 title: Implement a Custom Background Service
 ---
