@@ -141,9 +141,72 @@ The same config can be used for multiple items in a layout. For example, this al
 
 ## Targeting Components with by ID
 
-TODO - target components by ID
+Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. (TODO - @Jeff can you even target with a button? or only stuff like workflow)
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+    { label: "User Interface", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<layout>
+    <gxm:taskbar orientation="vertical" id="taskbar">
+        <map id="map-primary" config="default" slot="main">
+            <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
+        </map>
+    </gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+        },
+        {
+            "$type": "workflow",
+            "id": "demoWorkflow",
+            "title": "Demo Worklfow",
+            "target": "#taskbar",
+            "portalItem": "c3964768dfa84fe5acf7a72ef95dc92b"
+        },
+        {
+            "$type": "menu-item",
+            "id": "runWorkflow",
+            "title": "run.workflow",
+            "isEnabled": true,
+            "iconId": "info",
+            "action": {
+                "name": "workflow.run",
+                "arguments": {
+                    "id": "demoWorkflow"
+                }
+            }
+        }
+    ]
+}
+
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src="/img/layout-id-targeting.png"/>
+</TabItem>
+</Tabs>
 
 ## Example: Basic App Config with IWTM
+
+TODO - pretty mediocre example - get something meatier
 
 The I Want To Menu (IWTM) gets its functional structure from the app (list items and their functionalities) and its visual structure from the layout. 
 
