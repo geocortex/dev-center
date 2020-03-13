@@ -33,7 +33,117 @@ App Config files are composed of two main components:
 
 App Items can potentially be anything; they represent a type of item that the viewer is aware of and knows how to locate and load. In respect to Mobile, they usually they represent configuration for components, maps, portal items, or shared data. All item app configuration is specified within the `items` array of the `app.json` file.
 
-#### Basic App Config with IWTM
+## Linking Layout to App Configuration
+
+Every Component in the layout can be linked to App Config with the `config` attribute. The `config` attribute is used to identify the item in the App Config that has configuration for the component.
+
+:::note
+If you do not provide a `config` attribute for a component, Mobile will attempt to infer a default value.
+TODO - discuss this more in depth in advanced layout
+:::
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<layout>
+    <map id="map-primary" config="default" />
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "name": "Basic",
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+        }
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+The same config can be used for multiple items in a layout. For example, this allows you to reuse the same button in multiple locations in the App. 
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+    { label: "User Interface", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<layout>
+  <gxm:taskbar orientation="vertical">
+    <panel grow="1">
+        <stack margin="0.5">
+          <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 2</button>
+        </stack>
+    </panel>
+    <map id="map-primary" config="default" slot="main">
+      <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 1</button>
+    </map>
+  </gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "name": "Basic",
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+        },
+        {
+          "$type": "menu-item",
+          "id": "doSomething",
+          "title": "ui.alert",
+          "isEnabled": true,
+          "iconId": "info",
+          "action": {
+            "name": "ui.alert",
+            "arguments": {
+              "title": "Something?",
+              "message": "Fine, I did it",
+              "buttonText": "OK"
+            }
+          }
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src="/img/layout-multi-component-config.png"/>
+</TabItem>
+</Tabs>
+
+
+## Targeting Components with by ID
+
+TODO - target components by ID
+
+## Example: Basic App Config with IWTM
 
 The I Want To Menu (IWTM) gets its functional structure from the app (list items and their functionalities) and its visual structure from the layout. 
 

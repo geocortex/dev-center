@@ -18,8 +18,8 @@ Take this example of a app layout with a map and a compass.
 
 ```xml
 <layout>
-    <map id="map-primary" config="default" >
-        <compass padding="0.5" id ="compass"/>
+    <map> 
+        <compass padding="0.5"/>
     </map>
 </layout>
 ```
@@ -34,7 +34,7 @@ Next, a compass is embedded within the map. This does two things:
 Check out the [Quick Start](/docs/mobile/getting-started/quick-start) and [edit the default app layout](/docs/mobile/getting-started/layout-config).
 :::
 
-But what if I want the compass to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
+The basic example shown above will place a compass inside a map. But what if you want the compass to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
 
 ## Slotting
 
@@ -44,8 +44,8 @@ For example, this configuration will place the compass in the top right of the m
 
 ```xml
 <layout>
-    <map id="map-primary" config="default" >
-        <compass padding="0.5" id ="compass" slot="top-right"/>
+    <map>
+        <compass padding="0.5" slot="top-right"/>
     </map>
 </layout>
 ```

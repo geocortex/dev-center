@@ -14,7 +14,7 @@ The core element of the Mobile Framework is an _Application_. Applications can b
 
 Applications are composed of three main pieces:
 
-#### 1. App Layout XML that represents the visual layout of the application.
+#### 1. Layout XML that represents the visual layout of the application.
 
 ```xml
 <layout>
@@ -24,7 +24,9 @@ Applications are composed of three main pieces:
 
 An app layout is composed of components, which are the conceptual building blocks of an application. Components can define their own UI, consume configuration, and can be nested and interact with other components. 
 
-#### 2. Configuration JSON for the application.
+Every Component can have a `id` and `config` attribute; these two attributes are key to linking the layout to the App Config. 
+
+#### 2. App Configuration JSON for the application.
 
 ```json
 {
