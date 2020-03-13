@@ -4,12 +4,12 @@ title: Implement Custom Commands and Operations
 ---
 
 import PrereqsSnippet from "./prereqs-snippet.md";
-import UseCaseContainer from "../../../src/components/UseCaseContainer";
-import UseCaseCard from "../../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
 
 TODO - don't know if this should be an info or an intro
 :::info
-Geocortex Mobile has many built in [Commands and Operations](/docs/mobile/concepts/commands-operations) to chain together and build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](/docs/mobile/use-cases/change-default-search-behaviour) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+Geocortex Mobile has many built in [Commands and Operations](/docs/mobile/concepts-commands-operations) to chain together and build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](/docs/mobile/change-default-search-behaviour) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
 This article will walk you through implementing a custom Command in Mobile that displays an Alert.
@@ -153,7 +153,7 @@ class AlertService : ServiceBase
 Multiple implementations can be registered for an Command or Operation.
 :::
 
-Congradulations! You just created your first custom operation. The established pattern Mobile uses for creating multiple operations is to group similiar ones in two files; `<your-category>Operations` and `<your-category>Services`. You can easily test your new operation by setting it to run it on map initialization in the [App Config](/mobile/concepts/commands-operations TODO - not sure that this is the BEST link).
+Congradulations! You just created your first custom operation. The established pattern Mobile uses for creating multiple operations is to group similiar ones in two files; `<your-category>Operations` and `<your-category>Services`. You can easily test your new operation by setting it to run it on map initialization in the [App Config](/mobile/concepts-commands-operations TODO - not sure that this is the BEST link).
 
 ```json
 {
@@ -184,7 +184,7 @@ Commands and Operations are the logical building blocks of executing custom beha
     <UseCaseCard
         title="Commands and Operations"
         description="Learn more about Commands and Operations"
-        link="/docs/mobile/concepts/commands-operations"
+        link="/docs/mobile/concepts-commands-operations"
     />
     <UseCaseCard
         title="Implement a Custom Component with UI"

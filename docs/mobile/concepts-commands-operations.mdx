@@ -1,15 +1,15 @@
 ---
-id: commands-operations
+id: concepts-commands-operations
 title: Commands and Operations
 ---
-import DemoVideo from "../../../src/components/DemoVideo";
-import UseCaseCard from "../../../src/components/UseCaseCard";
-import UseCaseContainer from "../../../src/components/UseCaseContainer";
+import DemoVideo from "../../src/components/DemoVideo";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::note Before learning about commands and operations...
-Check out the [Key Concepts](/docs/mobile/concepts/key-concepts).
+Check out the [Key Concepts](/docs/mobile/concepts-key-concepts).
 :::
 
 TODO - better name for command/operation. Behaviour?
@@ -26,7 +26,7 @@ edit.add-feature
 edit.delete-features
 ```
 
-In Mobile, [Components or Services](/docs/mobile/concepts/components-services) are usually responsible for registering a Command/Operation with Mobile. Once a Command/Operation is registered, it can be used from anywhere in the application. [Custom Commands and Operations](/docs/mobile/use-cases/implement-command-operation) can be registered with [Custom Services](/docs/mobile/use-cases/implement-background-service) or [Custom Components](/docs/mobile/use-cases/implement-component-with-ui) in the same way.
+In Mobile, [Components or Services](/docs/mobile/concepts-components-services) are usually responsible for registering a Command/Operation with Mobile. Once a Command/Operation is registered, it can be used from anywhere in the application. [Custom Commands and Operations](/docs/mobile/implement-command-operation) can be registered with [Custom Services](/docs/mobile/implement-background-service) or [Custom Components](/docs/mobile/implement-component-with-ui) in the same way.
 
 ### Argument Passing
 
@@ -194,7 +194,7 @@ This example demonstrates two different types of argument passing behaviour. The
 `highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation (or the original input if no operations have run), so it will also receive the output of `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
 :::tip 
-Check out [Change Default Behaviour](/docs/mobile/use-cases/change-default-behaviour) for more ways to override default behaviour like a Map's on click event.  
+Check out [Change Default Behaviour](/docs/mobile/change-default-behaviour) for more ways to override default behaviour like a Map's on click event.  
 :::
 
 The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a [MapExtensionArgs](API Link), which is provided as a named argument. The `maps` property in the argument references the demoMap in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](./advanced-config#item-uris) for more details. 
@@ -206,17 +206,17 @@ Mobile has a large array of built in command and operations that you can chain t
     <UseCaseCard
         title="Commands and Operations Schema"
         description="Check out the available commands and operations."
-        link="/docs/mobile/api/commands-operations"
+        link="/docs/mobile/api-commands-operations"
     />
     <UseCaseCard
         title="Configure Commands and Operations"
         description="Change built in behaviour or add new behaviour using App Configuration and Layout."
-        link="/docs/mobile/concepts/app-config"
+        link="/docs/mobile/concepts-app-config"
     />
     <UseCaseCard
         title="Build your own Commands and Operations"
         description="Use the SDK to implement custom Commands and Operations."
-        link="/docs/mobile/use-cases/custom-command-operation"
+        link="/docs/mobile/custom-command-operation"
     />
 </UseCaseContainer>
 

@@ -1,9 +1,9 @@
 ---
-id: events
+id: concepts-events
 title: Events
 ---
-import UseCaseCard from "../../../src/components/UseCaseCard";
-import UseCaseContainer from "../../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 
 Events are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any component, service or view registered with Mobile, and can be used to initiate behaviours, communicate data changes, and more. Events themselves do not execute behaviour, but merely provide messaging so subscribers can act on changes.
@@ -17,22 +17,22 @@ geolocation.position-changed
 geolocation.position-lost
 ```
 
-Events can publish custom arguments with information about the change they are communicating. The full list of existing events available in mobile can be [found in the API](/docs/mobile/api/events). 
+Events can publish custom arguments with information about the change they are communicating. The full list of existing events available in mobile can be [found in the API](/docs/mobile/api-events). 
 
 ## Usage
 
-Events are internal to the Mobile SDK, so they can only be consumed by custom code. Any [Custom Component](/docs/mobile/use-cases/implement-component-with-ui) or [Custom Service](/docs/mobile/use-cases/implement-background-service) can publish or subscribe to built in or custom events.
+Events are internal to the Mobile SDK, so they can only be consumed by custom code. Any [Custom Component](/docs/mobile/implement-component-with-ui) or [Custom Service](/docs/mobile/implement-background-service) can publish or subscribe to built in or custom events.
 
 
 <UseCaseContainer>
     <UseCaseCard
         title="Implementing Custom Events"
         description="Learn how to implement a custom Event."
-        link="/docs/mobile/use-cases/implement-event"
+        link="/docs/mobile/implement-event"
     />
     <UseCaseCard
         title="Events API"
         description="Check out the full list of Events available in Mobile."
-        link="/docs/mobile/api/events"
+        link="/docs/mobile/api-events"
     />
 </UseCaseContainer>

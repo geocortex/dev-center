@@ -39,3 +39,8 @@
 .alert.alert--success a:hover {
     color: var(--ifm-color-secondary-darker);
 }
+
+.stackSplitImage {
+    max-width: 30em;
+    height: auto;
+}

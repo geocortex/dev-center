@@ -1,5 +1,5 @@
 ---
-id: advanced-config
+id: concepts-advanced-config
 title: Advanced Config
 ---
 

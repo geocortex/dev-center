@@ -1,5 +1,5 @@
 ---
-id: advanced-layout
+id: concepts-advanced-layout
 title: Advanced Layout
 ---
 

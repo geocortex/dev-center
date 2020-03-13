@@ -2,10 +2,11 @@
 id: change-default-behaviour
 title: Change Default Application Behaviour
 ---
-import UseCaseContainer from "../../../src/components/UseCaseContainer";
-import UseCaseCard from "../../../src/components/UseCaseCard";
 
-Many of the behaviours of Mobile's built in components have configurable behaviours through the [App Config](/docs/mobile/concepts/app-config). If you browse the `app.json` that is included with the [Quick Start](/docs/mobile/getting-started/quick-start), you'll see properties like `action` or `onClick` in items that take an array of Commands/Operations.
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+Many of the behaviours of Mobile's built in components have configurable behaviours through the [App Config](/docs/mobile/concepts-app-config). If you browse the `app.json` that is included with the [Quick Start](/docs/mobile/quick-start), you'll see properties like `action` or `onClick` in items that take an array of Commands/Operations.
 
 ```json
 {
@@ -59,7 +60,7 @@ Mobile comes with many built in Commands/Operations to help you accomplish your 
     <UseCaseCard
         title="Commands and Operations"
         description="Learn more about Commands and Operations"
-        link="/docs/mobile/concepts/commands-operations"
+        link="/docs/mobile/concepts-commands-operations"
     />
     <UseCaseCard
         title="Change Mobile's Default Search Behaviour"

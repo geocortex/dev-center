@@ -2,14 +2,14 @@
 id: implement-component-with-ui
 title: Implement a Custom Component with a Visual Interface
 ---
-import DemoVideo from "../../../src/components/DemoVideo";
+import DemoVideo from "../../src/components/DemoVideo";
 import PrereqsSnippet from "./prereqs-snippet.md"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 TODO... worth it to have a callout here?
 
-Implementing a custom component in Mobile gives you one of the highest degrees of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so be sure you have tried simplier options like [Commands and Operations](/docs/mobile/concepts/commands-operations) or [Workflow](/docs/mobile/use-cases/change-default-search-behaviour) first.
+Implementing a custom component in Mobile gives you one of the highest degrees of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so be sure you have tried simplier options like [Commands and Operations](/docs/mobile/concepts-commands-operations) or [Workflow](/docs/mobile/change-default-search-behaviour) first.
 
 <PrereqsSnippet/>
 
@@ -45,7 +45,7 @@ The two key components of this snippet are the `[assembly: Component(...)]` tag 
 
 ## Add the Component to your Layout
 
-First, the [layout](/docs/concepts/layout) needs to be told where to find your component. 
+First, the [layout](/docs/concepts-layout) needs to be told where to find your component. 
     * In order to find your component, you have to tell the layout what namespace it belongs too. In the assembly attribute of the `HarmlessComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this namespace as an attribute on the layout. In this example, it's added with the alias `custom`.
 
 ```xml
@@ -183,7 +183,7 @@ Congradulations! You've now built a working component with UI that is exposed in
 
 ## Extend your Component with Custom Code
 
-From here, you can implement your own buisness logic and interfaces, create custom [Commands and Operations](/docs/use-cases/implement-command-operation) that are powered by and/or interact with your component, and much more. [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml. 
+From here, you can implement your own buisness logic and interfaces, create custom [Commands and Operations](/docs/implement-command-operation) that are powered by and/or interact with your component, and much more. [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml. 
 
 :::info
 Mobile comes built in [Enhanced Components](TODO - enhanced components link) that can ease development and styling of custom User Interfaces
@@ -350,5 +350,5 @@ TODO - do we need a section on autofac
 This example refactored the original example to use [Autofac Dependency Injection](https://autofaccn.readthedocs.io/en/latest/register/registration.html) to instantiate the View and ViewModel. Setting up your classes so dependencies are handled by Autofac in the constructor allows you to allow inject Mobile classes registered with Autofac, like how Mobile's `UIOperations` class is injected into the view. 
 
 :::note
-Another thing to notice about this example is the ViewModel's use of [`NotifyPropertyBase`](TODO - link to NotifyPropertyBase section). `NotifyPropertyBase` is a helper base class for ViewModels in Mobile which implements [`INotifyPropertyChanged`](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=netstandard-2.1). This enables the View to receive updates about ViewModel changes. Each of the properties in the `HarmlessComponentViewModel` call the `NotifyPropertyBase.SetProperty`, which informs the View to update it's content if neccesary.
+Another thing to notice about this example is the ViewModel's use of [`NotifyPropertyBase`](TODO - link to NotifyPropertyBase section). `NotifyPropertyBase` is a helper base class for ViewModels in Mobile which implements [`INotifyPropertyChanged`](https://docs.microsoft.com/en-us/dotnet/api-system.componentmodel.inotifypropertychanged?view=netstandard-2.1). This enables the View to receive updates about ViewModel changes. Each of the properties in the `HarmlessComponentViewModel` call the `NotifyPropertyBase.SetProperty`, which informs the View to update it's content if neccesary.
 :::
