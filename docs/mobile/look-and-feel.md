@@ -5,12 +5,12 @@ title: Customize the Look and Feel
 
 Geocortex Mobile's appearance is built around two concepts: Theme and Layout.
 
-The theme controls the color scheme of the app. TODO @felicity - is there a theme switcher now? The color scheme for different themes is defined in branding component of the the [app.config json](/docs/mobile/concepts-app-config).
+The theme controls the color scheme of the app. TODO @felicity - is there a theme switcher now? The color scheme for different themes is defined in branding component of the the [app.config json](concepts-app-config).
 
 ### Theming with the Branding Component
 
 This example shows two pre-defined themes that are included with Mobile, light and dark. Custom themes can be added to Mobile's included themes, and selected by changing `activeTheme` property of the branding component.
-The branding component can be found and edited in the [`app.json`](/docs/mobile/quick-start#editing-the-layout-and-config).
+The branding component can be found and edited in the [`app.json`](quick-start#editing-the-layout-and-config).
 
 :::note
 Color properties can be excluded from a theme; The application will choose a default color instead.
@@ -194,7 +194,7 @@ Color properties can be excluded from a theme; The application will choose a def
 
 ### Changing the Visual Layout of an Application
 
-How elements are laid out in a Mobile Application is defined by an apps Layout. [This article](/docs/mobile/concepts-layout) will teach you how to configure an App's layout and how to leverage it to customize the appearance of Mobile. Further styling within the layout can be done using [Layout Presentation Attributes](http://localhost:3000/docs/mobile/concepts-advanced-layout#presentation).
+How elements are laid out in a Mobile Application is defined by an apps Layout. [This article](concepts-layout) will teach you how to configure an App's layout and how to leverage it to customize the appearance of Mobile. Further styling within the layout can be done using [Layout Presentation Attributes](http://localhost:3000concepts-advanced-layout#presentation).
 
 TODO - swapping out icons? @Kenny best practices? 
   Wait on GXM consuming the Geocortex Icons package

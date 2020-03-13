@@ -9,7 +9,7 @@ import DesignerCallout from "./designer-callout.md";
 
 ## First Time Setup
 
-If the built in configurability of Mobile does not serve your purposes, then it might be time to dive into the Mobile SDK. Building applications on top of the Mobile SDK requires enaging in the development, testing, and deployment of a Custom Application, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](http://localhost:3000/docs/mobile/overview#start-with-your-use-case).
+If the built in configurability of Mobile does not serve your purposes, then it might be time to dive into the Mobile SDK. Building applications on top of the Mobile SDK requires enaging in the development, testing, and deployment of a Custom Application, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](http://localhost:3000overview#start-with-your-use-case).
 
 If you still think you need to use the Mobile SDK, then lets get started!
 
@@ -36,9 +36,9 @@ The Mobile SDK is composed of four packages:
 -   `Geocortex Mobile`
     -   This package is the heart of the Mobile SDK, and powers the interface and interactions of a Mobile Xamarin Application.
 -   `Geocortex Workflow`
-    -   Geocortex Mobile heavily relies on [Geocortex Workflow](/docs/workflow/overview) to power it's functionality.
+    -   Geocortex Mobile heavily relies on [Geocortex Workflow](../workflow/overview) to power it's functionality.
 -   `Geocortex Viewer Framework`
-    -   This package provides the infrastructure that powers the [layout](/docs/mobile/concepts-layout) and [App Config](/docs/mobile/concepts-app-config) that is central to every Mobile App.
+    -   This package provides the infrastructure that powers the [layout](concepts-layout) and [App Config](concepts-app-config) that is central to every Mobile App.
 
 TODO - wait on Kenny package publishing
 
@@ -64,7 +64,7 @@ In each of the platform specific setups, there is a call to the `HandleException
 
 ### Editing the Layout and Config
 
-Many changes to Mobile will require editing the Layout and Config for your custom application. The App Config and layout files are contained in the shared platform agnostic project. Each of the platform specific projects links to these files as an asset or a reference, so editing the files in the platform agnostic project will change them for all platforms. Check out [Layout](/docs/mobile/concepts-layout) and [App Config](/docs/mobile/concepts-app-config) to learn more about customizing mobile with these files.
+Many changes to Mobile will require editing the Layout and Config for your custom application. The App Config and layout files are contained in the shared platform agnostic project. Each of the platform specific projects links to these files as an asset or a reference, so editing the files in the platform agnostic project will change them for all platforms. Check out [Layout](concepts-layout) and [App Config](concepts-app-config) to learn more about customizing mobile with these files.
 
 ### Development Patterns
 
@@ -79,5 +79,5 @@ The quick start provided is a standard Xamarin forms application, and can be dep
 
 ## Next Steps
 
-The quick start is a useful starting point for your custom Mobile application. Build on top of it by following along with a [use case](/docs/mobile/implement-command-operation), or check out the [SDK Samples](https://github.com/geocortex/sdk-samples) for inspiration and examples of what you can accomplish with the Mobile SDK. 
+The quick start is a useful starting point for your custom Mobile application. Build on top of it by following along with a [use case](implement-command-operation), or check out the [SDK Samples](https://github.com/geocortex/sdk-samples) for inspiration and examples of what you can accomplish with the Mobile SDK. 
 

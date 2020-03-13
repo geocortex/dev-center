@@ -6,11 +6,11 @@ import UseCaseContainer from "../../src/components/UseCaseContainer"
 import UseCaseCard from "../../src/components/UseCaseCard"
 import PrereqsSnippet from "./prereqs-snippet.md"
 
-Mobile comes with Search functionality out of the box. Searching in Mobile will return results from all possible layer's that can be searched on the Map (TODO... is this true?). What if you want to replace the functionality with your own search? Or filter the results returned by the default search? Mobile designer can't accomplish this, but it can be accomplished by leveraging workflow and editing the [App Config](/docs/mobile/concepts-app-config).
+Mobile comes with Search functionality out of the box. Searching in Mobile will return results from all possible layer's that can be searched on the Map (TODO... is this true?). What if you want to replace the functionality with your own search? Or filter the results returned by the default search? Mobile designer can't accomplish this, but it can be accomplished by leveraging workflow and editing the [App Config](concepts-app-config).
 
 ## What your Building
 
-We will modify the default search behaviour of the [Quick Start](/docs/mobile/quick-start) application on the Fire Hydrants layer include a filter option that only shows fire hydrants without a hydrants survey.
+We will modify the default search behaviour of the [Quick Start](quick-start) application on the Fire Hydrants layer include a filter option that only shows fire hydrants without a hydrants survey.
 
 ![Search Workflow with Alert](/img/custom-search-workflow-finished.png)
 
@@ -27,7 +27,7 @@ You should see some number of results. If you look at the details for some of th
 
 ## Setup the Workflow to Run on Search
 
-The first thing we need to do is override the default search behaviour. We can do this by editing the "Search" component of the [App Config](/docs/mobile/quick-start#editing-the-layout-and-config). The default behaviour for search is a Command/Operation chain that runs `tasks.search` and then `results.display`.
+The first thing we need to do is override the default search behaviour. We can do this by editing the "Search" component of the [App Config](quick-start#editing-the-layout-and-config). The default behaviour for search is a Command/Operation chain that runs `tasks.search` and then `results.display`.
 
 ###### Default Search Config
 
@@ -112,7 +112,7 @@ This pattern of configuring behaviour with a workflow can be applied throughout 
     <UseCaseCard
         title="Geocortex Workflow"
         description="Learn more about Geocortex Workflow"
-        link="/docs/workflow/overview"
+        link="../workflow/overview"
     />
     <UseCaseCard
         title="Change Default Behaviour"

@@ -7,7 +7,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Geocortex Mobile has many built in [Events](/docs/mobile/concepts-events) that can be used to hook into various changes that occur in the application. Check out the [Events API](/docs/mobile/api-events) to see if the event you need already exists.
+Geocortex Mobile has many built in [Events](concepts-events) that can be used to hook into various changes that occur in the application. Check out the [Events API](api-events) to see if the event you need already exists.
 :::
 
 This article will walk you through implementing a custom Event in Mobile that runs every five seconds.
@@ -82,7 +82,7 @@ public IEvent<SecurityCameraArgs> IntruderDetectedEvent => GetEvent<SecurityCame
 Since the `CustomEvents` class was registered with Autofac as a singleton, any other Component, Service, or View that injects it can publish or subscribe to the event. The example below but demonstrates how events could be used to tell views and services that rely on shared data that it has changed.
 
 :::important
-If you haven't yet, check out [Implementing Custom Components](/docs/mobile/implement-custom-component-with-ui) and [Implementing a Custom Background Service](/docs/mobile/implement-background-service) before diving into this example 
+If you haven't yet, check out [Implementing Custom Components](implement-custom-component-with-ui) and [Implementing a Custom Background Service](implement-background-service) before diving into this example 
 :::
 
 <Tabs
