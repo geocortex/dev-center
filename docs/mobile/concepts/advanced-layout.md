@@ -5,7 +5,10 @@ title: Advanced Layout
 
 ### High Level Settings?
 
-TODO base Url, item URL template, schema version, schema
+TODO base Url,
+TODO item URL template,
+TODO schema version,
+TODO schema
 
 ### Implicit Binding
 

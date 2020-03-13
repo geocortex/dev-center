@@ -26,8 +26,8 @@ module.exports = {
                     type: "category",
                     label: "Workflow",
                     items: [
-                        "mobile/use-cases/change-default-search-behaviour",
                         "mobile/use-cases/display-custom-form",
+                        "mobile/use-cases/change-default-search-behaviour",
                         "mobile/use-cases/implement-custom-workflow-form-element",
                         "mobile/use-cases/implement-workflow-activity",
                     ],
@@ -56,10 +56,7 @@ module.exports = {
                 {
                     type: "category",
                     label: "Advanced Topics",
-                    items: [
-                        "mobile/concepts/advanced-layout",
-                        "mobile/concepts/advanced-config",
-                    ],
+                    items: ["mobile/concepts/advanced-layout", "mobile/concepts/advanced-config"],
                 },
             ],
         },
@@ -76,11 +73,7 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: [
-                "mobile/api/overview",
-                "mobile/api/commands-operations",
-                "mobile/api/events"
-            ],
+            items: ["mobile/api/overview", "mobile/api/commands-operations", "mobile/api/events"],
         },
     ],
 };
