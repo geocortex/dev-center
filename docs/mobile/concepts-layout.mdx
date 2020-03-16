@@ -55,8 +55,6 @@ TODO - Note on how layout xml provides default intellisense for available slots.
 
 Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
 
-TODO - panels concept?
-
 ## Stacks and Splits
 
 The basic `stack` and `split` components form building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
@@ -126,7 +124,76 @@ And finally slot those two splits into the outer-most stack:
 
 ## Panels
 
-TODO
+Another core concept that Geocortex Mobile uses to organize elements in a layout is **panels**.
+Panels are a container component that enable hierarchal navigation between different components.
+
+```xml
+<panel id="search-panel">
+    <stack id="search">
+        <search config="search"/>
+        <results-list config="results" active="false" />
+    </stack>
+    <feature-details config="feature-details"/>
+</panel>
+```
+
+This `search-panel` has two root components:
+
+-   A stack containing a `<search>` and a `<results-list>`
+-   A `<feature-details>`
+
+When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<search>` component.
+The search component will activate the `<results-list>` component when a search is completed. Then, when a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a "stack" of components laid on top of eachother, and work as follows;
+
+#### Activation
+
+-   If the component is in the current navigation stack, then pop from the stack until that component is active
+    -   Else, push the component onto the stack and navigate to it
+
+#### Deactivation
+
+-   If the component is the top most element in the navigation stack (it is active), then pop it
+    -   Else, the component is already inactive
+
+:::tip
+The default `layout-large.xml` in the Geocortex Mobile [quick start](quick-start) has examples of multiple panels that live in the taskbar.
+:::
+
+## Device Form factors
+
+Geocortex Mobile has built in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target UWP devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropiate.
+
+:::tip
+The Geocortex Mobile SDK [quick start](quick-start) includes a large and small layout.
+:::
+
+In order for the correct layout to be loaded for the correct form factor, the layout needs to be loaded by the app config.
+
+```json
+{
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": [ "mobile", "large" ]
+        },
+        {
+            "$type": "layout",
+            "id": "tablet-layout",
+            "url": "resource://layout-medium.xml",
+            "tags": [ "mobile", "medium" ]
+        },
+        ...
+    ]
+}
+```
+
+This app config will load a large layout for a desktop device, and a medium layout for a tablet device.
+
+### Fallback Layouts
+
+If a layout that matches the device form factor is not available, then Geocortex Mobile will attempt to load the layout with the most similar form factor. For the example above, if Geocortex Mobile was loaded on a phone device, `layout-medium.xml` would be loaded, as it is the closest form factor to small. If the medium layout was also missing, `layout-large.xml` would be loaded instead, and vice versa.
 
 ## Next Steps: Components and App Config
 
