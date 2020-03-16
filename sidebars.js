@@ -17,7 +17,11 @@ module.exports = {
                 {
                     type: "category",
                     label: "Basics",
-                    items: ["mobile/look-feel", "mobile/change-default-behaviour"],
+                    items: [
+                        "mobile/look-feel",
+                        "mobile/change-default-behaviour",
+                        "mobile/internationalization",
+                    ],
                 },
                 {
                     type: "category",
@@ -61,7 +65,7 @@ module.exports = {
         {
             type: "category",
             label: "Getting Started with the SDK",
-            items: ["mobile/quick-start", "mobile/samples", "mobile/internationalization"],
+            items: ["mobile/quick-start", "mobile/samples"],
         },
         {
             type: "category",
