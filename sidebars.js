@@ -17,10 +17,7 @@ module.exports = {
                 {
                     type: "category",
                     label: "Basics",
-                    items: [
-                        "mobile/look-feel",
-                        "mobile/change-default-behaviour",
-                    ],
+                    items: ["mobile/look-feel", "mobile/change-default-behaviour"],
                 },
                 {
                     type: "category",
@@ -53,6 +50,7 @@ module.exports = {
                 "mobile/concepts-app-config",
                 "mobile/concepts-commands-operations",
                 "mobile/concepts-events",
+                "mobile/concepts-components-services",
                 {
                     type: "category",
                     label: "Advanced Topics",
@@ -63,20 +61,12 @@ module.exports = {
         {
             type: "category",
             label: "Getting Started with the SDK",
-            items: [
-                "mobile/quick-start",
-                "mobile/samples",
-                "mobile/adding-assemblies",
-                "mobile/internationalization",
-            ],
+            items: ["mobile/quick-start", "mobile/samples", "mobile/internationalization"],
         },
         {
             type: "category",
             label: "API",
-            items: [
-                "mobile/api-overview", 
-                "mobile/api-commands-operations", 
-                "mobile/api-events"],
+            items: ["mobile/api-overview", "mobile/api-commands-operations"],
         },
     ],
 };

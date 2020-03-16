@@ -1,6 +1,7 @@
 ---
 id: concepts-advanced-layout
 title: Advanced Layout
+description: Geocortex Mobile - Learn about Geocortex Mobile's advanced layout configuration options
 ---
 
 ### High Level Settings?
@@ -80,7 +81,11 @@ Take this more complicated layout for example.
 </layout>
 ```
 
-This layout has components such as `<search/>` or `<gxm:add-feature/>` which require the context of a specific map to function. However, these components are not nested within the one `<map/>` component in the app. Therefore, they will start a breadth first search to discover the map and bind to it.
+This layout has components such as `<search/>` or `<gxm:add-feature/>` which require the context of a specific map to function. However, these components are **not** nested within the one `<map/>` component in the app. Therefore, they will start a breadth first search to discover a map component and bind to it.
+
+#### Implicit Config Binding
+
+TODO
 
 ### Presentation Attributes
 

@@ -1,11 +1,12 @@
 ---
 id: look-feel
 title: Customize the Look and Feel
+description: Geocortex Mobile - Learn how to customize the look and feel of your Geocortex Mobile application
 ---
 
-Geocortex Mobile's appearance is built around two concepts: Theme and Layout.
+Geocortex Mobile's appearance is built around two concepts: theme and layout.
 
-The theme controls the color scheme of the app. TODO @felicity - is there a theme switcher now? The color scheme for different themes is defined in branding component of the the [app.config json](concepts-app-config).
+The theme controls the color scheme of the app. The color scheme for different themes is defined in branding component of the the [app.config json](concepts-app-config).
 
 ### Theming with the Branding Component
 
@@ -194,9 +195,13 @@ Color properties can be excluded from a theme; The application will choose a def
 
 ### Changing the Visual Layout of an Application
 
-How elements are laid out in a Mobile Application is defined by an apps Layout. [This article](concepts-layout) will teach you how to configure an App's layout and how to leverage it to customize the appearance of Mobile. Further styling within the layout can be done using [Layout Presentation Attributes](http://localhost:3000concepts-advanced-layout#presentation).
+How elements are laid out in a Geocortex Mobile Application is defined by an apps layout. [This article](concepts-layout) will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Mobile. Further styling within the layout can be done using [presentation attributes](http://localhost:3000concepts-advanced-layout#presentation).
 
-TODO - swapping out icons? @Kenny best practices? 
-  Wait on GXM consuming the Geocortex Icons package
+### Changing or Adding Icons
+
+TODO @Kenny best practices?
+Wait on GXM consuming the Geocortex Icons package
+
+### Example
 
 TODO - specific example with the quickstart?

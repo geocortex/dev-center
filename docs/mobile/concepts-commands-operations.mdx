@@ -1,23 +1,20 @@
 ---
 id: concepts-commands-operations
 title: Commands and Operations
+description: Geocortex Mobile - Learn about commands and operations
 ---
+
 import DemoVideo from "../../src/components/DemoVideo";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 :::note Before learning about commands and operations...
 Check out the [Key Concepts](concepts-key-concepts).
 :::
 
-TODO - better name for command/operation. Behaviour?
-
-
-Commands and Operations are runnable, independant units of work within GXM. Using the SDK, it's possible to define custom commands and operations for use throughout the application. TODO - how do we show people what is available? Commands are units of work which may take an input but do not produce an output, and operations differ because they produce output. Commands and Operations are grouped by namespace, for example
-
-TODO - how deep here... naming conventions? or should that be in the section about adding a command/operation
+**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to define custom commands and operations for use throughout the application. Commands are units of work which may take an input but do not produce an output, and operations differ because they produce output. Commands and Operations are grouped by namespace, for example;
 
 ```
 auth.sign-in
@@ -26,61 +23,74 @@ edit.add-feature
 edit.delete-features
 ```
 
-In Mobile, [Components or Services](concepts-components-services) are usually responsible for registering a Command/Operation with Mobile. Once a Command/Operation is registered, it can be used from anywhere in the application. [Custom Commands and Operations](implement-command-operation) can be registered with [Custom Services](implement-background-service) or [Custom Components](implement-component-with-ui) in the same way.
+[Components or Services](concepts-components-services) are usually responsible for registering a command or operation with Geocortex Mobile. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](implement-command-operation) are registered with [Custom Services](implement-background-service) or [Custom Components](implement-component-with-ui) in this manner.
 
 ### Argument Passing
 
-Commands and Operations are most commonly used to configure the behaviour of [Components](./components). For example, here's configuration of a Feature Details component with various commands and operations.
+Commands and Operations are most commonly used to configure the behaviour of components. For example, here's configuration for the various behaviours of a Feature Details component.
 
 ```json
 {
-  "$type": "feature-details",
-  "id": "feature-details",
-  "featureActions": "item://menu/feature-actions",
-  "onFeatureShow": "highlights.add-focus",
-  "onFeatureHide": "highlights.remove-focus",
-  "onFeatureDelete": [
-    "highlights.remove-focus",
-    "highlights.remove",
-    "edit.delete-features",
-    "results.hide-details",
-    "results.remove"
-  ]
+    "$type": "feature-details",
+    "id": "feature-details",
+    "featureActions": "item://menu/feature-actions",
+    "onFeatureShow": "highlights.add-focus",
+    "onFeatureHide": "highlights.remove-focus",
+    "onFeatureDelete": [
+        "highlights.remove-focus",
+        "highlights.remove",
+        "edit.delete-features",
+        "results.hide-details",
+        "results.remove"
+    ]
 }
 ```
 
-Configuration properties that accept a command/operation can take a single operation (such as with onFeatureHide) or they can take multiple commands/operations (such as with onFeatureDelete). In this example, when a feature is deleted the focus and highlights are removed, the feature is deleted from the layer, the results details are hidden, and the feature is removed from the results list. Since these commands/operations are running from the **context** of a Feature Details component, the first command/operation receives the relevant feature as it's input. If the commands/operations and chained, the next behaviour in line will receieve one of two possible inputs.
+App config properties that accept a command or operation can take a single operation (such as with `onFeatureHide`) or they can take a **command chain** (such as with `onFeatureDelete`).
+
+:::note
+Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex input dependent behaviour.
+:::
+
+In this example, when a feature is deleted,
+
+-   The focus and highlights are removed,
+-   The feature is deleted from the layer,
+-   The results details are hidden,
+-   The feature is removed from the results list.
+
+Since these commands and operations are running from the [context](TODO - app context link) of a Feature Details component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behaviour in line will receieve one of two possible inputs.
 
 1. If the previous behaviour was a command (which doesn't produce output), then the original input is passed on to the next behaviour.
 2. If the previous behaviour was an operation (which produces an output), then the output of that operation is passed onto the next behaviour.
 
-In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example. 
+In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example.
 
 ### Passing Named Arguments
 
-If you chose, you can overide the default arguments passed into a command or operation by provide an `arguments` property.
+If you choose, you can overide the default arguments passed into a command or operation by provide an `arguments` property.
 
 ```json
 {
-  "$type": "menu",
-  "id": "iwtm",
-  "items": [
-    {
-      "title": "Rotate by 45 Degrees",
-      "isEnabled": true,
-      "iconId": "sync",
-      "action": {
-        "name": "map.rotate-by",
-        "arguments": {
-          "rotation": 45
+    "$type": "menu",
+    "id": "iwtm",
+    "items": [
+        {
+            "title": "Rotate by 45 Degrees",
+            "isEnabled": true,
+            "iconId": "sync",
+            "action": {
+                "name": "map.rotate-by",
+                "arguments": {
+                    "rotation": 45
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }
 ```
 
-This will override the default arugment passing/chaining behaviour for that command/operation. Each command has typed arguments that can be browsed in the API. (TODO - this may not be true for MVP). For example, `map.rotate-by` takes a object of type [`MapRotateArgs`](TODO link to api), which has the property `Rotation` of type `double`. In the App Config, the `Rotation` property can be camelCase'd instead of PascalCased.  
+This will override the default arugment passing behaviour for that command or operation. Each command has typed arguments that can be browsed in the [API](TODO - api link here). For example, `map.rotate-by` takes a object of type [`MapRotateArgs`](TODO link to api), which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCase'd instead of PascalCased.
 
 ### Example
 
@@ -98,46 +108,39 @@ TODO - do I introduce the concept of "extensions" somewhere?
 
 ```json
 {
-    "name":"Commands/Operations Configuration Sample",
-    "settings":{
-        "defaultVisibility":"true",
-        "applicationName":"Commands/Operations Configuration Sample",
-        "defaultWidth":800,
-        "defaultHeight":600
+    "name": "Commands/Operations Configuration Sample",
+    "settings": {
+        "defaultVisibility": "true",
+        "applicationName": "Commands/Operations Configuration Sample",
+        "defaultWidth": 800,
+        "defaultHeight": 600
     },
-    "items":[
+    "items": [
         {
-            "$type":"layout",
-            "id":"desktop-layout",
-            "url":"resource://layout-large.xml",
-            "tags":[
-                "mobile",
-                "large"
-            ]
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
         },
         {
-            "$type":"map-extension",
-            "id":"demoMap",
-            "webMap":"448e4e75180441709a3df35aea2bca5b",
-            "onClick":[
-                "tasks.identify",
-                "highlights.add-focus",
-                "highlights.pulse"
-            ]
+            "$type": "map-extension",
+            "id": "demoMap",
+            "webMap": "448e4e75180441709a3df35aea2bca5b",
+            "onClick": ["tasks.identify", "highlights.add-focus", "highlights.pulse"]
         },
         {
-            "$type":"menu",
-            "id":"iwtm",
-            "items":[
+            "$type": "menu",
+            "id": "iwtm",
+            "items": [
                 {
-                    "title":"Return to Default Map View",
-                    "isEnabled":true,
-                    "iconId":"zoom_initial",
-                    "action":[
+                    "title": "Return to Default Map View",
+                    "isEnabled": true,
+                    "iconId": "zoom_initial",
+                    "action": [
                         {
-                            "name":"map.zoom-to-initial-viewpoint",
-                            "arguments":{
-                                "maps":"item://map-extension/demoMap"
+                            "name": "map.zoom-to-initial-viewpoint",
+                            "arguments": {
+                                "maps": "item://map-extension/demoMap"
                             }
                         }
                     ]
@@ -146,7 +149,7 @@ TODO - do I introduce the concept of "extensions" somewhere?
         }
     ]
 }
-  ```
+```
 
 </TabItem>
 <TabItem value="layout">
@@ -176,14 +179,23 @@ TODO - do I introduce the concept of "extensions" somewhere?
 </TabItem>
 </Tabs>
 
-This example demonstrates two different types of argument passing behaviour. The first action in the app config is a command/operation chain defined on the onClick property of a map. This chain consists of three operations and commands, a `task.identify`, a `highlights.add-focus`, and a `highlights.pulse`. `tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from it's current [context](TODO - little blurb on context). Since this chain is run on a map click, the context argument passed in has the shape 
+This example demonstrates two different types of argument passing behaviour. The first action in the app config is a command chain defined on the `onClick` property of a map. This chain consists of three operations and commands:
+
+-   `task.identify`,
+-   `highlights.add-focus`
+-   `highlights.pulse`
+
+`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from it's current [context](TODO - link to context). Since this chain is run on a map click, the context argument passed in has the shape
+
 ```json
 {
   "geometry": "Esri.Point(<map-click-location>)",
   ... <other props>
 }
 ```
+
 `tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [API Documentation](TODO api docs link), `tasks.identify` has output with the shape
+
 ```json
 {
   "features": [<feature1>, <feature2>, ...],
@@ -191,16 +203,16 @@ This example demonstrates two different types of argument passing behaviour. The
   ... <other props>
 }
 ```
+
 `highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation (or the original input if no operations have run), so it will also receive the output of `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
-:::tip 
+:::tip
 Check out [Change Default Behaviour](change-default-behaviour) for more ways to override default behaviour like a Map's on click event.  
 :::
 
-The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a [MapExtensionArgs](API Link), which is provided as a named argument. The `maps` property in the argument references the demoMap in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](./advanced-config#item-uris) for more details. 
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a [MapExtensionArgs](API Link), which is provided as a named argument. The `maps` property in the argument references the demoMap in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](./advanced-config#item-uris) for more details.
 
-TODO - I don't like this sentence
-Mobile has a large array of built in command and operations that you can chain to power custom behaviour. Command and Operations can also be extended through the SDK if you need to implement new behaviour. 
+Mobile has a large array of built in command and operations that you can chain to power custom behaviour. Custom commands and operations can also be implemented with the SDK.
 
 <UseCaseContainer>
     <UseCaseCard
@@ -210,8 +222,8 @@ Mobile has a large array of built in command and operations that you can chain t
     />
     <UseCaseCard
         title="Configure Commands and Operations"
-        description="Change built in behaviour or add new behaviour using App Configuration and Layout."
-        link="concepts-app-config"
+        description="Change built in behaviour or add new behaviour using App Config and Layout."
+        link="change-default-behaviour"
     />
     <UseCaseCard
         title="Build your own Commands and Operations"
@@ -219,7 +231,5 @@ Mobile has a large array of built in command and operations that you can chain t
         link="custom-command-operation"
     />
 </UseCaseContainer>
-
-TODO - commands and operations in layout.... should I even?
 
 TODO - call out running command chains in workflow?

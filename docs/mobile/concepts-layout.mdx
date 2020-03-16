@@ -1,6 +1,7 @@
 ---
 id: concepts-layout
 title: Layout
+description: Geocortex Mobile - Learn about layout concepts
 ---
 
 import UseCaseCard from "../../src/components/UseCaseCard";
@@ -10,23 +11,23 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](concepts-key-concepts).
 :::
 
-A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as blueprints on which a Mobile Application is built.
+A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
 
-Take this example of a app layout with a map and a compass.
+Take this example of a layout with a map and a compass.
 
 ```xml
 <layout>
-    <map> 
+    <map>
         <compass padding="0.5"/>
     </map>
 </layout>
 ```
 
-The first thing it does is delcare a map that is linked to "default" configuration that specifies what content to load.
+The first thing it does is declare a map that is linked to "default" configuration that specifies what content to load.
 Next, a compass is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the compass to display a value relative to the map it is placed in (more about this later...)
+2. Tells the compass to display a value [corresponding to the map it is placed in](concepts-advanced-layout#implicit-binding)
 
 :::tip Want to follow along?
 Check out the [Quick Start](quick-start) and [edit the default app layout](layout-config).
@@ -50,7 +51,7 @@ For example, this configuration will place the compass in the top right of the m
 
 If a slot configuration is not given, the component will slot itself into a default position.
 
-TODO - API docs for what slots go where
+TODO - Note on how layout xml provides default intellisense for available slots. TODO eventually API
 
 Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
 
@@ -123,13 +124,17 @@ And finally slot those two splits into the outer-most stack:
 
 <img className="stackSplitImage" src="/img/stack-split-3.png" />
 
+## Panels
+
+TODO
+
 ## Next Steps: Components and App Config
 
-In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Mobile. Each component has it's own configuration, such as the `text` [property for](TODO - link to text API element here) `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the Apps [`app.json`](TODO app json link) file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Mobile. Each component has it's own configuration, such as the `text` [property for](TODO - link to text API element here) `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
 
 <UseCaseContainer>
     <UseCaseCard
-        title="App Configuration"
+        title="App Config"
         description="Learn about app configuration and it's interaction with layout."
         link="concepts-app-config"
     />

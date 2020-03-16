@@ -1,6 +1,7 @@
 ---
 id: concepts-advanced-config
 title: Advanced Config
+description: Geocortex Mobile - Learn about Geocortex Mobile's advanced configuration options
 ---
 
 ## Advanced Config

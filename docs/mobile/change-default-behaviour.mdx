@@ -1,12 +1,13 @@
 ---
 id: change-default-behaviour
 title: Change Default Application Behaviour
+description: Geocortex Mobile - Learn how to configure mobile to change default application behaviour
 ---
 
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
-Many of the behaviours of Mobile's built in components have configurable behaviours through the [App Config](concepts-app-config). If you browse the `app.json` that is included with the [Quick Start](quick-start), you'll see properties like `action` or `onClick` in items that take an array of Commands/Operations.
+Many of the behaviours of Goecortex Mobile's built in [components](concepts-components-services) have configurable behaviours through the [app config](concepts-app-config). If you browse the `app.json` that is included with the [Quick Start](quick-start), you'll see properties like `action` or `onClick` in items that take an array of [commands and operations](concepts-commands-operations).
 
 ```json
 {
@@ -37,11 +38,11 @@ Many of the behaviours of Mobile's built in components have configurable behavio
 }
 ```
 
-All behaviours defined in this manner are configurable. Commands/Operations can be removed from the chain, behaviours can be replaced with a `workflow.run` command that [executes custom behaviour](./change-default-search-behaviour), or even the name of a [custom Command/Operation](./implement-command-operation).
+All behaviours defined in this manner are configurable. Commands or operations can be removed from the chain, and any behaviour can be replaced with a `workflow.run` command that [executes custom behaviour](change-default-search-behaviour), or even [custom commands and operations](implement-command-operation).
 
 ## Example
 
-This configuration for the `map1` Map Extension in the Quick Start App Config will remove the pulsing of highlights on an identify and zoom to the identified features instead.
+This is modified configuration for the `map1` Map Extension in the Quick Start. The map's `onClick` behaviour has been changed to remove the `highlights.pulse` command and execute `map.zoom-to-features` instead.
 
 ```json
 {
@@ -54,18 +55,18 @@ This configuration for the `map1` Map Extension in the Quick Start App Config wi
 
 # Next Steps
 
-Mobile comes with many built in Commands/Operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviours without writing custom code. If you cannot create the behaviour you want with workflow, it might be time to look into using the Mobile SDK to implement a custom Command/Operation.
+Geocortex Mobile comes with many built in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviours without writing custom code. If you cannot create the behaviour you want with Geocortex Workflow, it might be time to look into using the Geocortex Mobile SDK to implement a custom command or operation.
 
 <UseCaseContainer>
     <UseCaseCard
         title="Commands and Operations"
-        description="Learn more about Commands and Operations"
+        description="Learn more about commands and operations"
         link="concepts-commands-operations"
     />
     <UseCaseCard
-        title="Change Mobile's Default Search Behaviour"
-        description="Learn how to Geocortex Workflow to override Mobile's default search behaviour"
-        link="./change-default-search-behaviour"
+        title="Change Geocortex Mobile's Default Search Behaviour"
+        description="Learn how to Geocortex Workflow to override Geocortex Mobile's default search behaviour"
+        link="change-default-search-behaviour"
     />
     <UseCaseCard
         title="Geocortex Workflow"
@@ -75,6 +76,6 @@ Mobile comes with many built in Commands/Operations to help you accomplish your 
     <UseCaseCard
         title="Implement Custom Command/Operation"
         description="Implement a custom Command/Operation with the Mobile SDK"
-        link="./implement-command-operation"
+        link="implement-command-operation"
     />
 </UseCaseContainer>

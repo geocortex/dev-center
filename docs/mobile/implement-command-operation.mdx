@@ -1,27 +1,30 @@
 ---
 id: implement-command-operation
 title: Implement Custom Commands and Operations
+description: Geocortex Mobile - Learn how to implement a custom command or operation
 ---
 
 import PrereqsSnippet from "./prereqs-snippet.md";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
+import AutofacSnippet from "./autofac-snippet.md";
 
-TODO - don't know if this should be an info or an intro
-:::info
-Geocortex Mobile has many built in [Commands and Operations](concepts-commands-operations) to chain together and build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](change-default-search-behaviour) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+:::tip
+Geocortex Mobile has many built in [Commands and Operations](concepts-commands-operations) which can be chained together to build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](change-default-search-behaviour) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
-This article will walk you through implementing a custom Command in Mobile that displays an Alert.
+This article will walk you through implementing a custom command in Geocortex Mobile that displays an alert.
 
 <PrereqsSnippet />
 
 ## Create the Backing Service
 
-Every Command or Operation in Mobile needs to be registered and implemented by a Service or Component. (TODO - @Jeff is this strictly true? ), so the first thing that needs to be done is to create a service.
+Every Command or operation in Geocortex Mobile needs to be registered and implemented by a [service or component](concepts-components-services), so the first thing we will do is create a service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
-2. In the file, add a new service class `AlertService` and register it with Autofac
+2. In the file, add a new service class `AlertService` and register it with **autofac**
+
+<AutofacSnippet />
 
 ```csharp
 using App1.Services.AlertService;
@@ -43,11 +46,11 @@ namespace App1.Services.AlertService
 ```
 
 :::info
-The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `AlertService: ServiceBase`. These two pieces register the Service with Mobile and cause it to be initialized on startup.
+The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `AlertService: ServiceBase`. These two pieces register the service with autofac and Geocortex Mobile and cause it to be initialized on startup.
 :::
 
 3. Create a class `Services/AlertOperations` under the platform agnostic project
-4. In the file, add a new class `AlertOperations` and register it with Autofac
+4. In the file, add a new class `AlertOperations` and register it with autofac
 
 ```csharp
 using App1.Services.AlertOperations;
@@ -75,7 +78,6 @@ Creating a new Operation in mobile consists of two pieces.
 -   Defining the Operation's name, inputs, and outputs
 -   Registering an "Execution" function for the operation.
     -   This function will be the actual code that executes when the operation is called.
-    -   TODO - can multiple executes be registered?
 
 ### Define the Operation
 
@@ -85,7 +87,7 @@ An Operation is defined in the class that extends `OperationsBase`. In our examp
 
 ```csharp
 public IVoidOperation NoInputNoOutput => GetVoidOperation("fire.phasers");
-public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Temperature>("tea.earlgrey");
+public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Temperature>("tea.earl-grey");
 ```
 
 -   An `IOperation` produces an output, and optionally takes an input
@@ -94,6 +96,10 @@ public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Tempera
 public IOperation<Mischief> NoInputSomeOutput => GetOperation<Mischief>("q.appear");
 public IOperation<Deuterium, WarpSpeed> SomeInputSomeOutput => GetOperation<Deuterium, WarpSpeed>("warpdrive.engage");
 ```
+
+:::note
+Operation names in mobile generally take the format `<category>.<name>`, with multiple words `kebab-cased`.
+:::
 
 For this example, let's define a operation with some input and no output.
 
@@ -125,10 +131,10 @@ Next, we need to register an implementation for our operation in the `AlertServi
 ```
 
 :::note
-We never have to explicity set this property because of some [Autofac Autowiring magic](https://autofaccn.readthedocs.io/en/latest/register/prop-method-injection.html) in the assembly attributes.
+We never have to explicity set this property because of some [autofac autowiring magic](https://autofaccn.readthedocs.io/en/latest/register/prop-method-injection.html) in the assembly attribute.
 :::
 
-2. Create an implementation for displaying a custom alert and register it as an execution with the operation definition.
+2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
 
 ```csharp
 class AlertService : ServiceBase
@@ -153,7 +159,7 @@ class AlertService : ServiceBase
 Multiple implementations can be registered for an Command or Operation.
 :::
 
-Congradulations! You just created your first custom operation. The established pattern Mobile uses for creating multiple operations is to group similiar ones in two files; `<your-category>Operations` and `<your-category>Services`. You can easily test your new operation by setting it to run it on map initialization in the [App Config](/mobile/concepts-commands-operations TODO - not sure that this is the BEST link).
+Congradulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](change-default-behaviour).
 
 ```json
 {
@@ -178,22 +184,22 @@ Congradulations! You just created your first custom operation. The established p
 
 ## Next Steps
 
-Commands and Operations are the logical building blocks of executing custom behaviour in Mobile, but sometimes you need to take things a bit further. Creating Custom Components can allow you to design completely custom UI for Mobile, and Creating background services can enable the execution of tasks on an arbitrary schedule.
+Commands and operations are the logical building blocks of executing custom behaviour in Geocortex Mobile, but sometimes you need to take things a bit further. Creating custom components can allow you to design completely custom UI for Gecortex Mobile, and creating background services can enable the execution of tasks on an arbitrary schedule.
 
 <UseCaseContainer>
     <UseCaseCard
         title="Commands and Operations"
-        description="Learn more about Commands and Operations"
+        description="Learn more about commands and operations"
         link="concepts-commands-operations"
     />
     <UseCaseCard
         title="Implement a Custom Component with UI"
-        description="Learn how to implement a custom Component using the Mobile SDK"
+        description="Learn how to implement a custom component using the Geocortex Mobile SDK"
         link="./implement-component-with-ui"
     />
     <UseCaseCard
         title="Implement a background service"
-        description="Learn how to implement a background Service using the Mobile SDK"
+        description="Learn how to implement a background service using the mobile SDK"
         link="./implement-background-service"
     />
 </UseCaseContainer>
