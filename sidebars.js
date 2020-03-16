@@ -39,7 +39,7 @@ module.exports = {
                     items: [
                         "mobile/implement-command-operation",
                         "mobile/implement-component-with-ui",
-                        "mobile/implement-background-service",
+                        "mobile/implement-service",
                         "mobile/implement-event",
                     ],
                 },
