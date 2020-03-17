@@ -1,0 +1,39 @@
+---
+id: add-medium-layout
+title: Add a Medium Layout
+---
+
+import PrereqsSnippet from "./prereqs-snippet.md";
+
+The Geocortex Mobile [quick start](quick-start) comes with a [small and large layout](concepts-layout#device-form-factors). This use case will walk you through creating a medium form factor layout.
+
+<PrereqsSnippet />
+
+## Create the Layout File
+
+Add a new file `layout-medium.xml` to the platform agnostic project.
+
+Copy the content from `layout-large.xml` into the `layout-medium.xml`.
+
+## Include the Layout File in each project
+
+Add the `layout-medium.xml` file as an asset to each project
+
+### Android
+
+1. Add the existing file `layout-medium.xml` [as an link](https://jeremybytes.blogspot.com/2019/07/linking-files-in-visual-studio.html) to the `Assets` folder.
+2. Ensure the build action for the file is `AndroidAsset`
+
+### IOS
+
+1. Add the existing file `layout-medium.xml` [as an link](https://jeremybytes.blogspot.com/2019/07/linking-files-in-visual-studio.html) to the `Resources` folder.
+2. Ensure the build action for the file is `BundleResource`
+
+### UWP
+
+1. Add the existing file `layout-medium.xml` [as an link](https://jeremybytes.blogspot.com/2019/07/linking-files-in-visual-studio.html) to the `Assets` folder.
+2. Ensure the build action for the file is `Content`
+
+## Next Steps
+
+You now have a medium layout defined for your application. Learn more about how [layout](concepts-layout) works and customize this new layout to be optimized for a tablet screen size.

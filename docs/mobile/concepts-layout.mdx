@@ -193,6 +193,10 @@ In order for the correct layout to be loaded for the correct form factor, the la
 
 This app config will load a large layout for a desktop device, and a medium layout for a tablet device.
 
+:::important
+The [quick start](Quick Start) does not ship with a medium layout configured. See [Add Medium Layout](add-medium-layout) for instructions on how to do this.
+:::
+
 ### Fallback Layouts
 
 If a layout that matches the device form factor is not available, then Geocortex Mobile will attempt to load the layout with the most similar form factor. For the example above, if Geocortex Mobile was loaded on a phone device, `layout-medium.xml` would be loaded, as it is the closest form factor to small. If the medium layout was also missing, `layout-large.xml` would be loaded instead, and vice versa.

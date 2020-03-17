@@ -4,13 +4,6 @@ title: Advanced Layout
 description: Geocortex Mobile - Learn about Geocortex Mobile's advanced layout configuration options
 ---
 
-### High Level Settings?
-
-TODO base Url,
-TODO item URL template,
-TODO schema version,
-TODO schema
-
 ### Autocomplete Properties
 
 The `layout.xml` that comes with the [Quick Start](quick-start) references a xml schema. This XML schema allows Visual Studio to autocomplete property names and provide linting for types. Two attributes on the layout, `xmlns:xsi`, and `xsi:schemaLocation` allow this to happen.
@@ -20,7 +13,6 @@ The `layout.xml` that comes with the [Quick Start](quick-start) references a xml
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
-    xmlns:ui-test="https://geocortex.com/layout/mobile/v1/ui-test"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
     ...

@@ -19,6 +19,7 @@ module.exports = {
                     label: "Basics",
                     items: [
                         "mobile/look-feel",
+                        "mobile/add-medium-layout",
                         "mobile/change-default-behaviour",
                         "mobile/internationalization",
                     ],
