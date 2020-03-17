@@ -6,6 +6,8 @@ description: Geocortex Mobile - Learn how to make a component participate in app
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 A component can optionally participate in the global app config. This allows multiple instances of the component to be configured in different ways, or for component behaviour to be changed without having to edit custom code.
 
@@ -182,8 +184,19 @@ Configuration can be defined in the [app json](quick-start#editing-the-layout-an
 </TabItem>
 </Tabs>
 
-TODO - I don't like this ending sentence
+## Next Steps
 
-You've now created a custom component which consumes configuration values from the `app.json`. Using configuration allows you to make flexible, resuable components for your application.
+You've now created a custom component which consumes configuration values from the `app.json`. Using configuration in this manner allows you to make flexible, resuable components for your application.
 
-TODO - next steps here... check out the SDK sample for this? Custom Service?
+<UseCaseContainer>
+    <UseCaseCard
+        title="Check out the App Config SDK Sample"
+        description="Checkout the app config SDK sample"
+        link="https://github.com/mobile-sdk-samples/samples/app-config"
+    />
+    <UseCaseCard
+        title="Learn how to Implement a Custom Service"
+        description="Move on to learning how to implement a custom service."
+        link="implement-service"
+    />
+</UseCaseContainer>

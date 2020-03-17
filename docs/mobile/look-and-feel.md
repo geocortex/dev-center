@@ -199,9 +199,10 @@ How elements are laid out in a Geocortex Mobile Application is defined by an app
 
 ### Changing or Adding Icons
 
-TODO @Kenny best practices?
-Wait on GXM consuming the Geocortex Icons package
+#### Coming Soon...
 
-### Example
+This documentation is under active development.
 
-TODO - specific example with the quickstart?
+<!-- ### Example
+
+TODO - Icons - specific example with the quickstart? -->

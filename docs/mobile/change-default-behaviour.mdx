@@ -40,10 +40,6 @@ Many of the behaviours of Goecortex Mobile's built in [components](concepts-comp
 
 All behaviours defined in this manner are configurable. Commands or operations can be removed from the chain, and any behaviour can be replaced with a `workflow.run` command that [executes custom behaviour](change-default-search-behaviour), or even [custom commands and operations](implement-command-operation).
 
-:::note
-TODO - note on components having behaviours defined in the api? how do we tell people about that for the first pass
-:::
-
 ## Example
 
 This is modified configuration for the `map1` Map Extension in the Quick Start. The map's `onClick` behaviour has been changed to remove the `highlights.pulse` command and execute `map.zoom-to-features` instead.

@@ -4,11 +4,25 @@ title: Advanced Config
 description: Geocortex Mobile - Learn about Geocortex Mobile's advanced configuration options
 ---
 
-## Advanced Config
+## Autocomplete Properties
 
-### Item URI's and Resource URIs
+The `app.json` that comes with the [Quick Start](quick-start) references a json schema. This json schema allows Visual Studio to autocomplete property names and provide linting for types. Two properties in the app.json, `$schema`, and `schemaVersion` allow this to happen.
 
-### Layout resource
+```json
+{
+  "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+  "schemaVersion": "1.0",
+  "items": [...]
+}
+```
+
+## Item URI's and Resource URIs
+
+## Layout resource
+
+## App Items
+
+TODO - add nnote to configuration use case about what creating app config does - create an app item
 
 TODO - tags? Kenny?
 

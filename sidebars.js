@@ -66,7 +66,19 @@ module.exports = {
         {
             type: "category",
             label: "Getting Started with the SDK",
-            items: ["mobile/quick-start", "mobile/samples"],
+            items: [
+                "mobile/quick-start",
+                "mobile/samples",
+                {
+                    type: "category",
+                    label: "Common Mobile SDK Patterns",
+                    items: [
+                        "mobile/dependency-injection",
+                        "mobile/viewmodel-helper-class",
+                        "mobile/memory-leaks",
+                    ],
+                },
+            ],
         },
         {
             type: "category",

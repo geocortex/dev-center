@@ -6,6 +6,7 @@ description: Geocortex Mobile - Learn how to implement a custom component with a
 
 import DemoVideo from "../../src/components/DemoVideo";
 import PrereqsSnippet from "./prereqs-snippet.md";
+import DoomsdayCookieClickerViewModel from "./doomsday-cookie-clicker-view-model.md";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
@@ -193,7 +194,7 @@ Learn about how to extend this component to [participate in app config](implemen
 From here, you can implement your own buisness logic and interfaces, create custom [Commands and Operations](implement-command-operation) that are powered by and/or interact with your component, and much more. [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml.
 
 :::info
-Mobile comes built in [Enhanced Components](TODO - enhanced components link) that can ease development and styling of custom UI
+Mobile comes built in [Enhanced Components](https://github.com/sdk-samples/samples/mobile-elements) that can ease development and styling of custom UI
 :::
 
 ### Example: Doomsday Cookie Clicker
@@ -316,35 +317,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view-model">
 
-```csharp
-using App1.Components;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Views;
-
-[assembly: ViewModel(typeof(HarmlessComponentViewModel))]
-namespace App1.Components
-{
-    public class HarmlessComponentViewModel : NotifyPropertyBase
-    {
-        private double _progress = 0;
-
-        private bool _isDoomsday = false;
-
-        public double Progress
-        {
-            get => _progress;
-            set => SetProperty(ref _progress, value);
-        }
-
-        public bool IsDoomsday
-        {
-            get => _isDoomsday;
-            set => SetProperty(ref _isDoomsday, value);
-        }
-    }
-}
-
-```
+<DoomsdayCookieClickerViewModel />
 
 </TabItem>
 <TabItem value="ui">
@@ -355,5 +328,5 @@ namespace App1.Components
 This example refactored the original example to use [autofac dependency injection](https://autofaccn.readthedocs.io/en/latest/register/registration.html) to instantiate the View and ViewModel. Setting up your classes so dependencies are handled by autofac in the constructor allows you to allow inject other Geocortex Mobile classes registered with Autofac, like how the `UIOperations` class is injected into the view.
 
 :::note
-Another thing to notice about this example is the ViewModel's use of [`NotifyPropertyBase`](TODO - link to NotifyPropertyBase section). `NotifyPropertyBase` is a helper base class for ViewModels in Mobile which implements [`INotifyPropertyChanged`](https://docs.microsoft.com/en-us/dotnet/api-system.componentmodel.inotifypropertychanged?view=netstandard-2.1). This enables the View to receive updates about ViewModel changes. Each of the properties in the `HarmlessComponentViewModel` call the `NotifyPropertyBase.SetProperty`, which informs the View to update it's content if neccesary.
+Learn more of this ViewModel's use of the Geocortex Mobile helper class [`NotifyPropertyBase`](viewmodel-helper-class)
 :::
