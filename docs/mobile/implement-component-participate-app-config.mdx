@@ -1,0 +1,189 @@
+---
+id: implement-component-participate-app-config
+title: App Config for a Component
+description: Geocortex Mobile - Learn how to make a component participate in app config.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+A component can optionally participate in the global app config. This allows multiple instances of the component to be configured in different ways, or for component behaviour to be changed without having to edit custom code.
+
+## Prerequisites
+
+Complete the previous use case, [Implement a Custom Component](implement-component-with-ui). This article will extend that component to consume custom app config.
+
+## Create a Skeleton App Config Definition
+
+Create a new file `HarmlessComponentConfiguration.cs`. This class defines a new app item type `harmless-component-config`. This app item type will be used as configuration for the `HarmlessComponent`.
+
+```csharp
+using App1.Configuration;
+using Geocortex.API;
+using Geocortex.Mobile.Infrastructure.App;
+using System;
+
+[assembly: AppItem(HarmlessComponentConfiguration.ConfigItemtype, typeof(HarmlessComponentConfiguration))]
+namespace App1.Configuration
+{
+    public class HarmlessComponentConfiguration : VisualAppItem
+    {
+        public const string ConfigItemtype = "harmless-component-config";
+
+        public string ConfigTitle { get; private set; }
+
+        public string ConfigDescription { get; private set; }
+
+        public HarmlessComponentConfiguration()
+            : this(Guid.NewGuid().ToString())
+        {
+        }
+
+        public HarmlessComponentConfiguration(string id)
+            : this(new Properties { ["id"] = id })
+        {
+        }
+
+        public HarmlessComponentConfiguration(Properties properties) :
+            base(properties, ConfigItemtype)
+        {
+            // properties is an object corresponding to the config defined in the app.json
+            if (properties.TryGetValue("title", out var title))
+            {
+                ConfigTitle = title as string ?? "Default Title";
+            }
+
+            if (properties.TryGetValue("description", out var text))
+            {
+                ConfigDescription = text as string ?? "Default description.";
+            }
+        }
+
+        public override object CreateDefault()
+        {
+            return new HarmlessComponentConfiguration();
+        }
+    }
+}
+```
+
+:::info
+The two key components of this snippet are the `[assembly: AppItem(...)]` tag and the class extension `HarmlessComponentConfiguration : VisualAppItem`. These two pieces register the configuration with Geocortex Mobile and autofac.
+:::
+
+## Consume the Configuration in the Component
+
+Components that consume configuration should extend `AppItemComponentBase<ConfigurationClassType>`. This forces them to have a constructor which takes in an `IAppItem` resolver for the specific configuration type. This resolver can then be called in the `DoInitializeAsync` method to retrieve the app config values. They should also register with autofac using the `AppItemComponent` assembly attribute.
+
+```csharp
+using App1;
+using App1.Components;
+using App1.Configuration;
+using Geocortex.Mobile.Composition.Layout;
+using Geocortex.Mobile.Infrastructure.App;
+using Geocortex.Mobile.Infrastructure.Layout;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using Xamarin.Forms;
+
+[assembly: AppItemComponent(typeof(HarmlessComponent), "harmless-component", HarmlessComponentConfiguration.ConfigItemtype, XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    class HarmlessComponent : AppItemComponentBase<HarmlessComponentConfiguration>
+    {
+        private HarmlessComponentViewModel _viewModel;
+
+        IAppItem<HarmlessComponentConfiguration> _appItemResolver;
+
+        public HarmlessComponent(IAppItem<HarmlessComponentConfiguration> itemResolver)
+            : base(itemResolver)
+        {
+            _appItemResolver = itemResolver;
+            _viewModel = new HarmlessComponentViewModel();
+        }
+
+        protected override VisualElement Create(XNode node)
+        {
+            return new HarmlessComponentView()
+            {
+                BindingContext = _viewModel
+            };
+        }
+
+        protected override async Task DoInitializeAsync()
+        {
+            var item = await _appItemResolver.ResolveAsync();
+            _viewModel.Title = item.ConfigTitle;
+            _viewModel.Description = item.ConfigDescription;
+        }
+    }
+}
+```
+
+## Define Configuration Values in the app.json
+
+At this point, the component is hooked up to configuration, and configuration values can be defined and consumed.
+
+Configuration can be defined in the [app json](quick-start#editing-the-layout-and-app-config) and linked to the component through the `config` attribute in layout, just like any other component.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'layout.xml', value: 'layout', },
+    { label: 'app.json', value: 'json', },
+    { label: 'User Interface', value: 'ui', },
+  ]
+}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:ui-test="https://geocortex.com/layout/mobile/v1/ui-test"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    xmlns:custom="https://your.org/layout/app1">
+    <gxm:taskbar>
+        <!--Taskbar / custom component-->
+        <panel>
+            <custom:harmless-component icon="warning" config="harmless-component-config"/>
+        </panel>
+    </gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="json">
+
+```json
+{
+    "items": [
+        {
+            "$type": "harmless-component-config",
+            "id": "harmless-component-config",
+            "title": "Title from Config",
+            "description": "This description came from config."
+        },
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+    <img src="/img/custom-configuration-final.png"/>
+</TabItem>
+</Tabs>
+
+TODO - I don't like this ending sentence
+
+You've now created a custom component which consumes configuration values from the `app.json`. Using configuration allows you to make flexible, resuable components for your application.
+
+TODO - next steps here... check out the SDK sample for this? Custom Service?

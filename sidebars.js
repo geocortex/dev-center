@@ -39,6 +39,7 @@ module.exports = {
                     items: [
                         "mobile/implement-command-operation",
                         "mobile/implement-component-with-ui",
+                        "mobile/implement-component-participate-app-config",
                         "mobile/implement-service",
                         "mobile/implement-event",
                     ],
