@@ -41,7 +41,6 @@ Take this more complicated layout for example.
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
-    xmlns:ui-test="https://geocortex.com/layout/mobile/v1/ui-test"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../../../../ViewerFramework/layout/layout-mobile.xsd
       https://geocortex.com/layout/v1 ../../../layout-custom.xsd">

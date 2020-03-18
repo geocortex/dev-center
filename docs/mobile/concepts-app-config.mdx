@@ -90,7 +90,8 @@ The same config can be used for multiple items in a layout. For example, this al
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
+<layout xmlns="https://geocortex.com/layout/v1"
+        xmlns:gxm="https://geocortex.com/layout/mobile/v1">
   <gxm:taskbar orientation="vertical">
     <panel grow="1">
         <stack margin="0.5">
@@ -144,8 +145,6 @@ The same config can be used for multiple items in a layout. For example, this al
 
 Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](concepts-commands-operations) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
 
-TODO - this needs retesting
-
 <Tabs
   defaultValue="layout"
   values={[
@@ -157,13 +156,21 @@ TODO - this needs retesting
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
+<layout xmlns="https://geocortex.com/layout/v1"
+        xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
     <gxm:taskbar orientation="vertical" id="taskbar">
         <map id="map-primary" config="default" slot="main">
             <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
-            <button icon="" config="openTaskbar" slot="bottom-center-visible" margin="0.5">Open Taskbar</button>
+            <button icon="" config="openDialog" slot="bottom-center-visible" margin="0.5">Open Dialog</button>
         </map>
     </gxm:taskbar>
+    <dialog id="dialog" active="false">
+        <panel>
+            <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
+        </panel>
+    </dialog>
 </layout>
 ```
 
@@ -177,6 +184,12 @@ TODO - this needs retesting
             "$type": "map-extension",
             "id": "default",
             "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+        },
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
         },
         {
             "$type": "workflow",
@@ -200,13 +213,13 @@ TODO - this needs retesting
         },
         {
             "$type": "menu-item",
-            "id": "openTaskbar",
-            "title": "Open Taskbar",
+            "id": "openDialog",
+            "title": "Open Dialog",
             "isEnabled": true,
             "iconId": "",
             "action": {
                 "name": "ui.activate",
-                "arguments": "#taskbar"
+                "arguments": "dialog"
             }
         }
     ]
@@ -219,9 +232,11 @@ TODO - this needs retesting
 </TabItem>
 </Tabs>
 
-## Example: Basic App Config with IWTM
+:::note
+This example uses [commands and operation](concepts-commands-operations) to power it's behaviour.
+:::
 
-TODO - pretty mediocre example - get something meatier
+## Example: Basic App Config with IWTM
 
 The I Want To Menu (IWTM) gets its functional structure from the app (list items and their functionalities) and its visual structure from the layout.
 
@@ -276,10 +291,8 @@ In the following example, the app structures a menu with one button, and the lay
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
-    xmlns:ui-test="https://geocortex.com/layout/mobile/v1/ui-test"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd
-      https://geocortex.com/layout/mobile/v1/ui-test ./layout-ui-test.xsd">
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
   <gxm:taskbar id="taskbar" orientation="vertical">
     <!-- Taskbar main content -->
     <map id="page1-map1" slot="main">
@@ -301,7 +314,7 @@ In the following example, the app structures a menu with one button, and the lay
 
 The `<iwtm>` Component in the layout is bound to the IWTM configuration by the attribute `config="iwtm"`, where `iwtm` corresponds to the ID of the IWTM configuration. All components can be bound to config in this manner, and multiple components can be bound to the same configuration.
 
-Each app item has a different `$type` and different configurable properties associated with it. For details on each app item, refer to TODO. The example application has two items in the app config:
+Each app item has a different `$type` and different configurable properties associated with it. The example application has two items in the app config:
 
 1. A layout `$type` item which serves as a default layout and references the layout.xml
 2. A menu `$type` item which provides config for the I Want To Menu in the layout.
@@ -312,7 +325,6 @@ The functionality of the `config` attribute is dependent on the fact that IDs ac
 
 ## Next Steps: Commands and Operations
 
-TODO - this will need rephrasing now that we have commands / operations in the examples
 This example demonstrated a simple application which has a single menu, but the pattern of loosely coupling layout components with items in app config can allow you to build powerful apps with multiple layouts for different form factors and use cases. What we didn't cover in this example was how the menu items are powered. How can we make a menu item, and more generically, a button press or other app interaction, power actions in the application? The answer is to link app items to commands and operations.
 
 <UseCaseContainer>
