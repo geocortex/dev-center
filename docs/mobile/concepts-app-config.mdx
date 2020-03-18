@@ -53,7 +53,8 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 <TabItem value="layout">
 
 ```xml
-<layout>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
     <map id="map-primary" config="default" />
 </layout>
 ```
@@ -88,7 +89,8 @@ The same config can be used for multiple items in a layout. For example, this al
 <TabItem value="layout">
 
 ```xml
-<layout>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
   <gxm:taskbar orientation="vertical">
     <panel grow="1">
         <stack margin="0.5">
@@ -154,7 +156,8 @@ TODO - this needs retesting
 <TabItem value="layout">
 
 ```xml
-<layout>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
     <gxm:taskbar orientation="vertical" id="taskbar">
         <map id="map-primary" config="default" slot="main">
             <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>

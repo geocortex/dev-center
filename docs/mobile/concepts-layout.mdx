@@ -16,8 +16,9 @@ A layout consists of declaritive XML that defines an applications visual structu
 Take this example of a layout with a map and a compass.
 
 ```xml
-<layout>
-    <map>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map id="myMap">
         <compass padding="0.5"/>
     </map>
 </layout>
@@ -42,8 +43,9 @@ The position of a component within it's parent is controlled by what slot it is 
 For example, this configuration will place the compass in the top right of the map.
 
 ```xml
-<layout>
-    <map>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map id="myMap">
         <compass padding="0.5" slot="top-right"/>
     </map>
 </layout>

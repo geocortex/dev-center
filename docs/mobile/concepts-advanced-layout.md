@@ -4,7 +4,7 @@ title: Advanced Layout
 description: Geocortex Mobile - Learn about Geocortex Mobile's advanced layout configuration options
 ---
 
-### Autocomplete Properties
+## Autocomplete Properties
 
 The `layout.xml` that comes with the [Quick Start](quick-start) references a xml schema. This XML schema allows Visual Studio to autocomplete property names and provide linting for types. Two attributes on the layout, `xmlns:xsi`, and `xsi:schemaLocation` allow this to happen. If you move the `layout.xml` files, you will need to adjust the relative reference to the layout schema for autocomplete to still function.
 
@@ -19,7 +19,7 @@ The `layout.xml` that comes with the [Quick Start](quick-start) references a xml
 </layout>
 ```
 
-### Implicit Binding
+## Implicit Binding
 
 In previous layout examples, layouts were shown where components related to a map, such a a compass, were nested within a map. It was assumed that the component would bind to the map it was placed in, but why?
 
@@ -91,16 +91,25 @@ Take this more complicated layout for example.
 
 This layout has components such as `<search/>` or `<gxm:add-feature/>` which require the context of a specific map to function. However, these components are **not** nested within the one `<map/>` component in the app. Therefore, they will start a breadth first search to discover a map component and bind to it.
 
-#### Implicit Config Binding
+### Implicit Config Binding
 
-TODO
+Most components support the [`config` attribute](concepts-app-config#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, some configuration types have a **default** value. This means that if you omit the `config` property for a component of that type, the component will attempt to create default config for the type. An example of defining default config can be seen in the `CreateDefault` method of the configuration created for [this use case](implement-component-participate-app-config#create-a-skeleton-app-config-definition). It's the mechanism that powers the default map for this layout.
 
-### Presentation Attributes
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map id="myMap">
+        <compass padding="0.5"/>
+    </map>
+</layout>
+```
+
+## Presentation Attributes
 
 Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. These presentation attributes are all accessible through [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), but can also be configured through layout.
 
 :::note
-Components also support the core attributes [`config`](concepts-app-config#linking-layout-to-app-config) and [`id`](concepts-app-config#targeting-components-with-by-id), as well as any custom attributes the component defines.
+Most components also support the core attribute [`config`](concepts-app-config#linking-layout-to-app-config) and all components support the [`id`](concepts-app-config#targeting-components-with-by-id) attribute, as well as any custom attributes the component defines.
 :::
 
 Several different presentations attributes are available. All attributes apply to all components unless otherwise stated.
@@ -117,7 +126,7 @@ Several different presentations attributes are available. All attributes apply t
 All dimensional units are expressed in 'em's, unless specified otherwise, where 1 em is equal to the current font size.
 :::
 
-#### Margin
+### Margin
 
 **Attribute name**: "margin".  
 **Expected value**: Either 0 or a positive number (integer or floating point).  
@@ -129,7 +138,7 @@ All dimensional units are expressed in 'em's, unless specified otherwise, where 
 <map margin="1.5"/> <!-- Sets the margin on a map to be equal to 1.5x the current font size -->
 ```
 
-#### Padding
+### Padding
 
 **Attribute name**: "padding".  
 **Expected value**: Either 0 or a positive number (integer or floating point).  
@@ -142,7 +151,7 @@ All dimensional units are expressed in 'em's, unless specified otherwise, where 
 <stack padding="0.5"/> <!-- Sets the padding on a stack to be equal to 0.5x the current font size -->
 ```
 
-#### Width and Height
+### Width and Height
 
 **Attribute name**: "width".  
 **Expected value**: Em units: Either 0 or a positive number (integer or floating point). Example: 12.
@@ -162,7 +171,7 @@ All dimensional units are expressed in 'em's, unless specified otherwise, where 
 <map width="30em" height="20"/>
 ```
 
-#### Grow
+### Grow
 
 **Attribute name**: "grow".  
 **Expected value**: Either 0 or a positive number (integer or floating point).  
@@ -188,7 +197,7 @@ The default value for a component varies by component. For most components, if n
 </stack>
 ```
 
-#### Alignment
+### Alignment
 
 **Attribute name**: "halign".  
 **Expected value**: One of: "start", "center", or "end"  
@@ -198,11 +207,7 @@ The default value for a component varies by component. For most components, if n
 **Expected value**: One of: "start", "center", or "end"  
 **Description**: Describes how the content of a component is aligned. For stacks and splits, the content is the child components. For a component like text, the content is the text itself.
 
-##### Effect on cross-axis stretching
+#### Effect on cross-axis stretching
 
 All components will stretch across the cross-axis if the corresponding alignment attribute (halign for stacks, valign for splits) is not set on the parent of that componet. But if a cross-axis alignment is set, then they will no longer stretch across the cross axis (otherwise the effect of alignment would not be observed).  
 Some components will stretch across the cross-axis even if the cross-axis alignment is set on the parent: map, stack, split.
-
-yes to all
-
-TODO - defining a web map inline vs referencing
