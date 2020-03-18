@@ -32,7 +32,7 @@ using Geocortex.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
-[assembly: Component(typeof(HarmlessComponent), "operation", XmlNamespace = XmlNamespaces.App1Namespace)]
+[assembly: Component(typeof(HarmlessComponent), "harmless-component", XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components
 {
     class HarmlessComponent : ComponentBase
@@ -47,6 +47,10 @@ namespace App1.Components
 
 :::info
 The two key components of this snippet are the `[assembly: Component(...)]` tag and the class extension `HarmlessComponent : ComponentBase`. These two pieces register the component with Geocortex Mobile and cause it to be initialized on startup.
+:::
+
+:::note
+It's convention for the name of the component in the [`layout`](concepts-layout) to be lower case and kebab case, i.e. `harmless-component`.
 :::
 
 ## Add the Component to your Layout

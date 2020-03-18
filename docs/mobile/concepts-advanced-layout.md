@@ -6,7 +6,7 @@ description: Geocortex Mobile - Learn about Geocortex Mobile's advanced layout c
 
 ### Autocomplete Properties
 
-The `layout.xml` that comes with the [Quick Start](quick-start) references a xml schema. This XML schema allows Visual Studio to autocomplete property names and provide linting for types. Two attributes on the layout, `xmlns:xsi`, and `xsi:schemaLocation` allow this to happen.
+The `layout.xml` that comes with the [Quick Start](quick-start) references a xml schema. This XML schema allows Visual Studio to autocomplete property names and provide linting for types. Two attributes on the layout, `xmlns:xsi`, and `xsi:schemaLocation` allow this to happen. If you move the `layout.xml` files, you will need to adjust the relative reference to the layout schema for autocomplete to still function.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -99,8 +99,11 @@ TODO
 
 Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. These presentation attributes are all accessible through [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), but can also be configured through layout.
 
+:::note
+Components also support the core attributes [`config`](concepts-app-config#linking-layout-to-app-config) and [`id`](concepts-app-config#targeting-components-with-by-id), as well as any custom attributes the component defines.
+:::
+
 Several different presentations attributes are available. All attributes apply to all components unless otherwise stated.
-TODO - test all the attributes to be sure
 
 -   Margin
 -   Padding
@@ -110,7 +113,7 @@ TODO - test all the attributes to be sure
 -   Horizontal alignment
 -   Vertical alignment
 
-:::info
+:::note
 All dimensional units are expressed in 'em's, unless specified otherwise, where 1 em is equal to the current font size.
 :::
 
@@ -202,16 +205,4 @@ Some components will stretch across the cross-axis even if the cross-axis alignm
 
 yes to all
 
-TODO - all the xmlns stuff in the top of a layout file
-
-TODO Icons? link to elsewhere?
-
-TODO GMV component?
-
-TODO - defining a web map inline vs referencing?
-
-TODO portal extension component?
-
-TODO branding component?
-
-TODO licensing component?
+TODO - defining a web map inline vs referencing

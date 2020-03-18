@@ -4,6 +4,7 @@ title: App Config
 description: Geocortex Mobile - Learn about how to Geocortex Mobile's configuration concepts
 ---
 
+import AppItemSnippet from "./app-item-snippet.md";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
@@ -33,7 +34,7 @@ App config files are composed of two main components:
 1. High level configuration values
 2. Configuration for individual **app items**
 
-App items can potentially be anything; they represent a type of item that the viewer is aware of and knows how to locate and load. In respect to Mobile, they usually they represent configuration for components, maps, portal items, or shared data. All item app configuration is specified within the `items` array of the **`app.json`** file.
+<AppItemSnippet />
 
 ## Linking Layout to App Config
 
