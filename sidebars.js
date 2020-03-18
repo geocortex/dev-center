@@ -84,7 +84,7 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: ["mobile/api-overview", "mobile/api-commands-operations"],
+            items: ["mobile/api-overview", "mobile/api-commands-operations", "mobile/api-events"],
         },
     ],
 };
