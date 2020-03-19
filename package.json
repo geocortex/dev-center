@@ -5,6 +5,7 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "lint": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy"
   },
@@ -17,7 +18,8 @@
     "pretty-quick": "^2.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "remark-external-links": "^5.0.0"
+    "remark-cli": "^7.0.1",
+    "remark-validate-links": "^9.2.0"
   },
   "browserslist": {
     "production": [

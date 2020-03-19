@@ -68,8 +68,8 @@ module.exports = {
             "@docusaurus/preset-classic",
             {
                 docs: {
-                    sidebarPath: require.resolve("./sidebars.js"),
                     editUrl: "https://github.com/geocortex/dev-center/edit/master/",
+                    sidebarPath: require.resolve("./sidebars.js"),
                 },
                 theme: {
                     customCss: require.resolve("./src/css/custom.css"),
