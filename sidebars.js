@@ -18,9 +18,9 @@ module.exports = {
                     type: "category",
                     label: "Basics",
                     items: [
+                        "mobile/change-default-behaviour",
                         "mobile/look-feel",
                         "mobile/add-medium-layout",
-                        "mobile/change-default-behaviour",
                         "mobile/internationalization",
                     ],
                 },
@@ -51,7 +51,7 @@ module.exports = {
             type: "category",
             label: "Concepts",
             items: [
-                "mobile/key-concepts",
+                "mobile/concepts-key-concepts",
                 "mobile/concepts-layout",
                 "mobile/concepts-app-config",
                 "mobile/concepts-commands-operations",

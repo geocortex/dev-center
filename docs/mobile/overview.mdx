@@ -9,34 +9,36 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import classnames from "classnames";
 import DesignerCallout from "./snippets/designer-callout.mdx";
 
-Geocortex Mobile is a framework for configuring and building mobile offline-capable custom apps on Esri's platform. Geocortex Mobile is part of the [Geocortex 5-series suite of products](https://www.geocortex.com/products/).
+Geocortex Mobile is a framework for configuring and building mobile offline-capable custom apps on Esri's platform. Geocortex Mobile is part of the [Geocortex suite of products](https://www.geocortex.com/products/).
 
 You can use the Geocortex Mobile framework to build mobile, offline-capable apps that can run on Android, iOS, or Windows platforms. Geocortex Mobile apps make it possible to pan and zoom the map, search for features, review attributes, add and edit features, add attachments, and track your movements in real time. Integration with [Geocortex Workflow](../workflow/overview) ensures that you can build apps for many business processes. Geocortex Mobile apps can be used in the field to collect data, including photos and documents that can be attached to the map, perform inspections, or add and edit ArcGIS features.
 
-Geocortex Mobile Framework was designed to be highly configurable out of the box. The Framework is made up of the Geocortex Mobile Viewer, which provides the runtime for mobile applications, and the [Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), which provides a powerful interface to configure and deploy Geocortex Mobile Applications.
+Geocortex Mobile Framework was designed to be highly configurable out of the box. The Framework is made up of the Geocortex Mobile Viewer, which provides the runtime for mobile applications, and the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), which provides a powerful interface to configure and deploy Geocortex Mobile Applications.
 
 <DesignerCallout />
 
 ## Start with your Use Case
 
+<!-- TODO: Clarify the distinction between these first two cases -->
+
 <UseCaseContainer>
     <UseCaseCard
-        title="Customize the look and feel."
-        description="Change the appearance of your application with themes and configuration"
-        link="look-feel"
-    />
-    <UseCaseCard
-        title="Configure custom behaviour with built in commands and operations."
-        description="Extend app functionality using Geocortex Mobile's built in commands and operations"
-        link="concepts-commands-operations"
-    />
-    <UseCaseCard
-        title="Change or extend built in behaviour."
+        title="Change or extend built in behaviour"
         description="Change the default behaviour of map clicks, map initialization, and more"
         link="change-default-behaviour"
     />
     <UseCaseCard
-        title="Take custom behaviour even further with Workflow."
+        title="Configure custom behaviour with built in commands and operations"
+        description="Extend app functionality using Geocortex Mobile's built in commands and operations"
+        link="concepts-commands-operations"
+    />
+    <UseCaseCard
+        title="Customize the look and feel"
+        description="Change the appearance of your application with themes and configuration"
+        link="look-feel"
+    />
+    <UseCaseCard
+        title="Take custom behaviour even further with Workflow"
         description="Use Geocortex Workflow to configure custom behaviour for button presses, application startup, map clicks and more"
         link="change-default-search-behaviour"
     />
@@ -47,11 +49,11 @@ Geocortex Mobile Framework was designed to be highly configurable out of the box
 <UseCaseContainer>
     <UseCaseCard
         title="Implement a custom form element with Geocortex Workflow"
-        description="Extend Geocortex Workflow forms with custom ui and functionality"
+        description="Extend Geocortex Workflow forms with custom UI and functionality"
         link="implement-custom-workflow-form-element"
     />
     <UseCaseCard
-        title="Create a custom activity with Geocortex Workflow."
+        title="Create a custom activity with Geocortex Workflow"
         description="Define custom behaviour in Geocortex Workflow that can be leveraged in Geocortex Mobile"
         link="implement-workflow-activity"
     />
@@ -61,13 +63,13 @@ Geocortex Mobile Framework was designed to be highly configurable out of the box
         link="implement-command-operation"
     />
     <UseCaseCard
-        title="Create UI elements with custom components."
-        description="Create fully custom UI components that can be consumed by Geocortex Mobile apps"
+        title="Create UI elements with custom components"
+        description="Create fully custom UI components that can be used in Geocortex Mobile apps"
         link="implement-component-with-ui"
     />
     <UseCaseCard
-        title="Extend Geocortex Mobile's capabilities with custom services."
-        description="Build globally available services which can provide utility functions, do background work, and more."
+        title="Extend Geocortex Mobile's capabilities with custom services"
+        description="Create background services which can provide utility functions, do background work, and more"
         link="implement-service"
     />
 </UseCaseContainer>
