@@ -3,6 +3,7 @@ title: App Config for a Component
 description: Geocortex Mobile - Learn how to make a component participate in app config.
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseCard from "../../src/components/UseCaseCard";
@@ -180,7 +181,7 @@ Configuration can be defined in the [app json](quick-start.mdx#editing-the-layou
 
 </TabItem>
 <TabItem value="ui">
-    <img src="/img/custom-configuration-final.png"/>
+    <img src={useBaseUrl("img/custom-configuration-final.png")}/>
 </TabItem>
 </Tabs>
 

@@ -3,12 +3,13 @@ title: App Config
 description: Geocortex Mobile - Learn about how to Geocortex Mobile's configuration concepts
 ---
 
-import AppItemSnippet from "./snippets/app-item.mdx";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
+import AppItemSnippet from "./snippets/app-item.mdx";
 
 :::note Before learning about app config...
 Check out the [Key Concepts](concepts-key-concepts.mdx).
@@ -136,7 +137,7 @@ The same config can be used for multiple items in a layout. For example, this al
 
 </TabItem>
 <TabItem value="ui">
-  <img src="/img/layout-multi-component-config.png"/>
+  <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
 </TabItem>
 </Tabs>
 
@@ -227,7 +228,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 
 </TabItem>
 <TabItem value="ui">
-  <img src="/img/layout-id-targeting.png"/>
+  <img src={useBaseUrl("img/layout-id-targeting.png")}/>
 </TabItem>
 </Tabs>
 
@@ -307,7 +308,7 @@ In the following example, the app structures a menu with one button, and the lay
 
   </TabItem>
   <TabItem value="ui">
-    <img src="/img/iwtm-config-example.png" />
+    <img src={useBaseUrl("img/iwtm-config-example.png")} />
   </TabItem>
 </Tabs>
 

@@ -3,11 +3,12 @@ title: Commands and Operations
 description: Geocortex Mobile - Learn about commands and operations
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 import DemoVideo from "../../src/components/DemoVideo";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
 
 :::note Before learning about commands and operations...
 Check out the [Key Concepts](concepts-key-concepts.mdx).
@@ -167,7 +168,7 @@ This will override the default arugment passing behaviour for that command or op
 
 </TabItem>
 <TabItem value="ui">
-  <DemoVideo src="/video/commands-operations-demo.webm" />
+  <DemoVideo src={useBaseUrl("video/commands-operations-demo.webm")} />
 </TabItem>
 </Tabs>
 

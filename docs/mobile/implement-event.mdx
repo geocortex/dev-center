@@ -3,9 +3,10 @@ title: Custom Event
 description: Geocortex Mobile - Learn how to implement a custom event
 ---
 
-import DemoVideo from "../../src/components/DemoVideo";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import DemoVideo from "../../src/components/DemoVideo";
 import AutofacSnippet from "./snippets/autofac.mdx";
 import PrereqsSnippet from "./snippets/prereqs.mdx";
 
@@ -300,7 +301,7 @@ namespace App1.Services
 
 </TabItem>
 <TabItem value="ui">
-    <DemoVideo src="/video/event-timer.webm"/>
+    <DemoVideo src={useBaseUrl("video/event-timer.webm")} />
 </TabItem>
 </Tabs>
 

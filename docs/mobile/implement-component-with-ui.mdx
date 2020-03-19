@@ -3,12 +3,13 @@ title: Custom Component with a Visual Interface
 description: Geocortex Mobile - Learn how to implement a custom component with a visual interface
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 import DemoVideo from "../../src/components/DemoVideo";
 import AutofacSnippet from "./snippets/autofac.mdx";
 import PrereqsSnippet from "./snippets/prereqs.mdx";
 import DoomsdayCookieClickerViewModel from "./snippets/doomsday-cookie-clicker-view-model.mdx";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
 
 :::tip
 Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
@@ -96,7 +97,7 @@ Now that the `custom` namespace has been added, the component can be added to th
 
 </TabItem>
 <TabItem value="ui">
-    <img src="/img/custom-component-with-ui-first-pass.png" alt="Custom Component with Text Block"/>
+    <img src={useBaseUrl("img/custom-component-with-ui-first-pass.png")} alt="Custom Component with Text Block"/>
 </TabItem>
 </Tabs>
 
@@ -325,7 +326,7 @@ namespace App1.Components
 
 </TabItem>
 <TabItem value="ui">
-    <DemoVideo src="/video/component-with-ui-demo.webm" />
+    <DemoVideo src={useBaseUrl("video/component-with-ui-demo.webm")} />
 </TabItem>
 </Tabs>
 
