@@ -12,10 +12,10 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 :::note Before learning about app config...
-Check out the [Key Concepts](concepts-key-concepts).
+Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-While [layouts](layout) depict the visual structure of how components are going to appear in the viewer, **app config** is used to define the functional structure within a given component.
+While [layouts](layout.mdx) depict the visual structure of how components are going to appear in the viewer, **app config** is used to define the functional structure within a given component.
 
 -   Think of the app config as the structural materials for building a house (wood, bricks, etc.) and the layout as the blueprints for the house.
 
@@ -24,7 +24,7 @@ While [layouts](layout) depict the visual structure of how components are going 
 Every component within the viewer that requires functional, compositional content needs to be configured within the viewer's corresponding app config.
 
 :::tip Want to follow along?
-Check out the [Quick Start](quick-start) and [edit the default app config and layout](quick-start#editing-the-layout-and-app-config).
+Check out the [Quick Start](quick-start.mdx) and [edit the default app config and layout](quick-start.mdx#editing-the-layout-and-app-config).
 :::
 
 ## Anatomy of an App config.
@@ -41,7 +41,7 @@ App config files are composed of two main components:
 Every component in the layout can be linked to app config with the `config` attribute. The `config` attribute is used to identify the item in the app config that has configuration for the component.
 
 :::note
-If you do not provide a `config` attribute for a component, Geocortex Mobile will attempt to [infer a default value](concepts-advanced-layout#implicit-config-binding).
+If you do not provide a `config` attribute for a component, Geocortex Mobile will attempt to [infer a default value](concepts-advanced-layout.mdx#implicit-config-binding).
 :::
 
 <Tabs
@@ -143,7 +143,7 @@ The same config can be used for multiple items in a layout. For example, this al
 
 ## Targeting Components with by ID
 
-Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](concepts-commands-operations) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
+Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](concepts-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
 
 <Tabs
   defaultValue="layout"
@@ -233,7 +233,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 </Tabs>
 
 :::note
-This example uses [commands and operation](concepts-commands-operations) to power it's behaviour.
+This example uses [commands and operation](concepts-commands-operations.mdx) to power it's behaviour.
 :::
 
 ## Example: Basic App Config with IWTM

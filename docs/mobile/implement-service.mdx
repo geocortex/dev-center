@@ -8,7 +8,7 @@ import PrereqsSnippet from "./snippets/prereqs.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-When extending Geocortex Mobile, you may find yourself creating multiple [components](concepts-components-services#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](concepts-components-services#services).
+When extending Geocortex Mobile, you may find yourself creating multiple [components](concepts-components-services.mdx#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](concepts-components-services.mdx#services).
 Implementing a custom service in Mobile allows you to implement logic and shared resources that are available on startup to any component.
 
 <PrereqsSnippet />
@@ -56,7 +56,7 @@ Congradulations! You've created your first working service. This service is avai
 This custom service mimics a fetch of new data every five seconds, and implements an operation which allows components to access the data. If you run this custom service, you can see each fetch of data logged at a debug level.
 
 :::important
-All services should dispose of long held memory or other resources by implementing `Dispose`. For more information, see [memory leaks](memory-leaks)
+All services should dispose of long held memory or other resources by implementing `Dispose`. For more information, see [memory leaks](memory-leaks.mdx)
 :::
 
 <Tabs defaultValue="service"

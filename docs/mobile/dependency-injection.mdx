@@ -8,12 +8,12 @@ description: Geocortex Mobile - Learn about dependency injection in Geocortex Mo
 If your new to the concepts of **inversion of control** and **dependency injection**, check out [this article by Martin Fowler](https://martinfowler.com/articles/injection.html)
 :::
 
-Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into it's [components and services](concepts-components-services). Under the hood, Geocortex Mobile uses [autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
+Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into it's [components and services](concepts-components-services.mdx). Under the hood, Geocortex Mobile uses [autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
 
 1. The class to be injected must register itself with the autofac container
 2. The class that requires the dependency must accept a concrete class or abstract interface in it's constructor as a placeholder for the injected class.
 
-A good example of this pattern is the `AlertOperations` class in the [commands and operation](implement-command-operation) use case.
+A good example of this pattern is the `AlertOperations` class in the [commands and operation](implement-command-operation.mdx) use case.
 
 ```csharp
 using App1.Services.AlertOperations;
@@ -58,7 +58,7 @@ namespace App1.Services
 
 ## Components and Services
 
-Components and services in Geocortex Mobile are almost always initialized by autofac. This means that they can inject any class that has been registered with autofac in their constructor, allowing classes used for behaviour like [commands and operations](concepts-commands-operations) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with autofac to be correctly initialized, and it is best practice to use dependency injection to initalize instances of any other custom classes, services or components that the root level component depends on.
+Components and services in Geocortex Mobile are almost always initialized by autofac. This means that they can inject any class that has been registered with autofac in their constructor, allowing classes used for behaviour like [commands and operations](concepts-commands-operations.mdx) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with autofac to be correctly initialized, and it is best practice to use dependency injection to initalize instances of any other custom classes, services or components that the root level component depends on.
 
 ## List of Registration Assembly Attributes
 
@@ -76,7 +76,7 @@ Used for registering a generic class with autofac.
 
 ### `Component`
 
-Used for registering a component that **does not** consume configuration. For a more detailed example, see the use case on [implementing a custom component](implement-component-with-ui#create-a-component-skeleton).
+Used for registering a component that **does not** consume configuration. For a more detailed example, see the use case on [implementing a custom component](implement-component-with-ui.mdx#create-a-component-skeleton).
 
 #### Example
 
@@ -86,7 +86,7 @@ Used for registering a component that **does not** consume configuration. For a 
 
 ### `AppItemComponent`
 
-Used for registering a component that **does** consume configuration. For a more detailed example, see the use case on [implementing a custom component with configuration](implement-component-participate-app-config#consume-the-configuration-in-the-component).
+Used for registering a component that **does** consume configuration. For a more detailed example, see the use case on [implementing a custom component with configuration](implement-component-participate-app-config.mdx#consume-the-configuration-in-the-component).
 
 #### Example
 
@@ -96,7 +96,7 @@ Used for registering a component that **does** consume configuration. For a more
 
 ### `Service`
 
-Used for registering a service. For a more detailed example, see the use case on [implementing a custom service](implement-service#create-a-new-service).
+Used for registering a service. For a more detailed example, see the use case on [implementing a custom service](implement-service.mdx#create-a-new-service).
 
 #### Example
 
@@ -106,7 +106,7 @@ Used for registering a service. For a more detailed example, see the use case on
 
 ### `AppItem`
 
-Used for registering the definition for an [app item](concepts-app-config#anatomy-of-an-app-config) with Geocortex Mobile. For a more detailed example, see the use case on [implementing a custom component with app configuration](implement-component-participate-app-config#create-a-skeleton-app-config-definition).
+Used for registering the definition for an [app item](concepts-app-config.mdx#anatomy-of-an-app-config) with Geocortex Mobile. For a more detailed example, see the use case on [implementing a custom component with app configuration](implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
 
 #### Example
 
@@ -116,7 +116,7 @@ Used for registering the definition for an [app item](concepts-app-config#anatom
 
 ### `View`
 
-Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](implement-component-with-ui#use-xaml-to-define-your-ui).
+Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](implement-component-with-ui.mdx#use-xaml-to-define-your-ui).
 
 #### Example
 
@@ -126,7 +126,7 @@ Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-f
 
 ### `ViewModel`
 
-Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](implement-component-with-ui#example-doomsday-cookie-clicker).
+Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](implement-component-with-ui.mdx#example-doomsday-cookie-clicker).
 
 #### Example
 

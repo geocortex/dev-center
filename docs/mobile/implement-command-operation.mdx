@@ -10,7 +10,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
 :::tip
-Geocortex Mobile has many built in [Commands and Operations](concepts-commands-operations) which can be chained together to build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](change-default-search-behaviour) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+Geocortex Mobile has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](change-default-search-behaviour.mdx) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
 This article will walk you through implementing a custom command in Geocortex Mobile that displays an alert.
@@ -19,7 +19,7 @@ This article will walk you through implementing a custom command in Geocortex Mo
 
 ## Create the Backing Service
 
-Every Command or operation in Geocortex Mobile needs to be registered and implemented by a [service or component](concepts-components-services), so the first thing we will do is create a service.
+Every Command or operation in Geocortex Mobile needs to be registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
 2. In the file, add a new service class `AlertService` and register it with **autofac**
@@ -159,7 +159,7 @@ class AlertService : ServiceBase
 Multiple implementations can be registered for an Command or Operation.
 :::
 
-Congradulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](change-default-behaviour).
+Congradulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](change-default-behaviour.mdx).
 
 ```json
 {

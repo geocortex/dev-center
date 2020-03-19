@@ -8,11 +8,11 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsSnippet from "./snippets/prereqs.mdx";
 
-Geocortex Mobile comes with search functionality out of the box. The default behaviour will return results from all enabled layers that can be searched on the map. What if you want to replace the functionality with your own search? Or filter the results returned by the default search? [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) can't accomplish this, but it can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config).
+Geocortex Mobile comes with search functionality out of the box. The default behaviour will return results from all enabled layers that can be searched on the map. What if you want to replace the functionality with your own search? Or filter the results returned by the default search? [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) can't accomplish this, but it can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
 
 ## What your Building
 
-We will modify the default search behaviour of the [Quick Start](quick-start) application on the Fire Hydrants layer have have an optional filter that will only show fire hydrants without a hydrants survey.
+We will modify the default search behaviour of the [Quick Start](quick-start.mdx) application on the Fire Hydrants layer have have an optional filter that will only show fire hydrants without a hydrants survey.
 
 ![Search Workflow with Alert](/img/custom-search-workflow-finished.png)
 
@@ -29,7 +29,7 @@ You should see some number of results. If you look at the details for some of th
 
 ## Setup the Workflow to Run on Search
 
-The first thing we need to do is override the default search behaviour. We can do this by editing the "Search" component of the [app config](quick-start#editing-the-layout-and-config). The default behaviour for search is a command chain that runs `tasks.search` and then `results.display`.
+The first thing we need to do is override the default search behaviour. We can do this by editing the "Search" component of the [app config](quick-start.mdx#editing-the-layout-and-config). The default behaviour for search is a command chain that runs `tasks.search` and then `results.display`.
 
 ###### Default Search Config
 
@@ -51,7 +51,7 @@ We are going to replace the command chain with a `workflow.run` command that rep
 
 ![Workflow URL with ID](/img/custom-search-workflow-url.png)
 
-4. Add the workflow as an app item to your [app config](quick-start#editing-the-layout-and-app-config).
+4. Add the workflow as an app item to your [app config](quick-start.mdx#editing-the-layout-and-app-config).
 
 ```json
 {
@@ -100,7 +100,7 @@ We are going to replace the command chain with a `workflow.run` command that rep
 8. Save the workflow and reload the application. Test the search functionality and ensure it works as it originally did.
 
 :::tip
-Check out [Change Default Application Behaviour](./change-default-behaviour) for more ways to override default behaviour like search.
+Check out [Change Default Application Behaviour](change-default-behaviour.mdx) for more ways to override default behaviour like search.
 :::
 
 ## Extend the Workflow to Filter the Results.
