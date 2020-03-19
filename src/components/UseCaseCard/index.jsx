@@ -13,9 +13,9 @@ export default function UseCaseCard({ title, description, link }) {
                     <p>{description}</p>
                 </div>
                 <div className="card__footer">
-                    <button className="button button--secondary button--block">
-                        <a href={link}>Get Started</a>
-                    </button>
+                    <a className="button button--secondary button--block" href={link}>
+                        Get Started
+                    </a>
                 </div>
             </div>
         </div>
