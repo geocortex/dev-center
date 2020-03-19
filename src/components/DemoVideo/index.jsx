@@ -1,8 +1,15 @@
 import React from "react";
 
-export default function DemoVideo({ src }){
-    return <video loop muted controls preload="none">
-        <source src={src} type="video/webm"/>
-        Your browser does not support the video tag.
-    </video>
+// TODO: Define rules for presenting videos:
+// - Specified size?
+// - No audio (will also shrink file size)
+// - Specific format only (webm)?
+// - Best tool to record and the recording paramaters to use (quality, etc)
+export default function DemoVideo({ src }) {
+    return (
+        <video autoPlay loop muted>
+            <source src={src} type="video/webm" />
+            Your browser does not support the video tag.
+        </video>
+    );
 }
