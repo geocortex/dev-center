@@ -1,7 +1,7 @@
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import classnames from "classnames";
 import React from "react";
-import styles from "./productCard.module.css";
+import styles from "./index.module.css";
 import Link from "@docusaurus/Link";
 
 export default function ProductCard({ imageUrl, title, description, link }) {
@@ -12,8 +12,8 @@ export default function ProductCard({ imageUrl, title, description, link }) {
                     <img src={useBaseUrl(imageUrl)} alt={title} title={title} />
                 </div>
                 <div className="card__body">
-                    <h4>{title}</h4>
-                    <small>{description}</small>
+                    <h3>{title}</h3>
+                    <div>{description}</div>
                 </div>
             </div>
         </Link>

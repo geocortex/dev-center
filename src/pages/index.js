@@ -1,5 +1,5 @@
 import React from "react";
-import classnames from "classnames";
+import classNames from "classnames";
 import Layout from "@theme/Layout";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
@@ -30,16 +30,18 @@ const products = [
 ];
 
 function Home() {
-    const context = useDocusaurusContext();
-    const { siteConfig = {} } = context;
+    const { siteConfig = {} } = useDocusaurusContext();
     return (
         <Layout
             title={`${siteConfig.title}`}
             description="Developer documentation and code samples for Geocortex Products."
         >
-            <header className={classnames("hero hero--primary", styles.heroBanner)}>
+            <header className={classNames("hero hero--primary", styles.heroBanner)}>
                 <div className="container">
                     <h1 className="hero__title">Geocortex Developer Center</h1>
+                    <h2 className="hero__subtitle">
+                        Extend your Geocortex applications to build virtually anything!
+                    </h2>
                 </div>
             </header>
             <main>

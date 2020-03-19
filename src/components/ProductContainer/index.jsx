@@ -1,6 +1,6 @@
 import classnames from "classnames";
 import React from "react";
-import styles from "./productContainer.module.css";
+import styles from "./index.module.css";
 
 export default function ProductContainer({ children }) {
     return (

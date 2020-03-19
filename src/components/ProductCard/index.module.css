@@ -3,8 +3,8 @@
     margin-right: var(--ifm-spacing-horizontal);
     margin-top: var(--ifm-spacing-vertical);
     margin-bottom: var(--ifm-spacing-vertical);
-    height: 22em;
-    max-width: 21em;
+    height: 23rem;
+    max-width: 21rem;
     color: unset;
     text-decoration: none;
 }
@@ -22,12 +22,10 @@
 .productCard:hover,
 .productCard:focus {
     box-shadow: 2px 3px 6px 2px rgba(0, 0, 0, 0.23);
-    transform: translateY(-0.25em);
 }
 
 .productImage {
-    --side-margin: 5em;
-    margin-left: var(--side-margin);
-    margin-right: var(--side-margin);
-    margin-top: 1em;
+    margin: 1rem auto 1rem auto;
+    width: 9.5rem;
+    height: 9.5rem;
 }

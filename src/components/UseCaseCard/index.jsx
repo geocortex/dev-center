@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import styles from "./useCaseCard.module.css";
+import styles from "./index.module.css";
 
 export default function UseCaseCard({ title, description, link }) {
     return (
