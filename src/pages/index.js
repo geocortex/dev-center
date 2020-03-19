@@ -8,31 +8,23 @@ import ProductCard from "../components/ProductCard";
 
 const products = [
     {
-        title: <>Geocortex Web</>,
+        title: "Geocortex Web",
         imageUrl: "img/web-viewer-product-icon.svg",
-        description: (
-            <>
-                Combine the 3D and 2D capabilities of Esri’s latest JavaScript API to deliver
-                cutting-edge mapping applications.
-            </>
-        ),
+        description:
+            "Combine the 3D and 2D capabilities of Esri’s latest JavaScript API to deliver cutting-edge mapping applications.",
         link: "docs/web/overview",
     },
     {
-        title: <>Geocortex Mobile</>,
+        title: "Geocortex Mobile",
         imageUrl: "img/mobile-viewer-product-icon.svg",
-        description: <>Develop field data collection apps and run them online or offline.</>,
+        description: "Develop field data collection apps and run them online or offline.",
         link: "docs/mobile/overview",
     },
     {
-        title: <>Geocortex Workflow</>,
+        title: "Geocortex Workflow",
         imageUrl: "img/workflow-product-icon.svg",
-        description: (
-            <>
-                Extend your Geocortex and Web AppBuilder for ArcGIS® applications by turning
-                sophisticated business processes into a set of simple, guided end-user interactions.
-            </>
-        ),
+        description:
+            "Extend your Geocortex and Web AppBuilder for ArcGIS® applications by turning sophisticated business processes into a set of simple, guided end-user interactions.",
         link: "docs/workflow/overview",
     },
 ];
