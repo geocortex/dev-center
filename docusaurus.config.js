@@ -3,7 +3,7 @@ module.exports = {
     title,
     tagline: "by developers, for developers",
     url: "https://geocortex.github.io/",
-    baseUrl: "/",
+    baseUrl: "/dev-center/",
     favicon: "img/favicon.png",
     organizationName: "geocortex", // Usually your GitHub org/user name.
     projectName: "dev-center", // Usually your repo name.
