@@ -22,6 +22,7 @@ module.exports = {
         },
         footer: {
             style: "dark",
+            copyright: `Copyright © ${new Date().getFullYear()} Latitude Geographics Group Ltd. All rights reserved.`,
             links: [
                 {
                     title: "About",
@@ -35,7 +36,7 @@ module.exports = {
                             to: "https://docs.geocortex.com",
                         },
                         {
-                            label: "Geocortex Github",
+                            label: "GitHub",
                             to: "https://github.com/geocortex/dev-center",
                         },
                     ],
