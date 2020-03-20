@@ -1,7 +1,8 @@
 import React from "react";
 import classNames from "classnames";
-import Layout from "@theme/Layout";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
 import styles from "./index.module.css";
 import ProductContainer from "../components/ProductContainer";
 import ProductCard from "../components/ProductCard";
@@ -36,7 +37,12 @@ function Home() {
             title={`${siteConfig.title}`}
             description="Developer documentation and code samples for Geocortex Products."
         >
-            <header className={classNames("hero hero--primary", styles.heroBanner)}>
+            <header
+                className={classNames("hero hero--primary", styles.heroBanner)}
+                // TODO: Find out correct approach to use this in CSS file,
+                // as it wasn't taking baseUrl into account.
+                style={{ backgroundImage: `url("${useBaseUrl("img/geocortex-rocket.png")}")` }}
+            >
                 <div className="container">
                     <h1 className="hero__title">Geocortex Developer Center</h1>
                     <h2 className="hero__subtitle">
