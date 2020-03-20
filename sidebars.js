@@ -7,7 +7,46 @@
 
 module.exports = {
     web: ["web/overview"],
-    workflow: ["workflow/overview"],
+    workflow: [
+        "workflow/overview",
+        {
+            type: "category",
+            label: "Use Cases",
+            items: [
+                "workflow/implement-custom-form-elements",
+                "workflow/implement-custom-activity",
+                "workflow/reference-third-party-library",
+            ],
+        },
+        {
+            type: "category",
+            label: "Concepts",
+            items: [
+                "workflow/concepts-key-concepts",
+                "workflow/concepts-activity-packs",
+                "workflow/concepts-workflow-activities-form-elements",
+                "workflow/concepts-workflow-items",
+                "workflow/concepts-server-client-workflows",
+            ],
+        },
+        {
+            type: "category",
+            label: "Getting Started with the SDK",
+            items: [
+                "workflow/sdk-overview",
+                "workflow/getting-started-web",
+                "workflow/getting-started-dotnet",
+                "workflow/getting-started-geocortex-web",
+                "workflow/getting-started-wab",
+                "workflow/getting-started-mobile",
+            ],
+        },
+        {
+            type: "category",
+            label: "API",
+            items: ["workflow/workflow-server-api"],
+        },
+    ],
     mobile: [
         "mobile/overview",
         {
