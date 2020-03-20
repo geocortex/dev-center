@@ -1,7 +1,7 @@
 .heroBanner {
     text-align: center;
     height: 700px;
-    background-image: url("/img/geocortex-rocket.png");
+    background-image: url("img/geocortex-rocket.png");
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: top;
