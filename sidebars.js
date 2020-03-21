@@ -13,8 +13,8 @@ module.exports = {
             type: "category",
             label: "Use Cases",
             items: [
-                "workflow/implement-custom-form-elements",
                 "workflow/implement-custom-activity",
+                "workflow/implement-custom-form-elements",
                 "workflow/reference-third-party-library",
             ],
         },
@@ -35,10 +35,8 @@ module.exports = {
             items: [
                 "workflow/sdk-overview",
                 "workflow/getting-started-web",
-                "workflow/getting-started-dotnet",
-                "workflow/getting-started-geocortex-web",
-                "workflow/getting-started-wab",
                 "workflow/getting-started-mobile",
+                "workflow/getting-started-server",
             ],
         },
         {
