@@ -13,7 +13,9 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 
 Implementing a custom [activity](concepts-workflow-activities-form-elements.mdx#activities) allows you to a build a reusable, completely custom behaviour to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
 
-For workflows targeting Web Applications like Geocortex Web, Geocortex Viewer for HTML or Web App Builder, activities are implemented in Typescript.
+## Scope
+
+This article applies to any web application that uses the TypeScript workflow runtime, such as Geocortex Web, Geocortex Viewer for HTML5, and Web App Builder.
 
 <WebPrereqs />
 
@@ -83,8 +85,6 @@ The `npm run activity` script creates a custom activity with some dummy inputs a
 
 The follow activity will calculate the log of a number with a given (optional) base.
 
-TODO - actually test this.
-
 ```typescript
 export interface CalculateLogInputs {
     // @displayName Base
@@ -112,7 +112,8 @@ export class CalculateLog {
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         return {
-            result: Math.log(inputs.value) / inputs.base !== undefined ? Math.log(inputs.base) : 1,
+            result:
+                Math.log(inputs.value) / (inputs.base !== undefined ? Math.log(inputs.base) : 1),
         };
     }
 }
@@ -120,7 +121,7 @@ export class CalculateLog {
 
 ## Test and Deploy the Activity
 
-See the [SDK documentation](getting-started-web.mdx#building) for details.
+See the [SDK documentation](getting-started-web.mdx#building) for details on building and deploying your custom activities.
 
 ## Next Steps
 

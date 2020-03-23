@@ -1,12 +1,13 @@
 ---
-title: Web Applications SDK
+title: Getting Started with the Web Applications SDK
+sidebar_label: Getting Started
 ---
 
-The Geocortex Workflow for Web Applications SDK consists of a typescript project that eases development of workflow activities and custom form elements. It produces a [workflow activity pack](concepts-activity-packs.mdx) that can be consumed by web applications that use workflow.
+The Geocortex Workflow for Web Applications SDK consists of a TypeScript project that eases development of workflow activities and custom form elements. It produces a [workflow activity pack](concepts-activity-packs.mdx) that can be consumed by web applications that use workflow.
 
 ## Download
 
-You can download the Workflow Activity SDK for typescript [here.](https://apps.geocortex.com/workflow/latest/activity-sdk.zip)
+You can download the Workflow Activity SDK for TypeScript [here.](https://apps.geocortex.com/workflow/latest/activity-sdk.zip)
 
 ## Requirements
 
@@ -37,27 +38,34 @@ Check out [Implement Custom Activities for Web Applications](implement-custom-ac
 
 ## Deployment
 
-TODO - not sure if these are valid deployment instructions anymore - try them out
+Deploying workflow activities consists of two steps:
 
-## Deploy the Activity Pack
+1. Hosting the workflow activity pack on a server accessible to the Geocortex Workflow Designer
+2. Making the workflow activity pack known to Geocortex Workflow Designer and Workflow Applications by registering it.
 
+### Host the Activity Pack
+
+TODO
+
+-   Deploying with third party libraries - ryan said it breaks down if your deps have deps.
+
+The `dist` folder produced by running `npm run build` can be directly hosted with the webserver technology that is most appropiate for your use case, such as [IIS](https://www.iis.net/).
 Activity packs must be hosted by a web server that supports SSL and CORS.
-Ensure your server:
 
--   Has a valid SSL certificate.
--   Supports [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and allows CORS requests from the `https://apps.geocortex.com` origin.
-    -   Note: If you sign in to Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, `https://acme.apps.geocortex.com`.
+#### Server Requirements
 
-This allows:
+-   The server must have a valid SSL certificate.
+-   The server must support [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and allow CORS requests from the `https://apps.geocortex.com` origin.
 
--   Workflow Designer to read the list of custom activities and their metadata from the source .ts files (or source maps).
--   Applications to execute the custom activities at runtime using the output .js files.
+:::note
+If you sign in to Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, `https://acme.apps.geocortex.com`.
+:::
 
-There are several hosting options:
+Hosting workflow activity packs in this manner allows Workflow Designer to read the list of custom activities and their metadata from the source .ts files (or source maps).
 
-### Development Web Server
+#### Development Web Server
 
-This project includes an [Express](https://www.npmjs.com/package/express) web server that supports SSL and is suitable for most development purposes.
+For ease of development, this project includes an [Express](https://www.npmjs.com/package/express) web server that supports SSL and is suitable for most development purposes.
 
 To start the development web server and enable a compile-on-save watch task:
 
@@ -75,26 +83,15 @@ To start the development web server and enable a compile-on-save watch task:
     -   Replace the `.build/localhost.crt` and `.build/localhost.key` files with a known valid certificate.
 -   The development web server supports CORS requests from any origin by default.
 
-### IIS
+:::note
+As localhost is only accessible to your host machine, activity packs hosted in this manner will not be accesible to any other users.
+:::
 
-1. Ensure the IIS web site supports SSL and uses a valid SSL certificate.
-1. Ensure the web site or application supports CORS and allows CORS requests from the `https://apps.geocortex.com` origin.
-1. Do one of the following:
-
-    - Register the `dist` folder as a virtual directory or application in IIS.
-    - Create a virtual directory or application in IIS and copy the contents of the `dist` folder into it.
-
-### Another Web Server
-
-1. Ensure the web server supports SSL and uses a valid SSL certificate.
-1. Ensure the web server supports CORS and allows CORS requests from the `https://apps.geocortex.com` origin.
-1. Copy the contents of the `dist` folder to a virtual directory on the web server.
-
-## Register the Activity Pack
+### Register the Activity Pack
 
 To make an activity pack available to workflow authors in Workflow Designer you must create a special item in ArcGIS Online or Portal for ArcGIS that references it.
 
-1. Sign in to ArcGIS Online or Portal for ArcGIS (using the same account that you use to author workflows).
+1. Sign in to ArcGIS Online or Portal for ArcGIS.
 1. Go to **My Content**.
 1. Select **Add Item** > **An application**.
     - Type: `Web Mapping`.
@@ -104,3 +101,7 @@ To make an activity pack available to workflow authors in Workflow Designer you 
         - Use https://localhost:57999/ for the development server.
     - Title: Your desired title.
     - Tags: Must include `geocortex-workflow-activity-pack`.
+
+:::important
+The activity pack will **not** be registered unless it includes the tag `geocortex-workflow-activity-pack`. The item must also be accessible to whichever group of users you want the activity pack to be accessible too.
+:::
