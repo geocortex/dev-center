@@ -6,6 +6,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "lint": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
+    "prettier": "prettier --write \"**/*.{css,js,jsx,ts,tsx,md,mdx,json}\"",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy"
   },
@@ -14,7 +15,7 @@
     "@docusaurus/preset-classic": "^2.0.0-alpha.48",
     "classnames": "^2.2.6",
     "husky": "^4.2.3",
-    "prettier": "prettier/prettier",
+    "prettier": "2.0.1",
     "pretty-quick": "^2.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
