@@ -13,9 +13,33 @@ module.exports = {
             type: "category",
             label: "Use Cases",
             items: [
-                "workflow/implement-custom-activity",
-                "workflow/implement-custom-form-elements",
-                "workflow/reference-third-party-library",
+                {
+                    type: "category",
+                    label: "Web Applications",
+                    items: [
+                        "workflow/web-implement-custom-activity",
+                        "workflow/web-implement-custom-form-elements",
+                        "workflow/web-reference-third-party-library",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Geocortex Mobile",
+                    items: [
+                        "workflow/mobile-implement-custom-activity",
+                        "workflow/mobile-implement-custom-form-elements",
+                        "workflow/mobile-reference-third-party-library",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Geocortex Workflow Server",
+                    items: [
+                        "workflow/server-implement-custom-activity",
+                        "workflow/server-use-dotnetcore-features",
+                        "workflow/server-reference-third-party-library",
+                    ],
+                },
             ],
         },
         {
