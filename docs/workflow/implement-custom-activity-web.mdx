@@ -11,7 +11,7 @@ import ServerPrereqs from "./snippets/prereqs-server.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
-Implementing a custom [activity](concepts-workflow-activities-form-elements#activities) allows you to a build a reusable, completely custom behaviour to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
+Implementing a custom [activity](concepts-workflow-activities-form-elements.mdx#activities) allows you to a build a reusable, completely custom behaviour to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
 
 For workflows targeting Web Applications like Geocortex Web, Geocortex Viewer for HTML or Web App Builder, activities are implemented in Typescript.
 
@@ -77,7 +77,7 @@ export class CustomActivity {
 
 ## Implement the Activity
 
-The `npm run activity` script creates a custom activity with some dummy inputs and outputs. It also has examples of the various [decorators](typescript-activity-decorators) that are used to describe activity metadata. By changing the inputs, outputs, execute logic, and decorators, you can create your own custom activity that has an easy to use interface in the Geocortex Workflow Designer.
+The `npm run activity` script creates a custom activity with some dummy inputs and outputs. It also has examples of the various [decorators](typescript-activity-decorators.mdx) that are used to describe activity metadata. By changing the inputs, outputs, execute logic, and decorators, you can create your own custom activity that has an easy to use interface in the Geocortex Workflow Designer.
 
 ### Example: Logarithm of a Number
 
@@ -120,7 +120,7 @@ export class CalculateLog {
 
 ## Test and Deploy the Activity
 
-See the [SDK documentation](getting-started-web#building) for details.
+See the [SDK documentation](getting-started-web.mdx#building) for details.
 
 ## Next Steps
 
@@ -135,11 +135,11 @@ Now you know how to build a basic workflow activity for web applications. Next, 
     <UseCaseCard
         title="Reference other Third Party Libraries"
         description="Reference other third party libraries in your activities and form elements."
-        link="web-reference-third-party-library"
+        link="reference-third-party-library-web"
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
         description="Implement a custom form element for applications like Geocortex Web."
-        link="web-implement-custom-form-elements"
+        link="implement-custom-form-elements-web"
     />
 </UseCaseContainer>
