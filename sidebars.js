@@ -58,7 +58,15 @@ module.exports = {
             label: "Getting Started with the SDK",
             items: [
                 "workflow/sdk-overview",
-                "workflow/getting-started-web",
+                {
+                    type: "category",
+                    label: "Web Applications",
+                    items: [
+                        "workflow/getting-started-web",
+                        "workflow/integrating-the-esri-api-web",
+                        "workflow/typescript-activity-decorators",
+                    ],
+                },
                 "workflow/getting-started-mobile",
                 "workflow/getting-started-server",
             ],
