@@ -1,0 +1,35 @@
+```csharp
+using Geocortex.Workflow.Runtime;
+using Geocortex.Workflow.Runtime.Utils;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow.CustomActivity
+{
+    public class CalculateLog : IActivityHandler
+    {
+        public const string Action = "custom:wf:app::CalculateLog";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            var logBase = inputs.EnsureDouble("base");
+            var value = inputs.EnsureDoubleStrict("value");
+
+            double logResult;
+            if(logBase != null)
+            {
+                logResult = Math.Log(value, (double)logBase);
+            } else
+            {
+                logResult = Math.Log(value);
+            }
+
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>()
+            {
+                ["result"] = logResult
+            });
+        }
+    }
+}
+```

@@ -3,6 +3,7 @@ title: Implement a Custom Activity for Geocortex Mobile
 sidebar_label: Implement a Custom Activity
 ---
 
+import LogarithmActivitySnippet from "./snippets/logarithm-activity-dotnet.mdx";
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
 
 Implementing a custom [activity](concepts-workflow-activities-form-elements.mdx#activities) allows you to a build a reusable, completely custom behaviour to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
@@ -57,10 +58,10 @@ using Geocortex.Mobile.Composition;
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Definition;
 using Geocortex.Workflow.Runtime.Execution;
-using App1.Workflow.CustomActivity;
+using App1.Workflow;
 
 [assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
-namespace App1.Workflow.CustomActivity
+namespace App1.Workflow
 {
     public class ActivityLoader : IActivityHandlerFactory
     {
@@ -71,7 +72,7 @@ namespace App1.Workflow.CustomActivity
 
         public ActivityLoader()
         {
-            RegisteredActivities[CustomActivity.Action] = () => new CustomActivity();
+            RegisteredActivities[CalculateLog.Action] = () => new CalculateLog();
         }
 
         /// <summary>
@@ -113,52 +114,7 @@ We now have a useless activity that Geocortex Mobile can use that takes no input
 
 The follow activity will calculate the log of a number with a given (optional) base.
 
-```csharp
-using Geocortex.Workflow.Runtime;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace App1.Workflow.CustomActivity
-{
-    public class CustomActivity : IActivityHandler
-    {
-        public const string Action = "custom:wf:app::CustomActivity";
-
-        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
-        {
-            double? logBase = null;
-            if (inputs.TryGetValue("base", out var temp))
-            {
-                logBase = temp as double?;
-            }
-
-            double value;
-            if (inputs.TryGetValue("value", out var temp2))
-            {
-                value = (double)temp2;
-            } else
-            {
-                throw new ActivityInputException("value", "double");
-            }
-
-            double logResult;
-            if(logBase != null)
-            {
-                logResult = Math.Log(value, (double)logBase);
-            } else
-            {
-                logResult = Math.Log(value);
-            }
-
-            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>()
-            {
-                ["result"] = logResult
-            });
-        }
-    }
-}
-```
+<LogarithmActivitySnippet />
 
 ## Test and Deploy your Activity
 
