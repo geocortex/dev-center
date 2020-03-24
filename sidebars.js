@@ -27,6 +27,7 @@ module.exports = {
                     label: "Geocortex Mobile",
                     items: [
                         "workflow/implement-custom-activity-mobile",
+                        "workflow/register-dotnet-activities",
                         "workflow/implement-custom-form-elements-mobile",
                         "workflow/reference-third-party-library-mobile",
                     ],
@@ -36,6 +37,7 @@ module.exports = {
                     label: "Geocortex Workflow Server",
                     items: [
                         "workflow/implement-custom-activity-server",
+                        "workflow/register-dotnet-activities",
                         "workflow/use-dotnetcore-features-server",
                         "workflow/reference-third-party-library-server",
                     ],
