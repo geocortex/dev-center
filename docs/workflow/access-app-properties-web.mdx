@@ -1,0 +1,75 @@
+---
+title: Access App Properties in an Activity
+---
+
+## Prerequisites
+
+Learn how to build a [custom activity](implement-custom-activity-web.mdx) for web applications before reading this article.
+
+## App Activities
+
+Some activities may need access to resources like the map, the host application or host widget. An `AppActivity` base class is that can be used to extend an existing custom activity to access these resources.
+
+:::note
+Depending on the type of host application different resources will be available.
+:::
+
+1. Add an import for the `AppActivity` base class at the top of your activity .ts(x) file.  
+   `import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";`
+1. Modify the activity class declaration to extend the `AppActivity` base class.  
+   `export class CustomActivity extends AppActivity`
+1. Use the `map`, `app` or `widget` properties of the activity class within the `execute(inputs)` method.
+
+## Example: Custom Activity that Adds a Layer to the Map
+
+The following activity uses [Esri types](integrating-the-esri-api-web.mdx) and the `AppActivity` class to create a graphics layer and add it to the host's map. This activity assumes that it will be running in Geocortex Web, and so [it uses the Esri 4.X API](integrating-the-esri-api-web.mdx#swap-out-the-default-esri-3x-api-for-the-4x-api).
+
+```typescript
+import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
+import Map = require("esri/Map");
+import Graphic = require("esri/Graphic");
+import GraphicsLayer = require("esri/layers/GraphicsLayer");
+import Polyline = require("esri/geometry/Polyline");
+import LineSymbol = require("esri/symbols/LineSymbol");
+
+// @supportedApps GWV
+// @displayName AddLayerToMap
+// @category Custom Activities
+// @description An activity which adds a graphics layer to a map.
+export class AddLayerToMap extends AppActivity {
+    static action = "uuid:a1c505cb-c725-465c-9ca1-f11a5316dfec::AddLayerToMap";
+
+    static suite = "uuid:a1c505cb-c725-465c-9ca1-f11a5316dfec";
+
+    // Perform the execution logic of the activity.
+    async execute(inputs: object): Promise<void> {
+        var polylineGraphic = new Graphic({
+            geometry: new Polyline({
+                paths: [
+                    [
+                        [-111.3, 52.68],
+                        [-98, 49.5],
+                        [-93.94, 29.89],
+                    ],
+                ],
+            }),
+            symbol: new LineSymbol({
+                color: [226, 119, 40],
+                width: 4,
+            }),
+        });
+
+        var graphicsLayer = new GraphicsLayer({
+            graphics: [polylineGraphic],
+        });
+
+        (this.map as Map).add(graphicsLayer);
+
+        return;
+    }
+}
+```
+
+## Next Steps
+
+TODO - not even sure if this is appropiate here

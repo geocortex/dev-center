@@ -10,48 +10,26 @@ import WebPrereqs from "./snippets/prereqs-web.mdx";
 
 <WebPrereqs />
 
-Follow the instructions in [Implement a Custom Activity](implement-custom-activity-web.mdx) to create a custom workflow activity.
-
-## Import and Re-declare the Desired Esri API Types.
-
-```typescript
-// Import the desired type
-import __Extent = require("esri/geometry/Extent");
-
-// Re-export that type on the "esri" module
-declare module esri {
-    export type Extent = __Extent;
-}
-```
+Follow the instructions in [Implement a Custom Activity](implement-custom-activity-web.mdx) to create a custom workflow activity. You can then import Esri types with a `require` call.
 
 :::note
 The `activity-sdk` uses the [Esri 3.X JavaScript API](https://developers.arcgis.com/javascript/3/) by default. See [Using Alternate Esri API Versions](integrating-the-esri-api-web#using-alternate-esri-api-versions) for details.
 :::
 
-## Use the Declared Type
-
-You can now use the declared Esri API type in your custom activity or form element. Geocortex Workflow will take care of including the Esri API in the workflow runtime.
-
 ### Example: Custom Activity for Expanding a Polygon
 
-This is a custom activity which uses the Esri JavaScript API to expand a polygon by a given factor and returns the new extent bounds.
+This is a custom activity which imports the Esri JavaScript API to expand a polygon by a given factor and returns the new extent bounds.
 
 ```typescript
 // Import the desired type
-import __Extent = require("esri/geometry/Extent");
-import __Polygon = require("esri/geometry/Polygon");
-
-// Re-export that type on the "esri" module
-declare module esri {
-    export type Extent = __Extent;
-    export type Polygon = __Polygon;
-}
+import Extent = require("esri/geometry/Extent");
+import Polygon = require("esri/geometry/Polygon");
 
 export interface ExpandPolygonInputs {
     // @displayName polygon
     // @description The polygon to Expand.
     // @required
-    polygon: esri.Polygon;
+    polygon: Polygon;
 
     // @displayName factor
     // @description The factor to expand the polygon extent by.
@@ -61,7 +39,7 @@ export interface ExpandPolygonInputs {
 
 export interface ExpandPolygonOutputs {
     // @description The extent bounds for the expanded polygon.
-    extent: esri.Extent;
+    extent: Extent;
 }
 
 // @displayName ExpandPolygon
@@ -88,7 +66,7 @@ TODO
 
 TODO - check with ryan/ken if this is accurate
 
-Geocortex Workflow is designed to be able to be used with the Esri 4.X API or the Esri 3.X API. For example, [Geocortex Web](https://www.geocortex.com/products/gxw/) is built on top of the Esri 4.X API, so custom activities for workflows running in Geocortex Web will need to support Esri 4.X API types. [Geocortex Viewer for HTML5](https://www.geocortex.com/products/geocortex-essentials/) however is built on top of the Esri 3.X API, so custom activities for workflows running in that enviroment need to support Esri 3.X API types. There's two strategies to enable support for different Esri JavaScript API's.
+Geocortex Workflow is designed to be able to be used with the Esri 4.X API or the Esri 3.X API. For example, [Geocortex Web](https://www.geocortex.com/products/gxw/) is built on top of the Esri 4.X API, so custom activities for workflows running in Geocortex Web will need to support Esri 4.X API types. [Geocortex Viewer for HTML5](https://www.geocortex.com/products/geocortex-essentials/) however is built on top of the Esri 3.X API, so custom activities for workflows running in that enviroment need to support Esri 3.X API types. [Web App Builder](https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview) uses the Esri 3.X API. There's two strategies to enable support for different Esri JavaScript API's.
 
 ### Swap out the Default Esri 3.X API for the 4.X API
 
@@ -140,15 +118,9 @@ This example builds on the ExpandPolygon activity to make it work with both the 
 
 ```typescript
 // Import the desired type
-import __Extent = require("esri/geometry/Extent");
-import __Polygon = require("esri/geometry/Polygon");
+import Extent = require("esri/geometry/Extent");
+import Polygon = require("esri/geometry/Polygon");
 import kernel = require("esri/kernel");
-
-// Re-export that type on the "esri" module
-declare module esri {
-    export type Extent = __Extent;
-    export type Polygon = __Polygon;
-}
 
 enum ArcGisApiVersion {
     Unknown,
@@ -171,7 +143,7 @@ export interface ExpandPolygonInputs {
     // @displayName polygon
     // @description The polygon to Expand.
     // @required
-    polygon: esri.Polygon;
+    polygon: Polygon;
 
     // @displayName factor
     // @description The factor to expand the polygon extent by.
@@ -181,7 +153,7 @@ export interface ExpandPolygonInputs {
 
 export interface ExpandPolygonOutputs {
     // @description The extent bounds for the expanded polygon.
-    extent: esri.Extent;
+    extent: Extent;
 }
 
 // @displayName ExpandPolygon

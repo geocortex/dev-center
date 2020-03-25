@@ -18,6 +18,7 @@ module.exports = {
                     label: "Web Applications",
                     items: [
                         "workflow/implement-custom-activity-web",
+                        "workflow/access-app-properties-web",
                         "workflow/implement-custom-form-elements-web",
                         "workflow/reference-third-party-library-web",
                     ],
@@ -27,6 +28,7 @@ module.exports = {
                     label: "Geocortex Mobile",
                     items: [
                         "workflow/implement-custom-activity-mobile",
+                        "workflow/access-app-properties-mobile",
                         "workflow/register-dotnet-activities-mobile",
                         "workflow/implement-custom-form-elements-mobile",
                         "workflow/reference-third-party-library-mobile",
