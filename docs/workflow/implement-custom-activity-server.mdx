@@ -3,8 +3,154 @@ title: Implement a Custom Activity for Geocortex Workflow Server
 sidebar_label: Implement a Custom Activity
 ---
 
+import ServerPrereqs from "./snippets/prereqs-server.mdx";
+
 Implementing a custom [activity](concepts-workflow-activities-form-elements.mdx#activities) allows you to a build a reusable, completely custom behaviour to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
 
-For workflows activities used in [Server Workflows](TODO - some sort of link here...) (which can be [run using the "RunWorkflow" activity on any platform](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm#configure-client-workflow) activities are implemented using C# and the .NET Core platform).
+## Scope
+
+This article applies to building workflow activities that will be run on [Geocortex Workflow Server](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0).
 
 <ServerPrereqs />
+
+## Setup a new Custom Workflow Project
+
+Extending Geocortex Workflow Server requires you to produce a separate assembly with your custom activities, and copy that into your on premise deployment of Geocortex Workflow. We first need to set up a project using Visual Studio that references the [workflow runtime](TODO - link to package description or actual package?).
+
+1. Launch Microsoft Visual Studio 2019.
+1. Create a new project of type _Class Library_ (.NET Standard)
+    - You can also create a project of type [.NET Core](https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet) to take advantage of it's larger featureset.
+1. Add a reference to the `Geocortex.Workflow.Runtime` assembly.  
+   Bydefault,thisislocatedin`C:\Program Files\Latitude Geographics\Geocortex Workflow\Deployment\service`
+
+:::important
+.NET Standard projects **must** target .NET Standard 2.0, and .NET Core projects must target .NET Core 2.1, else the assembly will be incompatible with Geocortex Workflow Server
+:::
+
+## Set up the Activity Skeleton
+
+1. Create a new file `CustomActivity` in the project.
+2. Add a new skeleton workflow activity that implements `IActivityHandler`.
+
+```csharp
+using Geocortex.Workflow.Runtime;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow.CustomActivity
+{
+    public class CustomActivity : IActivityHandler
+    {
+        public static string Action { get; } = "custom:wf:app::CustomActivity";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>());
+        }
+    }
+}
+```
+
+:::tip
+Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.  
+:::
+
+## Register the Activity with an Assembly Attribute
+
+1. Create a new file, `Properties\AssemblyInfo.cs`
+1. Add the custom Geocortex Workflow attribute to `AssemblyInfo.cs`:
+
+```csharp
+[assembly: Geocortex.Workflow.Runtime.WorkflowActivities]`
+```
+
+This registers the assembly to a namespace that Geocortex Workflow Server can discover.
+
+:::note
+By convention, assembly attributes are typically added to a file called `"Properties\AssemblyInfo.cs"`, but they can be added to any code file.
+:::
+
+## Deploy the Activiy
+
+For Geocortex Workflow to find your custom activities, you need to copy the build output to a particular folder.
+
+1. Build the project.
+1. Find the build output on disk.
+    1. In Visual Studio, right-click on your project in Solution Explorer and choose "Open Folder in File Explorer".
+    1. Open the `bin` folder.  
+       Ifyoudonotseea`bin` folder, it is possible you right-clicked on the solution instead of the project.
+    1. In the `bin` folder, open either `Debug` or `Release`, depending on which build configuration you used.
+    1. In the `bin\Debug` or `bin\Release` folder, there will be one final sub-directory which will be `netstandard2.0`
+       or `netcore2.1`. Open this folder.
+    1. You should now see a number of files including `Geocortex.Workflow.Runtime.dll` and your own project, such as `MyOrganization.dll`.  
+       Keepthisfolderopen.
+1. Find the `CustomAssemblies` folder on disk.
+    1. Geocortex Workflow looks in a folder called `CustomAssemblies` for assemblies that contain custom activities.
+       This is located in the folder that you chose when installing Geocortex Workflow. The default location is  
+       `C:\Program Files\Latitude Geographics\Geocortex Workflow\CustomAssemblies`  
+       Openthisfolder.
+1. Copy the relevant files from the build output to the `CustomAssemblies` folder.
+    1. Copy your project's assembly. (e.g. `MyOrganization.dll`)
+    1. Copy any third-party libraries that your project relies on.
+    1. Copy any other configuration files or resources that your project relies on.
+    1. Do not copy any files that start with `Geocortex.Workflow.` They are not required in this folder.
+
+:::important
+You may need to stop then restart Geocortex Workflow Server in order to copy your copy your custom code.
+:::
+
+## Implement the Custom Activity
+
+We now have a empty activity that Geocortex Workflow Server can use that takes no inputs and produces no outputs. At this point, you can implement the appropiate business logic for your use case, using the features available with .NET Standard or .NET Core. This activity still does not have an easy to use interface in Geocortex Workflow Designer, but can be executed using the [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity.
+
+### Example: Logarithm of a Number
+
+The following activity will calculate the log of a number with a given (optional) base.
+
+```csharp
+using Geocortex.Workflow.Runtime;
+using Geocortex.Workflow.Runtime.Utils;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow.CustomActivity
+{
+    public class CalculateLog : IActivityHandler
+    {
+        public static string Action { get; } = "custom:wf:app::CalculateLog";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            var logBase = inputs.EnsureDouble("base");
+            var value = inputs.EnsureDoubleStrict("value");
+
+            double logResult;
+            if(logBase != null)
+            {
+                logResult = Math.Log(value, (double)logBase);
+            } else
+            {
+                logResult = Math.Log(value);
+            }
+
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>()
+            {
+                ["result"] = logResult
+            });
+        }
+    }
+}
+```
+
+## Test your Activity
+
+You can run your new activity with a [server workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0). The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity can be used to execute your activity by the name defined in `CustomActivity.cs` (for this example, `custom:wf:app::CustomActivity`, or `custom:wf:app::CalculateLog`).
+
+:::tip
+If you want your custom activity to show up with a friendly user interface in Geocortex Workflow Designer, check out [Registering .NET Activities with Geocortex Workflow Designer](register-dotnet-activities-server.mdx).
+:::
+
+## Next Steps
+
+TODO

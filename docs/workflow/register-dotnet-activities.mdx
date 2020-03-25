@@ -1,4 +1,4 @@
-import LogarithmActivitySnippet from "./snippets/logarithm-activity-dotnet.mdx";
+import LogarithmActivityMobileSnippet from "./snippets/logarithm-activity-mobile.mdx";
 
 Geocortex Workflow [activities](concepts-key-concepts#activities-and-form-elements) can be implemented in either TypeScript or C#, depending on the target platform. For [custom activities implemented in TypeScript](implement-custom-activity-web.mdx), the registration of the workflow activity implementation is done alongisde the Geocortex Workflow Designer activity definition when the [activity pack](workflow/concepts-activity-packs.mdx) is registered. However, with .NET activities implemented for Geocortex Mobile or [Geocortex Workflow Server](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0), the implementation is defined on the host platform (.NET), while the Geocortex Workflow Designer activity definition must be defined in an activity pack (TypeScript).
 
@@ -14,9 +14,9 @@ This article covers how to create an activity pack to register Geocortex Workflo
 
 The idea behind creating activity definitions for Geocortex Workflow Designer is that every activity implemented in .NET has a corresponding stub activity with the metadata, but no execution body, in a TypeScript activity pack.
 
-Let's take the custom Logarithm activity for example.
+Let's take the Geocortex Mobile custom logarithm activity for example.
 
-<LogarithmActivitySnippet />
+<LogarithmActivityMobileSnippet />
 
 This activity will need a TypeScript stub that defines it's input and output types and descriptions, specifies the runtime enviroments it supports, and an activity description.
 
