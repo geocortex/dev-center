@@ -44,17 +44,7 @@ module.exports = {
                 },
             ],
         },
-        {
-            type: "category",
-            label: "Concepts",
-            items: [
-                "workflow/concepts-key-concepts",
-                "workflow/concepts-activity-packs",
-                "workflow/concepts-workflow-activities-form-elements",
-                "workflow/concepts-workflow-items",
-                "workflow/concepts-server-client-workflows",
-            ],
-        },
+        "workflow/concepts-key-concepts",
         {
             type: "category",
             label: "Getting Started with the SDK",

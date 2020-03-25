@@ -1,23 +1,48 @@
 ---
-title: Key Concepts
+title: Concepts
 ---
+
+import DesignerCallout from "./snippets/designer-callout.mdx";
+
+<DesignerCallout />
+
+Geocortex Workflow is a flexible tool for automating business processes. It allows you to create **workflows**, which are composed of various actions, or **activities**, control flow elements such as loops, and forms that enable user interaction. Workflows can run on different platforms, including Geocortex Web, Geocortex Mobile, on a business server, or in Web App Builder. (TODO - links for all of these)
 
 ## Workflow Item
 
-TODO
+A **workflow item** defines the activities and elements of a workflow, and is created using Geocortex Workflow Designer. Workflow items are generic JSON definitions and not tied to a platform by default, but certain activities and features will only work in certain platforms.
 
-## Workflow Designer and Runtime
+## Activities and Form elements
 
-TODO
+Activities are the building blocks of a workflow. Each activity represents a unit of work. For example, there is an activity to set the map extent, an activity to perform geocoding, and an activity to gather input from the user. In all, Geocortex Workflow [provides over 200 activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) for building workflows.
 
-## Activities and Form Elements
+Most activities have inputs—the values that the activity operates on—and outputs—the results of the activity's operations. When you add an activity to a workflow, you customize the activity by configuring the activity's inputs. The outputs are computed when the workflow runs.
 
-TODO
+Activities have metadata that Geocortex Workflow Designer presents to an end user for easy workflow creation. This metadata is defined in an **activity pack**. They also have an implementation, which powers the behaviour of the activity. This implementation is defined in the appropiate language for the target platform; activities for web applications are defined in TypeScript, and activities for Geocortex Mobile applications are defined in C#.
 
-## Types of Workflows
+Some platforms have a visual interface, like Geocortex Web or Geocortex Mobile, and can use forms to faciliate end user interaction. Geocortex Workflow [provides over twenty configurable **form elements**](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) for building forms, like the Auto Complete, Geometry Picker, Date Picker, Number Slider, and Text Area elements. Just as activities are the building blocks of workflows, form elements are the building blocks of forms.
 
-TODO
+## Geocortex Workflow Designer and Runtime
+
+Geocortex Workflow includes a powerful tool for building workflows, Geocortex Workflow Designer. Designer's drag-and-drop interface and library of predefined activities simplify the process of creating custom functionality for your web mapping applications, without programming. Geocortex Workflow Designer uses activity definitions to produce workflow items.
+
+When a workflow is run, the workflow item is read and executed by the **workflow runtime**. The runtime is responsible for locating the activity implementation definitions, and executing them with the inputs defined in the workflow definitions. Each platform has a different runtime:
+
+-   Geocortex Web and Esri Web App Builder use the TypeScript workflow runtime
+-   Geocortex Mobile and Geocortex Workflow Server use the .NET workflow runtime
+
+:::note Types of Workflows
+Another distinction between workflows is **client** and [**server workflows**](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0). Client workflows can be run in an interface that uses visual elements, such as Geocortex Web or Mobile, while server workflows can only be run on Geocortex Workflow Server (which has no visual interface).
+:::
 
 ## Activity Packs
+
+An activity pack defines a collection of activities that Geocortex Workflow Designer is aware of. An activity pack defines the metadata for one or more activities so that it can participate in the Geocortex Workflow Designer interface.
+
+:::note
+If the activities are targeted for web platforms, the activity pack can also define the activity implementation, otherwise, the activity implementation is defined on the target platform.
+:::
+
+## Next Steps
 
 TODO
