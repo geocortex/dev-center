@@ -3,6 +3,9 @@ title: Getting Started with the Web Applications SDK
 sidebar_label: Getting Started
 ---
 
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
 The Geocortex Workflow for Web Applications SDK consists of a TypeScript project that eases development of workflow activities and custom form elements. It produces a [workflow activity pack](concepts-activity-packs.mdx) that can be consumed by web applications that use workflow.
 
 ## Download
@@ -105,3 +108,30 @@ To make an activity pack available to workflow authors in Workflow Designer you 
 :::important
 The activity pack will **not** be registered unless it includes the tag `geocortex-workflow-activity-pack`. The item must also be accessible to whichever group of users you want the activity pack to be accessible too.
 :::
+
+## Next Steps
+
+<!-- TODO - these don't all make sense generically.... it's going to be different on web wab and GVH, this whole article might have to be rethought -->
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Implement a Custom Activity"
+        description="Implement a custom activity for web applications"
+        link="implement-custom-activity-web.mdx"
+    />
+    <UseCaseCard
+        title="Implement a Custom Form Element"
+        description="Implement a custom form element for web applications"
+        link="implement-custom-form-elements-web.mdx"
+    />
+    <UseCaseCard
+        title="Reference a Third Party Library"
+        description="Reference a third party library in web applications"
+        link="reference-third-party-library-web.mdx"
+    />
+    <UseCaseCard
+        title="Integrate the Esri API into custom activities"
+        description="Integrate the Esri API into custom code"
+        link="integrating-the-esri-api-web.mdx"
+    />
+</UseCaseContainer>

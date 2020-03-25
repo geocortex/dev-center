@@ -2,4 +2,24 @@
 title: Geocortex Workflow Server
 ---
 
-TODO
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+:::important
+Extending Geocortex Workflow Server requires administrative access to your on premise installation of workflow.
+:::
+
+Geocortex Workflow Server can be extending by augmenting your on premise installation with additional custom .NET assemblies. The various workflow server use cases, such as [Implement a Custom Activity](implement-custom-activity-server.mdx), describe how to deploy your custom code to your on premise installation.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Implement a Custom Activity"
+        description="Implement a custom activity for Geocortex Workflow Server"
+        link="implement-custom-activity-server.mdx"
+    />
+    <UseCaseCard
+        title="Reference a Third Party Library"
+        description="Reference a third party library in custom code."
+        link="reference-third-party-library-server.mdx"
+    />
+</UseCaseContainer>
