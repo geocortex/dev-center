@@ -20,11 +20,11 @@ It is suggested that you [implement a custom activity](implement-custom-activity
 
 ## Overview
 
-Implementing a custom form element in mobile consists of three steps:
+Implementing a custom form element in Geocortex Mobile consists of three steps:
 
 1. Creating the custom form element and implementing the UI.
 2. Creating an activity which will register this form component with Geocortex Workflow.
-3. Register the activity with Geocortex Workflow and running it before using the custom form element.
+3. Register the activity with Geocortex Workflow and running it using the custom form element.
 
 ## Setup the Custom Form Element Skeleton
 
@@ -91,7 +91,11 @@ namespace App1.Workflow
 
 ## Register the Form Element Registration Activity
 
-[Register the `RegisterCustomFormElementBase` class in the `IActivityHandlerFactory` for the application](/implement-custom-activity-mobile#register-the-activity-with-the-iactivityhandlerfactory)
+[Register the `RegisterCustomFormElementBase` class in the `IActivityHandlerFactory` for the application](/implement-custom-activity-mobile#register-the-activity-with-the-iactivityhandlerfactory). Now you can [build a workflow for Geocortex Mobile](TODO - what to link to...) that uses your new custom form element!
+
+:::important
+It is **essential** that this custom activity be run before the custom form element is used. It is best practice to run the form element registration activity at the start of a workflow.
+:::
 
 ### Example: Enhanced Activity Indicator Form Element
 
@@ -230,3 +234,7 @@ TODO - screenshot of sample here once we decide on video/photo parameters
 
 </TabItem>
 </Tabs>
+
+## Raising Form Events
+
+TODO
