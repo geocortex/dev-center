@@ -1,6 +1,10 @@
+---
+title: Registering .NET Activities with Geocortex Workflow Designer
+---
+
 import LogarithmActivityMobileSnippet from "./snippets/logarithm-activity-mobile.mdx";
 
-Geocortex Workflow [activities](concepts-key-concepts#activities-and-form-elements) can be implemented in either TypeScript or C#, depending on the target platform. For [custom activities implemented in TypeScript](implement-custom-activity-web.mdx), the registration of the workflow activity implementation is done alongisde the Geocortex Workflow Designer activity definition when the [activity pack](workflow/concepts-activity-packs.mdx) is registered. However, with .NET activities implemented for Geocortex Mobile or [Geocortex Workflow Server](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0), the implementation is defined on the host platform (.NET), while the Geocortex Workflow Designer activity definition must be defined in an activity pack (TypeScript).
+Geocortex Workflow [activities](concepts-key-concepts.mdx#activities-and-form-elements) can be implemented in either TypeScript or C#, depending on the target platform. For [custom activities implemented in TypeScript](implement-custom-activity-web.mdx), the registration of the workflow activity implementation is done alongisde the Geocortex Workflow Designer activity definition when the [activity pack](concepts-key-concepts.mdx#activity-packs) is registered. However, with .NET activities implemented for Geocortex Mobile or [Geocortex Workflow Server](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0), the implementation is defined on the host platform (.NET), while the Geocortex Workflow Designer activity definition must be defined in an activity pack (TypeScript).
 
 :::note
 If no Geocortex Workflow Designer activity definition is provided for a custom activity implemented for Geocortex Mobile or Geocortex Workflow Server, the activity will not show up in Geocortex Workflow Designer and must be run using the [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity.
@@ -22,7 +26,7 @@ This activity will need a TypeScript stub that defines it's input and output typ
 
 ### Create a new Activity Pack
 
-Follow the instructions in [Implement a Custom Activity for Web Applications](implement-custom-activity-web) up to [Implement the Activity](implement-custom-activity-web#implement-the-activity).
+Follow the instructions in [Implement a Custom Activity for Web Applications](implement-custom-activity-web.mdx) up to [Implement the Activity](implement-custom-activity-web.mdx#implement-the-activity).
 
 ### Stub out the Activity Metadata
 
