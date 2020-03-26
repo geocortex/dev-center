@@ -1,5 +1,7 @@
 # Geocortex Developer Center
 
+![CI/CD](https://github.com/geocortex/dev-center/workflows/CI/CD/badge.svg)
+
 This is the source for the Geocortex Developer Center website; feel free to suggest changes to our docs!
 
 ## Contributing
