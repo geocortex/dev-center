@@ -10,7 +10,7 @@ module.exports = {
     themeConfig: {
         // Config lives at https://github.com/algolia/docsearch-configs/blob/master/configs/geocortex.json
         algolia: {
-            apiKey: "cdd20750dc409ec43b89e692fcbb72c",
+            apiKey: "fcdd20750dc409ec43b89e692fcbb72c",
             indexName: "geocortex",
         },
         navbar: {
