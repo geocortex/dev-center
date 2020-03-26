@@ -91,10 +91,23 @@ module.exports = {
                     type: "category",
                     label: "Workflow",
                     items: [
-                        "mobile/display-custom-form",
+                        {
+                            type: "link",
+                            label: "Display a Custom Form",
+                            href:
+                                "https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat",
+                        },
                         "mobile/change-default-search-behaviour",
-                        "mobile/implement-custom-workflow-form-element",
-                        "mobile/implement-workflow-activity",
+                        {
+                            type: "link",
+                            label: "Implement Custom Workflow Form Elements",
+                            href: "../workflow/implement-custom-form-elements-mobile",
+                        },
+                        {
+                            type: "link",
+                            label: "Implement Custom Workflow Activity",
+                            href: "../workflow/implement-custom-activity-mobile",
+                        },
                     ],
                 },
                 {
