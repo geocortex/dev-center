@@ -1,35 +1,31 @@
 # Geocortex Developer Center
 
-The home base for all developer center geocortex documentation.
+![CI/CD](https://github.com/geocortex/dev-center/workflows/CI/CD/badge.svg)
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+This is the source for the Geocortex Developer Center website; feel free to suggest changes to our docs!
 
 ## Contributing
 
-This documentation is an open source project, and you are encouraged to submit issues or pull requests for improvements or bug fixes if you notice them!
+This documentation is an open source project, and you are encouraged to submit issues or pull requests for improvements or bug fixes if you notice them.
 
-### To the Docs
+You might want to make yourself familiar with [Docusaurus v2](https://v2.docusaurus.io/) to make significant changes to the website. If you only want to make content changes you will find the page source within the `docs` folder.
 
-TODO
+### Setup
 
-### To the code
+#### Prerequisites
 
-TODO
+Install the latest LTS version of [node](https://nodejs.org/) and [yarn](https://classic.yarnpkg.com/en/docs/install).
 
-#### Installation
+#### Install dependencies
 
-```
-$ yarn
-```
+Run `yarn` in the root of this repository.
 
-#### Local Development
+#### Start development server
 
-```
-$ yarn start
-```
+Run `yarn start` in the root of this repository.
 
 This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
 
-#### Deployment
+#### Deploy
 
-The website is deployed to github pages whenever there is a commit to master. TODO this is currently a lie
+The website is automatically built and deployed on commit to master.

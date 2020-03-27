@@ -8,6 +8,11 @@ module.exports = {
     organizationName: "geocortex", // Usually your GitHub org/user name.
     projectName: "dev-center", // Usually your repo name.
     themeConfig: {
+        // Config lives at https://github.com/algolia/docsearch-configs/blob/master/configs/geocortex.json
+        algolia: {
+            apiKey: "fcdd20750dc409ec43b89e692fcbb72c",
+            indexName: "geocortex",
+        },
         navbar: {
             title,
             logo: {
