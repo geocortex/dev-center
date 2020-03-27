@@ -310,4 +310,30 @@ namespace App1.Workflow
 
 ## Get Properties of Custom Form Elements at Runtime
 
-TODO
+A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
+
+```csharp
+class CustomFormComponent : FormComponent
+{
+    ...
+    public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+            : base (element, name)
+    {
+        var layout = new Button()
+        {
+            Text = "Set Form Element Value",
+            Command = new Command(() =>
+            {
+                this.Element.Value = "Some Output Value";
+            })
+        };
+
+        _view = layout;
+
+        Add(new GenericComponent(_view));
+    }
+    ...
+}
+```
+
+You can then use an expression in Geocortex Workflow Designer to access the custom property of the form element. For example, to access the `value` property you can use an expression like `=$form1.state.custom1.value`.
