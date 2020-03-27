@@ -267,3 +267,32 @@ const SfcCustomFormElement: React.SFC<CustomFormElementProps> = props => {
     );
 };
 ```
+
+## Get Properties of Custom Form Elements at Runtime
+
+A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
+
+```typescript
+export class CustomFormElement extends React.Component<CustomFormElementProps> {
+    ...
+    handleClick = event => {
+        const { element, raiseEvent } = this.props;
+
+        // Get the value from the button.
+        // Parse as an integer because the value will be a string.
+        const value = parseInt(event.target.value);
+
+        if (element.value !== value) {
+
+            // Update the element's value.
+            element.value = value;
+
+            // Raise the changed event
+            raiseEvent("changed", value);
+        }
+    };
+    ...
+}
+```
+
+You can then use an expression in Geocortex Workflow Designer to access the custom property of the form element. For example, to access `value` and `data` properties use an expression like `=$form1.state.custom1.value` and `=$form1.state.custom1.data`.

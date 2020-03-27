@@ -3,4 +3,28 @@ title: Reference a Third Party Library in Geocortex Workflow Server
 sidebar_label: Reference a Third Party Library
 ---
 
-TODO
+As discussed in [implement custom activity](implement-custom-activity-server.mdx), deploying a custom activity involves copying the build output of a .NET Standard or .NET Core project to a folder in the Geocortex Workflow Server deployment. In order to reference third party libraries, we will have to also ensure all the dependencies are copied into this folder.
+
+## Setup your Custom Code
+
+Follow the instructions in [implement custom activity](implement-custom-activity-server.mdx) to implement and deploy a basic custom activity.
+
+## Add a Third Party library
+
+Add a third party library via a nuget package, and use it in your custom activity.
+
+## Build and Copy the Project Output
+
+Build the project to output the assemblies. What you have to copy is different depending on if you started with a .NET Standard project or a .NET Core project.
+
+### .NET Core Project
+
+If you created a .NET Core project, Visual Studio will treat this as an Application and bundle both the user defined libraries and external libraries. This means that everything you need to copy exists in the built output folder. Follow the instructions to [Deploy the Activity](implement-custom-activity-server#deploy-the-activity).
+
+:::important
+It's important to make sure that the `*.exe` file and corresponding dll produced by a .NET Core project **are not copied**.
+:::
+
+### .NET Standard Project
+
+If you created a .NET Standard project, Visual Studio will treat this as a library and not bundle dependencies as it expects them to be installed by the package consumer. You have to go through each dependency and ensure that it and each of it's child package dependencies have their assemblies copied into the `CustomAssemblies` folder. Then you can [Deploy the Activity](implement-custom-activity-server#deploy-the-activity) by copying the user defined dlls.

@@ -38,7 +38,6 @@ module.exports = {
                     label: "Geocortex Workflow Server",
                     items: [
                         "workflow/implement-custom-activity-server",
-                        "workflow/use-dotnetcore-features-server",
                         "workflow/reference-third-party-library-server",
                     ],
                 },

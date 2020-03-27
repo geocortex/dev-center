@@ -70,7 +70,7 @@ This registers the assembly to a namespace that Geocortex Workflow Server can di
 By convention, assembly attributes are typically added to a file called `"Properties\AssemblyInfo.cs"`, but they can be added to any code file.
 :::
 
-## Deploy the Activiy
+## Deploy the Activity
 
 For Geocortex Workflow to find your custom activities, you need to copy the build output to a particular folder.
 
@@ -93,7 +93,8 @@ For Geocortex Workflow to find your custom activities, you need to copy the buil
     1. Copy your project's assembly. (e.g. `MyOrganization.dll`)
     1. Copy any third-party libraries that your project relies on.
     1. Copy any other configuration files or resources that your project relies on.
-    1. Do not copy any files that start with `Geocortex.Workflow.` They are not required in this folder.
+    1. **Do not** copy any files that start with `Geocortex.Workflow.` They are not required in this folder.
+    1. If you created a .NET Core Project, **do not** copy the `ProjectName.exe` and `ProjectName.dll` files.
 
 :::important
 You may need to stop then restart Geocortex Workflow Server in order to copy your copy your custom code.
