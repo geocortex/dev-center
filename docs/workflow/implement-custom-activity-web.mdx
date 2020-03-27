@@ -5,6 +5,7 @@ sidebar_label: Implement a Custom Activity
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import HostEsriApiVersionSnippet from "./snippets/host-esri-api-version.mdx";
 import WebPrereqs from "./snippets/prereqs-web.mdx";
 import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 import ServerPrereqs from "./snippets/prereqs-server.mdx";
@@ -81,6 +82,8 @@ export class CustomActivity {
 
 The `npm run activity` script creates a custom activity with some dummy inputs and outputs. It also has examples of the various [decorators](typescript-activity-decorators.mdx) that are used to describe activity metadata. By changing the inputs, outputs, execute logic, and decorators, you can create your own custom activity that has an easy to use interface in the Geocortex Workflow Designer.
 
+<HostEsriApiVersionSnippet />
+
 ### Example: Logarithm of a Number
 
 The follow activity will calculate the log of a number with a given (optional) base.
@@ -112,8 +115,7 @@ export class CalculateLog {
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         return {
-            result:
-                Math.log(inputs.value) / (inputs.base !== undefined ? Math.log(inputs.base) : 1),
+            result: Math.log(inputs.value) / (inputs.base !== undefined ? Math.log(inputs.base) : 1)
         };
     }
 }

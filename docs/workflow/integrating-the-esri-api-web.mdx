@@ -4,8 +4,6 @@ title: Integrating the Esri API
 
 import WebPrereqs from "./snippets/prereqs-web.mdx";
 
-<!-- TODO - note on GVH vs WEB vs WAB for default api versions -->
-
 [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) was designed to be a flexible tool for implementing business logic for mapping applications, and tightly integrates with Esri's JavaScript API. You may want to use Esri's API's in your own custom activities; this article will explain how to reference Esri API types in your custom activity or custom form element.
 
 <WebPrereqs />
@@ -52,19 +50,13 @@ export class ExpandPolygon {
 
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         return {
-            extent: inputs.polygon.getExtent().expand(inputs.factor),
+            extent: inputs.polygon.getExtent().expand(inputs.factor)
         };
     }
 }
 ```
 
-### Example: Custom Form Element that Renders a Geometry Object
-
-TODO
-
 ## Using Alternate Esri API Versions
-
-TODO - check with ryan/ken if this is accurate
 
 Geocortex Workflow is designed to be able to be used with the Esri 4.X API or the Esri 3.X API. For example, [Geocortex Web](https://www.geocortex.com/products/gxw/) is built on top of the Esri 4.X API, so custom activities for workflows running in Geocortex Web will need to support Esri 4.X API types. [Geocortex Viewer for HTML5](https://www.geocortex.com/products/geocortex-essentials/) however is built on top of the Esri 3.X API, so custom activities for workflows running in that enviroment need to support Esri 3.X API types. [Web App Builder](https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview) uses the Esri 3.X API. There's two strategies to enable support for different Esri JavaScript API's.
 
@@ -95,7 +87,7 @@ import kernel = require("esri/kernel");
 enum ArcGisApiVersion {
     Unknown,
     v3,
-    v4,
+    v4
 }
 
 const getEsriApiVersion = (): ArcGisApiVersion => {
@@ -125,7 +117,7 @@ import kernel = require("esri/kernel");
 enum ArcGisApiVersion {
     Unknown,
     v3,
-    v4,
+    v4
 }
 
 const getEsriApiVersion = (): ArcGisApiVersion => {
@@ -168,11 +160,11 @@ export class ExpandPolygon {
         const apiVersion = getEsriApiVersion();
         if (apiVersion == ArcGisApiVersion.v4) {
             return {
-                extent: (inputs.polygon as any).extent.expand(inputs.factor),
+                extent: (inputs.polygon as any).extent.expand(inputs.factor)
             };
         } else if (apiVersion == ArcGisApiVersion.v3) {
             return {
-                extent: inputs.polygon.getExtent().expand(inputs.factor),
+                extent: inputs.polygon.getExtent().expand(inputs.factor)
             };
         } else {
             throw new Error(`ArcGIS JS API Version version '${apiVersion}' not recognized.`);

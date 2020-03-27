@@ -3,6 +3,7 @@ title: Implement a Custom Form Element for Web Applications
 sidebar_label: Implement a Custom Form Element
 ---
 
+import HostEsriApiVersionSnippet from "./snippets/host-esri-api-version.mdx";
 import WebPrereqs from "./snippets/prereqs-web.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -45,6 +46,8 @@ function CustomFormElement(props: CustomFormElementProps) {
 export default CustomFormElement;
 ```
 
+<HostEsriApiVersionSnippet />{" "}
+
 ## Setup a Form Element Registration Activity
 
 1. [Follow these instructions](implement-custom-activity-web.mdx#setup-activity-skeleton) to create a skeleton activity.
@@ -72,7 +75,7 @@ export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
 
 ## Register the Form Element Registration Activity
 
-[Build and deploy](getting-started-web.mdx#building) your new [activity-pack](concepts-key-concepts.mdx#activity-packs). Now you can [build a workflow for Geocortex Web](TODO - what to link to...) that uses your new custom form element!
+[Build and deploy](getting-started-web.mdx#building) your new [activity-pack](concepts-key-concepts.mdx#activity-packs). Now you can [build a workflow for Geocortex Web](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/run-workflows-in-gxw.htm#Host_and_Run_your_First_Workflow_..3%3FTocPath%3DConfigure%2520Host%2520Applications%7CHost%2520and%2520Run%2520Workflows%2520in%2520Geocortex%2520Web%7C_____1) that uses your new custom form element!
 
 :::important
 It is **essential** that this custom activity be run before the custom form element is used. It is best practice to run the form element registration activity at the start of a workflow.
@@ -218,7 +221,7 @@ export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
 
 </TabItem>
 <TabItem value="ui">
-{/* TODO */}
+{/* TODO - screenshot */}
 </TabItem>
 </Tabs>
 

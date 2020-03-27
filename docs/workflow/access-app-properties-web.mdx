@@ -49,18 +49,18 @@ export class AddLayerToMap extends AppActivity {
                     [
                         [-111.3, 52.68],
                         [-98, 49.5],
-                        [-93.94, 29.89],
-                    ],
-                ],
+                        [-93.94, 29.89]
+                    ]
+                ]
             }),
             symbol: new LineSymbol({
                 color: [226, 119, 40],
-                width: 4,
-            }),
+                width: 4
+            })
         });
 
         var graphicsLayer = new GraphicsLayer({
-            graphics: [polylineGraphic],
+            graphics: [polylineGraphic]
         });
 
         (this.map as Map).add(graphicsLayer);
@@ -69,7 +69,3 @@ export class AddLayerToMap extends AppActivity {
     }
 }
 ```
-
-## Next Steps
-
-TODO - not even sure if this is appropiate here
