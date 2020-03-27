@@ -19,7 +19,7 @@ Build the project to output the assemblies. What you have to copy is different d
 
 ### .NET Core Project
 
-If you created a .NET Core project, Visual Studio will treat this as an Application and bundle both the user defined libraries and external libraries. This means that everything you need to copy exists in the built output folder. Follow the instructions to [Deploy the Activity](implement-custom-activity-server#deploy-the-activity).
+If you created a .NET Core project, Visual Studio will treat this as an Application and bundle both the user defined libraries and external libraries. This means that everything you need to copy exists in the built output folder. Follow the instructions to [Deploy the Activity](implement-custom-activity-server.mdx#deploy-the-activity).
 
 :::important
 It's important to make sure that the `*.exe` file and corresponding dll produced by a .NET Core project **are not copied**.
@@ -27,4 +27,4 @@ It's important to make sure that the `*.exe` file and corresponding dll produced
 
 ### .NET Standard Project
 
-If you created a .NET Standard project, Visual Studio will treat this as a library and not bundle dependencies as it expects them to be installed by the package consumer. You have to go through each dependency and ensure that it and each of it's child package dependencies have their assemblies copied into the `CustomAssemblies` folder. Then you can [Deploy the Activity](implement-custom-activity-server#deploy-the-activity) by copying the user defined dlls.
+If you created a .NET Standard project, Visual Studio will treat this as a library and not bundle dependencies as it expects them to be installed by the package consumer. You have to go through each dependency and ensure that it and each of it's child package dependencies have their assemblies copied into the `CustomAssemblies` folder. Then you can [Deploy the Activity](implement-custom-activity-server.mdx#deploy-the-activity) by copying the user defined dlls.

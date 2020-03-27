@@ -11,7 +11,7 @@ Implementing a custom [form element](concepts-key-concepts.mdx#activities-and-fo
 
 ## Scope
 
-This article applies to building workflow form elements that will be run on [web application workflow hosts](concepts-key-concepts#geocortex-workflow-hosts).
+This article applies to building workflow form elements that will be run on [web application workflow hosts](concepts-key-concepts.mdx#geocortex-workflow-hosts).
 
 <WebPrereqs />
 
@@ -106,7 +106,7 @@ export class StarRatingFormElement extends React.Component<
 > {
     // Set the default state of the component.
     state: StarRatingState = {
-        rating: 0,
+        rating: 0
     };
 
     componentDidMount() {
@@ -114,7 +114,7 @@ export class StarRatingFormElement extends React.Component<
         const { element } = this.props;
         if (element && element.value) {
             this.setState({
-                rating: element.value,
+                rating: element.value
             });
         }
     }
@@ -127,7 +127,7 @@ export class StarRatingFormElement extends React.Component<
         const { element } = nextProps;
         if (element && element.value) {
             this.setState({
-                rating: element.value,
+                rating: element.value
             });
         }
     }
@@ -142,7 +142,7 @@ export class StarRatingFormElement extends React.Component<
         if (element.value !== value) {
             // Update the component state.
             this.setState({
-                rating: value,
+                rating: value
             });
 
             // Update the element's value.
@@ -159,7 +159,7 @@ export class StarRatingFormElement extends React.Component<
         border: "none",
         outline: "none",
         fontSize: "2em",
-        padding: 0,
+        padding: 0
     };
 
     // Button styles to show selected and unselected states.
@@ -251,7 +251,7 @@ const SfcCustomFormElement: React.SFC<CustomFormElementProps> = props => {
         // Raise the custom event with a custom event value.
         const eventValue = {
             customEventType: "custom1",
-            data: new Date(),
+            data: new Date()
         };
         props.raiseEvent("custom", eventValue);
     };
