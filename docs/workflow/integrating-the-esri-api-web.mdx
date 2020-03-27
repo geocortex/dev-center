@@ -1,0 +1,182 @@
+---
+title: Integrating the Esri API
+---
+
+import WebPrereqs from "./snippets/prereqs-web.mdx";
+
+<!-- TODO - note on GVH vs WEB vs WAB for default api versions -->
+
+[Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) was designed to be a flexible tool for implementing business logic for mapping applications, and tightly integrates with Esri's JavaScript API. You may want to use Esri's API's in your own custom activities; this article will explain how to reference Esri API types in your custom activity or custom form element.
+
+<WebPrereqs />
+
+Follow the instructions in [Implement a Custom Activity](implement-custom-activity-web.mdx) to create a custom workflow activity. You can then import Esri types with a `require` call.
+
+:::note
+The `activity-sdk` uses the [Esri 3.X JavaScript API](https://developers.arcgis.com/javascript/3/) by default. See [Using Alternate Esri API Versions](integrating-the-esri-api-web.mdx#using-alternate-esri-api-versions) for details.
+:::
+
+### Example: Custom Activity for Expanding a Polygon
+
+This is a custom activity which imports the Esri JavaScript API to expand a polygon by a given factor and returns the new extent bounds.
+
+```typescript
+// Import the desired type
+import Extent = require("esri/geometry/Extent");
+import Polygon = require("esri/geometry/Polygon");
+
+export interface ExpandPolygonInputs {
+    // @displayName polygon
+    // @description The polygon to Expand.
+    // @required
+    polygon: Polygon;
+
+    // @displayName factor
+    // @description The factor to expand the polygon extent by.
+    // @required
+    factor: number;
+}
+
+export interface ExpandPolygonOutputs {
+    // @description The extent bounds for the expanded polygon.
+    extent: Extent;
+}
+
+// @displayName ExpandPolygon
+// @category Custom Activities
+// @description An activity that calculates the extent a polygon would cover if it was expanded by a given factor.
+export class ExpandPolygon {
+    static action = "uuid:a1c505cb-c725-465c-9ca1-f11a5316dfec::ExpandPolygon";
+
+    static suite = "uuid:a1c505cb-c725-465c-9ca1-f11a5316dfec";
+
+    async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
+        return {
+            extent: inputs.polygon.getExtent().expand(inputs.factor),
+        };
+    }
+}
+```
+
+### Example: Custom Form Element that Renders a Geometry Object
+
+TODO
+
+## Using Alternate Esri API Versions
+
+TODO - check with ryan/ken if this is accurate
+
+Geocortex Workflow is designed to be able to be used with the Esri 4.X API or the Esri 3.X API. For example, [Geocortex Web](https://www.geocortex.com/products/gxw/) is built on top of the Esri 4.X API, so custom activities for workflows running in Geocortex Web will need to support Esri 4.X API types. [Geocortex Viewer for HTML5](https://www.geocortex.com/products/geocortex-essentials/) however is built on top of the Esri 3.X API, so custom activities for workflows running in that enviroment need to support Esri 3.X API types. [Web App Builder](https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview) uses the Esri 3.X API. There's two strategies to enable support for different Esri JavaScript API's.
+
+### Swap out the Default Esri 3.X API for the 4.X API
+
+The default Esri API for the activity SDK can be changed by updating the `@types/arcgis-js-api` version in the `package.json` file and then running `npm install` again.
+
+For example, a `package.json` to the Esri 4.X API might look like this;
+
+```json
+{
+  ...
+  "devDependencies": {
+    "@types/arcgis-js-api": "4.14.0",
+    ...
+  },
+  ...
+}
+```
+
+### Build Activities to work with both Esri API Versions
+
+You can structure your activity to be compatible with both API versions. The `esri/kernel` module can be used to determine the API version that the activity is running in.
+
+```typescript
+import kernel = require("esri/kernel");
+
+enum ArcGisApiVersion {
+    Unknown,
+    v3,
+    v4,
+}
+
+const getEsriApiVersion = (): ArcGisApiVersion => {
+    const prefix = kernel.version.substr(0, 2);
+    if (prefix === "4.") {
+        return ArcGisApiVersion.v4;
+    } else if (prefix === "3.") {
+        return ArcGisApiVersion.v3;
+    } else {
+        return ArcGisApiVersion.Unknown;
+    }
+};
+```
+
+Once you know the API version, you can compare the ArcGIS 3.X API to the ArcGIS 4.X API to determine the differences and structure your activity appropiately. Since the SDK can only reference one version of the Esri API at time, you will have to cast to `any` for the other API version when neccesary.
+
+### Example: ExpandPolygon Custom Activity that is Esri API Agnostic
+
+This example builds on the ExpandPolygon activity to make it work with both the 3.X and 4.X versions of the Esri API. The `execute` method of the activity checks the Esri API version and executes the appropiate code for the given API, casting to `any` when neccesary.
+
+```typescript
+// Import the desired type
+import Extent = require("esri/geometry/Extent");
+import Polygon = require("esri/geometry/Polygon");
+import kernel = require("esri/kernel");
+
+enum ArcGisApiVersion {
+    Unknown,
+    v3,
+    v4,
+}
+
+const getEsriApiVersion = (): ArcGisApiVersion => {
+    const prefix = kernel.version.substr(0, 2);
+    if (prefix === "4.") {
+        return ArcGisApiVersion.v4;
+    } else if (prefix === "3.") {
+        return ArcGisApiVersion.v3;
+    } else {
+        return ArcGisApiVersion.Unknown;
+    }
+};
+
+export interface ExpandPolygonInputs {
+    // @displayName polygon
+    // @description The polygon to Expand.
+    // @required
+    polygon: Polygon;
+
+    // @displayName factor
+    // @description The factor to expand the polygon extent by.
+    // @required
+    factor: number;
+}
+
+export interface ExpandPolygonOutputs {
+    // @description The extent bounds for the expanded polygon.
+    extent: Extent;
+}
+
+// @displayName ExpandPolygon
+// @category Custom Activities
+// @description An activity that calculates the extent a polygon would cover if it was expanded by a given factor.
+export class ExpandPolygon {
+    static action = "uuid:a1c505cb-c725-465c-9ca1-f11a5316dfec::ExpandPolygon";
+
+    static suite = "uuid:a1c505cb-c725-465c-9ca1-f11a5316dfec";
+
+    async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
+        const apiVersion = getEsriApiVersion();
+        if (apiVersion == ArcGisApiVersion.v4) {
+            return {
+                extent: (inputs.polygon as any).extent.expand(inputs.factor),
+            };
+        } else if (apiVersion == ArcGisApiVersion.v3) {
+            return {
+                extent: inputs.polygon.getExtent().expand(inputs.factor),
+            };
+        } else {
+            throw new Error(`ArcGIS JS API Version version '${apiVersion}' not recognized.`);
+        }
+    }
+}
+```

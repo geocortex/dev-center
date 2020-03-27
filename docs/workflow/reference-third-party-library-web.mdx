@@ -1,0 +1,95 @@
+---
+title: Reference a Third Party Library for Web Application Enviroments
+sidebar_label: Reference a Third Party Library
+---
+
+You can reference external JavaScript libraries to augment [custom activities](implement-custom-activity-web.mdx) or [custom form elements](implement-custom-form-elements-web.mdx).
+
+## Scope
+
+This article applies to reference third party libraries for TypeScript [activity packs](concepts-key-concepts.mdx#activity-packs) that will be run on [web application workflow hosts](concepts-key-concepts.mdx#geocortex-workflow-hosts).
+
+<WebPrereqs />
+
+## Adding a Dependency
+
+1. Install the dependency. For example, `npm install moment.js`.
+2. **Copy** the dependency to `dist/deps/`.
+
+:::important
+It's important that you **copy** and not move the dependency from the `node_modules` folder, as this will make it accessible to both the development server and production activity pack.
+:::
+
+3. Add a call to `mapDependencies()` to the `configure()` method in `src/main.ts`.
+
+For example, if you wanted to use the [moment.js](https://github.com/moment/moment) library and had the file `moment.js` located in a folder called `deps/moment` within the `dist` folder, you would write the following:
+
+```typescript
+import { mapDependencies } from "@geocortex/workflow/runtime/app/ActivityPackUtils";
+
+function configure(prefix: string) {
+    mapDependencies({ moment: "/deps/moment/moment" }, prefix);
+}
+```
+
+The root that the library path refers to is the `dist` folder, and the `.js` postfix on the library should be omitted.
+
+4. Import and use the library as you normally would. This example demonstrates a custom activity that uses the `moment.js` library to return the current date and time in a human readable format.
+
+```typescript
+import * as moment from "moment";
+
+// @displayName CurrentTime
+// @category Custom Activities
+// @description An activity that returns the current dat and time.
+export class CurrentTime {
+    static action = "custom:wf:app::CurrentTime";
+
+    static suite = "uuid:a1c505cb-c725-465c-9ca1-f11a5316dfec";
+
+    async execute(): Promise<string> {
+        return moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+    }
+}
+```
+
+:::important
+If the external dependency has child dependencies, you will need to call `mapDependencies` for each one.
+:::
+
+## Reference External React Components
+
+If your Activity Pack contains a custom form element that relies upon an external react component, you need to add a call to `mapDependencies()` to the `configure()` method in `src/main.ts`, much the same as for simpler external libraries.
+
+-   Note: There are some limitations on the types of component you can load:
+    -   You can only import components that are defined using the [AMD or UMD](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/) syntax.
+    -   You cannot import components defined as an [Named Module](http://requirejs.org/docs/whyamd.html#namedmodules).
+    -   You cannot import components defined using the [CommonJS](http://requirejs.org/docs/commonjs.html) syntax.
+
+### Example: Using the [react-circular-color](https://github.com/ubcent/react-circular-color) Component.
+
+1. Run `npm install react-circular-color` in the terminal.
+2. Follow the instructions above to create and register a new custom form element `ColorPicker.tsx` react component that just returns a single color picker.
+
+```typescript
+import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+import React = require("react");
+import CircularColor from "react-circular-color";
+
+export default class ColorPicker extends React.Component<CustomFormElementProps> {
+    render() {
+        return <CircularColor size={200} />;
+    }
+}
+```
+
+3. Copy the `react-circular-color` folder from your `node_modules` to `dist/deps`
+4. Add a call for `react-circular-color` to `mapDependencies()` to the `configure()` method in `src/main.ts`.
+
+```typescript
+import { mapDependencies } from "@geocortex/workflow/runtime/app/ActivityPackUtils";
+
+function configure(prefix: string) {
+    mapDependencies({ "react-circular-color": "/deps/react-circular-color/build/index" }, prefix);
+}
+```

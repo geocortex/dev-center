@@ -7,7 +7,74 @@
 
 module.exports = {
     web: ["web/overview"],
-    workflow: ["workflow/overview"],
+    workflow: [
+        "workflow/overview",
+        {
+            type: "category",
+            label: "Use Cases",
+            items: [
+                {
+                    type: "category",
+                    label: "Web Applications",
+                    items: [
+                        "workflow/implement-custom-activity-web",
+                        "workflow/access-app-properties-web",
+                        "workflow/implement-custom-form-elements-web",
+                        "workflow/reference-third-party-library-web",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Geocortex Mobile",
+                    items: [
+                        "workflow/implement-custom-activity-mobile",
+                        "workflow/access-app-properties-mobile",
+                        "workflow/implement-custom-form-elements-mobile",
+                        "workflow/reference-third-party-library-mobile",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Geocortex Workflow Server",
+                    items: [
+                        "workflow/implement-custom-activity-server",
+                        "workflow/reference-third-party-library-server",
+                    ],
+                },
+            ],
+        },
+        "workflow/concepts-key-concepts",
+        {
+            type: "category",
+            label: "Getting Started with the SDK",
+            items: [
+                "workflow/sdk-overview",
+                {
+                    type: "category",
+                    label: "Web Applications",
+                    items: [
+                        "workflow/getting-started-web",
+                        "workflow/integrating-the-esri-api-web",
+                        "workflow/typescript-activity-decorators",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: ".NET Applications",
+                    items: [
+                        "workflow/getting-started-mobile",
+                        "workflow/getting-started-server",
+                        "workflow/register-dotnet-activities",
+                    ],
+                },
+            ],
+        },
+        {
+            type: "category",
+            label: "API",
+            items: ["workflow/workflow-server-api"],
+        },
+    ],
     mobile: [
         "mobile/overview",
         {
@@ -28,10 +95,23 @@ module.exports = {
                     type: "category",
                     label: "Workflow",
                     items: [
-                        "mobile/display-custom-form",
+                        {
+                            type: "link",
+                            label: "Display a Custom Form",
+                            href:
+                                "https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat",
+                        },
                         "mobile/change-default-search-behaviour",
-                        "mobile/implement-custom-workflow-form-element",
-                        "mobile/implement-workflow-activity",
+                        {
+                            type: "link",
+                            label: "Implement Custom Workflow Form Elements",
+                            href: "../workflow/implement-custom-form-elements-mobile",
+                        },
+                        {
+                            type: "link",
+                            label: "Implement Custom Workflow Activity",
+                            href: "../workflow/implement-custom-activity-mobile",
+                        },
                     ],
                 },
                 {
