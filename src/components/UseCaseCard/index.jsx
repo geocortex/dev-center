@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import React from "react";
 import classnames from "classnames";
 import styles from "./index.module.css";
@@ -13,9 +14,9 @@ export default function UseCaseCard({ title, description, link }) {
                     <p>{description}</p>
                 </div>
                 <div className="card__footer">
-                    <a className="button button--secondary button--block" href={link}>
+                    <Link className="button button--secondary button--block" to={link}>
                         Get Started
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
