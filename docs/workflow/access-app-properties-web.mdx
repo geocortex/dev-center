@@ -24,7 +24,7 @@ Depending on the type of host application different resources will be available.
 
 The following activity uses [Esri types](integrating-the-esri-api-web.mdx) and the `AppActivity` class to create a graphics layer and add it to the host's map. This activity assumes that it will be running in Geocortex Web, and so [it uses the Esri 4.X API](integrating-the-esri-api-web.mdx#swap-out-the-default-esri-3x-api-for-the-4x-api).
 
-```typescript
+```ts
 import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
 import Map = require("esri/Map");
 import Graphic = require("esri/Graphic");
@@ -49,18 +49,18 @@ export class AddLayerToMap extends AppActivity {
                     [
                         [-111.3, 52.68],
                         [-98, 49.5],
-                        [-93.94, 29.89]
-                    ]
-                ]
+                        [-93.94, 29.89],
+                    ],
+                ],
             }),
             symbol: new LineSymbol({
                 color: [226, 119, 40],
-                width: 4
-            })
+                width: 4,
+            }),
         });
 
         var graphicsLayer = new GraphicsLayer({
-            graphics: [polylineGraphic]
+            graphics: [polylineGraphic],
         });
 
         (this.map as Map).add(graphicsLayer);

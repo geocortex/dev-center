@@ -24,7 +24,7 @@ It's important that you **copy** and not move the dependency from the `node_modu
 
 For example, if you wanted to use the [moment.js](https://github.com/moment/moment) library and had the file `moment.js` located in a folder called `deps/moment` within the `dist` folder, you would write the following:
 
-```typescript
+```ts
 import { mapDependencies } from "@geocortex/workflow/runtime/app/ActivityPackUtils";
 
 function configure(prefix: string) {
@@ -36,7 +36,7 @@ The root that the library path refers to is the `dist` folder, and the `.js` pos
 
 4. Import and use the library as you normally would. This example demonstrates a custom activity that uses the `moment.js` library to return the current date and time in a human readable format.
 
-```typescript
+```ts
 import * as moment from "moment";
 
 // @displayName CurrentTime
@@ -71,7 +71,7 @@ If your Activity Pack contains a custom form element that relies upon an externa
 1. Run `npm install react-circular-color` in the terminal.
 2. Follow the instructions above to create and register a new custom form element `ColorPicker.tsx` react component that just returns a single color picker.
 
-```typescript
+```ts
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 import React = require("react");
 import CircularColor from "react-circular-color";
@@ -86,7 +86,7 @@ export default class ColorPicker extends React.Component<CustomFormElementProps>
 3. Copy the `react-circular-color` folder from your `node_modules` to `dist/deps`
 4. Add a call for `react-circular-color` to `mapDependencies()` to the `configure()` method in `src/main.ts`.
 
-```typescript
+```ts
 import { mapDependencies } from "@geocortex/workflow/runtime/app/ActivityPackUtils";
 
 function configure(prefix: string) {

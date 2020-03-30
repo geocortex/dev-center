@@ -18,7 +18,7 @@ The `activity-sdk` uses the [Esri 3.X JavaScript API](https://developers.arcgis.
 
 This is a custom activity which imports the Esri JavaScript API to expand a polygon by a given factor and returns the new extent bounds.
 
-```typescript
+```ts
 // Import the desired type
 import Extent = require("esri/geometry/Extent");
 import Polygon = require("esri/geometry/Polygon");
@@ -50,7 +50,7 @@ export class ExpandPolygon {
 
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         return {
-            extent: inputs.polygon.getExtent().expand(inputs.factor)
+            extent: inputs.polygon.getExtent().expand(inputs.factor),
         };
     }
 }
@@ -81,13 +81,13 @@ For example, a `package.json` to the Esri 4.X API might look like this;
 
 You can structure your activity to be compatible with both API versions. The `esri/kernel` module can be used to determine the API version that the activity is running in.
 
-```typescript
+```ts
 import kernel = require("esri/kernel");
 
 enum ArcGisApiVersion {
     Unknown,
     v3,
-    v4
+    v4,
 }
 
 const getEsriApiVersion = (): ArcGisApiVersion => {
@@ -108,7 +108,7 @@ Once you know the API version, you can compare the ArcGIS 3.X API to the ArcGIS 
 
 This example builds on the ExpandPolygon activity to make it work with both the 3.X and 4.X versions of the Esri API. The `execute` method of the activity checks the Esri API version and executes the appropiate code for the given API, casting to `any` when neccesary.
 
-```typescript
+```ts
 // Import the desired type
 import Extent = require("esri/geometry/Extent");
 import Polygon = require("esri/geometry/Polygon");
@@ -117,7 +117,7 @@ import kernel = require("esri/kernel");
 enum ArcGisApiVersion {
     Unknown,
     v3,
-    v4
+    v4,
 }
 
 const getEsriApiVersion = (): ArcGisApiVersion => {
@@ -160,11 +160,11 @@ export class ExpandPolygon {
         const apiVersion = getEsriApiVersion();
         if (apiVersion == ArcGisApiVersion.v4) {
             return {
-                extent: (inputs.polygon as any).extent.expand(inputs.factor)
+                extent: (inputs.polygon as any).extent.expand(inputs.factor),
             };
         } else if (apiVersion == ArcGisApiVersion.v3) {
             return {
-                extent: inputs.polygon.getExtent().expand(inputs.factor)
+                extent: inputs.polygon.getExtent().expand(inputs.factor),
             };
         } else {
             throw new Error(`ArcGIS JS API Version version '${apiVersion}' not recognized.`);

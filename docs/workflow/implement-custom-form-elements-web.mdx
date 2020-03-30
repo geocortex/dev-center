@@ -12,14 +12,14 @@ Implementing a custom [form element](concepts-key-concepts.mdx#activities-and-fo
 
 ## Scope
 
-This article applies to building workflow form elements that will be run on [web application workflow hosts](concepts-key-concepts.mdx#geocortex-workflow-hosts).
+This article applies to building Workflow form elements that will be run on [web application workflow hosts](concepts-key-concepts.mdx#geocortex-workflow-hosts).
 
 <WebPrereqs />
 
 It is suggested that you [implement a custom activity](implement-custom-activity-web.mdx) before trying to implement a custom form element.
 
 :::important
-Custom workflow form elements are built in [React](https://reactjs.org/).
+Custom Workflow form elements are built in [React](https://reactjs.org/).
 :::
 
 ## Overview
@@ -54,7 +54,7 @@ export default CustomFormElement;
 1. Modify the activity class declaration to extend the `RegisterCustomFormElementBase` base class.
 1. Remove uneccesary inputs and outputs and register your custom form element in the `execute` method.
 
-```typescript
+```ts
 import { RegisterCustomFormElementBase } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 import CustomFormElement from "./CustomFormElement";
 
@@ -94,7 +94,7 @@ The following example creates and registers a "star rating" custom form element.
   ]}>
 <TabItem value="custom-form-element">
 
-```typescript
+```ts
 import * as React from "react";
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
@@ -109,7 +109,7 @@ export class StarRatingFormElement extends React.Component<
 > {
     // Set the default state of the component.
     state: StarRatingState = {
-        rating: 0
+        rating: 0,
     };
 
     componentDidMount() {
@@ -117,7 +117,7 @@ export class StarRatingFormElement extends React.Component<
         const { element } = this.props;
         if (element && element.value) {
             this.setState({
-                rating: element.value
+                rating: element.value,
             });
         }
     }
@@ -130,12 +130,12 @@ export class StarRatingFormElement extends React.Component<
         const { element } = nextProps;
         if (element && element.value) {
             this.setState({
-                rating: element.value
+                rating: element.value,
             });
         }
     }
 
-    handleClick = event => {
+    handleClick = (event) => {
         const { element, raiseEvent } = this.props;
 
         // Get the value from the button.
@@ -145,7 +145,7 @@ export class StarRatingFormElement extends React.Component<
         if (element.value !== value) {
             // Update the component state.
             this.setState({
-                rating: value
+                rating: value,
             });
 
             // Update the element's value.
@@ -162,7 +162,7 @@ export class StarRatingFormElement extends React.Component<
         border: "none",
         outline: "none",
         fontSize: "2em",
-        padding: 0
+        padding: 0,
     };
 
     // Button styles to show selected and unselected states.
@@ -200,7 +200,7 @@ export class StarRatingFormElement extends React.Component<
 </TabItem>
 <TabItem value="form-element-registration">
 
-```typescript
+```ts
 import { RegisterCustomFormElementBase } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 import StarRatingFormElement from "./StarRatingFormElement";
 
@@ -239,22 +239,22 @@ import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/Register
 
 // A simple React Stateless Functional Component that demonstrates raising events.
 // Use React.SFC when your component does not have any state.
-const SfcCustomFormElement: React.SFC<CustomFormElementProps> = props => {
-    const raiseClick = event => {
+const SfcCustomFormElement: React.SFC<CustomFormElementProps> = (props) => {
+    const raiseClick = (event) => {
         // Raise the clicked event.
         props.raiseEvent("clicked", new Date());
     };
 
-    const raiseChange = event => {
+    const raiseChange = (event) => {
         // Raise the changed event.
         props.raiseEvent("changed", new Date());
     };
 
-    const raiseCustom = event => {
+    const raiseCustom = (event) => {
         // Raise the custom event with a custom event value.
         const eventValue = {
             customEventType: "custom1",
-            data: new Date()
+            data: new Date(),
         };
         props.raiseEvent("custom", eventValue);
     };
@@ -275,7 +275,7 @@ const SfcCustomFormElement: React.SFC<CustomFormElementProps> = props => {
 
 A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
 
-```typescript
+```ts
 export class CustomFormElement extends React.Component<CustomFormElementProps> {
     ...
     handleClick = event => {

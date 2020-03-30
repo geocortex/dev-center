@@ -8,7 +8,7 @@ title: TypeScript Activity Decorators
 
 The following activity demonstrates the basic metadata decorators that could exist on a custom activity and it's inputs and outputs.
 
-```typescript
+```ts
 export interface Inputs {
     // `@displayName` The name of the activity input that appears in the properties panel.
     // `@description` The description of the activity input that appears in inline help tooltips.
@@ -59,7 +59,7 @@ If you do not want to limit the use of an activity, do not add any of the above 
 
 The following example declares that an activity will only work on Geocortex Web or Web App Builder in an online and client side environment.
 
-```typescript
+```ts
 // @supportedApps WAB, GWV
 // @onlineOnly
 // @clientOnly
