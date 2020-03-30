@@ -21,8 +21,8 @@ The `activity-sdk` uses the [ArcGIS API for JavaScript 3.x](https://developers.a
 
 ```typescript
 // Import the desired type
-import Extent = require("esri/geometry/Extent");
-import Polygon = require("esri/geometry/Polygon");
+import * as Extent from "esri/geometry/Extent";
+import * as Polygon from "esri/geometry/Polygon";
 
 export interface ExpandPolygonInputs {
     // @displayName polygon
@@ -90,7 +90,7 @@ If you need to support both ArcGIS API versions, then you may need to account fo
 You can structure your activity to be compatible with differences between versions by using the `esri/kernel` module to determine the API version that the activity is running in.
 
 ```typescript
-import kernel = require("esri/kernel");
+import * as kernel from "esri/kernel";
 
 enum ArcGisApiVersion {
     Unknown,
@@ -122,9 +122,9 @@ In this example, the way the Extent of a polygon is retrieved is the difference 
 
 ```typescript
 // Import the desired type
-import Extent = require("esri/geometry/Extent");
-import Polygon = require("esri/geometry/Polygon");
-import kernel = require("esri/kernel");
+import * as Extent from "esri/geometry/Extent";
+import * as Polygon from "esri/geometry/Polygon";
+import * as kernel from "esri/kernel";
 
 enum ArcGisApiVersion {
     Unknown,

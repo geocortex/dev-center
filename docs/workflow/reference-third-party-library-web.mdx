@@ -71,7 +71,7 @@ If your Activity Pack contains a custom form element that relies upon an externa
 
 ```typescript
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
-import React = require("react");
+import * as React from "react";
 import CircularColor from "react-circular-color";
 
 export default class ColorPicker extends React.Component<CustomFormElementProps> {

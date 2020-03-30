@@ -27,11 +27,11 @@ The following activity uses [ArcGIS Runtime SDK for .NET](integrating-the-esri-a
 
 ```typescript
 import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
-import Map = require("esri/Map");
-import Graphic = require("esri/Graphic");
-import GraphicsLayer = require("esri/layers/GraphicsLayer");
-import Polyline = require("esri/geometry/Polyline");
-import LineSymbol = require("esri/symbols/LineSymbol");
+import * as Map from "esri/Map";
+import * as Graphic from "esri/Graphic";
+import * as GraphicsLayer from "esri/layers/GraphicsLayer";
+import * as Polyline from "esri/geometry/Polyline";
+import * as LineSymbol from "esri/symbols/LineSymbol";
 
 // @supportedApps GWV
 // @displayName AddLayerToMap
