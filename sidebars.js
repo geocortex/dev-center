@@ -11,8 +11,8 @@ module.exports = {
         {
             type: "category",
             label: "Concepts",
-            items: ["web/concepts-commands-operations"]
-        }
+            items: ["web/concepts-commands-operations"],
+        },
     ],
     workflow: [
         "workflow/overview",
@@ -27,8 +27,8 @@ module.exports = {
                         "workflow/implement-custom-activity-web",
                         "workflow/access-app-properties-web",
                         "workflow/implement-custom-form-elements-web",
-                        "workflow/reference-third-party-library-web"
-                    ]
+                        "workflow/reference-third-party-library-web",
+                    ],
                 },
                 {
                     type: "category",
@@ -37,18 +37,18 @@ module.exports = {
                         "workflow/implement-custom-activity-mobile",
                         "workflow/access-app-properties-mobile",
                         "workflow/implement-custom-form-elements-mobile",
-                        "workflow/reference-third-party-library-mobile"
-                    ]
+                        "workflow/reference-third-party-library-mobile",
+                    ],
                 },
                 {
                     type: "category",
                     label: "Geocortex Workflow Server",
                     items: [
                         "workflow/implement-custom-activity-server",
-                        "workflow/reference-third-party-library-server"
-                    ]
-                }
-            ]
+                        "workflow/reference-third-party-library-server",
+                    ],
+                },
+            ],
         },
         "workflow/concepts-key-concepts",
         {
@@ -62,8 +62,8 @@ module.exports = {
                     items: [
                         "workflow/getting-started-web",
                         "workflow/integrating-the-esri-api-web",
-                        "workflow/typescript-activity-decorators"
-                    ]
+                        "workflow/typescript-activity-decorators",
+                    ],
                 },
                 {
                     type: "category",
@@ -71,16 +71,17 @@ module.exports = {
                     items: [
                         "workflow/getting-started-mobile",
                         "workflow/getting-started-server",
-                        "workflow/register-dotnet-activities"
-                    ]
-                }
-            ]
+                        "workflow/register-dotnet-activities",
+                        "workflow/activity-input-validation",
+                    ],
+                },
+            ],
         },
         {
             type: "category",
             label: "API",
-            items: ["workflow/workflow-server-api"]
-        }
+            items: ["workflow/workflow-server-api"],
+        },
     ],
     mobile: [
         "mobile/overview",
@@ -95,8 +96,8 @@ module.exports = {
                         "mobile/change-default-behaviour",
                         "mobile/look-and-feel",
                         "mobile/add-medium-layout",
-                        "mobile/internationalization"
-                    ]
+                        "mobile/internationalization",
+                    ],
                 },
                 {
                     type: "category",
@@ -106,20 +107,20 @@ module.exports = {
                             type: "link",
                             label: "Display a Custom Form",
                             href:
-                                "https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat"
+                                "https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat",
                         },
                         "mobile/change-default-search-behaviour",
                         {
                             type: "link",
                             label: "Implement Custom Workflow Form Elements",
-                            href: "../workflow/implement-custom-form-elements-mobile"
+                            href: "../workflow/implement-custom-form-elements-mobile",
                         },
                         {
                             type: "link",
                             label: "Implement Custom Workflow Activity",
-                            href: "../workflow/implement-custom-activity-mobile"
-                        }
-                    ]
+                            href: "../workflow/implement-custom-activity-mobile",
+                        },
+                    ],
                 },
                 {
                     type: "category",
@@ -129,10 +130,10 @@ module.exports = {
                         "mobile/implement-component-with-ui",
                         "mobile/implement-component-participate-app-config",
                         "mobile/implement-service",
-                        "mobile/implement-event"
-                    ]
-                }
-            ]
+                        "mobile/implement-event",
+                    ],
+                },
+            ],
         },
         {
             type: "category",
@@ -147,9 +148,9 @@ module.exports = {
                 {
                     type: "category",
                     label: "Advanced Topics",
-                    items: ["mobile/concepts-advanced-layout", "mobile/concepts-advanced-config"]
-                }
-            ]
+                    items: ["mobile/concepts-advanced-layout", "mobile/concepts-advanced-config"],
+                },
+            ],
         },
         {
             type: "category",
@@ -163,15 +164,15 @@ module.exports = {
                     items: [
                         "mobile/dependency-injection",
                         "mobile/viewmodel-helper-class",
-                        "mobile/memory-leaks"
-                    ]
-                }
-            ]
+                        "mobile/memory-leaks",
+                    ],
+                },
+            ],
         },
         {
             type: "category",
             label: "API",
-            items: ["mobile/api-overview", "mobile/api-commands-operations", "mobile/api-events"]
-        }
-    ]
+            items: ["mobile/api-overview", "mobile/api-commands-operations", "mobile/api-events"],
+        },
+    ],
 };

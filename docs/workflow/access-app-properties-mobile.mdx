@@ -1,11 +1,17 @@
 ---
 title: Access App Properties in an Activity
+description: Geocortex Workflow - Access app properties in a Geocortex Mobile workflow activity
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 
-## Prerequisites
+## Scope
+
+This article applies to building workflow activities that will be run on [Geocortex Mobile](https://www.geocortex.com/products/gxm/).
+
+<MobilePrereqs />
 
 Learn how to build a [custom activity](implement-custom-activity-mobile.mdx) for Geocortex Mobile before reading this article.
 
@@ -24,7 +30,7 @@ public DisplayGeocortexMobileAlert(UIOperations uiOperations)
 }
 ```
 
-2. [Inject the class into the `IActivityHandlerFactory` for the application](/implement-custom-activity-mobile#register-the-activity-with-the-iactivityhandlerfactory), and pass it to your custom activity's constructor.
+2. [Inject the class](../mobile/dependency-injection.mdx) into the [`IActivityHandlerFactory` for the application](implement-custom-activity-mobile.mdx#register-the-activity-with-the-iactivityhandlerfactory), and pass it to your custom activity's constructor.
 
 ```csharp
 public class ActivityLoader : IActivityHandlerFactory
@@ -145,7 +151,7 @@ namespace App1.Samples.Workflow.CustomActivity
 
 Accessing the map for the application uses the built in [dependency injection pattern](../mobile/dependency-injection.mdx) to inject a `MapProviderBase` class which exposes the [Map](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Mapping_Map.htm) and [MapView](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_UI_Controls_MapView.htm).
 
-1. Add a new [autofac factory](https://autofaccn.readthedocs.io/en/latest/resolve/relationships.html#dynamic-instantiation-func-b) property that produces a `MapProviderBase` to your custom activity.
+1. Add a new [autofac factory](https://autofaccn.readthedocs.io/en/latest/resolve/relationships.html#dynamic-instantiation-func-b) property that injects a `MapProviderBase` into your custom activity.
 
 ```csharp
 [ProviderFactoryAttribute(typeof(MapProviderBase))]

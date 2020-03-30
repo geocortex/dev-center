@@ -1,12 +1,14 @@
 ---
 title: Implement a Custom Activity for Geocortex Mobile
 sidebar_label: Implement a Custom Activity
+description: Geocortex Workflow - Implement a custom activity for Geocortex Mobile
 ---
 
 import LogarithmActivityMobileSnippet from "./snippets/logarithm-activity-mobile.mdx";
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
+import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 
-Implementing a custom [activity](concepts-key-concepts.mdx#activities-and-form-elements) allows you to a build a reusable, completely custom behaviour to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
+Implementing a custom [activity](concepts-key-concepts.mdx#activities-and-form-elements) allows you to build a reusable, completely custom behaviour to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
 
 ## Scope
 
@@ -112,11 +114,15 @@ Two key components of this snippet are the `[assembly: Export(...)]` tag and the
 
 ## Implement the Custom Activity
 
-We now have a empty activity that Geocortex Mobile can use that takes no inputs and produces no outputs. At this point, you can implement the appropiate business logic for your use case, using the features available with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This activity still does not have an easy to use interface in Geocortex Workflow Designer, but can be executed using the [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity.
+We now have a empty activity that Geocortex Mobile can use that takes no inputs and produces no outputs. At this point, you can implement the appropiate business logic for your use case, using the features available with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This activity still does not have an [easy to use interface in Geocortex Workflow Designer](register-dotnet-activities.mdx), but can be executed using [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167).
 
 ### Example: Logarithm of a Number
 
 The follow activity will calculate the log of a number with a given (optional) base.
+
+:::note
+Activity inputs should be [validated with the `Ensure*` methods](activity-input-validation.mdx).
+:::
 
 <LogarithmActivityMobileSnippet />
 

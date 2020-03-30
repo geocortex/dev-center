@@ -1,7 +1,10 @@
 ---
 title: Reference a Third Party Library for Web Application Enviroments
 sidebar_label: Reference a Third Party Library
+description: Geocortex Workflow - Reference a third party library in workflow for web applications
 ---
+
+import WebPrereqs from "./snippets/prereqs-web.mdx";
 
 You can reference external JavaScript libraries to augment [custom activities](implement-custom-activity-web.mdx) or [custom form elements](implement-custom-form-elements-web.mdx).
 
@@ -13,7 +16,7 @@ This article applies to reference third party libraries for TypeScript [activity
 
 ## Adding a Dependency
 
-1. Install the dependency. For example, `npm install moment`.
+1. Install the dependency in the activity sdk. For example, `npm install moment`.
 2. **Copy** the dependency to `dist/deps/`.
 
 :::important
@@ -32,9 +35,9 @@ function configure(prefix: string) {
 }
 ```
 
-The root that the library path refers to is the `dist` folder, and the `.js` suffix on the library should be omitted.
+The root that the library path refers to is the `dist` folder, and the `.js` suffix on the library file should be omitted.
 
-4. Import and use the library as you normally would. This example demonstrates a custom activity that uses the `moment.js` library to return the current date and time in a human readable format.
+4. Import and use the library as you normally would use a javascript library. This example demonstrates a custom activity that uses the `moment.js` library to return the current date and time in a human readable format.
 
 ```ts
 import * as moment from "moment";
@@ -59,7 +62,7 @@ If the external dependency has other dependencies, you will need to call `mapDep
 
 ## Reference External React Components
 
-If your Activity Pack contains a custom form element that relies upon an external react component, you need to add a call to `mapDependencies()` to the `configure()` method in `src/main.ts`, much the same as for simpler external libraries.
+If your Activity Pack contains a custom form element that relies upon an external react component, you need to add a call to `mapDependencies()` to the `configure()` method in `src/main.ts`, the same as for other external libraries.
 
 <!--
 TODO: This library is very outdated, and will start causing `npm install` errors when we upgrade to React 16 in the SDK.
@@ -73,7 +76,7 @@ It doesn't support React 16. Let's pick something more popular perhaps?
 
 ```ts
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
-import React = require("react");
+import * as React from "react";
 import CircularColor from "react-circular-color";
 
 export default class ColorPicker extends React.Component<CustomFormElementProps> {
