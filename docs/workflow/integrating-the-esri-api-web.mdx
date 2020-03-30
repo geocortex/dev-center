@@ -10,13 +10,13 @@ import WebPrereqs from "./snippets/prereqs-web.mdx";
 
 Follow the instructions in [Implement a Custom Activity](implement-custom-activity-web.mdx) to create a custom workflow activity. You can then import ArcGIS API types with a `require` call.
 
-:::note
-The `activity-sdk` uses the [ArcGIS API for JavaScript 3.x](https://developers.arcgis.com/javascript/3/) by default. See [Using Alternate ArcGIS API Versions](integrating-the-esri-api-web.mdx#using-alternate-esri-api-versions) for details.
-:::
-
 ### Example: Custom Activity for Expanding a Polygon
 
 This is a custom activity which imports types from the ArcGIS API for JavaScript to expand a polygon by a given factor and returns the new extent bounds.
+
+:::note
+The `activity-sdk` uses the [ArcGIS API for JavaScript 3.x](https://developers.arcgis.com/javascript/3/) by default. See [Using Alternate ArcGIS API Versions](integrating-the-esri-api-web.mdx#using-alternate-arcgis-api-for-javascript-versions) for details.
+:::
 
 ```typescript
 // Import the desired type
@@ -62,8 +62,9 @@ Geocortex Workflow is designed to be able to be used with the 4.x or 3.x ArcGIS 
 
 -   [Geocortex Web](https://www.geocortex.com/products/gxw/) - 4.x ArcGIS API
 -   [Geocortex Viewer for HTML5](https://www.geocortex.com/products/geocortex-essentials/) - 3.x ArcGIS API
--   [Web App Builder](https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview) - 3.x ArcGIS API for 2d View, 4.x
-    If you decide to use the API, you should ensure you are using the right version for your application.
+-   [ArcGIS Web App Builder](https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview) - 3.x ArcGIS API for 2D View, 4.x ArcGIS API for scene view.
+
+If you decide to use the API, you should ensure you are using the right version for your application.
 
 ### Change the API Version used by the Activity SDK
 
