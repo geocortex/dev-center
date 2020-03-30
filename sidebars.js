@@ -71,7 +71,8 @@ module.exports = {
                     items: [
                         "workflow/getting-started-mobile",
                         "workflow/getting-started-server",
-                        "workflow/register-dotnet-activities"
+                        "workflow/register-dotnet-activities",
+                        "workflow/activity-input-validation"
                     ]
                 }
             ]

@@ -108,6 +108,10 @@ We now have a empty activity that Geocortex Workflow Server can use that takes n
 
 The following activity will calculate the log of a number with a given (optional) base.
 
+:::note
+Activity inputs should be [validated with the `Ensure*` methods](activity-input-validation).
+:::
+
 ```csharp
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Utils;
