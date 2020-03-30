@@ -61,6 +61,11 @@ If the external dependency has other dependencies, you will need to call `mapDep
 
 If your Activity Pack contains a custom form element that relies upon an external react component, you need to add a call to `mapDependencies()` to the `configure()` method in `src/main.ts`, much the same as for simpler external libraries.
 
+<!--
+TODO: This library is very outdated, and will start causing `npm install` errors when we upgrade to React 16 in the SDK.
+It doesn't support React 16. Let's pick something more popular perhaps?
+-->
+
 ### Example: Using the [react-circular-color](https://github.com/ubcent/react-circular-color) Component.
 
 1. Run `npm install react-circular-color` in the terminal.
@@ -94,5 +99,4 @@ function configure(prefix: string) {
 There are some limitations on the types of component you can load:
 
 -   You can only import components that are defined using the [AMD or UMD](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/) syntax.
--   You cannot import components defined as an [Named Module](http://requirejs.org/docs/whyamd.html#namedmodules).
 -   You cannot import components defined using the [CommonJS](http://requirejs.org/docs/commonjs.html) syntax.
