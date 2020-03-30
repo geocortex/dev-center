@@ -3,6 +3,8 @@ title: Reference a Third Party Library for Web Application Enviroments
 sidebar_label: Reference a Third Party Library
 ---
 
+import WebPrereqs from "./snippets/prereqs-web.mdx";
+
 You can reference external JavaScript libraries to augment [custom activities](implement-custom-activity-web.mdx) or [custom form elements](implement-custom-form-elements-web.mdx).
 
 ## Scope
@@ -13,7 +15,7 @@ This article applies to reference third party libraries for TypeScript [activity
 
 ## Adding a Dependency
 
-1. Install the dependency. For example, `npm install moment.js`.
+1. Install the dependency in the activity sdk. For example, `npm install moment.js`.
 2. **Copy** the dependency to `dist/deps/`.
 
 :::important
@@ -32,9 +34,9 @@ function configure(prefix: string) {
 }
 ```
 
-The root that the library path refers to is the `dist` folder, and the `.js` postfix on the library should be omitted.
+The root that the library path refers to is the `dist` folder, and the `.js` postfix on the library file should be omitted.
 
-4. Import and use the library as you normally would. This example demonstrates a custom activity that uses the `moment.js` library to return the current date and time in a human readable format.
+4. Import and use the library as you normally would use a javascript library. This example demonstrates a custom activity that uses the `moment.js` library to return the current date and time in a human readable format.
 
 ```typescript
 import * as moment from "moment";
@@ -59,7 +61,7 @@ If the external dependency has child dependencies, you will need to call `mapDep
 
 ## Reference External React Components
 
-If your Activity Pack contains a custom form element that relies upon an external react component, you need to add a call to `mapDependencies()` to the `configure()` method in `src/main.ts`, much the same as for simpler external libraries.
+If your Activity Pack contains a custom form element that relies upon an external react component, you need to add a call to `mapDependencies()` to the `configure()` method in `src/main.ts`, the same as for other external libraries.
 
 ### Example: Using the [react-circular-color](https://github.com/ubcent/react-circular-color) Component.
 

@@ -24,7 +24,7 @@ Implementing a custom form element in Geocortex Mobile consists of three steps:
 
 1. Creating the custom form element and implementing the UI.
 2. Creating an activity which will register this form component with Geocortex Workflow.
-3. Register the activity with Geocortex Workflow and running it using the custom form element.
+3. Registering the activity with Geocortex Workflow and running it using the custom form element.
 
 ## Setup the Custom Form Element Skeleton
 
@@ -91,7 +91,7 @@ namespace App1.Workflow
 
 ## Register the Form Element Registration Activity
 
-[Register the `RegisterCustomFormElementBase` class in the `IActivityHandlerFactory` for the application](/implement-custom-activity-mobile#register-the-activity-with-the-iactivityhandlerfactory). Now you can [build a workflow for Geocortex Mobile](TODO - what to link to...) that uses your new custom form element!
+Register the `RegisterCustomFormElementBase` class in the [`IActivityHandlerFactory` for the application](implement-custom-activity-mobile#register-the-activity-with-the-iactivityhandlerfactory). Now you can [build a workflow for Geocortex Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new custom form element!
 
 :::important
 It is **essential** that this custom activity be run before the custom form element is used. It is best practice to run the form element registration activity at the start of a workflow.
@@ -237,7 +237,7 @@ namespace App1.Workflow
 
 ## Raising Form Events
 
-Geocortex Workflow Form elements can raise [events](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise events, including a custom event type.
+Built in Geocortex Workflow Form elements can raise [events](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise events, including a custom event type.
 
 ### Example: Custom Form Element that Raises Events
 
@@ -336,4 +336,4 @@ class CustomFormComponent : FormComponent
 }
 ```
 
-You can then use an expression in Geocortex Workflow Designer to access the custom property of the form element. For example, to access the `value` property you can use an expression like `=$form1.state.custom1.value`.
+You can then use an [expression](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/expressions.htm) in Geocortex Workflow Designer to access the custom property of the form element. For example, to access the `value` property you can use an expression like `=$form1.state.custom1.value`.

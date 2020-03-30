@@ -3,7 +3,7 @@ title: Reference a Third Party Library in Geocortex Workflow Server
 sidebar_label: Reference a Third Party Library
 ---
 
-As discussed in [implement custom activity](implement-custom-activity-server.mdx), deploying a custom activity involves copying the build output of a .NET Standard or .NET Core project to a folder in the Geocortex Workflow Server deployment. In order to reference third party libraries, we will have to also ensure all the dependencies are copied into this folder.
+As discussed in [implement a custom activity](implement-custom-activity-server.mdx), deploying a custom activity to Geocortex Workflow Server involves copying the build output of a .NET Standard or .NET Core project to a folder in the Geocortex Workflow Server deployment. In order to reference third party libraries, we will have to also ensure all the dependencies are copied into this folder.
 
 ## Setup your Custom Code
 
@@ -15,7 +15,7 @@ Add a third party library via a nuget package, and use it in your custom activit
 
 ## Build and Copy the Project Output
 
-Build the project to output the assemblies. What you have to copy is different depending on if you started with a .NET Standard project or a .NET Core project.
+Build the project to output the assemblies. What exactly you have to copy is different depending on if you started with a .NET Standard project or a .NET Core project.
 
 ### .NET Core Project
 
