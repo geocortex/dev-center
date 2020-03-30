@@ -237,7 +237,7 @@ import * as React from "react";
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
 // A simple React Component that demonstrates raising events.
-const SfcCustomFormElement = (props: CustomFormElementProps) => {
+const CustomFormElement = (props: CustomFormElementProps) => {
     const raiseClick = (event) => {
         // Raise the clicked event.
         props.raiseEvent("clicked", new Date());
@@ -259,7 +259,7 @@ const SfcCustomFormElement = (props: CustomFormElementProps) => {
 
     return (
         <div>
-            A simple React.SFC custom form element
+            A simple custom form element
             <br />
             <button onClick={raiseClick}>Raise click</button>
             <button onClick={raiseChange}>Raise change</button>
