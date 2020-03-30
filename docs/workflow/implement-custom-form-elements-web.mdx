@@ -12,7 +12,7 @@ Implementing a custom [form element](concepts-key-concepts.mdx#activities-and-fo
 
 ## Scope
 
-This article applies to building Workflow form elements that will be run on [web application workflow hosts](concepts-key-concepts.mdx#geocortex-workflow-hosts).
+This article applies to building Workflow form elements that will be run on [web-based Workflow hosts](concepts-key-concepts.mdx#geocortex-workflow-hosts).
 
 <WebPrereqs />
 
@@ -93,6 +93,8 @@ The following example creates and registers a "star rating" custom form element.
     { label: "User Interface", value: "ui" },
   ]}>
 <TabItem value="custom-form-element">
+
+<!-- TODO: Refactor to use function component instead of class -->
 
 ```ts
 import * as React from "react";
@@ -221,7 +223,7 @@ export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
 
 </TabItem>
 <TabItem value="ui">
-{/* TODO - screenshot */}
+{/* TODO: screenshot */}
 </TabItem>
 </Tabs>
 
@@ -237,9 +239,8 @@ The follow custom form element demonstrates how various form events can be raise
 import * as React from "react";
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
-// A simple React Stateless Functional Component that demonstrates raising events.
-// Use React.SFC when your component does not have any state.
-const SfcCustomFormElement: React.SFC<CustomFormElementProps> = (props) => {
+// A simple React Component that demonstrates raising events.
+const SfcCustomFormElement = (props: CustomFormElementProps) => {
     const raiseClick = (event) => {
         // Raise the clicked event.
         props.raiseEvent("clicked", new Date());
@@ -275,10 +276,11 @@ const SfcCustomFormElement: React.SFC<CustomFormElementProps> = (props) => {
 
 A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
 
+<!-- TODO: Refactor to use function component instead of class -->
+
 ```ts
-export class CustomFormElement extends React.Component<CustomFormElementProps> {
-    ...
-    handleClick = event => {
+const CustomFormElement = (props: CustomFormElementProps>) => {
+    const handleClick = event => {
         const { element, raiseEvent } = this.props;
 
         // Get the value from the button.
@@ -294,7 +296,8 @@ export class CustomFormElement extends React.Component<CustomFormElementProps> {
             raiseEvent("changed", value);
         }
     };
-    ...
+
+    // ...
 }
 ```
 

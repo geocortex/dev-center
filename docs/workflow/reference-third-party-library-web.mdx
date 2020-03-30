@@ -13,7 +13,7 @@ This article applies to reference third party libraries for TypeScript [activity
 
 ## Adding a Dependency
 
-1. Install the dependency. For example, `npm install moment.js`.
+1. Install the dependency. For example, `npm install moment`.
 2. **Copy** the dependency to `dist/deps/`.
 
 :::important
@@ -32,7 +32,7 @@ function configure(prefix: string) {
 }
 ```
 
-The root that the library path refers to is the `dist` folder, and the `.js` postfix on the library should be omitted.
+The root that the library path refers to is the `dist` folder, and the `.js` suffix on the library should be omitted.
 
 4. Import and use the library as you normally would. This example demonstrates a custom activity that uses the `moment.js` library to return the current date and time in a human readable format.
 
@@ -54,7 +54,7 @@ export class CurrentTime {
 ```
 
 :::important
-If the external dependency has child dependencies, you will need to call `mapDependencies` for each one.
+If the external dependency has other dependencies, you will need to call `mapDependencies` for each one.
 :::
 
 ## Reference External React Components
