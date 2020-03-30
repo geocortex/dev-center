@@ -159,9 +159,9 @@ public Func<MapProviderBase> MapProviderFactory { get; set; }
 var mapProvider = MapProviderFactory();
 // Ensure the map has loaded
 await mapProvider.Load();
-// Esri Map
+// ArcGIS runtime Map
 var map = mapProvider.Map;
-// Esri MapView
+// ArcGIS runtime MapView
 var mapView = (mapProvider as dynamic).View as MapView;
 ```
 

@@ -7,7 +7,7 @@ import LogarithmActivityMobileSnippet from "./snippets/logarithm-activity-mobile
 Geocortex Workflow [activities](concepts-key-concepts.mdx#activities-and-form-elements) can be implemented in either TypeScript or C#, depending on the target platform. For [custom activities implemented in TypeScript](implement-custom-activity-web.mdx), the registration of the workflow activity implementation is done alongisde the Geocortex Workflow Designer activity definition when the [activity pack](concepts-key-concepts.mdx#activity-packs) is registered. However, with .NET activities implemented for Geocortex Mobile or [Geocortex Workflow Server](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0), the implementation is defined on the host platform (.NET), while the Geocortex Workflow Designer activity definition must be defined in an activity pack (TypeScript).
 
 :::note
-If no Geocortex Workflow Designer activity definition is provided for a custom activity implemented for Geocortex Mobile or Geocortex Workflow Server, the activity will not show up in Geocortex Workflow Designer and must be run using the [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity.
+If no Geocortex Workflow Designer activity definition is provided for a custom activity implemented for Geocortex Mobile or Geocortex Workflow Server, the activity will not show up in Geocortex Workflow Designer and must be run using [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167).
 :::
 
 ## Scope
@@ -18,7 +18,7 @@ This article covers how to create an activity pack to register Geocortex Workflo
 
 The idea behind creating activity definitions for Geocortex Workflow Designer is that every activity implemented in .NET has a corresponding stub activity with the metadata, but no execution body, in a TypeScript activity pack.
 
-Let's take the Geocortex Mobile custom logarithm activity for example.
+Let's take the Geocortex Mobile [custom logarithm activity](implement-custom-activity-mobile.mdx#example-logarithm-of-a-number) for example.
 
 <LogarithmActivityMobileSnippet />
 
@@ -30,10 +30,10 @@ Follow the instructions in [Implement a Custom Activity for Web Applications](im
 
 ### Stub out the Activity Metadata
 
-Stub out the appropiate metadata and type information for the activity you are stubbing out. The execute body is left empty, as the implementation is defined in .NET using the Geocortex Mobile SDK or Geocortex Workflow for Server. In the case of the Logarithm activity, the stub might look like this.
+Stub out the appropiate metadata and type information for the .NET activity you are stubbing out. The execute body is left empty, as the implementation is defined in .NET using the Geocortex Mobile SDK or Geocortex Workflow for Server. In the case of the Logarithm activity, the stub might look like this.
 
 :::important
-The static `action` property of the original activity definition has been changed to `custom:wf:app::CalculateLog` to match the action name in the .NET implementation. If these two action names are not the same, Geocortex Mobile or Geocortex Workflow Server will **not** be able to find the correct activity.
+The static `action` property of the original activity definition has been changed to `custom:wf:app::CalculateLog` to match the action name in the .NET implementation. If these two action names are not the same, the .NET workflow runtime will **not** be able to find the correct activity.
 :::
 
 ```ts
