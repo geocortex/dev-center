@@ -92,62 +92,49 @@ The following example creates and registers a "star rating" custom form element.
   ]}>
 <TabItem value="custom-form-element">
 
-<!-- TODO: Refactor to use function component instead of class -->
-
 ```ts
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
-export interface StarRatingState {
-    // The selected star rating.
-    rating: number;
-}
-
-export class StarRatingFormElement extends React.Component<
-    CustomFormElementProps,
-    StarRatingState
-> {
+export default function StarRatingFormElement(props: CustomFormElementProps) {
     // Set the default state of the component.
-    state: StarRatingState = {
-        rating: 0
-    };
+    let [rating, setRating] = useState(0);
+    let [disabled, setDisabled] = useState(false);
 
-    componentDidMount() {
-        // Set the initial state from the element's value.
-        const { element } = this.props;
-        if (element && element.value) {
-            this.setState({
-                rating: element.value
-            });
+    useEffect(() => {
+        const { element } = props;
+
+        if (element.value === undefined) {
+            element.value = 0;
         }
-    }
 
-    componentWillReceiveProps(nextProps: Readonly<CustomFormElementProps>) {
         // Set the state from the element's value when the props change.
         // This could happen as the result of a form event subworkflow that uses
         // the "Set Form Element Property" activity to set the value property of
         // the element.
-        const { element } = nextProps;
-        if (element && element.value) {
-            this.setState({
-                rating: element.value
-            });
+        if (element.value !== undefined && element.value != rating) {
+            setRating(element.value);
         }
-    }
 
-    handleClick = event => {
-        const { element, raiseEvent } = this.props;
+        // Disable the element if it is read only.
+        // Note: readOnly isn't an official property of custom form elements,
+        // however, it can be set by a form event subworkflow that uses the
+        // "Set Form Element Property" to set the readOnly property of the
+        // element to true|false.
+        setDisabled((element as any).readOnly);
+    }, [props.element.value]);
+
+    const handleClick = event => {
+        const { element, raiseEvent } = props;
 
         // Get the value from the button.
         // Parse as an integer because the value will be a string.
         const value = parseInt(event.target.value);
 
-        if (element.value !== value) {
+        if (rating !== value) {
             // Update the component state.
-            this.setState({
-                rating: value
-            });
-
+            setRating(value);
             // Update the element's value.
             element.value = value;
 
@@ -157,7 +144,7 @@ export class StarRatingFormElement extends React.Component<
     };
 
     // Button style to show only the button content.
-    baseStyle: React.CSSProperties = {
+    const baseStyle: React.CSSProperties = {
         background: "none",
         border: "none",
         outline: "none",
@@ -166,34 +153,25 @@ export class StarRatingFormElement extends React.Component<
     };
 
     // Button styles to show selected and unselected states.
-    selectedStyle = { ...this.baseStyle, ...{ color: "#ffa91b" } };
-    unselectedStyle = { ...this.baseStyle, ...{ color: "#c6c6c6" } };
+    const selectedStyle = { ...baseStyle, ...{ color: "#ffa91b" } };
+    const unselectedStyle = { ...baseStyle, ...{ color: "#c6c6c6" } };
 
-    render() {
-        // Disable the element if it is read only.
-        // Note: readOnly isn't an official property of custom form elements,
-        // however, it can be set by a form event subworkflow that uses the
-        // "Set Form Element Property" to set the readOnly property of the
-        // element to true|false.
-        const disabled = (this.props.element as any).readOnly ? true : undefined;
-
-        // Create 5 buttons
-        const buttons = [];
-        for (let i = 1; i <= 5; i++) {
-            buttons.push(
-                <button
-                    onClick={this.handleClick}
-                    value={i}
-                    style={this.state.rating < i ? this.unselectedStyle : this.selectedStyle}
-                    disabled={disabled}
-                >
-                    ★
-                </button>
-            );
-        }
-
-        return <div>{buttons}</div>;
+    // Create 5 buttons
+    const buttons = [];
+    for (let i = 1; i <= 5; i++) {
+        buttons.push(
+            <button
+                onClick={handleClick}
+                value={i}
+                style={rating < i ? unselectedStyle : selectedStyle}
+                disabled={disabled}
+            >
+                ★
+            </button>
+        );
     }
+
+    return <div>{buttons}</div>;
 }
 ```
 
@@ -237,7 +215,7 @@ import * as React from "react";
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
 // A simple React Component that demonstrates raising events.
-const CustomFormElement = (props: CustomFormElementProps) => {
+export default const CustomFormElement = (props: CustomFormElementProps) => {
     const raiseClick = event => {
         // Raise the clicked event.
         props.raiseEvent("clicked", new Date());
@@ -273,12 +251,10 @@ const CustomFormElement = (props: CustomFormElementProps) => {
 
 A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
 
-<!-- TODO: Refactor to use function component instead of class -->
-
 ```ts
 const CustomFormElement = (props: CustomFormElementProps>) => {
     const handleClick = event => {
-        const { element, raiseEvent } = this.props;
+        const { element, raiseEvent } = props;
 
         // Get the value from the button.
         // Parse as an integer because the value will be a string.
