@@ -25,7 +25,7 @@ Depending on the type of host application different resources will be available.
 
 The following activity uses [ArcGIS Runtime SDK for .NET](integrating-the-esri-api-web.mdx) and the `AppActivity` class to create a graphics layer and add it to the host's map. This activity assumes that it will be running in Geocortex Web, and so [it uses the 4.x ArcGIS API for Javascript](integrating-the-esri-api-web.mdx#change-the-api-version-used-by-the-activity-sdk).
 
-```typescript
+```ts
 import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
 import * as Map from "esri/Map";
 import * as Graphic from "esri/Graphic";
@@ -50,18 +50,18 @@ export class AddLayerToMap extends AppActivity {
                     [
                         [-111.3, 52.68],
                         [-98, 49.5],
-                        [-93.94, 29.89]
-                    ]
-                ]
+                        [-93.94, 29.89],
+                    ],
+                ],
             }),
             symbol: new LineSymbol({
                 color: [226, 119, 40],
-                width: 4
-            })
+                width: 4,
+            }),
         });
 
         var graphicsLayer = new GraphicsLayer({
-            graphics: [polylineGraphic]
+            graphics: [polylineGraphic],
         });
 
         (this.map as Map).add(graphicsLayer);

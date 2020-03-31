@@ -19,7 +19,7 @@ This is a custom activity which imports types from the ArcGIS API for JavaScript
 The `activity-sdk` uses the [ArcGIS API for JavaScript 3.x](https://developers.arcgis.com/javascript/3/) by default. See [Using Alternate ArcGIS API Versions](integrating-the-esri-api-web.mdx#using-alternate-arcgis-api-for-javascript-versions) for details.
 :::
 
-```typescript
+```ts
 // Import the desired type
 import * as Extent from "esri/geometry/Extent";
 import * as Polygon from "esri/geometry/Polygon";
@@ -51,7 +51,7 @@ export class ExpandPolygon {
 
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         return {
-            extent: inputs.polygon.getExtent().expand(inputs.factor)
+            extent: inputs.polygon.getExtent().expand(inputs.factor),
         };
     }
 }
@@ -89,13 +89,13 @@ For example, a `package.json` file in an activity SDK that uses the 4.x ArcGIS A
 If you need to support both ArcGIS API versions, then you may need to account for differences between the API's. For more details, see the developer documentation for the [4.x JavaScript API](https://developers.arcgis.com/javascript/) and the [3.x JavaScript API](https://developers.arcgis.com/javascript/3/) respectively.
 You can structure your activity to be compatible with differences between versions by using the `esri/kernel` module to determine the API version that the activity is running in.
 
-```typescript
+```ts
 import * as kernel from "esri/kernel";
 
 enum ArcGisApiVersion {
     Unknown,
     v3,
-    v4
+    v4,
 }
 
 const getArcGISApiVersion = (): ArcGisApiVersion => {
@@ -120,7 +120,7 @@ Since the SDK can only reference one version of the ArcGIS JavaScript API at tim
 
 In this example, the way the Extent of a polygon is retrieved is the difference between the APIs. In 4.x, `extent` is a property, while in 3.x extent is retrieved using the `getExtent()` method. The API's converge after this, with both supporting the `expand(factor)` method.
 
-```typescript
+```ts
 // Import the desired type
 import * as Extent from "esri/geometry/Extent";
 import * as Polygon from "esri/geometry/Polygon";
@@ -129,7 +129,7 @@ import * as kernel from "esri/kernel";
 enum ArcGisApiVersion {
     Unknown,
     v3,
-    v4
+    v4,
 }
 
 const getArcGISApiVersion = (): ArcGisApiVersion => {
@@ -180,7 +180,7 @@ export class ExpandPolygon {
         }
 
         return {
-            extent: extent.expand(inputs.factor)
+            extent: extent.expand(inputs.factor),
         };
     }
 }

@@ -9,7 +9,7 @@ description: Geocortex Workflow - Learn about the typescript activity metadata d
 
 The following activity demonstrates the basic metadata decorators that could exist on a custom activity and it's inputs and outputs.
 
-```typescript
+```ts
 export interface Inputs {
     // `@displayName` The name of the activity input that appears in the properties panel.
     // `@description` The description of the activity input that appears in inline help tooltips.
@@ -67,7 +67,7 @@ The intention is that you use either `@supportedApps` or `@unsupportedApps`, dep
 
 The following example declares that an activity will only work on Geocortex Web or Web App Builder in an online and client side environment.
 
-```typescript
+```ts
 // @supportedApps WAB, GWV
 // @onlineOnly
 // @clientOnly

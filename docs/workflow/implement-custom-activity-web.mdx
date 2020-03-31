@@ -17,7 +17,7 @@ Implementing a custom [activity](concepts-key-concepts.mdx#activities-and-form-e
 
 ## Scope
 
-This article applies to any web application that [uses the TypeScript workflow runtime](concepts-key-concepts.mdx#geocortex-workflow-hosts), such as Geocortex Web, Geocortex Viewer for HTML5, and Web App Builder.
+This article applies to any web application that [uses the JavaScript Workflow runtime](concepts-key-concepts.mdx#geocortex-workflow-hosts), such as Geocortex Web, Geocortex Viewer for HTML5, and Web App Builder.
 
 <WebPrereqs />
 
@@ -25,7 +25,7 @@ This article applies to any web application that [uses the TypeScript workflow r
 
 To create a new activity:
 
-1. Open the workflow activity SDK in Visual Studio Code
+1. Open the Workflow activity SDK in Visual Studio Code
 1. Run `npm run activity` in the terminal.
 1. When prompted enter the name of the activity you would like to create and press `Enter`. For example, `CustomActivity`.
 
@@ -40,7 +40,7 @@ You can add many activities to the same project.
     1. Register the activity in `src/index.ts`.
 1. Open the newly created `src/activities/CustomActivity.ts` file.
 
-```typescript
+```ts
 /** An interface that defines the inputs of the activity. */
 export interface CustomActivityInputs {
     // @displayName Input 1
@@ -89,7 +89,7 @@ The `npm run activity` script creates a custom activity with some dummy inputs a
 
 The follow activity will calculate the log of a number with a given (optional) base.
 
-```typescript
+```ts
 export interface CalculateLogInputs {
     // @displayName Base
     // @description The base of the logarithm. Defaults to the natural log.
@@ -116,7 +116,8 @@ export class CalculateLog {
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         return {
-            result: Math.log(inputs.value) / (inputs.base !== undefined ? Math.log(inputs.base) : 1)
+            result:
+                Math.log(inputs.value) / (inputs.base !== undefined ? Math.log(inputs.base) : 1),
         };
     }
 }
@@ -128,7 +129,7 @@ See the [SDK documentation](getting-started-web.mdx#building) for details on bui
 
 ## Next Steps
 
-Now you know how to build a basic workflow activity for web applications. Next, you can learn how to access app properties in an activity, build custom form elements, use the ArcGIS API for JavaScript in your activities and more.
+Now you know how to build a basic Workflow activity for web applications. Next, you can learn how to access app properties in an activity, build custom form elements, use the ArcGIS API for JavaScript in your activities and more.
 
 <UseCaseContainer>
     <UseCaseCard

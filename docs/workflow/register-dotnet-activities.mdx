@@ -37,7 +37,7 @@ Stub out the appropiate metadata and type information for the .NET activity you 
 The static `action` property of the original activity definition has been changed to `custom:wf:app::CalculateLog` to match the action name in the .NET implementation. If these two action names are not the same, the .NET workflow runtime will **not** be able to find the correct activity.
 :::
 
-```typescript
+```ts
 export interface CalculateLogInputs {
     // @displayName Base
     // @description The base of the logarithm. Defaults to the natural log.
