@@ -34,7 +34,6 @@ import * as Polyline from "esri/geometry/Polyline";
 import * as LineSymbol from "esri/symbols/LineSymbol";
 
 // @supportedApps GWV
-// @displayName AddLayerToMap
 // @category Custom Activities
 // @description An activity which adds a graphics layer to a map.
 export class AddLayerToMap extends AppActivity {
@@ -50,18 +49,18 @@ export class AddLayerToMap extends AppActivity {
                     [
                         [-111.3, 52.68],
                         [-98, 49.5],
-                        [-93.94, 29.89],
-                    ],
-                ],
+                        [-93.94, 29.89]
+                    ]
+                ]
             }),
             symbol: new LineSymbol({
                 color: [226, 119, 40],
-                width: 4,
-            }),
+                width: 4
+            })
         });
 
         var graphicsLayer = new GraphicsLayer({
-            graphics: [polylineGraphic],
+            graphics: [polylineGraphic]
         });
 
         (this.map as Map).add(graphicsLayer);

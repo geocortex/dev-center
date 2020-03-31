@@ -39,11 +39,9 @@ The static `action` property of the original activity definition has been change
 
 ```ts
 export interface CalculateLogInputs {
-    // @displayName Base
     // @description The base of the logarithm. Defaults to the natural log.
     base?: number;
 
-    // @displayName Value
     // @description The number to calculate the logarithm for.
     // @required
     value: number;
@@ -55,7 +53,6 @@ export interface CalculateLogOutputs {
 }
 
 // @supportedApps GMV
-// @displayName CalculateLog
 // @category Custom Activities
 // @description An activity that calculates the log of a number with the given base.
 export class CalculateLog {

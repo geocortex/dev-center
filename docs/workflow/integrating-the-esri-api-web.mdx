@@ -27,12 +27,10 @@ import * as Extent from "esri/geometry/Extent";
 import * as Polygon from "esri/geometry/Polygon";
 
 export interface ExpandPolygonInputs {
-    // @displayName polygon
     // @description The polygon to Expand.
     // @required
     polygon: Polygon;
 
-    // @displayName factor
     // @description The factor to expand the polygon extent by.
     // @required
     factor: number;
@@ -43,7 +41,6 @@ export interface ExpandPolygonOutputs {
     extent: Extent;
 }
 
-// @displayName ExpandPolygon
 // @category Custom Activities
 // @description An activity that calculates the extent a polygon would cover if it was expanded by a given factor.
 export class ExpandPolygon {
@@ -146,12 +143,10 @@ const getArcGISApiVersion = (): ArcGisApiVersion => {
 };
 
 export interface ExpandPolygonInputs {
-    // @displayName polygon
     // @description The polygon to Expand.
     // @required
     polygon: Polygon;
 
-    // @displayName factor
     // @description The factor to expand the polygon extent by.
     // @required
     factor: number;
@@ -162,7 +157,6 @@ export interface ExpandPolygonOutputs {
     extent: Extent;
 }
 
-// @displayName ExpandPolygon
 // @category Custom Activities
 // @description An activity that calculates the extent a polygon would cover if it was expanded by a given factor.
 export class ExpandPolygon {

@@ -45,12 +45,10 @@ You can add many activities to the same project.
 ```ts
 /** An interface that defines the inputs of the activity. */
 export interface CustomActivityInputs {
-    // @displayName Input 1
     // @description The first input to the activity.
     // @required
     input1?: string;
 
-    // @displayName Input 2
     // @description The second input to the activity.
     input2?: number;
 }
@@ -62,7 +60,6 @@ export interface CustomActivityOutputs {
     result: string;
 }
 
-// @displayName CustomActivity
 // @category Custom Activities
 // @description A description of the activity.
 export class CustomActivity {
@@ -83,7 +80,7 @@ export class CustomActivity {
 
 ## Implement the Activity
 
-The `npm run activity` script creates a custom activity with some dummy inputs and outputs. It also has examples of the various [decorators](typescript-activity-decorators.mdx) that are used to describe activity metadata. By changing the inputs, outputs, execute logic, and decorators, you can create your own custom activity that has an easy to use interface in the Geocortex Workflow Designer.
+The `npm run activity` script creates a custom activity with some dummy inputs and outputs. It also has examples of the various [block tags](typescript-activity-block-tags.mdx) that are used to describe activity metadata. By changing the inputs, outputs, execute logic, and tags, you can create your own custom activity that has an easy to use interface in the Geocortex Workflow Designer.
 
 <HostEsriApiVersionSnippet />
 
@@ -93,11 +90,9 @@ The follow activity will calculate the log of a number with a given (optional) b
 
 ```ts
 export interface CalculateLogInputs {
-    // @displayName Base
     // @description The base of the logarithm. Defaults to the natural log.
     base?: number;
 
-    // @displayName Value
     // @description The number to calculate the logarithm for.
     // @required
     value: number;
@@ -108,7 +103,6 @@ export interface CalculateLogOutputs {
     result: number;
 }
 
-// @displayName CalculateLog
 // @category Custom Activities
 // @description An activity that calculates the log of a number with the given base.
 export class CalculateLog {
