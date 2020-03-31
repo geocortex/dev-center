@@ -7,6 +7,8 @@ import WebPrereqs from "./snippets/prereqs-web.mdx";
 
 [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) was designed to be a flexible tool for implementing business logic for mapping applications, and tightly integrates with ArcGIS API for JavaScript. You may want to use the ArcGIS API in your own custom activities; this article will explain how to reference ArcGIS API types in your custom activity or custom form element.
 
+## Prerequisites
+
 <WebPrereqs />
 
 Follow the instructions in [Implement a Custom Activity](implement-custom-activity-web.mdx) to create a custom workflow activity. You can then import ArcGIS API types with a `require` call.
@@ -51,7 +53,7 @@ export class ExpandPolygon {
 
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         return {
-            extent: inputs.polygon.getExtent().expand(inputs.factor),
+            extent: inputs.polygon.getExtent().expand(inputs.factor)
         };
     }
 }
@@ -95,7 +97,7 @@ import * as kernel from "esri/kernel";
 enum ArcGisApiVersion {
     Unknown,
     v3,
-    v4,
+    v4
 }
 
 const getArcGISApiVersion = (): ArcGisApiVersion => {
@@ -129,7 +131,7 @@ import * as kernel from "esri/kernel";
 enum ArcGisApiVersion {
     Unknown,
     v3,
-    v4,
+    v4
 }
 
 const getArcGISApiVersion = (): ArcGisApiVersion => {
@@ -180,7 +182,7 @@ export class ExpandPolygon {
         }
 
         return {
-            extent: extent.expand(inputs.factor),
+            extent: extent.expand(inputs.factor)
         };
     }
 }

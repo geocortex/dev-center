@@ -19,6 +19,8 @@ Implementing a custom [activity](concepts-key-concepts.mdx#activities-and-form-e
 
 This article applies to any web application that [uses the JavaScript Workflow runtime](concepts-key-concepts.mdx#geocortex-workflow-hosts), such as Geocortex Web, Geocortex Viewer for HTML5, and Web App Builder.
 
+## Prerequisites
+
 <WebPrereqs />
 
 ## Setup Activity Skeleton
@@ -116,8 +118,7 @@ export class CalculateLog {
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         return {
-            result:
-                Math.log(inputs.value) / (inputs.base !== undefined ? Math.log(inputs.base) : 1),
+            result: Math.log(inputs.value) / (inputs.base !== undefined ? Math.log(inputs.base) : 1)
         };
     }
 }
