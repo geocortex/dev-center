@@ -4,7 +4,7 @@ sidebar_label: Implement a Custom Activity
 description: Geocortex Workflow - Implement a custom activity for Geocortex Mobile
 ---
 
-import LogarithmActivityMobileSnippet from "./snippets/logarithm-activity-mobile.mdx";
+import LogarithmActivityMobileSnippet from "./snippets/logarithm-activity.mdx";
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
 import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 
@@ -30,7 +30,7 @@ namespace App1.Workflow.CustomActivity
 {
     public class CustomActivity : IActivityHandler
     {
-        public const string Action = "custom:wf:app::CustomActivity";
+        public static string Action { get; } = "custom:wf:app::CustomActivity";
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
@@ -119,10 +119,6 @@ We now have a empty activity that Geocortex Mobile can use that takes no inputs 
 ### Example: Logarithm of a Number
 
 The follow activity will calculate the log of a number with a given (optional) base.
-
-:::note
-Activity inputs should be [validated with the `Ensure*` methods](activity-input-validation.mdx).
-:::
 
 <LogarithmActivityMobileSnippet />
 

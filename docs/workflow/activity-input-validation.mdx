@@ -18,4 +18,44 @@ When you build a custom activity with inputs, you need to validate those inputs 
 The difference between strict and non-strict validators is that strict validators will throw if the value is not present or if it is the wrong type, while non-strict validators will just soft fail.
 :::
 
-Use these `Ensure*` methods to validate your activity inputs and provide useful error methods. Check out the [logarithm activity](implement-custom-activity-mobile.mdx#example-logarithm-of-a-number) in Geocortex Mobile for an example.
+Use these `Ensure*` methods to validate your activity inputs and provide useful error messages.
+
+## Example: Logarithm Activity
+
+Here's an example of the [logarithm activity](implement-custom-activity-mobile.mdx#example-logarithm-of-a-number) that has been refactored to use the `Ensure*` methods.
+
+```csharp
+using Geocortex.Workflow.Runtime;
+using Geocortex.Workflow.Runtime.Utils;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow.CustomActivity
+{
+    public class CalculateLog : IActivityHandler
+    {
+        public const string Action = "custom:wf:app::CalculateLog";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            var logBase = inputs.EnsureDouble("base", null);
+            var value = inputs.EnsureDoubleStrict("value");
+
+            double logResult;
+            if(logBase != null)
+            {
+                logResult = Math.Log(value, (double)logBase);
+            } else
+            {
+                logResult = Math.Log(value);
+            }
+
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>()
+            {
+                ["result"] = logResult
+            });
+        }
+    }
+}
+```

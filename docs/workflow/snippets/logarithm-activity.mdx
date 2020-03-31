@@ -1,3 +1,7 @@
+:::note
+Geocortex Mobile provides a number of [helper methods](activity-input-validation.mdx) to assist with input validation.
+:::
+
 ```csharp
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Utils;
@@ -13,8 +17,11 @@ namespace App1.Workflow.CustomActivity
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
-            var logBase = inputs.EnsureDouble("base");
-            var value = inputs.EnsureDoubleStrict("value");
+            var logBase = null;
+            if (inputs.ContainsKey("base")) {
+                var logBase = inputs["base"];
+            }
+            var value = (double)inputs["value"];
 
             double logResult;
             if(logBase != null)
