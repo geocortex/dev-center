@@ -16,7 +16,7 @@ This article applies to reference third party libraries for TypeScript [activity
 
 ## Adding a Dependency
 
-1. Install the dependency in the activity sdk. For example, `npm install moment.js`.
+1. Install the dependency in the activity sdk. For example, `npm install moment`.
 2. **Copy** the dependency to `dist/deps/`.
 
 :::important
@@ -27,7 +27,7 @@ It's important that you **copy** and not move the dependency from the `node_modu
 
 For example, if you wanted to use the [moment.js](https://github.com/moment/moment) library and had the file `moment.js` located in a folder called `deps/moment` within the `dist` folder, you would write the following:
 
-```typescript
+```ts
 import { mapDependencies } from "@geocortex/workflow/runtime/app/ActivityPackUtils";
 
 function configure(prefix: string) {
@@ -35,11 +35,11 @@ function configure(prefix: string) {
 }
 ```
 
-The root that the library path refers to is the `dist` folder, and the `.js` postfix on the library file should be omitted.
+The root that the library path refers to is the `dist` folder, and the `.js` suffix on the library file should be omitted.
 
 4. Import and use the library as you normally would use a javascript library. This example demonstrates a custom activity that uses the `moment.js` library to return the current date and time in a human readable format.
 
-```typescript
+```ts
 import * as moment from "moment";
 
 // @displayName CurrentTime
@@ -57,19 +57,24 @@ export class CurrentTime {
 ```
 
 :::important
-If the external dependency has child dependencies, you will need to call `mapDependencies` for each one.
+If the external dependency has other dependencies, you will need to call `mapDependencies` for each one.
 :::
 
 ## Reference External React Components
 
 If your Activity Pack contains a custom form element that relies upon an external react component, you need to add a call to `mapDependencies()` to the `configure()` method in `src/main.ts`, the same as for other external libraries.
 
+<!--
+TODO: This library is very outdated, and will start causing `npm install` errors when we upgrade to React 16 in the SDK.
+It doesn't support React 16. Let's pick something more popular perhaps?
+-->
+
 ### Example: Using the [react-circular-color](https://github.com/ubcent/react-circular-color) Component.
 
 1. Run `npm install react-circular-color` in the terminal.
 2. Follow the instructions above to create and register a new custom form element `ColorPicker.tsx` react component that just returns a single color picker.
 
-```typescript
+```ts
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 import * as React from "react";
 import CircularColor from "react-circular-color";
@@ -84,7 +89,7 @@ export default class ColorPicker extends React.Component<CustomFormElementProps>
 3. Copy the `react-circular-color` folder from your `node_modules` to `dist/deps`
 4. Add a call for `react-circular-color` to `mapDependencies()` to the `configure()` method in `src/main.ts`.
 
-```typescript
+```ts
 import { mapDependencies } from "@geocortex/workflow/runtime/app/ActivityPackUtils";
 
 function configure(prefix: string) {
@@ -97,5 +102,4 @@ function configure(prefix: string) {
 There are some limitations on the types of component you can load:
 
 -   You can only import components that are defined using the [AMD or UMD](https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/) syntax.
--   You cannot import components defined as an [Named Module](http://requirejs.org/docs/whyamd.html#namedmodules).
 -   You cannot import components defined using the [CommonJS](http://requirejs.org/docs/commonjs.html) syntax.
