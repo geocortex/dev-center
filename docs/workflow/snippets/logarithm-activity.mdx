@@ -17,7 +17,7 @@ namespace App1.Workflow.CustomActivity
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
-            var logBase = null;
+            double? logBase = null;
             if (inputs.ContainsKey("base")) {
                 var logBase = inputs["base"];
             }
