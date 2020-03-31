@@ -4,7 +4,7 @@ sidebar_label: Reference a Third Party Library
 description: Geocortex Workflow - Reference a third party library in a Geocortex Workflow Server extension
 ---
 
-As discussed in [implement a custom activity](implement-custom-activity-server.mdx), deploying a custom activity to Geocortex Workflow Server involves copying the build output of a .NET Standard or .NET Core project to a folder in the Geocortex Workflow Server deployment. In order to reference third party libraries, we will have to also ensure all the dependencies are copied into this folder.
+As discussed in [Geocortex Workflow Server](getting-started-server.mdx#setting-up-a-geocortex-workflow-server-extension-project), deploying a custom activity to Geocortex Workflow Server involves creating a .NET project that generates compatible assemblies and then copying them to the build folder. Add a third party assembly is as simply as adding the library to your .NET project and then ensuring it is copied along with the user defined code.
 
 ## Setup your Custom Code
 
@@ -16,16 +16,8 @@ Add a third party library via a nuget package, and use it in your custom activit
 
 ## Build and Copy the Project Output
 
-Build the project to output the assemblies. What exactly you have to copy is different depending on if you started with a .NET Standard project or a .NET Core project.
-
-### .NET Core Project
-
-If you created a .NET Core project, Visual Studio will treat this as an Application and bundle both the user defined libraries and external libraries. This means that everything you need to copy exists in the built output folder. Follow the instructions to [Deploy the Activity](implement-custom-activity-server.mdx#deploy-the-activity).
+Build the project to output the user and referenced assemblies. Follow the instructions to [Deploy the Activity](implement-custom-activity-server.mdx#deploy-the-activity). Ensure that you locate and copy the third party assemblies. If you don't see them in the build output folder, review the instructions and ensure you have followed all the steps.
 
 :::important
-It's important to make sure that the `*.exe` file and corresponding dll produced by a .NET Core project **are not copied**.
+An important step not to miss is adding the `CopyLocalLockFileAssemblies` attribute to the `.csproj` file if you created a .NET Standard class library. Without this attribute, your nuget package reference assemblies will not be output to the build folder.
 :::
-
-### .NET Standard Project
-
-If you created a .NET Standard project, Visual Studio will treat this as a library and not bundle dependencies as it expects them to be installed by the package consumer. You have to go through each dependency and ensure that it and each of it's child package dependencies have their assemblies copied into the `CustomAssemblies` folder. Then you can [Deploy the Activity](implement-custom-activity-server.mdx#deploy-the-activity) by copying the user defined dlls.
