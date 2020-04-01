@@ -10,6 +10,55 @@ module.exports = {
         "web/overview",
         {
             type: "category",
+            label: "Use Cases",
+            items: [
+                {
+                    type: "category",
+                    label: "Basics",
+                    items: [
+                        "web/change-default-behaviour",
+                        "web/look-and-feel",
+                        "web/internationalization",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Workflow",
+                    items: [
+                        {
+                            type: "link",
+                            label: "Display a Custom Form",
+                            href:
+                                "https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____0",
+                        },
+                        // "web/change-default-search-behaviour",
+                        {
+                            type: "link",
+                            label: "Implement Custom Workflow Form Elements",
+                            href: "../workflow/implement-custom-form-elements-web",
+                        },
+                        {
+                            type: "link",
+                            label: "Implement Custom Workflow Activity",
+                            href: "../workflow/implement-custom-activity-web",
+                        },
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Advanced",
+                    items: [
+                        "web/implement-command-operation",
+                        "web/implement-component-with-ui",
+                        "web/implement-component-participate-app-config",
+                        "web/implement-service",
+                        "web/implement-event",
+                    ],
+                },
+            ],
+        },
+        {
+            type: "category",
             label: "Concepts",
             items: [
                 "web/concepts-key-concepts",

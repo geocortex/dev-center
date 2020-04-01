@@ -167,11 +167,118 @@ TODO - link to SDK samples of panels
 
 ## Models
 
-TODO
+Components often observe and modify the state of other components.
+Consider the following example:
+
+```XML
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map id="mapA"/>
+    <map id="mapB"/>
+    <panel>
+        <stack>
+            <scale-bar id="A" />
+            <scale-bar id="B" />
+        </stack>
+    </panel>
+</layout>
+```
+
+Our scale bar component displays information about a particular map. In our example, scale bars A and B are expected to show the correct scale based on their context.
+
+Layouts achieve these simply by expressing data dependencies in the form of models that are marked as "imported" or "exported". If we know that the scale bar "imports" a particular type of model, and that the map "exports" the same type of model, we can resolve those dependencies simply by plugging exported models into the components that import them when the components are slotted together.
+
+Example (in TypeScript):
+
+```TypeScript
+export class MapComponent {
+
+    @exports("model://MapModel")
+    model: MapModel;
+
+    // ... map stuff ...
+}
+
+export class ScaleBarComponent {
+
+    @imports("model://MapModel")
+    mapModel: MapModel;
+
+    // ... scale bar stuff ...
+}
+```
+
+When the system slots each scale bar into the panel, it will attempt to satisfy any model imports declared by the component being slotted.
+
+By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in this basic example;
+
+```xml
+<map>
+    <scale-bar/>
+</map>
+```
+
+However, in the previous example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. To solve this, we can bind each scale bar to the appropiate map with the `models` attribute.
+
+:::note
+Learn more about how [models are automatically matched](TODO-link-to-advanced-layout).
+:::
+
+```XML
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split>
+        <panel width="23" active="true">
+            <stack>
+                <split>
+                    <text text="Map A Scale Bar"></text>
+                    <scalebar id="A" models="#mapA"/>
+                </split>
+                <split>
+                    <text text="Map B Scale Bar"></text>
+                    <scalebar id="B" models="#mapB"/>
+                </split>
+            </stack>
+        </panel>
+        <map id="mapA"/>
+        <map id="mapB"/>
+    </split>
+</layout>
+```
+
+Somethings, you can have multiple components that need to bind to the same model.
+
+```XML
+<split>
+    <panel id="left-panel">
+        <scalebar active="true" models="#map"/>
+        <results-list models="#map"/>
+        <legend models="#map"/>
+    </panel>
+    <map id="map" />
+</split>
+```
+
+To simplify this binding, we can take advantage of the default behaviour of searching up the layout tree for the appropiate model and bind the map to the parent panel instead.
+
+```XML
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split>
+        <panel id="left-panel" models="#map">
+            <scalebar active="true"/>
+            <results-list />
+            <legend />
+        </panel>
+        <map id="map" />
+    </split>
+</layout>
+```
 
 ## Device Form Factors
 
 TODO - pretty sure this is just a note on responsive design
+Eric - multiple layouts are in PR, use that as best practices
 
 ## Next Steps: Components and App Config
 
