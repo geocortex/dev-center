@@ -3,4 +3,140 @@ title: Layout
 description: Geocortex Web - Learn about layout concepts
 ---
 
-TODO
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import FollowAlongSnippet from "./snippets/follow-along.mdx";
+
+:::note Before learning about layout...
+Check out the [Key Concepts](concepts-key-concepts.mdx).
+:::
+
+A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
+
+```xml
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map id="myMap">
+        <compass margin="0.5"/>
+    </map>
+</layout>
+```
+
+The first thing it does is declare a map that is linked to "default" configuration that specifies what content to load.
+Next, a compass is embedded within the map. This does two things:
+
+1. Visually places the element inside the map
+2. Tells the compass to display a value [corresponding to the map it is placed in](concepts-advanced-layout.mdx#implicit-binding)
+
+<FollowAlongSnippet />
+
+The basic example shown above will place a compass inside a map. But what if you want the compass to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
+
+## Slotting
+
+The position of a component within it's parent is controlled by what slot it is placed into.
+
+For example, this configuration will place the compass in the top right of the map.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map id="myMap">
+        <compass padding="0.5" slot="top-right"/>
+    </map>
+</layout>
+```
+
+If a slot configuration is not given, the component will slot itself into a default position. Each component defines it's own slots - not every slot will work for every component.
+
+:::tip
+TODO - autocomplete tip? again, depends on what is our reccomended layout editing pattern
+:::
+
+Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
+
+## Stacks and Splits
+
+The basic `stack` and `split` components form building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
+
+Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes.
+
+Stacks and splits are used to partition the viewer into rectangular sectors, each filled with whichever components you desire.
+
+The best way to think of stacks is that every item within them is being ordered top to bottom:
+
+```xml
+<stack>
+    <text text="item1"/>
+    <text text="item2"/>
+    <text text="item3"/>
+</stack>
+```
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-1.png")} />
+
+The best way to think of splits is that every item within them is being ordered left to right:
+
+```xml
+<split>
+    <text text="item1"/>
+    <text text="item2"/>
+    <text text="item3"/>
+</split>
+```
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-2.png")} />
+
+When creating complex layouts with embedded stacks and splits, it's good to picture building it from the inside out:
+
+```xml
+<stack>
+    <split>
+        <text text="item1"/>
+        <stack>
+            <text text="item2"/>
+            <text text="item3"/>
+        </stack>
+    </split>
+    <split>
+        <text text="item4"/>
+        <text text="item5"/>
+        <text text="item6"/>
+    </split>
+</stack>
+```
+
+We start by building the first inner-most stack:
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-4.png")} />
+
+Then slot that into the split one level up:
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-5.png")} />
+
+We then build the next split:
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-6.png")} />
+
+And finally slot those two splits into the outer-most stack:
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-3.png")} />
+
+TODO - flesh out the rest of this with content from the original readmes - some of it should go into the advanced layout
+
+## Next Steps: Components and App Config
+
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="App Config"
+        description="Learn about app configuration and it's interaction with layout."
+        link="concepts-app-config"
+    />
+    <UseCaseCard
+        title="Advanced Layout Topics"
+        description="Learn more about what you can accomplish with layouts."
+        link="concepts-advanced-layout"
+    />
+</UseCaseContainer>

@@ -4,7 +4,6 @@ description: Geocortex Mobile - Learn about key concepts of the Geocortex Mobile
 hide_table_of_contents: true
 ---
 
-import classnames from "classnames";
 import DesignerCallout from "./snippets/designer-callout.mdx";
 
 <DesignerCallout />
@@ -22,7 +21,7 @@ The core element of the Geocortex Mobile Framework is an **Application**. Applic
 </layout>
 ```
 
-An **layout** is composed of **components**, which are the conceptual building blocks of an application. Components can define their own UI, consume configuration, and can be nested and interact with other components.
+An **layout** is composed of **components**, such as a `<map>`, which are the conceptual building blocks of an application. Components can define their own UI, consume configuration, and can be nested and interact with other components.
 
 Every components can have a `id` and `config` attribute; these two attributes are key to linking the layout to the **app config**.
 
@@ -40,7 +39,7 @@ Every components can have a `id` and `config` attribute; these two attributes ar
 }
 ```
 
-An app config file is composed of some basic high level configuration and a list of **app items**. App items can correspond to components in the layout, portal items, or any [other defined item type](concepts-advanced-config.mdx#custom-app-items).
+App Config files describe component configuration and other values relevant to application behaviour. An app config file is composed of a list of **app items**. App items can correspond to components in the layout, portal items, or any [other defined item type](concepts-advanced-config.mdx#custom-app-items).
 
 #### 3. The Geocortex Mobile code which renders the layout and powers functionality.
 

@@ -3,4 +3,26 @@ title: Commands and Operations
 description: Geocortex Web - Learn about commands and operations
 ---
 
-TODO
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import DemoVideo from "../../src/components/DemoVideo";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+
+:::note Before learning about commands and operations...
+Check out the [Key Concepts](concepts-key-concepts.mdx).
+:::
+
+**Commands and operations** are runnable, independant units of work within Geocortex Web. Using the Geocortex Web SDK, it's possible to [define custom commands and operations](implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, and operations differ because they produce output. Commands and Operations are grouped by namespace, for example;
+
+```
+auth.sign-in
+auth.sign-out
+edit.add-feature
+edit.delete-features
+```
+
+TODO - components and services conceptual? I think they are used a bit differently than in mobile?
+
+TODO - rework this whole next section to make more sense for web

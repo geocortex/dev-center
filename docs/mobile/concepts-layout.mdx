@@ -6,6 +6,7 @@ description: Geocortex Mobile - Learn about layout concepts
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
+import FollowAlongSnippet from "./snippets/follow-along.mdx";
 
 :::note Before learning about layout...
 Check out the [Key Concepts](concepts-key-concepts.mdx).
@@ -19,7 +20,7 @@ Take this example of a layout with a map and a compass.
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map id="myMap">
-        <compass padding="0.5"/>
+        <compass margin="0.5"/>
     </map>
 </layout>
 ```
@@ -32,9 +33,7 @@ Next, a compass is embedded within the map. This does two things:
 
 <!-- TODO: Where should the default app layout link be pointing? -->
 
-:::tip Want to follow along?
-Check out the [Quick Start](quick-start.mdx) and [edit the default app layout](quick-start.mdx#editing-the-layout-and-app-config).
-:::
+<FollowAlongSnippet />
 
 The basic example shown above will place a compass inside a map. But what if you want the compass to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
 
@@ -207,7 +206,7 @@ If a layout that matches the device form factor is not available, then Geocortex
 
 ## Next Steps: Components and App Config
 
-In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Mobile. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a component in Geocortex Mobile. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
 
 <UseCaseContainer>
     <UseCaseCard
