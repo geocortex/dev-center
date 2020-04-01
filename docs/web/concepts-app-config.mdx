@@ -39,6 +39,8 @@ Every component in the layout can be linked to app config with the `config` attr
 If you do not provide a `config` attribute for a component, Geocortex Web will attempt to [infer a default value](concepts-advanced-layout.mdx#implicit-config-binding).
 :::
 
+TODO - better sample webmap - for mobile too.
+
 <Tabs
   defaultValue="layout"
   values={[
@@ -48,8 +50,9 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 <TabItem value="layout">
 
 ```xml
+<?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="map-primary"/>
+    <map id="map-primary" config="myMapConfig"/>
 </layout>
 ```
 
@@ -61,7 +64,7 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
     "items": [
         {
             "$type": "map-extension",
-            "id": "default",
+            "id": "myMapConfig",
             "webMap": "7e5d9cf959e149af95bb01be8b62c107"
         }
     ]
@@ -73,15 +76,167 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 
 The same config can be used for multiple items in a layout. For example, this allows you to reuse the same button in multiple locations in the App.
 
-TODO - example once I figure out the best way to edit default layout and app config
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "layout", value: "layout" },
+    { label: "app config", value: "config" },
+    { label: "User Interface", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+  <split resizable="true">
+    <panel width="30">
+        <stack margin="0.5">
+          <button icon="info" config="doSomething" margin="0.5" title="Do Something 1"></button>
+        </stack>
+    </panel>
+    <map id="map-primary" config="myMapConfig" slot="main">
+      <button icon="info" config="doSomething" slot="top-center" margin="0.5" title="Do Something 2"></button>
+    </map>
+  </split>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "myMapConfig",
+            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+        },
+        {
+            "$type": "menu-item",
+            "id": "doSomething",
+            "isEnabled": true,
+            "iconId": "info",
+            "action": {
+                "name": "ui.alert",
+                "arguments": {
+                    "title": "Something?",
+                    "message": "Fine, I did it",
+                    "buttonText": "OK"
+                }
+            }
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+  TODO - live preview
+</TabItem>
+</Tabs>
 
 ## Targeting Components with by ID
 
 Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](concepts-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
 
-TODO - write demo and reword above paragraph if neccesary once layout/config access is figured out
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "layout", value: "layout" },
+    { label: "app config", value: "config" },
+    { label: "User Interface", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split resizable="true">
+        <panel width="30" active="true" id="mainPanel"></panel>
+        <map id="map-primary" config="myMapConfig" slot="main">
+            <button icon="info" config="runWorkflow" slot="top-center" margin="0.5">Run Workflow in Side Panel</button>
+            <split slot="bottom-center">
+                <button icon="" config="showIwtm" margin="0.5">Show I Want To Menu</button>
+                <button icon="" config="hideIwtm" margin="0.5">Hide I Want To Menu</button>
+            </split>
+            <iwtm config="iwtm-config" slot="top-left" active="false" id="iwtm"/>
+        </map>
+    </split>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "myMapConfig",
+            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+        },
+        {
+            "$type": "workflow",
+            "id": "demoWorkflow",
+            "title": "Demo Worklfow",
+            "target": "mainPanel",
+            "portalItem": "c3964768dfa84fe5acf7a72ef95dc92b"
+        },
+        {
+            "$type": "menu-item",
+            "id": "runWorkflow",
+            "title": "Run Workflow in Sidebar",
+            "isEnabled": true,
+            "iconId": "info",
+            "action": {
+                "name": "workflow.run",
+                "arguments": {
+                    "id": "demoWorkflow"
+                }
+            }
+        },
+        {
+            "$type": "menu-item",
+            "id": "showIwtm",
+            "title": "Show I Want To Menu",
+            "isEnabled": true,
+            "iconId": "",
+            "action": {
+                "name": "ui.activate",
+                "arguments": "iwtm"
+            }
+        },
+        {
+            "$type": "menu-item",
+            "id": "hideIwtm",
+            "title": "Hide I Want To Menu",
+            "isEnabled": true,
+            "iconId": "",
+            "action": {
+                "name": "ui.deactivate",
+                "arguments": "iwtm"
+            }
+        },
+        {
+            "id": "iwtm-config",
+            "items": ["item://menu-item/runWorkflow"],
+            "title": "I Want To Menu",
+            "$type": "menu"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+  TODO - live preview
+</TabItem>
+</Tabs>
 
 :::note
+TODO - link out to item URI's also
 This example uses [commands and operation](concepts-commands-operations.mdx) to power it's behaviour.
 :::
 
@@ -89,7 +244,7 @@ This example uses [commands and operation](concepts-commands-operations.mdx) to 
 
 TODO
 
-## TODO - some example
+## TODO - some basic example
 
 TODO
 

@@ -25,6 +25,11 @@ module.exports = {
                 },
             ],
         },
+        {
+            type: "category",
+            label: "Getting Started with the SDK",
+            items: ["web/quick-start"],
+        },
     ],
     workflow: [
         "workflow/overview",

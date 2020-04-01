@@ -14,7 +14,10 @@ Check out the [Key Concepts](concepts-key-concepts.mdx).
 
 A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
 
+TODO - this example broke
+
 ```xml
+<?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map id="myMap">
         <compass margin="0.5"/>
@@ -122,7 +125,57 @@ And finally slot those two splits into the outer-most stack:
 
 <img className="stackSplitImage" src={useBaseUrl("img/stack-split-3.png")} />
 
-TODO - flesh out the rest of this with content from the original readmes - some of it should go into the advanced layout
+## Panels
+
+Another core concept that Geocortex Web uses to organize elements in a layout is **panels**.
+Panels are a container component that enable hierarchal navigation between different components.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split resizable="true">
+        <panel width="26">
+            <stack>
+                <search/>
+                <results-list/>
+            </stack>
+            <feature-details active="false"/>
+        </panel>
+        <map id="myMap">
+            <compass margin="0.5"/>
+        </map>
+    </split>
+</layout>
+```
+
+When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<search>` component.
+The search component will activate the `<results-list>` component when a search is completed. Then, when a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a "stack" of components laid on top of eachother, and work as follows;
+
+#### Activation
+
+-   If the component is in the current navigation stack, then pop from the stack until that component is active
+    -   Else, push the component onto the stack and navigate to it
+
+#### Deactivation
+
+-   If the component is the top most element in the navigation stack (it is active), then pop it
+    -   Else, the component is already inactive
+
+:::tip
+TODO - link to SDK samples of panels
+:::
+
+## Models
+
+TODO
+
+## Device Form Factors
+
+TODO - pretty sure this is just a note on responsive design
+
+## Next Steps: Components and App Config
+
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a component in Geocortex Web. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
 
 ## Next Steps: Components and App Config
 

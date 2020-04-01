@@ -50,7 +50,7 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="map-primary" config="default" />
+    <map id="map-primary" config="myMapConfig" />
 </layout>
 ```
 
@@ -62,7 +62,7 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
     "items": [
         {
             "$type": "map-extension",
-            "id": "default",
+            "id": "myMapConfig",
             "webMap": "7e5d9cf959e149af95bb01be8b62c107"
         }
     ]
@@ -93,7 +93,7 @@ The same config can be used for multiple items in a layout. For example, this al
           <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 2</button>
         </stack>
     </panel>
-    <map id="map-primary" config="default" slot="main">
+    <map id="map-primary" config="myMapConfig" slot="main">
       <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 1</button>
     </map>
   </gxm:taskbar>
@@ -108,7 +108,7 @@ The same config can be used for multiple items in a layout. For example, this al
     "items": [
         {
             "$type": "map-extension",
-            "id": "default",
+            "id": "myMapConfig",
             "webMap": "7e5d9cf959e149af95bb01be8b62c107"
         },
         {
