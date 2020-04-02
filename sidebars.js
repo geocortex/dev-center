@@ -10,6 +10,23 @@ module.exports = {
         "web/overview",
         {
             type: "category",
+            label: "Concepts",
+            items: [
+                "web/concepts-key-concepts",
+                "web/concepts-layout",
+                "web/concepts-app-config",
+                "web/concepts-commands-operations",
+                "web/concepts-events",
+                "web/concepts-components-services",
+                {
+                    type: "category",
+                    label: "Advanced Topics",
+                    items: ["web/concepts-advanced-layout", "web/concepts-advanced-config"],
+                },
+            ],
+        },
+        {
+            type: "category",
             label: "Use Cases",
             items: [
                 {
@@ -54,23 +71,6 @@ module.exports = {
                         "web/implement-service",
                         "web/implement-event",
                     ],
-                },
-            ],
-        },
-        {
-            type: "category",
-            label: "Concepts",
-            items: [
-                "web/concepts-key-concepts",
-                "web/concepts-layout",
-                "web/concepts-app-config",
-                "web/concepts-commands-operations",
-                "web/concepts-events",
-                "web/concepts-components-services",
-                {
-                    type: "category",
-                    label: "Advanced Topics",
-                    items: ["web/concepts-advanced-layout", "web/concepts-advanced-config"],
                 },
             ],
         },

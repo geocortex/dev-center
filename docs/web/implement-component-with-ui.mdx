@@ -2,3 +2,230 @@
 title: Custom Component with a Visual Interface
 description: Geocortex Web - Learn how to implement a custom component with a visual interface
 ---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import PrereqsSnippet from "./snippets/prereqs.mdx";
+
+:::tip
+Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
+:::
+
+Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do. [Components](concepts-components-services.mdx) can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Web app, so it's worthwhile to try simplier options like [Commands and Operations](concepts-commands-operations.mdx) or [Workflow](change-default-search-behaviour.mdx) first.
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+## Create a Component Skeleton
+
+Create a new folder structure with the following files. These files define a new component with a simple visual structure and export it from the `CustomComponent` folder.
+
+-   `src/components/CustomComponent/CustomComponent.tsx`
+-   `src/components/CustomComponent/CustomComponentModel.ts`
+-   `src/components/CustomComponent/index.ts`
+
+:::note
+In Geocortex Web, components are simply [React Components](https://reactjs.org/docs/components-and-props.html) that return a root `LayoutElement`.
+Every component needs an associated [model](concepts-components-services.mdx#models)
+:::
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'CustomComponent.tsx', value: 'component', },
+    { label: 'CustomComponentModel.ts', value: 'model', },
+    { label: 'index.ts', value: 'index', }
+  ]
+}>
+<TabItem value="component">
+
+```tsx
+import React from "react";
+import { LayoutElement } from "@geocortex/web/components";
+
+export default function Test(props) {
+    return (
+        <LayoutElement {...props}>
+            <div>I'm so custom</div>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts
+import { ComponentModelBase, serializable } from "@geocortex/web/models";
+
+class CustomComponentModel extends ComponentModelBase {}
+
+export default serializable(CustomComponentModel);
+```
+
+</TabItem>
+<TabItem value="index">
+
+```ts
+export { default } from "./CustomComponent";
+```
+
+</TabItem>
+</Tabs>
+
+## Register the Component with the Web SDK
+
+Every component needs to be registered with the Web SDK in order to be used in the [`layout`](concepts-layout.mdx)
+
+Add new calls to `registerComponent` and `registerModel` in `src/index.ts`.
+
+:::note
+One key thing to note about this snippet is the `itemType`. The value of the [item type](TODO-link) is what links a component to a model.
+:::
+
+```ts
+import CustomComponent from "./components/CustomComponent"
+...
+
+export default function(registry) {
+    ...
+    registry.registerComponent({
+        name: "my-component",
+        namespace: "your.custom.namespace",
+        getComponentType: () => CustomComponent,
+        itemType: "custom-component-model",
+        title: "Custom Component",
+    });
+    registry.registerModel({
+        getModelType: () => CustomComponentModel,
+        itemType: "custom-component-model",
+    });
+    ...
+}
+```
+
+## Add the Component to your Layout
+
+To allow layout to find your component, you need to add the custom namespace of your component defined in the previous step with an `xmlns` tag to the [layout file](quick-start.mdx#anatomy-of-the-quick-start).
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1"
+xmlns:custom="your.custom.namespace">
+    <map id="map-primary" config="default" />
+</layout>
+```
+
+You can then add the component itself to your layout, making sure to use `name` defined in the previous step.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1"
+xmlns:custom="your.custom.namespace">
+    <map id="map-primary" config="default" />
+    <custom:my-component>
+</layout>
+```
+
+TODO - ui screenshot
+
+If you run the [development server](quick-start.mdx#getting-up-and-running) you should see your custom component up and running.
+
+## Build out your Component's UI
+
+Now that we have a working component, you can build out the UI experience just as you would with any other React Component.
+
+### Example: RSS Feed of News Updates
+
+This React component displays a list of "news items" relevant to your GIS application in a hovering component at the top of the map. In a real application, these news items would be populated by an RSS feed or another news source.
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'CustomComponent.tsx', value: 'component', },
+    { label: 'CustomComponent.css', value: 'css', },
+    { label: 'layout.xml', value: 'layout', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx
+import React, { useState } from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import "./CustomComponent.css";
+
+export default function Test(props) {
+    const [hidden, setHidden] = useState(false);
+    return (
+        <LayoutElement {...props}>
+            <div className="rss-feed">
+                <div className="rss-feed-header">
+                    {hidden && <button onClick={() => setHidden(false)}>Show News</button>}
+                    {!hidden && <button onClick={() => setHidden(true)}>Hide News</button>}
+                </div>
+                {!hidden && (
+                    <div className="rss-feed-content">
+                        <div>New fire hydrant installed at Main and 5th.</div>
+                        <div>Pipe burst at 4th and Broadview</div>
+                        <div>Fire hydrant reported as needs maintenance by citizen.</div>
+                    </div>
+                )}
+            </div>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="css">
+
+```css
+.rss-feed {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    -webkit-box-shadow: 6px 17px 39px -5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 6px 17px 39px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 6px 17px 39px -5px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    min-width: 150px;
+}
+
+.rss-feed-content > * {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+}
+
+.rss-feed-header {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <map id="map-primary" config="default" >
+        <custom:my-component slot="top-center"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+</Tabs>
+
+TODO - add user interface photo
+
+## Component Models
+
+TODO
