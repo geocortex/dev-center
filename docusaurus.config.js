@@ -20,9 +20,24 @@ module.exports = {
                 src: "img/logo.png",
             },
             links: [
-                { to: "docs/web/overview", label: "Web", position: "left" },
-                { to: "docs/mobile/overview", label: "Mobile", position: "left" },
-                { to: "docs/workflow/overview", label: "Workflow", position: "left" },
+                {
+                    to: "docs/web/overview",
+                    label: "Web",
+                    position: "left",
+                    activeBasePath: "docs/web",
+                },
+                {
+                    to: "docs/mobile/overview",
+                    label: "Mobile",
+                    position: "left",
+                    activeBasePath: "docs/mobile",
+                },
+                {
+                    to: "docs/workflow/overview",
+                    label: "Workflow",
+                    position: "left",
+                    activeBasePath: "docs/workflow",
+                },
             ],
         },
         footer: {
