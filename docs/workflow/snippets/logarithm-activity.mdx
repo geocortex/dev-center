@@ -1,6 +1,5 @@
 ```csharp
 using Geocortex.Workflow.Runtime;
-using Geocortex.Workflow.Runtime.Utils;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,7 +8,7 @@ namespace App1.Workflow.CustomActivity
 {
     public class CalculateLog : IActivityHandler
     {
-        public const string Action = "custom:wf:app::CalculateLog";
+        public const string Action = "your:unique:namespace::CalculateLog";
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
