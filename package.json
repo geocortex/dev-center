@@ -5,8 +5,8 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "lint": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
-    "prettier": "prettier --write \"**/*.{css,js,jsx,ts,tsx,md,mdx,json}\"",
+    "lint": "remark -f -q -u validate-links \"docs/**/*.mdx\" && npm run prettier -- --check",
+    "prettier": "prettier \"**/*.{css,js,jsx,ts,tsx,md,mdx,json}\"",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy"
   },
