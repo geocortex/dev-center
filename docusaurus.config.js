@@ -3,7 +3,7 @@ module.exports = {
     title,
     tagline: "by developers, for developers",
     url: "https://geocortex.github.io/",
-    baseUrl: process.env.BASE_URL || "/dev-center/",
+    baseUrl: "/",
     favicon: "img/favicon.png",
     organizationName: "geocortex", // Usually your GitHub org/user name.
     projectName: "dev-center", // Usually your repo name.
@@ -20,9 +20,24 @@ module.exports = {
                 src: "img/logo.png",
             },
             links: [
-                { to: "docs/web/overview", label: "Web (alpha)", position: "left" },
-                { to: "docs/mobile/overview", label: "Mobile", position: "left" },
-                { to: "docs/workflow/overview", label: "Workflow", position: "left" },
+                {
+                    to: "docs/web/overview",
+                    label: "Web",
+                    position: "left",
+                    activeBasePath: "docs/web",
+                },
+                {
+                    to: "docs/mobile/overview",
+                    label: "Mobile",
+                    position: "left",
+                    activeBasePath: "docs/mobile",
+                },
+                {
+                    to: "docs/workflow/overview",
+                    label: "Workflow",
+                    position: "left",
+                    activeBasePath: "docs/workflow",
+                },
             ],
         },
         footer: {

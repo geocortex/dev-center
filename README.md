@@ -14,15 +14,15 @@ You might want to make yourself familiar with [Docusaurus v2](https://v2.docusau
 
 #### Prerequisites
 
-Install the latest LTS version of [node](https://nodejs.org/) and [yarn](https://classic.yarnpkg.com/en/docs/install).
+Install the latest LTS version of [node](https://nodejs.org/).
 
 #### Install dependencies
 
-Run `yarn` in the root of this repository.
+Run `npm install` in the root of this repository.
 
 #### Start development server
 
-Run `yarn start` in the root of this repository.
+Run `npm start` in the root of this repository.
 
 This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
 

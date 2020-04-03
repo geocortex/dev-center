@@ -47,9 +47,9 @@ import * as moment from "moment";
 // @category Custom Activities
 // @description An activity that returns the current dat and time.
 export class CurrentTime {
-    static action = "custom:wf:app::CurrentTime";
+    static action = "your:unique:namespace::CurrentTime";
 
-    static suite = "uuid:a1c505cb-c725-465c-9ca1-f11a5316dfec";
+    static suite = "your:unique:namespace";
 
     async execute(): Promise<string> {
         return moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
@@ -67,7 +67,7 @@ If your Activity Pack contains a custom form element that relies upon an externa
 
 <!--
 TODO: This library is very outdated, and will start causing `npm install` errors when we upgrade to React 16 in the SDK.
-It doesn't support React 16. Let's pick something more popular perhaps?
+It doesn't support React 16. Let's pick something more popular perhaps? https://geocortex.visualstudio.com/Geocortex/_workitems/edit/39715
 -->
 
 ### Example: Using the [react-circular-color](https://github.com/ubcent/react-circular-color) Component.

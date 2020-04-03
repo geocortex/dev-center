@@ -38,7 +38,7 @@ function Home() {
             description="Developer documentation and code samples for Geocortex Products."
         >
             <header
-                className={classNames("hero hero--primary", styles.heroBanner)}
+                className={classNames("hero hero--dark", styles.heroBanner)}
                 // TODO: Find out correct approach to use this in CSS file,
                 // as it wasn't taking baseUrl into account.
                 style={{ backgroundImage: `url("${useBaseUrl("img/geocortex-rocket.png")}")` }}

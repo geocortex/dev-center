@@ -20,7 +20,7 @@ We will modify the default search behaviour of the [Quick Start](quick-start.mdx
 
 <PrereqsSnippet />
 
-## Initial Setup
+## Initial Set up
 
 1. Run the Quick Start
 2. Turn off visibility for all Feature Layers except for "Fire Hydrants"
@@ -29,7 +29,7 @@ We will modify the default search behaviour of the [Quick Start](quick-start.mdx
 
 You should see some number of results. If you look at the details for some of the Fire Hydrants, you'll notice some have Fire Hydrant Surveys and some don't. We will build a workflow that will only return the Fire Hydrants without a related survey when you search for `active filter:nosurveys`.
 
-## Setup the Workflow to Run on Search
+## Set up the Workflow to Run on Search
 
 The first thing we need to do is override the default search behaviour. We can do this by editing the "Search" component of the [app config](quick-start.mdx#editing-the-layout-and-app-config). The default behaviour for search is a command chain that runs `tasks.search` and then `results.display`.
 

@@ -139,7 +139,6 @@ module.exports = {
                         "workflow/getting-started-server",
                         "workflow/register-dotnet-activities",
                         "workflow/integrating-the-esri-api-dotnet",
-                        "workflow/activity-input-validation",
                     ],
                 },
             ],

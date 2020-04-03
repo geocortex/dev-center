@@ -9,7 +9,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 
-Implementing a custom [form element](concepts-key-concepts.mdx#activities-and-form-elements) allows you to augment the existing [form elements that come with Geocortex Workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/auto-complete.htm%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7C_____0).
+Implementing a custom [form element](concepts-key-concepts.mdx#form-elements) allows you to augment the existing [form elements that come with Geocortex Workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/auto-complete.htm%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7C_____0).
 
 ## Scope
 
@@ -19,8 +19,6 @@ This article applies to building workflow form elements that will be run on [Geo
 
 <MobilePrereqs />
 
-It is suggested that you [implement a custom activity](implement-custom-activity-mobile.mdx) before trying to implement a custom form element.
-
 ## Overview
 
 Implementing a custom form element in Geocortex Mobile consists of three steps:
@@ -29,7 +27,7 @@ Implementing a custom form element in Geocortex Mobile consists of three steps:
 2. Creating an activity which will register this form component with Geocortex Workflow.
 3. Registering the activity with Geocortex Workflow and running it using the custom form element.
 
-## Setup the Custom Form Element Skeleton
+## Set up the Custom Form Element Skeleton
 
 1. Create a new file `CustomFormComponent` in the platform agnostic project of the Geocortex Mobile [quick start](../mobile/quick-start.mdx).
 2. Add a new skeleton form element that implements `FormComponent`.
@@ -61,13 +59,14 @@ namespace App1.Workflow
 }
 ```
 
-## Setup a Form Element Registration Activity
+## Set up a Form Element Registration Activity
 
 1. Create a new file `FormElementRegistrationActivity` in the platform agnostic project of the Geocortex Mobile [quick start](../mobile/quick-start.mdx).
 2. Add a new form registration activity that implements `RegisterCustomFormElementBase`.
 
 :::tip
 Only one form element registration activity is needed per app, as it can register multiple custom form elements.
+Learn more about [implementing custom activities](implement-custom-activity-mobile.mdx).
 :::
 
 ```csharp
@@ -80,7 +79,7 @@ namespace App1.Workflow
 {
     class FormElementRegistrationActivity : RegisterCustomFormElementBase
     {
-        public static string Action { get; } = "custom:wf:helpers::FormElementRegistrationActivity";
+        public static string Action { get; } = "your:unique:namespace::FormElementRegistrationActivity";
 
         public override Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
@@ -162,7 +161,7 @@ namespace App1.Workflow
 {
     class FormElementRegistrationActivity : RegisterCustomFormElementBase
     {
-        public static string Action { get; } = "custom:wf:helpers::FormElementRegistrationActivity";
+        public static string Action { get; } = "your:unique:namespace::FormElementRegistrationActivity";
 
         public override Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {

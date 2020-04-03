@@ -71,7 +71,7 @@ namespace App1.Workflow
     {
         private UIOperations _uiOperations;
 
-        public static string Action { get; } = "custom:wf:app::DisplayGeocortexMobileAlert";
+        public static string Action { get; } = "your:unique:namespace::DisplayGeocortexMobileAlert";
 
         public DisplayGeocortexMobileAlert(UIOperations uiOperations)
         {
@@ -196,7 +196,7 @@ namespace App1.Workflow
 {
     public class PlaceCalloutAtCenter : IActivityHandler
     {
-        public static string Action { get; } = "custom:wf:app::PlaceCalloutAtCenter";
+        public static string Action { get; } = "your:unique:namespace::PlaceCalloutAtCenter";
 
         [ProviderFactoryAttribute(typeof(MapProviderBase))]
         public Func<MapProviderBase> MapProviderFactory { get; set; }

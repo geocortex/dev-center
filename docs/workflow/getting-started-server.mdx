@@ -6,7 +6,7 @@ description: Geocortex Workflow - Get started with extending Geocortex Workflow 
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
-Geocortex Workflow Server can be extending by augmenting your on premise installation with additional custom .NET assemblies.
+Geocortex Workflow Server can be extended by augmenting your on premise installation with additional custom .NET assemblies.
 
 ## Requirements
 
@@ -60,8 +60,7 @@ For Geocortex Workflow Server to find your custom activities, you need to copy t
 1. Find the `CustomAssemblies` folder on disk.
     1. Geocortex Workflow looks in a folder called `CustomAssemblies` for assemblies that contain custom activities.
        This is located in the folder that you chose when installing Geocortex Workflow. The default location is  
-       `C:\Program Files\Latitude Geographics\Geocortex Workflow\CustomAssemblies`  
-       Openthisfolder.
+       `C:\Program Files\Latitude Geographics\Geocortex Workflow\CustomAssemblies`
 1. Copy the relevant files from the build output to the `CustomAssemblies` folder.
     1. Copy your project's assembly. (e.g. `AssemblyNamespace.dll`)
     1. Copy any third-party libraries that your project relies on (these should have been output to the build folder)
