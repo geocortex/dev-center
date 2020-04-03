@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 import styles from "./index.module.css";
 import ProductContainer from "../components/ProductContainer";
@@ -31,12 +30,8 @@ const products = [
 ];
 
 function Home() {
-    const { siteConfig = {} } = useDocusaurusContext();
     return (
-        <Layout
-            title={`${siteConfig.title}`}
-            description="Developer documentation and code samples for Geocortex Products."
-        >
+        <Layout description="Developer documentation and code samples for Geocortex Products.">
             <header
                 className={classNames("hero hero--dark", styles.heroBanner)}
                 // TODO: Find out correct approach to use this in CSS file,
