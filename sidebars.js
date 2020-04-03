@@ -33,7 +33,7 @@ module.exports = {
                     type: "category",
                     label: "Basics",
                     items: [
-                        "web/change-default-behaviour",
+                        "web/change-default-behavior",
                         "web/look-and-feel",
                         "web/internationalization",
                     ],
@@ -48,7 +48,7 @@ module.exports = {
                             href:
                                 "https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____0",
                         },
-                        // "web/change-default-search-behaviour",
+                        // "web/change-default-search-behavior",
                         {
                             type: "link",
                             label: "Implement Custom Workflow Form Elements",
