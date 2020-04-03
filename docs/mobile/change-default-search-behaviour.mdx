@@ -35,7 +35,7 @@ The first thing we need to do is override the default search behaviour. We can d
 
 ###### Default Search Config
 
-```json
+```json {4}
 {
     "$type": "search",
     "id": "search",
@@ -74,7 +74,7 @@ We are going to replace the command chain with a `workflow.run` command that rep
 
 5. Configure the `onSearch` property of the Search Component in the app config to run the workflow.
 
-```json
+```json {4-11}
 {
     "$type": "search",
     "id": "search",
