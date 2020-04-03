@@ -1,0 +1,33 @@
+```tsx title="src/components/NewsFeedComponent/NewsFeedComponent.tsx"
+import React, { useState } from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import "./NewsFeedComponent.css";
+
+export default function NewsFeedComponent(props) {
+    const [hidden, setHidden] = useState(false);
+
+    const newsItems: string[] = [
+        "New fire hydrant installed at Main and 5th.",
+        "Pipe burst at 4th and Broadview",
+        "Fire hydrant reported as needs maintenance by citizen.",
+    ];
+
+    return (
+        <LayoutElement {...props}>
+            <div className="rss-feed">
+                <div className="rss-feed-header">
+                    {hidden && <button onClick={() => setHidden(false)}>Show News</button>}
+                    {!hidden && <button onClick={() => setHidden(true)}>Hide News</button>}
+                </div>
+                {!hidden && (
+                    <div className="rss-feed-content">
+                        {newsItems.map((news) => (
+                            <div>{news}</div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </LayoutElement>
+    );
+}
+```

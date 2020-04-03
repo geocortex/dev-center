@@ -2,3 +2,317 @@
 title: App Config for a Component
 description: Geocortex Web - Learn how to make a component participate in app config.
 ---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import NewsFeedComponent from "./snippets/news-feed-component.mdx";
+import NewsFeedComponentCss from "./snippets/news-feed-component-css.mdx";
+
+Geocortex Web has a powerful [app configuration](concepts-app-config.mdx) model which can be used to easily change the behaviour of an application without modifying custom code. Using app config to power a components behaviour increases it's reusability and customizability.
+
+By the end of this article, you'll have the knowledge to build a component that displays relevant news items at the top of your map. These news items will be populated from config, along with a value that tells the news component whether or not to be visible by default.
+
+<!-- TODO - news feed user interface here -->
+
+## Prerequisites
+
+Learn how to [implement a custom component](implement-component-participate-app-config.mdx).
+
+## Component Models
+
+Each component has an associated model. The model is the backing data source for a component, and usually has properties that are initialized from configuration. It is best practice to treat the model for a component as the state, and single source of truth, for data values that the component consumes.
+
+## Example: Model for the News Feed Component
+
+Let's create a model for the [news feed component](implement-component-with-ui.mdx#example-rss-feed-of-news-updates) we created earlier. We are going to move the `hidden` state property and `newsItems` property into configuration
+
+<NewsFeedComponent />
+
+First, we need to create a `NewsFeedModelProperties` interface which we use to inform the `NewsFeedModel` about which properties it should populate from configuration. Each property in the `NewsFeedModelProperties` class sh.ould have a corresponding property in the `NewsFeedModel` class. The `NewsFeedModel` should also be marked as `@serializable`.
+
+:::note
+Marking properties in the `ComponentModelProperties` interface as optional allows them to be left out of config and populated with default values. It's best practice to make properties optional and provide a default value if possible.
+:::
+
+```ts
+import { ComponentModelBase, serializable, ComponentModelProperties, PropertyDefs } from "@geocortex/web/models";
+
+interface NewsFeedModelProperties extends ComponentModelProperties {
+    newsItems?: string[];
+    hidden?: boolean;
+}
+
+// highlight-next-line
+@serializable
+export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelProperties> {
+    /**
+     * Array of items to display in the news feed
+     */
+    newsItems: string[];
+
+    /**
+     * Whether or not the news ticker is hidden
+     */
+    hidden: boolean;
+
+    ...
+}
+```
+
+Next, we have to inform the [viewer framework](TODO-viewer-framework-article) about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method.
+
+:::note
+Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes. For custom serialization logic, see [serialization modes](TODO-serialization-modes-article).
+:::
+
+```ts title="src/components/NewsFeedComponent/NewsFeedModel.ts"
+import {
+    ComponentModelBase,
+    serializable,
+    ComponentModelProperties,
+    PropertyDefs,
+} from "@geocortex/web/models";
+
+interface NewsFeedModelProperties extends ComponentModelProperties {
+    newsItems?: string[];
+    hidden?: boolean;
+}
+
+@serializable
+export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelProperties> {
+    /**
+     * Array of items to display in the news feed
+     */
+    newsItems: string[];
+
+    /**
+     * Whether or not the news ticker is hidden
+     */
+    hidden: boolean;
+
+    // highlight-start
+    protected _getSerializableProperties(): PropertyDefs<NewsFeedModelProperties> {
+        const props = super._getSerializableProperties();
+        return {
+            ...props,
+            newsItems: {
+                serializeModes: ["initial"],
+                default: ["No news."],
+            },
+            hidden: {
+                serializeModes: ["initial"],
+                default: false,
+            },
+        };
+    }
+    // highlight-end
+}
+```
+
+Finally, we need to update the `NewsFeedComponent` to treat the model as it's single source of truth for data. First, we update the props passes into the component to include the relevant model.
+
+```ts
+export interface NewsFeedComponentProps extends LayoutElementProperties<NewsFeedModel> {}
+
+export default function NewsFeedComponent(props: NewsFeedComponentProps) {
+    ...
+}
+```
+
+We want this model to be initially populated with values from configuration or defaults. We can use `props.model` values to set our initial state, but we also want to update the model and re-render on model changes instead of using the `useState` function.
+
+To accomplish this, upon user interaction that affects state,
+
+1. The component updates the model values.
+1. The component listens for changes on the model values and re-renders with the `useWatchAndRerender` function.
+
+In this way, the model is treated as the component state. It's best practice to use the model to define configurable or persistent state, and use the [`React` state hooks](https://reactjs.org/docs/hooks-state.html) for UI specific transient state, like an active selection.
+
+:::tip
+This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](TODO-article-to-our-helper-hooks) provided.
+:::
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'Model', value: 'model', },
+    { label: 'Css', value: 'css', },
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'config', },
+    { label: 'Component Export', value: 'newsFeedIndex', },
+    { label: 'Registration', value: 'index', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx title="src/components/NewsFeedComponent/NewsFeedComponent.tsx"
+import React from "react";
+import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
+import { useWatchAndRerender } from "@geocortex/web/ui/hooks";
+import "./NewsFeedComponent.css";
+import { NewsFeedModel } from ".";
+
+export interface NewsFeedComponentProps extends LayoutElementProperties<NewsFeedModel> {}
+
+export default function NewsFeedComponent(props: NewsFeedComponentProps) {
+    const { model } = props;
+
+    /**
+     * The use watch function handles observing a property on the model,
+     * re-rendering on change, and cleaning up the subscription handle on unmount.
+     * This helper function allows you to use the model as your component state.
+     */
+    // highlight-start
+    useWatchAndRerender(model, "hidden");
+    useWatchAndRerender(model, "newsItems");
+    // highlight-end
+
+    return (
+        <LayoutElement {...props}>
+            <div className="rss-feed">
+                <div className="rss-feed-header">
+                    // highlight-start
+                    {model.hidden && (
+                        <button onClick={() => (model.hidden = false)}>Show News</button>
+                    )}
+                    {!model.hidden && (
+                        <button onClick={() => (model.hidden = true)}>Hide News</button>
+                    )}
+                    // highlight-end
+                </div>
+                {!model.hidden && (
+                    <div className="rss-feed-content">
+                        // highlight-next-line
+                        {model.newsItems.map((news) => (
+                            <div>{news}</div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/NewsFeedComponent/NewsFeedModel.ts"
+import {
+    ComponentModelBase,
+    serializable,
+    ComponentModelProperties,
+    PropertyDefs,
+} from "@geocortex/web/models";
+
+interface NewsFeedModelProperties extends ComponentModelProperties {
+    newsItems?: string[];
+    hidden?: boolean;
+}
+
+@serializable
+export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelProperties> {
+    /**
+     * Array of items to display in the news feed
+     */
+    newsItems: string[];
+
+    /**
+     * Whether or not the news ticker is hidden
+     */
+    hidden: boolean;
+
+    protected _getSerializableProperties(): PropertyDefs<NewsFeedModelProperties> {
+        const props = super._getSerializableProperties();
+        return {
+            ...props,
+            newsItems: {
+                serializeModes: ["initial"],
+                default: ["No news."],
+            },
+            hidden: {
+                serializeModes: ["initial"],
+                default: false,
+            },
+        };
+    }
+}
+```
+
+</TabItem>
+<TabItem value="css">
+<NewsFeedComponentCss/>
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <map id="map-primary" config="default" >
+        // highlight-next-line
+        <custom:news-feed slot="top-center" config="default"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        // highlight-start
+        {
+            "$type": "news-feed-model",
+            "id": "default",
+            "newsItems": [
+                "New fire hydrant installed at Main and 5th.",
+                "Pipe burst at 4th and Broadview",
+                "Fire hydrant reported as needs maintenance by citizen."
+            ]
+        }
+        // highlight-end
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="newsFeedIndex">
+
+```ts title="src/components/NewsFeedComponent/index.ts"
+import NewsFeedModel from "./NewsFeedModel";
+
+export { default } from "./NewsFeedComponent";
+export { NewsFeedModel };
+```
+
+</TabItem>
+<TabItem value="index">
+
+```ts title="src/index.ts"
+import Test, { TestModel } from "./components/Test";
+import NewsFeedComponent, { NewsFeedModel } from "./components/NewsFeedComponent";
+
+const LAYOUT_NAMESPACE = "custom.foo";
+
+export default function (registry) {
+    registry.registerComponent({
+        name: "news-feed",
+        namespace: "your.custom.namespace",
+        getComponentType: () => NewsFeedComponent,
+        // highlight-next-line
+        itemType: "news-feed-model",
+        title: "News Feed",
+    });
+    registry.registerModel({
+        getModelType: () => NewsFeedModel,
+        // highlight-next-line
+        itemType: "news-feed-model",
+    });
+}
+```
+
+</TabItem>
+</Tabs>
