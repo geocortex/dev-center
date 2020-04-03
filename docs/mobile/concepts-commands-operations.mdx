@@ -200,7 +200,7 @@ This example demonstrates two different types of argument passing behavior. The 
 `highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation (or the original input if no operations have run), so it will also receive the output of `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
 :::tip
-Check out [Change Default Behaviour](change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.  
+Check out [Change Default Behavior](change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.  
 :::
 
 The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a [MapExtensionArgs](API Link), which is provided as a named argument. The `maps` property in the argument references the demoMap in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](concepts-advanced-config.mdx#item-uris-and-resource-uris) for more details.
