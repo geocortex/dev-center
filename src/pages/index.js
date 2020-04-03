@@ -33,10 +33,7 @@ const products = [
 function Home() {
     const { siteConfig = {} } = useDocusaurusContext();
     return (
-        <Layout
-            title={`${siteConfig.title}`}
-            description="Developer documentation and code samples for Geocortex Products."
-        >
+        <Layout description="Developer documentation and code samples for Geocortex Products.">
             <header
                 className={classNames("hero hero--dark", styles.heroBanner)}
                 // TODO: Find out correct approach to use this in CSS file,
