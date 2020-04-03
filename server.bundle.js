@@ -448,7 +448,7 @@ function _interopRequireWildcard(obj) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return useBaseUrl; });
-/* harmony import */ var _useDocusaurusContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var _useDocusaurusContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -547,6 +547,12 @@ if (false) { var throwOnDirectAccess, ReactIs; } else {
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -559,12 +565,6 @@ if (false) { var throwOnDirectAccess, ReactIs; } else {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */function useDocusaurusContext(){return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_context__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]);}/* harmony default export */ __webpack_exports__["a"] = (useDocusaurusContext);
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = require("path");
 
 /***/ }),
 /* 12 */
@@ -8741,7 +8741,7 @@ var Head = __webpack_require__(86);
 var isInternalUrl = __webpack_require__(27);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
-var useDocusaurusContext = __webpack_require__(10);
+var useDocusaurusContext = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useBaseUrl.js
 var useBaseUrl = __webpack_require__(6);
@@ -11173,7 +11173,7 @@ module.exports = hasProtocol;
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 
 const NODE_VERSION_MAJOR_WITH_BIGINT = 10
 const NODE_VERSION_MINOR_WITH_BIGINT = 5
@@ -12561,7 +12561,7 @@ function renderRoutes(routes, extraProps, switchProps) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _docusaurus_useDocusaurusContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
+/* harmony import */ var _docusaurus_useDocusaurusContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /* harmony import */ var _theme_hooks_useThemeContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(58);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 /* harmony import */ var _docusaurus_isInternalUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(27);
@@ -13819,7 +13819,7 @@ module.exports = extractProperties;
 /* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var path = __webpack_require__(11);
+var path = __webpack_require__(10);
 var url = __webpack_require__(29);
 
 var isRemoteResource = __webpack_require__(63);
@@ -14796,7 +14796,7 @@ var parse_numeric_range = __webpack_require__(122);
 var parse_numeric_range_default = /*#__PURE__*/__webpack_require__.n(parse_numeric_range);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
-var useDocusaurusContext = __webpack_require__(10);
+var useDocusaurusContext = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useThemeContext.js
 var useThemeContext = __webpack_require__(58);
@@ -16373,7 +16373,7 @@ exports.ArraySet = ArraySet;
 /* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var path = __webpack_require__(11);
+var path = __webpack_require__(10);
 
 function rebaseLocalMap(sourceMap, sourceUri, rebaseTo) {
   var currentPath = path.resolve('');
@@ -16394,7 +16394,7 @@ module.exports = rebaseLocalMap;
 /* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var path = __webpack_require__(11);
+var path = __webpack_require__(10);
 var url = __webpack_require__(29);
 
 function rebaseRemoteMap(sourceMap, sourceUri) {
@@ -17356,7 +17356,7 @@ module.exports = {
 "use strict";
 
 
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 
 // get drive on windows
 function getRootPath (p) {
@@ -17390,7 +17390,7 @@ module.exports = {
 
 const fs = __webpack_require__(16)
 const os = __webpack_require__(127)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 
 // HFS, ext{2,3}, FAT do not, Node.js v0.10 does not
 function hasMillisResSync () {
@@ -24686,7 +24686,7 @@ var react_default = /*#__PURE__*/__webpack_require__.n(react);
 var esm = __webpack_require__(0);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
-var useDocusaurusContext = __webpack_require__(10);
+var useDocusaurusContext = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/renderRoutes.js
 var renderRoutes = __webpack_require__(87);
@@ -24797,7 +24797,7 @@ var Head = __webpack_require__(86);
 var isInternalUrl = __webpack_require__(27);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
-var useDocusaurusContext = __webpack_require__(10);
+var useDocusaurusContext = __webpack_require__(11);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useBaseUrl.js
 var useBaseUrl = __webpack_require__(6);
@@ -24857,9 +24857,6 @@ var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useBaseUrl.js
 var useBaseUrl = __webpack_require__(6);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
-var useDocusaurusContext = __webpack_require__(10);
-
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Layout/index.js + 11 modules
 var Layout = __webpack_require__(59);
 
@@ -24883,7 +24880,7 @@ var Link = __webpack_require__(17);
 // CONCATENATED MODULE: ./src/components/ProductCard/index.jsx
 function ProductCard({imageUrl,title,description,link}){return/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],{className:classnames_default()(ProductCard_index_module_default.a.product),to:link},/*#__PURE__*/react_default.a.createElement("div",{className:classnames_default()("card col",ProductCard_index_module_default.a.productCard)},/*#__PURE__*/react_default.a.createElement("div",{className:classnames_default()("card__image",ProductCard_index_module_default.a.productImage)},/*#__PURE__*/react_default.a.createElement("img",{src:Object(useBaseUrl["a" /* default */])(imageUrl),alt:title,title:title})),/*#__PURE__*/react_default.a.createElement("div",{className:"card__body"},/*#__PURE__*/react_default.a.createElement("h3",null,title),/*#__PURE__*/react_default.a.createElement("div",null,description))));}
 // CONCATENATED MODULE: ./src/pages/index.js
-const products=[{title:"Geocortex Web",imageUrl:"img/web-viewer-product-icon.svg",description:"Combine the 3D and 2D capabilities of Esri’s latest JavaScript API to deliver cutting-edge mapping applications.",link:"docs/web/overview"},{title:"Geocortex Mobile",imageUrl:"img/mobile-viewer-product-icon.svg",description:"Develop field data collection apps and run them online or offline.",link:"docs/mobile/overview"},{title:"Geocortex Workflow",imageUrl:"img/workflow-product-icon.svg",description:"Extend your Geocortex and Web AppBuilder for ArcGIS® applications by turning sophisticated business processes into a set of simple, guided end-user interactions.",link:"docs/workflow/overview"}];function Home(){const{siteConfig={}}=Object(useDocusaurusContext["a" /* default */])();return/*#__PURE__*/react_default.a.createElement(Layout["a" /* default */],{title:`${siteConfig.title}`,description:"Developer documentation and code samples for Geocortex Products."},/*#__PURE__*/react_default.a.createElement("header",{className:classnames_default()("hero hero--dark",index_module_default.a.heroBanner)// TODO: Find out correct approach to use this in CSS file,
+const products=[{title:"Geocortex Web",imageUrl:"img/web-viewer-product-icon.svg",description:"Combine the 3D and 2D capabilities of Esri’s latest JavaScript API to deliver cutting-edge mapping applications.",link:"docs/web/overview"},{title:"Geocortex Mobile",imageUrl:"img/mobile-viewer-product-icon.svg",description:"Develop field data collection apps and run them online or offline.",link:"docs/mobile/overview"},{title:"Geocortex Workflow",imageUrl:"img/workflow-product-icon.svg",description:"Extend your Geocortex and Web AppBuilder for ArcGIS® applications by turning sophisticated business processes into a set of simple, guided end-user interactions.",link:"docs/workflow/overview"}];function Home(){return/*#__PURE__*/react_default.a.createElement(Layout["a" /* default */],{description:"Developer documentation and code samples for Geocortex Products."},/*#__PURE__*/react_default.a.createElement("header",{className:classnames_default()("hero hero--dark",index_module_default.a.heroBanner)// TODO: Find out correct approach to use this in CSS file,
 // as it wasn't taking baseUrl into account.
 ,style:{backgroundImage:`url("${Object(useBaseUrl["a" /* default */])("img/geocortex-rocket.png")}")`}},/*#__PURE__*/react_default.a.createElement("div",{className:"container"},/*#__PURE__*/react_default.a.createElement("h1",{className:"hero__title"},"Geocortex Developer Center"),/*#__PURE__*/react_default.a.createElement("h2",{className:"hero__subtitle"},"Extend your Geocortex applications to build virtually anything!"))),/*#__PURE__*/react_default.a.createElement("main",null,/*#__PURE__*/react_default.a.createElement(ProductContainer,null,products.map((props,idx)=>/*#__PURE__*/react_default.a.createElement(ProductCard,Object(esm_extends["a" /* default */])({key:idx},props))))));}/* harmony default export */ var pages = __webpack_exports__["default"] = (Home);
 
@@ -28318,7 +28315,7 @@ exports["default"] = exports.defaultOptions = void 0;
 
 var _fs = _interopRequireDefault(__webpack_require__(33));
 
-var _path = _interopRequireDefault(__webpack_require__(11));
+var _path = _interopRequireDefault(__webpack_require__(10));
 
 var _url = _interopRequireDefault(__webpack_require__(29));
 
@@ -34815,7 +34812,7 @@ module.exports = rebaseFrom;
 /* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var path = __webpack_require__(11);
+var path = __webpack_require__(10);
 
 function rebaseToFrom(option) {
   return option ? path.resolve(option) : process.cwd();
@@ -36858,7 +36855,7 @@ exports.SourceNode = SourceNode;
 /***/ (function(module, exports, __webpack_require__) {
 
 var fs = __webpack_require__(33);
-var path = __webpack_require__(11);
+var path = __webpack_require__(10);
 
 var applySourceMaps = __webpack_require__(316);
 var extractImportUrlAndMedia = __webpack_require__(142);
@@ -37205,7 +37202,7 @@ module.exports = readSources;
 /***/ (function(module, exports, __webpack_require__) {
 
 var fs = __webpack_require__(33);
-var path = __webpack_require__(11);
+var path = __webpack_require__(10);
 
 var isAllowedResource = __webpack_require__(106);
 var matchDataUri = __webpack_require__(317);
@@ -37482,7 +37479,7 @@ module.exports = isDataUriResource;
 /***/ (function(module, exports, __webpack_require__) {
 
 var fs = __webpack_require__(33);
-var path = __webpack_require__(11);
+var path = __webpack_require__(10);
 
 var isAllowedResource = __webpack_require__(106);
 
@@ -37734,7 +37731,7 @@ module.exports = rebase;
 /* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var path = __webpack_require__(11);
+var path = __webpack_require__(10);
 var url = __webpack_require__(29);
 
 var DOUBLE_QUOTE = '"';
@@ -43225,7 +43222,7 @@ function clone (obj) {
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const mkdirpSync = __webpack_require__(24).mkdirsSync
 const utimesSync = __webpack_require__(153).utimesMillisSync
 const stat = __webpack_require__(78)
@@ -43396,7 +43393,7 @@ module.exports = copySync
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const invalidWin32Path = __webpack_require__(152).invalidWin32Path
 
 const o777 = parseInt('0777', 8)
@@ -43466,7 +43463,7 @@ module.exports = mkdirs
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const invalidWin32Path = __webpack_require__(152).invalidWin32Path
 
 const o777 = parseInt('0777', 8)
@@ -43546,7 +43543,7 @@ module.exports = function (size) {
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const mkdirp = __webpack_require__(24).mkdirs
 const pathExists = __webpack_require__(30).pathExists
 const utimes = __webpack_require__(153).utimesMillis
@@ -43766,7 +43763,7 @@ module.exports = copy
 
 const u = __webpack_require__(20).fromCallback
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const mkdir = __webpack_require__(24)
 const remove = __webpack_require__(79)
 
@@ -43820,7 +43817,7 @@ module.exports = {
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const assert = __webpack_require__(109)
 
 const isWindows = (process.platform === 'win32')
@@ -44171,7 +44168,7 @@ module.exports = {
 
 
 const u = __webpack_require__(20).fromCallback
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const fs = __webpack_require__(16)
 const mkdir = __webpack_require__(24)
 const pathExists = __webpack_require__(30).pathExists
@@ -44227,7 +44224,7 @@ module.exports = {
 
 
 const u = __webpack_require__(20).fromCallback
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const fs = __webpack_require__(16)
 const mkdir = __webpack_require__(24)
 const pathExists = __webpack_require__(30).pathExists
@@ -44295,7 +44292,7 @@ module.exports = {
 
 
 const u = __webpack_require__(20).fromCallback
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const fs = __webpack_require__(16)
 const _mkdirs = __webpack_require__(24)
 const mkdirs = _mkdirs.mkdirs
@@ -44364,7 +44361,7 @@ module.exports = {
 "use strict";
 
 
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const fs = __webpack_require__(16)
 const pathExists = __webpack_require__(30).pathExists
 
@@ -44671,7 +44668,7 @@ module.exports = jsonfile
 "use strict";
 
 
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const mkdir = __webpack_require__(24)
 const pathExists = __webpack_require__(30).pathExists
 const jsonFile = __webpack_require__(110)
@@ -44706,7 +44703,7 @@ module.exports = outputJson
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const mkdir = __webpack_require__(24)
 const jsonFile = __webpack_require__(110)
 
@@ -44743,7 +44740,7 @@ module.exports = {
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const copySync = __webpack_require__(151).copySync
 const removeSync = __webpack_require__(79).removeSync
 const mkdirpSync = __webpack_require__(24).mkdirpSync
@@ -44810,7 +44807,7 @@ module.exports = {
 
 
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const copy = __webpack_require__(154).copy
 const remove = __webpack_require__(79).remove
 const mkdirp = __webpack_require__(24).mkdirp
@@ -44883,7 +44880,7 @@ module.exports = move
 
 const u = __webpack_require__(20).fromCallback
 const fs = __webpack_require__(16)
-const path = __webpack_require__(11)
+const path = __webpack_require__(10)
 const mkdir = __webpack_require__(24)
 const pathExists = __webpack_require__(30).pathExists
 
@@ -55915,7 +55912,7 @@ var react_loadable_lib_default = /*#__PURE__*/__webpack_require__.n(react_loadab
 var htmlminifier = __webpack_require__(235);
 
 // EXTERNAL MODULE: external "path"
-var external_path_ = __webpack_require__(11);
+var external_path_ = __webpack_require__(10);
 var external_path_default = /*#__PURE__*/__webpack_require__.n(external_path_);
 
 // EXTERNAL MODULE: ./node_modules/fs-extra/lib/index.js
