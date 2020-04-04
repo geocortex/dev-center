@@ -57,7 +57,7 @@ namespace App1.Services
 
 ## Components and Services
 
-Components and services in Geocortex Mobile are almost always initialized by autofac. This means that they can inject any class that has been registered with autofac in their constructor, allowing classes used for behaviour like [commands and operations](concepts-commands-operations.mdx) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with autofac to be correctly initialized, and it is best practice to use dependency injection to initalize instances of any other custom classes, services or components that the root level component depends on.
+Components and services in Geocortex Mobile are almost always initialized by autofac. This means that they can inject any class that has been registered with autofac in their constructor, allowing classes used for behavior like [commands and operations](concepts-commands-operations.mdx) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with autofac to be correctly initialized, and it is best practice to use dependency injection to initalize instances of any other custom classes, services or components that the root level component depends on.
 
 ## List of Registration Assembly Attributes
 

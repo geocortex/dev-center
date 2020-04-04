@@ -27,7 +27,7 @@ edit.delete-features
 
 ### Argument Passing
 
-Commands and Operations are most commonly used to configure the behaviour of components. For example, here's configuration for the various behaviours of a Feature Details component.
+Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the various behaviors of a Feature Details component.
 
 ```json
 {
@@ -49,7 +49,7 @@ Commands and Operations are most commonly used to configure the behaviour of com
 App config properties that accept a command or operation can take a single operation (such as with `onFeatureHide`) or they can take a **command chain** (such as with `onFeatureDelete`).
 
 :::note
-Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex input dependent behaviour.
+Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex input dependent behavior.
 :::
 
 In this example, when a feature is deleted,
@@ -59,10 +59,10 @@ In this example, when a feature is deleted,
 -   The results details are hidden,
 -   The feature is removed from the results list.
 
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a Feature Details component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behaviour in line will receive one of two possible inputs.
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a Feature Details component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
 
-1. If the previous behaviour was a command (which doesn't produce output), then the original input is passed on to the next behaviour.
-2. If the previous behaviour was an operation (which produces an output), then the output of that operation is passed onto the next behaviour.
+1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
+2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
 
 In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example.
 
@@ -92,7 +92,7 @@ If you choose, you can overide the default arguments passed into a command or op
 
 <!-- TODO-After-API change autocomplete linting note to API definitions -->
 
-This will override the default arugment passing behaviour for that command or operation. Each command has typed arguments that can will have [autocomplete linting in the app.json](concepts-advanced-config.mdx#autocomplete-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCase'd instead of PascalCased.
+This will override the default arugment passing behavior for that command or operation. Each command has typed arguments that can will have [autocomplete linting in the app.json](concepts-advanced-config.mdx#autocomplete-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCase'd instead of PascalCased.
 
 ### Example
 
@@ -172,7 +172,7 @@ This will override the default arugment passing behaviour for that command or op
 </TabItem>
 </Tabs>
 
-This example demonstrates two different types of argument passing behaviour. The first action in the app config is a command chain defined on the `onClick` property of a map. This chain consists of three operations and commands:
+This example demonstrates two different types of argument passing behavior. The first action in the app config is a command chain defined on the `onClick` property of a map. This chain consists of three operations and commands:
 
 -   `task.identify`,
 -   `highlights.add-focus`
@@ -200,12 +200,12 @@ This example demonstrates two different types of argument passing behaviour. The
 `highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation (or the original input if no operations have run), so it will also receive the output of `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
 :::tip
-Check out [Change Default Behaviour](change-default-behaviour.mdx) for more ways to override default behaviour like a Map's on click event.  
+Check out [Change Default Behavior](change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.  
 :::
 
 The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a [MapExtensionArgs](API Link), which is provided as a named argument. The `maps` property in the argument references the demoMap in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](concepts-advanced-config.mdx#item-uris-and-resource-uris) for more details.
 
-Mobile has a large array of built in command and operations that you can chain to power custom behaviour. Custom commands and operations can also be implemented with the SDK.
+Mobile has a large array of built in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.
 
 <UseCaseContainer>
     <UseCaseCard
@@ -215,8 +215,8 @@ Mobile has a large array of built in command and operations that you can chain t
     />
     <UseCaseCard
         title="Configure Commands and Operations"
-        description="Change built in behaviour or add new behaviour using app config and layout"
-        link="change-default-behaviour"
+        description="Change built in behavior or add new behavior using app config and layout"
+        link="change-default-behavior"
     />
     <UseCaseCard
         title="Build your own Commands and Operations"
