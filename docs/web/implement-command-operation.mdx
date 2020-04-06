@@ -2,3 +2,277 @@
 title: Custom Commands and Operations
 description: Geocortex Web - Learn how to implement a custom command or operation
 ---
+
+import PrereqsSnippet from "./snippets/prereqs.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+:::tip
+Geocortex Web has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](change-default-search-behaviour.mdx) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+:::
+
+This article will walk you through implementing a custom command in Geocortex Web that can record actions and a custom operation that returns a list of executed actions.
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+## Create the Backing Service
+
+Every Command or operation in Geocortex Web needs to be registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
+
+Create a new folder structure with the following files. These files define a new service and export it from the `CustomService` folder.
+
+-   `src/services/CustomService/CustomService.ts`
+-   `src/services/CustomService/index.ts`
+
+<Tabs
+  defaultValue="service"
+  values={[
+    { label: 'Service', value: 'service', },
+    { label: 'Service Index', value: 'index', }
+  ]
+}>
+<TabItem value="service">
+
+```ts title="src/services/CustomService/CustomService.ts"
+import { ServiceBase } from "@geocortex/web/services";
+
+export default class CustomService extends ServiceBase {}
+```
+
+</TabItem>
+<TabItem value="index">
+
+```ts title="src/services/CustomService/index.ts"
+export { default } from "./CustomService";
+```
+
+</TabItem>
+</Tabs>
+
+:::tip
+Learn more about [implementing custom services](implement-service.mdx)
+:::
+
+## Register the Service with the Web SDK
+
+Every service needs to be registered with the Web SDK in order to be discovered and initialized.
+
+Add a call to `registerService` in `src/index.ts`.
+
+```ts
+export default function(registry: LibraryRegistry) {
+    ...
+    registry.registerService({
+        id: "custom-service",
+        getServiceType: () => CustomService,
+    })
+    ...
+}
+```
+
+## Implement the Custom Command and Operation
+
+It's now time to implement the command to record an action, and the operation that returns a history of executed actions in the `CustomService`. We can define each command and operation with an appropiately named public method.
+
+:::note
+It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropiate typing.
+:::
+
+```ts title="src/services/CustomService/CustomService.ts
+import { ServiceBase } from "@geocortex/web/services";
+
+export type ActionType = "thing1" | "thing2";
+
+export interface DoActionArgs {
+    type: ActionType;
+    value: string;
+}
+
+export type ActionHistory = {
+    [key in ActionType]: string[];
+};
+
+export default class CustomService extends ServiceBase {
+    history: ActionHistory;
+
+    constructor() {
+        super();
+
+        this.history = {
+            thing1: [],
+            thing2: [],
+        };
+    }
+
+    public _doAction(args: DoActionArgs) {
+        console.log(`Executing action of type ${args.type}`);
+        this.history[args.type].push(args.value);
+    }
+
+    public _getActionHistory(): ActionHistory {
+        return this.history;
+    }
+}
+```
+
+## Register the Command and Operation
+
+Commands and operations are registered in `src/index.ts`. Use the [function prototype name](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name) of the methods you defined in the service to register the command or operation by name. The `serviceId` of the command or operation registration must match the `id` used in the `registerService` call.
+
+```ts title="src/index.ts"
+import { LibraryRegistry } from "@geocortex/web/config";
+import CustomService from "./components/CustomService/CustomService";
+
+export default function (registry: LibraryRegistry) {
+    registry.registerService({
+        // highlight-next-line
+        id: "custom-service",
+        getServiceType: () => CustomService,
+    });
+
+    // highlight-start
+    registry.registerCommand("custom-service.do-action", {
+        serviceId: "custom-service",
+        executeMethodName: CustomService.prototype._doAction.name,
+    });
+    // highlight-end
+
+    // highlight-start
+    registry.registerOperation("custom-service.get-action-history", {
+        serviceId: "custom-service",
+        executeMethodName: CustomService.prototype._getActionHistory.name,
+    });
+    // highlight-end
+}
+```
+
+## Test the Custom Command and Operation
+
+You can test your custom command and operation by adding entries to the I Want to Menu in the [app config](concepts-app-config) that run your commands and operation. For more information on customizing your app with commands and operations, see [Change Default Behaviour](change-default-behaviour.mdx).
+
+### Example: I Want To Menu Custom Command and Operation Config
+
+This app config and layout adds three entries to an I Want To Menu that run the custom commands and operations implemented in this article. The operation `custom-service.get-action-history` has been slightly changed to return an argument that is compatible with the inputs of `ui.alert`.
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: 'app config', value: 'config', },
+    { label: 'layout', value: 'layout', },
+    { label: 'Custom Service', value: 'service', }
+  ]
+}>
+<TabItem value="config">
+
+```json
+{
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "webMap": "a118de73a3684384947e617cf3ce9321"
+        },
+        {
+            "id": "iwtm-config",
+            "items": [
+                "item://menu-item/run-thing-1",
+                "item://menu-item/run-thing-2",
+                "item://menu-item/view-action-history"
+            ],
+            "title": "Execute Custom Behaviour",
+            "isLandmark": true,
+            "$type": "menu"
+        },
+        {
+            "id": "run-thing-1",
+            "title": "Run Thing 1",
+            "action": {
+                "name": "custom-service.do-action",
+                "arguments": {
+                    "type": "thing1",
+                    "value": "Never Gonna Give You Up"
+                }
+            },
+            "$type": "menu-item"
+        },
+        {
+            "id": "run-thing-2",
+            "title": "Run Thing 2",
+            "action": {
+                "name": "custom-service.do-action",
+                "arguments": {
+                    "type": "thing1",
+                    "value": "Never Gonna Let You Down"
+                }
+            },
+            "$type": "menu-item"
+        },
+        {
+            "id": "view-action-history",
+            "title": "View Action History",
+            "action": ["custom-service.get-action-history", "ui.alert"],
+            "$type": "menu-item"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <map id="map-primary" config="default" >
+        <iwtm id="iwtm" config="iwtm-config"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="service">
+
+```ts title="src/services/CustomService/CustomService.ts"
+import { ServiceBase } from "@geocortex/web/services";
+import { AlertCommandArgs } from "@geocortex/viewer-framework/messaging/registry/ui";
+
+export type ActionType = "thing1" | "thing2";
+
+export interface DoActionArgs {
+    type: ActionType;
+    value: string;
+}
+
+export type ActionHistory = {
+    [key in ActionType]: string[];
+};
+
+export default class CustomService extends ServiceBase {
+    history: ActionHistory;
+
+    constructor() {
+        super();
+
+        this.history = {
+            thing1: [],
+            thing2: [],
+        };
+    }
+
+    public _doAction(args: DoActionArgs) {
+        console.log(`Executing action of type ${args.type}`);
+        this.history[args.type].push(args.value);
+    }
+
+    // highlight-start
+    public _getActionHistoryAlertArgs(): AlertCommandArgs {
+        return { message: JSON.stringify(this.history) };
+    }
+    // highlight-end
+}
+```
+
+</TabItem>
+</Tabs>

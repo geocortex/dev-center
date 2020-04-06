@@ -22,6 +22,41 @@ Learn how to [implement a custom component](implement-component-participate-app-
 
 Each component has an associated model. The model is the backing data source for a component, and usually has properties that are initialized from configuration. It is best practice to treat the model for a component as the state, and single source of truth, for data values that the component consumes.
 
+By configuring built in [layout elements](concepts-layout.mdx) such as the `<map>`, you've already used models. In this example, the `<map>` component is linked to the `map-extension` model in the configuration.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "layout", value: "layout" },
+    { label: "app config", value: "config" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map id="map-primary" config="myMapConfig" />
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "myMapConfig",
+            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+        }
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
+
 ## Example: Model for the News Feed Component
 
 Let's create a model for the [news feed component](implement-component-with-ui.mdx#example-rss-feed-of-news-updates) we created earlier. We are going to move the `hidden` state property and `newsItems` property into configuration

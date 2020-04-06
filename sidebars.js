@@ -79,6 +79,11 @@ module.exports = {
             label: "Getting Started with the SDK",
             items: ["web/quick-start"],
         },
+        {
+            type: "category",
+            label: "API",
+            items: ["web/api-commands-operations"],
+        },
     ],
     workflow: [
         "workflow/overview",

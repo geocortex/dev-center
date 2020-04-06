@@ -1,6 +1,6 @@
 ---
-title: Custom Component with a Visual Interface
-description: Geocortex Web - Learn how to implement a custom component with a visual interface
+title: Custom Component with UI
+description: Geocortex Web - Learn how to implement a custom component with UI
 ---
 
 import Tabs from "@theme/Tabs";
@@ -25,6 +25,8 @@ By the end of this article, you'll have the knowledge to build a component that 
 
 ## Create a Component Skeleton
 
+The first thing we need to do is create the neccesary files for a custom component. A component is simply a [React Component](https://reactjs.org/docs/components-and-props.html) that returns a root `LayoutElement`, so it will be defined in a `.tsx`. file. Every component needs an associated model that extends `ComponentModelBase`.
+
 Create a new folder structure with the following files. These files define a new component with a simple visual structure and export it from the `CustomComponent` folder.
 
 -   `src/components/CustomComponent/CustomComponent.tsx`
@@ -33,7 +35,6 @@ Create a new folder structure with the following files. These files define a new
 
 :::note
 In Geocortex Web, components are simply [React Components](https://reactjs.org/docs/components-and-props.html) that return a root `LayoutElement`.
-Every component needs an associated [model](concepts-components-services.mdx#models)
 :::
 
 <Tabs
@@ -41,7 +42,7 @@ Every component needs an associated [model](concepts-components-services.mdx#mod
   values={[
     { label: 'Component', value: 'component', },
     { label: 'Model', value: 'model', },
-    { label: 'Registration', value: 'index', }
+    { label: 'Component Index', value: 'index', }
   ]
 }>
 <TabItem value="component">
@@ -236,3 +237,80 @@ export default function (registry) {
 </Tabs>
 
 TODO - add user interface photo
+
+## Running Commands and Operations
+
+When writing custom components or [custom services](implement-service.mdx), you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](implement-command-operation.mdx). You can run command and operations through a components model
+associated model.
+
+### Example: Display a Notification to a User
+
+The following component uses it's model to call the `ui.confirm` command and `ui.display-notification` operation. Calling a command or operation is as simple as retrieving it by name using the `messages` property on the model, and then calling `execute` with the appropiate arguments.
+
+:::note
+In order to pass arguments to a command or operation, you have to use the correct type for the generic `messages.command` or `messages.operation` function call with the argument and output type for the command or operation. For example, `ui.confirm` takes in a `ConfirmOperationArgs` and returns a `boolean`, as seen in the [API docs](api-commands-operations.mdx#ui-confirm), so it's `operation()` call would look like this;
+
+```ts
+messages.operation<ConfirmOperationArgs, boolean>("ui.confirm");
+```
+
+:::
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'Model', value: 'model', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx title="src/components/CustomComponent/CustomComponent.tsx"
+import React, { useState } from "react";
+import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
+import { CustomComponentModel } from ".";
+
+export interface CustomComponentProps extends LayoutElementProperties<CustomComponentModel> {}
+
+export default function CustomComponent(props: CustomComponentProps) {
+    return (
+        <LayoutElement {...props}>
+            <button onClick={async () => await props.model.displayConfirm()}>
+                Display Confirm Dialog
+            </button>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/CustomComponent/CustomComponentModel.ts"
+import { serializable, ComponentModelBase } from "@geocortex/web/models";
+import {
+    DisplayNotificationArgs,
+    ConfirmOperationArgs,
+} from "@geocortex/viewer-framework/messaging/registry/ui";
+
+@serializable
+export default class NewsFeedComponentModel extends ComponentModelBase {
+    public async displayConfirm() {
+        var result = await this.messages
+            .operation<ConfirmOperationArgs, boolean>("ui.confirm")
+            .execute({
+                message: "Are you sure?",
+                title: "Something Important",
+                okButtonText: "absolutely.",
+                cancelButtonText: "never",
+            });
+
+        await this.messages.command<DisplayNotificationArgs>("ui.display-notification").execute({
+            message: `You ${result ? "agreed" : "did not agree"} to the dialog`,
+        });
+    }
+}
+```
+
+</TabItem>
+</Tabs>
