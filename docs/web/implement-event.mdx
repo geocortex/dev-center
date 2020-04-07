@@ -2,3 +2,112 @@
 title: Custom Event
 description: Geocortex Web - Learn how to implement a custom event
 ---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+This article will guide you through how to subscribe and publish events within the Geocortex Web Framework
+
+## Prequisities
+
+Events can only be published and subscribed to by [custom components](implement-component-with-ui.mdx) and [custom services](implement-service.mdx), so it is suggested you learn the basics of building custom components before reading this article.
+
+## Subscribing to Existing Events
+
+Geocortex Web has a large suite of [built in events](api-events.mdx). Any of these events can be subscribed to by any component or service. The events are accessed through the [`MessageBus`](TODO-api-concepts)
+
+:::note
+Since components do not have access to the `MessageBus`, events must be routed through the component [model](concepts-components-services.mdx#models)
+:::
+
+```ts
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    handles: IHandle[] = [];
+
+    protected _onInitialize(): Promise<void> {
+        this.handles.push(
+            this.messages.events.map.initialized.subscribe((e: MapEvent) => {
+                console.log("Map Initialized, do your map dependent model setup here.");
+            })
+            // Equivalent: this.messages.event("map.initialized").subscribe
+        );
+        return;
+    }
+
+    destroy(): void {
+        super.destroy();
+        this.handles.forEach((h) => h.remove());
+    }
+}
+```
+
+## Publishing Existing Events
+
+Publishing an event is as easy as using the `publish` method on an event object.
+
+```ts
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    public publishEvent(){
+        // update a feature object manually...
+        this.messages.events.edit.featureUpdated.publish(new Feature(...))
+        // Equivalent: this.messages.event("edit.feature-updated").publish
+
+    }
+}
+```
+
+## Custom Events
+
+Events are created as needed, so implementing new events is as easy as using them.
+
+:::note
+Event names in Geocortex Web generally take the format `<category>.<name>`, with multiple words `kebab-cased`.
+:::
+
+<Tabs
+  defaultValue="pub"
+  values={[
+    { label: 'Publisher', value: 'pub', },
+    { label: 'Subscriber', value: 'sub', },
+  ]
+}>
+<TabItem value="pub">
+
+```ts
+@serializable
+export default class Publisher extends ComponentModelBase {
+    public publishCustomEvent(){
+        this.messages.events("my.custom-event").publish({ ... })
+    }
+}
+```
+
+</TabItem>
+<TabItem value="sub">
+
+```ts
+@serializable
+export default class Subscriber extends ComponentModelBase {
+    handles: IHandle[] = [];
+
+    protected _onInitialize(): Promise<void> {
+        this.handles.push(
+            this.messages.event("my.custom-event").subscribe((e) => {
+                ...
+            })
+        )
+        return;
+    }
+
+    destroy(): void {
+        super.destroy()
+        this.handles.forEach(h => h.remove());
+    }
+
+}
+```
+
+</TabItem>
+</Tabs>
