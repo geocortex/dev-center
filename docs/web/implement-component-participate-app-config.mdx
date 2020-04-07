@@ -5,8 +5,7 @@ description: Geocortex Web - Learn how to make a component participate in app co
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import NewsFeedComponent from "./snippets/news-feed-component.mdx";
-import NewsFeedComponentCss from "./snippets/news-feed-component-css.mdx";
+import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 
 Geocortex Web has a powerful [app configuration](concepts-app-config.mdx) model which can be used to easily change the behavior of an application without modifying custom code. Using app config to power a components behavior increases it's reusability and customizability.
 
@@ -59,11 +58,49 @@ By configuring built in [layout elements](concepts-layout.mdx) such as the `<map
 
 ## Example: Model for the News Feed Component
 
-Let's create a model for the [news feed component](implement-component-with-ui.mdx#example-rss-feed-of-news-updates) we created earlier. We are going to move the `hidden` state property and `newsItems` property into configuration
+Let's create a model for the [news feed component](implement-component-with-ui.mdx#example-rss-feed-of-news-updates) we created earlier. We are going to move the `hidden` state property and `newsItems` property on the existing component into configuration
 
-<NewsFeedComponent />
+### Component without Config
 
-First, we need to create a `NewsFeedModelProperties` interface which we use to inform the `NewsFeedModel` about which properties it should populate from configuration. Each property in the `NewsFeedModelProperties` class sh.ould have a corresponding property in the `NewsFeedModel` class. The `NewsFeedModel` should also be marked as `@serializable`.
+<FrameworkComponentsSnippet />
+
+```tsx
+import React, { useState } from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import List from "@geocortex/web/ui/list";
+import ListItem from "@geocortex/web/ui/list-item";
+import TitleBar from "@geocortex/web/ui/title-bar";
+import Button from "@geocortex/web/ui/button";
+import DialogActions from "@geocortex/web/ui/dialog-actions";
+import "./NewsFeedComponent.css";
+
+export default function NewsFeedComponent(props) {
+    const [hidden, setHidden] = useState(false);
+
+    const newsItems: string[] = [
+        "New fire hydrant installed at Main and 5th.",
+        "Pipe burst at 4th and Broadview",
+        "Fire hydrant reported as needs maintenance by citizen.",
+    ];
+
+    return (
+        <LayoutElement {...props}>
+            <List className="news-item-list">
+                <DialogActions>
+                    <TitleBar text="Recent News"></TitleBar>
+                    {hidden && <Button onClick={() => setHidden(false)}>Show News</Button>}
+                    {!hidden && <Button onClick={() => setHidden(true)}>Hide News</Button>}
+                </DialogActions>
+                {!hidden && newsItems.map((news, idx) => <ListItem key={idx}>{news}</ListItem>)}
+            </List>
+        </LayoutElement>
+    );
+}
+```
+
+### Defining Model Properties
+
+First, we need to create a `NewsFeedModelProperties` interface which we use to inform the `NewsFeedModel` about which properties it should populate from configuration. Each property in the `NewsFeedModelProperties` class should have a corresponding property in the `NewsFeedModel` class. The `NewsFeedModel` should also be marked as `@serializable`.
 
 :::note
 Marking properties in the `ComponentModelProperties` interface as optional allows them to be left out of config and populated with default values. It's best practice to make properties optional and provide a default value if possible.
@@ -94,7 +131,9 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
 }
 ```
 
-Next, we have to inform the [viewer framework](TODO-viewer-framework-article) about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method.
+### Participating in the Configuration Lifecycle
+
+Next, we have to inform the [viewer framework](TODO-viewer-framework-article) about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralizable [app items](concepts-TODO-app-items) into our custom model.
 
 :::note
 Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes. For custom serialization logic, see [serialization modes](TODO-serialization-modes-article).
@@ -144,6 +183,8 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
 }
 ```
 
+### Consuming the Configuration in the Component
+
 Finally, we need to update the `NewsFeedComponent` to treat the model as it's single source of truth for data. First, we update the props passes into the component to include the relevant model.
 
 ```ts
@@ -161,7 +202,25 @@ To accomplish this, upon user interaction that affects state,
 1. The component updates the model values.
 1. The component listens for changes on the model values and re-renders with the `useWatchAndRerender` function.
 
-In this way, the model is treated as the component state. It's best practice to use the model to define configurable or persistent state, and use the [`React` state hooks](https://reactjs.org/docs/hooks-state.html) for UI specific transient state, like an active selection.
+```tsx
+export default function NewsFeedComponent(props: NewsFeedComponentProps) {
+    const { model } = props;
+
+    useWatchAndRerender(model, "hidden");
+    ...
+    return (
+        ...
+        <Button onClick={() => (model.hidden = false)}>Show News</Button>
+        ...
+    )
+}
+```
+
+In this way, the model is treated as the component state. It's best practice to use the model to define configurable or persistent state, and use the [`React` state hooks](https://reactjs.org/docs/hooks-state.html) for UI specific transient state, like an active selection. Below is a full example of the model pulling values from the app config, and the component binding to the data on the model and listening for changes.
+
+### Complete Example
+
+Following is a complete example where news items are configured in the `app.json`, populated into the `NewsFeedModel` and finally consumed and presented by the `NewsFeedComponent`.
 
 :::tip
 This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](TODO-article-to-our-helper-hooks) provided.
@@ -185,6 +244,11 @@ This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hoo
 import React from "react";
 import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
 import { useWatchAndRerender } from "@geocortex/web/ui/hooks";
+import List from "@geocortex/web/ui/list";
+import ListItem from "@geocortex/web/ui/list-item";
+import TitleBar from "@geocortex/web/ui/title-bar";
+import Button from "@geocortex/web/ui/button";
+import DialogActions from "@geocortex/web/ui/dialog-actions";
 import "./NewsFeedComponent.css";
 import { NewsFeedModel } from ".";
 
@@ -205,26 +269,21 @@ export default function NewsFeedComponent(props: NewsFeedComponentProps) {
 
     return (
         <LayoutElement {...props}>
-            <div className="rss-feed">
-                <div className="rss-feed-header">
+            <List className="news-item-list">
+                <DialogActions>
+                    <TitleBar text="Recent News"></TitleBar>
                     // highlight-start
                     {model.hidden && (
-                        <button onClick={() => (model.hidden = false)}>Show News</button>
+                        <Button onClick={() => (model.hidden = false)}>Show News</Button>
                     )}
                     {!model.hidden && (
-                        <button onClick={() => (model.hidden = true)}>Hide News</button>
+                        <Button onClick={() => (model.hidden = true)}>Hide News</Button>
                     )}
                     // highlight-end
-                </div>
-                {!model.hidden && (
-                    <div className="rss-feed-content">
-                        // highlight-next-line
-                        {model.newsItems.map((news) => (
-                            <div>{news}</div>
-                        ))}
-                    </div>
-                )}
-            </div>
+                </DialogActions>
+                {!model.hidden &&
+                    model.newsItems.map((news, idx) => <ListItem key={idx}>{news}</ListItem>)}
+            </List>
         </LayoutElement>
     );
 }
@@ -277,14 +336,21 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
 
 </TabItem>
 <TabItem value="css">
-<NewsFeedComponentCss/>
+
+```css title="src/components/NewsFeedComponent/NewsFeedComponent.css"
+.news-item-list {
+    max-height: 200px;
+    overflow: scroll;
+}
+```
+
 </TabItem>
 <TabItem value="layout">
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map id="map-primary" config="default" >
+    <map id="map-primary">
         // highlight-next-line
         <custom:news-feed slot="top-center" config="default"/>
     </map>
