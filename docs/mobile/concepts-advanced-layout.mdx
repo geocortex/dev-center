@@ -20,18 +20,18 @@ The `layout.xml` that comes with the [Quick Start](quick-start.mdx) references a
 
 ## Implicit Binding
 
-In previous layout examples, layouts were shown where components related to a map, such a a compass, were nested within a map. It was assumed that the component would bind to the map it was placed in, but why?
+In previous layout examples, layouts were shown where components related to a map, such as zoom buttons, were nested within a map. It was assumed that the component would bind to the map it was placed in, but why?
 
 ```xml
     <map config="map1" slot="main">
       <stack margin="0.5" slot="bottom-right" halign="end">
-        <compass id="compass" margin="0.5"/>
+        <zoom margin="0.8"/>
         <geolocate id="geolocator" margin="0.5" config="geolocate" />
       </stack>
     </map>
 ```
 
-Certain components, such as `<compass/>` or `<geolocate/>`, require a `<map/>` to function properly. To locate a `<map/>`, the component will crawl up the layout tree looking for a `<map/>` element. If none are found, then it will start a breadth first search at the root of the tree for the first `<map/>` component it finds.
+Certain components, such as `<zoom/>` or `<geolocate/>`, require a `<map/>` to function properly. To locate a `<map/>`, the component will crawl up the layout tree looking for a `<map/>` element. If none are found, then it will start a breadth first search at the root of the tree for the first `<map/>` component it finds.
 
 Take this more complicated layout for example.
 
@@ -55,7 +55,7 @@ Take this more complicated layout for example.
         </iwtm>
       </stack>
       <stack margin="0.5" slot="bottom-right" halign="end">
-        <compass id="compass" margin="0.5"/>
+        <zoom margin="0.5"/>
         <button config="measureAction" icon="measure" style="map-widget" margin="0.5"/>
         <geolocate id="geolocator" margin="0.5" config="geolocate" />
       </stack>
@@ -97,7 +97,7 @@ Most components support the [`config` attribute](concepts-app-config.mdx#linking
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map id="myMap">
-        <compass padding="0.5"/>
+        <zoom padding="0.5" slot="top-left"/>
     </map>
 </layout>
 ```

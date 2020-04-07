@@ -14,40 +14,40 @@ Check out the [Key Concepts](concepts-key-concepts.mdx).
 
 A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
 
-Take this example of a layout with a map and a compass.
+Take this example of a layout with a map and a zoom widget.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map id="myMap">
-        <compass margin="0.5"/>
+        <zoom margin="0.5"/>
     </map>
 </layout>
 ```
 
 The first thing it does is declare a map that is linked to "default" configuration that specifies what content to load.
-Next, a compass is embedded within the map. This does two things:
+Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the compass to display a value [corresponding to the map it is placed in](concepts-advanced-layout.mdx#implicit-binding)
+2. Tells the zoom widget to act upon [corresponding to the map it is placed in](concepts-advanced-layout.mdx#implicit-binding)
 
 <!-- TODO: Where should the default app layout link be pointing? -->
 
 <FollowAlongSnippet />
 
-The basic example shown above will place a compass inside a map. But what if you want the compass to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
+The basic example shown above will place a zoom widget inside a map. But what if you want the zoom widget to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
 
 ## Slotting
 
 The position of a component within it's parent is controlled by what slot it is placed into.
 
-For example, this configuration will place the compass in the top right of the map.
+For example, this configuration will place the zoom widget in the top right of the map.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map id="myMap">
-        <compass padding="0.5" slot="top-right"/>
+        <zoom padding="0.5" slot="top-right"/>
     </map>
 </layout>
 ```
