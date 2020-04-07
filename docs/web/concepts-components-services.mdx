@@ -3,6 +3,26 @@ title: Components and Services
 description: Geocortex Web - Learn about Components and Services
 ---
 
+**Components** and **services** are the two basic building blocks of Geocortex Web. Components power the UI experience of Geocortex Web, and services provide the shared infrastructure and core logic that power app behaviour.
+
 ## Components
 
+In Geocortex Web, components are entities which implement UI/UX experiences and the associated logic. An example of a component is a I Want to Menu (IWTM). IWTMs participate in layout, implement custom behaviour (display a list when clicked), and participate in the app config.
+
+Components are only **created** if they participate in the layout - if no component definition exists in the layout, none will be created. Components are **initialized** when they are activated.
+
+:::tip
+Geocortex Web has a large [built in library of components](TODO-api-components.mdx).
+:::
+
 ### Models
+
+Every component has an associated model. This model functions as the underlying data source for the component, as well as the middleware for interfacing with the larger application, through [commands, operations](concepts-commands-operations.mdx) and shared services. This allows the component to solely worry about presentation concerns, and delegate data and application concerns to the model.
+
+## Services
+
+In Geocortex Web, services represent a shared global concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](implement-command-operation.mdx#implement-the-custom-command-and-operation), but services can also be directly [injected](TODO-injection) into services and component models.
+
+:::tip
+Geocortex Web has many [built in services](TODO-api-services.mdx).
+:::
