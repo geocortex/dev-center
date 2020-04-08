@@ -39,8 +39,6 @@ Every component in the layout can be linked to app config with the `config` attr
 If you do not provide a `config` attribute for a component, Geocortex Web will attempt to [infer a default value](concepts-advanced-layout.mdx#implicit-config-binding).
 :::
 
-TODO - better sample webmap - for mobile too.
-
 <Tabs
   defaultValue="layout"
   values={[
@@ -65,7 +63,14 @@ TODO - better sample webmap - for mobile too.
         {
             "$type": "map-extension",
             "id": "myMapConfig",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "onInitialized": [
+                {
+                    "name": "ui.alert",
+                    "arguments": {
+                        "message": "Hello World"
+                    }
+                }
+            ]
         }
     ]
 }

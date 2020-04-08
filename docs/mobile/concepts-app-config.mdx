@@ -63,7 +63,14 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
         {
             "$type": "map-extension",
             "id": "myMapConfig",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "onInitialized": [
+                {
+                    "name": "ui.alert",
+                    "arguments": {
+                        "message": "Hello World"
+                    }
+                }
+            ]
         }
     ]
 }
@@ -107,9 +114,10 @@ The same config can be used for multiple items in a layout. For example, this al
 {
     "items": [
         {
-            "$type": "map-extension",
-            "id": "myMapConfig",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
         },
         {
             "$type": "menu-item",
@@ -177,8 +185,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
     "items": [
         {
             "$type": "map-extension",
-            "id": "default",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "id": "default"
         },
         {
             "$type": "layout",
