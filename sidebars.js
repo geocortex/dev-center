@@ -78,14 +78,14 @@ module.exports = {
             type: "category",
             label: "Getting Started with the SDK",
             items: [
-                "web/quick-start",
-                "web/build-your-first-app",
-                "web/deployment",
-                "web/reference-third-party-libraries",
+                "web/sdk-overview",
+                "web/sdk-build-first-app",
+                "web/sdk-deployment",
+                "web/sdk-reference-third-party-libraries",
                 {
                     type: "category",
                     label: "Common Web SDK Patterns",
-                    items: ["web/service-injection", "web/observable-hooks"],
+                    items: ["web/service-injection", "web/sdk-component-hooks"],
                 },
             ],
         },
@@ -174,7 +174,7 @@ module.exports = {
                     type: "category",
                     label: "Basics",
                     items: [
-                        "mobile/change-default-behaviour",
+                        "mobile/change-default-behavior",
                         "mobile/look-and-feel",
                         "mobile/add-medium-layout",
                         "mobile/internationalization",
@@ -190,7 +190,7 @@ module.exports = {
                             href:
                                 "https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat",
                         },
-                        "mobile/change-default-search-behaviour",
+                        "mobile/change-default-search-behavior",
                         {
                             type: "link",
                             label: "Implement Custom Workflow Form Elements",

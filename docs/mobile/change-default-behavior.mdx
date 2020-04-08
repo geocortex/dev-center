@@ -1,13 +1,13 @@
 ---
-title: Change Default Application Behaviour
-description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change default application behaviour
+title: Change Default Application Behavior
+description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change default application behavior
 ---
 
 import PrereqsSnippet from "./snippets/prereqs.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
-Many of the behaviours of Geocortex Mobile's built in [components](concepts-components-services.mdx) have configurable behaviours through the [app config](concepts-app-config.mdx). If you browse the `app.json` that is included with the [Quick Start](quick-start.mdx), you'll see properties like `action` or `onClick` in items that take an array of [commands and operations](concepts-commands-operations.mdx).
+Many of the behaviors of Geocortex Mobile's built in [components](concepts-components-services.mdx) have configurable behaviors through the [app config](concepts-app-config.mdx). If you browse the `app.json` that is included with the [Quick Start](quick-start.mdx), you'll see properties like `action` or `onClick` in items that take an array of [commands and operations](concepts-commands-operations.mdx).
 
 ```json
 {
@@ -39,7 +39,7 @@ Many of the behaviours of Geocortex Mobile's built in [components](concepts-comp
 }
 ```
 
-All behaviours defined in this manner are configurable. Commands or operations can be removed from the chain, and any behaviour can be replaced with a `workflow.run` command that [executes custom behaviour](change-default-search-behaviour.mdx), or even with [custom commands and operations](implement-command-operation.mdx).
+All behaviors defined in this manner are configurable. Commands or operations can be removed from the chain, and any behavior can be replaced with a `workflow.run` command that [executes custom behavior](change-default-search-behavior.mdx), or even with [custom commands and operations](implement-command-operation.mdx).
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ All behaviours defined in this manner are configurable. Commands or operations c
 
 ## Example
 
-This is modified configuration for the `map1` Map Extension in the Quick Start. The map's `onClick` behaviour has been changed to remove the `highlights.pulse` command and execute `map.zoom-to-features` instead.
+This is modified configuration for the `map1` Map Extension in the Quick Start. The map's `onClick` behavior has been changed to remove the `highlights.pulse` command and execute `map.zoom-to-features` instead.
 
 ```json
 {
@@ -59,7 +59,7 @@ This is modified configuration for the `map1` Map Extension in the Quick Start. 
 
 # Next Steps
 
-Geocortex Mobile comes with many built in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviours without writing custom code. If you cannot create the behaviour you want with Geocortex Workflow, it might be time to look into using the Geocortex Mobile SDK to implement a custom command or operation.
+Geocortex Mobile comes with many built in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviors without writing custom code. If you cannot create the behavior you want with Geocortex Workflow, it might be time to look into using the Geocortex Mobile SDK to implement a custom command or operation.
 
 <UseCaseContainer>
     <UseCaseCard
@@ -68,9 +68,9 @@ Geocortex Mobile comes with many built in commands and operations to help you ac
         link="concepts-commands-operations"
     />
     <UseCaseCard
-        title="Change Geocortex Mobile's Default Search Behaviour"
-        description="Learn how to Geocortex Workflow to override Geocortex Mobile's default search behaviour"
-        link="change-default-search-behaviour"
+        title="Change Geocortex Mobile's Default Search Behavior"
+        description="Learn how to Geocortex Workflow to override Geocortex Mobile's default search behavior"
+        link="change-default-search-behavior"
     />
     <UseCaseCard
         title="Geocortex Workflow"
