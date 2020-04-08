@@ -59,12 +59,6 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 {
     "items": [
         {
-            "$type": "layout",
-            "id": "desktop-layout",
-            "url": "resource://layout-large.xml",
-            "tags": ["mobile", "large"]
-        },
-        {
             "$type": "map-extension",
             "id": "myMapConfig",
             "onInitialized": [
@@ -119,12 +113,6 @@ The same config can be used for multiple items in a layout. For example, this al
 {
     "items": [
         {
-            "$type": "layout",
-            "id": "desktop-layout",
-            "url": "resource://layout-large.xml",
-            "tags": ["mobile", "large"]
-        },
-        {
             "$type": "menu-item",
             // highlight-next-line
             "id": "doSomething",
@@ -145,13 +133,19 @@ The same config can be used for multiple items in a layout. For example, this al
 
 </TabItem>
 <TabItem value="ui">
-  TODO - live preview
+
+<!-- TODO - live preview -->
+
 </TabItem>
 </Tabs>
 
 ## Targeting Components by ID
 
 Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](concepts-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
+
+:::note
+This example uses [commands and operations](concepts-commands-operations.mdx) to power it's behavior.
+:::
 
 <Tabs
   defaultValue="layout"
@@ -186,12 +180,6 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 ```json
 {
     "items": [
-        {
-            "$type": "layout",
-            "id": "desktop-layout",
-            "url": "resource://layout-large.xml",
-            "tags": ["mobile", "large"]
-        },
         {
             "$type": "workflow",
             "id": "demoWorkflow",
@@ -251,13 +239,144 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 
 <!-- TODO - live web preview -->
 
-:::note
-This example uses [commands and operations](concepts-commands-operations.mdx) to power it's behavior.
-:::
+## Example: Application with Hidden Side Panel
 
-## TODO - some basic example
+This example demonstrates a web application with a hidden side panel that pops out when you click a button. It was created entirely with app config and layout. Some concepts from [advanced layout](concepts-advanced-layout.mdx) and [advanced app config](advanced-config.mdx), such as linking config items through [item URIs](TODO-link), were used.
 
-TODO
+<!-- TODO - user interface screenshot -->
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "layout", value: "layout" },
+    { label: "app config", value: "config" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:web="https://geocortex.com/layout/web/v1">
+    <split resizable="true">
+        <panel id="hidden-panel" show-close-button="true" width="50" active="false">
+            <stack padding="2" halign="center" valign="center">
+                <map id="small-map" config="small-map" grow="1" margin="4"/>
+                <scalebar config="small-map-scalebar" grow="1" slot="bottom-left" models="#small-map"/>
+                <button grow="1" config="zoom-both-maps"/>
+                <split grow="1" valign="center">
+                    <button grow="1" config="zoom-small-map"/>
+                    <button grow="1" config="zoom-large-map"/>
+                </split>
+                </stack>
+        </panel>
+        <map id="large-map" config="large-map">
+            <iwtm config="iwtm" slot="top-left"/>
+            <compass slot="top-right"/>
+            <web:expand slot="bottom-right" >
+                <web:bookmarks />
+            </web:expand>
+            <web:scale-input slot="bottom-left" />
+            <scalebar slot="bottom-left"/>
+            <map-coordinates slot="context-menu"/>
+        </map>
+    </split>
+</layout> 
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "geocortex-web-viewer",
+            "id": "default",
+            "onInitialized": [
+                {
+                    "name": "ui.display-notification",
+                    "arguments": {
+                        "message": "Use the I Want TO Menuto open up a hidden side panel."
+                    }
+                }
+            ]
+        },
+        {
+            "$type": "map-extension",
+            "id": "small-map"
+        },
+        {
+            "$type": "map-extension",
+            "id": "large-map"
+        },
+        {
+            "id": "iwtm",
+            "items": [
+                {
+                    "iconId": "open",
+                    "title": "Open Hidden Side Panel",
+                    "action": {
+                        "name": "ui.activate",
+                        "arguments": "hidden-panel"
+                    },
+                    "$type": "menu-item"
+                }
+            ],
+            "title": "I Want To Menu",
+            "isLandmark": true,
+            "$type": "menu"        
+        },
+        {
+            "$type": "menu-item",
+            "id": "zoom-both-maps",
+            "title": "Zoom Both Maps In",
+            "isEnabled": true,
+            "iconId": "zoom",
+            "action": {
+                "name": "map.zoom-in",
+                "arguments": {
+                    "maps": ["item://map-extension/small-map", "item://map-extension/large-map"]
+                }
+            }
+        },
+        {
+            "$type": "menu-item",
+            "id": "zoom-small-map",
+            "title": "Zoom Small Map Out",
+            "isEnabled": true,
+            "iconId": "zoom",
+            "action": {
+                "name": "map.zoom-out",
+                "arguments": {
+                    "maps": ["item://map-extension/small-map"]
+                }
+            }
+        },
+        {
+            "$type": "menu-item",
+            "id": "zoom-large-map",
+            "title": "Zoom Large Map Out",
+            "isEnabled": true,
+            "iconId": "zoom",
+            "action": {
+                "name": "map.zoom-out",
+                "arguments": {
+                    "maps": ["item://map-extension/large-map"]
+                }
+            }
+        },
+        {
+            "$type": "scalebar",
+            "id": "small-map-scalebar",
+            "showDualUnits": true
+        }
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
+
 
 ## Next Steps: Commands and Operations
 
