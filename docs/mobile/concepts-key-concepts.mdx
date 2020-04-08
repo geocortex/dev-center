@@ -33,7 +33,14 @@ Every components can have a `id` and `config` attribute; these two attributes ar
         {
             "$type": "map-extension",
             "id": "default",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "onInitialized": [
+                {
+                    "name": "ui.alert",
+                    "arguments": {
+                        "message": "Hello World"
+                    }
+                }
+            ]
         }
     ]
 }

@@ -24,15 +24,20 @@ Every components can have a `id` and `config` attribute; these two attributes ar
 
 #### 2. App Config JSON for the application.
 
-TODO - replace this web map with a better default - also in mobile
-
 ```json
 {
     "items": [
         {
             "$type": "map-extension",
             "id": "default",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "onInitialized": [
+                {
+                    "name": "ui.alert",
+                    "arguments": {
+                        "message": "Hello World"
+                    }
+                }
+            ]        
         }
     ]
 }

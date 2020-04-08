@@ -47,7 +47,14 @@ By configuring built in [layout elements](concepts-layout.mdx) such as the `<map
         {
             "$type": "map-extension",
             "id": "myMapConfig",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "onInitialized": [
+                {
+                    "name": "ui.alert",
+                    "arguments": {
+                        "message": "Hello World"
+                    }
+                }
+            ]        
         }
     ]
 }
