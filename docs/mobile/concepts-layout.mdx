@@ -47,6 +47,7 @@ For example, this configuration will place the zoom widget in the top right of t
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map id="myMap">
+        // highlight-next-line
         <zoom padding="0.5" slot="top-right"/>
     </map>
 </layout>
@@ -181,12 +182,14 @@ In order for the correct layout to be loaded for the correct form factor, the la
             "$type": "layout",
             "id": "desktop-layout",
             "url": "resource://layout-large.xml",
+            // highlight-next-line
             "tags": [ "mobile", "large" ]
         },
         {
             "$type": "layout",
             "id": "tablet-layout",
             "url": "resource://layout-medium.xml",
+            // highlight-next-line
             "tags": [ "mobile", "medium" ]
         },
         ...

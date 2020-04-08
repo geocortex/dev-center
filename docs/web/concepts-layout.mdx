@@ -43,6 +43,7 @@ For example, this configuration will place the zoom widget in the top right of t
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map id="myMap">
+        // highlight-next-line
         <zoom padding="0.5" slot="top-right"/>
     </map>
 </layout>
@@ -187,7 +188,7 @@ Layouts achieve these simply by expressing data dependencies in the form of mode
 
 Example (in TypeScript):
 
-```TypeScript
+```ts
 export class MapComponent {
 
     @exports("model://MapModel")
@@ -221,7 +222,7 @@ However, in the previous example with two scale bars, the scale bars will walk u
 Learn more about how [models are automatically matched](TODO-link-to-advanced-layout).
 :::
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <split>
@@ -245,7 +246,7 @@ Learn more about how [models are automatically matched](TODO-link-to-advanced-la
 
 Somethings, you can have multiple components that need to bind to the same model.
 
-```XML
+```xml
 <split>
     <panel id="left-panel">
         <scalebar active="true" models="#map"/>
@@ -258,10 +259,11 @@ Somethings, you can have multiple components that need to bind to the same model
 
 To simplify this binding, we can take advantage of the default behavior of searching up the layout tree for the appropiate model and bind the map to the parent panel instead.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <split>
+        // highlight-next-line
         <panel id="left-panel" models="#map">
             <scalebar active="true"/>
             <results-list />
@@ -272,18 +274,9 @@ To simplify this binding, we can take advantage of the default behavior of searc
 </layout>
 ```
 
-## Device Form Factors
-
-TODO - pretty sure this is just a note on responsive design
-Eric - multiple layouts are in PR, use that as best practices
-
 ## Next Steps: Components and App Config
 
-In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a component in Geocortex Web. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
-
-## Next Steps: Components and App Config
-
-In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with responsive, declarative layouts. 
 
 <UseCaseContainer>
     <UseCaseCard

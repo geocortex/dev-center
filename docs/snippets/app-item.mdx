@@ -1,3 +1,5 @@
+An app config file is composed of a list of **app items**. App items can potentially be anything. Each app item has a item `$type`, which viewer is aware of and knows how to locate and load. They usually they represent configuration for [components](concepts-components-services.mdx#components), maps, portal items, or shared data. All item app configuration is specified within the `items` array of the **`app.json`** file. 
+
 :::note
-App items can potentially be anything; they represent a type of item that the viewer is aware of and knows how to locate and load. They usually they represent configuration for components, maps, portal items, or shared data. All item app configuration is specified within the `items` array of the **`app.json`** file.
+Each component can only load a certain `$type` of app item which corresponds to it. For example, `<map>` components can only load app items of type `map-extension` as their configuration. 
 :::

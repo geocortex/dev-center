@@ -27,8 +27,6 @@ Every component within the viewer that requires functional, compositional conten
 
 ## Anatomy of an App config.
 
-An app config file is composed of a list of **app items**.
-
 <AppItemSnippet />
 
 ## Linking Layout to App Config
@@ -50,6 +48,7 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
+    // highlight-next-line
     <map id="map-primary" config="myMapConfig" />
 </layout>
 ```
@@ -63,6 +62,7 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
       
         {
             "$type": "map-extension",
+            // highlight-next-line
             "id": "myMapConfig",
             "onInitialized": [
                 {
@@ -98,10 +98,12 @@ The same config can be used for multiple items in a layout. For example, this al
   <gxm:taskbar orientation="vertical">
     <panel grow="1">
         <stack margin="0.5">
+            // highlight-next-line
           <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 2</button>
         </stack>
     </panel>
     <map id="map-primary" config="myMapConfig" slot="main">
+      // highlight-next-line
       <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 1</button>
     </map>
   </gxm:taskbar>
@@ -122,6 +124,7 @@ The same config can be used for multiple items in a layout. For example, this al
         },
         {
             "$type": "menu-item",
+            // highlight-next-line
             "id": "doSomething",
             "title": "ui.alert",
             "isEnabled": true,
@@ -164,12 +167,14 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
         xmlns:gxm="https://geocortex.com/layout/mobile/v1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    // highlight-next-line
     <gxm:taskbar orientation="vertical" id="taskbar">
         <map id="map-primary" config="default" slot="main">
             <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
             <button icon="" config="openDialog" slot="bottom-center-visible" margin="0.5">Open Dialog</button>
         </map>
     </gxm:taskbar>
+      // highlight-next-line
     <dialog id="dialog" active="false">
         <panel>
             <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
@@ -198,6 +203,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
             "$type": "workflow",
             "id": "demoWorkflow",
             "title": "Demo Worklfow",
+            // highlight-next-line
             "target": "#taskbar",
             "portalItem": "c3964768dfa84fe5acf7a72ef95dc92b"
         },
@@ -222,6 +228,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
             "iconId": "",
             "action": {
                 "name": "ui.activate",
+                // highlight-next-line
                 "arguments": "dialog"
             }
         }
@@ -236,7 +243,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 </Tabs>
 
 :::note
-This example uses [commands and operation](concepts-commands-operations.mdx) to power it's behaviour.
+This example uses [commands and operations](concepts-commands-operations.mdx) to power it's behaviour.
 :::
 
 ## Example: Basic App Config with IWTM
@@ -289,7 +296,7 @@ In the following example, the app structures a menu with one button, and the lay
   </TabItem>
   <TabItem value="layout">
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
     xmlns="https://geocortex.com/layout/v1"
