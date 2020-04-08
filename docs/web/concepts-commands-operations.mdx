@@ -23,6 +23,110 @@ edit.add-feature
 edit.delete-features
 ```
 
-TODO - components and services conceptual? I think they are used a bit differently than in mobile?
+[Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Web. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](implement-command-operation.mdx) are registered with custom services or [Custom Components](implement-component-with-ui.mdx#TODO-no-reference-to-this-rn-need-to-write-it) in this manner.
 
-TODO - rework this whole next section to make more sense for web
+### Argument Passing
+
+Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the `featureActions` and `onFeatureClick` behaviours of a `<results-list>` component.
+
+```json
+        {
+            "id": "results-list",
+            "featureActions": [
+              "item://menu-item/zoom",
+              "item://menu-item/save-features-to-csv"
+            ],
+            "onFeatureClick": "results.display-details",
+            "$type": "results"
+          },
+          {
+            "id": "zoom",
+            "iconId": "zoom-feature",
+            "title": "language-designer-gen-zoom-to-results-menuitemtitle",
+            "description": "language-designer-gen-zoom-to-results-menuitemdescription",
+            "action": [
+                "map.zoom-to-features", 
+                "highlights.pulse"
+            ],
+            "$type": "menu-item"
+          },
+          {
+            "id": "save-features-to-csv",
+            "iconId": "csv-export",
+            "title": "language-designer-gen-export-features-to-csv-menuitemtitle",
+            "description": "language-designer-gen-export-features-to-csv-menuitemdescription",
+            "action": [
+              "results.convert-to-csv",
+              "system.download-file"
+            ],
+            "$type": "menu-item"
+          }
+```
+
+App config properties that accept a command or operation can take a single operation (such as with the `onFeatureClick` on the `results-list`) or they can take a **command chain** (such as with the `action` property on `save-features-to-csv`).
+
+:::note
+Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex input dependent behavior.
+:::
+
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<results-list>` component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
+
+1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
+2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
+
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a Feature Details component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
+
+1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
+2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
+
+In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `action` command chain of `zoom-feature` in the example.
+
+```json
+[
+    "map.zoom-to-features", 
+    "highlights.pulse"
+]
+```
+
+The `action` command chain of `save-features-to-csv` demonstrates how an operation can pass it's output to the next command or operation in the list. In this case, it's passing the csv content to `system.download-file`.
+
+```json
+[
+    "results.convert-to-csv",
+    "system.download-file"
+]
+```
+
+### Passing Named Arguments
+
+If you choose, you can overide the default arguments passed into a command or operation by provide an `arguments` property.
+
+```json
+{
+    "$type": "menu",
+    "id": "iwtm",
+    "items": [
+        {
+            "title": "Hello",
+            "isEnabled": true,
+            "iconId": "info",
+            "action": {
+                    "name": "ui.display-notification",
+                    "arguments": {
+                        "message": "World"
+                    }
+                }
+        }
+    ]
+}
+```
+
+<!-- TODO-After-API change autocomplete linting note to API definitions -->
+
+<!-- TODO - something about how to discover what the named arguments are for each command in web? what's our pattern? -->
+
+This will override the default arugment passing behavior for that command or operation. For example, `ui.display-notification` takes a object of type `DisplayNotificationArgs`, which has the property `message` of type `string`.
+
+### Fancy Example - TODO
+
+<!-- TODO -->
