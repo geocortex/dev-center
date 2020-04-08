@@ -11,8 +11,6 @@ Geocortex Web has a powerful [app configuration](concepts-app-config.mdx) model 
 
 By the end of this article, you'll have the knowledge to build a component that displays relevant news items at the top of your map. These news items will be populated from config, along with a value that tells the news component whether or not to be visible by default.
 
-<!-- TODO - news feed user interface here -->
-
 ## Prerequisites
 
 Learn how to [implement a custom component](implement-component-participate-app-config.mdx).
@@ -165,10 +163,10 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
 
 ### Participating in the Configuration Lifecycle
 
-Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralizable [app items](concepts-TODO-app-items) into our custom model.
+Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralizable [app items](concepts-app-config.mdx#anatomy-of-an-app-config) into our custom model.
 
 :::note
-Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes. For custom serialization logic, see [serialization modes](TODO-serialization-modes-article).
+Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes.
 :::
 
 ```ts title="src/components/NewsFeedComponent/NewsFeedModel.ts"

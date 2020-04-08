@@ -11,8 +11,6 @@ import TabItem from "@theme/TabItem";
 When extending Geocortex Web, you may find yourself creating multiple [components](concepts-components-services.mdx#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](concepts-components-services.mdx#services).
 Implementing a custom service in Geocortex Web allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the reccomended way of registering implementations for [custom commands and operations](implement-command-operation.mdx).
 
-<!-- TODO - screenshot here -->
-
 ## Prerequisites
 
 <PrereqsSnippet />
@@ -83,7 +81,8 @@ export default function(registry: LibraryRegistry) {
 The purpose of this service will be to create a mock data source for the [news feed component](implement-component-with-ui.mdx#example-rss-feed-of-news-updates) created in a previous article. We can mock a sporadically updated news feed data source, simulating what a real news feed, with data arriving from an RSS feed at unknown intervals, might behave like. This service exposed a single public property, `newsItems` which will act as a dynamic data source for the news feed component.
 
 :::note
-This example uses the `_onInitialize` method override to handle initialization logic, making sure to call the base method. TODO - on destroy method
+This example uses the `_onInitialize` method override to handle initialization logic, making sure to call the base method.
+<!-- TODO - on destroy method once eric updates the pattern -->
 :::
 
 ```ts title="src/services/CustomDataService/CustomDataService.ts"

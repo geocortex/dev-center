@@ -92,7 +92,7 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: ["web/api-commands-operations"],
+            items: ["web/api-commands-operations", "web/api-message-bus"],
         },
     ],
     workflow: [

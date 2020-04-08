@@ -16,8 +16,6 @@ Implementing a custom component in Geocortex Web gives you one of the highest de
 
 By the end of this article, you'll have the knowledge to build a component that displays relevant news items at the top of your map.
 
-<!-- TODO - news feed user interface here -->
-
 ## Prerequisites
 
 <PrereqsSnippet />
@@ -142,7 +140,7 @@ xmlns:custom="your.custom.namespace">
 </layout>
 ```
 
-TODO - ui screenshot
+<!-- TODO - ui screenshot -->
 
 If you run the [development server](quick-start.mdx#getting-up-and-running) you should see your custom component up and running.
 
@@ -154,7 +152,6 @@ Now that we have a working component, you can build out the UI experience just a
 
 This React component displays a list of "news items" relevant to your GIS application in a hovering component at the top of the map. In a real application, these news items would be populated by an RSS feed or another news source.
 
-<!-- TODO - update this to be a real working example with a live preview. For now, maybe a picture would suffice -->
 
 <FrameworkComponentsSnippet />
 
@@ -278,7 +275,7 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 </Tabs>
 
-TODO - add user interface photo
+<!-- TODO - add user interface photo -->
 
 ## Running Commands and Operations
 
@@ -287,7 +284,7 @@ associated model.
 
 ### Example: Display a Notification to a User
 
-The following component uses it's model to call the `ui.confirm` command and `ui.display-notification` operation. Calling a command or operation is as simple as retrieving it by name using the `messages` property on the model, and then calling `execute` with the appropiate arguments.
+The following component uses it's model to call the `ui.confirm` command and `ui.display-notification` operation. Calling a command or operation is as simple as retrieving it by name using the [`MessageBus`](api-message-bus.mdx) on the model, and then calling `execute` with the appropiate arguments.
 
 :::note
 In order to pass arguments to a command or operation, you have to use the correct type for the generic `messages.command` or `messages.operation` function call with the argument and output type for the command or operation. For example, `ui.confirm` takes in a `ConfirmOperationArgs` and returns a `boolean`, as seen in the [API docs](api-commands-operations.mdx#ui-confirm), so it's `operation()` call would look like this;
