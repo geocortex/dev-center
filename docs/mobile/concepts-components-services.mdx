@@ -6,17 +6,17 @@ description: Geocortex Mobile - Learn about Components and Services
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
-**Components** and **services** are the two basic building blocks of Geocortex Mobile. Components power the UI experience of Geocortex Mobile, and services provide the shared infrastructure and core logic that power app behaviour.
+**Components** and **services** are the two basic building blocks of Geocortex Mobile. Components power the UI experience of Geocortex Mobile, and services provide the shared infrastructure and core logic that power app behavior.
 
 ## Components
 
-In Geocortex Mobile, components are entities which implement UI/UX experiences and the associated logic. An example of a component is a I Want to Menu (IWTM). IWTMs participate in layout, implement custom behaviour (display a list when clicked), and participate in app config.
+In Geocortex Mobile, components are entities which implement UI/UX experiences and the associated logic. An example of a component is a I Want to Menu (IWTM). IWTMs participate in layout, implement custom behavior (display a list when clicked), and participate in app config.
 
 Components are only **created** if they participate in the layout - if no component definition exists in the layout, none will be created. Components are **initialized** when they are activated.
 
 ## Services
 
-In Geocortex Mobile, services are entities which provide a shared service or behaviour to other components. Two key differences between components are services are...
+In Geocortex Mobile, services are entities which provide a shared service or behavior to other components. Two key differences between components are services are...
 
 1. Services do not participate in layout, and do not power UI (except indirectly).
 1. Services are created **and** initialized on startup, before any components are created.
