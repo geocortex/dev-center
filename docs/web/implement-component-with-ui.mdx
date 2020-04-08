@@ -95,14 +95,15 @@ One key thing to note about this snippet is the `itemType`. The value of the [it
 
 ```ts
 import CustomComponent from "./components/CustomComponent"
+import { ComponentType } from "react";
 ...
 
-export default function(registry) {
+export default function(registry: LibraryRegistry) {
     ...
     registry.registerComponent({
         name: "my-component",
         namespace: "your.custom.namespace",
-        getComponentType: () => CustomComponent,
+        getComponentType: () => CustomComponent as ComponentType,
         // highlight-next-line
         itemType: "custom-component-model",
         title: "Custom Component",
@@ -255,14 +256,15 @@ export { NewsFeedModel };
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
 import NewsFeedComponent, { NewsFeedModel } from "./components/NewsFeedComponent";
+import { ComponentType } from "react";
 
 const LAYOUT_NAMESPACE = "custom.foo";
 
-export default function (registry) {
+export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "news-feed",
         namespace: "your.custom.namespace",
-        getComponentType: () => NewsFeedComponent,
+        getComponentType: () => NewsFeedComponent as ComponentType,
         itemType: "news-feed-model",
         title: "News Feed",
     });

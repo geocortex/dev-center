@@ -394,15 +394,16 @@ export { NewsFeedModel };
 
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
+import { ComponentType } from "react";
 import NewsFeedComponent, { NewsFeedModel } from "./components/NewsFeedComponent";
 
 const LAYOUT_NAMESPACE = "custom.foo";
 
-export default function (registry) {
+export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "news-feed",
         namespace: "your.custom.namespace",
-        getComponentType: () => NewsFeedComponent,
+        getComponentType: () => NewsFeedComponent as ComponentType,
         // highlight-next-line
         itemType: "news-feed-model",
         title: "News Feed",

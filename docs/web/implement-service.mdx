@@ -323,6 +323,7 @@ export default class NewsFeedModel extends ComponentModelBase {
 import CustomDataService from "./services/CustomDataService";
 import NewsFeedComponent, { NewsFeedModel } from "./components/NewsFeedComponent";
 import { LibraryRegistry } from "@geocortex/web/config";
+import { ComponentType } from "react";
 
 export default function (registry: LibraryRegistry) {
     registry.registerService({
@@ -333,7 +334,7 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "news-feed",
         namespace: "your.custom.namespace",
-        getComponentType: () => NewsFeedComponent,
+        getComponentType: () => NewsFeedComponent as ComponentType,
         itemType: "news-feed-model",
         title: "News Feed",
     });
