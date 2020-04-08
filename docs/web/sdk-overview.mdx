@@ -6,39 +6,40 @@ description: Geocortex Web - Learn about getting started with the Geocortex Web 
 import DesignerCallout from "./snippets/designer-callout.mdx";
 
 :::warning
-The Geocortex Web SDK is in alpha state. The patterns for development and deployment are temporary and will be heavily reworked.
+The Geocortex Web SDK is currently in preview. The patterns for development and deployment are still under active development and are subject to change. We don't yet recommend deploying your custom code into production until we've finalized the SDK.
 :::
-
-<DesignerCallout />
 
 If the built in configurability of Geocortex Web does not serve your purposes, then it might be time to dive into the Geocortex Web SDK. Building applications on top of the Geocortex Web SDK requires enaging in the development, testing, and deployment of a custom application, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](overview.mdx#start-with-your-use-case).
 
 If you still think you need to use the Geocortex Mobile SDK, then lets get started!
 
+<DesignerCallout />
+
 ## Overview
 
-The Geocortex SDK is meant to be a local development enviroment for building custom [components](implement-component-with-ui.mdx), [services](implement-service.mdx), and more. Once the custom code has been developed, it can then be manually deployed to a SaaS or on premise enviroment.
+The Geocortex SDK provides a development toolkit for building custom [components](implement-component-with-ui.mdx), [services](implement-service.mdx), and more into a package that can be deployed to Geocortex Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises enviroment.
 
 ## Requirements
 
--   The latest LTS version of [Node.js](https://nodejs.org/en/).
-    -   Run `node -v` in the terminal to confirm the version.
--   [npm](https://www.npmjs.com/get-npm) which is included with Node.
+-   The latest LTS version of [Node.js](https://nodejs.org/en/)
+    -   You can run `node -v` in your terminal to check the version you have installed
+-   A code editor of your choice. We recommend [Visual Studio Code](https://code.visualstudio.com/)
 
-## Getting Up and Running
+## Getting Started
 
-1. Run `npx @vertigis/web-sdk@alpha create <your-app-name>`
-1. Open the `your-app-name` folder in your favorite IDE. We recommend using Visual Studio Code for the best experience.
+1. Run `npx @vertigis/web-sdk@beta create <library-name>` where `<library-name>` is the name of the directory that will be created in the current working directory
+    - For example: `npx @vertigis/web-sdk@beta create test-lib`
+1. Open the `library-name` directory in your favorite IDE. We recommend using Visual Studio Code for the best experience.
 1. Run `npm start` to start the development server
 
-## Anatomy of the Quick Start
+The running development server automatically detects changes to your source files. You can simply edit the layout, config, or custom code and the development server will automatically refresh the application with the latest changes.
 
-The created Web SDK Application is composed of two components:
+## Project Structure
 
-1. The `src` folder, which contains your custom code.
-2. The `app` folder, which contains a minimal [application](concepts-key-concepts.mdx) layout and config. This layout and config is meant to be used for testing your custom code before deployment.
+The created Web SDK project contains a few important directories:
 
-The created application uses the [webpack development server](https://webpack.js.org/configuration/dev-server/), so just edit the layout, config, or custom code and the development server will automatically refresh and show your changes.
+1. The `src` directory, which contains your custom library code. We've included a sample component to get you started
+1. The `app` directory, which contains a minimal development application [layout and app config](concepts-key-concepts.mdx) to be used for testing your custom code before deployment to production
 
 ## Development Patterns
 
@@ -50,8 +51,8 @@ If you need to develop custom code that requires the context of a custom applica
 
 1. Open your application in Geocortex Web Designer.
 1. [Download the application configuration](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/download-app-configuration.htm).
-1. Delete the contents of the `app` folder.
-1. Extract the contents to you in your Web SDK Applications `app` folder, overwriting existing app config and layout.
+1. Delete the contents of the `app` directory.
+1. Extract the contents to you in your Web SDK Applications `app` directory, overwriting existing app config and layout.
 1. Develop your custom code on top of your existing application.
 
 TODO - test this

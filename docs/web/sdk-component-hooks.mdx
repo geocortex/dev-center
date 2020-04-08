@@ -5,7 +5,7 @@ description: Geocortex Web - Learn about the React hooks used to react to change
 
 This article will discuss the [React hooks](https://reactjs.org/docs/hooks-intro.html) provided by Geocortex Web to ease development of [custom React components](implement-component-with-ui.mdx) bound to [models](implement-component-participate-app-config.mdx#consuming-the-configuration-in-the-component). Using these functions, you can follow the best practices for writing [functional react components using hooks](https://reactjs.org/docs/hooks-intro.html).
 
-## useWatchAndRerender
+## `useWatchAndRerender`
 
 Watches an object for changes in one or more properties of a component model and triggers a re-render of the component.
 
@@ -56,4 +56,18 @@ export default function CustomComponent(props) {
 
 The role of the "watch" functions for a component with respect to model data is similiar to the role of the [`useState` and `useEffect` functions](https://reactjs.org/docs/hooks-state.html) with respect to the local state data. The `useWatchAndRenderer` function essentially defines a model property as state your component's presentation is dependent upon, much like `useState`, while leaving you the responsibility to update the underlying component when appropiate. The `useWatch` function defines a dependency on a model property, while leaving you to define what side effects are required, much like `useEffect`.
 
-## useWatch
+## `useWatchCollectionAndRerender`
+
+Watches a collection for change events and triggers a re-render. Conceptually equivalent to [`useWatchAndRerender`](#usewatchandrerender) but specifically for `Collection` objects.
+
+## `useWatch`
+
+Watches an object for changes in one or more properties and triggers a callback.
+
+## `useSubscribeAndRerender`
+
+Subscribes to an event and triggers a re-render.
+
+## `useSubscribe`
+
+Subscribes to an event and triggers a callback.
