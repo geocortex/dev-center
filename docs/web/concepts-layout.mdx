@@ -147,17 +147,17 @@ Panels are a container component that enable hierarchal navigation between diffe
 </layout>
 ```
 
-When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<search>` component.
-The search component will activate the `<results-list>` component when a search is completed. Then, when a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a "stack" of components laid on top of eachother, and work as follows;
+When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
+When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of eachother, with the first component being the bottomost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
 
 #### Activation
 
--   If the component is in the current navigation stack, then pop from the stack until that component is active
-    -   Else, push the component onto the stack and navigate to it
+-   If the target component exists in the panel, then deactivate components above it until the target component is active
+    -   Else, the target component must be deactivated, so activate it and place it above the existing component.
 
 #### Deactivation
 
--   If the component is the top most element in the navigation stack (it is active), then pop it
+-   If the component is the top most element (it is active), then deactivate it.
     -   Else, the component is already inactive
 
 :::tip
@@ -169,7 +169,7 @@ TODO - link to SDK samples of panels
 Components often observe and modify the state of other components.
 Consider the following example:
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map id="mapA"/>
