@@ -133,7 +133,7 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
 
 ### Participating in the Configuration Lifecycle
 
-Next, we have to inform the [viewer framework](TODO-viewer-framework-article) about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralizable [app items](concepts-TODO-app-items) into our custom model.
+Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralizable [app items](concepts-TODO-app-items) into our custom model.
 
 :::note
 Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes. For custom serialization logic, see [serialization modes](TODO-serialization-modes-article).
@@ -223,7 +223,7 @@ In this way, the model is treated as the component state. It's best practice to 
 Following is a complete example where news items are configured in the `app.json`, populated into the `NewsFeedModel` and finally consumed and presented by the `NewsFeedComponent`.
 
 :::tip
-This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](TODO-article-to-our-helper-hooks) provided.
+This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](observable-hooks.mdx) provided.
 :::
 
 <Tabs

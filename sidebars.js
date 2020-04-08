@@ -77,7 +77,17 @@ module.exports = {
         {
             type: "category",
             label: "Getting Started with the SDK",
-            items: ["web/quick-start"],
+            items: [
+                "web/quick-start",
+                "web/build-your-first-app",
+                "web/deployment",
+                "web/reference-third-party-libraries",
+                {
+                    type: "category",
+                    label: "Common Web SDK Patterns",
+                    items: ["web/observable-hooks"],
+                },
+            ],
         },
         {
             type: "category",

@@ -42,6 +42,8 @@ The created application uses the [webpack development server](https://webpack.js
 
 ## Development Patterns
 
+TODO - restructure hard
+
 If you are developing custom code that is mostly independent of app context, it is suggested that you use the minimal layout and app config with only the required components.
 
 If you need to develop custom code that requires the context of a custom application built in Geocortex Web Designer, take the following steps to import your SaaS or on premise application into your local Web SDK enviroment.
@@ -51,24 +53,6 @@ If you need to develop custom code that requires the context of a custom applica
 1. Delete the contents of the `app` folder.
 1. Extract the contents to you in your Web SDK Applications `app` folder, overwriting existing app config and layout.
 1. Develop your custom code on top of your existing application.
-
-TODO - test this
-
-## Referencing Third Party Libraries
-
-TODO - Ian
-
-## Deployment
-
-:::warning
-This is a temporary deployment pattern for alpha. This will change in the future.
-:::
-
-1. Run `npm build`
-1. Open up the application in Geocortex Web Designer (on premise or SaaS, depending on your production enviroment) that you want to overwrite with you custom application and custom code.
-1. Type `Ctrl + Shift + E` to open up the development editing interface.
-1. Copy and paste the app layout and app config from your local Web SDK application to the Geocortex Web Designer Interface
-1. Upload the built production library to the `Custom Code` section of the development editing interface.
 
 TODO - test this
 

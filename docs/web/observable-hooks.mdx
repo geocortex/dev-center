@@ -1,0 +1,51 @@
+---
+title: Component Model Helper Functions
+description: Geocortex Web - Learn about the react helper functions used to react to changes on a component's model.
+---
+
+This article will discuss the helper functions provided by Geocortex Web to ease development of [custom react components](implement-component-with-ui.mdx) bound to [models](implement-component-participate-app-config.mdx#consuming-the-configuration-in-the-component).
+
+## The Problem
+
+In Geocortex Web [component models](concepts-components-services.mdx#models) provide a way to decouple components from data source concerns and app interactions. However, they raise the issue of consistency - how can a component stay up to date with changes in the data of the underlying model? E.g. how does the react component know when to re-render?
+
+## The Solution
+
+Geocortex Web components solve this problem using the observable pattern. The flow of user interaction to updated data works as follows:
+
+1. The intial data is pulled from the model and rendered.
+1. The component **starts to watch for changes** to the relevant properties on the model.
+1. The user interacts with the component, and changes a value in the UI.
+1. The component updates the data in the underlying model.
+1. The model watchdog registered earlier re-renders the component.
+
+To make this easy, the functions in the [`@geocortex/web/ui/hooks`](TODO-api-link) are provided. The functions in this class watch properties on the model and allow you to either run a custom callback, or re-render the component.
+
+```tsx
+export default function CustomComponent(props) {
+    const { model } = props;
+
+    // start watching for changes to the hidden property on the model
+    // highlight-next-line
+    useWatchAndRerender(model, "hidden");
+
+    return (
+        <LayoutElement {...props}>
+            {/* Change the underlying model to trigger a re-render */}
+            // highlight-next-line
+            {model.hidden && <Button onClick={() => (model.hidden = false)}>Show Me</Button>}
+            {!model.hidden && (
+                <div>
+                    <h1>BOO!</h1>
+                    // highlight-next-line
+                    <Button onClick={() => (model.hidden = true)}>Hide Me</Button>
+                </div>
+            )}
+        </LayoutElement>
+    );
+}
+```
+
+The role of the "watch" functions for a component with respect to model data is similiar to the role of the [`useState` and `useEffect` functions](https://reactjs.org/docs/hooks-state.html) with respect to the local state data. The `useWatchAndRenderer` function essentially defines a model property as state your component's presentation is dependent upon, much like `useState`, while leaving you the responsibility to update the underlying component when appropiate. The `useWatch` function defines a dependency on a model property, while leaving you to define what side effects are required, much like `useEffect`.
+
+Using these functions, you can follow the best practices for writing [functional react components using hooks](https://reactjs.org/docs/hooks-intro.html).
