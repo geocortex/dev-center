@@ -17,6 +17,10 @@ Implementing a custom service in Geocortex Web allows you to implement logic and
 
 <PrereqsSnippet />
 
+## Example: Service that Implements Commands and Operations
+
+One common use case for implementing a custom service is to register an implementation for a custom command or operation. To learn how to do this, check out the example in [implement commands and operations](implement-command-operation.mdx).
+
 ## Example: Service that Manages Shared Dynamic Data
 
 In this article, we will build a custom service that mocks a periodic fetch of data from a REST endpoint and stores that data for consumption by components. This service will populate a list of news items which will be consumed by the [news feed component](implement-component-with-ui.mdx#example-rss-feed-of-news-updates) created in a previous article.
@@ -58,7 +62,7 @@ export { default } from "./CustomDataService";
 Every service needs to be registered with the Web SDK in order to be discovered and initialized.
 
 :::note
-Services are initialized when they are [injected](TODO-dep-injection) or when a command or operation that they register is called. To initialize a service on startup, you can pass the property `loadOnStartup: true` to the `registerService` call.
+Services are initialized when they are [injected](service-injection.mdx) or when a command or operation that they register is called. To initialize a service on startup, you can pass the property `loadOnStartup: true` to the `registerService` call.
 :::
 
 Add a call to `registerService` in `src/index.ts`.
@@ -130,7 +134,7 @@ export default class CustomDataService extends ServiceBase {
 ### Consume the Data in the Component Model
 
 Now that we have the news feed data being populated by a service, we need to consume that data in the news feed component.
-Following the best practices for implementing components, the news item data should be [managed by the news feed model](implement-component-participate-app-config.mdx#component-models). Component Models can [inject](TODO-dep-injection) services as properties, and doing so allows us to directly access the dynamically updated `newsItems` property on the service.
+Following the best practices for implementing components, the news item data should be [managed by the news feed model](implement-component-participate-app-config.mdx#component-models). Component Models can [inject services](service-injection.mdx) as properties, and doing so allows us to directly access the dynamically updated `newsItems` property on the service.
 
 :::important
 `@inject` must use the `id` that the corresponding service registered in `src/index.ts`.

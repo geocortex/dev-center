@@ -65,13 +65,23 @@ By configuring built in [layout elements](concepts-layout.mdx) such as the `<map
 
 ## Example: Model for the News Feed Component
 
-Let's create a model for the [news feed component](implement-component-with-ui.mdx#example-rss-feed-of-news-updates) we created earlier. We are going to move the `hidden` state property and `newsItems` property on the existing component into configuration
+We are going to add configuration to the [news feed component](implement-component-with-ui.mdx#example-rss-feed-of-news-updates) we created earlier. The `hidden` state property and `newsItems` property on the existing component can be moved into configuration consumed by the component model.
 
-### Component without Config
+### Starting Point
+We will start this example from the component and model built in the [previous example](implement-component-with-ui.mdx#example-rss-feed-of-news-updates).
 
 <FrameworkComponentsSnippet />
 
-```tsx
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component without Config', value: 'component', },
+    { label: 'Empty Model', value: 'model', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx title="src/components/NewsFeedComponent/NewsFeedComponent.tsx"
 import React, { useState } from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import List from "@geocortex/web/ui/list";
@@ -103,7 +113,22 @@ export default function NewsFeedComponent(props) {
         </LayoutElement>
     );
 }
+
 ```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/NewsFeedComponent/NewsFeedModel.ts"
+import { ComponentModelBase, serializable } from "@geocortex/web/models";
+
+class NewsFeedModel extends ComponentModelBase {}
+
+export default serializable(NewsFeedModel);
+```
+
+</TabItem>
+</Tabs>
 
 ### Defining Model Properties
 

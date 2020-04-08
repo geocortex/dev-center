@@ -85,7 +85,7 @@ module.exports = {
                 {
                     type: "category",
                     label: "Common Web SDK Patterns",
-                    items: ["web/observable-hooks"],
+                    items: ["web/service-injection", "web/observable-hooks"],
                 },
             ],
         },
