@@ -80,7 +80,9 @@ import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/Register
 import * as React from "react";
 import CircularColor from "react-circular-color";
 
-export default class ColorPicker extends React.Component<CustomFormElementProps> {
+export default class ColorPicker extends React.Component<
+    CustomFormElementProps
+> {
     render() {
         return <CircularColor size={200} />;
     }
@@ -94,7 +96,10 @@ export default class ColorPicker extends React.Component<CustomFormElementProps>
 import { mapDependencies } from "@geocortex/workflow/runtime/app/ActivityPackUtils";
 
 function configure(prefix: string) {
-    mapDependencies({ "react-circular-color": "/deps/react-circular-color/build/index" }, prefix);
+    mapDependencies(
+        { "react-circular-color": "/deps/react-circular-color/build/index" },
+        prefix
+    );
 }
 ```
 

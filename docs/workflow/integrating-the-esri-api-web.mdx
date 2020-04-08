@@ -176,7 +176,9 @@ export class ExpandPolygon {
         } else if (apiVersion == ArcGisApiVersion.v3) {
             extent = inputs.polygon.getExtent();
         } else {
-            throw new Error(`ArcGIS JS API Version version '${apiVersion}' not recognized.`);
+            throw new Error(
+                `ArcGIS JS API Version version '${apiVersion}' not recognized.`
+            );
         }
 
         return {

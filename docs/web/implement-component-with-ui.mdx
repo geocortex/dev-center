@@ -195,10 +195,21 @@ export default function NewsFeedComponent(props) {
             <List className="news-item-list">
                 <DialogActions>
                     <TitleBar text="Recent News"></TitleBar>
-                    {hidden && <Button onClick={() => setHidden(false)}>Show News</Button>}
-                    {!hidden && <Button onClick={() => setHidden(true)}>Hide News</Button>}
+                    {hidden && (
+                        <Button onClick={() => setHidden(false)}>
+                            Show News
+                        </Button>
+                    )}
+                    {!hidden && (
+                        <Button onClick={() => setHidden(true)}>
+                            Hide News
+                        </Button>
+                    )}
                 </DialogActions>
-                {!hidden && newsItems.map((news, idx) => <ListItem key={idx}>{news}</ListItem>)}
+                {!hidden &&
+                    newsItems.map((news, idx) => (
+                        <ListItem key={idx}>{news}</ListItem>
+                    ))}
             </List>
         </LayoutElement>
     );
@@ -255,7 +266,9 @@ export { NewsFeedModel };
 
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
-import NewsFeedComponent, { NewsFeedModel } from "./components/NewsFeedComponent";
+import NewsFeedComponent, {
+    NewsFeedModel,
+} from "./components/NewsFeedComponent";
 import { ComponentType } from "react";
 
 const LAYOUT_NAMESPACE = "custom.foo";
@@ -309,10 +322,14 @@ messages.operation<ConfirmOperationArgs, boolean>("ui.confirm");
 
 ```tsx title="src/components/CustomComponent/CustomComponent.tsx"
 import React, { useState } from "react";
-import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
 import { CustomComponentModel } from ".";
 
-export interface CustomComponentProps extends LayoutElementProperties<CustomComponentModel> {}
+export interface CustomComponentProps
+    extends LayoutElementProperties<CustomComponentModel> {}
 
 export default function CustomComponent(props: CustomComponentProps) {
     return (
@@ -347,9 +364,13 @@ export default class NewsFeedComponentModel extends ComponentModelBase {
                 cancelButtonText: "never",
             });
 
-        await this.messages.command<DisplayNotificationArgs>("ui.display-notification").execute({
-            message: `You ${result ? "agreed" : "did not agree"} to the dialog`,
-        });
+        await this.messages
+            .command<DisplayNotificationArgs>("ui.display-notification")
+            .execute({
+                message: `You ${
+                    result ? "agreed" : "did not agree"
+                } to the dialog`,
+            });
     }
 }
 ```

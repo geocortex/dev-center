@@ -28,7 +28,9 @@ export default class CustomModel extends ComponentModelBase {
     protected _onInitialize(): Promise<void> {
         this.handles.push(
             this.messages.events.map.initialized.subscribe((e: MapEvent) => {
-                console.log("Map Initialized, do your map dependent model setup here.");
+                console.log(
+                    "Map Initialized, do your map dependent model setup here."
+                );
             })
             // Equivalent: this.messages.event("map.initialized").subscribe
         );
