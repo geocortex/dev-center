@@ -135,14 +135,14 @@ export default function (registry: LibraryRegistry) {
     // highlight-start
     registry.registerCommand("custom-service.do-action", {
         serviceId: "custom-service",
-        executeMethodName: "_doAction"
+        executeMethodName: "_doAction",
     });
     // highlight-end
 
     // highlight-start
     registry.registerOperation("custom-service.get-action-history", {
         serviceId: "custom-service",
-        executeMethodName: "_getActionHistory"
+        executeMethodName: "_getActionHistory",
     });
     // highlight-end
 }
