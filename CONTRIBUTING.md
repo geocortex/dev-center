@@ -125,39 +125,41 @@ The following guidelines apply to adding screenshots of the products, usually fo
 
 Geocortex Web screenshots should be taken at a certain window size for consistency. This can be easily achieved using the chrome developer tools.
 
-1. Open the Geocortex Web page you want to screenshot. 
-2. Open the dev tools. 
+1. Open the Geocortex Web page you want to screenshot.
+2. Open the dev tools.
 3. Go to settings / devices
 4. [Add a custom device](https://developers.google.com/web/tools/chrome-devtools/device-mode#custom) with the following settings:
 5. Add a new custom device with the following settings:
-    * Width: 950
-    * Height: 550
-    * **Pixel Ratio: 1**
-    * User Agent: Desktop
+    - Width: 950
+    - Height: 550
+    - **Pixel Ratio: 1**
+    - User Agent: Desktop
 
 ![Custom Device Config](https://user-images.githubusercontent.com/8933450/78948237-7e329900-7a7c-11ea-80c9-f5e19ba834e6.png)
 
 6. Open the [Device Toolbar](https://developers.google.com/web/tools/chrome-devtools/device-mode#viewport)
 7. Use the chrome screenshot command to take a screenshot. While in the chrome dev tools window...
-    * ctrl + shift + p
-    * "Capture Screenshot"
+    - ctrl + shift + p
+    - "Capture Screenshot"
 8. Rename the downloaded screenshot to something appropiate.
 9. **Run the screenshot through [Tiny PNG](https://tinypng.com/)** to compress it.
-10. Add it to the appropiate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url. 
+10. Add it to the appropiate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
+
 ```html
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
 ```
 
 #### Geocortex Mobile
 
-Geocortex Mobile screenshots should be roughly taken with a certain window size for consistency. 
+Geocortex Mobile screenshots should be roughly taken with a certain window size for consistency.
 
 1. Open the Geocortex Mobile application you want to screenshot.
-    * Unless demonstrating theming functionality, all screenshots should be taken with the dark theme.
-2. Using the `Windows + Left` then `Windows + Up` shortcuts to move the app window to occupy a corner of the screen.  
+    - Unless demonstrating theming functionality, all screenshots should be taken with the dark theme.
+2. Using the `Windows + Left` then `Windows + Up` shortcuts to move the app window to occupy a corner of the screen.
 3. Using Windows [snipping tool](https://support.microsoft.com/en-ca/help/13776/windows-10-use-snipping-tool-to-capture-screenshots), capture a window screenshot of the application.
 4. **Run the screenshot through [Tiny PNG](https://tinypng.com/)** to compress it.
-5. Add it to the appropiate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url. 
+5. Add it to the appropiate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
+
 ```html
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
 ```
