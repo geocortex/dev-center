@@ -21,7 +21,10 @@ module.exports = {
                 {
                     type: "category",
                     label: "Advanced Topics",
-                    items: ["web/concepts-advanced-layout", "web/concepts-advanced-config"],
+                    items: [
+                        "web/concepts-advanced-layout",
+                        "web/concepts-advanced-config",
+                    ],
                 },
             ],
         },
@@ -52,7 +55,8 @@ module.exports = {
                         {
                             type: "link",
                             label: "Implement Custom Workflow Form Elements",
-                            href: "../workflow/implement-custom-form-elements-web",
+                            href:
+                                "../workflow/implement-custom-form-elements-web",
                         },
                         {
                             type: "link",
@@ -194,12 +198,14 @@ module.exports = {
                         {
                             type: "link",
                             label: "Implement Custom Workflow Form Elements",
-                            href: "../workflow/implement-custom-form-elements-mobile",
+                            href:
+                                "../workflow/implement-custom-form-elements-mobile",
                         },
                         {
                             type: "link",
                             label: "Implement Custom Workflow Activity",
-                            href: "../workflow/implement-custom-activity-mobile",
+                            href:
+                                "../workflow/implement-custom-activity-mobile",
                         },
                     ],
                 },
@@ -229,7 +235,10 @@ module.exports = {
                 {
                     type: "category",
                     label: "Advanced Topics",
-                    items: ["mobile/concepts-advanced-layout", "mobile/concepts-advanced-config"],
+                    items: [
+                        "mobile/concepts-advanced-layout",
+                        "mobile/concepts-advanced-config",
+                    ],
                 },
             ],
         },
@@ -253,7 +262,11 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: ["mobile/api-overview", "mobile/api-commands-operations", "mobile/api-events"],
+            items: [
+                "mobile/api-overview",
+                "mobile/api-commands-operations",
+                "mobile/api-events",
+            ],
         },
     ],
 };

@@ -17,7 +17,8 @@ const products = [
     {
         title: "Geocortex Mobile",
         imageUrl: "img/mobile-viewer-product-icon.svg",
-        description: "Develop field data collection apps and run them online or offline.",
+        description:
+            "Develop field data collection apps and run them online or offline.",
         link: "docs/mobile/overview",
     },
     {
@@ -36,12 +37,17 @@ function Home() {
                 className={classNames("hero hero--dark", styles.heroBanner)}
                 // TODO: Find out correct approach to use this in CSS file,
                 // as it wasn't taking baseUrl into account.
-                style={{ backgroundImage: `url("${useBaseUrl("img/geocortex-rocket.png")}")` }}
+                style={{
+                    backgroundImage: `url("${useBaseUrl(
+                        "img/geocortex-rocket.png"
+                    )}")`,
+                }}
             >
                 <div className="container">
                     <h1 className="hero__title">Geocortex Developer Center</h1>
                     <h2 className="hero__subtitle">
-                        Extend your Geocortex applications to build virtually anything!
+                        Extend your Geocortex applications to build virtually
+                        anything!
                     </h2>
                 </div>
             </header>

@@ -234,7 +234,10 @@ export default class CustomDataService extends ServiceBase {
 
 ```tsx title="src/component/NewsFeedComponent/NewsFeedComponent.tsx"
 import React from "react";
-import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
 import "./NewsFeedComponent.css";
 import { NewsFeedModel } from ".";
 import { useWatchCollectionAndRerender } from "@geocortex/web/ui/hooks";
@@ -243,7 +246,8 @@ import ListItem from "@geocortex/web/ui/list-item";
 import TitleBar from "@geocortex/web/ui/title-bar";
 import "./NewsFeedComponent.css";
 
-export interface NewsFeedComponentProps extends LayoutElementProperties<NewsFeedModel> {}
+export interface NewsFeedComponentProps
+    extends LayoutElementProperties<NewsFeedModel> {}
 
 export default function NewsFeedComponent(props: NewsFeedComponentProps) {
     const { model } = props;
@@ -324,7 +328,9 @@ export default class NewsFeedModel extends ComponentModelBase {
 
 ```ts title="src/index.ts"
 import CustomDataService from "./services/CustomDataService";
-import NewsFeedComponent, { NewsFeedModel } from "./components/NewsFeedComponent";
+import NewsFeedComponent, {
+    NewsFeedModel,
+} from "./components/NewsFeedComponent";
 import { LibraryRegistry } from "@geocortex/web/config";
 import { ComponentType } from "react";
 

@@ -14,7 +14,10 @@ Geocortex Mobile comes with search functionality out of the box. The default beh
 
 We will modify the default search behavior of the [Quick Start](quick-start.mdx) application on the Fire Hydrants layer have have an optional filter that will only show fire hydrants without a hydrants survey.
 
-<img src={useBaseUrl("img/custom-search-workflow-finished.png")} alt="Search Workflow with Alert" />
+<img
+    src={useBaseUrl("img/custom-search-workflow-finished.png")}
+    alt="Search Workflow with Alert"
+/>
 
 ## Prerequisites
 
@@ -51,7 +54,10 @@ We are going to replace the command chain with a `workflow.run` command that rep
 2. Add an "Alert" activity as a test.
 3. Copy the ID of the the workflow from the URL
 
-<img src={useBaseUrl("img/custom-search-workflow-url.png")} alt="Workflow URL with ID" />
+<img
+    src={useBaseUrl("img/custom-search-workflow-url.png")}
+    alt="Workflow URL with ID"
+/>
 
 4. Add the workflow as an app item to your [app config](quick-start.mdx#editing-the-layout-and-app-config).
 
@@ -93,7 +99,10 @@ We are going to replace the command chain with a `workflow.run` command that rep
 
 6. Run the app and test your workflow. You should see your alert pop up when you try to search for something.
 
-<img src={useBaseUrl("img/custom-search-workflow-alert.png")} alt="Search Workflow with Alert" />
+<img
+    src={useBaseUrl("img/custom-search-workflow-alert.png")}
+    alt="Search Workflow with Alert"
+/>
 
 7. Open up your Workflow in the Workflow Designer again. The default behavior we just overode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.search` is an operation, so it needs a RunOperation Activity, and `results.display` is a command so it needs a RunCommand Activity. Chain these two activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.search` and then passing the output of that operation to `results.display`.
 

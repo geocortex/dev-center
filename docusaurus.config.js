@@ -66,11 +66,13 @@ module.exports = {
                     items: [
                         {
                             label: "Geocortex Web",
-                            to: "https://apps.geocortex.com/webviewer/designer/",
+                            to:
+                                "https://apps.geocortex.com/webviewer/designer/",
                         },
                         {
                             label: "Geocortex Mobile",
-                            to: "https://apps.geocortex.com/mobileviewer/designer/",
+                            to:
+                                "https://apps.geocortex.com/mobileviewer/designer/",
                         },
                         {
                             label: "Geocortex Workflow",
@@ -89,7 +91,8 @@ module.exports = {
             "@docusaurus/preset-classic",
             {
                 docs: {
-                    editUrl: "https://github.com/geocortex/dev-center/edit/master/",
+                    editUrl:
+                        "https://github.com/geocortex/dev-center/edit/master/",
                     sidebarPath: require.resolve("./sidebars.js"),
                 },
                 theme: {

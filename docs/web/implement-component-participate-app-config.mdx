@@ -103,10 +103,21 @@ export default function NewsFeedComponent(props) {
             <List className="news-item-list">
                 <DialogActions>
                     <TitleBar text="Recent News"></TitleBar>
-                    {hidden && <Button onClick={() => setHidden(false)}>Show News</Button>}
-                    {!hidden && <Button onClick={() => setHidden(true)}>Hide News</Button>}
+                    {hidden && (
+                        <Button onClick={() => setHidden(false)}>
+                            Show News
+                        </Button>
+                    )}
+                    {!hidden && (
+                        <Button onClick={() => setHidden(true)}>
+                            Hide News
+                        </Button>
+                    )}
                 </DialogActions>
-                {!hidden && newsItems.map((news, idx) => <ListItem key={idx}>{news}</ListItem>)}
+                {!hidden &&
+                    newsItems.map((news, idx) => (
+                        <ListItem key={idx}>{news}</ListItem>
+                    ))}
             </List>
         </LayoutElement>
     );
@@ -183,7 +194,9 @@ interface NewsFeedModelProperties extends ComponentModelProperties {
 }
 
 @serializable
-export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelProperties> {
+export default class NewsFeedModel extends ComponentModelBase<
+    NewsFeedModelProperties
+> {
     /**
      * Array of items to display in the news feed
      */
@@ -195,7 +208,9 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
     hidden: boolean;
 
     // highlight-start
-    protected _getSerializableProperties(): PropertyDefs<NewsFeedModelProperties> {
+    protected _getSerializableProperties(): PropertyDefs<
+        NewsFeedModelProperties
+    > {
         const props = super._getSerializableProperties();
         return {
             ...props,
@@ -272,7 +287,10 @@ This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hoo
 
 ```tsx title="src/components/NewsFeedComponent/NewsFeedComponent.tsx"
 import React from "react";
-import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
 import { useWatchAndRerender } from "@geocortex/web/ui/hooks";
 import List from "@geocortex/web/ui/list";
 import ListItem from "@geocortex/web/ui/list-item";
@@ -282,7 +300,8 @@ import DialogActions from "@geocortex/web/ui/dialog-actions";
 import "./NewsFeedComponent.css";
 import { NewsFeedModel } from ".";
 
-export interface NewsFeedComponentProps extends LayoutElementProperties<NewsFeedModel> {}
+export interface NewsFeedComponentProps
+    extends LayoutElementProperties<NewsFeedModel> {}
 
 export default function NewsFeedComponent(props: NewsFeedComponentProps) {
     const { model } = props;
@@ -304,15 +323,21 @@ export default function NewsFeedComponent(props: NewsFeedComponentProps) {
                     <TitleBar text="Recent News"></TitleBar>
                     // highlight-start
                     {model.hidden && (
-                        <Button onClick={() => (model.hidden = false)}>Show News</Button>
+                        <Button onClick={() => (model.hidden = false)}>
+                            Show News
+                        </Button>
                     )}
                     {!model.hidden && (
-                        <Button onClick={() => (model.hidden = true)}>Hide News</Button>
+                        <Button onClick={() => (model.hidden = true)}>
+                            Hide News
+                        </Button>
                     )}
                     // highlight-end
                 </DialogActions>
                 {!model.hidden &&
-                    model.newsItems.map((news, idx) => <ListItem key={idx}>{news}</ListItem>)}
+                    model.newsItems.map((news, idx) => (
+                        <ListItem key={idx}>{news}</ListItem>
+                    ))}
             </List>
         </LayoutElement>
     );
@@ -336,7 +361,9 @@ interface NewsFeedModelProperties extends ComponentModelProperties {
 }
 
 @serializable
-export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelProperties> {
+export default class NewsFeedModel extends ComponentModelBase<
+    NewsFeedModelProperties
+> {
     /**
      * Array of items to display in the news feed
      */
@@ -347,7 +374,9 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
      */
     hidden: boolean;
 
-    protected _getSerializableProperties(): PropertyDefs<NewsFeedModelProperties> {
+    protected _getSerializableProperties(): PropertyDefs<
+        NewsFeedModelProperties
+    > {
         const props = super._getSerializableProperties();
         return {
             ...props,
@@ -425,7 +454,9 @@ export { NewsFeedModel };
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
 import { ComponentType } from "react";
-import NewsFeedComponent, { NewsFeedModel } from "./components/NewsFeedComponent";
+import NewsFeedComponent, {
+    NewsFeedModel,
+} from "./components/NewsFeedComponent";
 
 const LAYOUT_NAMESPACE = "custom.foo";
 

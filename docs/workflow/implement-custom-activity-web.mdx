@@ -72,7 +72,9 @@ export class CustomActivity {
     static suite = "your:unique:namespace";
 
     // Perform the execution logic of the activity.
-    async execute(inputs: CustomActivityInputs): Promise<CustomActivityOutputs> {
+    async execute(
+        inputs: CustomActivityInputs
+    ): Promise<CustomActivityOutputs> {
         return { result: "test" };
     }
 }
@@ -113,7 +115,8 @@ export class CalculateLog {
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         return {
             result:
-                Math.log(inputs.value) / (inputs.base !== undefined ? Math.log(inputs.base) : 1),
+                Math.log(inputs.value) /
+                (inputs.base !== undefined ? Math.log(inputs.base) : 1),
         };
     }
 }
