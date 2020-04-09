@@ -85,18 +85,25 @@ module.exports = {
                 "web/sdk-overview",
                 "web/sdk-build-first-app",
                 "web/sdk-deployment",
-                "web/sdk-reference-third-party-libraries",
                 {
                     type: "category",
-                    label: "Common Web SDK Patterns",
-                    items: ["web/service-injection", "web/sdk-component-hooks"],
+                    label: "Common Patterns",
+                    items: [
+                        "web/service-injection",
+                        "web/sdk-component-hooks",
+                        "web/sdk-reference-third-party-libraries",
+                    ],
                 },
             ],
         },
         {
             type: "category",
             label: "API",
-            items: ["web/api-message-bus", "web/api-commands-operations", "web/api-events"],
+            items: [
+                "web/api-message-bus",
+                "web/api-commands-operations",
+                "web/api-events",
+            ],
         },
     ],
     workflow: [
@@ -250,7 +257,7 @@ module.exports = {
                 "mobile/samples",
                 {
                     type: "category",
-                    label: "Common Mobile SDK Patterns",
+                    label: "Common Patterns",
                     items: [
                         "mobile/dependency-injection",
                         "mobile/viewmodel-helper-class",

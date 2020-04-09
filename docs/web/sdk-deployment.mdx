@@ -3,14 +3,25 @@ title: Deployment
 description: Geocortex Web - Deploy a Geocortex Web Application
 ---
 
+## Deploying your library using Geocortex Web Designer
+
+The easiest way to deploy your custom library built using the SDK, is to upload it to an application using the Geocortex Web Designer.
+
+### Uploading to an app
+
 :::warning
-This is a temporary deployment pattern for alpha. This will change in the future.
+This is a temporary deployment pattern for the preview release. We're actively improving this pattern, and as such it will change during the preview phase.
 :::
 
-1. Run `npm build`
-1. Open up the application in Geocortex Web Designer (on premise or SaaS, depending on your production enviroment) that you want to overwrite with you custom application and custom code.
-1. Type `Ctrl + Shift + E` to open up the development editing interface.
-1. Copy and paste the app layout and app config from your local Web SDK application to the Geocortex Web Designer Interface
-1. Upload the built production library to the `Custom Code` section of the development editing interface.
+1. Run `npm run build` in the root of your project to create a production build of your library
+    - This creates an optimized production build that is output to the `build` folder of your project. This build is designed for use in production
+1. Open the application in Geocortex Web Designer (on premise or [SaaS](https://apps.geocortex.com/webviewer/designer/), depending on your production environment) that you want to upload your custom code to
+1. Type `Ctrl + Shift + E` while focused in the Geocortex Web Designer to open up the experimental development editing interface
+    - This interface is for debugging and devlopment purposes only, and is not intended for general configuration of your application.
+1. Upload the production build of your custom library located in the `build` folder to the `Custom Code` section of the development editing interface
+1. **Optional:** Copy and paste the `app.json` and `layout.xml` from your local SDK project to the Geocortex Web Designer Interface
+    - If you are building a custom UI component, you can also edit your layout using the Designer interface to include it in your application instead
 
-TODO - test this
+### Deploy the app
+
+After you've uploaded your custom library to your application, you can push the application through the configured deployment stages using the [deployment pipeline in the Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/deploy-an-app.htm%3FTocPath%3DApps%7CDeploy%2520an%2520App%7C_____0). Your library code will be copied through the deployment stages, so you can be confident that changes to your library code in the development stage won't affect your production app until you explicitly deploy to the production stage.
