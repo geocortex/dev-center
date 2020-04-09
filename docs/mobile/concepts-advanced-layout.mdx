@@ -59,7 +59,6 @@ Take this more complicated layout for example.
         <button config="measureAction" icon="measure" style="map-widget" margin="0.5"/>
         <geolocate id="geolocator" margin="0.5" config="geolocate" />
       </stack>
-      <zoom margin="0.8" slot="top-left"/>
       <gxm:version slot="bottom-left" margin="0.8"/>
     </map>
 
@@ -87,7 +86,7 @@ Take this more complicated layout for example.
 </layout>
 ```
 
-This layout has components such as `<search/>` or `<gxm:add-feature/>` which require the context of a specific map to function. However, these components are **not** nested within the one `<map/>` component in the app. Therefore, they will start a breadth first search to discover a map component and bind to it.
+This layout has components such as `<search/>` or `<gxm:add-feature/>` which require the context of a specific map to function. However, these components are **not** nested within the `<map/>` component in the app. Therefore, they will start a breadth first search to discover a map component and bind to it.
 
 ### Implicit Config Binding
 
@@ -104,7 +103,7 @@ Most components support the [`config` attribute](concepts-app-config.mdx#linking
 
 ## Presentation Attributes
 
-Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. These presentation attributes are all accessible through [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), but can also be configured through layout.
+Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. Some of these presentation attributes are accessible through the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), and the rest be configured through layout.
 
 :::note
 Most components also support the core attribute [`config`](concepts-app-config.mdx#linking-layout-to-app-config) and all components support the [`id`](concepts-app-config.mdx#targeting-components-with-by-id) attribute, as well as any custom attributes the component defines.
