@@ -11,21 +11,21 @@ In Geocortex Web, components are entities which implement UI/UX experiences and 
 
 Components are only **created** if they participate in the layout - if no component definition exists in the layout, none will be created. Components are **initialized** when they are activated.
 
-<!-- TODO Add a link out to the component API
+<!-- TODO: Add a link out to the component API
 :::tip
 Geocortex Web has a large [built in library of components](TODO-api-components.mdx).
-::: 
+:::
 -->
 
-### Models
+### Component Models
 
-Every component has an associated model. This model functions as the underlying data source for the component, as well as the middleware for interfacing with the larger application, through [commands, operations](concepts-commands-operations.mdx) and shared services. This allows the component to solely worry about presentation concerns, and delegate data and application concerns to the model.
+Every component has an associated model. This model functions as the underlying data source for the component, as well as providing a way to interface with the larger application, through [commands, operations](concepts-commands-operations.mdx) and shared services. This allows the component to solely worry about presentation concerns, and delegate data and application concerns to the underyling model.
 
 ## Services
 
-In Geocortex Web, services represent a shared global concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](implement-command-operation.mdx#implement-the-custom-command-and-operation), but services can also be directly [injected](TODO-injection) into services and component models.
+In Geocortex Web, services represent a shared global concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](implement-command-operation.mdx#implement-the-custom-command-and-operation), but services can also be directly [injected](sdk-service-injection.mdx) into services and component models.
 
-<!-- TODO Add a link out to the services API
+<!-- TODO: Add a link out to the services API
 :::tip
 Geocortex Web has many [built in services](TODO-api-services.mdx).
 :::
