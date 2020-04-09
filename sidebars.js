@@ -16,8 +16,8 @@ module.exports = {
                 "web/concepts-layout",
                 "web/concepts-app-config",
                 "web/concepts-commands-operations",
-                "web/concepts-events",
                 "web/concepts-components-services",
+                "web/concepts-events",
                 {
                     type: "category",
                     label: "Advanced Topics",
@@ -92,7 +92,7 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: ["web/api-commands-operations", "web/api-message-bus"],
+            items: ["web/api-message-bus", "web/api-commands-operations", "web/api-events"],
         },
     ],
     workflow: [
@@ -224,8 +224,8 @@ module.exports = {
                 "mobile/concepts-layout",
                 "mobile/concepts-app-config",
                 "mobile/concepts-commands-operations",
-                "mobile/concepts-events",
                 "mobile/concepts-components-services",
+                "mobile/concepts-events",
                 {
                     type: "category",
                     label: "Advanced Topics",
