@@ -45,25 +45,10 @@ module.exports = {
                     type: "category",
                     label: "Workflow",
                     items: [
-                        {
-                            type: "link",
-                            label: "Display a Custom Form",
-                            href:
-                                "https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____0",
-                        },
+                        "web/usecases-display-custom-form",
                         // "web/change-default-search-behavior",
-                        {
-                            type: "link",
-                            label: "Implement Custom Workflow Form Elements",
-                            href:
-                                "../workflow/usecases-web-implement-custom-form-elements",
-                        },
-                        {
-                            type: "link",
-                            label: "Implement Custom Workflow Activity",
-                            href:
-                                "../workflow/usecases-web-implement-custom-activity",
-                        },
+                        "web/usecases-implement-custom-form-elements",
+                        "web/usecases-implement-custom-activity",
                     ],
                 },
                 {
