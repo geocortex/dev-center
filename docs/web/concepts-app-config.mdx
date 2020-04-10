@@ -156,13 +156,13 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
   ]}>
 <TabItem value="layout">
 
-```xml
+```xml title="app/layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <split resizable="true">
         <panel width="30" active="true" id="mainPanel"></panel>
         <map id="map-primary" slot="main">
-            <button icon="info" config="runWorkflow" slot="top-center" margin="0.5">Run Workflow in Side Panel</button>
+            <button icon="info" config="run-workflow" slot="top-center" margin="0.5">Run Workflow in Side Panel</button>
             <split slot="bottom-center">
                 <button icon="" config="showIwtm" margin="0.5">Show I Want To Menu</button>
                 <button icon="" config="hideIwtm" margin="0.5">Hide I Want To Menu</button>
@@ -177,26 +177,26 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
 </TabItem>
 <TabItem value="config">
 
-```json
+```json title="app/app.json"
 {
     "items": [
         {
             "$type": "workflow",
-            "id": "demoWorkflow",
+            "id": "demo-workflow",
             "title": "Demo Worklfow",
             "target": "mainPanel",
             "portalItem": "c3964768dfa84fe5acf7a72ef95dc92b"
         },
         {
             "$type": "menu-item",
-            "id": "runWorkflow",
+            "id": "run-workflow",
             "title": "Run Workflow in Sidebar",
             "isEnabled": true,
             "iconId": "info",
             "action": {
                 "name": "workflow.run",
                 "arguments": {
-                    "id": "demoWorkflow"
+                    "id": "demo-workflow"
                 }
             }
         },
@@ -226,7 +226,7 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
         },
         {
             "id": "iwtm-config",
-            "items": ["item://menu-item/runWorkflow"],
+            "items": ["item://menu-item/run-workflow"],
             "title": "I Want To Menu",
             "$type": "menu"
         }

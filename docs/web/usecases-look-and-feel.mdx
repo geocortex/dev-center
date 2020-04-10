@@ -206,3 +206,95 @@ export interface BrandingColors {
 ### Changing the Visual Layout of an Application
 
 How elements are laid out in a Geocortex Web Application is defined by an apps layout. [This article](concepts-layout.mdx) will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Web. Further styling within the layout can be done using [presentation attributes](concepts-advanced-layout.mdx#presentation-attributes).
+
+
+## Adding Icons
+
+You can add new icons to Geocortex Web for use with buttons in the layout, custom components, and more. 
+
+### Example: Button with Custom Icon
+
+This example will walk you through adding a custom icon to your application and using it with a button defined in the [layout](concepts-layout.mdx) and [app config](concepts-app-config.mdx). First, we need to get an icon to use. This [CC BY licensed icon](https://thenounproject.com/search/?q=action&creator=203375&i=3114038) representing a directors clapperboard is going to be used for this example. 
+<p>Here's <a href={useBaseUrl('img/action.svg')} download>a download link</a> for the svg representation of it.</p>
+
+<!-- TODO - how to deploy icons -->
+
+Create a new folder `app/icons/action`, and add the svg file and an attribution.txt file crediting the creator of the icon.
+
+#### Register the Icon
+
+Next, we have to register the icon with Geocortex Web. To do this, we make a call to `registerIcon` in `src/index.ts`. The url provided is a path relative to the `app` folder.
+
+:::note
+You can provide rasterized icon files with the type `raster`, but it is best practice to use `svg`.
+::: 
+
+```ts
+import { LibraryRegistry } from "@geocortex/web/config";
+
+export default function (registry: LibraryRegistry) {
+    registry.registerIcon({
+        id: "action",
+        type: "svg",
+        url: "icons/action/action.svg",
+    })
+}
+```
+
+#### Use the Icon in an Application
+
+Now that the icon is registered, we can use it in our application by referencing it with the id `action`. For example, we can create a button in the I Want To Menu with that icon by editing the layout and app config.
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "Layout", value: "layout" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map>
+        <iwtm config="iwtm-config" slot="top-left" id="iwtm"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "items": [
+        {
+            "$type": "menu-item",
+            "id": "button-with-custom-icon",
+            "title": "Action!",
+            "isEnabled": true,
+            // highlight-next-line
+            "iconId": "action",
+            "action": {
+                "name": "ui.display-notification",
+                "arguments": {
+                    "message": "CUT"
+                }
+            }
+        },
+        {
+            "id": "iwtm-config",
+            "items": ["item://menu-item/button-with-custom-icon"],
+            "title": "I Want to Direct a Movie",
+            "$type": "menu"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/custom-icon.png")}/>
+</TabItem>
+</Tabs>
