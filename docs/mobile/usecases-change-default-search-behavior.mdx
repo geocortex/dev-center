@@ -8,7 +8,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsSnippet from "./snippets/prereqs.mdx";
 
-Geocortex Mobile comes with search functionality out of the box. The default behavior will return results from all enabled layers that can be searched on the map. What if you want to replace the functionality with your own search? Or filter the results returned by the default search? [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) can't accomplish this, but it can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
+Geocortex Mobile comes with search functionality out of the box. The default behavior will return results from all enabled layers that can be searched on the map. But what if you want to replace the functionality with your own search? Or filter the results returned by the default search? [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) can't accomplish this, but it can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
 
 ## What you're Building
 
@@ -32,7 +32,7 @@ We will modify the default search behavior of the [Quick Start](quick-start.mdx)
 
 You should see some number of results. If you look at the details for some of the Fire Hydrants, you'll notice some have Fire Hydrant Surveys and some don't. We will build a workflow that will only return the Fire Hydrants without a related survey when you search for `active filter:nosurveys`.
 
-## Set up the Workflow to Run on Search
+## Set up a Workflow to Run on Search
 
 The first thing we need to do is override the default search behavior. We can do this by editing the "Search" component of the [app config](quick-start.mdx#editing-the-layout-and-app-config). The default behavior for search is a command chain that runs `tasks.search` and then `results.display`.
 
@@ -48,7 +48,7 @@ The first thing we need to do is override the default search behavior. We can do
 }
 ```
 
-We are going to replace the command chain with a `workflow.run` command that replicates this behavior.
+First, we are going to replace the command chain with a `workflow.run` command that replicates this behavior.
 
 1. Open up [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
 2. Add an "Alert" activity as a test.
@@ -59,7 +59,7 @@ We are going to replace the command chain with a `workflow.run` command that rep
     alt="Workflow URL with ID"
 />
 
-4. Add the workflow as an app item to your [app config](quick-start.mdx#editing-the-layout-and-app-config).
+4. Add the workflow as an app item to your app config.
 
 ```json
 {
@@ -78,7 +78,7 @@ We are going to replace the command chain with a `workflow.run` command that rep
 }
 ```
 
-5. Configure the `onSearch` property of the Search Component in the app config to run the workflow.
+5. Next, configure the `onSearch` property of the Search Component in the app config to run the workflow.
 
 ```json {4-11}
 {

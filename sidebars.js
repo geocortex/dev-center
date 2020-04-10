@@ -48,7 +48,7 @@ module.exports = {
                         "web/usecases-display-custom-form",
                         "web/usecases-implement-custom-form-elements",
                         "web/usecases-implement-custom-activity",
-                        "web/usecases-change-default-search-behavior",
+                        // "web/usecases-change-default-search-behavior",
                     ],
                 },
                 {
