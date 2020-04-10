@@ -261,18 +261,16 @@ export { NewsFeedModel };
 <TabItem value="index">
 
 ```ts title="src/index.ts"
-import Test, { TestModel } from "./components/Test";
 import NewsFeedComponent, {
     NewsFeedModel,
 } from "./components/NewsFeedComponent";
 import { ComponentType } from "react";
-
-const LAYOUT_NAMESPACE = "custom.foo";
+import { LibraryRegistry } from "@geocortex/web/config";
 
 export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "news-feed",
-        namespace: "your.custom.namespace",
+    namespace: "your.custom.namespace",
         getComponentType: () => NewsFeedComponent as ComponentType,
         itemType: "news-feed-model",
         title: "News Feed",
