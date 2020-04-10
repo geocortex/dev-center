@@ -2,3 +2,207 @@
 title: Customize the Look and Feel
 description: Geocortex Web - Learn how to customize the look and feel of your Geocortex Web application
 ---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import PrereqsSnippet from "./snippets/prereqs.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Geocortex Mobile's appearance is built around two concepts: theme and [layout](concepts-layout.mdx). The theme controls the color scheme of the app, while the layout controls the organization of content.
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+### Seeding a New Theme from an Existing Theme
+
+Two prefined themes are included with Geocortex Web, `light` and `dark`. You can select a predefined theme and accent color with [Geocortex Web Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4).
+
+The branding [service](concepts-components-services#services) is responsible for the theming of the application. To select a theme and accent color from within the config, you can configure the branding service in the [app config](concepts-app-config.mdx).
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json
+{
+    "items": [
+        ...
+        {
+            "id": "branding",
+            "$type": "branding",
+            "activeTheme": "custom-vampire",
+            "themes": [{
+                "id": "custom-vampire",
+                "accentColor": "red",
+                "template": "dark"
+            }]
+        },
+        ...
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src={useBaseUrl("img/web-vampire-theme.png")}/>
+</TabItem>
+</Tabs>
+
+
+### Customizing Theme Colors
+
+Every color in a theme can be fully customized by editing the `colors` property of the the branding service configuration. 
+
+:::tip
+Colors can be specified with their common name, a hex value, or a rgba value.
+::: 
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json
+{
+    "items": [
+        ...
+                {
+            "id": "branding",
+            "$type": "branding",
+            "activeTheme": "custom-vampire",
+            "themes": [{
+                "id": "custom-vampire",
+                "accentColor": "red",
+                "template": "dark",
+                "colors": {
+                    "emphasizedButtonBackground": "purple",
+                    "primaryAccentLarge": "#00b7eb",
+                    "secondaryBackground": [249, 77, 0, 255]
+                }
+            }]
+        },
+        ...
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src={useBaseUrl("img/web-vampire-theme-customized.png")}/>
+</TabItem>
+</Tabs>
+
+<!-- TODO - maybe this could be delegated to the API docs later, it it might have the BrandingColors object in it -->
+
+### List of Theme Colors
+
+Following is the interface that declares every possible theme color that can be used in a Geocortex Web Application.
+
+:::tip
+You can [inspect the css](https://developers.google.com/web/tools/chrome-devtools/css) of a Geocortex Web Application to determine what theme property a specific element uses.  
+:::
+
+```ts
+export interface BrandingColors {
+    accentIconBackground: ColorConfig;
+    accentIconBackgroundHover: ColorConfig;
+    accentIconBorder: ColorConfig;
+    accentIconBorderHover: ColorConfig;
+    accentIconForeground: ColorConfig;
+    accentIconForegroundHover: ColorConfig;
+    alertAmberBackground: ColorConfig;
+    alertAmberBackgroundHover: ColorConfig;
+    alertAmberBorder: ColorConfig;
+    alertAmberBorderHover: ColorConfig;
+    alertAmberForeground: ColorConfig;
+    alertAmberForegroundHover: ColorConfig;
+    alertAmberIcon: ColorConfig;
+    alertAmberIconHover: ColorConfig;
+    alertGrayBackground: ColorConfig;
+    alertGrayBackgroundHover: ColorConfig;
+    alertGrayBorder: ColorConfig;
+    alertGrayBorderHover: ColorConfig;
+    alertGrayForeground: ColorConfig;
+    alertGrayForegroundHover: ColorConfig;
+    alertGrayIcon: ColorConfig;
+    alertGrayIconHover: ColorConfig;
+    alertGreenBackground: ColorConfig;
+    alertGreenBackgroundHover: ColorConfig;
+    alertGreenBorder: ColorConfig;
+    alertGreenBorderHover: ColorConfig;
+    alertGreenForeground: ColorConfig;
+    alertGreenForegroundHover: ColorConfig;
+    alertGreenIcon: ColorConfig;
+    alertGreenIconHover: ColorConfig;
+    alertRedBackground: ColorConfig;
+    alertRedBackgroundHover: ColorConfig;
+    alertRedBorder: ColorConfig;
+    alertRedBorderHover: ColorConfig;
+    alertRedForeground: ColorConfig;
+    alertRedForegroundHover: ColorConfig;
+    alertRedIcon: ColorConfig;
+    alertRedIconHover: ColorConfig;
+    alertBackgroundDisabled: ColorConfig;
+    alertBorderDisabled: ColorConfig;
+    alertForegroundDisabled: ColorConfig;
+    alertIconDisabled: ColorConfig;
+    buttonBackground: ColorConfig;
+    buttonBackgroundDisabled: ColorConfig;
+    buttonBackgroundHover: ColorConfig;
+    buttonBorder: ColorConfig;
+    buttonBorderDisabled: ColorConfig;
+    buttonBorderHover: ColorConfig;
+    buttonForeground: ColorConfig;
+    buttonForegroundDisabled: ColorConfig;
+    buttonForegroundHover: ColorConfig;
+    buttonIcon: ColorConfig;
+    buttonIconDisabled: ColorConfig;
+    buttonIconHover: ColorConfig;
+    disabledIconFill: ColorConfig;
+    emphasizedButtonBackground: ColorConfig;
+    emphasizedButtonBackgroundDisabled: ColorConfig;
+    emphasizedButtonBackgroundHover: ColorConfig;
+    emphasizedButtonBorder: ColorConfig;
+    emphasizedButtonBorderDisabled: ColorConfig;
+    emphasizedButtonBorderHover: ColorConfig;
+    emphasizedButtonForeground: ColorConfig;
+    emphasizedButtonForegroundDisabled: ColorConfig;
+    emphasizedButtonForegroundHover: ColorConfig;
+    emphasizedButtonIcon: ColorConfig;
+    emphasizedButtonIconDisabled: ColorConfig;
+    emphasizedButtonIconHover: ColorConfig;
+    inlineTableHeaderBackground: ColorConfig;
+    inlineTableRowBackground: ColorConfig;
+    inlineTableBorder: ColorConfig;
+    inputBorder: ColorConfig;
+    itemSelectedBackground: ColorConfig;
+    itemHoverBackground: ColorConfig;
+    none: ColorConfig;
+    panelBorder: ColorConfig;
+    primaryAccent: ColorConfig;
+    primaryAccentDisabled: ColorConfig;
+    primaryAccentHover: ColorConfig;
+    primaryAccentLarge: ColorConfig;
+    primaryBackground: ColorConfig;
+    primaryBorder: ColorConfig;
+    primaryForeground: ColorConfig;
+    primaryForegroundDisabled: ColorConfig;
+    secondaryBackground: ColorConfig;
+    secondaryBorder: ColorConfig;
+    secondaryForeground: ColorConfig;
+    tabPrimaryForeground: ColorConfig;
+    tabSecondaryForeground: ColorConfig;
+}
+```
+
+### Changing the Visual Layout of an Application
+
+How elements are laid out in a Geocortex Web Application is defined by an apps layout. [This article](concepts-layout.mdx) will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Web. Further styling within the layout can be done using [presentation attributes](concepts-advanced-layout.mdx#presentation-attributes).
