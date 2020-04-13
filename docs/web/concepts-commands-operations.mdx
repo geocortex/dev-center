@@ -132,13 +132,13 @@ This will override the default arugment passing behavior for that command or ope
 <Tabs
   defaultValue="app"
   values={[
-    { label: 'app.json', value: 'app', },
-    { label: 'layout.xml', value: 'layout', },
+    { label: 'App Config', value: 'app', },
+    { label: 'Layout', value: 'layout', },
   ]
 }>
 <TabItem value="app">
 
-```json
+```json title="app.json"
 {
     "items": [
         {
@@ -172,7 +172,7 @@ This will override the default arugment passing behavior for that command or ope
 </TabItem>
 <TabItem value="layout">
 
-```xml
+```xml title="layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <split resizable="true">
