@@ -159,10 +159,6 @@ When a feature in the results list is opened, the `<feature-details>` component 
 -   If the component is the top most element (it is active), then deactivate it.
     -   Else, the component is already inactive
 
-:::tip
-TODO - link to SDK samples of panels
-:::
-
 ## Models
 
 Components often observe and modify the state of other components.
@@ -189,18 +185,16 @@ Layouts achieve these simply by expressing data dependencies in the form of mode
 Example (in TypeScript):
 
 ```ts
+
+@exportModel
 export class MapComponent {
-
-    @exports("model://MapModel")
-    model: MapModel;
-
     // ... map stuff ...
 }
 
 export class ScaleBarComponent {
 
-    @imports("model://MapModel")
-    mapModel: MapModel;
+    @importModel("map-extension")
+    map: MapExtension;
 
     // ... scale bar stuff ...
 }
