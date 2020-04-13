@@ -274,6 +274,31 @@ To simplify this binding, we can take advantage of the default behavior of searc
 </layout>
 ```
 
+## Namespaces
+
+Every component in the xml file has a definition that lives in an xml namespace. All the components discussed to this point have lived in the `https://geocortex.com/layout/v1` namespace.
+
+```xml
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map/>
+</layout>
+```
+
+Geocortex Web has a custom namespace `https://geocortex.com/layout/web/v1` in which components like `<bookmarks>` live. You can add this namespace to your layout to use these components.
+
+```xml
+<layout xmlns="https://geocortex.com/layout/v1" 
+        // highlight-next-line
+        xmlns:web="https://geocortex.com/layout/web/v1">
+    <map>
+        <web:bookmarks slot="bottom-right" />
+        <web:scale-input slot="bottom-left" />
+    </map>
+</layout>
+```
+
+When adding custom components, you will need to [add their custom namespace](usecases-implement-component-with-ui.mdx#add-the-component-to-your-layout) to your xml definition.
+
 ## Next Steps: Components and App Config
 
 In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with responsive, declarative layouts. 

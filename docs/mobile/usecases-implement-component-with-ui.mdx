@@ -58,7 +58,7 @@ It's convention for the name of the component in the [`layout`](concepts-layout.
 
 ## Add the Component to your Layout
 
-First, the [layout](concepts-layout.mdx) needs to be told where to find your component. \* In order to find your component, you have to tell the layout what namespace it belongs too. In the assembly attribute of the `HarmlessComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this namespace as an attribute on the layout. In this example, it's added with the alias `custom`.
+First, the [layout](concepts-layout.mdx) needs to be told where to find your component. In order to find your component, you have to tell the layout what namespace it belongs too. In the assembly attribute of the `HarmlessComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this [xml namespace](concepts-layout.mdx#namespaces) as an attribute on the layout. In this example, it's added with the alias `custom`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
