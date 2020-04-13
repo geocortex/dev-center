@@ -374,4 +374,177 @@ export default class NewsFeedComponentModel extends ComponentModelBase {
 
 ## Interacting with Application Services
 
-Components can interact with built in Geocortex Web [services](concepts-components-services.mdx#services). This allows them to interact with the map, application context, workflows, and more. Services can only be injected into a components through their [associated models](implement-component-participate-app-config#component-models). Learn more about how to [inject a service into a component](service-injection.mdx).
+Components can interact with built in Geocortex Web [services](concepts-components-services.mdx#services). Through services, they can interact with the map, application context, workflows, and more. Services can only be injected into a components through their [associated models](implement-component-participate-app-config#component-models). Learn more about how to [inject a service into a component](sdk-service-injection.mdx).
+
+## Interacting with other Components
+
+Components can interact with each other through their [respective models](concepts-layout.mdx#models). A model can either declare that it is exported, like the [map model](TODO-api-link-to-map-model), or that it imports a model. Components like the `<scalebar>` or `<compass>` import the map model, and this is what allows them to respond to changes in the maps state. 
+
+### Example: Component that Adds a Graphics Layer to the Map
+
+The following component has a model which imports the map model as a dependency, and then uses that model to add a graphics layer to the [ArcGIS Map object](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html).
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'Model', value: 'model', },
+    { label: 'Layout', value: 'layout', }
+  ]
+}>
+<TabItem value="component">
+
+```tsx title="src/components/CustomComponent/CustomComponent.tsx"
+import React from "react";
+import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
+import { CustomModel } from ".";
+
+export default function CustomComponent(props: LayoutElementProperties<CustomModel>) {
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <button onClick={() => props.model.addGraphic()}>Add a Graphic to the Map</button>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/CustomComponent/CustomComponentModel.ts"
+import { ComponentModelBase, serializable, importModel } from "@geocortex/web/models";
+import { MapExtension } from "@geocortex/api/mapping/MapExtension";
+import Graphic from "esri/Graphic";
+import GraphicsLayer from "esri/layers/GraphicsLayer";
+import { Polygon } from "esri/geometry";
+import { SimpleFillSymbol } from "esri/symbols";
+
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    // highlight-start
+    @importModel("map-extension")
+    mapExtension: MapExtension;
+    // highlight-end
+
+    // based on https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=intro-graphics
+    triangleGraphic = new GraphicsLayer({
+        graphics: [
+            new Graphic({
+                symbol: new SimpleFillSymbol({ color: "orange"}),
+                geometry: new Polygon({
+                    rings: [[
+                        [-64.78, 32.3],
+                        [-66.07, 18.45],
+                        [-80.21, 25.78],
+                        [-64.78, 32.3]
+                    ]]
+                })
+            })
+        ]
+    })
+
+    public addGraphic(){
+        // highlight-start
+        const esriMap = this.mapExtension.map;
+        esriMap.add(this.triangleGraphic);
+        // highlight-end
+    }
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <map>
+        <custom:custom-component slot="top-center"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+</Tabs>
+
+
+### Example: Component that Exports It's Model 
+
+You can mark a model as exported by adding the `@exportModel` decorator to the model class. The following example shows a model that is exported, and then imported by another model and used.
+
+:::note
+Models are imported with the `itemType` name that they are registered with.
+:::
+
+<Tabs
+  defaultValue="exportedModel"
+  values={[
+    { label: 'Exported Model', value: 'exportedModel', },
+    { label: 'Importing Model', value: 'importingModel', },
+    { label: 'Importing Model Component', value: 'importingModelComponent', },
+    { label: 'Layout', value: 'layout', }
+  ]
+}>
+<TabItem value="exportedModel">
+
+```ts title="src/components/ExportedModel/ExportedModel.ts"
+import { ComponentModelBase, serializable, exportModel } from "@geocortex/web/models";
+
+@exportModel
+@serializable
+export default class ExportedModel extends ComponentModelBase {
+    public someCustomModelProperty: string = "Some Text"
+}
+```
+
+</TabItem>
+<TabItem value="importingModel">
+
+```ts title="src/components/CustomComponent/CustomModel.ts"
+import { ComponentModelBase, serializable, importModel } from "@geocortex/web/models";
+import { ExportedModel } from "../ExportedModel";
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    @importModel("exported-model")
+    exportedModel: ExportedModel;
+
+    public getContentText(){
+        return this.exportedModel.someCustomModelProperty;
+    }
+}
+```
+
+</TabItem>
+<TabItem value="importingModelComponent">
+
+```tsx title="src/components/importedModel/ExportedModelComponent.tsx"
+import React from "react";
+import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
+import { CustomModel } from ".";
+
+export default function CustomComponent(props: LayoutElementProperties<CustomModel>) {
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <h3>{`Text From the imported Model: "${props.model.getContentText()}"`}</h3>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <stack padding="2">
+        <custom:custom-component />
+        <custom:exported-model-component />
+    </stack>
+</layout>
+```
+
+</TabItem>
+</Tabs>

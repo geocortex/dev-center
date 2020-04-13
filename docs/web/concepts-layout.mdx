@@ -175,8 +175,8 @@ Consider the following example:
     <map id="mapB"/>
     <panel>
         <stack>
-            <scale-bar id="A" />
-            <scale-bar id="B" />
+            <scalebar id="A" />
+            <scalebar id="B" />
         </stack>
     </panel>
 </layout>
@@ -212,14 +212,14 @@ By default, this happens by walking up the tree from the location of the compone
 
 ```xml
 <map>
-    <scale-bar/>
+    <scalebar/>
 </map>
 ```
 
 However, in the previous example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. To solve this, we can bind each scale bar to the appropiate map with the `models` attribute.
 
 :::note
-Learn more about how [models are automatically matched](TODO-link-to-advanced-layout).
+Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#implicit-binding).
 :::
 
 ```xml
