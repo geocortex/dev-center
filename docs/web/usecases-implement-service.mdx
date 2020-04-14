@@ -376,7 +376,7 @@ Always call `super._onInitialize()` before any custom initialization logic.
 import { ServiceBase } from "@geocortex/web/services";
 import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
 
-export default class CustomModel extends ServiceBase {
+export default class CustomService extends ServiceBase {
     handles: IHandle[] = [];
 
     protected async _onInitialize(): Promise<void> {
@@ -399,4 +399,163 @@ export default class CustomModel extends ServiceBase {
 
 ## Example: Configurable Service
 
-TODO
+Like components, services can be configured through the [app config](concepts-app-config.mdx). A service can participate in the config by extending the `ConfigurableServiceBase` class. The following example demonstrates a service with one configurable property `name`, which is used to produce a string that is rendered by a component.
+
+:::tip
+Check out the [article on creating a configurable component](usecases-implement-component-participate-app-config.mdx) for more details on how configuration related code like `_getSerializableProperties()` works.
+:::
+
+
+<Tabs
+  defaultValue="service"
+  values={[
+    { label: 'Service', value: 'service', },
+    { label: 'Model', value: 'model', },
+    { label: 'Component', value: 'component', },
+    { label: 'Registration', value: 'registration', },
+    { label: 'App Config', value: 'config', },
+    { label: 'Layout', value: 'layout', },
+    { label: 'User Interface', value: 'ui', }
+  ]
+}>
+<TabItem value="service">
+
+```ts title="src/services/CustomServiceWithConfig"
+import { ConfigurableServiceBase, PropertyDefs, serializable } from "@geocortex/web/services";
+import { ServiceModelProperties } from "@geocortex/web/models";
+
+export interface CustomServiceProperties extends ServiceModelProperties {
+    name: string;
+}
+
+@serializable
+export default class CustomServiceWithConfig extends ConfigurableServiceBase<CustomServiceProperties> {
+    name: string;
+
+    public async sayHello(): Promise<string> {
+        return `Hello, ${this.name}`;
+    }
+
+    protected _getSerializableProperties(): PropertyDefs<CustomServiceProperties> {
+        return {
+            ...super._getSerializableProperties(),
+            name: {
+                serializeModes: ["initial"],
+                serialize: () => this.name,
+                default: "Noah",
+            }
+        }
+    }
+}
+
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/CustomModel.ts"
+import { ComponentModelBase, serializable } from "@geocortex/web/models";
+import { inject } from "@geocortex/web/services";
+import CustomServiceWithConfig from "../../services/CustomServiceWithConfig";
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    @inject("custom-service-with-config")
+    public configurableService: CustomServiceWithConfig;
+}
+```
+
+</TabItem>
+<TabItem value="component">
+
+```tsx title="src/components/CustomComponent.tsx"
+import React, { useEffect, useState } from "react";
+import { LayoutElement, LayoutElementProperties } from "@geocortex/web/components";
+import CustomModel from "./CustomModel";
+
+export default function ComponentWithIcon(props: LayoutElementProperties<CustomModel>) {
+    const { model } = props;
+    const [content, setContent] = useState("");
+
+    useEffect(() => {
+        (async() => {
+            const helloText = await model.configurableService.sayHello();
+            setContent(helloText);
+        })();
+    })
+
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" ]}}>
+            <h2>{content}</h2>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="registration">
+
+```ts title="src/index.ts"
+import { LibraryRegistry, ServiceConstructor } from "@geocortex/web/config";
+import { ComponentType } from "react";
+import CustomComponent from "./components/CustomComponent/CustomComponent";
+import CustomModel from "./components/CustomComponent/CustomModel";
+import CustomServiceWithConfig from "./services/CustomServiceWithConfig";
+
+export default function (registry: LibraryRegistry) {
+    registry.registerComponent({
+        name: "my-component",
+        namespace: "your.custom.namespace",
+        getComponentType: () => CustomComponent as ComponentType,
+        itemType: "custom-model",
+        title: "Custom Component",
+    });
+    registry.registerModel({
+        getModelType: () => CustomModel,
+        itemType: "custom-model",
+    });
+    registry.registerService({
+        id: "custom-service-with-config",
+        title: "Custom Service with Config",
+        getServiceType: () => CustomServiceWithConfig as ServiceConstructor,
+        itemType: "custom-service"
+    })
+}
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "items": [
+        {
+            "id": "custom-service-id",
+            "$type": "custom-service",
+            "name": "Ian"
+        }
+    ]
+}
+
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1"
+        xmlns:custom="your.custom.namespace">
+    <map id="map-primary" >
+        <custom:my-component slot="top-center" padding="1"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+
+<!-- TODO -->
+
+</TabItem>
+</Tabs>
