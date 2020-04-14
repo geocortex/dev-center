@@ -36,7 +36,7 @@ You should see some number of results. If you look at the details for some of th
 
 The first thing we need to do is override the default search behavior. We can do this by editing the "Search" component of the [app config](sdk-quick-start.mdx#editing-the-layout-and-app-config). The default behavior for search is a command chain that runs `tasks.search` and then `results.display`.
 
-###### Default Search Config
+Here's the default search configuration:
 
 ```json {4}
 {
@@ -121,7 +121,7 @@ Check out [Change Default Application Behavior](usecases-change-default-behavior
 
 At this point, you can choose to extend the search behavior with Geocortex Workflow in whatever way is appropiate for your usecase. You could execute a different search for external results and add them to the set of results displayed, you could filter out specific results from the search, or you could replace the default search operation with an entirely different search operation. For this example, a workflow was created which checks the incoming search text for the text "filter:nosurvey" and then filters results to Fire Hydrants without a survey. The workflow [can be found here](https://latitudegeo.maps.arcgis.com/home/item.html?id=bc7647d4485743e98ea42cd69ee4aa66).
 
-# Next Steps
+## Next Steps
 
 This pattern of configuring behavior with a workflow can be applied throughout configuration on numerous components. You can use a workflow to control the behavior of the Map, Feature Details, Geolocate, Custom Components, and more. Often, a workflow can be created and used to execute custom behavior instead of a custom command or operation.
 

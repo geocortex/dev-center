@@ -25,7 +25,7 @@ edit.delete-features
 
 [Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Mobile. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](usecases-implement-command-operation.mdx) are registered with [Custom Services](usecases-implement-service.mdx) or [Custom Components](usecases-implement-component-with-ui.mdx) in this manner.
 
-### Argument Passing
+## Passing Arguments
 
 Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the various behaviors of a `<feature-details>` component.
 
@@ -66,7 +66,7 @@ Since these commands and operations are running from the [context](https://docs.
 
 In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example.
 
-### Passing Named Arguments
+## Passing Named Arguments
 
 If you choose, you can overide the default arguments passed into a command or operation by provide an `arguments` property.
 
@@ -94,7 +94,7 @@ If you choose, you can overide the default arguments passed into a command or op
 
 This will override the default arugment passing behavior for that command or operation. Each command has typed arguments that can will have [autocomplete linting in the app.json](concepts-advanced-config.mdx#autocomplete-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCase'd instead of PascalCased.
 
-### Example
+## Example
 
 <Tabs
   defaultValue="app"

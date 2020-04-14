@@ -67,8 +67,6 @@ There's a number of different Geocortex Mobile specific assembly attributes whic
 
 Used for registering a generic class with autofac.
 
-#### Example
-
 ```csharp
 [assembly: Export(typeof(MyCustomClass))]
 ```
@@ -76,8 +74,6 @@ Used for registering a generic class with autofac.
 ### `Component`
 
 Used for registering a component that **does not** consume configuration. For a more detailed example, see the use case on [implementing a custom component](usecases-implement-component-with-ui.mdx#create-a-component-skeleton).
-
-#### Example
 
 ```csharp
 [assembly: Component(typeof(MyCustomComponent), "my-custom-component")]
@@ -87,8 +83,6 @@ Used for registering a component that **does not** consume configuration. For a 
 
 Used for registering a component that **does** consume configuration. For a more detailed example, see the use case on [implementing a custom component with configuration](usecases-implement-component-participate-app-config.mdx#consume-the-configuration-in-the-component).
 
-#### Example
-
 ```csharp
 [assembly: AppItemComponent(typeof(MyCustomComponent), "my-custom-component", MyCustomComponentConfiguration.ConfigItemtype)]
 ```
@@ -96,8 +90,6 @@ Used for registering a component that **does** consume configuration. For a more
 ### `Service`
 
 Used for registering a service. For a more detailed example, see the use case on [implementing a custom service](usecases-implement-service.mdx#create-a-new-service).
-
-#### Example
 
 ```csharp
 [assembly: Service(typeof(CustomService))]
@@ -107,8 +99,6 @@ Used for registering a service. For a more detailed example, see the use case on
 
 Used for registering the definition for an [app item](concepts-app-config.mdx#anatomy-of-an-app-config) with Geocortex Mobile. For a more detailed example, see the use case on [implementing a custom component with app configuration](usecases-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
 
-#### Example
-
 ```csharp
 [assembly: AppItem(CustomAppItem.AppItemType, typeof(CustomAppItem))]
 ```
@@ -117,8 +107,6 @@ Used for registering the definition for an [app item](concepts-app-config.mdx#an
 
 Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](usecases-implement-component-with-ui.mdx#use-xaml-to-define-your-ui).
 
-#### Example
-
 ```csharp
 [assembly: View(typeof(CustomView))]
 ```
@@ -126,8 +114,6 @@ Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-f
 ### `ViewModel`
 
 Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](usecases-implement-component-with-ui.mdx#example-doomsday-cookie-clicker).
-
-#### Example
 
 ```csharp
 [assembly: ViewModel(typeof(CustomViewModel))]

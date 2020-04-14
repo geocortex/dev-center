@@ -25,7 +25,7 @@ edit.delete-features
 
 [Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Web. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](usecases-implement-command-operation.mdx) are registered with custom services or custom components in this manner.
 
-### Argument Passing
+## Passing Arguments
 
 Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the `featureActions` and `onFeatureClick` behaviours of a `<results-list>` component.
 
@@ -85,7 +85,7 @@ The `action` command chain of `save-features-to-csv` demonstrates how an operati
 ["results.convert-to-csv", "system.download-file"]
 ```
 
-### Passing Named Arguments
+## Passing Named Arguments
 
 If you choose, you can overide the default arguments passed into a command or operation by provide an `arguments` property.
 
@@ -115,7 +115,7 @@ If you choose, you can overide the default arguments passed into a command or op
 
 This will override the default arugment passing behavior for that command or operation. For example, `ui.display-notification` takes a object of type `DisplayNotificationArgs`, which has the property `message` of type `string`.
 
-### Example
+## Example
 
 <Tabs
   defaultValue="app"
