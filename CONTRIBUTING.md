@@ -163,7 +163,3 @@ Geocortex Mobile screenshots should be roughly taken with a certain window size 
 ```html
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
 ```
-
-### Adding Videos
-
-Adding videos to the documentation should be avoided. There is a plan to build live previews of the applications, which would play the role of video demos in the documentation.
