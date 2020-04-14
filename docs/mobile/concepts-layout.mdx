@@ -27,8 +27,8 @@ Take this example of a layout with a map and a compass.
 The first thing it does is declare a map that is linked to "default" configuration that specifies what content to load.
 Next, a compass is embedded within the map. This does two things:
 
-1. Visually places the element inside the map.
-2. Tells the compass to display a value [corresponding to the map it is placed in](concepts-advanced-layout.mdx#implicit-binding).
+1. Visually places the element inside the map
+2. Tells the compass to display a value [corresponding to the map it is placed in](concepts-advanced-layout.mdx#implicit-binding)
 
 <!-- TODO: Where should the default app layout link be pointing? -->
 
@@ -145,8 +145,8 @@ Panels are a container component that enable hierarchical navigation between dif
 
 This `search-panel` has two root components:
 
--   A stack containing a `<search>` and a `<results-list>`.
--   A `<feature-details>`.
+-   A stack containing a `<search>` and a `<results-list>`
+-   A `<feature-details>`
 
 When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<search>` component.
 The search component will activate the `<results-list>` component when a search is completed. Then, when a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a "stack" of components laid on top of eachother, and work as follows;
