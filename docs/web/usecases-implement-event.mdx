@@ -70,7 +70,8 @@ export default function CustomComponent(props) {
 export default class CustomModel extends ComponentModelBase {
     handles: IHandle[] = [];
 
-    protected _onInitialize(): Promise<void> {
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
         this.handles.push(
             this.messages.events.map.initialized.subscribe((e: MapEvent) => {
                 console.log(

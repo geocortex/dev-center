@@ -287,6 +287,55 @@ export default function (registry: LibraryRegistry) {
 
 <!-- TODO - add user interface photo -->
 
+### Example: Component that Uses Built in Icons
+
+The following example demonstrates a component that uses Geocortex UI Framework components and an icon from the [Geocortex Icons library](TODO-icon-library-link).
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx title="src/components/
+import React from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import DynamicIcon from "@geocortex/web/ui/icon/DynamicIcon";
+import IconButton from "@geocortex/web/ui/icon-button";
+import MenuItem from "@geocortex/web/ui/menu-item";
+import MenuItemSecondaryAction from "@geocortex/web/ui/menu-list-item-secondary-action";
+import ListItemText from "@geocortex/web/ui/list-item-text";
+
+export default function ComponentWithIcon(props) {
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <MenuItem >
+                <ListItemText
+                    primary={"Icon Example"}
+                    secondary={"cloud-download icon"}
+                />
+                <MenuItemSecondaryAction>
+                <IconButton title="IconExample">
+                    <DynamicIcon src="cloud-download" size="medium" />
+                </IconButton>
+                </MenuItemSecondaryAction>
+            </MenuItem>
+        </LayoutElement>
+    );
+}
+```
+ 
+</TabItem>
+<TabItem value="ui">
+
+<!-- TODO - UI Screenshot -->
+
+</TabItem>
+</Tabs>
+
 ## Running Commands and Operations
 
 When writing custom components or [custom services](implement-service.mdx), you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](implement-command-operation.mdx). You can run command and operations through the `UIContext` of the component. 
