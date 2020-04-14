@@ -21,10 +21,12 @@ export default class ExampleComponentModel extends ComponentModelBase {
     // highlight-next-line
     regionService: RegionService;
 
-    format(input: string): string {
+    private _distance = "100";
+
+    get distance(): string {
         return this.regionService.measurementSystem === "metric"
-            ? `${input} m`
-            : `${input} ft`;
+            ? `${this._distance} m`
+            : `${this._distance} ft`;
     }
 }
 ```
