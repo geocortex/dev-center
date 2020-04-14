@@ -45,7 +45,7 @@ namespace App1.Events
 ```
 
 :::info
-The two key components of this snippet are the `[assembly: Export(typeof(CustomEvents), SingleInstance = true, ...` tag and the class extension `AlertService: EventsBase`. These two pieces register the class with Geocortex Mobile and allow it to be injected with **autofac**
+The two key components of this snippet are the `[assembly: Export(typeof(CustomEvents), SingleInstance = true, ...` tag and the class extension `AlertService: EventsBase`. These two pieces register the class with Geocortex Mobile and allow it to be injected with **Autofac**.
 :::
 
 <AutofacSnippet />
@@ -88,10 +88,10 @@ public IEvent<SecurityCameraArgs> IntruderDetectedEvent => GetEvent<SecurityCame
 
 ## Using the Event
 
-Since the `CustomEvents` class was registered with autofac as a singleton, any other component, service, or view that injects it can publish or subscribe to the event. The example below but demonstrates how events could be used to tell views and services that rely on shared data that it has changed.
+Since the `CustomEvents` class was registered with Autofac as a singleton, any other component, service, or view that injects it can publish or subscribe to the event. The example below demonstrates how events could be used to tell views and services that rely on shared data that it has changed.
 
 :::important
-Check out [Implementing Custom Components](implement-component-with-ui.mdx) and [Implementing a Custom Background Service](implement-service.mdx) before diving into this example
+Check out [Implementing Custom Components](implement-component-with-ui.mdx) and [Implementing a Custom Background Service](implement-service.mdx) before diving into this example.
 :::
 
 <Tabs

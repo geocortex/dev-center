@@ -4,13 +4,13 @@ description: Geocortex Mobile - Learn about dependency injection in Geocortex Mo
 ---
 
 :::tip
-If your new to the concepts of **inversion of control** and **dependency injection**, check out [this article by Martin Fowler](https://martinfowler.com/articles/injection.html)
+If you are new to the concepts of **inversion of control** and **dependency injection**, check out [this article by Martin Fowler](https://martinfowler.com/articles/injection.html).
 :::
 
-Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into it's [components and services](concepts-components-services.mdx). Under the hood, Geocortex Mobile uses [autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
+Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into its [components and services](concepts-components-services.mdx). Under the hood, Geocortex Mobile uses [Autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
 
-1. The class to be injected must register itself with the autofac container
-2. The class that requires the dependency must accept a concrete class or abstract interface in it's constructor as a placeholder for the injected class.
+1. The class to be injected must register itself with the Autofac container.
+2. The class that requires the dependency must accept a concrete class or abstract interface in its constructor as a placeholder for the injected class.
 
 A good example of this pattern is the `AlertOperations` class in the [commands and operation](implement-command-operation.mdx) use case.
 
@@ -34,8 +34,8 @@ namespace App1.Services.AlertOperations
 ```
 
 -   This class both registers itself as a dependency, and has dependencies injected itself.
--   The assembly attribute `Export` is part of the Geocortex Mobile SDK, and registers the class with autofac as a singleton.
--   The constructor of the class takes an object of the type `IOperationRegistry`. This dependency will be resolved by autofac at runtime **when** `AlertOperations` is injected by another class. Chaining dependency injection in this manner is both a common and best practice pattern in Geocortex Mobile.
+-   The assembly attribute `Export` is part of the Geocortex Mobile SDK, and registers the class with Autofac as a singleton.
+-   The constructor of the class takes an object of the type `IOperationRegistry`. This dependency will be resolved by Autofac at runtime **when** `AlertOperations` is injected by another class. Chaining dependency injection in this manner is both a common and best practice pattern in Geocortex Mobile.
 
 This is an example of a class that injects `AlertOperations`, which will in turn inject an `IOperationRegistry` into itself.
 
@@ -57,15 +57,15 @@ namespace App1.Services
 
 ## Components and Services
 
-Components and services in Geocortex Mobile are almost always initialized by autofac. This means that they can inject any class that has been registered with autofac in their constructor, allowing classes used for behavior like [commands and operations](concepts-commands-operations.mdx) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with autofac to be correctly initialized, and it is best practice to use dependency injection to initalize instances of any other custom classes, services or components that the root level component depends on.
+Components and services in Geocortex Mobile are almost always initialized by Autofac. This means that they can inject any class that has been registered with Autofac in their constructor, allowing classes used for behavior like [commands and operations](concepts-commands-operations.mdx) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with Autofac to be correctly initialized, and it is best practice to use dependency injection to initalize instances of any other custom classes, services or components that the root level component depends on.
 
 ## List of Registration Assembly Attributes
 
-There's a number of different Geocortex Mobile specific assembly attributes which allow classes to register themselves with Geocortex Mobile's autofac container.
+There's a number of different Geocortex Mobile specific assembly attributes which allow classes to register themselves with Geocortex Mobile's Autofac container.
 
 ### `Export`
 
-Used for registering a generic class with autofac.
+Used for registering a generic class with Autofac.
 
 #### Example
 

@@ -18,7 +18,7 @@ Implementing a custom service in Mobile allows you to implement logic and shared
 ## Create a New Service
 
 Create a new file `Components/CustomService.cs` under the platform agnostic project.
-In the file, add a new component class `CustomService` and register it with **autofac**
+In the file, add a new component class `CustomService` and register it with **Autofac**.
 
 <AutofacSnippet />
 
@@ -51,14 +51,14 @@ namespace App1.Services
 The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `CustomService : ServiceBase`. These two pieces register the service with Geocortex Mobile and cause it to be initialized on startup.
 :::
 
-Congradulations! You've created your first working service. This service is available to be injected with autofac into any custom component. For inspiration with what you can do with services, check out the example below.
+Congratulations! You've created your first working service. This service is available to be injected with Autofac into any custom component. For inspiration with what you can do with services, check out the example below.
 
 ## Example
 
 This custom service mimics a fetch of new data every five seconds, and implements an operation which allows components to access the data. If you run this custom service, you can see each fetch of data logged at a debug level.
 
 :::important
-All services should dispose of long held memory or other resources by implementing `Dispose`. For more information, see [memory leaks](memory-leaks.mdx)
+All services should dispose of long held memory or other resources by implementing `Dispose`. For more information, see [memory leaks](memory-leaks.mdx).
 :::
 
 <Tabs defaultValue="service"
