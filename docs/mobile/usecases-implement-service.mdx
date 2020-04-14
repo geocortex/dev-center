@@ -9,7 +9,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 When extending Geocortex Mobile, you may find yourself creating multiple [components](concepts-components-services.mdx#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](concepts-components-services.mdx#services).
-Implementing a custom service in Geocortex Mobile allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the reccomended way of registering implementations for [custom commands and operations](implement-command-operation.mdx).
+Implementing a custom service in Geocortex Mobile allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the reccomended way of registering implementations for [custom commands and operations](usecases-implement-command-operation.mdx).
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ Congradulations! You've created your first working service. This service is avai
 This custom service mimics a fetch of new data every five seconds, and implements an operation which allows components to access the data. If you run this custom service, you can see each fetch of data logged at a debug level.
 
 :::important
-All services should dispose of long held memory or other resources by implementing `Dispose`. For more information, see [memory leaks](memory-leaks.mdx)
+All services should dispose of long held memory or other resources by implementing `Dispose`. For more information, see [memory leaks](sdk-memory-leaks.mdx)
 :::
 
 <Tabs defaultValue="service"

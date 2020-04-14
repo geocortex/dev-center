@@ -18,7 +18,7 @@ Geocortex Mobile's appearance is built around two concepts: theme and [layout](c
 
 Two prefined themes are included with Geocortex Web, `light` and `dark`. You can select a predefined theme and accent color with [Geocortex Web Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4).
 
-The branding [service](concepts-components-services#services) is responsible for the theming of the application. To select a theme and accent color from within the config, you can configure the branding service in the [app config](concepts-app-config.mdx).
+The branding [service](concepts-components-services.mdx#services) is responsible for the theming of the application. To select a theme and accent color from within the config, you can configure the branding service in the [app config](concepts-app-config.mdx).
 
 <Tabs
   defaultValue="config"
@@ -53,14 +53,13 @@ The branding [service](concepts-components-services#services) is responsible for
 </TabItem>
 </Tabs>
 
-
 ### Customizing Theme Colors
 
-Every color in a theme can be fully customized by editing the `colors` property of the the branding service configuration. 
+Every color in a theme can be fully customized by editing the `colors` property of the the branding service configuration.
 
 :::tip
 Colors can be specified with their common name, a hex value, or a rgba value.
-::: 
+:::
 
 <Tabs
   defaultValue="config"
@@ -207,15 +206,21 @@ export interface BrandingColors {
 
 How elements are laid out in a Geocortex Web Application is defined by an apps layout. [This article](concepts-layout.mdx) will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Web. Further styling within the layout can be done using [presentation attributes](concepts-advanced-layout.mdx#presentation-attributes).
 
-
 ## Adding Icons
 
-You can add new icons to Geocortex Web for use with buttons in the layout, custom components, and more. 
+You can add new icons to Geocortex Web for use with buttons in the layout, custom components, and more.
 
 ### Example: Button with Custom Icon
 
-This example will walk you through adding a custom icon to your application and using it with a button defined in the [layout](concepts-layout.mdx) and [app config](concepts-app-config.mdx). First, we need to get an icon to use. This [CC BY licensed icon](https://thenounproject.com/search/?q=action&creator=203375&i=3114038) representing a directors clapperboard is going to be used for this example. 
-<p>Here's <a href={useBaseUrl('img/action.svg')} download>a download link</a> for the svg representation of it.</p>
+This example will walk you through adding a custom icon to your application and using it with a button defined in the [layout](concepts-layout.mdx) and [app config](concepts-app-config.mdx). First, we need to get an icon to use. This [CC BY licensed icon](https://thenounproject.com/search/?q=action&creator=203375&i=3114038) representing a directors clapperboard is going to be used for this example.
+
+<p>
+    Here's{" "}
+    <a href={useBaseUrl("img/action.svg")} download>
+        a download link
+    </a>{" "}
+    for the svg representation of it.
+</p>
 
 <!-- TODO - how to deploy icons -->
 
@@ -227,7 +232,7 @@ Next, we have to register the icon with Geocortex Web. To do this, we make a cal
 
 :::note
 You can provide rasterized icon files with the type `raster`, but it is best practice to use `svg`.
-::: 
+:::
 
 ```ts
 import { LibraryRegistry } from "@geocortex/web/config";
@@ -237,7 +242,7 @@ export default function (registry: LibraryRegistry) {
         id: "action",
         type: "svg",
         url: "icons/action/action.svg",
-    })
+    });
 }
 ```
 

@@ -91,7 +91,7 @@ public IEvent<SecurityCameraArgs> IntruderDetectedEvent => GetEvent<SecurityCame
 Since the `CustomEvents` class was registered with autofac as a singleton, any other component, service, or view that injects it can publish or subscribe to the event. The example below but demonstrates how events could be used to tell views and services that rely on shared data that it has changed.
 
 :::important
-Check out [Implementing Custom Components](implement-component-with-ui.mdx) and [Implementing a Custom Background Service](implement-service.mdx) before diving into this example
+Check out [Implementing Custom Components](usecases-implement-component-with-ui.mdx) and [Implementing a Custom Background Service](usecases-implement-service.mdx) before diving into this example
 :::
 
 <Tabs
@@ -308,5 +308,5 @@ namespace App1.Services
 </Tabs>
 
 ::important
-One thing to note about this example is the use of `IDisposable` and `IDisposableTracker` to clean up event handlers in the View code behind and Service. Implementing these interfaces correctly is essentially to preventing [Memory Leaks in your Mobile Application](memory-leaks.mdx).
+One thing to note about this example is the use of `IDisposable` and `IDisposableTracker` to clean up event handlers in the View code behind and Service. Implementing these interfaces correctly is essentially to preventing [Memory Leaks in your Mobile Application](sdk-memory-leaks.mdx).
 :::important

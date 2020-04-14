@@ -29,7 +29,7 @@ Implementing a custom form element in Geocortex Mobile consists of three steps:
 
 ## Set up the Custom Form Element Skeleton
 
-1. Create a new file `CustomFormComponent` in the platform agnostic project of the Geocortex Mobile [quick start](../mobile/quick-start.mdx).
+1. Create a new file `CustomFormComponent` in the platform agnostic project of the Geocortex Mobile [quick start](../mobile/sdk-quick-start.mdx).
 2. Add a new skeleton form element that implements `FormComponent`.
 
 ```csharp
@@ -61,12 +61,12 @@ namespace App1.Workflow
 
 ## Set up a Form Element Registration Activity
 
-1. Create a new file `FormElementRegistrationActivity` in the platform agnostic project of the Geocortex Mobile [quick start](../mobile/quick-start.mdx).
+1. Create a new file `FormElementRegistrationActivity` in the platform agnostic project of the Geocortex Mobile [quick start](../mobile/sdk-quick-start.mdx).
 2. Add a new form registration activity that implements `RegisterCustomFormElementBase`.
 
 :::tip
 Only one form element registration activity is needed per app, as it can register multiple custom form elements.
-Learn more about [implementing custom activities](implement-custom-activity-mobile.mdx).
+Learn more about [implementing custom activities](usecases-mobile-implement-custom-activity.mdx).
 :::
 
 ```csharp
@@ -93,7 +93,7 @@ namespace App1.Workflow
 
 ## Register the Form Element Registration Activity
 
-Register the `RegisterCustomFormElementBase` class in the [`IActivityHandlerFactory` for the application](implement-custom-activity-mobile.mdx#register-the-activity-with-the-iactivityhandlerfactory). Now you can [build a workflow for Geocortex Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new custom form element!
+Register the `RegisterCustomFormElementBase` class in the [`IActivityHandlerFactory` for the application](usecases-mobile-implement-custom-activity.mdx#register-the-activity-with-the-iactivityhandlerfactory). Now you can [build a workflow for Geocortex Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new custom form element!
 
 :::important
 It is **essential** that this custom activity be run before the custom form element is used. It is best practice to run the form element registration activity at the start of a workflow.
@@ -103,7 +103,7 @@ It is **essential** that this custom activity be run before the custom form elem
 
 <!-- TODO fix SDK samples link -->
 
-This example demonstrates a form element that displays an enhanced activity indicator. [Check it out](https://github.com/geocortex/sdk-samples/workflow/custom-form-element) in the [Geocortex Mobile SDK Samples](../mobile/samples.mdx).
+This example demonstrates a form element that displays an enhanced activity indicator. [Check it out](https://github.com/geocortex/sdk-samples/workflow/custom-form-element) in the [Geocortex Mobile SDK Samples](../mobile/sdk-samples.mdx).
 
 <Tabs
   defaultValue="custom-form-element"

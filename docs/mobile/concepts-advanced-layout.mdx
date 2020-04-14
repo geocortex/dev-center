@@ -5,7 +5,7 @@ description: Geocortex Mobile - Learn about Geocortex Mobile's advanced layout c
 
 ## Autocomplete Properties
 
-The `layout.xml` that comes with the [Quick Start](quick-start.mdx) references a xml schema. This XML schema allows Visual Studio to autocomplete property names and provide linting for types. Two attributes on the layout, `xmlns:xsi`, and `xsi:schemaLocation` allow this to happen. If you move the `layout.xml` files, you will need to adjust the relative reference to the layout schema for autocomplete to still function.
+The `layout.xml` that comes with the [Quick Start](sdk-quick-start.mdx) references a xml schema. This XML schema allows Visual Studio to autocomplete property names and provide linting for types. Two attributes on the layout, `xmlns:xsi`, and `xsi:schemaLocation` allow this to happen. If you move the `layout.xml` files, you will need to adjust the relative reference to the layout schema for autocomplete to still function.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -90,7 +90,7 @@ This layout has components such as `<search/>` or `<gxm:add-feature/>` which req
 
 ### Implicit Config Binding
 
-Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, some configuration types have a **default** value. This means that if you omit the `config` property for a component of that type, the component will attempt to create default config for the type. An example of defining default config can be seen in the `CreateDefault` method of the configuration created for [this use case](implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition). It's the mechanism that powers the default map for this layout.
+Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, some configuration types have a **default** value. This means that if you omit the `config` property for a component of that type, the component will attempt to create default config for the type. An example of defining default config can be seen in the `CreateDefault` method of the configuration created for [this use case](usecases-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition). It's the mechanism that powers the default map for this layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -106,7 +106,7 @@ Most components support the [`config` attribute](concepts-app-config.mdx#linking
 Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. Some of these presentation attributes are accessible through the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), and the rest be configured through layout.
 
 :::note
-Most components also support the core attribute [`config`](concepts-app-config.mdx#linking-layout-to-app-config) and all components support the [`id`](concepts-app-config.mdx#targeting-components-with-by-id) attribute, as well as any custom attributes the component defines.
+Most components also support the core attribute [`config`](concepts-app-config.mdx#linking-layout-to-app-config) and all components support the [`id`](concepts-app-config.mdx#targeting-components-by-id) attribute, as well as any custom attributes the component defines.
 :::
 
 Several different presentations attributes are available. All attributes apply to all components unless otherwise stated.
