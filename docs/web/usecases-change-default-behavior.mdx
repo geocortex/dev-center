@@ -3,6 +3,10 @@ title: Change Default Application Behavior
 description: Geocortex Web - Learn how to configure Geocortex Web to change default application behavior
 ---
 
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+
 Many of the behaviors of Geocortex Web's built in [components](concepts-components-services.mdx) have behaviours which can be configured through [app config](concepts-app-config.mdx).  
 
 The follow example overrides the default behaviour for a map click by modifying the `onClick` property in the app config for the map component.
@@ -81,3 +85,26 @@ The `onClick` property for the `<map>` has been configured to run a series of [c
 You can view the configurable properties for a given component in the API documentation. For example, [here's the documentation](api-components.mdx#map) for the `<map>` component with the `onClick` property.
 
 By using commands and operations to customize default behaviour and using [layout principles](concepts-layout.mdx) to modify the UI, you can change deeply customize a Geocortex Web Application without having to write custom code. 
+
+## Next Steps
+
+Geocortex Mobile comes with many built in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviors without writing custom code. If you cannot create the behavior you want with Geocortex Workflow, it might be time to look into using the Geocortex Web SDK to implement a custom command or operation.
+
+<!-- Add search behaviour use case once complete -->
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations"
+        description="Learn more about commands and operations"
+        link="usecases-concepts-commands-operations"
+    />
+    <UseCaseCard
+        title="Geocortex Workflow"
+        description="Learn more about Geocortex Workflow"
+        link="../workflow/overview"
+    />
+    <UseCaseCard
+        title="Implement Custom Command/Operation"
+        description="Implement a custom Command/Operation with the Geocortex Web SDK"
+        link="implement-command-operation"
+    />
+</UseCaseContainer>
