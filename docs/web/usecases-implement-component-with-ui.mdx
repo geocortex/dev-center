@@ -124,7 +124,7 @@ To allow layout to find your component, you need to add the [custom namespace](c
 <layout xmlns="https://geocortex.com/layout/v1"
         // highlight-next-line
         xmlns:custom="your.custom.namespace">
-    <map id="map-primary" config="default" />
+    <map id="map-primary" />
 </layout>
 ```
 
@@ -134,9 +134,9 @@ You can then add the component itself to your layout, making sure to use `name` 
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1"
 xmlns:custom="your.custom.namespace">
-    <map id="map-primary" config="default" />
+    <map id="map-primary"/>
     // highlight-next-line
-    <custom:my-component>
+    <custom:my-component/>
 </layout>
 ```
 
@@ -240,7 +240,7 @@ export default serializable(NewsFeedModel);
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map id="map-primary" config="default" >
+    <map id="map-primary">
         // highlight-next-line
         <custom:news-feed slot="top-center"/>
     </map>
@@ -289,88 +289,43 @@ export default function (registry: LibraryRegistry) {
 
 ## Running Commands and Operations
 
-When writing custom components or [custom services](implement-service.mdx), you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](implement-command-operation.mdx). You can run command and operations through a components model
-associated model.
+When writing custom components or [custom services](implement-service.mdx), you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](implement-command-operation.mdx). You can run command and operations through the `UIContext` of the component. 
 
 ### Example: Display a Notification to a User
 
-The following component uses it's model to call the `ui.confirm` command and `ui.display-notification` operation. Calling a command or operation is as simple as retrieving it by name using the [`MessageBus`](api-message-bus.mdx) on the model, and then calling `execute` with the appropiate arguments.
+The following example executes the `ui.confirm` operation [through the UIContext](sdk-ui-context.mdx). Calling a command or operation is as simple as retrieving it by name, providing the appropiate generic type for the command or operation, and then calling `execute` with the appropiate arguments. 
 
 :::note
-In order to pass arguments to a command or operation, you have to use the correct type for the generic `messages.command` or `messages.operation` function call with the argument and output type for the command or operation. For example, `ui.confirm` takes in a `ConfirmOperationArgs` and returns a `boolean`, as seen in the [API docs](api-commands-operations.mdx#ui-confirm), so it's `operation()` call would look like this;
-
-```ts
-messages.operation<ConfirmOperationArgs, boolean>("ui.confirm");
-```
-
+In order to pass arguments to a command or operation, you have to use the correct type for the generic `command` or `operation` function call with the argument and output type for the command or operation. For example, `ui.confirm` takes in a `ConfirmOperationArgs` and returns a `boolean`, as seen in the [API docs](api-commands-operations.mdx#ui-confirm).
 :::
 
-<Tabs
-  defaultValue="component"
-  values={[
-    { label: 'Component', value: 'component', },
-    { label: 'Model', value: 'model', },
-  ]
-}>
-<TabItem value="component">
-
 ```tsx title="src/components/CustomComponent/CustomComponent.tsx"
-import React, { useState } from "react";
-import {
-    LayoutElement,
-    LayoutElementProperties,
-} from "@geocortex/web/components";
-import { CustomComponentModel } from ".";
+import React, { useContext } from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import { UIContext } from "@geocortex/web/ui";
+import { ConfirmOperationArgs } from "@geocortex/viewer-framework/messaging/registry/ui";
 
-export interface CustomComponentProps
-    extends LayoutElementProperties<CustomComponentModel> {}
+export default function CustomComponent(props) {
+    const context = useContext(UIContext);
 
-export default function CustomComponent(props: CustomComponentProps) {
+    const displayConfirmDialog = async () => {
+        const result = await context.operation<ConfirmOperationArgs, boolean>("ui.confirm").execute({
+            title:  "Confirm Me",
+        })
+        
+        if(result){
+            console.log("I have been confirmed!")
+        } else {
+            console.warn("I was not confirmed.")
+        }
+    }
     return (
         <LayoutElement {...props}>
-            <button onClick={async () => await props.model.displayConfirm()}>
-                Display Confirm Dialog
-            </button>
+            <button onClick={displayConfirmDialog}>Display Confirm Dialog</button>
         </LayoutElement>
     );
 }
 ```
-
-</TabItem>
-<TabItem value="model">
-
-```ts title="src/components/CustomComponent/CustomComponentModel.ts"
-import { serializable, ComponentModelBase } from "@geocortex/web/models";
-import {
-    DisplayNotificationArgs,
-    ConfirmOperationArgs,
-} from "@geocortex/viewer-framework/messaging/registry/ui";
-
-@serializable
-export default class NewsFeedComponentModel extends ComponentModelBase {
-    public async displayConfirm() {
-        var result = await this.messages
-            .operation<ConfirmOperationArgs, boolean>("ui.confirm")
-            .execute({
-                message: "Are you sure?",
-                title: "Something Important",
-                okButtonText: "absolutely.",
-                cancelButtonText: "never",
-            });
-
-        await this.messages
-            .command<DisplayNotificationArgs>("ui.display-notification")
-            .execute({
-                message: `You ${
-                    result ? "agreed" : "did not agree"
-                } to the dialog`,
-            });
-    }
-}
-```
-
-</TabItem>
-</Tabs>
 
 ## Interacting with Application Services
 
