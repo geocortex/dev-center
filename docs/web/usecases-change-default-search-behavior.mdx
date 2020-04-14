@@ -20,7 +20,7 @@ We will modify the default search behavior of the built in search component on t
 
 ## Initial Set up
 
-Load Geocortex Web with the following layout and app json. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys. 
+Load Geocortex Web with the following layout and app json. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.
 
 <Tabs
   defaultValue="config"
@@ -36,15 +36,13 @@ Load Geocortex Web with the following layout and app json. You should see a simp
         {
             "id": "default",
             "layerExtensions": [
-              "item://layer-extension/victoria-fire-hydrants"
+                "item://layer-extension/victoria-fire-hydrants"
             ],
-            "tableExtensions": [
-              "item://table-extension/fire-hydrants-table"
-            ],
+            "tableExtensions": ["item://table-extension/fire-hydrants-table"],
             "onClick": [
-              "geometry.add-pixel-tolerance",
-              "tasks.identify",
-              "results.display-details"
+                "geometry.add-pixel-tolerance",
+                "tasks.identify",
+                "results.display-details"
             ],
             "webMap": {
                 "version": "2.8",
@@ -203,14 +201,14 @@ Load Geocortex Web with the following layout and app json. You should see a simp
                     }
                 ],
                 "baseMap": {
-                  "baseMapLayers": [
-                    {
-                      "id": "topo",
-                      "layerType": "ArcGISTiledMapServiceLayer",
-                      "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
-                      "title": "Topographic"
-                    }
-                  ]
+                    "baseMapLayers": [
+                        {
+                            "id": "topo",
+                            "layerType": "ArcGISTiledMapServiceLayer",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+                            "title": "Topographic"
+                        }
+                    ]
                 },
                 "tables": [
                     {
@@ -326,7 +324,7 @@ Load Geocortex Web with the following layout and app json. You should see a simp
                         "xmin": -13733798.962308966,
                         "ymax": 6177644.453403971,
                         "ymin": 6177206.134819838
-                    } 
+                    }
                 }
             },
             "$type": "map-extension"
@@ -337,9 +335,7 @@ Load Geocortex Web with the following layout and app json. You should see a simp
         },
         {
             "id": "results-list-config",
-            "onFeatureClick": [
-              "results.display-details"
-            ],
+            "onFeatureClick": ["results.display-details"],
             "$type": "results"
         },
         {
@@ -354,10 +350,10 @@ Load Geocortex Web with the following layout and app json. You should see a simp
         {
             "id": "fire-hydrants-table",
             "table": {
-              "$ref": {
-                "id": "fire_hydrants_table",
-                "title": "Fire Hydrants - Hydrant Surveys"
-              }
+                "$ref": {
+                    "id": "fire_hydrants_table",
+                    "title": "Fire Hydrants - Hydrant Surveys"
+                }
             },
             "$type": "table-extension"
         }
@@ -367,7 +363,6 @@ Load Geocortex Web with the following layout and app json. You should see a simp
 
 </TabItem>
 <TabItem value="layout">
-
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -391,12 +386,11 @@ Load Geocortex Web with the following layout and app json. You should see a simp
 </TabItem>
 </Tabs>
 
-
 Search for the text `active`. You should see some number of results. If you look at the details for some of the Fire Hydrants, you'll notice some have Fire Hydrant Surveys and some don't. We will build a workflow that will only return the Fire Hydrants without a related survey when you search for `active filter:nosurveys`.
 
 ## Set up a Workflow to Run on Search
 
-The first thing we need to do is override the default search behavior. We can do this by [editing the default behaviour](usecases-change-default-behavior) for the "Search" component in the app config. The default behavior for search is a command chain that runs `tasks.search` and then `results.display`, as seen in the [api](api-components.mdx#search).
+The first thing we need to do is override the default search behavior. We can do this by [editing the default behaviour](usecases-change-default-behavior.mdx) for the "Search" component in the app config. The default behavior for search is a command chain that runs `tasks.search` and then `results.display`, as seen in the [api](api-components.mdx#search).
 
 ```json
 {
@@ -450,7 +444,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
         ...
         {
             "id": "search-config",
-            "onSearch": "workflow.run-filter-search-workflow",   
+            "onSearch": "workflow.run-filter-search-workflow",
             "$type": "search"
         }
         ...

@@ -15,7 +15,7 @@ import DoomsdayCookieClickerViewModel from "./snippets/doomsday-cookie-clicker-v
 Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
 :::
 
-Implementing a custom component in Geocortex Mobile gives you one of the highest degrees of flexibility with what you can do. [Components](concepts-components-services.mdx) can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Mobile app, so it's worthwhile to try simplier options like [Commands and Operations](concepts-commands-operations.mdx) or [Workflow](change-default-search-behavior.mdx).
+Implementing a custom component in Geocortex Mobile gives you one of the highest degrees of flexibility with what you can do. [Components](concepts-components-services.mdx) can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Mobile app, so it's worthwhile to try simplier options like [Commands and Operations](concepts-commands-operations.mdx) or [Workflow](usecases-change-default-search-behavior.mdx).
 
 ## Prerequisites
 
@@ -193,12 +193,12 @@ namespace App1.Components
 Congradulations! You've now built a working component with UI that is exposed in Mobile.
 
 :::tip
-Learn about how to extend this component to [participate in app config](implement-component-participate-app-config.mdx).
+Learn about how to extend this component to [participate in app config](usecases-implement-component-participate-app-config.mdx).
 :::
 
 ## Extend your Component with Custom Code
 
-From here, you can implement your own buisness logic and interfaces, create custom [Commands and Operations](implement-command-operation.mdx) that are powered by and/or interact with your component, and much more. [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml.
+From here, you can implement your own buisness logic and interfaces, create custom [Commands and Operations](usecases-implement-command-operation.mdx) that are powered by and/or interact with your component, and much more. [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml.
 
 <!-- TODO: Validate link when available -->
 
@@ -337,5 +337,5 @@ namespace App1.Components
 This example refactored the original example to use [autofac dependency injection](https://autofaccn.readthedocs.io/en/latest/register/registration.html) to instantiate the View and ViewModel. Setting up your classes so dependencies are handled by autofac in the constructor allows you to allow inject other Geocortex Mobile classes registered with Autofac, like how the `UIOperations` class is injected into the view.
 
 :::note
-Learn more of this ViewModel's use of the Geocortex Mobile helper class [`NotifyPropertyBase`](viewmodel-helper-class.mdx)
+Learn more of this ViewModel's use of the Geocortex Mobile helper class [`NotifyPropertyBase`](sdk-viewmodel-helper-class.mdx)
 :::

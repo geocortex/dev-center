@@ -241,7 +241,7 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
 
 ## Example: Application with Hidden Side Panel
 
-This example demonstrates a web application with a hidden side panel that pops out when you click a button. It was created entirely with app config and layout. Some concepts from [advanced layout](concepts-advanced-layout.mdx) and [advanced app config](advanced-config.mdx), such as linking config items through [item URIs](concepts-advanced-config.mdx#item-uris), were used.
+This example demonstrates a web application with a hidden side panel that pops out when you click a button. It was created entirely with app config and layout. Some concepts from [advanced layout](concepts-advanced-layout.mdx) and [advanced app config](concepts-advanced-config.mdx), such as linking config items through [item URIs](concepts-advanced-config.mdx#item-uris), were used.
 
 <!-- TODO - user interface screenshot -->
 
@@ -279,7 +279,7 @@ This example demonstrates a web application with a hidden side panel that pops o
             <map-coordinates slot="context-menu"/>
         </map>
     </split>
-</layout> 
+</layout>
 ```
 
 </TabItem>
@@ -324,7 +324,7 @@ This example demonstrates a web application with a hidden side panel that pops o
             ],
             "title": "I Want To Menu",
             "isLandmark": true,
-            "$type": "menu"        
+            "$type": "menu"
         },
         {
             "$type": "menu-item",
@@ -335,7 +335,10 @@ This example demonstrates a web application with a hidden side panel that pops o
             "action": {
                 "name": "map.zoom-in",
                 "arguments": {
-                    "maps": ["item://map-extension/small-map", "item://map-extension/large-map"]
+                    "maps": [
+                        "item://map-extension/small-map",
+                        "item://map-extension/large-map"
+                    ]
                 }
             }
         },
@@ -376,7 +379,6 @@ This example demonstrates a web application with a hidden side panel that pops o
 
 </TabItem>
 </Tabs>
-
 
 ## Next Steps: Commands and Operations
 

@@ -1,0 +1,107 @@
+---
+title: Create a Component
+description: Geocortex Web - Create a Component for Geocortex Web
+---
+
+The [Geocortex Web SDK](sdk-overview.mdx) project template includes an example of a custom [component](concepts-components-services.mdx#components) following our best practices. Creating a new custom component involves a few important steps:
+
+1. [Create the component source file](#create-a-component)
+1. [Create the component model](#create-a-component-model)
+1. [Register the component and component model in your library registration file](#register-the-component)
+
+## Create a Component
+
+Create the component source file in a new folder within the `src/components` folder. For example to create a new component called `ExampleComponent`, create a new file called `ExampleComponent.tsx` in `src/components/ExampleComponent` with the following content:
+
+```tsx title="src/components/ExampleComponent/ExampleComponent.tsx"
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import React from "react";
+
+// We will create this model in the next step.
+import ExampleComponentModel from "./ExampleComponentModel";
+
+const ExampleComponent = (
+    props: LayoutElementProperties<ExampleComponentModel>
+) => {
+    const { model } = props;
+
+    return <LayoutElement {...props}>{model.exampleValue}</LayoutElement>;
+};
+
+export default ExampleComponent;
+```
+
+## Create a Component Model
+
+<!-- TODO: Clarify that React component state is still useful. Provide suggestions on when to use one vs. other -->
+
+Next we need to create the [component model](concepts-components-services.mdx#component-models) that will be bound to the component we just created. This model will function as the underlying data source for the component. Create a new file called `ExampleComponentModel.ts` in `src/components/ExampleComponent`:
+
+```ts title="src/components/ExampleComponent/ExampleComponentModel.ts"
+import {
+    ComponentModelBase,
+    ComponentModelProperties,
+    serializable,
+} from "@geocortex/web/models";
+
+export type ExampleComponentModelProperties = ComponentModelProperties;
+
+// The serializable decorator marks this class as being serializable
+// so it can be serialized to/from the app.json configuration of
+// your app.
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase {
+    exampleValue = "foo";
+}
+```
+
+## Register the Component
+
+Finally we need to register the component and component model with the Geocortex Web component registry so that it is aware of your new component.
+
+To simplify the module imports, we'll make a new file in the `ExampleComponent` folder called `index.ts`. Note that this file is for convenience, and is not required:
+
+```ts title="src/components/ExampleComponent/index.ts"
+export { default } from "./ExampleComponent";
+export { default as ExampleComponentModel } from "./ExampleComponentModel";
+```
+
+Now register your component and component model with the component registry by modifying the `src/index.ts` file:
+
+<!-- TODO: The `as ComponentType` is gross. Fix this. -->
+
+```ts title="src/index.ts"
+import { LibraryRegistry } from "@geocortex/web/config";
+import { ComponentType } from "react";
+
+// highlight-start
+import ExampleComponent, {
+    ExampleComponentModel,
+} from "./components/ExampleComponent";
+// highlight-end
+
+// This namespace is generated when you create your project
+// and will be unique to your library.
+const LAYOUT_NAMESPACE = "custom.abc123";
+
+export default function (registry: LibraryRegistry) {
+    // ... other item registrations
+
+    // highlight-start
+    registry.registerComponent({
+        name: "example",
+        namespace: LAYOUT_NAMESPACE,
+        getComponentType: () => ExampleComponent as ComponentType,
+        itemType: "example-model",
+        title: "Example Component",
+    });
+    registry.registerModel({
+        getModelType: () => ExampleComponentModel,
+        itemType: "example-model",
+    });
+    // highlight-end
+}
+```

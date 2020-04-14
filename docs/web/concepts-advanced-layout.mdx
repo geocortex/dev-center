@@ -47,12 +47,12 @@ Take this more complicated layout for example.
 This layout has a `<search>` component which requires the context of a specific map to function. However, this component is **not** nested within the `<map/>` component in the app. Therefore, it will start a breadth first search from the root of the layout to discover a map component and bind to it.
 
 :::note
-This implicit binding logic also applies to [models](concepts-layout.mdx#models). If a corresponding model is found before a corresponding component during the layout traversal, the referenced model will be bound to instead. For the above example, adding a `models="#map1"` attribute to the panel containing the `<search>` component would be a flexible solution to bind it to the map. 
+This implicit binding logic also applies to [models](concepts-layout.mdx#models). If a corresponding model is found before a corresponding component during the layout traversal, the referenced model will be bound to instead. For the above example, adding a `models="#map1"` attribute to the panel containing the `<search>` component would be a flexible solution to bind it to the map.
 :::
 
 ### Implicit Config Binding
 
-Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, some configuration types have a **default** value. This means that if you omit the `config` property for a component of that type, the component will attempt to create default config for the type. An example of defining default config can be seen in the `_getSerializableProperties` method of the model created for [this use case](implement-component-participate-app-config.mdx#participating-in-the-configuration-lifecycle). It's the mechanism that powers the default map for this layout.
+Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, some configuration types have a **default** value. This means that if you omit the `config` property for a component of that type, the component will attempt to create default config for the type. An example of defining default config can be seen in the `_getSerializableProperties` method of the model created for [this use case](usecases-implement-component-participate-app-config.mdx#participating-in-the-configuration-lifecycle). It's the mechanism that powers the default map for this layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -68,7 +68,7 @@ Most components support the [`config` attribute](concepts-app-config.mdx#linking
 Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. Some of these presentation attributes are accessible through the [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/), and the rest be configured through layout.
 
 :::note
-Most components also support the core attributes [`config`](concepts-app-config.mdx#linking-layout-to-app-config), [`models`](concepts-layout.mdx#models) and all components support the [`id`](concepts-app-config.mdx#targeting-components-with-by-id) attribute, as well as any custom attributes the component defines.
+Most components also support the core attributes [`config`](concepts-app-config.mdx#linking-layout-to-app-config), [`models`](concepts-layout.mdx#models) and all components support the [`id`](concepts-app-config.mdx#targeting-components-by-id) attribute, as well as any custom attributes the component defines.
 :::
 
 Several different presentations attributes are available. All attributes apply to all components unless otherwise stated.

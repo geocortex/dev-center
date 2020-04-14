@@ -8,7 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 :::tip
-Geocortex Web has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](change-default-search-behaviour.mdx) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+Geocortex Web has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviours with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-search-behavior.mdx) to take custom behaviour even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
 This article will walk you through implementing a custom command in Geocortex Web that can record actions and a custom operation that returns a list of executed actions.
@@ -52,7 +52,7 @@ export { default } from "./CustomService";
 </Tabs>
 
 :::tip
-Learn more about [implementing custom services](implement-service.mdx)
+Learn more about [implementing custom services](usecases-implement-service.mdx)
 :::
 
 ## Register the Service with the Web SDK
@@ -150,7 +150,7 @@ export default function (registry: LibraryRegistry) {
 
 ## Test the Custom Command and Operation
 
-You can test your custom command and operation by adding entries to the I Want to Menu in the [app config](concepts-app-config) that run your commands and operation. For more information on customizing your app with commands and operations, see [Change Default Behaviour](change-default-behaviour.mdx).
+You can test your custom command and operation by adding entries to the I Want to Menu in the [app config](concepts-app-config.mdx) that run your commands and operation. For more information on customizing your app with commands and operations, see [Change Default Behaviour](usecases-change-default-behavior.mdx).
 
 ### Example: I Want To Menu Custom Command and Operation Config
 

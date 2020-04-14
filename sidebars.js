@@ -69,7 +69,8 @@ module.exports = {
             label: "Getting Started with the SDK",
             items: [
                 "web/sdk-overview",
-                "web/sdk-build-first-app",
+                "web/sdk-create-component",
+                "web/sdk-create-service",
                 "web/sdk-deployment",
                 {
                     type: "category",
@@ -192,13 +193,13 @@ module.exports = {
                             type: "link",
                             label: "Implement Custom Workflow Form Elements",
                             href:
-                            "../workflow/usecases-mobile-implement-custom-form-elements",
+                                "../workflow/usecases-mobile-implement-custom-form-elements",
                         },
                         {
                             type: "link",
                             label: "Implement Custom Workflow Activity",
                             href:
-                            "../workflow/usecases-mobile-implement-custom-activity",
+                                "../workflow/usecases-mobile-implement-custom-activity",
                         },
                         "mobile/usecases-change-default-search-behavior",
                     ],

@@ -56,7 +56,7 @@ For example, this configuration will place the zoom widget in the top right of t
 If a slot configuration is not given, the component will slot itself into a default position. Each component defines it's own slots - not every slot will work for every component.
 
 :::tip
-The [Quick Start](quick-start.mdx) comes with a schema for `layout.xml` which can [autocomplete slot values for a component](concepts-advanced-layout.mdx#autocomplete-properties)
+The [Quick Start](sdk-quick-start.mdx) comes with a schema for `layout.xml` which can [autocomplete slot values for a component](concepts-advanced-layout.mdx#autocomplete-properties)
 :::
 
 Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
@@ -162,7 +162,7 @@ When a feature in the results list is opened, the `<feature-details>` component 
     -   Else, the component is already inactive
 
 :::tip
-The default `layout-large.xml` in the Geocortex Mobile [quick start](quick-start.mdx) has examples of multiple panels that live in the taskbar.
+The default `layout-large.xml` in the Geocortex Mobile [quick start](sdk-quick-start.mdx) has examples of multiple panels that live in the taskbar.
 :::
 
 ## Device Form factors
@@ -170,7 +170,7 @@ The default `layout-large.xml` in the Geocortex Mobile [quick start](quick-start
 Geocortex Mobile has built in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target UWP devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropiate.
 
 :::tip
-The Geocortex Mobile SDK [quick start](quick-start.mdx) includes a large and small layout.
+The Geocortex Mobile SDK [quick start](sdk-quick-start.mdx) includes a large and small layout.
 :::
 
 In order for the correct layout to be loaded for the correct form factor, the layout needs to be loaded by the app config.
@@ -201,7 +201,7 @@ In order for the correct layout to be loaded for the correct form factor, the la
 This app config will load a large layout for a desktop device, and a medium layout for a tablet device.
 
 :::important
-The [quick start](Quick Start) does not ship with a medium layout configured. See [Add Medium Layout](add-medium-layout.mdx) for instructions on how to do this.
+The [quick start](Quick Start) does not ship with a medium layout configured. See [Add Medium Layout](usecases-add-medium-layout.mdx) for instructions on how to do this.
 :::
 
 ### Fallback Layouts

@@ -12,7 +12,7 @@ Geocortex Mobile comes with search functionality out of the box. The default beh
 
 ## What you're Building
 
-We will modify the default search behavior of the [Quick Start](quick-start.mdx) application on the Fire Hydrants layer have have an optional filter that will only show fire hydrants without a hydrants survey.
+We will modify the default search behavior of the [Quick Start](sdk-quick-start.mdx) application on the Fire Hydrants layer have have an optional filter that will only show fire hydrants without a hydrants survey.
 
 <img
     src={useBaseUrl("img/custom-search-workflow-finished.png")}
@@ -34,7 +34,7 @@ You should see some number of results. If you look at the details for some of th
 
 ## Set up a Workflow to Run on Search
 
-The first thing we need to do is override the default search behavior. We can do this by editing the "Search" component of the [app config](quick-start.mdx#editing-the-layout-and-app-config). The default behavior for search is a command chain that runs `tasks.search` and then `results.display`.
+The first thing we need to do is override the default search behavior. We can do this by editing the "Search" component of the [app config](sdk-quick-start.mdx#editing-the-layout-and-app-config). The default behavior for search is a command chain that runs `tasks.search` and then `results.display`.
 
 ###### Default Search Config
 
@@ -114,7 +114,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
 8. Save the workflow and reload the application. Test the search functionality and ensure it works as it originally did.
 
 :::tip
-Check out [Change Default Application Behavior](change-default-behavior.mdx) for more ways to override default behavior like search.
+Check out [Change Default Application Behavior](usecases-change-default-behavior.mdx) for more ways to override default behavior like search.
 :::
 
 ## Extend the Workflow to Filter the Results.
@@ -134,7 +134,7 @@ This pattern of configuring behavior with a workflow can be applied throughout c
     <UseCaseCard
         title="Change Default Behavior"
         description="Learn more about overriding default behaviors"
-        link="./change-default-behavior"
+        link="use-caseschange-default-behavior"
     />
     <UseCaseCard
         title="SDK Sample for Overriding Default Behaviors"
@@ -145,7 +145,7 @@ This pattern of configuring behavior with a workflow can be applied throughout c
     <UseCaseCard
         title="Implement Custom Command or Operation"
         description="Implement a custom command or operation with the Mobile SDK"
-        link="./implement-command-operation"
+        link="usecases-implement-command-operation"
     />
     <UseCaseCard
         title="Custom Search Workflow with Filter"
