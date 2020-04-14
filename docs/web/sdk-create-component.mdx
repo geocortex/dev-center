@@ -5,11 +5,11 @@ description: Geocortex Web - Create a Component for Geocortex Web
 
 The [Geocortex Web SDK](sdk-overview.mdx) project template includes an example of a custom [component](concepts-components-services.mdx#components) following our best practices. Creating a new custom component involves a few important steps:
 
-1. [Create the component source file](#create-a-component)
-1. [Create the component model](#create-a-component-model)
+1. [Create the component source file](#create-the-component)
+1. [Create the component model](#create-the-component-model)
 1. [Register the component and component model in your library registration file](#register-the-component)
 
-## Create a Component
+## Create the Component
 
 Create the component source file in a new folder within the `src/components` folder. For example to create a new component called `ExampleComponent`, create a new file called `ExampleComponent.tsx` in `src/components/ExampleComponent` with the following content:
 
@@ -34,7 +34,7 @@ const ExampleComponent = (
 export default ExampleComponent;
 ```
 
-## Create a Component Model
+## Create the Component Model
 
 <!-- TODO: Clarify that React component state is still useful. Provide suggestions on when to use one vs. other -->
 
@@ -47,14 +47,18 @@ import {
     serializable,
 } from "@geocortex/web/models";
 
-export type ExampleComponentModelProperties = ComponentModelProperties;
+interface ExampleComponentModelProperties extends ComponentModelProperties {
+    exampleValue: string;
+}
 
 // The serializable decorator marks this class as being serializable
 // so it can be serialized to/from the app.json configuration of
 // your app.
 @serializable
-export default class ExampleComponentModel extends ComponentModelBase {
-    exampleValue = "foo";
+export default class ExampleComponentModel extends ComponentModelBase<
+    ExampleComponentModelProperties
+> {
+    exampleValue: string;
 }
 ```
 
