@@ -7,10 +7,10 @@ description: Geocortex Mobile - Learn about dependency injection in Geocortex Mo
 If your new to the concepts of **inversion of control** and **dependency injection**, check out [this article by Martin Fowler](https://martinfowler.com/articles/injection.html)
 :::
 
-Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into it's [components and services](concepts-components-services.mdx). Under the hood, Geocortex Mobile uses [autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
+Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into its [components and services](concepts-components-services.mdx). Under the hood, Geocortex Mobile uses [autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
 
 1. The class to be injected must register itself with the autofac container
-2. The class that requires the dependency must accept a concrete class or abstract interface in it's constructor as a placeholder for the injected class.
+2. The class that requires the dependency must accept a concrete class or abstract interface in its constructor as a placeholder for the injected class.
 
 A good example of this pattern is the `AlertOperations` class in the [commands and operation](usecases-implement-command-operation.mdx) use case.
 

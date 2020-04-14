@@ -35,7 +35,7 @@ The basic example shown above will place a zoom widget inside a map. But what if
 
 ## Slotting
 
-The position of a component within it's parent is controlled by what slot it is placed into.
+The position of a component within its parent is controlled by what slot it is placed into.
 
 For example, this configuration will place the zoom widget in the top right of the map.
 
@@ -49,7 +49,7 @@ For example, this configuration will place the zoom widget in the top right of t
 </layout>
 ```
 
-If a slot configuration is not given, the component will slot itself into a default position. Each component defines it's own slots - not every slot will work for every component.
+If a slot configuration is not given, the component will slot itself into a default position. Each component defines its own slots - not every slot will work for every component.
 
 :::tip
 TODO - autocomplete tip? again, depends on what is our reccomended layout editing pattern
@@ -185,14 +185,12 @@ Layouts achieve these simply by expressing data dependencies in the form of mode
 Example (in TypeScript):
 
 ```ts
-
 @exportModel
 export class MapComponent {
     // ... map stuff ...
 }
 
 export class ScaleBarComponent {
-
     @importModel("map-extension")
     map: MapExtension;
 
@@ -281,7 +279,7 @@ Every component in the xml file has a definition that lives in an xml namespace.
 Geocortex Web has a custom namespace `https://geocortex.com/layout/web/v1` in which components like `<bookmarks>` live. You can add this namespace to your layout to use these components.
 
 ```xml
-<layout xmlns="https://geocortex.com/layout/v1" 
+<layout xmlns="https://geocortex.com/layout/v1"
         // highlight-next-line
         xmlns:web="https://geocortex.com/layout/web/v1">
     <map>
@@ -295,12 +293,12 @@ When adding custom components, you will need to [add their custom namespace](use
 
 ## Next Steps: Components and App Config
 
-In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with responsive, declarative layouts. 
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has its own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with responsive, declarative layouts.
 
 <UseCaseContainer>
     <UseCaseCard
         title="App Config"
-        description="Learn about app configuration and it's interaction with layout."
+        description="Learn about app configuration and its interaction with layout."
         link="concepts-app-config"
     />
     <UseCaseCard

@@ -59,7 +59,7 @@ In this example, when a feature is deleted,
 -   The results details are hidden,
 -   The feature is removed from the results list.
 
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
 
 1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
 2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
@@ -181,7 +181,7 @@ This example demonstrates two different types of argument passing behavior. The 
 -   `highlights.add-focus`
 -   `highlights.pulse`
 
-`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from it's current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape
+`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape
 
 ```json
 {

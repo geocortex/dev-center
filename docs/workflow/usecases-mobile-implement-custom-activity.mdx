@@ -53,7 +53,7 @@ Every Geocortex Mobile application that implements custom workflow activities ne
 -   If you've already created a `IActivityHandlerFactory`, register your new custom activity in the constructor.
 -   Otherwise, create a new implementation of the `IActivityHandlerFactory` in a new file, `ActivityLoader.cs`
 
-The `ActivityLoader` registers the activity skeleton we created by name in it's constructor. Only one instance of the loader is required per Geocortex Mobile Application, as it can register multiple activities.
+The `ActivityLoader` registers the activity skeleton we created by name in its constructor. Only one instance of the loader is required per Geocortex Mobile Application, as it can register multiple activities.
 
 <AutofacSnippet />
 

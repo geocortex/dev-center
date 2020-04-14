@@ -9,18 +9,18 @@ First, every component has a [model](usecases-implement-component-participate-ap
 
 Optionally, a component can use the `UIContext` to access commands, operations and events.
 
-## Injecting the UIContext
+## Accessing the UIContext
 
-The `UIContext` is injected into a component with the [React `useContext` hook](https://reactjs.org/docs/hooks-reference.html#usecontext). 
+The `UIContext` is injected into a component with the [React `useContext` hook](https://reactjs.org/docs/hooks-reference.html#usecontext).
 
 ```tsx
 import { UIContext } from "@geocortex/web/ui";
+import { useContext } from "react";
 
 export default function CustomComponent(props) {
     const { command, operation, event } = useContext(UIContext);
-    ...
+    // ...
 }
 ```
 
-Once the context is injected, you can access it's properties and interact with the application context in your custom component. 
-
+Once you have reference to the `UIContext`, you can access its properties and interact with the application context in your custom component.
