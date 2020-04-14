@@ -359,6 +359,44 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 </Tabs>
 
+## Example: Service with Initialization and Cleanup
+
+Sometimes, a service is required to perform intialization and cleanup actions, for example, to intialize dynamic data and cleanup dangling references. The `ServiceBase` class has two methods to achieve this:
+
+* `_onInitialize()`, which can be overridden,
+* and `destroy()`, which can be implemented to facilitate cleanup.
+
+The following service uses these methods to subscribe to an event and cleanup the event handler afterwards.
+
+:::important
+Always call `super._onInitialize()` before any custom initialization logic.
+:::
+
+```ts
+import { ServiceBase } from "@geocortex/web/services";
+import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
+
+export default class CustomModel extends ServiceBase {
+    handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+        this.handles.push(
+            this.messages.events.map.initialized.subscribe((e: MapEvent) => {
+                console.log(
+                    "Map Initialized, do your map dependent model setup here."
+                );
+            })
+        );
+        return;
+    }
+
+    destroy(): void {
+        this.handles.forEach((h) => h.remove());
+    }
+}
+```
+
 ## Example: Configurable Service
 
 TODO

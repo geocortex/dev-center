@@ -219,6 +219,29 @@ Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for mo
 
 The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a [MapExtensionArgs](TODO-API-Link), which is provided as a named argument. The `maps` property in the argument references the `default`map in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](concepts-advanced-config.mdx#item-uris-and-resource-uris) for more details.
 
+## Next Steps
+
 Geocortex Web has a large array of built in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.
 
-<!-- TODO - use cases here / next steps -->
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations Schema"
+        description="Check out the available commands and operations"
+        link="api-commands-operations"
+    />
+    <UseCaseCard
+        title="Configure Commands and Operations"
+        description="Change built in behavior or add new behavior using app config and layout"
+        link="usecases-change-default-behavior"
+    />
+    <UseCaseCard
+        title="Build your own Commands and Operations"
+        description="Use the SDK to implement custom commands and operations"
+        link="usecases-implement-command-operation"
+    />
+    <UseCaseCard
+        title="Learn about Events built into Geocortex Web"
+        description="Learn about the global event infrastructure in Geocortex Web"
+        link="concepts-events"
+    />
+</UseCaseContainer>

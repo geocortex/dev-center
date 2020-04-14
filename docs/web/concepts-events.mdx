@@ -21,17 +21,24 @@ Events can publish custom arguments with information about the change they are c
 
 ## Usage
 
-Events are internal to Geocortex Web, so they can only be consumed by custom code. Custom components can access events through [their model](usecases-implement-event.mdx#subscribing-to-existing-events), as only their model has access to the [MessageBus](api-message-bus.mdx). Custom services can publish or subscribe to built in or custom events through the [`messages` property](TODO-link).
+Events are internal to Geocortex Web, so they can only be consumed by custom code. Custom components can access events through the [UIContext](sdk-ui-context.mdx) or through [their models](concepts-components-services.mdx#component-models). Custom services can publish or subscribe to built in or custom events through the [MessageBus](api-message-bus).
+
+## Next Steps
 
 <UseCaseContainer>
     <UseCaseCard
-        title="Implementing Custom Events"
-        description="Learn how to implement a custom Event."
-        link="usecases-implement-event"
+        title="Subscribing to Existing Events"
+        description="Learn how to subscribe to an existing event"
+        link="usecases-implement-event#subscribing-to-existing-events"
     />
     <UseCaseCard
         title="Events API"
-        description="Check out the full list of Events available in Mobile."
+        description="Check out the full list of Events available in Geocortex Web"
         link="api-events"
+    />
+    <UseCaseCard
+        title="Implementing Custom Events"
+        description="Learn how to implement a custom Event."
+        link="implement-event"
     />
 </UseCaseContainer>

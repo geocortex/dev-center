@@ -78,6 +78,7 @@ module.exports = {
                     items: [
                         "web/sdk-service-injection",
                         "web/sdk-component-hooks",
+                        "web/sdk-ui-context",
                         "web/sdk-reference-third-party-libraries",
                     ],
                 },

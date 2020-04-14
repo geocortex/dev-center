@@ -365,6 +365,7 @@ Load Geocortex Web with the following layout and app json. You should see a simp
 <TabItem value="layout">
 
 ```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1">
   <split resizable="true">
     <panel show-close-button="false" width="26">
@@ -427,6 +428,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
             "$type": "workflow",
             "id": "filterSearchWorkflow",
             "title": "Filter Search Workflow",
+            "commandArgumentInput": "context",
             "portalItem": "<your-workflow-id-here>"
         },
         ...
