@@ -251,3 +251,22 @@ export default function TranslatableText(props) {
 </Tabs>
 
 
+## Language Strings and App Config
+
+All language strings used for properties in the [app config](concepts-app-config.mdx), like "title" or "description", are automatically translated by the application.
+
+```json
+{
+    "items": [
+        ...
+        {
+            "id": "zoom-to-extent",
+            "iconId": "zoom-extent",
+            "title": "language-zoom-extent-title",
+            "description": "language-zoom-extent-description",
+            "action": "map.zoom-to-layer-extent",
+            "$type": "menu-item"
+        },
+        ...
+    ]
+}
