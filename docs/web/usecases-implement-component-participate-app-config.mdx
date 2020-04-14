@@ -80,7 +80,7 @@ We will start this example from the component and model built in the [previous e
 }>
 <TabItem value="component">
 
-```tsx title="src/components/NewsFeedComponent/NewsFeedComponent.tsx"
+```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React, { useState } from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import List from "@geocortex/web/ui/list";
@@ -88,9 +88,9 @@ import ListItem from "@geocortex/web/ui/list-item";
 import TitleBar from "@geocortex/web/ui/title-bar";
 import Button from "@geocortex/web/ui/button";
 import DialogActions from "@geocortex/web/ui/dialog-actions";
-import "./NewsFeedComponent.css";
+import "./NewsFeed.css";
 
-export default function NewsFeedComponent(props) {
+export default function NewsFeed(props) {
     const [hidden, setHidden] = useState(false);
 
     const newsItems: string[] = [
@@ -128,7 +128,7 @@ export default function NewsFeedComponent(props) {
 </TabItem>
 <TabItem value="model">
 
-```ts title="src/components/NewsFeedComponent/NewsFeedModel.ts"
+```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
 
 class NewsFeedModel extends ComponentModelBase {}
@@ -180,7 +180,7 @@ Next, we have to inform Geocortex Web about these configurable properties and pr
 Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes.
 :::
 
-```ts title="src/components/NewsFeedComponent/NewsFeedModel.ts"
+```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import {
     ComponentModelBase,
     serializable,
@@ -230,12 +230,12 @@ export default class NewsFeedModel extends ComponentModelBase<
 
 ### Consuming the Configuration in the Component
 
-Finally, we need to update the `NewsFeedComponent` to treat the model as it's single source of truth for data. First, we update the props passes into the component to include the relevant model.
+Finally, we need to update the `NewsFeed` to treat the model as it's single source of truth for data. First, we update the props passes into the component to include the relevant model.
 
 ```ts
-export interface NewsFeedComponentProps extends LayoutElementProperties<NewsFeedModel> {}
+export interface NewsFeedProps extends LayoutElementProperties<NewsFeedModel> {}
 
-export default function NewsFeedComponent(props: NewsFeedComponentProps) {
+export default function NewsFeed(props: NewsFeedProps) {
     ...
 }
 ```
@@ -248,7 +248,7 @@ To accomplish this, upon user interaction that affects state,
 1. The component listens for changes on the model values and re-renders with the `useWatchAndRerender` function.
 
 ```tsx
-export default function NewsFeedComponent(props: NewsFeedComponentProps) {
+export default function NewsFeed(props: NewsFeedProps) {
     const { model } = props;
 
     useWatchAndRerender(model, "hidden");
@@ -265,7 +265,7 @@ In this way, the model is treated as the component state. It's best practice to 
 
 ### Complete Example
 
-Following is a complete example where news items are configured in the `app.json`, populated into the `NewsFeedModel` and finally consumed and presented by the `NewsFeedComponent`.
+Following is a complete example where news items are configured in the `app.json`, populated into the `NewsFeedModel` and finally consumed and presented by the `NewsFeed`.
 
 :::tip
 This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](sdk-component-hooks.mdx) provided.
@@ -285,7 +285,7 @@ This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hoo
 }>
 <TabItem value="component">
 
-```tsx title="src/components/NewsFeedComponent/NewsFeedComponent.tsx"
+```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React from "react";
 import {
     LayoutElement,
@@ -297,13 +297,13 @@ import ListItem from "@geocortex/web/ui/list-item";
 import TitleBar from "@geocortex/web/ui/title-bar";
 import Button from "@geocortex/web/ui/button";
 import DialogActions from "@geocortex/web/ui/dialog-actions";
-import "./NewsFeedComponent.css";
+import "./NewsFeed.css";
 import { NewsFeedModel } from ".";
 
-export interface NewsFeedComponentProps
+export interface NewsFeedProps
     extends LayoutElementProperties<NewsFeedModel> {}
 
-export default function NewsFeedComponent(props: NewsFeedComponentProps) {
+export default function NewsFeed(props: NewsFeedProps) {
     const { model } = props;
 
     /**
@@ -347,7 +347,7 @@ export default function NewsFeedComponent(props: NewsFeedComponentProps) {
 </TabItem>
 <TabItem value="model">
 
-```ts title="src/components/NewsFeedComponent/NewsFeedModel.ts"
+```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import {
     ComponentModelBase,
     serializable,
@@ -396,7 +396,7 @@ export default class NewsFeedModel extends ComponentModelBase<
 </TabItem>
 <TabItem value="css">
 
-```css title="src/components/NewsFeedComponent/NewsFeedComponent.css"
+```css title="src/components/NewsFeed/NewsFeed.css"
 .news-item-list {
     max-height: 200px;
     overflow: scroll;
@@ -441,10 +441,10 @@ export default class NewsFeedModel extends ComponentModelBase<
 </TabItem>
 <TabItem value="newsFeedIndex">
 
-```ts title="src/components/NewsFeedComponent/index.ts"
+```ts title="src/components/NewsFeed/index.ts"
 import NewsFeedModel from "./NewsFeedModel";
 
-export { default } from "./NewsFeedComponent";
+export { default } from "./NewsFeed";
 export { NewsFeedModel };
 ```
 
@@ -454,9 +454,9 @@ export { NewsFeedModel };
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
 import { ComponentType } from "react";
-import NewsFeedComponent, {
+import NewsFeed, {
     NewsFeedModel,
-} from "./components/NewsFeedComponent";
+} from "./components/NewsFeed";
 
 const LAYOUT_NAMESPACE = "custom.foo";
 
@@ -464,7 +464,7 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "news-feed",
         namespace: "your.custom.namespace",
-        getComponentType: () => NewsFeedComponent as ComponentType,
+        getComponentType: () => NewsFeed as ComponentType,
         // highlight-next-line
         itemType: "news-feed-model",
         title: "News Feed",

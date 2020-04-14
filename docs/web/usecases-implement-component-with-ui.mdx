@@ -3,6 +3,7 @@ title: Custom Component with UI
 description: Geocortex Web - Learn how to implement a custom component with UI
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import PrereqsSnippet from "./snippets/prereqs.mdx";
@@ -27,7 +28,7 @@ The first thing we need to do is create the neccesary files for a custom compone
 Create a new folder structure with the following files. These files define a new component with a simple visual structure and export it from the `CustomComponent` folder.
 
 -   `src/components/CustomComponent/CustomComponent.tsx`
--   `src/components/CustomComponent/CustomComponentModel.ts`
+-   `src/components/CustomComponent/CustomModel.ts`
 -   `src/components/CustomComponent/index.ts`
 
 :::note
@@ -60,22 +61,22 @@ export default function CustomComponent(props) {
 </TabItem>
 <TabItem value="model">
 
-```ts title="src/components/CustomComponent/CustomComponentModel.ts"
+```ts title="src/components/CustomComponent/CustomModel.ts"
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
 
-class CustomComponentModel extends ComponentModelBase {}
+class CustomModel extends ComponentModelBase {}
 
-export default serializable(CustomComponentModel);
+export default serializable(CustomModel);
 ```
 
 </TabItem>
 <TabItem value="index">
 
 ```ts title="src/components/CustomComponent/index.ts"
-import CustomComponentModel from "./CustomComponentModel";
+import CustomModel from "./CustomModel";
 
 export { default } from "./CustomComponent";
-export { CustomComponentModel };
+export { CustomModel };
 ```
 
 </TabItem>
@@ -107,7 +108,7 @@ export default function(registry: LibraryRegistry) {
         title: "Custom Component",
     });
     registry.registerModel({
-        getModelType: () => CustomComponentModel,
+        getModelType: () => CustomModel,
         // highlight-next-line
         itemType: "custom-component-model",
     });
@@ -160,14 +161,15 @@ This React component displays a list of "news items" relevant to your GIS applic
     { label: 'Component', value: 'component', },
     { label: 'Model', value: 'model', },
     { label: 'Css', value: 'css', },
-    { label: 'Layout', value: 'layout', },
     { label: 'Component Index', value: 'newsFeedIndex', },
     { label: 'Registration', value: 'index', },
+    { label: 'Layout', value: 'layout', },
+    { label: 'UI', value: 'ui', },
   ]
 }>
 <TabItem value="component">
 
-```tsx title="src/components/NewsFeedComponent/NewsFeedComponent.tsx"
+```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React, { useState } from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import List from "@geocortex/web/ui/list";
@@ -175,9 +177,9 @@ import ListItem from "@geocortex/web/ui/list-item";
 import TitleBar from "@geocortex/web/ui/title-bar";
 import Button from "@geocortex/web/ui/button";
 import DialogActions from "@geocortex/web/ui/dialog-actions";
-import "./NewsFeedComponent.css";
+import "./NewsFeed.css";
 
-export default function NewsFeedComponent(props) {
+export default function NewsFeed(props) {
     const [hidden, setHidden] = useState(false);
 
     const newsItems: string[] = [
@@ -216,7 +218,7 @@ export default function NewsFeedComponent(props) {
 
 <TabItem value="model">
 
-```ts title="src/components/NewsFeedComponent/NewsFeedModel.ts"
+```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
 
 class NewsFeedModel extends ComponentModelBase {}
@@ -227,7 +229,7 @@ export default serializable(NewsFeedModel);
 </TabItem>
 <TabItem value="css">
 
-```css title="src/components/NewsFeedComponent/NewsFeedComponent.css"
+```css title="src/components/NewsFeed/NewsFeed.css"
 .news-item-list {
     max-height: 200px;
     overflow: scroll;
@@ -250,10 +252,10 @@ export default serializable(NewsFeedModel);
 </TabItem>
 <TabItem value="newsFeedIndex">
 
-```ts title="src/components/NewsFeedComponent/index.ts"
+```ts title="src/components/NewsFeed/index.ts"
 import NewsFeedModel from "./NewsFeedModel";
 
-export { default } from "./NewsFeedComponent";
+export { default } from "./NewsFeed";
 export { NewsFeedModel };
 ```
 
@@ -261,9 +263,9 @@ export { NewsFeedModel };
 <TabItem value="index">
 
 ```ts title="src/index.ts"
-import NewsFeedComponent, {
+import NewsFeed, {
     NewsFeedModel,
-} from "./components/NewsFeedComponent";
+} from "./components/NewsFeed";
 import { ComponentType } from "react";
 import { LibraryRegistry } from "@geocortex/web/config";
 
@@ -271,7 +273,7 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "news-feed",
         namespace: "your.custom.namespace",
-        getComponentType: () => NewsFeedComponent as ComponentType,
+        getComponentType: () => NewsFeed as ComponentType,
         itemType: "news-feed-model",
         title: "News Feed",
     });
@@ -282,6 +284,9 @@ export default function (registry: LibraryRegistry) {
 }
 ```
 
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-news-feed.png")}/>
 </TabItem>
 </Tabs>
 
@@ -319,7 +324,7 @@ export default function ComponentWithIcon(props) {
                 />
                 <MenuItemSecondaryAction>
                 <IconButton title="IconExample">
-                    <DynamicIcon src="cloud-download" size="medium" />
+                    <DynamicIcon src="cloud-download" size="large" />
                 </IconButton>
                 </MenuItemSecondaryAction>
             </MenuItem>
@@ -330,9 +335,7 @@ export default function ComponentWithIcon(props) {
  
 </TabItem>
 <TabItem value="ui">
-
-<!-- TODO - UI Screenshot -->
-
+<img src={useBaseUrl("img/web-component-with-icon.png")}/>
 </TabItem>
 </Tabs>
 
@@ -340,7 +343,7 @@ export default function ComponentWithIcon(props) {
 
 When writing custom components or [custom services](implement-service.mdx), you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](implement-command-operation.mdx). You can run command and operations through the `UIContext` of the component. 
 
-### Example: Display a Notification to a User
+### Example: Display a Confirmation Dialog to a User
 
 The following example executes the `ui.confirm` operation [through the UIContext](sdk-ui-context.mdx). Calling a command or operation is as simple as retrieving it by name, providing the appropiate generic type for the command or operation, and then calling `execute` with the appropiate arguments. 
 
@@ -348,10 +351,21 @@ The following example executes the `ui.confirm` operation [through the UIContext
 In order to pass arguments to a command or operation, you have to use the correct type for the generic `command` or `operation` function call with the argument and output type for the command or operation. For example, `ui.confirm` takes in a `ConfirmOperationArgs` and returns a `boolean`, as seen in the [API docs](api-commands-operations.mdx#ui-confirm).
 :::
 
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="component">
+
 ```tsx title="src/components/CustomComponent/CustomComponent.tsx"
 import React, { useContext } from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import { UIContext } from "@geocortex/web/ui";
+import Button from "@geocortex/web/ui/button/Button"
 import { ConfirmOperationArgs } from "@geocortex/viewer-framework/messaging/registry/ui";
 
 export default function CustomComponent(props) {
@@ -370,11 +384,18 @@ export default function CustomComponent(props) {
     }
     return (
         <LayoutElement {...props}>
-            <button onClick={displayConfirmDialog}>Display Confirm Dialog</button>
+            <Button onClick={displayConfirmDialog}>Display Confirm Dialog</Button>
         </LayoutElement>
     );
 }
 ```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-display-notification.png")}/>
+</TabItem>
+</Tabs>
+
 
 ## Interacting with Application Services
 
@@ -393,7 +414,8 @@ The following component has a model which imports the map model as a dependency,
   values={[
     { label: 'Component', value: 'component', },
     { label: 'Model', value: 'model', },
-    { label: 'Layout', value: 'layout', }
+    { label: 'Layout', value: 'layout', },
+    { label: 'UI', value: 'ui', },
   ]
 }>
 <TabItem value="component">
@@ -404,16 +426,17 @@ import {
     LayoutElement,
     LayoutElementProperties,
 } from "@geocortex/web/components";
+import Button from "@geocortex/web/ui/button/Button"
 import { CustomModel } from ".";
 
 export default function CustomComponent(
     props: LayoutElementProperties<CustomModel>
 ) {
     return (
-        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
-            <button onClick={() => props.model.addGraphic()}>
+        <LayoutElement {...props}>
+            <Button onClick={() => props.model.addGraphic()}>
                 Add a Graphic to the Map
-            </button>
+            </Button>
         </LayoutElement>
     );
 }
@@ -422,7 +445,7 @@ export default function CustomComponent(
 </TabItem>
 <TabItem value="model">
 
-```ts title="src/components/CustomComponent/CustomComponentModel.ts"
+```ts title="src/components/CustomComponent/CustomModel.ts"
 import {
     ComponentModelBase,
     serializable,
@@ -482,6 +505,9 @@ export default class CustomModel extends ComponentModelBase {
 ```
 
 </TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-add-graphics-layer-component.png")}/>
+</TabItem>
 </Tabs>
 
 ### Example: Component that Exports It's Model
@@ -491,6 +517,8 @@ You can mark a model as exported by adding the `@exportModel` decorator to the m
 :::note
 Models are imported with the `itemType` name that they are registered with.
 :::
+
+<!-- TODO - live preview for this one but it's not worth a screenshot -->
 
 <Tabs
   defaultValue="exportedModel"

@@ -42,6 +42,7 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
   values={[
     { label: "Layout", value: "layout" },
     { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
   ]}>
 <TabItem value="layout">
 
@@ -74,6 +75,9 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 }
 ```
 
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-app-config-dead-simple.png")}/>
 </TabItem>
 </Tabs>
 
@@ -133,9 +137,7 @@ The same config can be used for multiple items in a layout. For example, this al
 
 </TabItem>
 <TabItem value="ui">
-
-<!-- TODO - live preview -->
-
+<img src={useBaseUrl("img/web-app-config-basic.png")}/>
 </TabItem>
 </Tabs>
 
@@ -235,6 +237,9 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
 ```
 
 </TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-app-config-target-by-id.png")}/>
+</TabItem>
 </Tabs>
 
 <!-- TODO - live web preview -->
@@ -250,6 +255,7 @@ This example demonstrates a web application with a hidden side panel that pops o
   values={[
     { label: "Layout", value: "layout" },
     { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
   ]}>
 <TabItem value="layout">
 
@@ -377,6 +383,9 @@ This example demonstrates a web application with a hidden side panel that pops o
 }
 ```
 
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-app-config-hidden-side-panel.png")}/>
 </TabItem>
 </Tabs>
 
