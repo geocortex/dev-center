@@ -14,7 +14,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, and operations differ because they produce output. Commands and Operations are grouped by namespace, for example;
+**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output. Commands and Operations are grouped by namespace, for example;
 
 ```
 auth.sign-in
@@ -25,7 +25,7 @@ edit.delete-features
 
 [Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Mobile. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](usecases-implement-command-operation.mdx) are registered with [Custom Services](usecases-implement-service.mdx) or [Custom Components](usecases-implement-component-with-ui.mdx) in this manner.
 
-### Argument Passing
+## Passing Arguments
 
 Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the various behaviors of a `<feature-details>` component.
 
@@ -59,14 +59,14 @@ In this example, when a feature is deleted,
 -   The results details are hidden,
 -   The feature is removed from the results list.
 
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
 
 1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
 2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
 
 In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example.
 
-### Passing Named Arguments
+## Passing Named Arguments
 
 If you choose, you can overide the default arguments passed into a command or operation by provide an `arguments` property.
 
@@ -94,7 +94,7 @@ If you choose, you can overide the default arguments passed into a command or op
 
 This will override the default arugment passing behavior for that command or operation. Each command has typed arguments that can will have [autocomplete linting in the app.json](concepts-advanced-config.mdx#autocomplete-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCase'd instead of PascalCased.
 
-### Example
+## Example
 
 <Tabs
   defaultValue="app"
@@ -181,7 +181,7 @@ This example demonstrates two different types of argument passing behavior. The 
 -   `highlights.add-focus`
 -   `highlights.pulse`
 
-`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from it's current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape
+`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape:
 
 ```json
 {
@@ -192,7 +192,7 @@ This example demonstrates two different types of argument passing behavior. The 
 
 <!-- TODO - tasks.identify operation direct link -->
 
-`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape:
 
 ```json
 {

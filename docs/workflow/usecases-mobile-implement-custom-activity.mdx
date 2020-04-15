@@ -20,7 +20,7 @@ This article applies to building workflow activities that will be run on [Geocor
 
 ## Set up the Activity Skeleton
 
-1. Create a new file `CustomActivity` in the platform agnostic project of the Geocortex Mobile [quick start](../mobile/sdk-quick-start.mdx).
+1. Create a new file `CustomActivity` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-quick-start.mdx).
 2. Add a new skeleton workflow activity that implements `IActivityHandler`.
 
 ```csharp
@@ -53,7 +53,7 @@ Every Geocortex Mobile application that implements custom workflow activities ne
 -   If you've already created a `IActivityHandlerFactory`, register your new custom activity in the constructor.
 -   Otherwise, create a new implementation of the `IActivityHandlerFactory` in a new file, `ActivityLoader.cs`
 
-The `ActivityLoader` registers the activity skeleton we created by name in it's constructor. Only one instance of the loader is required per Geocortex Mobile Application, as it can register multiple activities.
+The `ActivityLoader` registers the activity skeleton we created in its constructor. Only one instance of the loader is required per Geocortex Mobile Application, as it can register multiple activities.
 
 <AutofacSnippet />
 
@@ -80,7 +80,7 @@ namespace App1.Workflow
 
         public ActivityLoader()
         {
-            RegisteredActivities[CalculateLog.Action] = () => new CalculateLog();
+            RegisteredActivities[CustomActivity.Action] = () => new CustomActivity();
         }
 
         /// <summary>
@@ -126,9 +126,7 @@ The follow activity will calculate the log of a number with a given (optional) b
 
 ## Test and Deploy your Activity
 
-You can run your new activity by configuring a button to run a workflow in Geocortex Mobile. An example of how this can be done can be found in the [SDK Samples](https://github.com/geocortex/sdk-samples/workflow/run-workflow). The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity can be used to execute your activity by the name defined in `CustomActivity.cs` (for this example, `your:unique:namespace::CustomActivity`).
-
-<!-- TODO: Validate SDK samples link when available -->
+You can run your new activity by configuring a button to run a workflow in Geocortex Mobile. An example of how this can be done can be found in the [SDK Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Workflow/RunWorkflow). The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity can be used to execute your activity by the name defined in `CustomActivity.cs` (for this example, `your:unique:namespace::CustomActivity`).
 
 :::tip
 If you want your custom activity to show up with a friendly user interface in Geocortex Workflow Designer, check out [Registering .NET Activities with Geocortex Workflow Designer](sdk-net-register-activities.mdx).

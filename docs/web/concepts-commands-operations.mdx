@@ -25,9 +25,9 @@ edit.delete-features
 
 [Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Web. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](usecases-implement-command-operation.mdx) are registered with custom services or custom components in this manner.
 
-### Argument Passing
+## Passing Arguments
 
-Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the `featureActions` and `onFeatureClick` behaviours of a `<results-list>` component.
+Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the `featureActions` and `onFeatureClick` behaviors of a `<results-list>` component.
 
 ```json
 ({
@@ -63,12 +63,12 @@ App config properties that accept a command or operation can take a single opera
 Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex input dependent behavior.
 :::
 
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<results-list>` component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<results-list>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
 
 1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
 2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
 
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a Feature Details component, the first command or operation will receive the relevant feature as it's input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a Feature Details component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
 
 1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
 2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
@@ -79,13 +79,13 @@ In this way, you can run multiple commands in a row that receive a feature as in
 ["map.zoom-to-features", "highlights.pulse"]
 ```
 
-The `action` command chain of `save-features-to-csv` demonstrates how an operation can pass it's output to the next command or operation in the list. In this case, it's passing the csv content to `system.download-file`.
+The `action` command chain of `save-features-to-csv` demonstrates how an operation can pass its output to the next command or operation in the list. In this case, it's passing the csv content to `system.download-file`.
 
 ```json
 ["results.convert-to-csv", "system.download-file"]
 ```
 
-### Passing Named Arguments
+## Passing Named Arguments
 
 If you choose, you can overide the default arguments passed into a command or operation by provide an `arguments` property.
 
@@ -115,7 +115,7 @@ If you choose, you can overide the default arguments passed into a command or op
 
 This will override the default arugment passing behavior for that command or operation. For example, `ui.display-notification` takes a object of type `DisplayNotificationArgs`, which has the property `message` of type `string`.
 
-### Example
+## Example
 
 <Tabs
   defaultValue="app"
@@ -190,7 +190,7 @@ This example demonstrates two different types of argument passing behavior. The 
 -   `highlights.add-focus`
 -   `results.display`
 
-`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from it's current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape
+`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape
 
 ```json
 {

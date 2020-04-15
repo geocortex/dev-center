@@ -8,7 +8,7 @@ import AutofacSnippet from "../snippets/autofac-mobile.mdx";
 
 ## Autocomplete Properties
 
-The two properties `$schema` and `schemaVersion` are almost always present in an `app.json` file. They power the Visual Studio autocomplete linting and intellisense in the `app.json` file for the various properties that each **app item** has. The `app.json` included with the [quick start](sdk-quick-start.mdx) references a schema at the root of the project. If you move an `app.json` file, you will need to fix the relative path to the schema file. For more information on json schemas, see [json-schema.org](https://json-schema.org/).
+The two properties `$schema` and `schemaVersion` are almost always present in an `app.json` file. They power the Visual Studio autocomplete linting and intellisense in the `app.json` file for the various properties that each **app item** has. The `app.json` included with the [Quickstart](sdk-quick-start.mdx) references a schema at the root of the project. If you move an `app.json` file, you will need to fix the relative path to the schema file. For more information on json schemas, see [json-schema.org](https://json-schema.org/).
 
 ```json
 {
@@ -79,7 +79,7 @@ For example, here's references to a small, medium, and large layout in the `app.
 
 ## Custom App Items
 
-App items in Geocortex Mobile correspond to a class that extends `VisualAppItem` and registers with **autofac** as an `AppItem` type, like the `HarmlessComponentConfiguration` in the [app config use case](usecases-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
+App items in Geocortex Mobile correspond to a class that extends `VisualAppItem` and registers with **Autofac** as an `AppItem` type, like the `HarmlessComponentConfiguration` in the [app config use case](usecases-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
 
 <AutofacSnippet />
 

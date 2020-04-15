@@ -3,24 +3,26 @@ title: UIContext
 description: Geocortex Web - Accessing the UIContext in Components
 ---
 
-[Custom components](usecases-implement-component-with-ui.mdx) often need to access the application context to run [commands and operations](concepts-commands-operations), subscribe and publish to [events](concepts-events), and more. A component has two ways of accessing the application context.
+[Custom components](usecases-implement-component-with-ui.mdx) often need to access the application context to run [commands and operations](concepts-commands-operations.mdx), subscribe and publish to [events](concepts-events), and more. A component has two ways of accessing the application context.
 
 First, every component has a [model](usecases-implement-component-participate-app-config.mdx#component-models) which in turn has a [`MessageBus`](api-message-bus.mdx) that can be used to access commands, operations, and events. All application context interactions can be facilitated by the model.
 
-Optionally, a component can use the `UIContext` to access commands, operations and events.
+<!-- TODO: Link to i18n docs for web -->
 
-## Injecting the UIContext
+Optionally, a component can use the `UIContext` to access commands, operations and events, as well as use the `translate` function to take advantage of our internationalization features.
 
-The `UIContext` is injected into a component with the [React `useContext` hook](https://reactjs.org/docs/hooks-reference.html#usecontext). 
+## Accessing the UIContext
+
+The `UIContext` is injected into a component with the [React `useContext` hook](https://reactjs.org/docs/hooks-reference.html#usecontext).
 
 ```tsx
 import { UIContext } from "@geocortex/web/ui";
+import { useContext } from "react";
 
 export default function CustomComponent(props) {
-    const { command, operation, event } = useContext(UIContext);
-    ...
+    const { command, event, operation, translate } = useContext(UIContext);
+    // ...
 }
 ```
 
-Once the context is injected, you can access it's properties and interact with the application context in your custom component. 
-
+Once you have reference to the `UIContext`, you can access its properties and interact with the application context in your custom component.

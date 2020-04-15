@@ -151,7 +151,7 @@ import { inject } from "@geocortex/web/services";
 export default class NewsFeedModel extends ComponentModelBase {
     // highlight-start
     @inject("custom-data-service")
-    customDataService: CustomDataService;
+    customDataService: CustomDataService | undefined;
     // highlight-end
 
     /**
@@ -159,15 +159,10 @@ export default class NewsFeedModel extends ComponentModelBase {
      */
     newsItems: Collection<string>;
 
-    constructor() {
-        super();
-    }
-
     protected _onInitialize(): Promise<void> {
         super._onInitialize();
         // highlight-next-line
         this.newsItems = this.customDataService.newsItems;
-        return;
     }
 }
 ```
@@ -363,8 +358,8 @@ export default function (registry: LibraryRegistry) {
 
 Sometimes, a service is required to perform intialization and cleanup actions, for example, to intialize dynamic data and cleanup dangling references. The `ServiceBase` class has two methods to achieve this:
 
-* `_onInitialize()`, which can be overridden,
-* and `destroy()`, which can be implemented to facilitate cleanup.
+-   `_onInitialize()`, which can be overridden,
+-   and `destroy()`, which can be implemented to facilitate cleanup.
 
 The following service uses these methods to subscribe to an event and cleanup the event handler afterwards.
 

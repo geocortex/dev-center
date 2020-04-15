@@ -317,22 +317,22 @@ import ListItemText from "@geocortex/web/ui/list-item-text";
 export default function ComponentWithIcon(props) {
     return (
         <LayoutElement {...props} style={{ backgroundColor: "white" }}>
-            <MenuItem >
+            <MenuItem>
                 <ListItemText
                     primary={"Icon Example"}
                     secondary={"cloud-download icon"}
                 />
                 <MenuItemSecondaryAction>
-                <IconButton title="IconExample">
-                    <DynamicIcon src="cloud-download" size="large" />
-                </IconButton>
+                    <IconButton title="IconExample">
+                        <DynamicIcon src="cloud-download" size="large" />
+                    </IconButton>
                 </MenuItemSecondaryAction>
             </MenuItem>
         </LayoutElement>
     );
 }
 ```
- 
+
 </TabItem>
 <TabItem value="ui">
 <img src={useBaseUrl("img/web-component-with-icon.png")}/>
@@ -341,11 +341,11 @@ export default function ComponentWithIcon(props) {
 
 ## Running Commands and Operations
 
-When writing custom components or [custom services](implement-service.mdx), you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](implement-command-operation.mdx). You can run command and operations through the `UIContext` of the component. 
+When writing custom components or [custom services](implement-service.mdx), you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](implement-command-operation.mdx). You can run command and operations through the `UIContext` of the component.
 
 ### Example: Display a Confirmation Dialog to a User
 
-The following example executes the `ui.confirm` operation [through the UIContext](sdk-ui-context.mdx). Calling a command or operation is as simple as retrieving it by name, providing the appropiate generic type for the command or operation, and then calling `execute` with the appropiate arguments. 
+The following example executes the `ui.confirm` operation [through the UIContext](sdk-ui-context.mdx). Calling a command or operation is as simple as retrieving it by name, providing the appropiate generic type for the command or operation, and then calling `execute` with the appropiate arguments.
 
 :::note
 In order to pass arguments to a command or operation, you have to use the correct type for the generic `command` or `operation` function call with the argument and output type for the command or operation. For example, `ui.confirm` takes in a `ConfirmOperationArgs` and returns a `boolean`, as seen in the [API docs](api-commands-operations.mdx#ui-confirm).
@@ -372,16 +372,18 @@ export default function CustomComponent(props) {
     const context = useContext(UIContext);
 
     const displayConfirmDialog = async () => {
-        const result = await context.operation<ConfirmOperationArgs, boolean>("ui.confirm").execute({
-            title:  "Confirm Me",
-        })
-        
-        if(result){
-            console.log("I have been confirmed!")
+        const result = await context
+            .operation<ConfirmOperationArgs, boolean>("ui.confirm")
+            .execute({
+                title: "Confirm Me",
+            });
+
+        if (result) {
+            console.log("I have been confirmed!");
         } else {
-            console.warn("I was not confirmed.")
+            console.warn("I was not confirmed.");
         }
-    }
+    };
     return (
         <LayoutElement {...props}>
             <Button onClick={displayConfirmDialog}>Display Confirm Dialog</Button>
@@ -510,7 +512,7 @@ export default class CustomModel extends ComponentModelBase {
 </TabItem>
 </Tabs>
 
-### Example: Component that Exports It's Model
+### Example: Component That Exports Its Model
 
 You can mark a model as exported by adding the `@exportModel` decorator to the model class. The following example shows a model that is exported, and then imported by another model and used.
 

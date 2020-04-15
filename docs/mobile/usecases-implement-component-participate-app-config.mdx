@@ -70,12 +70,12 @@ namespace App1.Configuration
 ```
 
 :::info
-The two key components of this snippet are the `[assembly: AppItem(...)]` tag and the class extension `HarmlessComponentConfiguration : VisualAppItem`. These two pieces register the configuration with Geocortex Mobile and autofac.
+The two key components of this snippet are the `[assembly: AppItem(...)]` tag and the class extension `HarmlessComponentConfiguration : VisualAppItem`. These two pieces register the configuration with Geocortex Mobile and Autofac.
 :::
 
 ## Consume the Configuration in the Component
 
-Components that consume configuration should extend `AppItemComponentBase<ConfigurationClassType>`. This forces them to have a constructor which takes in an `IAppItem` resolver for the specific configuration type. This resolver can then be called in the `DoInitializeAsync` method to retrieve the app config values. They should also register with autofac using the `AppItemComponent` assembly attribute.
+Components that consume configuration should extend `AppItemComponentBase<ConfigurationClassType>`. This forces them to have a constructor which takes in an `IAppItem` resolver for the specific configuration type. This resolver can then be called in the `DoInitializeAsync` method to retrieve the app config values. They should also register with Autofac using the `AppItemComponent` assembly attribute.
 
 ```csharp
 using App1;

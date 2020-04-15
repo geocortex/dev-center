@@ -25,7 +25,7 @@ Every component within the viewer that requires functional, compositional conten
 
 <FollowAlongSnippet />
 
-## Anatomy of an App config.
+## Anatomy of an App config
 
 <AppItemSnippet />
 
@@ -60,7 +60,6 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 {
     "schemaVersion": "1.0",
     "items": [
-      
         {
             "$type": "map-extension",
             // highlight-next-line
@@ -246,7 +245,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 </Tabs>
 
 :::note
-This example uses [commands and operations](concepts-commands-operations.mdx) to power it's behaviour.
+This example uses [commands and operations](concepts-commands-operations.mdx) to power its behavior.
 :::
 
 ## Example: Basic App Config with IWTM
@@ -331,7 +330,7 @@ The `<iwtm>` Component in the layout is bound to the IWTM configuration by the a
 Each app item has a different `$type` and different configurable properties associated with it. The example application has two items in the app config:
 
 1. A layout `$type` item which serves as a default layout and references the layout.xml
-2. A menu `$type` item which provides config for the I Want To Menu in the layout.
+2. A menu `$type` item which provides config for the I Want To Menu in the layout
 
 :::important
 The functionality of the `config` attribute is dependent on the fact that IDs across app items of the same type are unique. That is, two items of types `layer-extension` and `map-extension` can both have the ID `default`, but two items of the same type `layer-extension` cannot have the same ID `default`.
