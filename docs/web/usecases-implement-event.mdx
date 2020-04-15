@@ -39,7 +39,7 @@ export default function CustomComponent(props) {
     const { events } = useContext(UIContext);
     var [handles, setHandles] = useState<IHandle[]>([]);
 
-    useEffect(() =>{
+    useEffect(() => {
         setHandles(
             handles.concat(
                 events.map.initialized.subscribe((e: MapEvent) => {
@@ -49,16 +49,13 @@ export default function CustomComponent(props) {
                 })
                 // Equivalent: this.messages.event("map.initialized").subscribe
             )
-        )
+        );
         return () => {
-            handles.forEach(h => h.remove());
-        }
-    }, [])
+            handles.forEach((h) => h.remove());
+        };
+    }, []);
 
-    return (
-        <LayoutElement {...props}>
-        </LayoutElement>
-    );
+    return <LayoutElement {...props}></LayoutElement>;
 }
 ```
 
@@ -92,8 +89,6 @@ export default class CustomModel extends ComponentModelBase {
 
 </TabItem>
 </Tabs>
-
-
 
 ## Publishing Existing Events
 

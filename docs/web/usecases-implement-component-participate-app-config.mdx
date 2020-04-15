@@ -262,13 +262,17 @@ export default function NewsFeed(props: NewsFeedProps) {
 }
 ```
 
-In this way, the model is treated as the component state. It's best practice to use the model to define configurable or persistent state, and use the [`React` state hooks](https://reactjs.org/docs/hooks-state.html) for UI specific transient state, like an active selection. Below is a full example of the model pulling values from the app config, and the component binding to the data on the model and listening for changes.
+In this way, the model is treated as the component state. Below is a full example of the model pulling values from the app config, and the component binding to the data on the model and listening for changes.
+
+:::tip
+It's best practice to use the model to define configurable or persistent state, and use the [React state hooks](https://reactjs.org/docs/hooks-state.html) for UI specific transient state, like an active selection.
+:::
 
 ### Complete Example
 
 Following is a complete example where news items are configured in the `app.json`, populated into the `NewsFeedModel` and finally consumed and presented by the `NewsFeed`.
 
-:::tip
+:::note
 This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](sdk-component-hooks.mdx) provided.
 :::
 
@@ -302,8 +306,7 @@ import DialogActions from "@geocortex/web/ui/dialog-actions";
 import "./NewsFeed.css";
 import { NewsFeedModel } from ".";
 
-export interface NewsFeedProps
-    extends LayoutElementProperties<NewsFeedModel> {}
+export interface NewsFeedProps extends LayoutElementProperties<NewsFeedModel> {}
 
 export default function NewsFeed(props: NewsFeedProps) {
     const { model } = props;
@@ -456,9 +459,7 @@ export { NewsFeedModel };
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
 import { ComponentType } from "react";
-import NewsFeed, {
-    NewsFeedModel,
-} from "./components/NewsFeed";
+import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
 
 const LAYOUT_NAMESPACE = "custom.foo";
 

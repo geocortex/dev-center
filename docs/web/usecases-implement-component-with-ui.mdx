@@ -141,9 +141,7 @@ xmlns:custom="your.custom.namespace">
 </layout>
 ```
 
-<!-- TODO - ui screenshot -->
-
-If you run the [development server](sdk-overview.mdx#getting-up-and-running) you should see your custom component up and running.
+If you run the [development server](sdk-overview.mdx#getting-started) you should see your custom component up and running.
 
 ## Build out your Component's UI
 
@@ -263,9 +261,7 @@ export { NewsFeedModel };
 <TabItem value="index">
 
 ```ts title="src/index.ts"
-import NewsFeed, {
-    NewsFeedModel,
-} from "./components/NewsFeed";
+import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
 import { ComponentType } from "react";
 import { LibraryRegistry } from "@geocortex/web/config";
 
@@ -290,11 +286,11 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 </Tabs>
 
-<!-- TODO - add user interface photo -->
-
 ### Example: Component that Uses Built in Icons
 
-The following example demonstrates a component that uses Geocortex UI Framework components and an icon from the [Geocortex Icons library](TODO-icon-library-link).
+<!-- TODO-API link to Geocortex Icons Library -->
+
+The following example demonstrates a component that uses Geocortex UI Framework components and an icon from the Geocortex Icons library.
 
 <Tabs
   defaultValue="component"

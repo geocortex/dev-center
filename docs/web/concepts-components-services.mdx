@@ -14,9 +14,9 @@ In Geocortex Web, components are entities which implement UI/UX experiences and 
 
 Components are only **created** if they participate in the layout - if no component definition exists in the layout, none will be created. Components are **initialized** when they are activated.
 
-<!-- TODO: Add a link out to the component API
+<!-- TODO-API: Add a link out to the component API
 :::tip
-Geocortex Web has a large [built in library of components](TODO-api-components.mdx).
+Geocortex Web has a large [built in library of components](api-components.mdx).
 :::
 -->
 
@@ -28,9 +28,9 @@ Every component has an associated model. This model functions as the underlying 
 
 In Geocortex Web, services represent a shared application-wide concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](usecases-implement-command-operation.mdx#implement-the-custom-command-and-operation), but services can also be directly [injected](sdk-service-injection.mdx) into services and component models.
 
-<!-- TODO: Add a link out to the services API
+<!-- TODO-API: Add a link out to the services API
 :::tip
-Geocortex Web has many [built in services](TODO-api-services.mdx).
+Geocortex Web has many [built in services](api-services.mdx).
 :::
 -->
 
@@ -80,9 +80,12 @@ Like components, services can be configured through the [app config](concepts-ap
 Check out the [article on creating a configurable component](usecases-implement-component-participate-app-config.mdx) for more details on how configuration related code like `_getSerializableProperties()` works.
 :::
 
-
 ```ts title="src/services/CustomServiceWithConfig"
-import { ConfigurableServiceBase, PropertyDefs, serializable } from "@geocortex/web/services";
+import {
+    ConfigurableServiceBase,
+    PropertyDefs,
+    serializable,
+} from "@geocortex/web/services";
 import { ServiceModelProperties } from "@geocortex/web/models";
 
 export interface CustomServiceProperties extends ServiceModelProperties {
@@ -90,26 +93,29 @@ export interface CustomServiceProperties extends ServiceModelProperties {
 }
 
 @serializable
-export default class CustomServiceWithConfig extends ConfigurableServiceBase<CustomServiceProperties> {
+export default class CustomServiceWithConfig extends ConfigurableServiceBase<
+    CustomServiceProperties
+> {
     name: string;
 
     public async sayHello(): Promise<string> {
         return `Hello, ${this.name}`;
     }
 
-    protected _getSerializableProperties(): PropertyDefs<CustomServiceProperties> {
+    protected _getSerializableProperties(): PropertyDefs<
+        CustomServiceProperties
+    > {
         return {
             ...super._getSerializableProperties(),
             name: {
                 serializeModes: ["initial"],
                 serialize: () => this.name,
                 default: "Noah",
-            }
-        }
+            },
+        };
     }
 }
 ```
-
 
 ## Creation and Initialization
 
@@ -117,7 +123,7 @@ In general, components and services are created as needed at runtime in Geocorte
 
 1. First, all core services, like the [MessageBus](api-message-bus.mdx), and services [registered with `loadOnStartup: true`](usecases-implement-service.mdx#register-the-custom-service) will be intialized in parallel.
 2. Next, the components in the layout which are initially active will be initialized in parallel, along with their models and any [services they inject](sdk-service-injection.mdx).
-3. Finally, other services and components are initialized as needed, usually when a.) a command they implement is run or b.) they are activated explicitly in the layout. 
+3. Finally, other services and components are initialized as needed, usually when a.) a command they implement is run or b.) they are activated explicitly in the layout.
 
 ## Next Steps
 

@@ -4,6 +4,8 @@ description: Geocortex Web - Learn how to configure Geocortex Web to change the 
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsSnippet from "./snippets/prereqs.mdx";
@@ -330,10 +332,6 @@ Load Geocortex Web with the following layout and app json. You should see a simp
             "$type": "map-extension"
         },
         {
-            "id": "search-config",
-            "$type": "search"
-        },
-        {
             "id": "results-list-config",
             "onFeatureClick": ["results.display-details"],
             "$type": "results"
@@ -356,6 +354,10 @@ Load Geocortex Web with the following layout and app json. You should see a simp
                 }
             },
             "$type": "table-extension"
+        },
+        {
+            "id": "search-config",
+            "$type": "search"
         }
     ]
 }
@@ -426,7 +428,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
         ...
         {
             "$type": "workflow",
-            "id": "filterSearchWorkflow",
+            "id": "filter-search-workflow",
             "title": "Filter Search Workflow",
             "commandArgumentInput": "context",
             "portalItem": "<your-workflow-id-here>"
@@ -465,3 +467,13 @@ First, we are going to replace the command chain with a `workflow.run` command t
     src={useBaseUrl("img/custom-search-workflow-recreated.png")}
     alt="Search Workflow with Original Operations"
 />
+
+7. Save the workflow and reload the application. Test the search functionality and ensure it works as it originally did.
+
+:::tip
+Check out [Change Default Application Behavior](usecases-change-default-behavior.mdx) for more ways to override default behavior like search.
+:::
+
+## Extend the Workflow to Filter the Results.
+
+At this point, you can choose to extend the search behavior with Geocortex Workflow in whatever way is appropiate for your usecase. You could execute a different search for external results and add them to the set of results displayed, filter out specific results from the search, or replace the default search operation with an entirely different search operation. For this example, a workflow was created which checks the incoming search text for the text "filter:nosurvey" and then filters results to Fire Hydrants without a survey. The workflow [can be found here](https://latitudegeo.maps.arcgis.com/home/item.html?id=bc7647d4485743e98ea42cd69ee4aa66).

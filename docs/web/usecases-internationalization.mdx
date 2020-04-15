@@ -7,9 +7,8 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-
 :::tip
-Geocortex Web comes with built in [support for internationalization](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/internationalization.htm). Existing language strings for an application can be customized for any language in the Geocortex Web Designer. To provide a complete translation in an entirely new locale for Geocortex Web, please [contact us](https://www.geocortex.com/contact/). 
+Geocortex Web comes with built in [support for internationalization](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/internationalization.htm). Existing language strings for an application can be customized for any language in the Geocortex Web Designer. To provide a complete translation in an entirely new locale for Geocortex Web, please [contact us](https://www.geocortex.com/contact/).
 :::
 
 ## Providing Language Strings for a Component
@@ -22,7 +21,7 @@ If you define a language string that Geocortex Web has already defined, it will 
 
 ## Example: Custom Component that Displays a Translatable String
 
-This example will use a simple custom component that displays a string with an english and german translation. 
+This example will use a simple custom component that displays a string with an english and german translation.
 
 ### Create a Boilerplate Component
 
@@ -47,20 +46,19 @@ Learn more about how to [build custom components](usecases-implement-component-w
 ```tsx title="src/components/TranslatableText/TranslatableText.tsx"
 import React from "react";
 import { LayoutElement } from "@geocortex/web/components";
+import Typography from "@geocortex/web/ui/typography";
 
 export default function TranslatableText(props) {
     return (
         <LayoutElement {...props} style={{ backgroundColor: "white" }}>
-            <h1>This text will be translated.</h1>
+            <Typography variant="h1">This text will be translated.</Typography>
         </LayoutElement>
     );
 }
 ```
 
-
 </TabItem>
 <TabItem value="model">
-
 
 ```ts title="src/components/TranslatableText/TranslatableTextModel.ts"
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
@@ -73,7 +71,6 @@ export default serializable(TranslatableTextModel);
 </TabItem>
 <TabItem value="index">
 
-
 ```ts title="src/components/TranslatableText/index.ts"
 import TranslatableTextModel from "./TranslatableTextModel";
 
@@ -84,11 +81,12 @@ export { TranslatableTextModel };
 </TabItem>
 <TabItem value="registration">
 
-
 ```ts title="src/index.ts"
 import { ComponentType } from "react";
 import { LibraryRegistry } from "@geocortex/web/config";
-import TranslatableText, { TranslatableTextModel } from "./components/TranslatableText";
+import TranslatableText, {
+    TranslatableTextModel,
+} from "./components/TranslatableText";
 
 export default function (registry: LibraryRegistry) {
     registry.registerComponent({
@@ -150,7 +148,6 @@ Next, we are going to create the language resources for english and german. Lang
 </TabItem>
 <TabItem value="german">
 
-
 ```json title="src/de.json"
 {
     "language-translatable-text-content": "Dieser Text wird übersetzt."
@@ -167,10 +164,12 @@ Next we need to register the language resources with Geocortex Web. Geocortex We
 ```ts title="src/index.ts"
 import { ComponentType } from "react";
 import { LibraryRegistry } from "@geocortex/web/config";
-import TranslatableText, { TranslatableTextModel } from "./components/TranslatableText";
+import TranslatableText, {
+    TranslatableTextModel,
+} from "./components/TranslatableText";
 // highlight-start
-import enJson from "./en.json"
-import deJson from "./de.json"
+import enJson from "./en.json";
+import deJson from "./de.json";
 // highlight-end
 
 export default function (registry: LibraryRegistry) {
@@ -188,11 +187,11 @@ export default function (registry: LibraryRegistry) {
     // highlight-start
     registry.registerLanguageResources({
         locale: "en",
-        getValues: () => enJson
+        getValues: () => enJson,
     });
     registry.registerLanguageResources({
         locale: "de",
-        getValues: () => deJson
+        getValues: () => deJson,
     });
     // highlight-end
 }
@@ -200,13 +199,13 @@ export default function (registry: LibraryRegistry) {
 
 ### Use the Language Strings
 
-<!-- TODO - link to UIContext in APi -->
+Now that they have been registered, we can use the strings in our boilerplate component from earlier. To translate a language key, you can use the [`useContext` react hook](https://reactjs.org/docs/hooks-reference.html#usecontext) with the [UIContext](sdk-ui-context.mdx) to access the `translate` function. Then you can pass the language key `language-translatable-text-content` you defined in the language resources files to the `translate` function and your text will be translated into whichever locale is most appropriate.
 
-Now that they have been registered, we can use the strings in our boilerplate component from earlier. To translate a language key, you can use the [`useContext` react hook](https://reactjs.org/docs/hooks-reference.html#usecontext) with the `@geocortex/web/ui/UIContext` to access the `translate` function. Then you can pass the language key `language-translatable-text-content` you defined in the language resources files to the `translate` function and your text will be translated into whichever locale is most appropriate.
+<!-- TODO-API link to Geocortex UI Components -->
 
-Another option for translating language strings is to use [Geocortex UI Components](TODO-link-to-component-library), like `<Typography>`. Geocortex Components will automatically detect and translate language strings in props and child content.
+Another option for translating language strings is to use Geocortex UI Components, like `<Typography>`. Geocortex Components will automatically detect and translate language strings in props and child content.
 
-:::tip 
+:::tip
 To test out a translation, change the language your browser uses.
 :::
 
@@ -224,7 +223,7 @@ import React, { useContext } from "react";
 import { LayoutElement } from "@geocortex/web/components";
 // highlight-next-line
 import { UIContext } from "@geocortex/web/ui";
-import Typography from "@geocortex/web/ui/typography"
+import Typography from "@geocortex/web/ui/typography";
 
 export default function TranslatableText(props) {
     // highlight-next-line
@@ -234,7 +233,10 @@ export default function TranslatableText(props) {
         <LayoutElement {...props} style={{ backgroundColor: "white" }}>
             // highlight-start
             <h1>{translate("language-translatable-text-content")}</h1>
-            <Typography variant="h1" text="language-translatable-text-content"/>
+            <Typography
+                variant="h1"
+                text="language-translatable-text-content"
+            />
             // highlight-end
         </LayoutElement>
     );
@@ -249,7 +251,6 @@ export default function TranslatableText(props) {
 <img src={useBaseUrl("img/web-translate-german.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Language Strings and App Config
 
@@ -270,3 +271,4 @@ All language strings used for properties in the [app config](concepts-app-config
         ...
     ]
 }
+```

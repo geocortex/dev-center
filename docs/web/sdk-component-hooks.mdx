@@ -11,7 +11,7 @@ Watches an object for changes in one or more properties of a component model and
 
 ### The Problem
 
-In Geocortex Web [component models](concepts-components-services.mdx#models) provide a way to decouple components from data source concerns and app interactions. However, they raise the issue of consistency - how can a component stay up to date with changes in the data of the underlying model? E.g. how does the React component know when to re-render?
+In Geocortex Web [component models](concepts-components-services.mdx#component-models-and-configuration) provide a way to decouple components from data source concerns and app interactions. However, they raise the issue of consistency - how can a component stay up to date with changes in the data of the underlying model? E.g. how does the React component know when to re-render?
 
 ### The Solution
 
@@ -25,6 +25,7 @@ Geocortex Web components solve this problem by providing a way to update the UI 
 ```tsx
 // highlight-next-line
 import { useWatchAndRerender } from "@geocortex/web/ui/hooks";
+import Typography from "@geocortex/web/ui/typography";
 
 export default function CustomComponent(props) {
     const { model } = props;
@@ -42,7 +43,7 @@ export default function CustomComponent(props) {
             )}
             {!model.hidden && (
                 <div>
-                    <h1>BOO!</h1>
+                    <Typography variant="h1">BOO!</Typography>
                     // highlight-next-line
                     <Button onClick={() => (model.hidden = true)}>
                         Hide Me

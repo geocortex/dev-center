@@ -9,7 +9,6 @@ import TabItem from "@theme/TabItem";
 import PrereqsSnippet from "./snippets/prereqs.mdx";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 
-
 Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do with Geocortex Web. Components can interact with other components and services, both built in and custom, which can allow complex application interactions to occur.
 
 By the end of this article, you'll have the knowledge to build a custom component that can interact with other components and services.
@@ -22,7 +21,9 @@ Check out [implementing a custom component](usecases-implement-component-with-ui
 
 ## Interacting with other Components
 
-Components can interact with each other through their [respective models](concepts-layout.mdx#models). A model can either declare that it is exported, like the [map model](TODO-api-link-to-map-model), or that it imports a model. Components like the `<scalebar>` or `<compass>` import the map model, and this is what allows them to respond to changes in the maps state.
+<!-- TODO-API link to map model and scalebar/compass components once available -->
+
+Components can interact with each other through their [respective models](concepts-layout.mdx#models). A model can either declare that it is exported, like the map model, or that it imports a model. Components like the `<scalebar>` or `<compass>` import the map model, and this is what allows them to respond to changes in the maps state.
 
 ### Example: Component that Adds a Graphics Layer to the Map
 
@@ -45,7 +46,7 @@ import {
     LayoutElement,
     LayoutElementProperties,
 } from "@geocortex/web/components";
-import Button from "@geocortex/web/ui/button/Button"
+import Button from "@geocortex/web/ui/button/Button";
 import { CustomModel } from ".";
 
 export default function CustomComponent(
@@ -191,6 +192,8 @@ export default class CustomModel extends ComponentModelBase {
 
 ```tsx title="src/components/importedModel/ExportedModelComponent.tsx"
 import React from "react";
+import Typography from "@geocortex/web/ui/typography";
+
 import {
     LayoutElement,
     LayoutElementProperties,
@@ -202,7 +205,9 @@ export default function CustomComponent(
 ) {
     return (
         <LayoutElement {...props} style={{ backgroundColor: "white" }}>
-            <h3>{`Text From the imported Model: "${props.model.getContentText()}"`}</h3>
+            <Typography variant="h1">
+                {`Text From the imported Model: "${props.model.getContentText()}"`}
+            </Typography>
         </LayoutElement>
     );
 }

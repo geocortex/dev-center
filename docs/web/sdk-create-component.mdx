@@ -36,9 +36,13 @@ export default ExampleComponent;
 
 ## Create the Component Model
 
-<!-- TODO: Clarify that React component state is still useful. Provide suggestions on when to use one vs. other -->
+Next we need to create the [component model](concepts-components-services.mdx#component-models-and-configuration) that will be bound to the component we just created. This model will function as the underlying data source for the component.
 
-Next we need to create the [component model](concepts-components-services.mdx#component-models) that will be bound to the component we just created. This model will function as the underlying data source for the component. Create a new file called `ExampleComponentModel.ts` in `src/components/ExampleComponent`:
+:::tip
+It's best practice to use the model to define configurable or persistent state, and use the React state hooks for UI specific transient state, like an active selection.
+:::
+
+Create a new file called `ExampleComponentModel.ts` in `src/components/ExampleComponent`:
 
 ```ts title="src/components/ExampleComponent/ExampleComponentModel.ts"
 import {

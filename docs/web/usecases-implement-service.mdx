@@ -84,8 +84,6 @@ The purpose of this service will be to create a mock data source for the [news f
 :::note
 This example uses the `_onInitialize` method override to handle initialization logic, making sure to call the base method. Learn more about [service initialization and cleanup](concepts-components-services.mdx#initialization-and-cleanup).
 
-<!-- TODO - on destroy method once eric updates the pattern -->
-
 :::
 
 ```ts title="src/services/CustomDataService/CustomDataService.ts"
@@ -244,9 +242,11 @@ import List from "@geocortex/web/ui/list";
 import ListItem from "@geocortex/web/ui/list-item";
 import TitleBar from "@geocortex/web/ui/title-bar";
 import "./NewsFeed.css";
-import Typography from "@geocortex/web/ui/typography"
+import Typography from "@geocortex/web/ui/typography";
 
-export default function NewsFeed(props: LayoutElementProperties<NewsFeedModel>) {
+export default function NewsFeed(
+    props: LayoutElementProperties<NewsFeedModel>
+) {
     const { model } = props;
 
     useWatchCollectionAndRerender(model.newsItems);
@@ -313,9 +313,7 @@ export default class NewsFeedModel extends ComponentModelBase {
 
 ```ts title="src/index.ts"
 import CustomDataService from "./services/CustomDataService";
-import NewsFeed, {
-    NewsFeedModel,
-} from "./components/NewsFeed";
+import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
 import { LibraryRegistry } from "@geocortex/web/config";
 import { ComponentType } from "react";
 
