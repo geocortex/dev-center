@@ -3,6 +3,7 @@ title: App Config for a Component
 description: Geocortex Web - Learn how to make a component participate in app config.
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
@@ -281,6 +282,7 @@ This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hoo
     { label: 'App Config', value: 'config', },
     { label: 'Component Export', value: 'newsFeedIndex', },
     { label: 'Registration', value: 'index', },
+    { label: 'UI', value: 'ui', },
   ]
 }>
 <TabItem value="component">
@@ -477,5 +479,8 @@ export default function (registry: LibraryRegistry) {
 }
 ```
 
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-component-config-example.png")} />
 </TabItem>
 </Tabs>
