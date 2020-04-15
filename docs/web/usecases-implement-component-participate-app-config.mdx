@@ -132,9 +132,10 @@ export default function NewsFeed(props) {
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
 
+@serializable
 class NewsFeedModel extends ComponentModelBase {}
 
-export default serializable(NewsFeedModel);
+export default NewsFeedModel;
 ```
 
 </TabItem>
