@@ -56,14 +56,14 @@ For example, this configuration will place the zoom widget in the top right of t
 If a slot configuration is not given, the component will slot itself into a default position. Each component defines its own slots - not every slot will work for every component.
 
 :::tip
-The [Quick Start](sdk-quick-start.mdx) comes with a schema for `layout.xml` which can [autocomplete slot values for a component](concepts-advanced-layout.mdx#autocomplete-properties)
+The [Quickstart](sdk-quick-start.mdx) comes with a schema for `layout.xml` which can [autocomplete slot values for a component](concepts-advanced-layout.mdx#autocomplete-properties)
 :::
 
 Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
 
 ## Stacks and Splits
 
-The basic `stack` and `split` components form building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
+The basic `stack` and `split` components are building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
 
 Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes.
 
@@ -131,7 +131,7 @@ And finally slot those two splits into the outer-most stack:
 ## Panels
 
 Another core concept that Geocortex Mobile uses to organize elements in a layout is **panels**.
-Panels are a container component that enable hierarchal navigation between different components.
+Panels are a container component that enable hierarchical navigation between different components.
 
 ```xml
 <panel id="search-panel">
@@ -154,7 +154,7 @@ When a feature in the results list is opened, the `<feature-details>` component 
 ### Activation
 
 -   If the target component exists in the panel, then deactivate components above it until the target component is active
-    -   Else, the target component must be deactivated, so activate it and place it above the existing component.
+    -   Else, the target component must be deactivated, so activate it and place it above the existing component
 
 ### Deactivation
 
@@ -167,10 +167,10 @@ The default `layout-large.xml` in the Geocortex Mobile [quick start](sdk-quick-s
 
 ## Device Form factors
 
-Geocortex Mobile has built in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target UWP devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropiate.
+Geocortex Mobile has built in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target desktop devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropiate.
 
 :::tip
-The Geocortex Mobile SDK [quick start](sdk-quick-start.mdx) includes a large and small layout.
+The Geocortex Mobile SDK [Quickstart](sdk-quick-start.mdx) includes a large and small layout.
 :::
 
 In order for the correct layout to be loaded for the correct form factor, the layout needs to be loaded by the app config.
@@ -201,7 +201,7 @@ In order for the correct layout to be loaded for the correct form factor, the la
 This app config will load a large layout for a desktop device, and a medium layout for a tablet device.
 
 :::important
-The [quick start](Quick Start) does not ship with a medium layout configured. See [Add Medium Layout](usecases-add-medium-layout.mdx) for instructions on how to do this.
+The [Quickstart](sdk-quick-start.mdx) does not ship with a medium layout configured. See [Add Medium Layout](usecases-add-medium-layout.mdx) for instructions on how to do this.
 :::
 
 ### Fallback Layouts
@@ -234,7 +234,7 @@ When adding custom components, you will need to [add their custom namespace](use
 
 ## Next Steps: Components and App Config
 
-In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a component in Geocortex Mobile. Each component has its own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful flexible applications with different layouts for different form factors or use cases.
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Mobile. Each component has it's own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful, flexible applications with different layouts for different form factors or use cases.
 
 <UseCaseContainer>
     <UseCaseCard

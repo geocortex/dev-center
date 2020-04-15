@@ -12,7 +12,7 @@ Geocortex Mobile comes with search functionality out of the box. The default beh
 
 ## What you're Building
 
-We will modify the default search behavior of the [Quick Start](sdk-quick-start.mdx) application on the Fire Hydrants layer have have an optional filter that will only show fire hydrants without a hydrants survey.
+We will modify the default search behavior of the [Quickstart](sdk-quick-start.mdx) application on the Fire Hydrants layer to have an optional filter that will only show fire hydrants without a hydrants survey.
 
 <img
     src={useBaseUrl("img/custom-search-workflow-finished.png")}
@@ -25,9 +25,9 @@ We will modify the default search behavior of the [Quick Start](sdk-quick-start.
 
 ## Initial Set up
 
-1. Run the Quick Start
-2. Turn off visibility for all Feature Layers except for "Fire Hydrants"
-3. Run "Return to Default Map View" in the I Want to Menu if you panned or zoomed the map.
+1. Run the Quickstart.
+2. Turn off visibility for all Feature Layers except for "Fire Hydrants".
+3. Run "Return to Default Map View" in the I Want to Menu (if you panned or zoomed the map).
 4. Open the search panel and search for `active`.
 
 You should see some number of results. If you look at the details for some of the Fire Hydrants, you'll notice some have Fire Hydrant Surveys and some don't. We will build a workflow that will only return the Fire Hydrants without a related survey when you search for `active filter:nosurveys`.
@@ -104,7 +104,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
     alt="Search Workflow with Alert"
 />
 
-7. Open up your Workflow in the Workflow Designer again. The default behavior we just overode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.search` is an operation, so it needs a RunOperation Activity, and `results.display` is a command so it needs a RunCommand Activity. Chain these two activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.search` and then passing the output of that operation to `results.display`.
+7. Open up your Workflow in the Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.search` is an operation, so it needs a RunOperation Activity, and `results.display` is a command so it needs a RunCommand Activity. Chain these two activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.search` and then passing the output of that operation to `results.display`.
 
 <img
     src={useBaseUrl("img/custom-search-workflow-recreated.png")}
@@ -119,11 +119,11 @@ Check out [Change Default Application Behavior](usecases-change-default-behavior
 
 ## Extend the Workflow to Filter the Results.
 
-At this point, you can choose to extend the search behavior with Geocortex Workflow in whatever way is appropiate for your usecase. You could execute a different search for external results and add them to the set of results displayed, you could filter out specific results from the search, or you could replace the default search operation with an entirely different search operation. For this example, a workflow was created which checks the incoming search text for the text "filter:nosurvey" and then filters results to Fire Hydrants without a survey. The workflow [can be found here](https://latitudegeo.maps.arcgis.com/home/item.html?id=bc7647d4485743e98ea42cd69ee4aa66).
+At this point, you can choose to extend the search behavior with Geocortex Workflow in whatever way is appropiate for your usecase. You could execute a different search for external results and add them to the set of results displayed, filter out specific results from the search, or replace the default search operation with an entirely different search operation. For this example, a workflow was created which checks the incoming search text for the text "filter:nosurvey" and then filters results to Fire Hydrants without a survey. The workflow [can be found here](https://latitudegeo.maps.arcgis.com/home/item.html?id=bc7647d4485743e98ea42cd69ee4aa66).
 
 ## Next Steps
 
-This pattern of configuring behavior with a workflow can be applied throughout configuration on numerous components. You can use a workflow to control the behavior of the Map, Feature Details, Geolocate, Custom Components, and more. Often, a workflow can be created and used to execute custom behavior instead of a custom command or operation.
+This pattern of configuring behavior with a workflow can be applied to numerous components. You can use a workflow to control the behavior of the Map, Feature Details, Geolocate, Custom Components, and more. Often, a workflow can be created and used to execute custom behavior instead of requiring the implementation of a custom command or operation.
 
 <UseCaseContainer>
     <UseCaseCard

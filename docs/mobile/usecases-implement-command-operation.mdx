@@ -9,7 +9,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
 :::tip
-Geocortex Mobile has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-search-behavior.mdx) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+Geocortex Mobile has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors. If these Commands and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-search-behavior.mdx) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
 This article will walk you through implementing a custom command in Geocortex Mobile that displays an alert.
@@ -20,10 +20,10 @@ This article will walk you through implementing a custom command in Geocortex Mo
 
 ## Create the Backing Service
 
-Every Command or operation in Geocortex Mobile needs to be registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
+Every Command or Operation in Geocortex Mobile needs to be registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
-2. In the file, add a new service class `AlertService` and register it with **autofac**
+2. In the file, add a new service class `AlertService` and register it with **Autofac**.
 
 <AutofacSnippet />
 
@@ -47,11 +47,11 @@ namespace App1.Services.AlertService
 ```
 
 :::info
-The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `AlertService: ServiceBase`. These two pieces register the service with autofac and Geocortex Mobile and cause it to be initialized on startup.
+The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `AlertService: ServiceBase`. These two pieces register the service with Autofac and Geocortex Mobile and cause it to be initialized on startup.
 :::
 
-3. Create a class `Services/AlertOperations` under the platform agnostic project
-4. In the file, add a new class `AlertOperations` and register it with autofac
+3. Create a class `Services/AlertOperations` under the platform agnostic project.
+4. In the file, add a new class `AlertOperations` and register it with Autofac.
 
 ```csharp
 using App1.Services.AlertOperations;
@@ -74,24 +74,24 @@ namespace App1.Services.AlertOperations
 
 ## Implementing the Operation
 
-Creating a new Operation in mobile consists of two pieces.
+Creating a new Operation in mobile consists of two pieces:
 
 -   Defining the Operation's name, inputs, and outputs
--   Registering an "Execution" function for the operation.
+-   Registering an "Execution" function for the operation
     -   This function will be the actual code that executes when the operation is called.
 
 ### Define the Operation
 
 An Operation is defined in the class that extends `OperationsBase`. In our example, it's `AlertOperations`.
 
--   An `IVoidOperation` produces no output, and optionally takes an input
+-   An `IVoidOperation` produces no output, and optionally takes an input.
 
 ```csharp
 public IVoidOperation NoInputNoOutput => GetVoidOperation("fire.phasers");
 public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Temperature>("tea.earl-grey");
 ```
 
--   An `IOperation` produces an output, and optionally takes an input
+-   An `IOperation` produces an output, and optionally takes an input.
 
 ```csharp
 public IOperation<Mischief> NoInputSomeOutput => GetOperation<Mischief>("q.appear");
@@ -132,7 +132,7 @@ Next, we need to register an implementation for our operation in the `AlertServi
 ```
 
 :::note
-We never have to explicity set this property because of some [autofac autowiring magic](https://autofaccn.readthedocs.io/en/latest/register/prop-method-injection.html) in the assembly attribute.
+We never have to explicity set this property because of some [Autofac autowiring magic](https://autofaccn.readthedocs.io/en/latest/register/prop-method-injection.html) in the assembly attribute.
 :::
 
 2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
@@ -160,7 +160,7 @@ class AlertService : ServiceBase
 Multiple implementations can be registered for an Command or Operation.
 :::
 
-Congradulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](usecases-change-default-behavior.mdx).
+Congratulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](usecases-change-default-behavior.mdx).
 
 ```json
 {
@@ -186,7 +186,7 @@ Congradulations! You just created your first custom operation. You can easily te
 
 ## Next Steps
 
-Commands and operations are the logical building blocks of executing custom behavior in Geocortex Mobile, but sometimes you need to take things a bit further. Creating custom components can allow you to design completely custom UI for Gecortex Mobile, and creating background services can enable the execution of tasks on an arbitrary schedule.
+Commands and operations are the logical building blocks of executing custom behavior in Geocortex Mobile, but sometimes you need to take things a bit further. Creating custom components can allow you to design completely custom UI for Geocortex Mobile, and creating background services can enable the execution of tasks on an arbitrary schedule.
 
 <UseCaseContainer>
     <UseCaseCard

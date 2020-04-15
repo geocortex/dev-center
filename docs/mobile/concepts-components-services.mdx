@@ -10,7 +10,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 ## Components
 
-In Geocortex Mobile, components are entities which implement UI/UX experiences and the associated logic. An example of a component is a I Want to Menu (IWTM). IWTMs participate in layout, implement custom behavior (display a list when clicked), and participate in app config.
+In Geocortex Mobile, components are entities which implement UI/UX experiences and the associated logic. An example of a component is an I Want to Menu (IWTM). IWTMs participate in layout, implement custom behavior (display a list when clicked), and participate in app config.
 
 Components are only **created** if they participate in the layout - if no component definition exists in the layout, none will be created. Components are **initialized** when they are activated.
 
@@ -20,7 +20,7 @@ In Geocortex Mobile, services are entities which provide a shared service or beh
 
 1. Services do not participate in layout, and do not power UI (except indirectly).
 1. Services are created **and** initialized on startup, before any components are created.
-    - This means any service is always available to any component
+    - This means any service is always available to any component.
 
 An example of a service would be a "SettingsService", which provides global settings that other components can consume.
 
@@ -32,9 +32,9 @@ Services are not intended to directly interact with eachother. Instead, services
 
 This is the order of operations for component and service creation and initialization on app startup.
 
-1. Create all services
-2. Initialize all services
-3. Create all components consumed by the layout
+1. Create all services.
+2. Initialize all services.
+3. Create all components consumed by the layout.
 4. Activate the necessary components, depending on the layout and user interaction. Components are initialized during activation.
 
 ## Next Steps

@@ -14,7 +14,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, and operations differ because they produce output. Commands and Operations are grouped by namespace, for example;
+**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output. Commands and Operations are grouped by namespace, for example;
 
 ```
 auth.sign-in
@@ -181,7 +181,7 @@ This example demonstrates two different types of argument passing behavior. The 
 -   `highlights.add-focus`
 -   `highlights.pulse`
 
-`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape
+`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape:
 
 ```json
 {
@@ -192,7 +192,7 @@ This example demonstrates two different types of argument passing behavior. The 
 
 <!-- TODO - tasks.identify operation direct link -->
 
-`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape:
 
 ```json
 {
