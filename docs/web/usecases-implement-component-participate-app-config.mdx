@@ -447,10 +447,8 @@ export default class NewsFeedModel extends ComponentModelBase<
 <TabItem value="newsFeedIndex">
 
 ```ts title="src/components/NewsFeed/index.ts"
-import NewsFeedModel from "./NewsFeedModel";
-
 export { default } from "./NewsFeed";
-export { NewsFeedModel };
+export { default as NewsFeedModel } from "./NewsFeedModel";
 ```
 
 </TabItem>

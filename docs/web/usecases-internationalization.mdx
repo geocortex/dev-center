@@ -72,10 +72,8 @@ export default serializable(TranslatableTextModel);
 <TabItem value="index">
 
 ```ts title="src/components/TranslatableText/index.ts"
-import TranslatableTextModel from "./TranslatableTextModel";
-
 export { default } from "./TranslatableText";
-export { TranslatableTextModel };
+export { default as TranslatableTextModel } from "./TranslatableTextModel";
 ```
 
 </TabItem>

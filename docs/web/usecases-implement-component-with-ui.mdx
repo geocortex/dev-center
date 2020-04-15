@@ -73,10 +73,8 @@ export default serializable(CustomModel);
 <TabItem value="index">
 
 ```ts title="src/components/CustomComponent/index.ts"
-import CustomModel from "./CustomModel";
-
 export { default } from "./CustomComponent";
-export { CustomModel };
+export { default as CustomModel } from "./CustomModel";
 ```
 
 </TabItem>
@@ -251,10 +249,8 @@ export default serializable(NewsFeedModel);
 <TabItem value="newsFeedIndex">
 
 ```ts title="src/components/NewsFeed/index.ts"
-import NewsFeedModel from "./NewsFeedModel";
-
 export { default } from "./NewsFeed";
-export { NewsFeedModel };
+export { default as NewsFeedModel } from "./NewsFeedModel";
 ```
 
 </TabItem>
