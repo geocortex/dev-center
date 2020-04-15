@@ -1,0 +1,126 @@
+---
+title: Commands and Operations in Components
+description: Geocortex Web - Learn how to register and run commands and operations in custom components
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import PrereqsSnippet from "./snippets/prereqs.mdx";
+import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
+
+
+When writing custom components you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](usecases-implement-command-operation.mdx).
+
+By the end of this article, you'll have the knowledge to build a custom component that can run commands and operations, as well as register implementations for them.
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+Check out [implementing a custom component](usecases-implement-component-with-ui.mdx) to learn the basics of implementing components.
+
+If you want to implement a command and operation in a component, it's suggested you check out [custom commands and operations](usecases-implement-command-operation.mdx#implement-the-custom-command-and-operation) first.
+
+## Running Commands and Operations
+
+You can run command and operations [through the `UIContext` of the component](sdk-ui-context.mdx).
+
+### Example: Display a Confirmation Dialog to a User
+
+The following example executes the `ui.confirm` operation through the UIContext. Calling a command or operation is as simple as retrieving it by name, providing the appropiate generic type for the command or operation, and then calling `execute` with the appropiate arguments.
+
+:::note
+In order to pass arguments to a command or operation, you have to use the correct type for the generic `command` or `operation` function call with the argument and output type for the command or operation. For example, `ui.confirm` takes in a `ConfirmOperationArgs` and returns a `boolean`, as seen in the [API docs](api-commands-operations.mdx#ui-confirm).
+:::
+
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx title="src/components/CustomComponent/CustomComponent.tsx"
+import React, { useContext } from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import { UIContext } from "@geocortex/web/ui";
+import Button from "@geocortex/web/ui/button/Button"
+import { ConfirmOperationArgs } from "@geocortex/viewer-framework/messaging/registry/ui";
+
+export default function CustomComponent(props) {
+    const { operation, command } = useContext(UIContext);
+
+    const displayConfirmDialog = async () => {
+        const result = await operation<ConfirmOperationArgs, boolean>("ui.confirm")
+                            .execute({
+                                title: "Confirm Me",
+                            });
+
+        if (result) {
+            console.log("I have been confirmed!");
+        } else {
+            console.warn("I was not confirmed.");
+        }
+    };
+    return (
+        <LayoutElement {...props}>
+            <Button onClick={displayConfirmDialog}>Display Confirm Dialog</Button>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-display-notification.png")}/>
+</TabItem>
+</Tabs>
+
+## Implementing Commands and Operations
+
+Components can also register an implementation for any command. This allows for multiple actions to occur on a command execution, and a tighter integration with side effects in the UI. 
+
+### Example: Component that Implements a Command
+
+When registering a command implementation for a component, it's best practice to register the implementation in the components model. The following component model registers an implementation for a custom command that takes a `string` argument.
+
+:::tip
+If necessary, a component could also register the command implementation through the [UIContext](sdk-ui-context).
+:::
+
+```tsx
+import {
+    ComponentModelBase,
+    serializable,
+} from "@geocortex/web/models";
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    private _handles: IHandle[] = [];
+    
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+
+        this._handles.push(
+            this.messages
+                .command<string>("custom.my-command")
+                .register((arg: string) => {
+                    console.log(`Executing 'custom.my-command' with argument '${arg}'`)
+                    return;
+                })            
+        );
+    }
+
+    destroy(): void {
+        super.destroy();
+
+        // Clean up event handlers.
+        this._handles.forEach((h) => h.remove());
+    }
+}
+```
+

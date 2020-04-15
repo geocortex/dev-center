@@ -57,7 +57,9 @@ module.exports = {
                     items: [
                         "web/usecases-implement-command-operation",
                         "web/usecases-implement-component-with-ui",
+                        "web/usecases-components-commands-operations",
                         "web/usecases-implement-component-participate-app-config",
+                        "web/usecases-component-interactions",
                         "web/usecases-implement-service",
                         "web/usecases-implement-event",
                     ],
