@@ -4,6 +4,8 @@ description: Geocortex Mobile - Learn about layout concepts
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import FollowAlongSnippet from "./snippets/follow-along.mdx";
@@ -133,6 +135,16 @@ And finally slot those two splits into the outer-most stack:
 Another core concept that Geocortex Mobile uses to organize elements in a layout is **panels**.
 Panels are a container component that enable hierarchical navigation between different components.
 
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'Stack', value: 'stack', },
+    { label: 'Feature Details', value: 'feature-details', },
+  ]
+}>
+<TabItem value="layout">
+
 ```xml
 <panel id="search-panel">
     <stack id="search">
@@ -143,13 +155,22 @@ Panels are a container component that enable hierarchical navigation between dif
 </panel>
 ```
 
+</TabItem>
+<TabItem value="stack">
+<img src={useBaseUrl("img/mobile-panel-one.png")}/>
+</TabItem>
+<TabItem value="feature-details">
+<img src={useBaseUrl("img/mobile-panel-two.png")}/>
+</TabItem>
+</Tabs>
+
 This `search-panel` has two root components:
 
 -   A stack containing a `<search>` and a `<results-list>`
 -   A `<feature-details>`
 
 When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
-When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of eachother, with the first component being the bottomost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
+When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component in the place of the existing component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of eachother, with the first component being the bottomost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
 
 ### Activation
 
