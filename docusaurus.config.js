@@ -83,7 +83,12 @@ module.exports = {
         prism: {
             additionalLanguages: ["csharp"],
         },
+        gtag: {
+            trackingID: "UA-103604191-6",
+            anonymizeIP: true,
+        },
     },
+    plugins: ["@docusaurus/plugin-google-gtag"],
     presets: [
         [
             "@docusaurus/preset-classic",
