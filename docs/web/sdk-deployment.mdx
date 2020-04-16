@@ -20,7 +20,23 @@ This is a temporary deployment pattern for the preview release. We're actively i
     - This interface is for debugging and development purposes only, and is not intended for general configuration of your application.
 1. Upload the production build of your custom library located in the `build` folder to the `Custom Code` section of the development editing interface
 1. **Optional:** Copy and paste the `app.json` and `layout.xml` from your local SDK project to the Geocortex Web Designer Interface
-    - If you are building a custom UI component, you can also edit your layout using the Designer interface to include it in your application instead
+    - If you are building a custom UI component, you can include the component in the layout content.
+    - You may need to add an app item for the referenced layout file to the app config in the Designer Interface.
+
+```json
+{
+  "items": [
+    ...
+    {
+      "id":"desktop-landscape",
+      "title":"Desktop Landscape",
+      "url":"./desktop-landscape.xml",
+      "$type":"layout"
+    }
+    ...
+  ]
+}
+```
 
 ### Deploy the app
 
