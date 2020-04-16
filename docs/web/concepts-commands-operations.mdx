@@ -68,11 +68,6 @@ Since these commands and operations are running from the [context](https://docs.
 1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
 2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
 
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a Feature Details component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
-
-1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
-2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
-
 In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `action` command chain of `zoom-feature` in the example.
 
 ```json
@@ -87,7 +82,7 @@ The `action` command chain of `save-features-to-csv` demonstrates how an operati
 
 ## Passing Named Arguments
 
-If you choose, you can overide the default arguments passed into a command or operation by provide an `arguments` property.
+If you choose, you can overide the default arguments passed into a command or operation by providing an `arguments` property.
 
 ```json
 {
@@ -109,9 +104,10 @@ If you choose, you can overide the default arguments passed into a command or op
 }
 ```
 
+<!-- TODO-API link to displayNotification args -->
 This will override the default arugment passing behavior for that command or operation. For example, `ui.display-notification` takes a object of type `DisplayNotificationArgs`, which has the property `message` of type `string`.
 
-## Example
+## Example: Configured Map and I Want to Menu
 
 <Tabs
   defaultValue="app"
@@ -178,13 +174,13 @@ This will override the default arugment passing behavior for that command or ope
 </TabItem>
 </Tabs>
 
-This example demonstrates two different types of argument passing behavior. The first action in the app config is a command chain defined on the `onClick` property of a map. This chain consists of four operations and commands:
+This example demonstrates two different types of argument passing behavior. The first action in the app config is a command chain defined on the `onClick` property of a map. This chain consists of three operations and commands:
 
 -   `task.identify`,
 -   `highlights.add-focus`
 -   `results.display`
 
-`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape
+`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape:
 
 ```json
 {
@@ -195,7 +191,7 @@ This example demonstrates two different types of argument passing behavior. The 
 
 <!-- TODO-API tasks.identify operation direct link -->
 
-`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape:
 
 ```json
 {
@@ -205,7 +201,7 @@ This example demonstrates two different types of argument passing behavior. The 
 }
 ```
 
-`highlights.add-focus`, `results.display` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `results.display` will receive the output of the last operation (or the original input if no operations have run), so it will also receive the output of `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
+`highlights.add-focus`, `results.display` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `results.display` will receive the output of the last operation, `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
 :::tip
 Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.  
@@ -213,7 +209,7 @@ Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for mo
 
 <!-- TODO-API MapExtensionArgs direct link -->
 
-The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a `MapExtensionArgs`, which is provided as a named argument. The `maps` property in the argument references the `default`map in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](concepts-advanced-config.mdx#item-uris) for more details.
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a `MapExtensionArgs`, which is provided as a named argument. The `maps` property in the argument references the `default`map in the config through an [**Item Uri**](concepts-advanced-config.mdx#item-uris). Item URI's are a way of referencing other items within the app config.
 
 ## Next Steps
 

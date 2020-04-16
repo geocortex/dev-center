@@ -10,7 +10,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 ## Components
 
-In Geocortex Web, components are entities which implement UI/UX experiences and the associated logic. An example of a component is a I Want to Menu (IWTM). IWTMs participate in layout, implement custom behavior (display a list when clicked), and participate in the app config.
+In Geocortex Web, components are entities which implement UI/UX experiences and the associated logic. An example of a component is an I Want to Menu (IWTM). IWTMs participate in layout, implement custom behavior (display a list when clicked), and participate in the app config.
 
 Components are only **created** if they participate in the layout - if no component definition exists in the layout, none will be created. Components are **initialized** when they are activated.
 
@@ -26,7 +26,7 @@ Every component has an associated model. This model functions as the underlying 
 
 ## Services
 
-In Geocortex Web, services represent a shared application-wide concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](usecases-implement-command-operation.mdx#implement-the-custom-command-and-operation), but services can also be directly [injected](sdk-service-injection.mdx) into services and component models.
+In Geocortex Web, services represent a shared application-wide concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](usecases-implement-command-operation.mdx#implement-the-custom-command-and-operation), but services can also be directly [injected](sdk-service-injection.mdx) into other services and component models.
 
 <!-- TODO-API: Add a link out to the services API
 :::tip
@@ -121,7 +121,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 
 In general, components and services are created as needed at runtime in Geocortex Web, with a few exceptions.
 
-1. First, all core services, like the [MessageBus](api-message-bus.mdx), and services [registered with `loadOnStartup: true`](usecases-implement-service.mdx#register-the-custom-service) will be intialized in parallel.
+1. First, all core services, like the [MessageBus](api-message-bus.mdx), and services [registered with `loadOnStartup: true`](usecases-implement-service.mdx#register-the-custom-service), will be intialized in parallel.
 2. Next, the components in the layout which are initially active will be initialized in parallel, along with their models and any [services they inject](sdk-service-injection.mdx).
 3. Finally, other services and components are initialized as needed, usually when a.) a command they implement is run or b.) they are activated explicitly in the layout.
 

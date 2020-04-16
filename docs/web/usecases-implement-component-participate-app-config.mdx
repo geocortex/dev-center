@@ -33,7 +33,7 @@ By configuring built in [layout elements](concepts-layout.mdx) such as the `<map
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="map-primary" config="myMapConfig" />
+    <map id="map-primary" config="my-map-config" />
 </layout>
 ```
 
@@ -45,7 +45,7 @@ By configuring built in [layout elements](concepts-layout.mdx) such as the `<map
     "items": [
         {
             "$type": "map-extension",
-            "id": "myMapConfig",
+            "id": "my-map-config",
             "onInitialized": [
                 {
                     "name": "ui.alert",
@@ -68,7 +68,7 @@ We are going to add configuration to the [news feed component](usecases-implemen
 
 ### Starting Point
 
-We will start this example from the component and model built in the [previous example](usecases-implement-component-with-ui.mdx#example-rss-feed-of-news-updates).
+We will start this example from the News Feed component and model built in the [previous example](usecases-implement-component-with-ui.mdx#example-rss-feed-of-news-updates).
 
 <FrameworkComponentsSnippet />
 
@@ -176,7 +176,7 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
 
 ### Participating in the Configuration Lifecycle
 
-Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralizable [app items](concepts-app-config.mdx#anatomy-of-an-app-config) into our custom model.
+Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralize [app items](concepts-app-config.mdx#anatomy-of-an-app-config) into instances of our custom model.
 
 :::note
 Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes.
@@ -242,9 +242,9 @@ export default function NewsFeed(props: NewsFeedProps) {
 }
 ```
 
-We want this model to be initially populated with values from configuration or defaults. We can use `props.model` values to set our initial state, but we also want to update the model and re-render on model changes instead of using the `useState` function.
+The model will initially populated with values from configuration or defaults. The component can use `props.model` values to set the initial state, but we also want to update the model and re-render on model changes. Since the data state is contained within the model, we can't use the `useState` React pattern. 
 
-To accomplish this, upon user interaction that affects state,
+To respond to model changes, we can do the following, upon user interaction that affects state,
 
 1. The component updates the model values.
 1. The component listens for changes on the model values and re-renders with the `useWatchAndRerender` function.

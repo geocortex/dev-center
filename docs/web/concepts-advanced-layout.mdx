@@ -47,7 +47,12 @@ Take this more complicated layout for example.
 This layout has a `<search>` component which requires the context of a specific map to function. However, this component is **not** nested within the `<map/>` component in the app. Therefore, it will start a breadth first search from the root of the layout to discover a map component and bind to it.
 
 :::note
-This implicit binding logic also applies to [models](concepts-layout.mdx#models). If a corresponding model is found before a corresponding component during the layout traversal, the referenced model will be bound to instead. For the above example, adding a `models="#map1"` attribute to the panel containing the `<search>` component would be a flexible solution to bind it to the map.
+This implicit binding logic also applies to [models](concepts-layout.mdx#models). If a corresponding `models` property is found before a corresponding component during the layout traversal, the `models` property will be bound to instead. For the above example, adding a `models="#map1"` attribute to the panel containing the `<search>` component would be a flexible solution to bind it to the correct map.
+
+```xml
+<panel id="search-panel" models="#map1">
+```
+
 :::
 
 ### Implicit Config Binding

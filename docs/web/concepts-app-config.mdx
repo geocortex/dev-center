@@ -162,6 +162,7 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <split resizable="true">
+        // highlight-next-line
         <panel width="30" active="true" id="mainPanel"></panel>
         <map id="map-primary" slot="main">
             <button icon="info" config="run-workflow" slot="top-center" margin="0.5">Run Workflow in Side Panel</button>
@@ -186,6 +187,7 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
             "$type": "workflow",
             "id": "demo-workflow",
             "title": "Demo Worklfow",
+            // highlight-next-line
             "target": "mainPanel",
             "portalItem": "c3964768dfa84fe5acf7a72ef95dc92b"
         },

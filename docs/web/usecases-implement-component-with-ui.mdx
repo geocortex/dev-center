@@ -13,7 +13,7 @@ import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
 :::
 
-Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do with Geocortex Web. [Components](concepts-components-services.mdx) can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Web app, so it's worthwhile to try simplier options like [Commands and Operations](concepts-commands-operations.mdx) or [Workflow](usecases-change-default-search-behavior.mdx) first.
+Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do in Geocortex Web. [Components](concepts-components-services.mdx) can display custom, dynamic UI, register command and operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Web app, so it's worthwhile to try simplier options like [changing the default behaviour](usecases-change-default-behavior.mdx) or [Geocortex Workflow](usecases-change-default-behavior.mdx#using-workflows-to-customize-behaviour) first.
 
 By the end of this article, you'll have the knowledge to build a component that displays relevant news items at the top of your map.
 
@@ -23,7 +23,7 @@ By the end of this article, you'll have the knowledge to build a component that 
 
 ## Create a Component Skeleton
 
-The first thing we need to do is create the neccesary files for a custom component. A component is simply a [React Component](https://reactjs.org/docs/components-and-props.html) that returns a root `LayoutElement`, so it will be defined in a `.tsx`. file. Every component needs an associated model that extends `ComponentModelBase`.
+The first thing we need to do is create the neccesary files for a custom component. Every component needs an associated model that extends `ComponentModelBase`.
 
 Create a new folder structure with the following files. These files define a new component with a simple visual structure and export it from the `CustomComponent` folder.
 
@@ -48,8 +48,9 @@ In Geocortex Web, components are simply [React Components](https://reactjs.org/d
 ```tsx title="src/components/CustomComponent/CustomComponent.tsx"
 import React from "react";
 import { LayoutElement } from "@geocortex/web/components";
+import { CustomModel } from ".";
 
-export default function CustomComponent(props) {
+export default function CustomComponent(props: LayoutElementProperties<CustomModel>) {
     return (
         <LayoutElement {...props}>
             <div>I'm so custom</div>
@@ -84,8 +85,7 @@ export { default as CustomModel } from "./CustomModel";
 ## Register the Component with the Web SDK
 
 Every component needs to be registered with the Web SDK in order to be used in the [`layout`](concepts-layout.mdx)
-
-Add new calls to `registerComponent` and `registerModel` in `src/index.ts`.
+* Add new calls to `registerComponent` and `registerModel` in `src/index.ts`.
 
 :::note
 One key thing to note about this snippet is the `itemType`. The value of the [item type](concepts-advanced-config.mdx#app-items) is what links a component to a model. It's also the string value used for the `$type` property when defining [configuration for a component](usecases-implement-component-participate-app-config.mdx).
@@ -175,8 +175,9 @@ import TitleBar from "@geocortex/web/ui/title-bar";
 import Button from "@geocortex/web/ui/button";
 import DialogActions from "@geocortex/web/ui/dialog-actions";
 import "./NewsFeed.css";
+import { NewsFeedModel } from ".";
 
-export default function NewsFeed(props) {
+export default function NewsFeed(props: LayoutElementProperties<NewsFeedModel>) {
     const [hidden, setHidden] = useState(false);
 
     const newsItems: string[] = [
