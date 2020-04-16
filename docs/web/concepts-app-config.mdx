@@ -34,8 +34,10 @@ Every component within the viewer that requires functional, compositional conten
 Every component in the layout can be linked to app config with the `config` attribute. The `config` attribute is used to identify the item in the app config that has configuration for the component.
 
 :::note
-<!-- TODO - better link once SDK restructured into moving components into the SDK section -->
-If you do not provide a `config` attribute for a component, Geocortex Web will use the [`createDefault` method](usecases-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition) to generate the component.
+
+<!-- TODO - this is false -->
+
+If you do not provide a `config` attribute for a component, Geocortex Web will attempt to [infer a default value](concepts-advanced-layout.mdx#implicit-config-binding).
 :::
 
 <Tabs

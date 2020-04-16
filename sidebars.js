@@ -90,6 +90,7 @@ module.exports = {
             type: "category",
             label: "API",
             items: [
+                "web/api-layout",
                 "web/api-message-bus",
                 "web/api-commands-operations",
                 "web/api-events",
@@ -261,6 +262,7 @@ module.exports = {
             label: "API",
             items: [
                 "mobile/api-overview",
+                "mobile/api-layout",
                 "mobile/api-commands-operations",
                 "mobile/api-events",
             ],
