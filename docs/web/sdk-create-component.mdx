@@ -73,14 +73,16 @@ export default class ExampleComponentModel extends ComponentModelBase<
 
     // This method defines how the model will be serialized and deserialized into an app item.
     // We override it to include our new property `exampleValue`
-    protected _getSerializableProperties(): PropertyDefs<ExampleComponentModelProperties> {
+    protected _getSerializableProperties(): PropertyDefs<
+        ExampleComponentModelProperties
+    > {
         const props = super._getSerializableProperties();
         return {
             ...props,
             exampleValue: {
                 serializeModes: ["initial"],
                 default: "Default Value",
-            }
+            },
         };
     }
 }
@@ -136,7 +138,7 @@ export default function (registry: LibraryRegistry) {
 
 ## Add the Component to your Layout
 
-You can now add the component to your `layout.xml` file and run the development server to see it in use. 
+You can now add the component to your `layout.xml` file and run the development server to see it in use.
 
 <Tabs
   defaultValue="layout"
@@ -158,7 +160,6 @@ You can now add the component to your `layout.xml` file and run the development 
 <img src={useBaseUrl("img/sdk-create-component.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Next Steps
 

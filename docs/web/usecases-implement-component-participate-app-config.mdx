@@ -242,7 +242,7 @@ export default function NewsFeed(props: NewsFeedProps) {
 }
 ```
 
-The model will initially populated with values from configuration or defaults. The component can use `props.model` values to set the initial state, but we also want to update the model and re-render on model changes. Since the data state is contained within the model, we can't use the `useState` React pattern. 
+The model will initially populated with values from configuration or defaults. The component can use `props.model` values to set the initial state, but we also want to update the model and re-render on model changes. Since the data state is contained within the model, we can't use the `useState` React pattern.
 
 To respond to model changes, we can do the following, upon user interaction that affects state,
 

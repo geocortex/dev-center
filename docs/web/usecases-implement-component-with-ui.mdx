@@ -50,7 +50,9 @@ import React from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import { CustomModel } from ".";
 
-export default function CustomComponent(props: LayoutElementProperties<CustomModel>) {
+export default function CustomComponent(
+    props: LayoutElementProperties<CustomModel>
+) {
     return (
         <LayoutElement {...props}>
             <div>I'm so custom</div>
@@ -85,7 +87,8 @@ export { default as CustomModel } from "./CustomModel";
 ## Register the Component with the Web SDK
 
 Every component needs to be registered with the Web SDK in order to be used in the [`layout`](concepts-layout.mdx)
-* Add new calls to `registerComponent` and `registerModel` in `src/index.ts`.
+
+-   Add new calls to `registerComponent` and `registerModel` in `src/index.ts`.
 
 :::note
 One key thing to note about this snippet is the `itemType`. The value of the [item type](concepts-advanced-config.mdx#app-items) is what links a component to a model. It's also the string value used for the `$type` property when defining [configuration for a component](usecases-implement-component-participate-app-config.mdx).
@@ -177,7 +180,9 @@ import DialogActions from "@geocortex/web/ui/dialog-actions";
 import "./NewsFeed.css";
 import { NewsFeedModel } from ".";
 
-export default function NewsFeed(props: LayoutElementProperties<NewsFeedModel>) {
+export default function NewsFeed(
+    props: LayoutElementProperties<NewsFeedModel>
+) {
     const [hidden, setHidden] = useState(false);
 
     const newsItems: string[] = [

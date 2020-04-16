@@ -8,7 +8,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseCard from "../../src/components/UseCaseCard";
-import UseCaseContainer from "../../src/components/UseCaseContainer"
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 :::tip
 Geocortex Web has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-behavior.mdx#using-workflows-to-customize-behaviour) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
@@ -61,7 +61,8 @@ Learn more about [implementing custom services](usecases-implement-service.mdx)
 ## Register the Service with the Web SDK
 
 Every service needs to be registered with the Web SDK in order to be discovered and initialized.
-* Add a call to `registerService` in `src/index.ts`.
+
+-   Add a call to `registerService` in `src/index.ts`.
 
 ```ts
 export default function(registry: LibraryRegistry) {
