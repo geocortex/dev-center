@@ -68,7 +68,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Getting Started with the SDK",
+            label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
                 "web/sdk-create-component",
@@ -136,7 +136,7 @@ module.exports = {
         "workflow/concepts-key-concepts",
         {
             type: "category",
-            label: "Getting Started with the SDK",
+            label: "Geocortex Workflow SDK",
             items: [
                 "workflow/sdk-overview",
                 {
@@ -227,9 +227,20 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Getting Started with the SDK",
+            label: "Geocortex Mobile SDK",
             items: [
-                "mobile/sdk-quick-start",
+                "mobile/sdk-overview",
+                {
+                    type: "category",
+                    label: "Quick Start",
+                    items: [
+                        "mobile/sdk-getting-started",
+                        "mobile/sdk-edit-layout-app-config",
+                        "mobile/sdk-create-component",
+                        "mobile/sdk-create-service",
+                        "mobile/sdk-quick-start-project"
+                    ]
+                },
                 "mobile/sdk-samples",
                 {
                     type: "category",
