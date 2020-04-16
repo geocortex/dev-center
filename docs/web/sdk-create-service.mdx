@@ -3,6 +3,9 @@ title: Create a Service
 description: Geocortex Web - Create a Service for Geocortex Web
 ---
 
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+
 Creating a new custom [service](concepts-components-services.mdx#services) involves a few important steps:
 
 1. [Create the service source file](#create-the-service)
@@ -70,3 +73,18 @@ export default function (registry: LibraryRegistry) {
     // highlight-end
 }
 ```
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Deploy your Service"
+        description="Learn how to deploy your custom service"
+        link="sdk-deployment"
+    />
+    <UseCaseCard
+        title="Create a Service that Manages Dynamic Data"
+        description="Follow along with a more in depth service example"
+        link="usecases-implement-service"
+    />
+</UseCaseContainer>

@@ -4,6 +4,8 @@ description: Geocortex Web - Learn about getting started with the Geocortex Web 
 ---
 
 import DesignerCallout from "./snippets/designer-callout.mdx";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 :::warning
 The Geocortex Web SDK is currently in preview. The patterns for development and deployment are still under active development and are subject to change. We don't yet recommend deploying your custom code into production until we've finalized the SDK.
@@ -43,8 +45,6 @@ The created project contains a few important directories:
 
 ## Development Patterns
 
-TODO - restructure hard
-
 If you are developing custom code that is mostly independent of app context, it is suggested that you use the minimal layout and app config with only the required components.
 
 If you need to develop custom code that requires the context of a custom application built in Geocortex Web Designer, take the following steps to import your SaaS or on premise application into your local Web SDK environment.
@@ -55,8 +55,22 @@ If you need to develop custom code that requires the context of a custom applica
 1. Extract the contents to you in your Web SDK Applications `app` directory, overwriting existing app config and layout.
 1. Develop your custom code on top of your existing application.
 
-TODO - test this
+:::important
+You may need to rename the downloaded layout file to `layout.xml`.
+:::
 
 ## Next Steps
 
-TODO
+<UseCaseContainer>
+    <UseCaseCard
+        title="Create a Component"
+        description="Learn how to create a basic component."
+        link="sdk-create-component"
+    />
+    <UseCaseCard
+        title="Deploy your Application"
+        description="Learn how to deploy your custom library, layout and app config."
+        link="sdk-deployment"
+    />
+</UseCaseContainer>
+

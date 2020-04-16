@@ -3,6 +3,12 @@ title: Create a Component
 description: Geocortex Web - Create a Component for Geocortex Web
 ---
 
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
 The [Geocortex Web SDK](sdk-overview.mdx) project template includes an example of a custom [component](concepts-components-services.mdx#components) following our best practices. Creating a new custom component involves a few important steps:
 
 1. [Create the component source file](#create-the-component)
@@ -49,10 +55,11 @@ import {
     ComponentModelBase,
     ComponentModelProperties,
     serializable,
+    PropertyDefs,
 } from "@geocortex/web/models";
 
 interface ExampleComponentModelProperties extends ComponentModelProperties {
-    exampleValue: string;
+    exampleValue?: string;
 }
 
 // The serializable decorator marks this class as being serializable
@@ -63,6 +70,19 @@ export default class ExampleComponentModel extends ComponentModelBase<
     ExampleComponentModelProperties
 > {
     exampleValue: string;
+
+    // This method defines how the model will be serialized and deserialized into an app item.
+    // We override it to include our new property `exampleValue`
+    protected _getSerializableProperties(): PropertyDefs<ExampleComponentModelProperties> {
+        const props = super._getSerializableProperties();
+        return {
+            ...props,
+            exampleValue: {
+                serializeModes: ["initial"],
+                default: "Default Value",
+            }
+        };
+    }
 }
 ```
 
@@ -113,3 +133,54 @@ export default function (registry: LibraryRegistry) {
     // highlight-end
 }
 ```
+
+## Add the Component to your Layout
+
+You can now add the component to your `layout.xml` file and run the development server to see it in use. 
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
+    <custom:example margin="3"/>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/sdk-create-component.png")}/>
+</TabItem>
+</Tabs>
+
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Create a Service"
+        description="Learn how to create a basic service"
+        link="sdk-create-service"
+    />
+    <UseCaseCard
+        title="Deploy your Component"
+        description="Learn how to deploy your custom component."
+        link="sdk-deployment"
+    />
+    <UseCaseCard
+        title="Create a Component with a Complex UI"
+        description="Follow along with a more in depth component example"
+        link="usecases-implement-component-with-ui"
+    />
+    <UseCaseCard
+        title="Create a Component that Consumes App Config"
+        description="Learn more about writing components that consume configuration values."
+        link="usecases-implement-component-participate-app-config"
+    />
+</UseCaseContainer>
