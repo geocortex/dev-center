@@ -1,0 +1,40 @@
+---
+title: Deployment
+description: Geocortex Mobile - Deploy a Geocortex Mobile Application
+---
+
+import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
+
+If you only need to modify the app config and layout of a Geocortex Mobile application, you can use the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) interface. However, if you need to write custom code, you will need to deploy and manage a fully custom application.
+
+### Deploying App Config and Layout
+
+Geocortex Mobile Designer provides a powerful interface for editing the layout and configuration of built in components, but if you need finer grain control over the app config and layout, you will need to upload your custom layout and app json.
+
+1. Type `Ctrl + Shift + E` while focused in the Geocortex Mobile Designer to open up the experimental development editing interface.
+1. Copy and paste the `app.json` and `layout-*.xml` files from your local SDK project into to the Geocortex Mobile Designer Interface.
+
+:::note
+The layout files in the Geocortex Mobile Application may have different names than your local layout files, so you may need to update the `url` to the layout file in your app config to match.
+:::
+
+```json
+{
+  "items": [
+    ...
+    {
+      "id":"desktop-landscape",
+      "title":"Desktop Landscape",
+      "url":"./desktop-landscape.xml",
+      "$type":"layout"
+    }
+    ...
+  ]
+}
+```
+
+<TweakConfigLayoutSnippet />
+
+### Fully Custom Application with Custom Code
+
+The Quickstart provided is a standard Xamarin forms application, and can be deployed in accordance to [Xamarin's guidelines](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/deploy-test/).

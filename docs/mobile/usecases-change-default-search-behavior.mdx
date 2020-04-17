@@ -7,12 +7,13 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsSnippet from "./snippets/prereqs.mdx";
+import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
 
 Geocortex Mobile comes with search functionality out of the box. The default behavior will return results from all enabled layers that can be searched on the map. But what if you want to replace the functionality with your own search? Or filter the results returned by the default search? [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) can't accomplish this, but it can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
 
 ## What you're Building
 
-We will modify the default search behavior of the [Quickstart](sdk-quick-start.mdx) application on the Fire Hydrants layer to have an optional filter that will only show fire hydrants without a hydrants survey.
+We will modify the default search behavior of the [Quickstart](sdk-getting-started.mdx) application on the Fire Hydrants layer to have an optional filter that will only show fire hydrants without a hydrants survey.
 
 <img
     src={useBaseUrl("img/custom-search-workflow-finished.png")}
@@ -22,6 +23,8 @@ We will modify the default search behavior of the [Quickstart](sdk-quick-start.m
 ## Prerequisites
 
 <PrereqsSnippet />
+
+<TweakConfigLayoutSnippet />
 
 ## Initial Set up
 
@@ -34,7 +37,7 @@ You should see some number of results. If you look at the details for some of th
 
 ## Set up a Workflow to Run on Search
 
-The first thing we need to do is override the default search behavior. We can do this by editing the "Search" component of the [app config](sdk-quick-start.mdx#editing-the-layout-and-app-config). The default behavior for search is a command chain that runs `tasks.search` and then `results.display`.
+The first thing we need to do is override the default search behavior. We can do this by editing the "Search" component of the [app config](sdk-edit-layout-app-config.mdx). The default behavior for search is a command chain that runs `tasks.search` and then `results.display`.
 
 Here's the default search configuration:
 

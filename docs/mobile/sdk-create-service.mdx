@@ -13,7 +13,7 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
 :::
 
-Sometimes, you may have logic or data that needs to be shared by multiple components across an app. In Geocortex Mobile, [services](concepts-components-services.mdx#services) are shared singletons that can register global [commands and operations](concepts-commands-operations.mdx), be injected into components, run background tasks, and more. 
+Sometimes, you may have logic or data that needs to be shared by multiple components across an app. In Geocortex Mobile, [services](concepts-components-services.mdx#services) are shared singletons that can register global [commands and operations](concepts-commands-operations.mdx), be injected into components, run background tasks, and more.
 
 ## Prerequsites
 
@@ -108,31 +108,28 @@ namespace App1.Services
 
 ```json title="App1/App1/app.json"
 {
-  "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
-  "schemaVersion": "1.0",
-  "items": [
-    {
-      "id": "desktop-layout",
-      "$type": "layout",
-      "url": "resource://layout-large.xml",
-      "tags": [
-        "medium",
-        "large"
-      ]
-    },
-    // highlight-start
-    {
-      "id": "custom-alert",
-      "iconId": "warning",
-      "title": "Custom Alert",
-      "action": {
-        "name": "custom.alert",
-        "arguments": "My Custom Message"
-      },
-      "$type": "menu-item"
-    }
-    // highlight-end
-  ]
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "desktop-layout",
+            "$type": "layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["medium", "large"]
+        },
+        // highlight-start
+        {
+            "id": "custom-alert",
+            "iconId": "warning",
+            "title": "Custom Alert",
+            "action": {
+                "name": "custom.alert",
+                "arguments": "My Custom Message"
+            },
+            "$type": "menu-item"
+        }
+        // highlight-end
+    ]
 }
 ```
 
@@ -146,10 +143,9 @@ namespace App1.Services
 
 Check out the relevant Geocortex Mobile SDK Samples:
 
-* [Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service).
+-   [Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service).
 
-* [Basemap Toggle that uses a Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BasemapToggle).
-
+-   [Basemap Toggle that uses a Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BasemapToggle).
 
 ## Next Steps
 

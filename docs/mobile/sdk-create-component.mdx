@@ -13,7 +13,7 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
 :::
 
-If you can't solve your use case by editing the app layout and config using the [built in components](api-components.mdx), then it may be time to learn how to extend Geocortex Mobile with custom components. With custom components, you can create completely configurable UI and behaviour, interact with other components and built in services, and more. 
+If you can't solve your use case by editing the app layout and config using the [built in components](api-components.mdx), then it may be time to learn how to extend Geocortex Mobile with custom components. With custom components, you can create completely configurable UI and behaviour, interact with other components and built in services, and more.
 
 ## Prerequsites
 
@@ -46,10 +46,10 @@ namespace App1.Components
 
 ## Add the Component to your Layout
 
-You can now add the component to your app layout to see it in the application. 
+You can now add the component to your app layout to see it in the application.
 
-* Add the `XmlNamespaces.App1Namespace` namespace with the alias `custom` to your xml namespaces.
-* Place your custom component in a taskbar panel .
+-   Add the `XmlNamespaces.App1Namespace` namespace with the alias `custom` to your xml namespaces.
+-   Place your custom component in a taskbar panel .
 
 <Tabs
   defaultValue="layout"
@@ -85,19 +85,16 @@ You can now add the component to your app layout to see it in the application.
 
 ```json title="App1/App1/app.json"
 {
-  "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
-  "schemaVersion": "1.0",
-  "items": [
-    {
-      "id": "desktop-layout",
-      "$type": "layout",
-      "url": "resource://layout-large.xml",
-      "tags": [
-        "medium",
-        "large"
-      ]
-    }
-  ]
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "desktop-layout",
+            "$type": "layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["medium", "large"]
+        }
+    ]
 }
 ```
 
@@ -107,18 +104,17 @@ You can now add the component to your app layout to see it in the application.
 </TabItem>
 </Tabs>
 
-
 You've now accomplished the basics of extending Geocortex Mobile with a custom component. With custom components, you can create completely new user interfaces and run completely custom logic in your Geocortex Mobile application.
 
 ## Relevant SDK Samples
 
 Check out the relevant Geocortex Mobile SDK Samples:
 
-* [Custom Component](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Component).
+-   [Custom Component](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Component).
 
-* [Component with Configuration](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/ComponentConfiguration).
+-   [Component with Configuration](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/ComponentConfiguration).
 
-* [Component with XAML UI](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent)
+-   [Component with XAML UI](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent)
 
 ## Next Steps
 

@@ -186,13 +186,13 @@ Congratulations! You just created your first custom operation. You can easily te
 
 ## Register Implementation Without an Operations Class
 
-Althought it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can inject the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class. 
+Althought it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can inject the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class.
 
 :::tip
 This pattern can be useful for registering dynamically generated commands or implementations.
 :::
 
-```csharp 
+```csharp
 using App1.Services;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;

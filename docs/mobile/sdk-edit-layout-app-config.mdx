@@ -1,7 +1,8 @@
 ---
 title: Edit the Layout and App Config
-description: Geocortex Mobile - Edit the layout and app config in the SDK quick start 
+description: Geocortex Mobile - Edit the layout and app config in the SDK quick start
 ---
+
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
@@ -48,19 +49,16 @@ Set `App1.UWP` as your startup project. Build and run Geocortex Mobile and ensur
 
 ```json title="App1/App1/app.json"
 {
-  "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
-  "schemaVersion": "1.0",
-  "items": [
-    {
-      "id": "desktop-layout",
-      "$type": "layout",
-      "url": "resource://layout-large.xml",
-      "tags": [
-        "medium",
-        "large"
-      ]
-    }
-  ]
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "desktop-layout",
+            "$type": "layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["medium", "large"]
+        }
+    ]
 }
 ```
 
@@ -71,8 +69,8 @@ Set `App1.UWP` as your startup project. Build and run Geocortex Mobile and ensur
 
 We can now add some buttons and populate them with some simple [commands](concepts-commands-operations.mdx).
 
-* Add two `<button>` [components](concepts-components-services.mdx#components) to your layout.
-* Link the buttons to commands defined in the app config.
+-   Add two `<button>` [components](concepts-components-services.mdx#components) to your layout.
+-   Link the buttons to commands defined in the app config.
 
 <Tabs
   defaultValue="layout"
@@ -105,40 +103,37 @@ We can now add some buttons and populate them with some simple [commands](concep
 
 ```json title="App1/App1/app.json"
 {
-  "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
-  "schemaVersion": "1.0",
-  "items": [
-    {
-      "id": "desktop-layout",
-      "$type": "layout",
-      "url": "resource://layout-large.xml",
-      "tags": [
-        "medium",
-        "large"
-      ]
-    },
-    // highlight-start
-    {
-      "id": "rotate-button",
-      "iconId": "arrow-bottom-right",
-      "title": "Rotate Map Right",
-      "action": {
-        "name": "map.rotate-by",
-        "arguments": {
-          "rotation": "40"
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "desktop-layout",
+            "$type": "layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["medium", "large"]
+        },
+        // highlight-start
+        {
+            "id": "rotate-button",
+            "iconId": "arrow-bottom-right",
+            "title": "Rotate Map Right",
+            "action": {
+                "name": "map.rotate-by",
+                "arguments": {
+                    "rotation": "40"
+                }
+            },
+            "$type": "menu-item"
+        },
+        {
+            "id": "refresh-button",
+            "iconId": "refresh",
+            "title": "Refresh App",
+            "action": "app.refresh",
+            "$type": "menu-item"
         }
-      },
-      "$type": "menu-item"
-    },
-    {
-      "id": "refresh-button",
-      "iconId": "refresh",
-      "title": "Refresh App",
-      "action": "app.refresh",
-      "$type": "menu-item"
-    }
-    // highlight-end
-  ]
+        // highlight-end
+    ]
 }
 ```
 
@@ -151,11 +146,11 @@ You've now accomplished the basics of building a Geocortex Mobile Application us
 
 Check out the relevant Geocortex Mobile SDK Samples:
 
-* [Various Layout Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout).
+-   [Various Layout Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout).
 
-* [Various Configuration Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration).
+-   [Various Configuration Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration).
 
-* [A complete Geocortex Mobile App](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/App/GeocortexMobileViewer)
+-   [A complete Geocortex Mobile App](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/App/GeocortexMobileViewer)
 
 ## Next Steps
 
@@ -164,6 +159,11 @@ Check out the relevant Geocortex Mobile SDK Samples:
         title="Create a Custom Component"
         description="Learn how to create a custom component with the SDK"
         link="sdk-create-component"
+    />
+    <UseCaseCard
+        title="Deploy your Custom Layout and App Config"
+        description="Deploy your custom layout and app config to a Geocortex Mobile Application"
+        link="overview.mdx#start-with-your-use-case"
     />
     <UseCaseCard
         title="Learn More About Layout and App Config"

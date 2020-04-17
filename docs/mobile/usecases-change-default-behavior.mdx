@@ -6,8 +6,9 @@ description: Geocortex Mobile - Learn how to configure Geocortex Mobile to chang
 import PrereqsSnippet from "./snippets/prereqs.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
+import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
 
-Many of the behaviors of Geocortex Mobile's built in [components](concepts-components-services.mdx) have configurable behaviors through the [app config](concepts-app-config.mdx). If you browse the `app.json` that is included with the [Quickstart](sdk-quick-start.mdx), you'll see properties like `action` or `onClick` in items that take an array of [commands and operations](concepts-commands-operations.mdx).
+Many of the behaviors of Geocortex Mobile's built in [components](concepts-components-services.mdx) have configurable behaviors through the [app config](concepts-app-config.mdx). If you browse the `app.json` that is included with the [Quickstart](sdk-getting-started.mdx), you'll see properties like `action` or `onClick` in items that take an array of [commands and operations](concepts-commands-operations.mdx).
 
 ```json
 {
@@ -45,6 +46,8 @@ All behaviors defined in this manner are configurable. Commands or operations ca
 
 <PrereqsSnippet />
 
+<TweakConfigLayoutSnippet />
+
 ## Example
 
 This is modified configuration for the `map1` Map Extension in the Quickstart. The map's `onClick` behavior has been changed to remove the `highlights.pulse` command and execute `map.zoom-to-features` instead.
@@ -61,9 +64,9 @@ This is modified configuration for the `map1` Map Extension in the Quickstart. T
 
 Check out the relevant Geocortex Mobile SDK Samples:
 
-* [Configuring basic commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/Commands).
+-   [Configuring basic commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/Commands).
 
-* [Configuring map and feature commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands).
+-   [Configuring map and feature commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands).
 
 ## Next Steps
 

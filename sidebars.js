@@ -229,7 +229,6 @@ module.exports = {
             type: "category",
             label: "Geocortex Mobile SDK",
             items: [
-                "mobile/sdk-overview",
                 {
                     type: "category",
                     label: "Quick Start",
@@ -238,8 +237,9 @@ module.exports = {
                         "mobile/sdk-edit-layout-app-config",
                         "mobile/sdk-create-component",
                         "mobile/sdk-create-service",
-                        "mobile/sdk-quick-start-project"
-                    ]
+                        "mobile/sdk-deployment",
+                        "mobile/sdk-advanced-quick-start",
+                    ],
                 },
                 "mobile/sdk-samples",
                 {

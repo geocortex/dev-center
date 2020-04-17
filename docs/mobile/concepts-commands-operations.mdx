@@ -59,19 +59,19 @@ Each command has typed arguments that will [autocomplete in the app.json](concep
 
 ### Implicit Arguments
 
-If you configure an action with only a command name, this will cause arguments to be passed implicitly. In this example, `highlights.add-focus` has been configured as the command that runs `onFeatureShow`, but it is not passed any arguments explicitly. Instead, the command receives arguments from the **context** it is run in.  
+If you configure an action with only a command name, this will cause arguments to be passed implicitly. In this example, `highlights.add-focus` has been configured as the command that runs `onFeatureShow`, but it is not passed any arguments explicitly. Instead, the command receives arguments from the **context** it is run in.
 
 ```json
 {
     "$type": "feature-details",
     "id": "feature-details",
-    "onFeatureShow": "highlights.add-focus",
+    "onFeatureShow": "highlights.add-focus"
 }
 ```
 
 <!-- TODO-API argument shape links -->
 
-In this example, the context is the feature details menu, so `highlights.add-focus` will receive an argument with a `Features` property, which is the shape of argument it needs. 
+In this example, the context is the feature details menu, so `highlights.add-focus` will receive an argument with a `Features` property, which is the shape of argument it needs.
 
 Arguments are also passed implicity if you create a command chain, which runs operations one after the other.
 
