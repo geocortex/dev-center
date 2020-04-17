@@ -21,9 +21,14 @@ namespace App1.Components
         public bool IsDoomsday
         {
             get => _isDoomsday;
-            set => SetProperty(ref _isDoomsday, value);
+            set
+            {
+                SetProperty(ref _isDoomsday, value);
+                OnPropertyChanged(nameof(IsNotDoomsday));
+            }
         }
+
+        public bool IsNotDoomsday => !IsDoomsday;
     }
 }
-
 ```

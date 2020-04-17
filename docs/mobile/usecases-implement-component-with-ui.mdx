@@ -164,12 +164,8 @@ namespace App1.Components
 <TabItem value="code-behind">
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using App1.Components;
+using Geocortex.Mobile.Composition;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -231,11 +227,15 @@ namespace App1.Components
 {
     class HarmlessComponent : ComponentBase
     {
+        private View _view;
+
+        public HarmlessComponent(HarmlessComponentView view)
+        {
+            _view = view;
+        }
         protected override VisualElement Create(XNode node)
         {
-            return new HarmlessComponentView(new HarmlessComponentViewModel())
-            {
-            };
+            return _view;
         }
     }
 }
@@ -250,19 +250,13 @@ namespace App1.Components
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:App1.Components"
              mc:Ignorable="d"
              x:Class="App1.Components.HarmlessComponentView">
-  <ContentView.Resources>
-    <ResourceDictionary>
-      <local:BooleanNegationConverter x:Key="BoolNegate" />
-    </ResourceDictionary>
-  </ContentView.Resources>
-  <ContentView.Content>
+    <ContentView.Content>
         <StackLayout Margin="20">
-            <StackLayout Spacing="20" IsVisible="{Binding IsDoomsday, Converter={StaticResource BoolNegate}}">
+            <StackLayout Spacing="20" IsVisible="{Binding IsNotDoomsday}">
                 <Label Text="Don't you dare click the button"></Label>
-                <Button Text="I said don't click me." Clicked="Button_Clicked" IsEnabled="{Binding IsDoomsday, Converter={StaticResource BoolNegate}}"></Button>
+                <Button Text="I said don't click me." Clicked="Button_Clicked"></Button>
                 <ProgressBar ProgressColor="Red" Progress="{Binding Progress}" />
             </StackLayout>
             <StackLayout Spacing="20" IsVisible="{Binding IsDoomsday}">
@@ -270,7 +264,7 @@ namespace App1.Components
                 <Label  Text="Look what you did, now the world is ended and I didn't even get to finish my ice cream."></Label>
             </StackLayout>
         </StackLayout>
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>
 ```
 
