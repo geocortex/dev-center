@@ -38,10 +38,6 @@ namespace App1.Services.AlertService
 {
     class AlertService : ServiceBase
     {
-        protected override Task DoInitialize()
-        {
-            return Task.CompletedTask;
-        }
     }
 }
 ```
@@ -120,38 +116,42 @@ class AlertOperations : OperationsBase
 
 Next, we need to register an implementation for our operation in the `AlertService`.
 
-1. Add a public property `AlertOperations` to the Service.
+1. Add a public constructor that takes an `AlertOperations` to the Service.
 
 ```csharp
     [assembly: Service(typeof(Service), PropertiesAutowired = true)]
     class AlertService : ServiceBase
     {
-        public AlertOperations AlertOperations { get; set; }
-        ...
+        // highlight-next-line
+        public AlertService(AlertOperations alertOperations)
+        {
+        }
     }
 ```
 
 :::note
-We never have to explicity set this property because of [Autofac autowiring](https://autofaccn.readthedocs.io/en/latest/register/prop-method-injection.html) configured in the assembly attribute.
+We never have to explicity pass this property because Autofac will automatically inject it.
 :::
 
 2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
 
 ```csharp
-class AlertService : ServiceBase
+[assembly: Service(typeof(AlertService))]
+namespace App1.Services
 {
-    public AlertOperations AlertOperations { get; set; }
-
-    protected override Task DoInitialize()
+    class AlertService : ServiceBase
     {
-        this.AlertOperations.DisplayCustomAlert.RegisterExecute(
-            (args) =>
-            {
-                Application.Current.MainPage.DisplayAlert("Custom Alert", args, "OK");
-                return Task.FromResult((object)null);
-            }, this);
-
-        return Task.CompletedTask;
+        public AlertService(AlertOperations alertOperations)
+        {
+            // highlight-start
+            alertOperations.DisplayCustomAlert.RegisterExecute(
+                (args) =>
+                {
+                    Application.Current.MainPage.DisplayAlert("Custom Alert", args, "OK");
+                    return Task.FromResult((object)null);
+                }, this);
+            // highlight-end
+        }
     }
 }
 ```
@@ -181,6 +181,41 @@ Congratulations! You just created your first custom operation. You can easily te
         },
         ...
     ]
+}
+```
+
+## Register Implementation Without an Operations Class
+
+Althought it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can inject the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class. 
+
+:::tip
+This pattern can be useful for registering dynamically generated commands or implementations.
+:::
+
+```csharp 
+using App1.Services;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Messaging;
+using Geocortex.Mobile.Composition.Services;
+using System.Threading.Tasks;
+
+[assembly: Service(typeof(CustomService))]
+namespace App1.Services
+{
+    public class CustomService : ServiceBase
+    {
+        public CustomService(IOperationRegistry operationRegistry)
+            : base()
+        {
+            // highlight-start
+            operationRegistry.VoidOperation<string>("custom.alert").RegisterExecute((string customMessage) =>
+            {
+                return Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Custom Alert", customMessage, "Cancel");
+            }, this);
+            // highlight-end
+
+        }
+    }
 }
 ```
 

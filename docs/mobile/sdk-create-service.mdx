@@ -70,11 +70,11 @@ namespace App1.Services
 {
     public class CustomService : ServiceBase
     {
-        public CustomService(IOperationRegistry opReg)
+        public CustomService(IOperationRegistry operationRegistry)
             : base()
         {
             // highlight-start
-            opReg.VoidOperation<string>("custom.alert").RegisterExecute((string customMessage) =>
+            operationRegistry.VoidOperation<string>("custom.alert").RegisterExecute((string customMessage) =>
             {
                 return Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Custom Alert", customMessage, "Cancel");
             }, this);
