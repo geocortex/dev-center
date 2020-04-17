@@ -43,7 +43,7 @@ namespace App1.Workflow.CustomActivity
 ```
 
 :::tip
-Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.  
+Use a unique prefix on the `Action` property to avoid it conflicting with someone elses custom activities.  
 :::
 
 ## Register the Activity with the `IActivityHandlerFactory`
@@ -116,7 +116,7 @@ Two key components of this snippet are the `[assembly: Export(...)]` tag and the
 
 ## Implement the Custom Activity
 
-We now have a empty activity that Geocortex Mobile can use that takes no inputs and produces no outputs. At this point, you can implement the appropiate business logic for your use case, using the features available with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This activity still does not have an [easy to use interface in Geocortex Workflow Designer](sdk-net-register-activities.mdx), but can be executed using [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167).
+We now have a empty activity that Geocortex Mobile can use that takes no inputs and produces no outputs. At this point, you can implement the appropriate business logic for your use case, using the features available with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard). This activity still does not have an [easy to use interface in Geocortex Workflow Designer](sdk-net-register-activities.mdx), but can be executed using [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167).
 
 ### Example: Logarithm of a Number
 

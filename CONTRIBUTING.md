@@ -141,9 +141,9 @@ Geocortex Web screenshots should be taken at a certain window size for consisten
 7. Use the chrome screenshot command to take a screenshot. While in the chrome dev tools window...
     - ctrl + shift + p
     - "Capture Screenshot"
-8. Rename the downloaded screenshot to something appropiate.
+8. Rename the downloaded screenshot to something appropriate.
 9. **Run the screenshot through [Tiny PNG](https://tinypng.com/)** to compress it.
-10. Add it to the appropiate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
+10. Add it to the appropriate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
 
 ```html
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
@@ -158,7 +158,7 @@ Geocortex Mobile screenshots should be roughly taken with a certain window size 
 2. Using the `Windows + Left` then `Windows + Up` shortcuts to move the app window to occupy a corner of the screen.
 3. Using Windows [snipping tool](https://support.microsoft.com/en-ca/help/13776/windows-10-use-snipping-tool-to-capture-screenshots), capture a window screenshot of the application.
 4. **Run the screenshot through [Tiny PNG](https://tinypng.com/)** to compress it.
-5. Add it to the appropiate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
+5. Add it to the appropriate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
 
 ```html
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>

@@ -31,7 +31,7 @@ Follow the instructions in [Implement a Custom Activity for Web Applications](us
 
 ### Stub out the Activity Metadata
 
-Stub out the appropiate metadata and type information for the .NET activity you are stubbing out. The execute body is left empty, as the implementation is defined in .NET using the Geocortex Mobile SDK or Geocortex Workflow for Server. In the case of the Logarithm activity, the stub might look like this.
+Stub out the appropriate metadata and type information for the .NET activity you are stubbing out. The execute body is left empty, as the implementation is defined in .NET using the Geocortex Mobile SDK or Geocortex Workflow for Server. In the case of the Logarithm activity, the stub might look like this.
 
 :::important
 The static `action` property of the original activity definition has been changed to `your:unique:namespace::CalculateLog` to match the action name in the .NET implementation. If these two action names are not the same, the .NET workflow runtime will **not** be able to find the correct activity.
