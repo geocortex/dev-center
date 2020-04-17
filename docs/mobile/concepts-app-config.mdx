@@ -336,6 +336,12 @@ Each app item has a different `$type` and different configurable properties asso
 The functionality of the `config` attribute is dependent on the fact that IDs across app items of the same type are unique. That is, two items of types `layer-extension` and `map-extension` can both have the ID `default`, but two items of the same type `layer-extension` cannot have the same ID `default`.
 :::
 
+## Relevant SDK Samples
+
+The Geocortex Mobile SDK Samples project has a variety of app configuration samples:
+
+-   [App Configuration Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration)
+
 ## Next Steps: Commands and Operations
 
 This example demonstrated a simple application which has a single menu, but the pattern of loosely coupling layout components with items in app config can allow you to build powerful apps with multiple layouts for different form factors and use cases. What we didn't cover in this example was how the menu items are powered. How can we make a menu item, and more generically, a button press or other app interaction, power actions in the application? The answer is to link app items to commands and operations.
