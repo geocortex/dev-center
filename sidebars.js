@@ -262,6 +262,7 @@ module.exports = {
                 "mobile/api-components",
                 "mobile/api-commands-operations",
                 "mobile/api-events",
+                "mobile/api-mobile-ui-elements",
             ],
         },
     ],
