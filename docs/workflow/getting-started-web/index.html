@@ -4,7 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="generator" content="Docusaurus v2.0.0-alpha.50">
-
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103604191-6"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-103604191-6",{anonymize_ip:!0})</script>
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103604191-6"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-103604191-6",{anonymize_ip:!0})</script>
 
 <title data-react-helmet="true">Getting Started with the Web Applications SDK | Developer Center</title>
 
@@ -16,25 +23,25 @@
 <link rel="stylesheet" href="/styles.635be988.css">
 
 
-<link rel="preload" href="/styles.d32aac8d.js" as="script">
+<link rel="preload" href="/styles.3565e7c0.js" as="script">
 
-<link rel="preload" href="/runtime~main.37c02ee1.js" as="script">
+<link rel="preload" href="/runtime~main.59d924ea.js" as="script">
 
-<link rel="preload" href="/main.f8f6ba50.js" as="script">
+<link rel="preload" href="/main.c5bb498e.js" as="script">
 
-<link rel="preload" href="/1.236e2c28.js" as="script">
+<link rel="preload" href="/1.8a007fd4.js" as="script">
 
-<link rel="preload" href="/2.adff74ac.js" as="script">
+<link rel="preload" href="/2.5073c6cc.js" as="script">
 
-<link rel="preload" href="/3.783a4fb3.js" as="script">
+<link rel="preload" href="/3.d394c307.js" as="script">
 
-<link rel="preload" href="/1be78505.b2bb83e3.js" as="script">
+<link rel="preload" href="/1be78505.f1bb6208.js" as="script">
 
-<link rel="preload" href="/20ac7829.8456766a.js" as="script">
+<link rel="preload" href="/20ac7829.71ef3b88.js" as="script">
 
-<link rel="preload" href="/17896441.9a79f3a8.js" as="script">
+<link rel="preload" href="/17896441.abaa4949.js" as="script">
 
-<link rel="preload" href="/57971bbc.182385a9.js" as="script">
+<link rel="preload" href="/57971bbc.f9984bf8.js" as="script">
 
 </head>
 <body>
@@ -44,25 +51,25 @@
 Activity packs must be hosted by a web server that supports SSL and CORS.</p><h4><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="server-requirements"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#server-requirements" title="Direct link to heading">#</a>Server Requirements</h4><ul><li>The server must have a valid SSL certificate.</li><li>The server must support <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing">Cross-Origin Resource Sharing (CORS)</a> and allow CORS requests from the <code>https://apps.geocortex.com</code> origin.</li></ul><div class="admonition admonition-note alert alert--secondary"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</h5></div><div class="admonition-content"><p>If you sign in to Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, <code>https://acme.apps.geocortex.com</code>.</p></div></div><p>Hosting Workflow activity packs in this manner allows Workflow Designer to read the list of custom activities and their metadata from the source files.</p><h4><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="development-web-server"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#development-web-server" title="Direct link to heading">#</a>Development Web Server</h4><p>For ease of development, this project includes an <a href="https://www.npmjs.com/package/express">Express</a> web server that supports SSL and is suitable for most development purposes.</p><p>To start the development web server and enable a compile-on-save watch task:</p><ol><li>Run <code>npm start</code> in the terminal to start the build and the development web server.<ul><li>Note: You can press <code>CTRL+C</code> in the terminal to stop the watch and the development web server.</li><li>The development web server is only available while the <code>start</code> task is running.</li><li>The development web server is available at <a href="https://localhost:57999/">https://localhost:57999/</a> by default.<ul><li>You can change the port by modifying <code>.build/tsc.js</code>. Edit the first line:<br><code>var PORT = 57999;</code></li></ul></li><li>The development web server serves the content of the <code>dist</code> directory.</li><li>The SSL certificate of the development web server is not valid. To work around this, do one of the following:<ul><li>Open <a href="https://localhost:57999/">https://localhost:57999/</a> in a web browser and allow the invalid certificate as an exception.</li><li>Trust the <code>.build/ca.crt</code> file (add it to your Trusted Root Authority store).</li><li>Replace the <code>.build/localhost.crt</code> and <code>.build/localhost.key</code> files with a known valid certificate.</li></ul></li><li>The development web server supports CORS requests from any origin by default.</li></ul></li></ol><div class="admonition admonition-note alert alert--secondary"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</h5></div><div class="admonition-content"><p>As <code>localhost</code> is only accessible to your host machine, activity packs hosted in this manner will not be accessible when running Geocortex Workflow Designer on a different machine.</p></div></div><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="register-the-activity-pack"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#register-the-activity-pack" title="Direct link to heading">#</a>Register the Activity Pack</h3><p>To make an activity pack available to workflow authors in Workflow Designer you must create a special item in ArcGIS Online or Portal for ArcGIS that references it.</p><ol><li>Sign in to ArcGIS Online or Portal for ArcGIS.</li><li>Go to <strong>My Content</strong>.</li><li>Select <strong>Add Item</strong> &gt; <strong>An application</strong>.<ul><li>Type: <code>Web Mapping</code>.</li><li>Purpose: <code>Ready To Use</code>.</li><li>API: <code>JavaScript</code>.</li><li>URL: The URL to your activity pack.<ul><li>Use <a href="https://localhost:57999/">https://localhost:57999/</a> for the development server.</li></ul></li><li>Title: Your desired title.</li><li>Tags: <strong>Must</strong> include <code>geocortex-workflow-activity-pack</code>.</li></ul></li></ol><div class="admonition admonition-important alert alert--info"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>important</h5></div><div class="admonition-content"><p>The activity pack will <strong>not</strong> be registered unless it includes the tag <code>geocortex-workflow-activity-pack</code>.</p></div></div><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="sharing-the-activity-pack"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#sharing-the-activity-pack" title="Direct link to heading">#</a>Sharing the Activity Pack</h3><p>As a workflow author, you will see custom activities in Workflow Designer from the activity packs you have registered. You will also see activity packs that have been shared with you via groups you are a member of.</p><p>To share an activity pack with other workflow authors in your organization share the ArcGIS item that represents the activity pack with a group that contains the target users.</p><div class="admonition admonition-note alert alert--secondary"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</h5></div><div class="admonition-content"><p>You do not need to share activity packs with the end users of your applications that run workflows containing custom activities.</p></div></div><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="next-steps"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#next-steps" title="Direct link to heading">#</a>Next Steps</h2><div class="root_2ADs"><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Implement a Custom Activity</h3></div><div class="card__body"><p>Implement a custom activity for web applications</p></div><div class="card__footer"><a class="button button--secondary button--block" href="/docs/workflow/implement-custom-activity-web">Get Started</a></div></div></div><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Implement a Custom Form Element</h3></div><div class="card__body"><p>Implement a custom form element for web applications</p></div><div class="card__footer"><a class="button button--secondary button--block" href="/docs/workflow/implement-custom-form-elements-web">Get Started</a></div></div></div><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Reference a Third Party Library</h3></div><div class="card__body"><p>Reference a third party library in web applications</p></div><div class="card__footer"><a class="button button--secondary button--block" href="/docs/workflow/reference-third-party-library-web">Get Started</a></div></div></div><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Integrate the ArcGIS API for JavaScript into custom activities</h3></div><div class="card__body"><p>Integrate the ArcGIS API for JavaScript into custom code</p></div><div class="card__footer"><a class="button button--secondary button--block" href="/docs/workflow/integrating-the-esri-api-web">Get Started</a></div></div></div></div></div></article><div class="margin-vert--xl"><div class="row"><div class="col"><a href="https://github.com/geocortex/dev-center/edit/master/docs/workflow/getting-started-web.mdx" target="_blank" rel="noreferrer noopener"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" style="margin-right:0.3em;vertical-align:sub"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div></div></div><div class="margin-vert--lg"><nav class="pagination-nav"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/workflow/sdk-overview"><div class="pagination-nav__link--sublabel">Previous</div><div class="pagination-nav__link--label">« SDK Overview</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/docs/workflow/integrating-the-esri-api-web"><div class="pagination-nav__link--sublabel">Next</div><div class="pagination-nav__link--label">Integrating the ArcGIS API for JavaScript »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_TbNY"><ul class="contents contents__left-border"><li><a href="#download" class="contents__link">Download</a></li><li><a href="#requirements" class="contents__link">Requirements</a></li><li><a href="#setup" class="contents__link">Setup</a></li><li><a href="#building" class="contents__link">Building</a></li><li><a href="#deployment" class="contents__link">Deployment</a><ul><li><a href="#host-the-activity-pack" class="contents__link">Host the Activity Pack</a></li><li><a href="#register-the-activity-pack" class="contents__link">Register the Activity Pack</a></li><li><a href="#sharing-the-activity-pack" class="contents__link">Sharing the Activity Pack</a></li></ul></li><li><a href="#next-steps" class="contents__link">Next Steps</a></li></ul></div></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">About</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" to="https://geocortex.com" href="https://geocortex.com">Geocortex.com</a></li><li class="footer__item"><a class="footer__link-item" to="https://docs.geocortex.com" href="https://docs.geocortex.com">Geocortex Documentation Center</a></li><li class="footer__item"><a class="footer__link-item" to="https://github.com/geocortex/dev-center" href="https://github.com/geocortex/dev-center">GitHub</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Geocortex Apps</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/webviewer/designer/" href="https://apps.geocortex.com/webviewer/designer/">Geocortex Web</a></li><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/mobileviewer/designer/" href="https://apps.geocortex.com/mobileviewer/designer/">Geocortex Mobile</a></li><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/workflow/designer/" href="https://apps.geocortex.com/workflow/designer/">Geocortex Workflow</a></li></ul></div></div><div class="text--center"><div>Copyright © 2020 Latitude Geographics Group Ltd. All rights reserved.</div></div></div></footer>
 </div>
 
-<script src="/styles.d32aac8d.js"></script>
+<script src="/styles.3565e7c0.js"></script>
 
-<script src="/runtime~main.37c02ee1.js"></script>
+<script src="/runtime~main.59d924ea.js"></script>
 
-<script src="/main.f8f6ba50.js"></script>
+<script src="/main.c5bb498e.js"></script>
 
-<script src="/1.236e2c28.js"></script>
+<script src="/1.8a007fd4.js"></script>
 
-<script src="/2.adff74ac.js"></script>
+<script src="/2.5073c6cc.js"></script>
 
-<script src="/3.783a4fb3.js"></script>
+<script src="/3.d394c307.js"></script>
 
-<script src="/1be78505.b2bb83e3.js"></script>
+<script src="/1be78505.f1bb6208.js"></script>
 
-<script src="/20ac7829.8456766a.js"></script>
+<script src="/20ac7829.71ef3b88.js"></script>
 
-<script src="/17896441.9a79f3a8.js"></script>
+<script src="/17896441.abaa4949.js"></script>
 
-<script src="/57971bbc.182385a9.js"></script>
+<script src="/57971bbc.f9984bf8.js"></script>
 
 
 </body>
