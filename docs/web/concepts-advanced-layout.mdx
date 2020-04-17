@@ -3,7 +3,7 @@ title: Advanced Layout
 description: Geocortex Web - Learn about Geocortex Web's advanced layout configuration options
 ---
 
-## Implicit Binding
+## Nested Model Imports
 
 In previous layout examples, layouts were shown where components related to a map, such as zoom buttons, were nested within a map. It was assumed that the component would bind to the map it was placed in, but why?
 
@@ -16,7 +16,7 @@ In previous layout examples, layouts were shown where components related to a ma
     </map>
 ```
 
-Certain components, such as `<zoom/>` or `<geolocate/>`, require a `<map/>` to function properly. To locate a `<map/>`, the component will crawl up the layout tree looking for a `<map/>` element. If none are found, then it will start a breadth first search at the root of the tree for the first `<map/>` component it finds.
+Certain components, such as `<zoom/>` or `<geolocate/>`, require a `Map Model` to function. To locate a `Map Model`, the layout tree heirachy will be searched upwards, starting at the requesting component. When a element in the layout is found that provides the required model, (in this case, the `<map/>` component provides a Map Model), the requesting component will import the model. If the correct model is not found on an upwards search, a breadth first search will be performed from the root of the layout tree.
 
 Take this more complicated layout for example.
 
@@ -44,10 +44,10 @@ Take this more complicated layout for example.
 </layout>
 ```
 
-This layout has a `<search>` component which requires the context of a specific map to function. However, this component is **not** nested within the `<map/>` component in the app. Therefore, it will start a breadth first search from the root of the layout to discover a map component and bind to it.
+This layout has a `<search>` component which requires the context of a specific map to function. However, this component is **not** nested within the `<map/>` component in the app. Therefore, it will start a breadth first search from the root of the layout to discover a map model and import it.
 
 :::note
-This implicit binding logic also applies to [models](concepts-layout.mdx#models). If a corresponding `models` property is found before a corresponding component during the layout traversal, the `models` property will be bound to instead. For the above example, adding a `models="#map1"` attribute to the panel containing the `<search>` component would be a flexible solution to bind it to the correct map.
+This import logic also applies to the [models](concepts-layout.mdx#models) attribute. If a corresponding `models` property is found before a component with a model during the layout search, the model referenced by the `models` attribute will be imported instead. For the above example, adding a `models="#map1"` attribute to the panel containing the `<search>` component would be a flexible solution to import the correct map into all the sub-components.
 
 ```xml
 <panel id="search-panel" models="#map1">
@@ -55,9 +55,9 @@ This implicit binding logic also applies to [models](concepts-layout.mdx#models)
 
 :::
 
-### Implicit Config Binding
+## Component Defaults
 
-Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, some configuration types have a **default** value. This means that if you omit the `config` property for a component of that type, the component will attempt to create default config for the type. An example of defining default config can be seen in the `_getSerializableProperties` method of the model created for [this use case](usecases-implement-component-participate-app-config.mdx#participating-in-the-configuration-lifecycle). It's the mechanism that powers the default map for this layout.
+Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, many components have default values they can supply for initialization instead of relying on configuration. This means that if you omit the `config` property for certain components, the component will attempt to create itself with its default values. An example of defining these default values can be seen in the `_getSerializableProperties` method of the model created for [this use case](usecases-implement-component-participate-app-config.mdx#participating-in-the-configuration-lifecycle). Its also the mechanism that powers the default map displayed by this layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

@@ -27,7 +27,7 @@ The first thing it does is declare a map that is linked to "default" configurati
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [corresponding to the map it is placed in](concepts-advanced-layout.mdx#implicit-binding)
+2. Tells the zoom widget to act upon [corresponding to the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
 
 <FollowAlongSnippet />
 
@@ -205,7 +205,7 @@ By default, this happens by walking up the tree from the location of the compone
 However, in the previous example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. To solve this, we can bind each scale bar to the appropiate map with the `models` attribute.
 
 :::note
-Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#implicit-binding).
+Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
 :::
 
 ```xml
