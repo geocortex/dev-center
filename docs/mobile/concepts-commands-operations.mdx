@@ -14,7 +14,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output. Commands and Operations are grouped by namespace, for example;
+**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. In Geocortex Mobile, commands and operations are compatible extensions of the [ICommand interface](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/commanding). Operations are implementations of `ICommand` which have been extended to have a `name` property, allowing them to be referenced globally, and an `ExecuteAsync` method, which allows the operation to return a value. Commands and Operations are grouped by namespaces, such as `auth` or `edit`.
 
 ```
 auth.sign-in
@@ -27,48 +27,11 @@ edit.delete-features
 
 ## Passing Arguments
 
-Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the various behaviors of a `<feature-details>` component.
+Commands and operations can receive arguments that affect their behaviour. A command or operation can either be configured with no explicit arguments, in which case it receives an argument from the context it is run in, or it can be configured with explicit, named, arguments.
 
-```json
-{
-    "$type": "feature-details",
-    "id": "feature-details",
-    "featureActions": "item://menu/feature-actions",
-    "onFeatureShow": "highlights.add-focus",
-    "onFeatureHide": "highlights.remove-focus",
-    "onFeatureDelete": [
-        "highlights.remove-focus",
-        "highlights.remove",
-        "edit.delete-features",
-        "results.hide-details",
-        "results.remove"
-    ]
-}
-```
+### Explicit Named Arguments
 
-App config properties that accept a command or operation can take a single operation (such as with `onFeatureHide`) or they can take a **command chain** (such as with `onFeatureDelete`).
-
-:::note
-Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex input dependent behavior.
-:::
-
-In this example, when a feature is deleted,
-
--   The focus and highlights are removed,
--   The feature is deleted from the layer,
--   The results details are hidden,
--   The feature is removed from the results list.
-
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next behavior in line will receiv one of two possible inputs.
-
-1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
-2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
-
-In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example.
-
-## Passing Named Arguments
-
-If you choose, you can overide the default arguments passed into a command or operation by providing an `arguments` property.
+You can pass a well defined argument object into a command or operation by providing an `arguments` property.
 
 ```json
 {
@@ -90,9 +53,62 @@ If you choose, you can overide the default arguments passed into a command or op
 }
 ```
 
-<!-- TODO-After-API change autocomplete linting note to API definitions -->
+<!-- TODO-API change autocomplete linting note to API definitions -->
 
-This will override the default arugment passing behavior for that command or operation. Each command has typed arguments that can will have [autocomplete in the app.json](concepts-advanced-config.mdx#autocomplete-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
+Each command has typed arguments that will [autocomplete in the app.json](concepts-advanced-config.mdx#autocomplete-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
+
+### Implicit Arguments
+
+If you configure an action with only a command name, this will cause arguments to be passed implicitly. In this example, `highlights.add-focus` has been configured as the command that runs `onFeatureShow`, but it is not passed any arguments explicitly. Instead, the command receives arguments from the **context** it is run in.  
+
+```json
+{
+    "$type": "feature-details",
+    "id": "feature-details",
+    "onFeatureShow": "highlights.add-focus",
+}
+```
+
+<!-- TODO-API argument shape links -->
+
+In this example, the context is the feature details menu, so `highlights.add-focus` will receive an argument with a `Features` property, which is the shape of argument it needs. 
+
+Arguments are also passed implicity if you create a command chain, which runs operations one after the other.
+
+## Command Chains
+
+App config properties that accept a command or operation can take a single operation (such as with `onFeatureHide`) or they can take a **command chain** (such as with `onFeatureDelete`). Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex input dependent behavior.
+
+For example, here's configuration for the various behaviors of a `<feature-details>` component.
+
+```json
+{
+    "$type": "feature-details",
+    "id": "feature-details",
+    "onFeatureShow": "highlights.add-focus",
+    "onFeatureDelete": [
+        "highlights.remove-focus",
+        "highlights.remove",
+        "edit.delete-features",
+        "results.hide-details",
+        "results.remove"
+    ]
+}
+```
+
+In this example, when a feature is deleted,
+
+-   The focus and highlights are removed,
+-   The feature is deleted from the layer,
+-   The results details are hidden,
+-   The feature is removed from the results list.
+
+Since these commands and operations are running from the context of a `<feature-details>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
+
+1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
+2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
+
+In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example.
 
 ## Example: Configured Map and I Want To Menu
 
@@ -161,7 +177,7 @@ This will override the default arugment passing behavior for that command or ope
   xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
   <gxm:taskbar id="taskbar" orientation="vertical">
     <map config="demoMap" slot="main">
-    <stack margin="0.8" slot="top-right">
+    <stack margin="0.8" slot="top-right" halign="end">
       <iwtm config="iwtm" />
     </stack>
     </map>
