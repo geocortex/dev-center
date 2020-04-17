@@ -2,3 +2,171 @@
 title: Create a Service
 description: Geocortex Mobile - Create a service using the Geocortex Mobile SDK quick start
 ---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+:::important
+This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
+:::
+
+Sometimes, you may have logic or data that needs to be shared by multiple components across an app. In Geocortex Mobile, [services](concepts-components-services.mdx#services) are shared singletons that can register global [commands and operations](concepts-commands-operations.mdx), be injected into components, run background tasks, and more. 
+
+## Prerequsites
+
+Checkout and setup the [Geocortex Mobile SDK Quickstart project](sdk-getting-started.mdx).
+
+## Basic Service
+
+Create a new file `Components/CustomService.cs` under the platform agnostic project.
+In the file, add a new service class `CustomService` and register it with Geocortex Mobile using an assembly attribute.
+
+```csharp title="App1/App1/services/CustomService.cs
+using App1.Services;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Services;
+using System.Threading.Tasks;
+
+[assembly: Service(typeof(CustomService))]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        public CustomService()
+            :base()
+        {
+        }
+    }
+}
+```
+
+## Create a Custom Command
+
+Custom Services can register custom commands and operations. The following example shows how a custom service can register a command with the `Operations Registry`, and then how that command can be configured to run on a button press using the layout and app config.
+
+<Tabs
+  defaultValue="service"
+  values={[
+    { label: 'Service', value: 'service', },
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'config', },
+    { label: 'User Interface', value: 'ui', }
+  ]
+}>
+<TabItem value="service">
+
+```csharp title="App1/App1/services/CustomService.cs
+using App1.Services;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Messaging;
+using Geocortex.Mobile.Composition.Services;
+using System.Threading.Tasks;
+
+[assembly: Service(typeof(CustomService))]
+namespace App1.Services
+{
+    public class CustomService : ServiceBase
+    {
+        public CustomService(IOperationRegistry opReg)
+            : base()
+        {
+            // highlight-start
+            opReg.VoidOperation<string>("custom.alert").RegisterExecute((string customMessage) =>
+            {
+                return Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Custom Alert", customMessage, "Cancel");
+            }, this);
+            // highlight-end
+
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<map id="map1" >
+        // highlight-next-line
+		<button id="custom-alert" config="custom-alert" style="map-widget" show-title="true" margin="0.3" slot="top-center"/>
+	</map>
+</layout>
+
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+  "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+  "schemaVersion": "1.0",
+  "items": [
+    {
+      "id": "desktop-layout",
+      "$type": "layout",
+      "url": "resource://layout-large.xml",
+      "tags": [
+        "medium",
+        "large"
+      ]
+    },
+    // highlight-start
+    {
+      "id": "custom-alert",
+      "iconId": "warning",
+      "title": "Custom Alert",
+      "action": {
+        "name": "custom.alert",
+        "arguments": "My Custom Message"
+      },
+      "$type": "menu-item"
+    }
+    // highlight-end
+  ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+    <img src={useBaseUrl("img/mobile-sdk-create-service.png")} alt="Custom Component with Text Block"/>
+</TabItem>
+</Tabs>
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+* [Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service).
+
+* [Basemap Toggle that uses a Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BasemapToggle).
+
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn more About the Quickstart"
+        description="Check out more information on the Quickstart project"
+        link="sdk-quick-start-project"
+    />
+    <UseCaseCard
+        title="Learn More About Services"
+        description="Check out the concepts to learn more about services"
+        link="concepts-components-services.mdx#services"
+    />
+    <UseCaseCard
+        title="Create a Custom Background Service"
+        description="Implement a custom service that runs a background task"
+        link="usecases-implement-service"
+    />
+</UseCaseContainer>

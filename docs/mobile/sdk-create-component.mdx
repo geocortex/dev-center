@@ -2,3 +2,145 @@
 title: Create a Component
 description: Geocortex Mobile - Create a component using the Geocortex Mobile SDK quick start
 ---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+:::important
+This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
+:::
+
+If you can't solve your use case by editing the app layout and config using the [built in components](api-components.mdx), then it may be time to learn how to extend Geocortex Mobile with custom components. With custom components, you can create completely configurable UI and behaviour, interact with other components and built in services, and more. 
+
+## Prerequsites
+
+Checkout and setup the [Geocortex Mobile SDK Quickstart project](sdk-getting-started.mdx).
+
+## Basic Component
+
+Create a new file `Components/CustomComponent.cs` under the platform agnostic project.
+In the file, add a new component class `CustomComponent` and register it with Geocortex Mobile using an assembly attribute.
+
+```csharp
+using App1;
+using App1.Components;
+using Geocortex.Mobile.Composition.Layout;
+using System.Xml.Linq;
+using Xamarin.Forms;
+
+[assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    class CustomComponent : ComponentBase
+    {
+        protected override VisualElement Create(XNode node)
+        {
+            return new Label(){ Text = "My Custom Component" };
+        }
+    }
+}
+```
+
+## Add the Component to your Layout
+
+You can now add the component to your app layout to see it in the application. 
+
+* Add the `XmlNamespaces.App1Namespace` namespace with the alias `custom` to your xml namespaces.
+* Place your custom component in a taskbar panel .
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'config', },
+    { label: 'User Interface', value: 'ui', }
+  ]
+}>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    // highlight-next-line
+    xmlns:custom="https://your.org/layout/app1">
+	<gxm:taskbar>
+		<map slot="main"/>
+		<panel>
+            // highlight-next-line
+			<custom:custom-component icon="info"/>
+		</panel>
+	</gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+  "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+  "schemaVersion": "1.0",
+  "items": [
+    {
+      "id": "desktop-layout",
+      "$type": "layout",
+      "url": "resource://layout-large.xml",
+      "tags": [
+        "medium",
+        "large"
+      ]
+    }
+  ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+    <img src={useBaseUrl("img/mobile-sdk-create-component.png")} alt="Custom Component with Text Block"/>
+</TabItem>
+</Tabs>
+
+
+You've now accomplished the basics of extending Geocortex Mobile with a custom component. With custom components, you can create completely new user interfaces and run completely custom logic in your Geocortex Mobile application.
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+* [Custom Component](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Component).
+
+* [Component with Configuration](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/ComponentConfiguration).
+
+* [Component with XAML UI](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent)
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Create a Custom Service"
+        description="Learn how to create a custom service with the SDK"
+        link="sdk-create-service"
+    />
+    <UseCaseCard
+        title="Learn More About Components"
+        description="Check out the concepts to learn more about components"
+        link="concepts-components-services.mdx#components"
+    />
+    <UseCaseCard
+        title="Create a Component with a Complex UI"
+        description="Build a custom, interactive component with a UI defined in XAML"
+        link="usecases-implement-component-with-ui"
+    />
+    <UseCaseCard
+        title="Create a Component that Consumes App Config"
+        description="Use app configuration to create easily customizable components"
+        link="usecases-implement-component-participate-app-config"
+    />
+</UseCaseContainer>

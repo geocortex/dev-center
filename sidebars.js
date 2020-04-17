@@ -259,6 +259,7 @@ module.exports = {
             items: [
                 "mobile/api-overview",
                 "mobile/api-layout",
+                "mobile/api-components",
                 "mobile/api-commands-operations",
                 "mobile/api-events",
             ],

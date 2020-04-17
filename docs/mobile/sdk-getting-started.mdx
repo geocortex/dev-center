@@ -80,14 +80,16 @@ This build can also be run from Visual Studio for Mac.
 
 ## Anatomy of the Quickstart
 
-The Quickstart is composed of four projects, one for each platform, and a common project that is shared by all platforms. This is a standard Xamarin Forms setup, as described [in their documentation](https://docs.microsoft.com/en-us/xamarin/get-started/Quickstarts/deepdive?pivots=windows#anatomy-of-a-xamarinforms-application). Changes have been made to each project to support the bootstrapping of a Geocortex Mobile application using the SDK.
+The Quickstart is composed of four projects, one for each platform, and a common project that is shared by all platforms. This is a standard Xamarin Forms setup, as described [in their documentation](https://docs.microsoft.com/en-us/xamarin/get-started/Quickstarts/deepdive?pivots=windows#anatomy-of-a-xamarinforms-application). Changes have been made to each project to support the [bootstrapping of a Geocortex Mobile application](sdk-quick-start-project.mdx#entry-points) using the SDK.
 
-## Development Patterns
+## Next Steps
 
-For the most part, the Geocortex Mobile project follows the development practices outlined in [Enterprise Application Patterns using Xamarin.Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/).
+The Quickstart is a useful starting point for your custom Geocortex Mobile application. Learn the basics of the Geocortex Mobile SDK by editing the layout and app config of the Quickstart.
 
-One major deviation from usual Xamarin Development patterns is that [Autofac](https://autofac.org/) is used as the Dependency Injection framework.
-
-## Deployment
-
-The Quickstart provided is a standard Xamarin forms application, and can be deployed in accordance to [Xamarin's guidelines](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/deploy-test/).
+<UseCaseContainer>
+    <UseCaseCard
+        title="Editing Layout and App Config"
+        description="Learn how to change the fundamental components of a Geocortex Mobile App"
+        link="sdk-edit-layout-app-config"
+    />
+</UseCaseContainer>

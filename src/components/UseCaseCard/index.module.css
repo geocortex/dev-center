@@ -1,15 +1,8 @@
 .root {
     width: 20em;
+    height: 15em;
 }
 
 .root > * {
     height: 100%;
-}
-
-.tall {
-    height: 15em;
-}
-
-.short {
-    height: 10em;
 }

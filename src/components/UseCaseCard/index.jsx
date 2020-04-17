@@ -3,13 +3,9 @@ import React from "react";
 import classnames from "classnames";
 import styles from "./index.module.css";
 
-export default function UseCaseCard({ title, description, link, linkText }) {
-    if(!linkText){
-        linkText = "Get Started";
-    }
-
+export default function UseCaseCard({ title, description, link }) {
     return (
-        <div className={classnames("card-demo", styles.root, !!description ? styles.tall : styles.short)}>
+        <div className={classnames("card-demo", styles.root)}>
             <div className="card">
                 <div className="card__header">
                     <h3>{title}</h3>
@@ -22,7 +18,7 @@ export default function UseCaseCard({ title, description, link, linkText }) {
                         className="button button--secondary button--block"
                         to={link}
                     >
-                        {linkText}
+                        Get Started
                     </Link>
                 </div>
             </div>
