@@ -31,7 +31,7 @@ Commands and operations can receive arguments that affect their behaviour. A com
 
 ### Explicit Named Arguments
 
-You can pass a well defined argument object into a command or operation by providing an `arguments` property.
+You can pass arguments to a command or operation by providing the `arguments` property.
 
 ```json
 {
@@ -77,7 +77,7 @@ Arguments are also passed implicity if you create a command chain, which runs op
 
 ## Command Chains
 
-App config properties that accept a command or operation can take a single operation (such as with `onFeatureHide`) or they can take a **command chain** (such as with `onFeatureDelete`). Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex input dependent behavior.
+App config properties that accept a command or operation can take a single operation (such as with `onFeatureHide`) or they can take a **command chain** (such as with `onFeatureDelete`). Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex chains of behavior.
 
 For example, here's configuration for the various behaviors of a `<feature-details>` component.
 

@@ -4,7 +4,7 @@ description: Geocortex Mobile - Learn how to implement a custom command or opera
 ---
 
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
-import PrereqsSnippet from "./snippets/prereqs.mdx";
+import PrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
@@ -20,7 +20,7 @@ This article will walk you through implementing a custom command in Geocortex Mo
 
 ## Create the Backing Service
 
-It's convention that command and operations in Geocortex Mobile are registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
+It's convention that commands and operations in Geocortex Mobile are registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
 2. In the file, add a new service class `AlertService` and register it with **Autofac**.
@@ -186,7 +186,7 @@ Congratulations! You just created your first custom operation. You can easily te
 
 ## Register Implementation Without an Operations Class
 
-Althought it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can inject the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class.
+Althought it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can [inject](sdk-dependency-injection.mdx) the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class.
 
 :::tip
 This pattern can be useful for registering dynamically generated commands or implementations.

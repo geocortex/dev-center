@@ -80,7 +80,6 @@ namespace App1.Workflow
 
         public async Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
-
             await _uiOperations.Alert.ExecuteAsync(new UIAlertArgs() { Title = "It's dangerous to go alone.", Message = "Take this!", ButtonText = "*take sword*" });
 
             return new Dictionary<string, object>();

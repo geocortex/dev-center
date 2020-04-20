@@ -3,12 +3,22 @@ title: Change Default Application Behavior
 description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change default application behavior
 ---
 
-import PrereqsSnippet from "./snippets/prereqs.mdx";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
 
-Many of the behaviors of Geocortex Mobile's built in [components](concepts-components-services.mdx) have configurable behaviors through the [app config](concepts-app-config.mdx). If you browse the `app.json` that is included with the [Quickstart](sdk-getting-started.mdx), you'll see properties like `action` or `onClick` in items that take an array of [commands and operations](concepts-commands-operations.mdx).
+Many of the behaviors of Geocortex Mobile's built in [components](concepts-components-services.mdx) have configurable behaviors through the [app config](concepts-app-config.mdx).
+
+## Prerequisites
+
+<QuickstartPrereqsSnippet />
+
+<TweakConfigLayoutSnippet />
+
+## Configuring Behaviors
+
+If you browse the `app.json` that is included with the [Quickstart](sdk-getting-started.mdx), you'll see properties like `action` or `onClick` in items that take an array of [commands and operations](concepts-commands-operations.mdx).
 
 ```json
 {
@@ -41,12 +51,6 @@ Many of the behaviors of Geocortex Mobile's built in [components](concepts-compo
 ```
 
 All behaviors defined in this manner are configurable. Commands or operations can be added or removed from the chain to modify its behavior. Further, it's possible to configure a `workflow.run` command that [executes custom behavior](usecases-change-default-search-behavior.mdx), or a [custom command and operation](usecases-implement-command-operation.mdx).
-
-## Prerequisites
-
-<PrereqsSnippet />
-
-<TweakConfigLayoutSnippet />
 
 ## Example
 

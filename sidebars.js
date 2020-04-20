@@ -238,7 +238,7 @@ module.exports = {
                         "mobile/sdk-create-component",
                         "mobile/sdk-create-service",
                         "mobile/sdk-deployment",
-                        "mobile/sdk-advanced-quick-start",
+                        "mobile/sdk-advanced-quickstart",
                     ],
                 },
                 "mobile/sdk-samples",

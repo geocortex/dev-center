@@ -7,6 +7,8 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 :::important
 This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
@@ -16,7 +18,7 @@ Many changes to Geocortex Mobile will require editing the layout and app config 
 
 ## Prerequsites
 
-Checkout and setup the [Geocortex Mobile SDK Quickstart project](sdk-getting-started.mdx).
+<QuickstartPrereqsSnippet />
 
 ## Simple Layout with a Map
 
@@ -28,6 +30,7 @@ Set `App1.UWP` as your startup project. Build and run Geocortex Mobile and ensur
   values={[
     { label: 'Layout', value: 'layout', },
     { label: 'App Config', value: 'config', },
+    { label: 'UI', value: 'ui', },
   ]
 }>
 <TabItem value="layout">
@@ -63,6 +66,9 @@ Set `App1.UWP` as your startup project. Build and run Geocortex Mobile and ensur
 ```
 
 </TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-sdk-basic-layout-config.png")}/>
+</TabItem>
 </Tabs>
 
 ## Add Buttons
@@ -77,6 +83,7 @@ We can now add some buttons and populate them with some simple [commands](concep
   values={[
     { label: 'Layout', value: 'layout', },
     { label: 'App Config', value: 'config', },
+    { label: 'UI', value: 'ui', },
   ]
 }>
 <TabItem value="layout">
@@ -138,6 +145,9 @@ We can now add some buttons and populate them with some simple [commands](concep
 ```
 
 </TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-sdk-layout-config-buttons.png")}/>
+</TabItem>
 </Tabs>
 
 You've now accomplished the basics of building a Geocortex Mobile Application using layout and app config. By using components in the layout to compose the visual structure of your application, and app config to describe behaviour, you can create highly customized interfaces with custom behaviour.
@@ -163,7 +173,7 @@ Check out the relevant Geocortex Mobile SDK Samples:
     <UseCaseCard
         title="Deploy your Custom Layout and App Config"
         description="Deploy your custom layout and app config to a Geocortex Mobile Application"
-        link="overview.mdx#start-with-your-use-case"
+        link="sdk-deployment#deploying-app-config-and-layout"
     />
     <UseCaseCard
         title="Learn More About Layout and App Config"
@@ -173,6 +183,6 @@ Check out the relevant Geocortex Mobile SDK Samples:
     <UseCaseCard
         title="Explore the Use Cases"
         description="Check out the the various tutorials on configuring and extending Geocortex Mobile"
-        link="overview.mdx#start-with-your-use-case"
+        link="overview#start-with-your-use-case"
     />
 </UseCaseContainer>

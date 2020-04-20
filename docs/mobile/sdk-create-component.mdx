@@ -8,6 +8,7 @@ import TabItem from "@theme/TabItem";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 
 :::important
 This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
@@ -17,7 +18,7 @@ If you can't solve your use case by editing the app layout and config using the 
 
 ## Prerequsites
 
-Checkout and setup the [Geocortex Mobile SDK Quickstart project](sdk-getting-started.mdx).
+<QuickstartPrereqsSnippet />
 
 ## Basic Component
 
@@ -49,7 +50,7 @@ namespace App1.Components
 You can now add the component to your app layout to see it in the application.
 
 -   Add the `XmlNamespaces.App1Namespace` namespace with the alias `custom` to your xml namespaces.
--   Place your custom component in a taskbar panel .
+-   Place your custom component in a taskbar panel.
 
 <Tabs
   defaultValue="layout"
@@ -127,7 +128,7 @@ Check out the relevant Geocortex Mobile SDK Samples:
     <UseCaseCard
         title="Learn More About Components"
         description="Check out the concepts to learn more about components"
-        link="concepts-components-services.mdx#components"
+        link="concepts-components-services#components"
     />
     <UseCaseCard
         title="Create a Component with a Complex UI"

@@ -6,7 +6,7 @@ description: Geocortex Mobile - Learn how to override Geocortex Mobile's default
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
-import PrereqsSnippet from "./snippets/prereqs.mdx";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
 
 Geocortex Mobile comes with search functionality out of the box. The default behavior will return results from all enabled layers that can be searched on the map. But what if you want to replace the functionality with your own search? Or filter the results returned by the default search? [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) can't accomplish this, but it can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
@@ -22,7 +22,7 @@ We will modify the default search behavior of the [Quickstart](sdk-getting-start
 
 ## Prerequisites
 
-<PrereqsSnippet />
+<QuickstartPrereqsSnippet />
 
 <TweakConfigLayoutSnippet />
 
@@ -137,13 +137,12 @@ This pattern of configuring behavior with a workflow can be applied to numerous 
     <UseCaseCard
         title="Change Default Behavior"
         description="Learn more about overriding default behaviors"
-        link="use-caseschange-default-behavior"
+        link="usecases-change-default-behavior"
     />
     <UseCaseCard
         title="SDK Sample for Overriding Default Behaviors"
         description="Check out the SDK Sample for overriding default behaviors"
-        // TODO: Validate link when available
-        link="https://github.com/geocortex/mobile-sdk-samples/MapAndFeatureCommands"
+        link="https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands"
     />    
     <UseCaseCard
         title="Implement Custom Command or Operation"
