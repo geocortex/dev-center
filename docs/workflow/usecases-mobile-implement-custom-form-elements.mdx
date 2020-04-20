@@ -29,7 +29,7 @@ Implementing a custom form element in Geocortex Mobile consists of three steps:
 
 ## Set up the Custom Form Element Skeleton
 
-1. Create a new file `CustomFormComponent` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-quick-start.mdx).
+1. Create a new file `CustomFormElement` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-quick-start.mdx).
 2. Add a new skeleton form element that implements `FormComponent`.
 
 ```csharp
@@ -38,11 +38,11 @@ using Xamarin.Forms;
 
 namespace App1.Workflow
 {
-    public class CustomFormComponent : FormComponent
+    public class CustomFormElement : FormComponent
     {
         private readonly View _view;
 
-        public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+        public CustomFormElement(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base(element, name)
         {
             _view = new Label() { Text = "I'm a custom form component!" };
@@ -84,7 +84,7 @@ namespace App1.Workflow
         public override Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
             IDictionary<string, object> result = new Dictionary<string, object>();
-            Register("CustomFormComponent", typeof(CustomFormComponent), context);
+            Register("CustomFormElement", typeof(CustomFormElement), context);
             return Task.FromResult(result);
         }
     }
@@ -188,10 +188,10 @@ You can run the following workflow that registers the and displays custom form e
       "defaults": {},
       "elements": {
         "custom1": {
-          "customType": "CustomFormComponent",
+          "customType": "CustomFormElement",
           "enabled": true,
           "index": 0,
-          "title": { "markdown": "CustomFormComponent" },
+          "title": { "markdown": "CustomFormElement" },
           "type": "Custom"
         },
         "footer": {
@@ -298,7 +298,7 @@ You can run the following workflow that registers the and displays custom form e
 
 ## Example: Enhanced Activity Indicator Form Element
 
-This example demonstrates a form element that displays an enhanced activity indicator. [Check it out](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Workflow/CustomFormComponent) in the [Geocortex Mobile SDK Samples](../mobile/sdk-samples.mdx).
+This example demonstrates a form element that displays an enhanced activity indicator. [Check it out](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Workflow/CustomFormElement) in the [Geocortex Mobile SDK Samples](../mobile/sdk-samples.mdx).
 
 <Tabs
   defaultValue="custom-form-element"
@@ -508,10 +508,10 @@ namespace App1.Workflow
 A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
 
 ```csharp
-class CustomFormComponent : FormComponent
+class CustomFormElement : FormComponent
 {
     ...
-    public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+    public CustomFormElement(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base (element, name)
     {
         var layout = new Button()
