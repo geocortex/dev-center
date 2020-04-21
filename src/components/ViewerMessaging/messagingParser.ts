@@ -1,4 +1,4 @@
-import { MessageSchema } from "./schema";
+import { MessageSchema, Definition, MessageDefinition } from "./schema";
 
 export function createDocumentation(schemaJson: MessageSchema): string {
     let schemaHtml = "";
