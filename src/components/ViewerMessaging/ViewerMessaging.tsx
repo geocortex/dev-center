@@ -15,6 +15,7 @@ function ViewerMessaging(props: ViewerMessagingProps) {
     const { type } = props;
     const [messagingJson, setMessagingJson] = useState<any>();
 
+    // Fetch schema
     useEffect(() => {
         let didCancel = false;
 
@@ -36,5 +37,19 @@ function ViewerMessaging(props: ViewerMessagingProps) {
         };
     }, [type]);
 
-    return messagingJson ? <MessagingContent schema={messagingJson} /> : null;
+    // Scroll to element if id present in URL hash
+    useEffect(() => {
+        if (!messagingJson) {
+            return;
+        }
+
+        // Decode entities in the URL
+        // Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
+        const hash = window.decodeURIComponent(window.location.hash);
+        if (hash) {
+            document.getElementById(hash.substring(1))?.scrollIntoView();
+        }
+    }, [messagingJson]);
+
+    return messagingJson ? <MessagingContent schema={messagingJson} /> : <div>Loading...</div>;
 }

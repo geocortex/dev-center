@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import React from "react";
 import { Definition, MessageSchema, MessageDefinition } from "./schema";
 import { trimDefinitionsName } from "./utils";
@@ -12,7 +13,7 @@ function makeDefinitionRef(ref: string, schema: MessageSchema): JSX.Element {
     const trimmedName = trimDefinitionsName(ref);
 
     if (refIsLinkable) {
-        return <a href={`#${trimmedName}`}>{trimmedName}</a>;
+        return <Link to={`#${trimmedName}`}>{trimmedName}</Link>;
     }
 
     return <>{trimmedName}</>;
@@ -67,7 +68,7 @@ function commandIsOperation(command: MessageDefinition) {
     return !!command.output;
 }
 
-function filterObj<T extends object>(raw: T, predicate: (key: keyof T, raw: T) => boolean): T {
+function filterObj<T extends object>(raw: T, predicate: (key: string, raw: T) => boolean): T {
     return Object.keys(raw)
         .filter((key) => predicate(key, raw))
         .reduce<T>((obj, key) => {
@@ -92,6 +93,7 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
         <>
             {Object.keys(items).map((key) => {
                 const item = items[key];
+                const linkId = `${type}-${key}`;
                 return (
                     <table key={key}>
                         <tbody>
@@ -100,7 +102,9 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
                                 {type === "events" && <td>Event</td>}
                                 {type === "operations" && <td>Operation</td>}
                                 <td>
-                                    <strong>{key}</strong>
+                                    <Link id={linkId} to={`#${linkId}`}>
+                                        <strong>{key}</strong>
+                                    </Link>
                                 </td>
                             </tr>
                             <tr>
