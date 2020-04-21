@@ -50,8 +50,11 @@ function makeDefinitionType(def: Definition, schema: MessageSchema, inTable = fa
         return (
             <>
                 <div>Any of</div>
-                {def.anyOf.map((option) => (
-                    <div key={option.$ref}>{makeDefinitionType(option, schema, inTable)}</div>
+                {def.anyOf.map((option, index) => (
+                    // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
+                    <div key={option.$ref || index}>
+                        {makeDefinitionType(option, schema, inTable)}
+                    </div>
                 ))}
             </>
         );
@@ -79,7 +82,7 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
 
     if (type === "commands") {
         items = filterObj(schema.commands, (item, raw) => !commandIsOperation(raw[item]));
-    } else if (type === "events") {
+    } else if (type === "operations") {
         items = filterObj(schema.commands, (item, raw) => commandIsOperation(raw[item]));
     } else {
         items = schema.events;

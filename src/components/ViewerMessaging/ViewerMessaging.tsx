@@ -1,7 +1,7 @@
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useEffect, useState } from "react";
-import { createDocumentation, MessageSchema } from "./messagingParser";
 import MessagingContent from "./MessagingContent";
+import { MessageSchema } from "./schema";
 
 interface ViewerMessagingProps {
     type: "mobile" | "web";
@@ -14,7 +14,6 @@ export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
 function ViewerMessaging(props: ViewerMessagingProps) {
     const { type } = props;
     const [messagingJson, setMessagingJson] = useState<any>();
-    const [messagingHtml, setMessagingHtml] = useState<string>();
 
     useEffect(() => {
         let didCancel = false;
@@ -30,7 +29,6 @@ function ViewerMessaging(props: ViewerMessagingProps) {
             }
 
             setMessagingJson(responseJson);
-            setMessagingHtml(createDocumentation(responseJson));
         })();
 
         return () => {
