@@ -17,7 +17,7 @@ Complete the previous use case, [Implement a Custom Component](usecases-implemen
 
 ## Create a Skeleton App Config Definition
 
-Create a new file `HarmlessComponentConfiguration.cs`. This class defines a new app item type `harmless-component-config`. This app item type will be used as configuration for the `HarmlessComponent`.
+Create a new file `CustomComponentConfiguration.cs`. This class defines a new app item type `custom-component-config`. This app item type will be used as configuration for the `CustomComponent`.
 
 ```csharp
 using App1.Configuration;
@@ -25,28 +25,28 @@ using Geocortex.API;
 using Geocortex.Mobile.Infrastructure.App;
 using System;
 
-[assembly: AppItem(HarmlessComponentConfiguration.ConfigItemtype, typeof(HarmlessComponentConfiguration))]
+[assembly: AppItem(CustomComponentConfiguration.ConfigItemtype, typeof(CustomComponentConfiguration))]
 namespace App1.Configuration
 {
-    public class HarmlessComponentConfiguration : VisualAppItem
+    public class CustomComponentConfiguration : VisualAppItem
     {
-        public const string ConfigItemtype = "harmless-component-config";
+        public const string ConfigItemtype = "custom-component-config";
 
         public string ConfigTitle { get; private set; }
 
         public string ConfigDescription { get; private set; }
 
-        public HarmlessComponentConfiguration()
+        public CustomComponentConfiguration()
             : this(Guid.NewGuid().ToString())
         {
         }
 
-        public HarmlessComponentConfiguration(string id)
+        public CustomComponentConfiguration(string id)
             : this(new Properties { ["id"] = id })
         {
         }
 
-        public HarmlessComponentConfiguration(Properties properties) :
+        public CustomComponentConfiguration(Properties properties) :
             base(properties, ConfigItemtype)
         {
             // properties is an object corresponding to the config defined in the app.json
@@ -63,14 +63,14 @@ namespace App1.Configuration
 
         public override object CreateDefault()
         {
-            return new HarmlessComponentConfiguration();
+            return new CustomComponentConfiguration();
         }
     }
 }
 ```
 
 :::info
-The two key components of this snippet are the `[assembly: AppItem(...)]` tag and the class extension `HarmlessComponentConfiguration : VisualAppItem`. These two pieces register the configuration with Geocortex Mobile and Autofac.
+The two key components of this snippet are the `[assembly: AppItem(...)]` tag and the class extension `CustomComponentConfiguration : VisualAppItem`. These two pieces register the configuration with Geocortex Mobile and Autofac.
 :::
 
 ## Consume the Configuration in the Component
@@ -88,25 +88,25 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
-[assembly: AppItemComponent(typeof(HarmlessComponent), "harmless-component", HarmlessComponentConfiguration.ConfigItemtype, XmlNamespace = XmlNamespaces.App1Namespace)]
+[assembly: AppItemComponent(typeof(CustomComponent), "custom-component", CustomComponentConfiguration.ConfigItemtype, XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components
 {
-    class HarmlessComponent : AppItemComponentBase<HarmlessComponentConfiguration>
+    class CustomComponent : AppItemComponentBase<CustomComponentConfiguration>
     {
-        private HarmlessComponentViewModel _viewModel;
+        private CustomComponentViewModel _viewModel;
 
-        IAppItem<HarmlessComponentConfiguration> _appItemResolver;
+        IAppItem<CustomComponentConfiguration> _appItemResolver;
 
-        public HarmlessComponent(IAppItem<HarmlessComponentConfiguration> itemResolver)
+        public CustomComponent(IAppItem<CustomComponentConfiguration> itemResolver)
             : base(itemResolver)
         {
             _appItemResolver = itemResolver;
-            _viewModel = new HarmlessComponentViewModel();
+            _viewModel = new CustomComponentViewModel();
         }
 
         protected override VisualElement Create(XNode node)
         {
-            return new HarmlessComponentView()
+            return new CustomComponentView()
             {
                 BindingContext = _viewModel
             };
@@ -126,13 +126,13 @@ namespace App1.Components
 
 At this point, the component is hooked up to configuration, and configuration values can be defined and consumed.
 
-Configuration can be defined in the [app JSON](sdk-edit-layout-app-config.mdx) and linked to the component through the `config` attribute in layout, just like any other component.
+Configuration can be defined in the [app config](sdk-edit-layout-app-config.mdx) and linked to the component through the `config` attribute in layout, just like any other component.
 
 <Tabs
   defaultValue="layout"
   values={[
     { label: 'layout.xml', value: 'layout', },
-    { label: 'app.json', value: 'json', },
+    { label: 'App Config', value: 'json', },
     { label: 'User Interface', value: 'ui', },
   ]
 }>
@@ -151,7 +151,7 @@ Configuration can be defined in the [app JSON](sdk-edit-layout-app-config.mdx) a
         <!--Taskbar / custom component-->
         <panel>
             // highlight-next-line
-            <custom:harmless-component icon="warning" config="harmless-component-config"/>
+            <custom:custom-component icon="warning" config="custom-component-config"/>
         </panel>
     </gxm:taskbar>
 </layout>
@@ -166,8 +166,8 @@ Configuration can be defined in the [app JSON](sdk-edit-layout-app-config.mdx) a
     "schemaVersion": "1.0",
     "items": [
         {
-            "$type": "harmless-component-config",
-            "id": "harmless-component-config",
+            "$type": "custom-component-config",
+            "id": "custom-component-config",
             "title": "Title from Config",
             "description": "This description came from config."
         },
