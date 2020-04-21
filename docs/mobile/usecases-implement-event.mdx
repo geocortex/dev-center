@@ -22,18 +22,20 @@ This article will walk you through implementing a custom event in Geocortex Mobi
 
 ## Create Skeleton Events Container
 
-Create a new file `Events\CustomEvents` in the platform agnostic project.
+Create a new file `events\CustomEvents` in the platform agnostic project.
 Add a new class `CustomEvents` that implement Mobile's `EventsBase`
 
-```csharp
+```csharp title="App1/App1/events/CustomEvents.cs"
 using App1.Events;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
 using Geocortex.Mobile.Infrastructure.Messaging;
 
+// highlight-next-line
 [assembly: Export(typeof(CustomEvents), SingleInstance = true, AsImplementedInterfaces = false, AsSelf = true, PropertiesAutowired = true)]
 namespace App1.Events
 {
+    // highlight-next-line
     public class CustomEvents : EventsBase
     {
         public CustomEvents(IEventRegistry eventRegistry)
@@ -57,6 +59,7 @@ Event definitions live in classes that subclass `EventsBase`, like `CustomEvents
 ```csharp
 public class CustomEvents : EventsBase
 {
+    // highlight-next-line
     public IEvent IntervalEvent => GetEvent("custom.interval-event");
 
     public CustomEvents(IEventRegistry eventRegistry)
@@ -107,7 +110,7 @@ Check out [Implementing Custom Components](usecases-implement-component-with-ui.
 }>
 <TabItem value="events">
 
-```cs
+```cs title="App1/App1/events/CustomDataSourceEvents.cs"
 using App1.Events;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
@@ -118,6 +121,7 @@ namespace App1.Events
 {
     public class CustomDataSourceEvents : EventsBase
     {
+        // highlight-next-line
         public IEvent<DataSourceChangedArgs> Changed => GetEvent<DataSourceChangedArgs>("custom-data.changed");
 
         public CustomDataSourceEvents(IEventRegistry eventRegistry)
@@ -137,7 +141,7 @@ namespace App1.Events
 </TabItem>
 <TabItem value="component">
 
-```cs
+```cs title="App1/App1/components/CustomUIComponent.cs"
 using App1;
 using App1.Components;
 using App1.Events;
@@ -156,6 +160,7 @@ namespace App1.Components
         private int data = 100;
         private View _view;
         private Timer _timer;
+
         public CustomUIComponent(CustomUIComponentView customUIComponentView, CustomDataSourceEvents customDataSourceEvents)
         {
             _view = customUIComponentView;
@@ -165,11 +170,13 @@ namespace App1.Components
             {
                 int oldData = data;
                 data += 1;
+                // highlight-start
                 customDataSourceEvents.Changed.Publish(new DataSourceChangedArgs()
                 {
                     OldData = oldData,
                     NewData = data
                 });
+                // highlight-end
 
             }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
         }
@@ -185,7 +192,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
-```xml
+```xml title="App1/App1/components/CustomUIComponentView.xaml"
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -204,7 +211,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="code-behind">
 
-```csharp
+```csharp title="App1/App1/components/CustomUIComponentView.xaml.cs"
 using App1.Events;
 using App1.Views;
 using Geocortex.Mobile.Composition;
@@ -232,6 +239,7 @@ namespace App1.Views
             BindingContext = this;
             InitializeComponent();
 
+            // highlight-next-line
             customDataSourceEvents.Changed.Subscribe(CustomDataSourceChanged, this);
         }
 
@@ -263,7 +271,7 @@ namespace App1.Views
 </TabItem>
 <TabItem value="service">
 
-```csharp
+```csharp title="App1/App1/events/CustomBackgroundService.cs"
 using App1.Events;
 using App1.Services;
 using Geocortex.Mobile.Composition;
@@ -284,6 +292,7 @@ namespace App1.Services
         }
         protected override Task DoInitialize()
         {
+            // highlight-next-line
             _customDataSourceEvents.Changed.Subscribe(OnDataSourceChanged, this);
             return Task.CompletedTask;
         }
@@ -307,6 +316,6 @@ namespace App1.Services
 </TabItem>
 </Tabs>
 
-::important
+:::important
 One thing to note about this example is the use of `IDisposable` and `IDisposableTracker` to clean up event handlers in the View code behind and Service. Implementing these interfaces correctly is essentially to preventing [Memory Leaks in your Mobile Application](sdk-memory-leaks.mdx).
 :::important

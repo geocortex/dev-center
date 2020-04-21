@@ -22,21 +22,23 @@ Implementing a custom component in Mobile gives you the highest degree of flexib
 
 ## Create a Component Skeleton
 
-Create a new file `Components/CustomComponent.cs` under the platform agnostic project.
+Create a new file `components/CustomComponent.cs` under the platform agnostic project.
 In the file, add a new component class `CustomComponent` and register it with **Autofac**.
 
 <AutofacSnippet />
 
-```csharp
+```csharp title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
 using Geocortex.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
+// highlight-next-line
 [assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components
 {
+    // highlight-next-line
     class CustomComponent : ComponentBase
     {
         protected override VisualElement Create(XNode node)
@@ -66,6 +68,7 @@ First, the [layout](concepts-layout.mdx) needs to be told where to find your com
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    // highlight-next-line
     xmlns:custom="https://your.org/layout/app1">
   ...
 </layout>
@@ -76,7 +79,7 @@ Now that the `custom` namespace has been added, the component can be added to th
 <Tabs
   defaultValue="layout"
   values={[
-    { label: 'layout.xml', value: 'layout', },
+    { label: 'Layout', value: 'layout', },
     { label: 'User Interface', value: 'ui', }
   ]
 }>
@@ -89,6 +92,7 @@ Now that the `custom` namespace has been added, the component can be added to th
     ...
     <!--Taskbar / custom component-->
     <panel>
+        // highlight-next-line
         <custom:custom-component icon="warning"/>
     </panel>
   </gxm:taskbar>
@@ -112,14 +116,14 @@ Now that the `custom` namespace has been added, the component can be added to th
 
 <Tabs defaultValue="component"
   values={[
-    { label: 'CustomComponent.cs', value: 'component', },
-    { label: 'CustomComponentView.xaml', value: 'view', },
-    { label: 'CustomComponentView.xaml.cs', value: 'code-behind', }
+    { label: 'Component', value: 'component', },
+    { label: 'View', value: 'view', },
+    { label: 'Code Behind', value: 'code-behind', }
   ]
 }>
 <TabItem value="component">
 
-```csharp
+```csharp title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
 using Geocortex.Mobile.Composition.Layout;
@@ -133,6 +137,7 @@ namespace App1.Components
     {
         protected override VisualElement Create(XNode node)
         {
+            // highlight-next-line
             return new CustomComponentView();
         }
     }
@@ -143,7 +148,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
-```xml
+```xml title="App1/App1/components/CustomComponentView.xaml"
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -162,7 +167,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="code-behind">
 
-```csharp
+```csharp title="App1/App1/components/CustomComponentView.xaml.cs"
 using App1.Components;
 using Geocortex.Mobile.Composition;
 using Xamarin.Forms;
@@ -213,7 +218,7 @@ Here's an example of a component with a progress bar that is advanced on a butto
 }>
 <TabItem value="component">
 
-```csharp title="App1/App1/ProgressBarComponent.cs"
+```csharp title="App1/App1/components/ProgressBarComponent.cs"
 using App1;
 using App1.Components;
 using Geocortex.Mobile.Composition.Layout;
@@ -227,6 +232,8 @@ namespace App1.Components
     {
         private View _view;
 
+        // The view is injected as a dependency
+        // highlight-next-line
         public ProgressBarComponent(ProgressBarComponentView view)
         {
             _view = view;
@@ -242,7 +249,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
-```xml title="App1/App1/ProgressBarComponentView.xaml
+```xml title="App1/App1/components/ProgressBarComponentView.xaml
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -269,7 +276,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="code-behind">
 
-```csharp title="App1/App1/ProgressBarComponentView.xaml.cs"
+```csharp title="App1/App1/components/ProgressBarComponentView.xaml.cs"
 using App1.Components;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Infrastructure.Messaging;
@@ -277,6 +284,8 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+// Here, the view is registered with Autofac so it can be injected.
+// highlight-next-line
 [assembly: View(typeof(ProgressBarComponentView))]
 namespace App1.Components
 {
@@ -317,11 +326,13 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view-model">
 
-```csharp title="App1/App1/ProgressBarComponentViewModel.cs"
+```csharp title="App1/App1/components/ProgressBarComponentViewModel.cs"
 using App1.Components;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Views;
 
+// Here, the view model is registered with autofac so it can be injected
+// highlight-next-line
 [assembly: ViewModel(typeof(ProgressBarComponentViewModel))]
 namespace App1.Components
 {

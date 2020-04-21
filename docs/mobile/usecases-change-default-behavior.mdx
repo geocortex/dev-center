@@ -29,13 +29,15 @@ If you browse the `app.json` that is included with the [Quickstart](sdk-edit-lay
         {
             "$type": "map-extension",
             "id": "map1",
+            // highlight-next-line
             "onClick": [ "tasks.identify", "highlights.pulse", "results.display" ]
         },
         ...
         {
             "$type": "menu-item",
-            "id": "addPointAtCenterAction",
+            "id": "add-point-at-center-action",
             "title": "Add Measurement Point at Center",
+            // highlight-start
             "action": [
                 {
                     "name": "sketching.add-point-at-center",
@@ -44,6 +46,7 @@ If you browse the `app.json` that is included with the [Quickstart](sdk-edit-lay
                     }
                 }
             ]
+            // highlight-end
         },
         ...
     ]
@@ -60,6 +63,7 @@ This is modified configuration for the `map1` Map Extension in the Quickstart. T
 {
     "$type": "map-extension",
     "id": "map1",
+    // highlight-next-line
     "onClick": [ "tasks.identify", "results.display", "map.zoom-to-features" ]
 },
 ```

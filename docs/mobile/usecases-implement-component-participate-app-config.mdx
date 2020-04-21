@@ -13,23 +13,26 @@ A component can optionally participate in the global app config. This allows mul
 
 ## Prerequisites
 
-Complete the previous use case, [Implement a Custom Component](usecases-implement-component-with-ui.mdx). This article will extend that component to consume custom app config.
+Complete the previous use case, [Implement a Custom Component](usecases-implement-component-with-ui.mdx) up to [Extend your Component with Custom Code](usecases-implement-component-with-ui.mdx#extend-your-component-with-custom-code). This article will extend that component to consume custom app config.
 
 ## Create a Skeleton App Config Definition
 
 Create a new file `CustomComponentConfiguration.cs`. This class defines a new app item type `custom-component-config`. This app item type will be used as configuration for the `CustomComponent`.
 
-```csharp
+```csharp title="App1/App1/components/CustomComponentConfiguration.cs"
 using App1.Configuration;
 using Geocortex.API;
 using Geocortex.Mobile.Infrastructure.App;
 using System;
 
+// highlight-next-line
 [assembly: AppItem(CustomComponentConfiguration.ConfigItemtype, typeof(CustomComponentConfiguration))]
 namespace App1.Configuration
 {
+    // highlight-next-line
     public class CustomComponentConfiguration : VisualAppItem
     {
+        // highlight-next-line
         public const string ConfigItemtype = "custom-component-config";
 
         public string ConfigTitle { get; private set; }
@@ -77,7 +80,7 @@ The two key components of this snippet are the `[assembly: AppItem(...)]` tag an
 
 Components that consume configuration should extend `AppItemComponentBase<ConfigurationClassType>`. This forces them to have a constructor which takes in an `IAppItem` resolver for the specific configuration type. This resolver can then be called in the `DoInitializeAsync` method to retrieve the app config values. They should also register with Autofac using the `AppItemComponent` assembly attribute.
 
-```csharp
+```csharp title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
 using App1.Configuration;
@@ -88,9 +91,11 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
+// highlight-next-line
 [assembly: AppItemComponent(typeof(CustomComponent), "custom-component", CustomComponentConfiguration.ConfigItemtype, XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components
 {
+    // highlight-next-line
     class CustomComponent : AppItemComponentBase<CustomComponentConfiguration>
     {
         private CustomComponentViewModel _viewModel;
@@ -131,14 +136,14 @@ Configuration can be defined in the [app config](sdk-edit-layout-app-config.mdx)
 <Tabs
   defaultValue="layout"
   values={[
-    { label: 'layout.xml', value: 'layout', },
+    { label: 'Layout', value: 'layout', },
     { label: 'App Config', value: 'json', },
     { label: 'User Interface', value: 'ui', },
   ]
 }>
 <TabItem value="layout">
 
-```xml
+```xml title="App1/App1/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
     xmlns="https://geocortex.com/layout/v1"
@@ -160,7 +165,7 @@ Configuration can be defined in the [app config](sdk-edit-layout-app-config.mdx)
 </TabItem>
 <TabItem value="json">
 
-```json
+```json title="App1/App1/app.json"
 {
     "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
     "schemaVersion": "1.0",

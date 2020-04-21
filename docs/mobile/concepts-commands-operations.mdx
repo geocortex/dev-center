@@ -119,14 +119,14 @@ In this way, you can run multiple commands in a row that receive a feature as in
 <Tabs
   defaultValue="app"
   values={[
-    { label: 'app.json', value: 'app', },
-    { label: 'layout.xml', value: 'layout', },
+    { label: 'App Config', value: 'app', },
+    { label: 'Layout', value: 'layout', },
     { label: 'User Interface', value: 'ui', }
   ]
 }>
 <TabItem value="app">
 
-```json
+```json title="App1/App1/app.json"
 {
     "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
     "schemaVersion": "1.0",
@@ -172,7 +172,7 @@ In this way, you can run multiple commands in a row that receive a feature as in
 </TabItem>
 <TabItem value="layout">
 
-```xml
+```xml title="App1/App1/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
   xmlns="https://geocortex.com/layout/v1"
