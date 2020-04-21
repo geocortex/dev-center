@@ -80,11 +80,21 @@ The two key components of this snippet are the `[assembly: AppItem(...)]` tag an
 
 Components that consume configuration should extend `AppItemComponentBase<ConfigurationClassType>`. This forces them to have a constructor which takes in an `IAppItem` resolver for the specific configuration type. This resolver can then be called in the `DoInitializeAsync` method to retrieve the app config values. They should also register with Autofac using the `AppItemComponent` assembly attribute.
 
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'View', value: 'view', },
+    { label: 'Code Behind', value: 'code-behind', },
+    { label: 'View Model', value: 'view-model', }
+  ]
+}>
+<TabItem value="component">
+
 ```csharp title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
 using App1.Configuration;
-using Geocortex.Mobile.Composition.Layout;
 using Geocortex.Mobile.Infrastructure.App;
 using Geocortex.Mobile.Infrastructure.Layout;
 using System.Threading.Tasks;
@@ -119,13 +129,94 @@ namespace App1.Components
 
         protected override async Task DoInitializeAsync()
         {
+            // highlight-start
             var item = await _appItemResolver.ResolveAsync();
             _viewModel.Title = item.ConfigTitle;
             _viewModel.Description = item.ConfigDescription;
+            // highlight-end
         }
     }
 }
 ```
+
+</TabItem>
+<TabItem value="view">
+
+```xml title="App1/App1/components/CustomComponentView.xaml"
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Components.CustomComponentView">
+    <ContentView.Content>
+        <StackLayout>
+            // highlight-start
+            <Label FontSize="Title" Text="{Binding Title}" />
+            <Label Text="{Binding Description}" />
+            // highlight-end
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
+```
+
+</TabItem>
+<TabItem value="code-behind">
+
+```csharp title="App1/App1/components/CustomComponentView.xaml.cs"
+using App1.Components;
+using Geocortex.Mobile.Composition;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+[assembly: View(typeof(CustomComponentView))]
+namespace App1.Components
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CustomComponentView : ContentView
+    {
+        public CustomComponentView()
+        {
+            InitializeComponent();
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="view-model">
+
+```csharp title="App1/App1/components/CustomComponentViewModel.cs"
+using App1.Components;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Views;
+
+[assembly: ViewModel(typeof(CustomComponentViewModel))]
+namespace App1.Components
+{
+    public class CustomComponentViewModel : NotifyPropertyBase
+    {
+        private string _title;
+        private string _description;
+
+        public string Title
+        {
+            get => _title;
+            set => SetProperty(ref _title, value);
+        }
+
+        public string Description
+        {
+            get => _description;
+            set => SetProperty(ref _description, value);
+        }
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Define Configuration Values
 
@@ -158,6 +249,7 @@ App Config is defined in the [app JSON](sdk-edit-layout-app-config.mdx) and link
             // highlight-next-line
             <custom:custom-component icon="warning" config="custom-component-config"/>
         </panel>
+        <map slot="main"/>
     </gxm:taskbar>
 </layout>
 ```
@@ -188,7 +280,7 @@ App Config is defined in the [app JSON](sdk-edit-layout-app-config.mdx) and link
 
 </TabItem>
 <TabItem value="ui">
-    <img src={useBaseUrl("img/custom-configuration-final.png")}/>
+<img src={useBaseUrl("img/mobile-component-with-configuration.png")}/>
 </TabItem>
 </Tabs>
 

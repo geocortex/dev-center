@@ -95,6 +95,7 @@ Now that the `custom` namespace has been added, the component can be added to th
         // highlight-next-line
         <custom:custom-component icon="warning"/>
     </panel>
+    <map slot="main"/>
   </gxm:taskbar>
   ...
 </layout>
@@ -102,7 +103,7 @@ Now that the `custom` namespace has been added, the component can be added to th
 
 </TabItem>
 <TabItem value="ui">
-    <img src={useBaseUrl("img/custom-component-with-ui-first-pass.png")} alt="Custom Component with Text Block"/>
+    <img src={useBaseUrl("img/mobile-custom-component-simple.png")} alt="Custom Component with Text Block"/>
 </TabItem>
 </Tabs>
 
@@ -118,7 +119,8 @@ Now that the `custom` namespace has been added, the component can be added to th
   values={[
     { label: 'Component', value: 'component', },
     { label: 'View', value: 'view', },
-    { label: 'Code Behind', value: 'code-behind', }
+    { label: 'Code Behind', value: 'code-behind', },
+    { label: 'UI', value: 'ui', }
   ]
 }>
 <TabItem value="component">
@@ -187,6 +189,9 @@ namespace App1.Components
 }
 ```
 
+</TabItem>
+<TabItem value="ui">
+    <img src={useBaseUrl("img/mobile-custom-component-xamarin-view.png")} alt="Custom Component with Text Block"/>
 </TabItem>
 </Tabs>
 
