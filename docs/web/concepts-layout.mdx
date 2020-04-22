@@ -160,24 +160,14 @@ Components often observe and modify the state of other components.
 Consider the following example:
 
 ```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <stack>
-      <split grow="1">
-        <map id="map-1" grow="1" margin="3"/>
-        <map id="map-b" grow="1" margin="3"/>
-      </split>
-      <split grow="1" valign="center" >
-          <scalebar id="a" grow="1" margin="3"/>
-          <scalebar id="b" grow="1" margin="3"/>
-      </split>
-    </stack>
-</layout>
+<map>
+    <scalebar slot="bottom-left"/>
+</map>
 ```
 
-Our scale bar component displays information about a particular map. In our example, scale bars A and B are expected to show the correct scale based on their context.
+The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map model to display it's values.
 
-Layouts achieve these simply by expressing data dependencies in the form of models that are marked as "imported" or "exported". If we know that the scale bar "imports" a particular type of model, and that the map "exports" the same type of model, we can resolve those dependencies simply by plugging exported models into the components that import them.
+Components express this data dependency in the form of models that are marked as "imported" or "exported". If we know that the scale bar "imports" a particular type of model, and that the map "exports" the same type of model, we can resolve those dependencies simply by plugging exported models into the components that import them.
 
 ```ts
 @exportModel
@@ -193,21 +183,31 @@ export class ScaleBarComponent {
 }
 ```
 
-When the system slots each scale bar into the panel, it will attempt to satisfy any model imports declared by the component being slotted.
-
-By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in this basic example;
-
-```xml
-<map>
-    <scalebar/>
-</map>
-```
-
-However, in the previous example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. To solve this, we can bind each scale bar to the appropiate map with the `models` attribute.
+When the system places the scale bar into the layout, it will attempt to satisfy any model imports declared by the component. By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in the basic example above.
 
 :::note
 Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
 :::
+
+However, in the following example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. 
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <stack>
+      <split grow="1">
+        <map id="map-1" grow="1" margin="3"/>
+        <map id="map-b" grow="1" margin="3"/>
+      </split>
+      <split grow="1" valign="center" >
+          <scalebar id="a" grow="1" margin="3"/>
+          <scalebar id="b" grow="1" margin="3"/>
+      </split>
+    </stack>
+</layout>
+```
+
+To solve this, we can bind each scale bar to the appropiate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -227,36 +227,6 @@ Learn more about how [models are automatically matched](concepts-advanced-layout
         </panel>
         <map id="map-a"/>
         <map id="map-b"/>
-    </split>
-</layout>
-```
-
-Somethings, you can have multiple components that need to bind to the same model.
-
-```xml
-<split>
-    <panel id="left-panel">
-        <scalebar active="true" models="#map"/>
-        <results-list models="#map"/>
-        <legend models="#map"/>
-    </panel>
-    <map id="map" />
-</split>
-```
-
-To simplify this binding, we can take advantage of the default behavior of searching up the layout tree for the appropiate model and bind the map to the parent panel instead.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <split>
-        // highlight-next-line
-        <panel id="left-panel" models="#map">
-            <scalebar active="true"/>
-            <results-list />
-            <legend />
-        </panel>
-        <map id="map" />
     </split>
 </layout>
 ```

@@ -267,7 +267,7 @@ export default function NewsFeed(props: NewsFeedProps) {
 In this way, the model is treated as the component state. Below is a full example of the model pulling values from the app config, and the component binding to the data on the model and listening for changes.
 
 :::tip
-It's best practice to use the model to define configurable or persistent state, and use the [React state hooks](https://reactjs.org/docs/hooks-state.html) for UI specific transient state, like an active selection.
+It's best practice to use the model to define configurable or persistent state, and use the [observable property pattern](https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#properties) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
 :::
 
 ### Complete Example

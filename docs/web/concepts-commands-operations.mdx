@@ -152,9 +152,7 @@ This will override the default argument passing behavior for that command or ope
                     "action": [
                         {
                             "name": "map.zoom-to-initial-viewpoint",
-                            "arguments": {
-                                "maps": "item://map-extension/default"
-                            }
+                            "arguments": [ "item://map-extension/default" ]
                         }
                     ]
                 }
@@ -202,17 +200,9 @@ This example demonstrates two different types of argument passing behavior. The 
 
 <!-- TODO-API tasks.identify operation direct link -->
 
-`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape:
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output of type `Features`.
 
-```json
-{
-  "features": [<feature1>, <feature2>, ...],
-  "results": [<Result(feature1)>, <Result(feature2)>, ...],
-  ... <other props>
-}
-```
-
-`highlights.add-focus`, `results.display` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `results.display` will receive the output of the last operation, `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
+`highlights.add-focus` and `results.display` both take a `Features` type input, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `results.display` will receive the output of the last operation, `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
 :::tip
 Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.  
@@ -220,7 +210,7 @@ Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for mo
 
 <!-- TODO-API MapExtensionArgs direct link -->
 
-The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a `MapExtensionArgs`, which is provided as a named argument. The `maps` property in the argument references the `default`map in the config through an [**Item Uri**](concepts-advanced-config.mdx#item-uris). Item URI's are a way of referencing other items within the app config.
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes `Maps` type argument. The `argument` property in the app config supplies an array of maps by referencing the `default` map with an [**Item Uri**](concepts-advanced-config.mdx#item-uris). Item URI's are a way of referencing other items within the app config.
 
 ## Next Steps
 

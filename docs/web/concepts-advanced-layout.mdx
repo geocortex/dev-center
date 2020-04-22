@@ -46,14 +46,37 @@ Take this more complicated layout for example.
 
 This layout has a `<search>` component which requires the context of a specific map to function. However, this component is **not** nested within the `<map/>` component in the app. Therefore, it will start a breadth first search from the root of the layout to discover a map model and import it.
 
-:::note
-This import logic also applies to the [models](concepts-layout.mdx#models) attribute. If a corresponding `models` property is found before a component with a model during the layout search, the model referenced by the `models` attribute will be imported instead. For the above example, adding a `models="#map-1"` attribute to the panel containing the `<search>` component would be a flexible solution to import the correct map into all the sub-components.
+## Advanced Model Binding
+
+Somethings, you can have multiple components that need to bind to the same model.
 
 ```xml
-<panel models="#map-1">
+<split>
+    <panel id="left-panel">
+        <scalebar active="true" models="#map"/>
+        <results-list models="#map"/>
+        <legend models="#map"/>
+    </panel>
+    <map id="map" />
+</split>
 ```
 
-:::
+To simplify this binding, we can take advantage of the default behavior of searching up the layout tree for the appropiate model and bind the map to the parent panel of the components which need to reference a map model.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split>
+        // highlight-next-line
+        <panel id="left-panel" models="#map">
+            <scalebar active="true"/>
+            <results-list />
+            <legend />
+        </panel>
+        <map id="map" />
+    </split>
+</layout>
+```
 
 ## Component Defaults
 
