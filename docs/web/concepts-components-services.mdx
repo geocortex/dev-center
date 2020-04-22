@@ -48,7 +48,7 @@ Always call `super._onInitialize()` before any custom initialization logic.
 :::
 
 ```ts
-import { ServiceBase } from "@geocortex/web/services";
+import { ServiceBase } from "@geocortex/web/services";  
 import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
 
 export default class CustomService extends ServiceBase {
@@ -98,7 +98,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 > {
     name: string;
 
-    public async sayHello(): Promise<string> {
+    async sayHello(): Promise<string> {
         return `Hello, ${this.name}`;
     }
 
@@ -109,7 +109,6 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
             ...super._getSerializableProperties(),
             name: {
                 serializeModes: ["initial"],
-                serialize: () => this.name,
                 default: "Noah",
             },
         };

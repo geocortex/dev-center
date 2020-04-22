@@ -79,7 +79,7 @@ import { SimpleFillSymbol } from "esri/symbols";
 export default class CustomModel extends ComponentModelBase {
     // highlight-start
     @importModel("map-extension")
-    mapExtension: MapExtension;
+    mapExtension: MapExtension | undefined;
     // highlight-end
 
     // based on https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=intro-graphics
@@ -177,7 +177,7 @@ import { ExportedModel } from "../ExportedModel";
 @serializable
 export default class CustomModel extends ComponentModelBase {
     @importModel("exported-model")
-    exportedModel: ExportedModel;
+    exportedModel: ExportedModel | undefined;
 
     public getContentText() {
         return this.exportedModel.someCustomModelProperty;
