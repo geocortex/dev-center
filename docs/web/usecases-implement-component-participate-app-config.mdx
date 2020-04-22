@@ -33,7 +33,7 @@ By configuring built in [layout elements](concepts-layout.mdx) such as the `<map
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="map-primary" config="my-map-config" />
+    <map config="my-map-config" />
 </layout>
 ```
 
@@ -415,7 +415,7 @@ export default class NewsFeedModel extends ComponentModelBase<
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map id="map-primary">
+    <map>
         // highlight-next-line
         <custom:news-feed slot="top-center" config="default"/>
     </map>

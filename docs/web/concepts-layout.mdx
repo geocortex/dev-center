@@ -17,13 +17,13 @@ A layout consists of declaritive XML that defines an applications visual structu
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         <zoom margin="0.5"/>
     </map>
 </layout>
 ```
 
-The first thing it does is declare a map that is linked to "default" configuration that specifies what content to load.
+The first thing it does is declare a `<map>` component that uses the default map configuration.
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
@@ -42,7 +42,7 @@ For example, this configuration will place the zoom widget in the top right of t
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         // highlight-next-line
         <zoom padding="0.5" slot="top-right"/>
     </map>
@@ -136,8 +136,7 @@ Panels are a container component that enable hierarchal navigation between diffe
             </stack>
             <feature-details active="false"/>
         </panel>
-        <map id="myMap">
-        </map>
+        <map/>
     </split>
 </layout>
 ```
@@ -163,12 +162,12 @@ Consider the following example:
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="mapA"/>
-    <map id="mapB"/>
+    <map id="map-a"/>
+    <map id="map-b"/>
     <panel>
         <stack>
-            <scalebar id="A" />
-            <scalebar id="B" />
+            <scalebar id="a" />
+            <scalebar id="b" />
         </stack>
     </panel>
 </layout>
@@ -216,16 +215,16 @@ Learn more about how [models are automatically matched](concepts-advanced-layout
             <stack>
                 <split>
                     <text text="Map A Scale Bar"></text>
-                    <scalebar id="A" models="#mapA"/>
+                    <scalebar id="a" models="#map-a"/>
                 </split>
                 <split>
                     <text text="Map B Scale Bar"></text>
-                    <scalebar id="B" models="#mapB"/>
+                    <scalebar id="b" models="#map-b"/>
                 </split>
             </stack>
         </panel>
-        <map id="mapA"/>
-        <map id="mapB"/>
+        <map id="map-a"/>
+        <map id="map-b"/>
     </split>
 </layout>
 ```

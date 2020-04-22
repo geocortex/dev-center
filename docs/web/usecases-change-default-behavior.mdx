@@ -29,13 +29,11 @@ The follow example overrides the default behavior for a map click by modifying t
 
 ```json
 {
-    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
-    "schemaVersion": "1.0",
     "items": [
         ...
         {
             "$type": "map-extension",
-            "id": "map1",
+            "id": "map-1",
             "onClick": [ "tasks.identify", "highlights.pulse", "results.display" ]
         },
         ...
@@ -49,7 +47,7 @@ The follow example overrides the default behavior for a map click by modifying t
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map config="map1"/>
+    <map config="map-1"/>
 </layout>
 ```
 

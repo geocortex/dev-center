@@ -1,6 +1,6 @@
 ---
-title: Change Default Search Behavior
-description: Geocortex Web - Learn how to configure Geocortex Web to change the default search behavior
+title: Change Default Map Click Behavior
+description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change the default map click behavior
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -8,43 +8,59 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
-import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import PrereqsSnippet from "./snippets/prereqs.mdx";
 
-Geocortex Web comes with search functionality out of the box. The default behavior will return results from all enabled layers that can be searched on the map. But what if you want to replace the functionality with your own search? Or filter the results returned by the default search? [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/) can't accomplish this, but it can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
+Geocortex Mobile comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
+
+:::note
+It's actually possible to configure the Map's `onClick` event in [Geocortex Web Designer](https://apps.geocortex.com/mobileviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this use case is to demonstrate the concept of configuring actions using the app config.
+:::
 
 ## What you're Building
 
-We will modify the default search behavior of the built in search component on the Fire Hydrants layer to have an optional filter that will only show fire hydrants without a hydrants survey.
+We will modify the default map on click behavior to buffer the click geometry by a user provided distance and create a graphic which visualizes this buffer.
+
+<img
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-finished.png")}
+    alt="Map Click Workflow with Buffer Behavior"
+/>
 
 ## Prerequisites
 
-<PrereqsCustomCodeSnippet />
+<PrereqsSnippet />
 
 ## Initial Set up
 
-Load Geocortex Web with the following layout and app json. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.
+Start the Geocortex Mobile SDK with the following layout and app json. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.
+
+Try clicking the map. It should return results for the point you clicked in the results list.
 
 <Tabs
-  defaultValue="config"
+  defaultValue="layout"
   values={[
-    { label: "App Config", value: "config" },
     { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
   ]}>
 <TabItem value="config">
 
 ```json title="app/app.json"
 {
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
     "items": [
         {
-            "id": "default",
-            "layerExtensions": [
-                "item://layer-extension/victoria-fire-hydrants"
-            ],
-            "tableExtensions": ["item://table-extension/fire-hydrants-table"],
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "id": "map-1",
+            "$type": "map-extension",
             "onClick": [
-                "geometry.add-pixel-tolerance",
                 "tasks.identify",
-                "results.display-details"
+                "highlights.pulse",
+                "results.display"
             ],
             "webMap": {
                 "version": "2.8",
@@ -328,36 +344,62 @@ Load Geocortex Web with the following layout and app json. You should see a simp
                         "ymin": 6177206.134819838
                     }
                 }
-            },
-            "$type": "map-extension"
+            }
         },
         {
-            "id": "results-list-config",
-            "onFeatureClick": ["results.display-details"],
-            "$type": "results"
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus",
+            "onFeatureDelete": [
+                "highlights.remove-focus",
+                "highlights.remove",
+                "edit.delete-features",
+                "results.hide-details",
+                "results.remove"
+            ]
         },
         {
-            "id": "victoria-fire-hydrants",
-            "iconUrl": "https://www.arcgis.com/sharing/rest/content/items/9087ae6c5b34483c84e3d9b475bc5bae/resources/symbols/resources/hydrants_icon.png",
-            "layer": {
-                "$ref": "fire_hydrants",
-                "layerType": "ArcGISFeatureLayer"
-            },
-            "$type": "layer-extension"
-        },
-        {
-            "id": "fire-hydrants-table",
-            "table": {
-                "$ref": {
-                    "id": "fire_hydrants_table",
-                    "title": "Fire Hydrants - Hydrant Surveys"
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
                 }
-            },
-            "$type": "table-extension"
-        },
-        {
-            "id": "search-config",
-            "$type": "search"
+            ],
+            "onFeatureHide": null,
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ],
+            "onFeatureLocate": [
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.pan-to-features",
+                "highlights.pulse"
+            ],
+            "onClear": ["highlights.clear", "highlights.clear-focus"]
         }
     ]
 }
@@ -367,44 +409,46 @@ Load Geocortex Web with the following layout and app json. You should see a simp
 <TabItem value="layout">
 
 ```xml title="app/layout.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1">
-  <split resizable="true">
-    <panel show-close-button="false" width="26">
-      <layer-list models="#map-primary"/>
-      <results-list active="false" config="results-list-config"/>
-      <feature-details active="true" />
-      <workflow active="false" />
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+    <map config="map-1" slot="main"/>
+    <panel>
+      <results-list config="results" />
+      <feature-details config="feature-details"/>
+      <gxm:update-feature/>
+      <gxm:add-related-feature />
     </panel>
-    <stack>
-      <map id="map-primary" config="default">
-        <search config="search-config" slot="top-right"/>
-      </map>
-    </stack>
-  </split>
+  </gxm:taskbar>
 </layout>
+
 ```
 
 </TabItem>
 </Tabs>
 
-Search for the text `active`. You should see some number of results. If you look at the details for some of the Fire Hydrants, you'll notice some have Fire Hydrant Surveys and some don't. We will build a workflow that will only return the Fire Hydrants without a related survey when you search for `active filter:nosurveys`.
+## Set up a Workflow to Run on Map Click
 
-## Set up a Workflow to Run on Search
-
-The first thing we need to do is override the default search behavior. We can do this by [editing the default behavior](usecases-change-default-behavior.mdx) for the "Search" component in the app config. The default behavior for search is a command chain that runs `tasks.search` and then `results.display`, as seen in the [api](api-components.mdx#search).
+The first thing we need to do is override the default map click behavior. We can do this by [editing the default behavior](usecases-change-default-behavior.mdx) for the `<map/>` component in the app config. The default behavior for the map's `onClick` event is a command chain that runs `tasks.identify` and then `highlights.pulse`, and finally, `results.display`.
 
 ```json
 {
     "items": [
         ...
         {
-            "id": "search-config",
-            // highlight-next-line
-            "onSearch": ["tasks.search", "results.display"],
-            "$type": "search"
-        }
+            "id": "map1",
+            "$type": "map-extension",
+            "onClick": [
+                "tasks.identify",
+                "highlights.pulse",
+                "results.display"
+            ]
         ...
+        }
     ]
 }
 ```
@@ -416,7 +460,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
 3. Copy the ID of the the workflow from the URL
 
 <img
-    src={useBaseUrl("img/custom-search-workflow-url.png")}
+    src={useBaseUrl("img/custom-map-click-workflow-url.png")}
     alt="Workflow URL with ID"
 />
 
@@ -428,9 +472,10 @@ First, we are going to replace the command chain with a `workflow.run` command t
         ...
         {
             "$type": "workflow",
-            "id": "filter-search-workflow",
-            "title": "Filter Search Workflow",
+            "id": "map-click-workflow",
+            "title": "Map Click Workflow",
             "commandArgumentInput": "context",
+            "target": "#taskbar",
             "portalItem": "<your-workflow-id-here>"
         },
         ...
@@ -438,42 +483,111 @@ First, we are going to replace the command chain with a `workflow.run` command t
 }
 ```
 
-5. Next, configure the `onSearch` property of the Search Component in the app config to run the workflow.
+5. Next, configure the `onClick` property of the Map Component in the app config to run the workflow.
 
 ```json
 {
     "items": [
         ...
         {
-            "id": "search-config",
-            "onSearch": "workflow.run-filter-search-workflow",
-            "$type": "search"
+            "id": "default",
+            "$type": "map-extension",
+            "onClick": "workflow.run-map-click-workflow",
+            ...
         }
-        ...
     ]
 }
 ```
 
-6. Run the app and test your workflow. You should see your alert pop up when you try to search for something.
+6. Run the app and test your workflow. You should see your alert pop up when you try to click on the map.
 
 <img
-    src={useBaseUrl("img/custom-search-workflow-alert.png")}
-    alt="Search Workflow with Alert"
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-alert.png")}
+    alt="Map Click Workflow with Alert"
 />
 
-7. Open up your Workflow in the Workflow Designer again. The default behavior we just overode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.search` is an operation, so it needs a RunOperation Activity, and `results.display` is a command so it needs a RunCommand Activity. Chain these two activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.search` and then passing the output of that operation to `results.display`.
+7. Open up your workflow in the Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.identify` is an operation, so it needs a RunOperation activity, and `highlights.pulse` and `results.display` are commands, so they need RunCommand Activities. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.identify` and then passing the output of that operation to `highlights.pulse`, and `results.display`.
 
-<img
-    src={useBaseUrl("img/custom-search-workflow-recreated.png")}
-    alt="Search Workflow with Original Operations"
-/>
+:::note
 
-7. Save the workflow and reload the application. Test the search functionality and ensure it works as it originally did.
-
-:::tip
-Check out [Change Default Application Behavior](usecases-change-default-behavior.mdx) for more ways to override default behavior like search.
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/mobile-map-click-behavior-recreated.json")}
+        download="map-click-behavior-recreated.json"
+    >
+        download this workflow
+    </a>{" "}
+    and then{" "}
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        import it into workflow designer.
+    </a>
+</p>
 :::
 
-## Extend the Workflow to Filter the Results.
+<img
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-recreated.png")}
+    alt="Map Click Workflow with Original Operations"
+/>
 
-At this point, you can choose to extend the search behavior with Geocortex Workflow in whatever way is appropiate for your usecase. You could execute a different search for external results and add them to the set of results displayed, filter out specific results from the search, or replace the default search operation with an entirely different search operation. For this example, a workflow was created which checks the incoming search text for the text "filter:nosurvey" and then filters results to Fire Hydrants without a survey. The workflow [can be found here](https://latitudegeo.maps.arcgis.com/home/item.html?id=bc7647d4485743e98ea42cd69ee4aa66).
+8. Save the workflow and reload the application. Test the map click functionality and ensure it works as it originally did.
+
+## Extend the Workflow to Create a Graphic Buffering the Click Geometry
+
+At this point, you can choose to extend the map click behavior with Geocortex Workflow in whatever way is appropiate for your usecase. You could execute a different "identify" for external results and add them to the set of results displayed, or zoom the map to a specific orientation and scale, or display a form for the user to fill out with relevant information to that location. For this example, a workflow was created which asks a user for a buffer distance, and creates a graphic showing the buffer around the click location.
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/web-map-click-behavior-buffer.json")}
+        download="map-click-behavior-buffer.json"
+    >
+        download this buffer geometry workflow
+    </a>{" "}
+    and then{" "}
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        import it into workflow designer.
+    </a>
+</p>
+:::
+
+<img
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-finished.png")}
+    alt="Map Click Workflow with Buffer Behavior"
+/>
+
+## Next Steps
+
+This pattern of configuring behavior with a workflow can be applied to numerous components. You can use a workflow to control the behavior of the Map, Feature Details, Geolocate, Custom Components, and more. Often, a workflow can be created and used to execute custom behavior instead of requiring the implementation of a custom command or operation.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Geocortex Workflow"
+        description="Learn more about Geocortex Workflow"
+        link="../workflow/overview"
+    />
+    <UseCaseCard
+        title="Change Default Behavior"
+        description="Learn more about overriding default behaviors"
+        link="use-caseschange-default-behavior"
+    />
+    <UseCaseCard
+        title="SDK Sample that Demonstrates Overriding Default Behaviors"
+        description="Check out the SDK Sample for overriding default behaviors"
+        // TODO: Validate link when available
+        link="https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands"
+    />
+    <UseCaseCard
+        title="Implement Custom Command or Operation"
+        description="Implement a custom command or operation with the Mobile SDK"
+        link="usecases-implement-command-operation"
+    />
+</UseCaseContainer>

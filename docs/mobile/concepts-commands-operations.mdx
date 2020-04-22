@@ -119,7 +119,7 @@ This will override the default argument passing behavior for that command or ope
         },
         {
             "$type": "map-extension",
-            "id": "demoMap",
+            "id": "demo-map",
             "onClick": [
                 "tasks.identify",
                 "highlights.add-focus",
@@ -138,7 +138,7 @@ This will override the default argument passing behavior for that command or ope
                         {
                             "name": "map.zoom-to-initial-viewpoint",
                             "arguments": {
-                                "maps": "item://map-extension/demoMap"
+                                "maps": "item://map-extension/demo-map"
                             }
                         }
                     ]
@@ -160,7 +160,7 @@ This will override the default argument passing behavior for that command or ope
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
   <gxm:taskbar id="taskbar" orientation="vertical">
-    <map config="demoMap" slot="main">
+    <map config="demo-map" slot="main">
     <stack margin="0.8" slot="top-right">
       <iwtm config="iwtm" />
     </stack>

@@ -127,7 +127,7 @@ To allow layout to find your component, you need to add the [custom namespace](c
 <layout xmlns="https://geocortex.com/layout/v1"
         // highlight-next-line
         xmlns:custom="your.custom.namespace">
-    <map id="map-primary" />
+    <map/>
 </layout>
 ```
 
@@ -137,7 +137,7 @@ You can then add the component itself to your layout, making sure to use `name` 
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1"
 xmlns:custom="your.custom.namespace">
-    <map id="map-primary"/>
+    <map/>
     // highlight-next-line
     <custom:my-component/>
 </layout>
@@ -246,7 +246,7 @@ export default NewsFeedModel;
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map id="map-primary">
+    <map>
         // highlight-next-line
         <custom:news-feed slot="top-center"/>
     </map>

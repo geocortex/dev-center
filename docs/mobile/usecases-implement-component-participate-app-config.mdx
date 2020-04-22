@@ -138,17 +138,19 @@ Configuration can be defined in the [app json](sdk-quick-start.mdx#editing-the-l
 }>
 <TabItem value="layout">
 
-```xml {7,11}
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    // highlight-next-line
     xmlns:custom="https://your.org/layout/app1">
     <gxm:taskbar>
         <!--Taskbar / custom component-->
         <panel>
+            // highlight-next-line
             <custom:harmless-component icon="warning" config="harmless-component-config"/>
         </panel>
     </gxm:taskbar>

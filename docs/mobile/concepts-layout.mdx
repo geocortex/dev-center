@@ -19,13 +19,13 @@ Take this example of a layout with a map and a zoom widget.
 ```xml title="layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         <zoom margin="0.5"/>
     </map>
 </layout>
 ```
 
-The first thing it does is declare a map that is linked to "default" configuration that specifies what content to load.
+The first thing it does is declare a `<map>` component that uses the default map configuration.
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
@@ -43,10 +43,10 @@ The position of a component within its parent is controlled by what slot it is p
 
 For example, this configuration will place the zoom widget in the top right of the map.
 
-```xml {4} title="layout.xml"
+```xml title="layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         // highlight-next-line
         <zoom padding="0.5" slot="top-right"/>
     </map>
@@ -134,8 +134,8 @@ Another core concept that Geocortex Mobile uses to organize elements in a layout
 Panels are a container component that enable hierarchical navigation between different components.
 
 ```xml
-<panel id="search-panel">
-    <stack id="search">
+<panel>
+    <stack>
         <search config="search"/>
         <results-list config="results" active="false" />
     </stack>
