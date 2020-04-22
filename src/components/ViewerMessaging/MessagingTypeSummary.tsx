@@ -1,67 +1,11 @@
 import Link from "@docusaurus/Link";
 import React from "react";
-import { Definition, MessageSchema, MessageDefinition } from "./schema";
-import { trimDefinitionsName } from "./utils";
+import MessagingArgument from "./MessagingArgument";
+import { MessageSchema, MessageDefinition } from "./schema";
 
 interface MessagingTypeSummaryProps {
     schema: MessageSchema;
     type: "commands" | "events" | "operations";
-}
-
-function makeDefinitionRef(ref: string, schema: MessageSchema): JSX.Element {
-    const refIsLinkable = !!schema.definitions[trimDefinitionsName(ref)];
-    const trimmedName = trimDefinitionsName(ref);
-
-    if (refIsLinkable) {
-        return <Link to={`#${trimmedName}`}>{trimmedName}</Link>;
-    }
-
-    return <>{trimmedName}</>;
-}
-
-function makeDefinitionType(def: Definition, schema: MessageSchema, inTable = false): JSX.Element {
-    if (!def) {
-        return <code>null</code>;
-    } else if (def.$ref) {
-        return <code>{makeDefinitionRef(def.$ref, schema)}</code>;
-    } else if (def.type) {
-        if (def.type !== "array") {
-            return <code>{def.type}</code>;
-        } else {
-            if (def.items && (def.items as Definition).$ref) {
-                const itemsRef = (def.items as Definition).$ref!;
-                return (
-                    <>
-                        <code>
-                            {makeDefinitionRef(itemsRef, schema)}
-                            []
-                        </code>
-                    </>
-                );
-            } else {
-                const nestedDef = makeDefinitionType(def.items as Definition, schema, inTable);
-                return (
-                    <>
-                        <code>${nestedDef}[]</code>
-                    </>
-                );
-            }
-        }
-    } else if (def.anyOf) {
-        return (
-            <>
-                <div>Any of</div>
-                {def.anyOf.map((option, index) => (
-                    // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
-                    <div key={option.$ref || index}>
-                        {makeDefinitionType(option, schema, inTable)}
-                    </div>
-                ))}
-            </>
-        );
-    } else {
-        return <code>unknown</code>;
-    }
 }
 
 function commandIsOperation(command: MessageDefinition) {
@@ -113,12 +57,16 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
                             </tr>
                             <tr>
                                 <td>Argument</td>
-                                <td>{makeDefinitionType(item.input, schema)}</td>
+                                <td>
+                                    <MessagingArgument def={item.input} schema={schema} />
+                                </td>
                             </tr>
                             {type === "operations" && item.output && (
                                 <tr>
                                     <td>Result</td>
-                                    <td>{makeDefinitionType(item.output, schema)}</td>
+                                    <td>
+                                        <MessagingArgument def={item.output} schema={schema} />
+                                    </td>
                                 </tr>
                             )}
                         </tbody>
