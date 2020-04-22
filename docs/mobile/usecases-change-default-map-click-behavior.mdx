@@ -1,6 +1,6 @@
 ---
 title: Change Default Map Click Behavior
-description: Geocortex Web - Learn how to configure Geocortex Web to change the default map click behavior
+description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change the default map click behavior
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -8,12 +8,12 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
-import PrereqsLayoutConfigEditingSnippet from "./snippets/prereqs-layout-config-editing.mdx";
+import PrereqsSnippet from "./snippets/prereqs.mdx";
 
-Geocortex Web comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
+Geocortex Mobile comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
 
 :::note
-It's actually possible to configure the Map's `onClick` event in [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this use case is to demonstrate the concept of configuring actions using the app config.
+It's actually possible to configure the Map's `onClick` event in [Geocortex Web Designer](https://apps.geocortex.com/mobileviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this use case is to demonstrate the concept of configuring actions using the app config.
 :::
 
 ## What you're Building
@@ -21,17 +21,17 @@ It's actually possible to configure the Map's `onClick` event in [Geocortex Web 
 We will modify the default map on click behavior to buffer the click geometry by a user provided distance and create a graphic which visualizes this buffer.
 
 <img
-    src={useBaseUrl("img/web-custom-map-click-workflow-finished.png")}
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-finished.png")}
     alt="Map Click Workflow with Buffer Behavior"
 />
 
 ## Prerequisites
 
-<PrereqsLayoutConfigEditingSnippet />
+<PrereqsSnippet />
 
 ## Initial Set up
 
-Start the Geocortex Web SDK with the following layout and app json. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.
+Start the Geocortex Mobile SDK with the following layout and app json. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.
 
 Try clicking the map. It should return results for the point you clicked in the results list.
 
@@ -45,18 +45,22 @@ Try clicking the map. It should return results for the point you clicked in the 
 
 ```json title="app/app.json"
 {
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
     "items": [
         {
-            "id": "default",
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "id": "map1",
             "$type": "map-extension",
-            "layerExtensions": [
-                "item://layer-extension/victoria-fire-hydrants"
-            ],
-            "tableExtensions": ["item://table-extension/fire-hydrants-table"],
             "onClick": [
-                "geometry.add-pixel-tolerance",
                 "tasks.identify",
-                "results.display-details"
+                "highlights.pulse",
+                "results.display"
             ],
             "webMap": {
                 "version": "2.8",
@@ -343,28 +347,59 @@ Try clicking the map. It should return results for the point you clicked in the 
             }
         },
         {
-            "id": "results-list-config",
-            "onFeatureClick": ["results.display-details"],
-            "$type": "results"
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus",
+            "onFeatureDelete": [
+                "highlights.remove-focus",
+                "highlights.remove",
+                "edit.delete-features",
+                "results.hide-details",
+                "results.remove"
+            ]
         },
         {
-            "id": "victoria-fire-hydrants",
-            "iconUrl": "https://www.arcgis.com/sharing/rest/content/items/9087ae6c5b34483c84e3d9b475bc5bae/resources/symbols/resources/hydrants_icon.png",
-            "layer": {
-                "$ref": "fire_hydrants",
-                "layerType": "ArcGISFeatureLayer"
-            },
-            "$type": "layer-extension"
-        },
-        {
-            "id": "fire-hydrants-table",
-            "table": {
-                "$ref": {
-                    "id": "fire_hydrants_table",
-                    "title": "Fire Hydrants - Hydrant Surveys"
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
                 }
-            },
-            "$type": "table-extension"
+            ],
+            "onFeatureHide": null,
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ],
+            "onFeatureLocate": [
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.pan-to-features",
+                "highlights.pulse"
+            ],
+            "onClear": ["highlights.clear", "highlights.clear-focus"]
         }
     ]
 }
@@ -374,20 +409,23 @@ Try clicking the map. It should return results for the point you clicked in the 
 <TabItem value="layout">
 
 ```xml title="app/layout.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1">
-  <split resizable="true">
-    <panel show-close-button="false" width="26">
-      <layer-list models="#map-primary"/>
-      <results-list active="false" config="results-list-config"/>
-      <feature-details active="true" />
-      <workflow active="false" id="workflow-area"/>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+    <map id="map1" config="map1" slot="main"/>
+    <panel id="results-panel">
+      <results-list config="results" />
+      <feature-details config="feature-details"/>
+      <gxm:update-feature/>
+      <gxm:add-related-feature />
     </panel>
-    <stack>
-      <map id="map-primary" config="default"/>
-    </stack>
-  </split>
+  </gxm:taskbar>
 </layout>
+
 ```
 
 </TabItem>
@@ -395,29 +433,22 @@ Try clicking the map. It should return results for the point you clicked in the 
 
 ## Set up a Workflow to Run on Map Click
 
-The first thing we need to do is override the default map click behavior. We can do this by [editing the default behavior](usecases-change-default-behavior.mdx) for the `<map/>` component in the app config. The default behavior for the map's `onClick` event is a command chain that runs `geometry.add-pixel-tolerance` and then `tasks.identify`, and finally, `results.display-details`.
+The first thing we need to do is override the default map click behavior. We can do this by [editing the default behavior](usecases-change-default-behavior.mdx) for the `<map/>` component in the app config. The default behavior for the map's `onClick` event is a command chain that runs `tasks.identify` and then `highlights.pulse`, and finally, `results.display`.
 
 ```json
 {
     "items": [
         ...
         {
-            "id": "default",
+            "id": "map1",
             "$type": "map-extension",
-            "layerExtensions": [
-                "item://layer-extension/victoria-fire-hydrants"
-            ],
-            "tableExtensions": ["item://table-extension/fire-hydrants-table"],
-            // highlight-start
             "onClick": [
-                "geometry.add-pixel-tolerance",
                 "tasks.identify",
-                "results.display-details"
-            ],
-            // highlight-end
-            ...
-        }
+                "highlights.pulse",
+                "results.display"
+            ]
         ...
+        }
     ]
 }
 ```
@@ -444,6 +475,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
             "id": "map-click-workflow",
             "title": "Map Click Workflow",
             "commandArgumentInput": "context",
+            "target": "#taskbar",
             "portalItem": "<your-workflow-id-here>"
         },
         ...
@@ -460,10 +492,6 @@ First, we are going to replace the command chain with a `workflow.run` command t
         {
             "id": "default",
             "$type": "map-extension",
-            "layerExtensions": [
-                "item://layer-extension/victoria-fire-hydrants"
-            ],
-            "tableExtensions": ["item://table-extension/fire-hydrants-table"],
             "onClick": "workflow.run-map-click-workflow",
             ...
         }
@@ -474,18 +502,18 @@ First, we are going to replace the command chain with a `workflow.run` command t
 6. Run the app and test your workflow. You should see your alert pop up when you try to click on the map.
 
 <img
-    src={useBaseUrl("img/web-custom-map-click-workflow-alert.png")}
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-alert.png")}
     alt="Map Click Workflow with Alert"
 />
 
-7. Open up your workflow in the Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `geometry.add-pixel-tolerance` and `tasks.identify` are operations, so they need RunOperation activities, and `results.display-details` is a command so it needs a RunCommand Activity. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `geometry.add-pixel-tolerance` and then passing the output of that operation to `tasks.identify`, and finally passing the output of `tasks.identify` to `results.display-details`.
+7. Open up your workflow in the Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.identify` is an operation, so it needs a RunOperation activity, and `highlights.pulse` and `results.display` are commands, so they need RunCommand Activities. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.identify` and then passing the output of that operation to `highlights.pulse`, and `results.display`.
 
 :::note
 
 <p>
     You can{" "}
     <a
-        href={useBaseUrl("workflows/web-map-click-behavior-recreated.json")}
+        href={useBaseUrl("workflows/mobile-map-click-behavior-recreated.json")}
         download="map-click-behavior-recreated.json"
     >
         download this workflow
@@ -501,7 +529,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
 :::
 
 <img
-    src={useBaseUrl("img/web-custom-map-click-workflow-recreated.png")}
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-recreated.png")}
     alt="Map Click Workflow with Original Operations"
 />
 
@@ -532,6 +560,34 @@ At this point, you can choose to extend the map click behavior with Geocortex Wo
 :::
 
 <img
-    src={useBaseUrl("img/web-custom-map-click-workflow-finished.png")}
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-finished.png")}
     alt="Map Click Workflow with Buffer Behavior"
 />
+
+## Next Steps
+
+This pattern of configuring behavior with a workflow can be applied to numerous components. You can use a workflow to control the behavior of the Map, Feature Details, Geolocate, Custom Components, and more. Often, a workflow can be created and used to execute custom behavior instead of requiring the implementation of a custom command or operation.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Geocortex Workflow"
+        description="Learn more about Geocortex Workflow"
+        link="../workflow/overview"
+    />
+    <UseCaseCard
+        title="Change Default Behavior"
+        description="Learn more about overriding default behaviors"
+        link="use-caseschange-default-behavior"
+    />
+    <UseCaseCard
+        title="SDK Sample that Demonstrates Overriding Default Behaviors"
+        description="Check out the SDK Sample for overriding default behaviors"
+        // TODO: Validate link when available
+        link="https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands"
+    />
+    <UseCaseCard
+        title="Implement Custom Command or Operation"
+        description="Implement a custom command or operation with the Mobile SDK"
+        link="usecases-implement-command-operation"
+    />
+</UseCaseContainer>

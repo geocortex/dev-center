@@ -204,7 +204,7 @@ module.exports = {
                             href:
                                 "../workflow/usecases-mobile-implement-custom-activity",
                         },
-                        "mobile/usecases-change-default-search-behavior",
+                        "mobile/usecases-change-default-map-click-behavior",
                     ],
                 },
                 {
