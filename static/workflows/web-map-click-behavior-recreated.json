@@ -1,0 +1,135 @@
+{
+    "components": [
+        {
+            "id": 2,
+            "steps": [
+                {
+                    "id": 3,
+                    "inputs": {},
+                    "position": "0,0",
+                    "purpose": "start",
+                    "title": "Start",
+                    "transitions": [
+                        {
+                            "id": 5,
+                            "position": "90,60 90,110",
+                            "target": {
+                                "id": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::GetWorkflowInputs",
+                    "id": 4,
+                    "inputs": {},
+                    "name": "getWorkflowInputs1",
+                    "position": "-30,110",
+                    "title": "Get Workflow Inputs",
+                    "transitions": [
+                        {
+                            "id": 7,
+                            "position": "90,180 90,230",
+                            "target": {
+                                "id": 6
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:app::RunOperation",
+                    "id": 6,
+                    "inputs": {
+                        "operationName": "geometry.add-pixel-tolerance",
+                        "operationParameter": {
+                            "accessors": ["$getWorkflowInputs1"],
+                            "annotations": [
+                                {
+                                    "count": 19,
+                                    "index": 0,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "$getWorkflowInputs1.inputs.context",
+                            "source": "$getWorkflowInputs1.inputs.context"
+                        }
+                    },
+                    "name": "geometry_add_pixel_tolerance",
+                    "position": "-30,230",
+                    "title": "geometry.add-pixel-tolerance",
+                    "transitions": [
+                        {
+                            "id": 9,
+                            "position": "90,300 90,350",
+                            "target": {
+                                "id": 8
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:app::RunOperation",
+                    "id": 8,
+                    "inputs": {
+                        "operationName": "tasks.identify",
+                        "operationParameter": {
+                            "accessors": ["$geometry_add_pixel_tolerance"],
+                            "annotations": [
+                                {
+                                    "count": 29,
+                                    "index": 0,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "$geometry_add_pixel_tolerance.result",
+                            "source": "$geometry_add_pixel_tolerance.result"
+                        }
+                    },
+                    "name": "tasks_identify",
+                    "position": "-30,350",
+                    "title": "tasks.identify",
+                    "transitions": [
+                        {
+                            "id": 11,
+                            "position": "90,420 90,470",
+                            "target": {
+                                "id": 10
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:app::RunCommand",
+                    "id": 10,
+                    "inputs": {
+                        "commandName": "results.display-details",
+                        "commandParameter": {
+                            "accessors": ["$tasks_identify"],
+                            "annotations": [
+                                {
+                                    "count": 15,
+                                    "index": 0,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "$tasks_identify.result",
+                            "source": "$tasks_identify.result"
+                        }
+                    },
+                    "name": "results_display_details",
+                    "position": "-30,470",
+                    "title": "results.display-details"
+                }
+            ]
+        }
+    ],
+    "deploymentConfig": {
+        "supportedApps": {
+            "GWV": true
+        },
+        "worksOffline": false
+    },
+    "start": {
+        "id": 3
+    }
+}
