@@ -36,6 +36,7 @@ Load Geocortex Web with the following layout and app json. You should see a simp
 {
     "items": [
         {
+            "$type": "map-extension",
             "id": "default",
             "layerExtensions": [
                 "item://layer-extension/victoria-fire-hydrants"
@@ -328,24 +329,24 @@ Load Geocortex Web with the following layout and app json. You should see a simp
                         "ymin": 6177206.134819838
                     }
                 }
-            },
-            "$type": "map-extension"
+            }
         },
         {
+            "$type": "results"
             "id": "results-list-config",
             "onFeatureClick": ["results.display-details"],
-            "$type": "results"
         },
         {
+            "$type": "layer-extension"
             "id": "victoria-fire-hydrants",
             "iconUrl": "https://www.arcgis.com/sharing/rest/content/items/9087ae6c5b34483c84e3d9b475bc5bae/resources/symbols/resources/hydrants_icon.png",
             "layer": {
                 "$ref": "fire_hydrants",
                 "layerType": "ArcGISFeatureLayer"
             },
-            "$type": "layer-extension"
         },
         {
+            "$type": "table-extension"
             "id": "fire-hydrants-table",
             "table": {
                 "$ref": {
@@ -353,11 +354,10 @@ Load Geocortex Web with the following layout and app json. You should see a simp
                     "title": "Fire Hydrants - Hydrant Surveys"
                 }
             },
-            "$type": "table-extension"
         },
         {
-            "id": "search-config",
             "$type": "search"
+            "id": "search-config",
         }
     ]
 }
@@ -445,9 +445,9 @@ First, we are going to replace the command chain with a `workflow.run` command t
     "items": [
         ...
         {
+            "$type": "search",
             "id": "search-config",
             "onSearch": "workflow.run-filter-search-workflow",
-            "$type": "search"
         }
         ...
     ]

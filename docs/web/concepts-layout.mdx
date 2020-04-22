@@ -162,14 +162,16 @@ Consider the following example:
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="map-a"/>
-    <map id="map-b"/>
-    <panel>
-        <stack>
-            <scalebar id="a" />
-            <scalebar id="b" />
-        </stack>
-    </panel>
+    <stack>
+      <split grow="1">
+        <map id="map-1" grow="1" margin="3"/>
+        <map id="map-b" grow="1" margin="3"/>
+      </split>
+      <split grow="1" valign="center" >
+          <scalebar id="a" grow="1" margin="3"/>
+          <scalebar id="b" grow="1" margin="3"/>
+      </split>
+    </stack>
 </layout>
 ```
 

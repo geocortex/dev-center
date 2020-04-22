@@ -35,28 +35,28 @@ Commands and Operations are most commonly used to configure the behavior of comp
 ```json
 ({
     "id": "results-list",
+    "$type": "results",
     "featureActions": [
         "item://menu-item/zoom",
         "item://menu-item/save-features-to-csv"
     ],
-    "onFeatureClick": "results.display-details",
-    "$type": "results"
+    "onFeatureClick": "results.display-details"
 },
 {
     "id": "zoom",
+    "$type": "menu-item",
     "iconId": "zoom-feature",
     "title": "language-designer-gen-zoom-to-results-menuitemtitle",
     "description": "language-designer-gen-zoom-to-results-menuitemdescription",
-    "action": ["map.zoom-to-features", "highlights.pulse"],
-    "$type": "menu-item"
+    "action": ["map.zoom-to-features", "highlights.pulse"]
 },
 {
     "id": "save-features-to-csv",
+    "$type": "menu-item",
     "iconId": "csv-export",
     "title": "language-designer-gen-export-features-to-csv-menuitemtitle",
     "description": "language-designer-gen-export-features-to-csv-menuitemdescription",
-    "action": ["results.convert-to-csv", "system.download-file"],
-    "$type": "menu-item"
+    "action": ["results.convert-to-csv", "system.download-file"]
 })
 ```
 

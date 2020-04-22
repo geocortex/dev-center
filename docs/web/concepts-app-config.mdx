@@ -99,12 +99,12 @@ The same config can be used for multiple items in a layout. For example, this al
     <panel width="30">
         <stack margin="0.5">
             // highlight-next-line
-          <button icon="info" config="do-something" margin="0.5" title="Do Something 1"></button>
+          <button icon="info" config="do-something" margin="0.5" id="do-something-1"></button>
         </stack>
     </panel>
     <map slot="main">
         // highlight-next-line
-      <button icon="info" config="do-something" slot="top-center" margin="0.5" title="Do Something 2"></button>
+      <button icon="info" config="do-something" slot="top-center" margin="0.5" id="do-something-2"></button>
     </map>
   </split>
 </layout>
@@ -316,21 +316,21 @@ This example demonstrates a web application with a hidden side panel that pops o
             "id": "large-map"
         },
         {
+            "$type": "menu"
             "id": "iwtm",
             "items": [
                 {
+                    "$type": "menu-item"
                     "iconId": "open",
                     "title": "Open Hidden Side Panel",
                     "action": {
                         "name": "ui.activate",
                         "arguments": "hidden-panel"
                     },
-                    "$type": "menu-item"
                 }
             ],
             "title": "I Want To Menu",
             "isLandmark": true,
-            "$type": "menu"
         },
         {
             "$type": "menu-item",

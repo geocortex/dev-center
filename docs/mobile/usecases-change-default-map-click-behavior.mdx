@@ -55,8 +55,8 @@ Try clicking the map. It should return results for the point you clicked in the 
             "tags": ["mobile", "large"]
         },
         {
-            "id": "map-1",
             "$type": "map-extension",
+            "id": "map-1",
             "onClick": [
                 "tasks.identify",
                 "highlights.pulse",
@@ -440,13 +440,13 @@ The first thing we need to do is override the default map click behavior. We can
     "items": [
         ...
         {
-            "id": "map1",
-            "$type": "map-extension",
-            "onClick": [
-                "tasks.identify",
-                "highlights.pulse",
-                "results.display"
-            ]
+          "$type": "map-extension",
+          "id": "map-1",
+          "onClick": [
+              "tasks.identify",
+              "highlights.pulse",
+              "results.display"
+          ]
         ...
         }
     ]

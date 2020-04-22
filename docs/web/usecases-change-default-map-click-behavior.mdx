@@ -47,8 +47,8 @@ Try clicking the map. It should return results for the point you clicked in the 
 {
     "items": [
         {
-            "id": "default",
             "$type": "map-extension",
+            "id": "default",
             "layerExtensions": [
                 "item://layer-extension/victoria-fire-hydrants"
             ],
@@ -343,20 +343,21 @@ Try clicking the map. It should return results for the point you clicked in the 
             }
         },
         {
+            "$type": "results"
             "id": "results-list-config",
             "onFeatureClick": ["results.display-details"],
-            "$type": "results"
         },
         {
+            "$type": "layer-extension"
             "id": "victoria-fire-hydrants",
             "iconUrl": "https://www.arcgis.com/sharing/rest/content/items/9087ae6c5b34483c84e3d9b475bc5bae/resources/symbols/resources/hydrants_icon.png",
             "layer": {
                 "$ref": "fire_hydrants",
                 "layerType": "ArcGISFeatureLayer"
             },
-            "$type": "layer-extension"
         },
         {
+            "$type": "table-extension"
             "id": "fire-hydrants-table",
             "table": {
                 "$ref": {
@@ -364,7 +365,6 @@ Try clicking the map. It should return results for the point you clicked in the 
                     "title": "Fire Hydrants - Hydrant Surveys"
                 }
             },
-            "$type": "table-extension"
         }
     ]
 }
@@ -402,8 +402,8 @@ The first thing we need to do is override the default map click behavior. We can
     "items": [
         ...
         {
-            "id": "default",
             "$type": "map-extension",
+            "id": "default",
             "layerExtensions": [
                 "item://layer-extension/victoria-fire-hydrants"
             ],
@@ -458,8 +458,8 @@ First, we are going to replace the command chain with a `workflow.run` command t
     "items": [
         ...
         {
-            "id": "default",
             "$type": "map-extension",
+            "id": "default",
             "layerExtensions": [
                 "item://layer-extension/victoria-fire-hydrants"
             ],

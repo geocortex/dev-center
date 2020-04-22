@@ -174,6 +174,7 @@ This app config and layout adds three entries to an I Want To Menu that run the 
 {
     "items": [
         {
+            "$type": "menu"
             "id": "iwtm-config",
             "items": [
                 "item://menu-item/run-thing-1",
@@ -182,9 +183,9 @@ This app config and layout adds three entries to an I Want To Menu that run the 
             ],
             "title": "Execute Custom behavior",
             "isLandmark": true,
-            "$type": "menu"
         },
         {
+            "$type": "menu-item"
             "id": "run-thing-1",
             "title": "Run Thing 1",
             "action": {
@@ -194,9 +195,9 @@ This app config and layout adds three entries to an I Want To Menu that run the 
                     "value": "Never Gonna Give You Up"
                 }
             },
-            "$type": "menu-item"
         },
         {
+            "$type": "menu-item"
             "id": "run-thing-2",
             "title": "Run Thing 2",
             "action": {
@@ -206,13 +207,12 @@ This app config and layout adds three entries to an I Want To Menu that run the 
                     "value": "Never Gonna Let You Down"
                 }
             },
-            "$type": "menu-item"
         },
         {
+            "$type": "menu-item"
             "id": "view-action-history",
             "title": "View Action History",
             "action": ["custom-service.get-action-history", "ui.alert"],
-            "$type": "menu-item"
         }
     ]
 }

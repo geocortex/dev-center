@@ -34,8 +34,8 @@ The branding [service](concepts-components-services.mdx#services) is responsible
     "items": [
         ...
         {
-            "id": "branding",
             "$type": "branding",
+            "id": "branding",
             "activeTheme": "custom-vampire",
             "themes": [{
                 "id": "custom-vampire",
@@ -74,9 +74,9 @@ Colors can be specified with their common name, a hex value, or a rgba value.
 {
     "items": [
         ...
-                {
-            "id": "branding",
+        {
             "$type": "branding",
+            "id": "branding",
             "activeTheme": "custom-vampire",
             "themes": [{
                 "id": "custom-vampire",
@@ -305,10 +305,10 @@ Now that the icon is registered, we can use it in our application by referencing
             }
         },
         {
+            "$type": "menu",
             "id": "iwtm-config",
             "items": ["item://menu-item/button-with-custom-icon"],
-            "title": "I Want to Direct a Movie",
-            "$type": "menu"
+            "title": "I Want to Direct a Movie"
         }
     ]
 }
