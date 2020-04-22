@@ -5,6 +5,20 @@ description: Geocortex Web - Learn about Geocortex Web's advanced configuration 
 
 import AppItemSnippet from "../snippets/app-item.mdx";
 
+## `schemaVersion` property
+
+The property `schemaVersion` should always be present in an `app.json` file. 
+
+```json
+{
+  "schemaVersion": "1.0",
+
+  "items": [...]
+}
+```
+
+The `schemaVersion` property is a required property that informs Geocortex Web what version of app config you are using. This allows for the schema to be updated in future releases without breaking old configuration.
+
 ## App Items
 
 <AppItemSnippet />
