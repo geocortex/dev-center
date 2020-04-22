@@ -7,7 +7,7 @@ import DesignerCallout from "./snippets/designer-callout.mdx";
 
 <DesignerCallout />
 
-If the built in configurability of Geocortex Mobile does not serve your purposes, then it might be time to dive into the Geocortex Mobile SDK. Building applications on top of the Geocortex Mobile SDK requires engaging in the development, testing, and deployment of a custom application, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](overview.mdx#start-with-your-use-case).
+If the built-in configurability of Geocortex Mobile does not serve your purposes, then it might be time to dive into the Geocortex Mobile SDK. Building applications on top of the Geocortex Mobile SDK requires engaging in the development, testing, and deployment of a custom application, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](overview.mdx#start-with-your-use-case).
 
 If you still think you need to use the Geocortex Mobile SDK, then lets get started!
 
@@ -23,7 +23,7 @@ If you still think you need to use the Geocortex Mobile SDK, then lets get start
 
 ### iOS
 
-To be able to build iOS applications, you must have a Mac; Windows cannot build iOS applications.  
+To be able to build iOS applications, you must have a Mac; Windows cannot build iOS applications.
 Setup is required to allow Visual Studio on Windows to use the Mac to build the iOS project.
 
 -   See: [iOS Build on Windows](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/)
@@ -41,7 +41,7 @@ No extra setup is required. You can install your emulator of choice, or debug on
 
 ## Getting Up and Running
 
-A [Geocortex Mobile Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) is provided, which is a basic Geocortex Mobile application. This Quickstart is essentially a [Xamarin Forms Quickstart Application](https://docs.microsoft.com/en-us/xamarin/get-started/Quickstarts/single-page?pivots=windows) that initializes and boots Geocortex Mobile on each platform. To get up and running, simply check out the [Mobile Quickstart Repository](https://github.com/geocortex/vertigis-mobile-quickstart) and start the solution on the appropiate platform.
+A [Geocortex Mobile Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) is provided, which is a basic Geocortex Mobile application. This Quickstart is essentially a [Xamarin Forms Quickstart Application](https://docs.microsoft.com/en-us/xamarin/get-started/Quickstarts/single-page?pivots=windows) that initializes and boots Geocortex Mobile on each platform. To get up and running, simply check out the [Mobile Quickstart Repository](https://github.com/geocortex/vertigis-mobile-quickstart) and start the solution on the appropriate platform.
 
 :::important
 Geocortex Mobile is built on [Xamarin Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/), a framework for building cross platform native apps. As a consequence, building non trivial extensions to Geocortex Mobile will require some Xamarin development knowledge.
@@ -105,7 +105,7 @@ The constructors of the `App.xaml.cs` and `MainPage.xaml.cs` files in the UWP sp
 
 ## Error Handling
 
-In each of the platform specific setups, there is a call to the `HandleExceptions` method. This method tells Geocortex Mobile to handle exceptions and display an Error. If you need to have control over global error handling, you can remove the call to `HandleExceptions` and implement your own global exception handling for the Xamarin Application. [This Stack Overflow post](https://stackoverflow.com/questions/39503390/global-exception-handling-in-xamarin-cross-platform) is a good starting point for implementating global error handling.
+In each of the platform specific setups, there is a call to the `HandleExceptions` method. This method tells Geocortex Mobile to handle exceptions and display an Error. If you need to have control over global error handling, you can remove the call to `HandleExceptions` and implement your own global exception handling for the Xamarin Application. [This Stack Overflow post](https://stackoverflow.com/questions/39503390/global-exception-handling-in-xamarin-cross-platform) is a good starting point for implementing global error handling.
 
 ## Editing the Layout and App Config
 

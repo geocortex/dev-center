@@ -16,13 +16,13 @@ Components are only **created** if they participate in the layout - if no compon
 
 <!-- TODO-API: Add a link out to the component API
 :::tip
-Geocortex Web has a large [built in library of components](api-components.mdx).
+Geocortex Web has a large [built-in library of components](api-components.mdx).
 :::
 -->
 
 ### Component Models and Configuration
 
-Every component has an associated model. This model functions as the underlying data source for the component, as well as providing a way to interface with the larger application, through [commands, operations](concepts-commands-operations.mdx) and shared services. This allows the component to solely worry about presentation concerns, and delegate data and application concerns to the underyling model. Models are also responsible for loading and consuming the [app config](concepts-app-config.mdx) for the component.
+Every component has an associated model. This model functions as the underlying data source for the component, as well as providing a way to interface with the larger application, through [commands, operations](concepts-commands-operations.mdx) and shared services. This allows the component to solely worry about presentation concerns, and delegate data and application concerns to the underlying model. Models are also responsible for loading and consuming the [app config](concepts-app-config.mdx) for the component.
 
 ## Services
 
@@ -30,13 +30,13 @@ In Geocortex Web, services represent a shared application-wide concern that need
 
 <!-- TODO-API: Add a link out to the services API
 :::tip
-Geocortex Web has many [built in services](api-services.mdx).
+Geocortex Web has many [built-in services](api-services.mdx).
 :::
 -->
 
 ### Initialization and Cleanup
 
-Sometimes, a service is required to perform intialization and cleanup actions, for example, to intialize dynamic data and cleanup dangling references. The `ServiceBase` class has two methods to achieve this:
+Sometimes, a service is required to perform initialization and cleanup actions, for example, to initialize dynamic data and cleanup dangling references. The `ServiceBase` class has two methods to achieve this:
 
 -   `_onInitialize()`, which can be overridden,
 -   and `destroy()`, which can be implemented to facilitate cleanup.
@@ -121,7 +121,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 
 In general, components and services are created as needed at runtime in Geocortex Web, with a few exceptions.
 
-1. First, all core services, like the [MessageBus](api-message-bus.mdx), and services [registered with `loadOnStartup: true`](usecases-implement-service.mdx#register-the-custom-service), will be intialized in parallel.
+1. First, all core services, like the [MessageBus](api-message-bus.mdx), and services [registered with `loadOnStartup: true`](usecases-implement-service.mdx#register-the-custom-service), will be initialized in parallel.
 2. Next, the components in the layout which are initially active will be initialized in parallel, along with their models and any [services they inject](sdk-service-injection.mdx).
 3. Finally, other services and components are initialized as needed, usually when a.) a command they implement is run or b.) they are activated explicitly in the layout.
 

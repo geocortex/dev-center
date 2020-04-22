@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 
-When writing custom components you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](usecases-implement-command-operation.mdx).
+When writing custom components you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](usecases-implement-command-operation.mdx).
 
 By the end of this article, you'll have the knowledge to build a custom component that can run commands and operations, as well as register implementations for them.
 
@@ -25,7 +25,7 @@ You can run command and operations [through the `UIContext` of the component](sd
 
 ### Example: Display a Confirmation Dialog to a User
 
-The following example executes the `ui.confirm` operation through the UIContext. Calling a command or operation is as simple as retrieving it by name, providing the appropiate generic type for the command or operation, and then calling `execute` with the appropiate arguments.
+The following example executes the `ui.confirm` operation through the UIContext. Calling a command or operation is as simple as retrieving it by name, providing the appropriate generic type for the command or operation, and then calling `execute` with the appropriate arguments.
 
 :::note
 In order to pass arguments to a command or operation, you have to use the correct type for the generic `command` or `operation` function call with the argument and output type for the command or operation. For example, `ui.confirm` takes in a `ConfirmOperationArgs` and returns a `boolean`, as seen in the [API docs](api-commands-operations.mdx#uiconfirm).

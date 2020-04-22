@@ -31,7 +31,7 @@ In previous layout examples, layouts were shown where components related to a ma
     </map>
 ```
 
-Certain components, such as `<zoom/>` or `<geolocate/>`, require a `Map Model` to function. To locate a `Map Model`, the layout tree heirachy will be searched upwards, starting at the requesting component. When a element in the layout is found that provides the required model, (in this case, the `<map/>` component provides a Map Model), the requesting component will import the model. If the correct model is not found on an upwards search, a breadth first search will be performed from the root of the layout tree.
+Certain components, such as `<zoom/>` or `<geolocate/>`, require a `Map Model` to function. To locate a `Map Model`, the layout tree hierarchy will be searched upwards, starting at the requesting component. When a element in the layout is found that provides the required model, (in this case, the `<map/>` component provides a Map Model), the requesting component will import the model. If the correct model is not found on an upwards search, a breadth first search will be performed from the root of the layout tree.
 
 Take this more complicated layout for example.
 
@@ -125,8 +125,8 @@ All dimensional units are expressed in 'em's, unless specified otherwise, where 
 
 ### Margin
 
-**Attribute name**: "margin".  
-**Expected value**: Either 0 or a positive number (integer or floating point).  
+**Attribute name**: "margin".
+**Expected value**: Either 0 or a positive number (integer or floating point).
 **Description**: Sets the size of the white space outside of the component.
 
 **Example**:
@@ -137,9 +137,9 @@ All dimensional units are expressed in 'em's, unless specified otherwise, where 
 
 ### Padding
 
-**Attribute name**: "padding".  
-**Expected value**: Either 0 or a positive number (integer or floating point).  
-**Description**: Sets the size of the white space between a component and its content.  
+**Attribute name**: "padding".
+**Expected value**: Either 0 or a positive number (integer or floating point).
+**Description**: Sets the size of the white space between a component and its content.
 **Applies to**: This attribute will only apply to components with children, due to technical restrictions.
 
 **Example**:
@@ -150,13 +150,13 @@ All dimensional units are expressed in 'em's, unless specified otherwise, where 
 
 ### Width and Height
 
-**Attribute name**: "width".  
+**Attribute name**: "width".
 **Expected value**: Em units: Either 0 or a positive number (integer or floating point). Example: 12.
 
-**Default value**: If a width is not set, then the width shall be the natural width of the component (however much space it needs).  
+**Default value**: If a width is not set, then the width shall be the natural width of the component (however much space it needs).
 **Description**: Sets the width of a component. If em units, then the width is a literal value.
 
-**Attribute name**: "height".  
+**Attribute name**: "height".
 **Expected value**: Em units: Either 0 or a positive number (integer or floating point). Example: 12.
 
 **Description**: Sets the height of a component. If em units, then the height is a literal value.
@@ -170,9 +170,9 @@ All dimensional units are expressed in 'em's, unless specified otherwise, where 
 
 ### Grow
 
-**Attribute name**: "grow".  
-**Expected value**: Either 0 or a positive number (integer or floating point).  
-**Description**: Sets whether or not a component's width or height will grow over its parents primary axis. Components with a grow of 0 will fill to their natural or requested height. Components with a specified grow will fill up a percentage of the remaining space equal to their grow value divided by the total grow of all sibling components (including the component in question).  
+**Attribute name**: "grow".
+**Expected value**: Either 0 or a positive number (integer or floating point).
+**Description**: Sets whether or not a component's width or height will grow over its parents primary axis. Components with a grow of 0 will fill to their natural or requested height. Components with a specified grow will fill up a percentage of the remaining space equal to their grow value divided by the total grow of all sibling components (including the component in question).
 The default value for a component varies by component. For most components, if no grow value is specified, they will default to a grow value of "0". The following components however will have a default grow value of "1":
 
 -   Map
@@ -196,15 +196,15 @@ The default value for a component varies by component. For most components, if n
 
 ### Alignment
 
-**Attribute name**: "halign".  
-**Expected value**: One of: "start", "center", or "end"  
+**Attribute name**: "halign".
+**Expected value**: One of: "start", "center", or "end"
 **Description**: Describes how the content of a component is aligned. For stacks and splits, the content is the child components. For a component like text, the content is the text itself.
 
-**Attribute name**: "valign".  
-**Expected value**: One of: "start", "center", or "end"  
+**Attribute name**: "valign".
+**Expected value**: One of: "start", "center", or "end"
 **Description**: Describes how the content of a component is aligned. For stacks and splits, the content is the child components. For a component like text, the content is the text itself.
 
 #### Effect on cross-axis stretching
 
-All components will stretch across the cross-axis if the corresponding alignment attribute (halign for stacks, valign for splits) is not set on the parent of that componet. But if a cross-axis alignment is set, then they will no longer stretch across the cross axis (otherwise the effect of alignment would not be observed).  
+All components will stretch across the cross-axis if the corresponding alignment attribute (halign for stacks, valign for splits) is not set on the parent of that component. But if a cross-axis alignment is set, then they will no longer stretch across the cross axis (otherwise the effect of alignment would not be observed).
 Some components will stretch across the cross-axis even if the cross-axis alignment is set on the parent: map, stack, split.

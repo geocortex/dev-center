@@ -12,7 +12,7 @@ import FollowAlongSnippet from "./snippets/follow-along.mdx";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -27,7 +27,7 @@ The first thing it does is declare a map that is linked to "default" configurati
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [corresponding to the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
+2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
 
 <FollowAlongSnippet />
 
@@ -142,8 +142,8 @@ Panels are a container component that enable hierarchal navigation between diffe
 </layout>
 ```
 
-When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
-When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of eachother, with the first component being the bottomost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
+When you first open the panel, the first component in the panel that is not explicitly set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
+When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of each other, with the first component being the bottommost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
 
 ### Activation
 
@@ -152,7 +152,7 @@ When a feature in the results list is opened, the `<feature-details>` component 
 
 ### Deactivation
 
--   If the component is the top most element (it is active), then deactivate it.
+-   If the component is the topmost element (it is active), then deactivate it.
     -   Else, the component is already inactive
 
 ## Models
@@ -202,7 +202,7 @@ By default, this happens by walking up the tree from the location of the compone
 </map>
 ```
 
-However, in the previous example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. To solve this, we can bind each scale bar to the appropiate map with the `models` attribute.
+However, in the previous example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. To solve this, we can bind each scale bar to the appropriate map with the `models` attribute.
 
 :::note
 Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
@@ -230,7 +230,7 @@ Learn more about how [models are automatically matched](concepts-advanced-layout
 </layout>
 ```
 
-Somethings, you can have multiple components that need to bind to the same model.
+Sometimes, you can have multiple components that need to bind to the same model.
 
 ```xml
 <split>
@@ -243,7 +243,7 @@ Somethings, you can have multiple components that need to bind to the same model
 </split>
 ```
 
-To simplify this binding, we can take advantage of the default behavior of searching up the layout tree for the appropiate model and bind the map to the parent panel instead.
+To simplify this binding, we can take advantage of the default behavior of searching up the layout tree for the appropriate model and bind the map to the parent panel instead.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
