@@ -48,7 +48,7 @@ module.exports = {
                         "web/usecases-display-custom-form",
                         "web/usecases-implement-custom-form-elements",
                         "web/usecases-implement-custom-activity",
-                        // "web/usecases-change-default-search-behavior",
+                        "web/usecases-change-default-map-click-behavior",
                     ],
                 },
                 {
@@ -93,6 +93,7 @@ module.exports = {
                 "web/api-message-bus",
                 "web/api-commands-operations",
                 "web/api-events",
+                "web/api-components",
             ],
         },
     ],
