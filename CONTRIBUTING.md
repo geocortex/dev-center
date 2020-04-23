@@ -12,6 +12,10 @@ Install the latest LTS version of [node](https://nodejs.org/).
 
 Run `npm install` in the root of this repository.
 
+### Install the Code Spell Checker VS Code Extension
+
+The [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) VS code extension is used with a custom dictionary to spell check documentation in the project. Please install and use this extension to detect spelling errors in changes made to documentation. _This process is planned to be migrated to a CI / linting tool._
+
 ### Start development server
 
 Run `npm start` in the root of this repository.
@@ -67,7 +71,7 @@ To add a code block, use the markdown syntax like follows:
     import foo from "bar";
     ```
 
--   Use the appropriate language key in the beginning of the code block (`ts` in the case above). This enables the approriate syntax highlighting for the given language. Common keys in this project are:
+-   Use the appropriate language key in the beginning of the code block (`ts` in the case above). This enables the appropriate syntax highlighting for the given language. Common keys in this project are:
     -   `json`
     -   `xml`
     -   `ts`

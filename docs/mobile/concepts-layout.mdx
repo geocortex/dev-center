@@ -11,7 +11,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
 
 Take this example of a layout with a map and a compass.
 
@@ -149,7 +149,7 @@ This `search-panel` has two root components:
 -   A `<feature-details>`
 
 When you first open the panel, the first component in the panel that is not explicitly set to `active="false"` is activated. In this example, it's the `<search>` component.
-The search component will activate the `<results-list>` component when a search is completed. Then, when a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a "stack" of components laid on top of eachother, and work as follows;
+The search component will activate the `<results-list>` component when a search is completed. Then, when a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a "stack" of components laid on top of each other, and work as follows;
 
 #### Activation
 
