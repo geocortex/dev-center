@@ -12,10 +12,6 @@ Install the latest LTS version of [node](https://nodejs.org/).
 
 Run `npm install` in the root of this repository.
 
-### Install the Code Spell Checker VS Code Extension
-
-The [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) VS code extension is used with a custom dictionary to spell check documentation in the project. Please install and use this extension to detect spelling errors in changes made to documentation. _This process is planned to be migrated to a CI / linting tool._
-
 ### Start development server
 
 Run `npm start` in the root of this repository.

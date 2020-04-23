@@ -11,7 +11,7 @@ const products = [
         title: "Geocortex Web",
         imageUrl: "img/web-viewer-product-icon.svg",
         description:
-            "Combine the 3D and 2D capabilities of Esris latest JavaScript API to deliver cutting-edge mapping applications.",
+            "Combine the 3D and 2D capabilities of Esri's latest JavaScript API to deliver cutting-edge mapping applications.",
         link: "docs/web/overview",
     },
     {
