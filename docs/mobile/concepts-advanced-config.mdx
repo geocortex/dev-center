@@ -30,7 +30,7 @@ The `schemaVersion` property is a required property that informs Geocortex Web w
 
 ## Item URIs and Resource URIs
 
-**Item URI's** are a commonly used pattern in the `app.json` to uniquely identify and reference app items. They take the format
+**Item URIs** are a commonly used pattern in the `app.json` to uniquely identify and reference app items. They take the format
 
 `item://<item-type>/<item-id>`
 
@@ -44,7 +44,7 @@ For example, the item URI for the following item is `item://menu-item/measureAct
 }
 ```
 
-These item URI's can be used by app items to include other app items as property values, allowing reuse.
+These item URIs can be used by app items to include other app items as property values, allowing reuse.
 
 ```json
 {
@@ -54,7 +54,7 @@ These item URI's can be used by app items to include other app items as property
 }
 ```
 
-**Resource URI's** are used to load layouts in Geocortex Mobile. Layout files are [added to Geocortex Mobile](usecases-add-medium-layout.mdx) as an asset which is copied into the end users local data folder. These copied assets are referenced with a URI of the format
+**Resource URIs** are used to load layouts in Geocortex Mobile. Layout files are [added to Geocortex Mobile](usecases-add-medium-layout.mdx) as an asset which is copied into the end users local data folder. These copied assets are referenced with a URI of the format
 
 `resource://layout-<size>.xml`
 

@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 
 :::tip
-Geocortex Web comes with built in [support for internationalization](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/internationalization.htm). Existing language strings for an application can be customized for any language in the Geocortex Web Designer. To provide a complete translation in an entirely new locale for Geocortex Web, please [contact us](https://www.geocortex.com/contact/).
+Geocortex Web comes with built-in [support for internationalization](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/internationalization.htm). Existing language strings for an application can be customized for any language in the Geocortex Web Designer. To provide a complete translation in an entirely new locale for Geocortex Web, please [contact us](https://www.geocortex.com/contact/).
 :::
 
 ## Prerequisites
@@ -18,7 +18,7 @@ Geocortex Web comes with built in [support for internationalization](https://doc
 
 ## Providing Language Strings for a Component
 
-When developing [custom components](concepts-components-services.mdx#components), user facing language strings are sometimes introduced. If these strings need to be translated, you can register new language resource files with the appropiate translations.
+When developing [custom components](concepts-components-services.mdx#components), user facing language strings are sometimes introduced. If these strings need to be translated, you can register new language resource files with the appropriate translations.
 
 :::warning
 If you define a language string that Geocortex Web has already defined, it will override the existing language string with your custom string.
@@ -26,11 +26,11 @@ If you define a language string that Geocortex Web has already defined, it will 
 
 ## Example: Custom Component that Displays a Translatable String
 
-This example will use a simple custom component that displays a string with an english and german translation.
+This example will use a simple custom component that displays a string with an English and German translation.
 
 ### Create a Boilerplate Component
 
-First, we will start off with a component that uses a plain hardcoded text string in english.
+First, we will start off with a component that uses a plain hard-coded text string in English.
 
 :::tip
 Learn more about how to [build custom components](usecases-implement-component-with-ui.mdx).
@@ -134,7 +134,7 @@ export default function (registry: LibraryRegistry) {
 
 ### Creating the Language Resources
 
-Next, we are going to create the language resources for english and german. Language resources are plain json files with language keys and values.
+Next, we are going to create the language resources for English and German. Language resources are plain JSON files with language keys and values.
 
 <Tabs
   defaultValue="english"

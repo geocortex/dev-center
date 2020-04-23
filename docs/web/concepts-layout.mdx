@@ -12,7 +12,7 @@ import FollowAlongSnippet from "./snippets/follow-along.mdx";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -27,7 +27,7 @@ The first thing it does is declare a `<map>` component that uses the default map
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [corresponding to the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
+2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
 
 <FollowAlongSnippet />
 
@@ -151,7 +151,7 @@ When a feature in the results list is opened, the `<feature-details>` component 
 
 ### Deactivation
 
--   If the component is the top most element (it is active), then deactivate it.
+-   If the component is the topmost element (it is active), then deactivate it.
     -   Else, the component is already inactive
 
 ## Models
@@ -207,7 +207,7 @@ However, in the following example with two scale bars, the scale bars will walk 
 </layout>
 ```
 
-To solve this, we can bind each scale bar to the appropiate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
+To solve this, we can bind each scale bar to the appropriate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
