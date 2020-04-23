@@ -5,9 +5,9 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "lint": "npm run validate-links && npm run spellcheck && npm run prettier -- --check",
-    "spellcheck": "cspell \"{docs,src}/**\"",
-    "validate-links": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
+    "lint": "npm run lint:links && npm run lint:spelling && npm run prettier -- --check",
+    "lint:spelling": "cspell \"{docs,src}/**\"",
+    "lint:links": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
     "prettier": "prettier \"**/*.{css,js,jsx,ts,tsx,md,mdx,json}\"",
     "prettier:write": "npm run prettier -- --write",
     "swizzle": "docusaurus swizzle",
