@@ -32,28 +32,17 @@ Make sure you clean up the subscription handle to avoid dangling references.
 ```tsx
 import React, { useContext, useState, useEffect } from "react";
 import { LayoutElement } from "@geocortex/web/components";
-import { UIContext } from "@geocortex/web/ui";
+import { UIContext, useSubscribe } from "@geocortex/web/ui";
 import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
 
 export default function CustomComponent(props) {
     const { events } = useContext(UIContext);
-    var [handles, setHandles] = useState<IHandle[]>([]);
 
-    useEffect(() => {
-        setHandles(
-            handles.concat(
-                events.map.initialized.subscribe((e: MapEvent) => {
-                    console.log(
-                        "Map Initialized, do your map dependent component setup here."
-                    );
-                })
-                // Equivalent: this.messages.event("map.initialized").subscribe
-            )
+    useSubscribe(events.map.initialized, (e: MapEvent) => {
+        console.log(
+            "Map Initialized, do your map dependent component setup here."
         );
-        return () => {
-            handles.forEach((h) => h.remove());
-        };
-    }, []);
+    });
 
     return <LayoutElement {...props}></LayoutElement>;
 }
@@ -63,6 +52,9 @@ export default function CustomComponent(props) {
 <TabItem value="model">
 
 ```ts
+import { serializable, ComponentModelBase } from "@geocortex/web/models";
+import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
+
 @serializable
 export default class CustomModel extends ComponentModelBase {
     handles: IHandle[] = [];

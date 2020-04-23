@@ -154,6 +154,12 @@ When a feature in the results list is opened, the `<feature-details>` component 
 -   If the component is the topmost element (it is active), then deactivate it.
     -   Else, the component is already inactive
 
+<!-- TODO-API - direct link to tabs and expanders -->
+
+:::tip
+These are just a few examples of the building blocks available to help you organize the layout of your Application. You can also use tabs, expanders, and much more. See the [Component Reference](api-components.mdx) for a full listing.
+:::
+
 ## Models
 
 Components often observe and modify the state of other components.
@@ -189,14 +195,14 @@ When the system places the scale bar into the layout, it will attempt to satisfy
 Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
 :::
 
-However, in the following example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps.
+However, in the following example with two scale bars, how does each scale bar known which map model it corresponds to? Both are placed outside of a `<map>` component, and there are two possible map models to bind to. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <stack>
       <split grow="1">
-        <map id="map-1" grow="1" margin="3"/>
+        <map id="map-a" grow="1" margin="3"/>
         <map id="map-b" grow="1" margin="3"/>
       </split>
       <split grow="1" valign="center" >
@@ -207,7 +213,7 @@ However, in the following example with two scale bars, the scale bars will walk 
 </layout>
 ```
 
-To solve this, we can bind each scale bar to the appropriate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
+We can explicitly bind each scale bar to the appropriate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

@@ -82,11 +82,7 @@ Components can also register an implementation for any command. This allows for 
 
 ### Example: Component that Implements a Command
 
-When registering a command implementation for a component, it's best practice to register the implementation in the [components model](concepts-components-services.mdx#component-models-and-configuration). The following component model registers an implementation for a custom command that takes a `string` argument.
-
-:::tip
-If necessary, a component could also register the command implementation through the [UIContext](sdk-ui-context.mdx).
-:::
+When registering a command implementation for a component, you have to register the implementation in the [component's model](concepts-components-services.mdx#component-models-and-configuration). The following component model registers an implementation for a custom command that takes a `string` argument.
 
 ```tsx
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
