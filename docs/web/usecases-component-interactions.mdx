@@ -109,7 +109,7 @@ export default class CustomModel extends ComponentModelBase {
         ],
     });
 
-    public addGraphic() {
+    addGraphic() {
         if (this.mapExtension) {
             const esriMap = this.mapExtension.map;
             esriMap.add(this.triangleGraphic);
@@ -172,7 +172,7 @@ import {
 @exportModel
 @serializable
 export default class ExportedModel extends ComponentModelBase {
-    public someCustomModelProperty: string = "Some Text";
+    someCustomModelProperty: string = "Some Text";
 }
 ```
 
@@ -192,7 +192,7 @@ export default class CustomModel extends ComponentModelBase {
     @importModel("exported-model")
     exportedModel: ExportedModel | undefined;
 
-    public getContentText() {
+    getContentText() {
         if (this.exportedModel) {
             return this.exportedModel.someCustomModelProperty;
         } else {
