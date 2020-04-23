@@ -164,7 +164,6 @@
         "supportedApps": { "GWV": true },
         "worksOffline": false
     },
-    "designerVersion": "5.15.1+9",
     "forms": [
         {
             "defaults": {},
@@ -202,6 +201,5 @@
             "id": 19
         }
     ],
-    "licenseInfo": { "licenseeId": "00130000006ioTbAAI" },
     "start": { "id": 3 }
 }
