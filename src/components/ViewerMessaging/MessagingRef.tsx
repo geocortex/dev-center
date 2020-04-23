@@ -17,23 +17,28 @@ export default function MessagingRef(props: MessagingRefProps) {
     // We'll only render definition tables for object types, everything else can be inlined.
     if (referencedDefinition && referencedDefinition.type === "object") {
         return (
+            // <strong>
             <code>
                 <a href={`#${trimmedName}`}>
                     {trimmedName}
                     {isArray && "[]"}
                 </a>
             </code>
+            // </strong>
         );
     }
 
     // TODO: What to do here?
     if (referencedDefinition) {
+        console.log("have def but didn't render", name);
     }
 
     return (
+        // <strong>
         <code>
             {trimmedName}
             {isArray && "[]"}
         </code>
+        // </strong>
     );
 }

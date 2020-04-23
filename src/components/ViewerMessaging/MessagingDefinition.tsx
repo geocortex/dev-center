@@ -44,6 +44,9 @@ export default function MessagingDefinition(props: MessagingDefinitionProps) {
                         </div>
                         <div className="margin-left--md">
                             <MessagingArgument definition={propDef} schema={schema} />
+                            {propDef.description && (
+                                <div className="margin-top--sm">{propDef.description}</div>
+                            )}
                         </div>
                     </div>
                 ))}
