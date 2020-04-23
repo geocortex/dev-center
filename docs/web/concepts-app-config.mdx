@@ -49,7 +49,7 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="map-primary" config="myMapConfig"/>
+    <map config="my-map-config"/>
 </layout>
 ```
 
@@ -58,10 +58,11 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 
 ```json
 {
+    "schemaVersion": "1.0",
     "items": [
         {
             "$type": "map-extension",
-            "id": "myMapConfig",
+            "id": "my-map-config",
             "onInitialized": [
                 {
                     "name": "ui.alert",
@@ -78,66 +79,6 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 </TabItem>
 <TabItem value="ui">
 <img src={useBaseUrl("img/web-app-config-dead-simple.png")}/>
-</TabItem>
-</Tabs>
-
-The same config can be used for multiple items in a layout. For example, this allows you to reuse the same button in multiple locations in the App.
-
-<Tabs
-  defaultValue="layout"
-  values={[
-    { label: "Layout", value: "layout" },
-    { label: "App Config", value: "config" },
-    { label: "UI", value: "ui" },
-  ]}>
-<TabItem value="layout">
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-  <split resizable="true">
-    <panel width="30">
-        <stack margin="0.5">
-            // highlight-next-line
-          <button icon="info" config="doSomething" margin="0.5" title="Do Something 1"></button>
-        </stack>
-    </panel>
-    <map id="map-primary" slot="main">
-        // highlight-next-line
-      <button icon="info" config="doSomething" slot="top-center" margin="0.5" title="Do Something 2"></button>
-    </map>
-  </split>
-</layout>
-```
-
-</TabItem>
-<TabItem value="config">
-
-```json
-{
-    "items": [
-        {
-            "$type": "menu-item",
-            // highlight-next-line
-            "id": "doSomething",
-            "isEnabled": true,
-            "iconId": "info",
-            "action": {
-                "name": "ui.alert",
-                "arguments": {
-                    "title": "Something?",
-                    "message": "Fine, I did it",
-                    "buttonText": "OK"
-                }
-            }
-        }
-    ]
-}
-```
-
-</TabItem>
-<TabItem value="ui">
-<img src={useBaseUrl("img/web-app-config-basic.png")}/>
 </TabItem>
 </Tabs>
 
@@ -163,12 +104,12 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
 <layout xmlns="https://geocortex.com/layout/v1">
     <split resizable="true">
         // highlight-next-line
-        <panel width="30" active="true" id="mainPanel"></panel>
-        <map id="map-primary" slot="main">
+        <panel width="30" active="true" id="main-panel"></panel>
+        <map slot="main">
             <button icon="info" config="run-workflow" slot="top-center" margin="0.5">Run Workflow in Side Panel</button>
             <split slot="bottom-center">
-                <button icon="" config="showIwtm" margin="0.5">Show I Want To Menu</button>
-                <button icon="" config="hideIwtm" margin="0.5">Hide I Want To Menu</button>
+                <button config="showIwtm" margin="0.5">Show I Want To Menu</button>
+                <button config="hideIwtm" margin="0.5">Hide I Want To Menu</button>
             </split>
             // highlight-next-line
             <iwtm config="iwtm-config" slot="top-left" active="false" id="iwtm"/>
@@ -182,13 +123,14 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
 
 ```json title="app/app.json"
 {
+    "schemaVersion": "1.0",
     "items": [
         {
             "$type": "workflow",
             "id": "demo-workflow",
-            "title": "Demo Worklfow",
+            "title": "Demo Workflow",
             // highlight-next-line
-            "target": "mainPanel",
+            "target": "main-panel",
             "portalItem": "c3964768dfa84fe5acf7a72ef95dc92b"
         },
         {
@@ -316,21 +258,21 @@ This example demonstrates a web application with a hidden side panel that pops o
             "id": "large-map"
         },
         {
+            "$type": "menu"
             "id": "iwtm",
             "items": [
                 {
+                    "$type": "menu-item"
                     "iconId": "open",
                     "title": "Open Hidden Side Panel",
                     "action": {
                         "name": "ui.activate",
                         "arguments": "hidden-panel"
                     },
-                    "$type": "menu-item"
                 }
             ],
             "title": "I Want To Menu",
             "isLandmark": true,
-            "$type": "menu"
         },
         {
             "$type": "menu-item",
@@ -405,8 +347,8 @@ This article demonstrated some simple examples of layouts with buttons that affe
         link="concepts-advanced-config"
     />
     <UseCaseCard
-        title="Explore Mobile's built in components"
-        description="Dive into Mobile's rich component library in the SDK."
+        title="Explore Web's built-in components"
+        description="Dive into Web's rich component library in the SDK."
         link="api-components"
     />
 </UseCaseContainer>

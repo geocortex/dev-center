@@ -1,0 +1,602 @@
+---
+title: Change Default Map Click Behavior
+description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change the default map click behavior
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
+import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
+
+Geocortex Mobile comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](concepts-app-config.mdx).
+
+:::note
+It's actually possible to configure the Map's `onClick` event in [Geocortex Web Designer](https://apps.geocortex.com/mobileviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this use case is to demonstrate the concept of configuring actions using the app config.
+:::
+
+## What you're Building
+
+We will modify the default map on click behavior to buffer the click geometry by a user provided distance and create a graphic which visualizes this buffer.
+
+<img
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-finished.png")}
+    alt="Map Click Workflow with Buffer Behavior"
+/>
+
+## Prerequisites
+
+<QuickstartPrereqsSnippet />
+
+<TweakConfigLayoutSnippet />
+
+## Initial Set up
+
+Start the Geocortex Mobile SDK with the following layout and app json. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.
+
+Try clicking the map. It should return results for the point you clicked in the results list.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "map-extension",
+            "id": "map-1",
+            "onClick": [
+                "tasks.identify",
+                "highlights.pulse",
+                "results.display"
+            ],
+            "webMap": {
+                "version": "2.8",
+                "operationalLayers": [
+                    {
+                        "id": "fire_hydrants",
+                        "layerType": "ArcGISFeatureLayer",
+                        "url": "https://services.arcgis.com/p3UBboyC0NH1uCie/ArcGIS/rest/services/Victoria_Fire_Hydrants/FeatureServer/0",
+                        "visibility": true,
+                        "opacity": 1,
+                        "title": "Fire Hydrants",
+                        "popupInfo": {
+                            "title": "{HYDRANT_NUM}",
+                            "description": "This fire hydrant is currently {STATUS} and has a flow of {FLOW}.",
+                            "showAttachments": true,
+                            "relatedRecordsInfo": {
+                                "showRelatedRecords": true
+                            },
+                            "fieldInfos": [
+                                {
+                                    "fieldName": "JURISDICTION",
+                                    "label": "Jurisdiction",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "SYSTEM",
+                                    "label": "System",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "COMMENTS",
+                                    "label": "Comments",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "STATUS",
+                                    "label": "Status",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "DATA_SRC",
+                                    "label": "Data Source",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "TYPE",
+                                    "label": "Type",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "FLOW",
+                                    "label": "Flow",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "MAIN_ID",
+                                    "label": "Main ID",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "LATERAL_ID",
+                                    "label": "Lateral ID",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "HYDRANT_NUM",
+                                    "label": "Hydrant Number",
+                                    "isEditable": false,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "MANUFACTURER",
+                                    "label": "Manufacturer",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "OWNER",
+                                    "label": "Owner",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "ASSET_ID",
+                                    "label": "Asset ID",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "SURVEY_REQ",
+                                    "label": "Survey Requested",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "INSTALL_DATE",
+                                    "label": "Installation Date",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "LAST_FLUSHED",
+                                    "label": "Last Flushed",
+                                    "isEditable": true,
+                                    "visible": true
+                                },
+                                {
+                                    "fieldName": "GlobalID",
+                                    "label": "Global ID",
+                                    "isEditable": false,
+                                    "visible": false
+                                },
+                                {
+                                    "fieldName": "CreationDate",
+                                    "label": "Creation Date",
+                                    "isEditable": false,
+                                    "visible": false
+                                },
+                                {
+                                    "fieldName": "Creator",
+                                    "label": "Creator",
+                                    "isEditable": false,
+                                    "visible": false
+                                },
+                                {
+                                    "fieldName": "EditDate",
+                                    "label": "Edit Date",
+                                    "isEditable": false,
+                                    "visible": false
+                                },
+                                {
+                                    "fieldName": "Editor",
+                                    "label": "Editor",
+                                    "isEditable": false,
+                                    "visible": false
+                                }
+                            ],
+                            "popupElements": [
+                                {
+                                    "type": "fields"
+                                },
+                                {
+                                    "type": "attachments"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "baseMap": {
+                    "baseMapLayers": [
+                        {
+                            "id": "topo",
+                            "layerType": "ArcGISTiledMapServiceLayer",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+                            "title": "Topographic"
+                        }
+                    ]
+                },
+                "tables": [
+                    {
+                        "url": "https://services.arcgis.com/p3UBboyC0NH1uCie/ArcGIS/rest/services/Victoria_Fire_Hydrants/FeatureServer/6",
+                        "id": "fire_hydrants_table",
+                        "title": "Fire Hydrants - Hydrant Surveys",
+                        "popupInfo": {
+                            "title": "Hydrant Surveys: {HYDRANT_NUM}",
+                            "fieldInfos": [
+                                {
+                                    "fieldName": "OBJECTID_1",
+                                    "label": "OBJECTID_1",
+                                    "isEditable": false,
+                                    "tooltip": "",
+                                    "visible": false,
+                                    "stringFieldOption": "textbox"
+                                },
+                                {
+                                    "fieldName": "HYDRANT_NUM",
+                                    "label": "Hydrant Number",
+                                    "isEditable": true,
+                                    "tooltip": "",
+                                    "visible": true,
+                                    "stringFieldOption": "textbox"
+                                },
+                                {
+                                    "fieldName": "RESULT",
+                                    "label": "Result",
+                                    "isEditable": true,
+                                    "tooltip": "",
+                                    "visible": true,
+                                    "stringFieldOption": "textbox"
+                                },
+                                {
+                                    "fieldName": "SURVEYOR",
+                                    "label": "Surveyor",
+                                    "isEditable": true,
+                                    "tooltip": "",
+                                    "visible": true,
+                                    "stringFieldOption": "textbox"
+                                },
+                                {
+                                    "fieldName": "SURVEY_DATE",
+                                    "label": "Survey Date",
+                                    "isEditable": true,
+                                    "tooltip": "",
+                                    "visible": true,
+                                    "stringFieldOption": "textbox",
+                                    "format": {
+                                        "dateFormat": "shortDateShortTime"
+                                    }
+                                },
+                                {
+                                    "fieldName": "COMMENTS",
+                                    "label": "Comments",
+                                    "isEditable": true,
+                                    "tooltip": "",
+                                    "visible": true,
+                                    "stringFieldOption": "textbox"
+                                },
+                                {
+                                    "fieldName": "created_user",
+                                    "label": "created_user",
+                                    "isEditable": false,
+                                    "tooltip": "",
+                                    "visible": false,
+                                    "stringFieldOption": "textbox"
+                                },
+                                {
+                                    "fieldName": "created_date",
+                                    "label": "created_date",
+                                    "isEditable": false,
+                                    "tooltip": "",
+                                    "visible": false,
+                                    "stringFieldOption": "textbox",
+                                    "format": {
+                                        "dateFormat": "shortDateShortTime"
+                                    }
+                                },
+                                {
+                                    "fieldName": "last_edited_user",
+                                    "label": "last_edited_user",
+                                    "isEditable": false,
+                                    "tooltip": "",
+                                    "visible": false,
+                                    "stringFieldOption": "textbox"
+                                },
+                                {
+                                    "fieldName": "last_edited_date",
+                                    "label": "last_edited_date",
+                                    "isEditable": false,
+                                    "tooltip": "",
+                                    "visible": false,
+                                    "stringFieldOption": "textbox",
+                                    "format": {
+                                        "dateFormat": "shortDateShortTime"
+                                    }
+                                }
+                            ],
+                            "description": null,
+                            "showAttachments": true,
+                            "mediaInfos": []
+                        }
+                    }
+                ],
+                "$initialViewpoint": {
+                    "targetGeometry": {
+                        "spatialReference": {
+                            "wkid": 102100,
+                            "latestWkid": 3857
+                        },
+                        "xmax": -13732997.567840427,
+                        "xmin": -13733798.962308966,
+                        "ymax": 6177644.453403971,
+                        "ymin": 6177206.134819838
+                    }
+                }
+            }
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus",
+            "onFeatureDelete": [
+                "highlights.remove-focus",
+                "highlights.remove",
+                "edit.delete-features",
+                "results.hide-details",
+                "results.remove"
+            ]
+        },
+        {
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
+                }
+            ],
+            "onFeatureHide": null,
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ],
+            "onFeatureLocate": [
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.pan-to-features",
+                "highlights.pulse"
+            ],
+            "onClear": ["highlights.clear", "highlights.clear-focus"]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+    <map config="map-1" slot="main"/>
+    <panel>
+      <results-list config="results" />
+      <feature-details config="feature-details"/>
+      <gxm:update-feature/>
+      <gxm:add-related-feature />
+    </panel>
+  </gxm:taskbar>
+</layout>
+
+```
+
+</TabItem>
+</Tabs>
+
+## Set up a Workflow to Run on Map Click
+
+The first thing we need to do is override the default map click behavior. We can do this by [editing the default behavior](usecases-change-default-behavior.mdx) for the `<map/>` component in the app config. The default behavior for the map's `onClick` event is a command chain that runs `tasks.identify` and then `highlights.pulse`, and finally, `results.display`.
+
+```json
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+          "$type": "map-extension",
+          "id": "map-1",
+          "onClick": [
+              "tasks.identify",
+              "highlights.pulse",
+              "results.display"
+          ]
+          ...
+        }
+    ]
+}
+```
+
+First, we are going to replace the command chain with a `workflow.run` command that replicates this behavior.
+
+1. Open up [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
+2. Add an "Alert" activity as a test.
+3. Copy the ID of the the workflow from the URL
+
+<img
+    src={useBaseUrl("img/custom-map-click-workflow-url.png")}
+    alt="Workflow URL with ID"
+/>
+
+4. Add the workflow as an app item to your app config.
+
+```json
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "workflow",
+            "id": "map-click-workflow",
+            "title": "Map Click Workflow",
+            "commandArgumentInput": "context",
+            "target": "#taskbar",
+            "portalItem": "<your-workflow-id-here>"
+        },
+        ...
+    ]
+}
+```
+
+5. Next, configure the `onClick` property of the Map Component in the app config to run the workflow.
+
+```json
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "id": "default",
+            "$type": "map-extension",
+            "onClick": "workflow.run-map-click-workflow",
+            ...
+        }
+    ]
+}
+```
+
+6. Run the app and test your workflow. You should see your alert pop up when you try to click on the map.
+
+<img
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-alert.png")}
+    alt="Map Click Workflow with Alert"
+/>
+
+7. Open up your workflow in the Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.identify` is an operation, so it needs a RunOperation activity, and `highlights.pulse` and `results.display` are commands, so they need RunCommand Activities. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.identify` and then passing the output of that operation to `highlights.pulse`, and `results.display`.
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/mobile-map-click-behavior-recreated.json")}
+        download="map-click-behavior-recreated.json"
+    >
+        download this workflow
+    </a>{" "}
+    and then{" "}
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        import it into workflow designer.
+    </a>
+</p>
+:::
+
+<img
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-recreated.png")}
+    alt="Map Click Workflow with Original Operations"
+/>
+
+8. Save the workflow and reload the application. Test the map click functionality and ensure it works as it originally did.
+
+## Extend the Workflow to Create a Graphic Buffering the Click Geometry
+
+At this point, you can choose to extend the map click behavior with Geocortex Workflow in whatever way is appropiate for your usecase. You could execute a different "identify" for external results and add them to the set of results displayed, or zoom the map to a specific orientation and scale, or display a form for the user to fill out with relevant information to that location. For this example, a workflow was created which asks a user for a buffer distance, and creates a graphic showing the buffer around the click location.
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/web-map-click-behavior-buffer.json")}
+        download="map-click-behavior-buffer.json"
+    >
+        download this buffer geometry workflow
+    </a>{" "}
+    and then{" "}
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        import it into workflow designer.
+    </a>
+</p>
+:::
+
+<img
+    src={useBaseUrl("img/mobile-custom-map-click-workflow-finished.png")}
+    alt="Map Click Workflow with Buffer Behavior"
+/>
+
+## Next Steps
+
+This pattern of configuring behavior with a workflow can be applied to numerous components. You can use a workflow to control the behavior of the Map, Feature Details, Geolocate, Custom Components, and more. Often, a workflow can be created and used to execute custom behavior instead of requiring the implementation of a custom command or operation.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Geocortex Workflow"
+        description="Learn more about Geocortex Workflow"
+        link="../workflow/overview"
+    />
+    <UseCaseCard
+        title="Change Default Behavior"
+        description="Learn more about overriding default behaviors"
+        link="use-caseschange-default-behavior"
+    />
+    <UseCaseCard
+        title="SDK Sample that Demonstrates Overriding Default Behaviors"
+        description="Check out the SDK Sample for overriding default behaviors"
+        // TODO: Validate link when available
+        link="https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands"
+    />
+    <UseCaseCard
+        title="Implement Custom Command or Operation"
+        description="Implement a custom command or operation with the Mobile SDK"
+        link="usecases-implement-command-operation"
+    />
+</UseCaseContainer>

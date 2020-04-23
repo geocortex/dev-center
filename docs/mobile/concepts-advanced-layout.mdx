@@ -27,15 +27,15 @@ The `ViewerFramework` folder containing the schema will not be created until an 
 In previous layout examples, layouts were shown where components related to a map, such as zoom buttons, were nested within a map. It was assumed that the component would bind to the map it was placed in, but why?
 
 ```xml
-    <map config="map1" slot="main">
+    <map config="map-1" slot="main">
       <stack margin="0.5" slot="bottom-right" halign="end">
         <zoom margin="0.8"/>
-        <geolocate id="geolocator" margin="0.5" config="geolocate" />
+        <geolocate margin="0.5" config="geolocate" />
       </stack>
     </map>
 ```
 
-Certain components, such as `<zoom/>` or `<geolocate/>`, require a `Map Model` to function. To locate a `Map Model`, the layout tree heirachy will be searched upwards, starting at the requesting component. When a element in the layout is found that provides the required model, (in this case, the `<map/>` component provides a Map Model), the requesting component will import the model. If the correct model is not found on an upwards search, a breadth first search will be performed from the root of the layout tree.
+Certain components, such as `<zoom/>` or `<geolocate/>`, require a `Map Model` to function. To locate a `Map Model`, the layout tree hierarchy will be searched upwards, starting at the requesting component. When a element in the layout is found that provides the required model, (in this case, the `<map/>` component provides a Map Model), the requesting component will import the model. If the correct model is not found on an upwards search, a breadth first search will be performed from the root of the layout tree.
 
 Take this more complicated layout for example.
 
@@ -50,25 +50,25 @@ Take this more complicated layout for example.
   <gxm:taskbar id="taskbar" orientation="vertical">
 
     <!-- Taskbar main content -->
-    <map id="page1-map1" config="map1" slot="main">
-      <gxm:geometry-toolbar slot="top-center-visible" id="geometry-toolbar" config="geometry" margin="0.8" style="map-widget" active="false" />
+    <map config="map1" slot="main">
+      <gxm:geometry-toolbar slot="top-center-visible" config="geometry" margin="0.8" style="map-widget" active="false" />
       <search-new-extent config="search" margin="0.8" slot="top-center-visible" active="false" />
       <stack margin="0.8" slot="top-right" halign="end">
-        <iwtm config="iwtm" id="IWTM">
+        <iwtm config="iwtm">
           <user slot="bottom"/>
         </iwtm>
       </stack>
       <stack margin="0.5" slot="bottom-right" halign="end">
         <zoom margin="0.5"/>
-        <button config="measureAction" icon="measure" style="map-widget" margin="0.5"/>
-        <geolocate id="geolocator" margin="0.5" config="geolocate" />
+        <button config="measure-action" icon="measure" style="map-widget" margin="0.5"/>
+        <geolocate margin="0.5" config="geolocate" />
       </stack>
       <gxm:version slot="bottom-left" margin="0.8"/>
     </map>
 
     <!-- Taskbar / search -->
-    <panel id="search-panel">
-      <stack id="search">
+    <panel>
+      <stack >
         <search config="search"/>
         <results-list config="results" active="false" />
       </stack>
@@ -78,7 +78,7 @@ Take this more complicated layout for example.
     </panel>
 
     <!-- Taskbar / layers -->
-    <panel id="layers">
+    <panel>
       <layer-list />
     </panel>
 
@@ -99,7 +99,7 @@ Most components support the [`config` attribute](concepts-app-config.mdx#linking
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         <zoom padding="0.5" slot="top-left"/>
     </map>
 </layout>

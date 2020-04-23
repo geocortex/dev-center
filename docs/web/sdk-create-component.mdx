@@ -71,8 +71,8 @@ export default class ExampleComponentModel extends ComponentModelBase<
 > {
     exampleValue: string;
 
-    // This method defines how the model will be serialized and deserialized into an app item.
-    // We override it to include our new property `exampleValue`
+    // This method defines how the model will be serialized and deserialized into
+    // an app item. We override it to include our new property `exampleValue`.
     protected _getSerializableProperties(): PropertyDefs<
         ExampleComponentModelProperties
     > {

@@ -6,13 +6,9 @@ description: Geocortex Mobile - Learn about Geocortex Mobile's advanced configur
 import AppItemSnippet from "../snippets/app-item.mdx";
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
 
-## Autocomplete Properties
+## Schema Properties
 
-The two properties `$schema` and `schemaVersion` are almost always present in an `app.json` file. They power the Visual Studio intellisense in the `app.json` file for the various properties that each **app item** has. The `app.json` included with the [Quickstart](sdk-getting-started.mdx) references a schema at the root of the project. If you move an `app.json` file, you will need to fix the relative path to the schema file. For more information on json schemas, see [json-schema.org](https://json-schema.org/).
-
-:::note
-The `ViewerFramework` folder containing the schema will not be created until an initial build is complete.
-:::
+The two properties `$schema` and `schemaVersion` should always be present in an `app.json` file.
 
 ```json
 {
@@ -23,6 +19,14 @@ The `ViewerFramework` folder containing the schema will not be created until an 
   "items": [...]
 }
 ```
+
+The `$schema` property powers the Visual Studio intellisense in the `app.json` file for the various properties that each **app item** has. The `app.json` included with the [Quickstart](sdk-edit-layout-app-config.mdx) references a schema at the root of the project. If you move an `app.json` file, you will need to fix the relative path to the schema file. For more information on json schemas, see [json-schema.org](https://json-schema.org/).
+
+:::note
+The `ViewerFramework` folder containing the schema will not be created until an initial build is complete.
+:::
+
+The `schemaVersion` property is a required property that informs Geocortex Mobile what version of app config you are using. This allows for the schema to be updated in future releases without breaking old configuration.
 
 ## App Items
 
@@ -52,7 +56,7 @@ Registering a class in this manner makes mobile aware of a new **app item type**
 
 ## Item URIs and Resource URIs
 
-**Item URI's** are a commonly used pattern in the `app.json` to uniquely identify and reference app items. They take the format
+**Item URIs** are a commonly used pattern in the `app.json` to uniquely identify and reference app items. They take the format
 
 `item://<item-type>/<item-id>`
 
@@ -66,7 +70,7 @@ For example, the item URI for the following item is `item://menu-item/measureAct
 }
 ```
 
-These item URI's can be used by app items to include other app items as property values, allowing reuse.
+These item URIs can be used by app items to include other app items as property values, allowing reuse.
 
 ```json
 {
@@ -76,31 +80,38 @@ These item URI's can be used by app items to include other app items as property
 }
 ```
 
-**Resource URI's** are used to load layouts in Geocortex Mobile. Layout files are [added to Geocortex Mobile](usecases-add-medium-layout.mdx) as an asset which is copied into the end users local data folder. These copied assets are referenced with a URI of the format
+**Resource URIs** are used to load layouts in Geocortex Mobile. Layout files are [added to Geocortex Mobile](usecases-add-medium-layout.mdx) as an asset which is copied into the end users local data folder. These copied assets are referenced with a URI of the format
 
 `resource://layout-<size>.xml`
 
 For example, here's references to a small, medium, and large layout in the `app.json`
 
 ```json
-({
-    "$type": "layout",
-    "id": "desktop-layout",
-    "url": "resource://layout-large.xml",
-    "tags": ["mobile", "large"]
-},
 {
-    "$type": "layout",
-    "id": "tablet-layout",
-    "url": "resource://layout-medium.xml",
-    "tags": ["mobile", "medium"]
-},
-{
-    "$type": "layout",
-    "id": "handheld-layout",
-    "url": "resource://layout-small.xml",
-    "tags": ["mobile", "small"]
-})
+  "schemaVersion": "1.0",
+  "items":[
+    ...
+    {
+        "$type": "layout",
+        "id": "desktop-layout",
+        "url": "resource://layout-large.xml",
+        "tags": ["mobile", "large"]
+    },
+    {
+        "$type": "layout",
+        "id": "tablet-layout",
+        "url": "resource://layout-medium.xml",
+        "tags": ["mobile", "medium"]
+    },
+    {
+        "$type": "layout",
+        "id": "handheld-layout",
+        "url": "resource://layout-small.xml",
+        "tags": ["mobile", "small"]
+    }
+    ...
+  ]
+}
 ```
 
 ## Custom App Items

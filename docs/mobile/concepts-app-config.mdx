@@ -49,7 +49,7 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     // highlight-next-line
-    <map id="map-primary" config="myMapConfig" />
+    <map config="my-map-config" />
 </layout>
 ```
 
@@ -63,7 +63,7 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
         {
             "$type": "map-extension",
             // highlight-next-line
-            "id": "myMapConfig",
+            "id": "my-map-config",
             "onInitialized": [
                 {
                     "name": "ui.alert",
@@ -99,12 +99,12 @@ The same config can be used for multiple items in a layout. For example, this al
     <panel grow="1">
         <stack margin="0.5">
             // highlight-next-line
-          <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 2</button>
+          <button icon="info" config="do-something" slot="top-center-visible" margin="0.5">Do Something 2</button>
         </stack>
     </panel>
-    <map id="map-primary" config="myMapConfig" slot="main">
+    <map slot="main">
       // highlight-next-line
-      <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 1</button>
+      <button icon="info" config="do-something" slot="top-center-visible" margin="0.5">Do Something 1</button>
     </map>
   </gxm:taskbar>
 </layout>
@@ -126,7 +126,7 @@ The same config can be used for multiple items in a layout. For example, this al
         {
             "$type": "menu-item",
             // highlight-next-line
-            "id": "doSomething",
+            "id": "do-something",
             "title": "ui.alert",
             "isEnabled": true,
             "iconId": "info",
@@ -170,15 +170,15 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
         xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
     // highlight-next-line
     <gxm:taskbar orientation="vertical" id="taskbar">
-        <map id="map-primary" config="default" slot="main">
-            <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
-            <button icon="" config="openDialog" slot="bottom-center-visible" margin="0.5">Open Dialog</button>
+        <map config="default" slot="main">
+            <button icon="info" config="run-workflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
+            <button config="open-dialog" slot="bottom-center-visible" margin="0.5">Open Dialog</button>
         </map>
     </gxm:taskbar>
       // highlight-next-line
     <dialog id="dialog" active="false">
         <panel>
-            <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
+            <button icon="info" config="run-workflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
         </panel>
     </dialog>
 </layout>
@@ -203,7 +203,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
         },
         {
             "$type": "workflow",
-            "id": "demoWorkflow",
+            "id": "demo-workflow",
             "title": "Demo Worklfow",
             // highlight-next-line
             "target": "#taskbar",
@@ -211,20 +211,20 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
         },
         {
             "$type": "menu-item",
-            "id": "runWorkflow",
+            "id": "run-workflow",
             "title": "run.workflow",
             "isEnabled": true,
             "iconId": "info",
             "action": {
                 "name": "workflow.run",
                 "arguments": {
-                    "id": "demoWorkflow"
+                    "id": "demo-workflow"
                 }
             }
         },
         {
             "$type": "menu-item",
-            "id": "openDialog",
+            "id": "open-dialog",
             "title": "Open Dialog",
             "isEnabled": true,
             "iconId": "",
@@ -308,9 +308,9 @@ In the following example, the app structures a menu with one button, and the lay
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
   <gxm:taskbar id="taskbar" orientation="vertical">
     <!-- Taskbar main content -->
-    <map id="page1-map1" slot="main">
+    <map slot="main">
       <stack margin="0.8" slot="top-right" halign="end">
-        <iwtm config="iwtm" id="IWTM">
+        <iwtm config="iwtm" >
           <user slot="bottom"/>
         </iwtm>
       </stack>
@@ -358,7 +358,7 @@ This example demonstrated a simple application which has a single menu, but the 
         link="concepts-advanced-config"
     />
     <UseCaseCard
-        title="Explore Mobile's built in components"
+        title="Explore Mobile's built-in components"
         description="Dive into Mobile's rich component library in the SDK."
         link="api-components"
     />

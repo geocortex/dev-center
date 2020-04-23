@@ -48,7 +48,7 @@ module.exports = {
                         "web/usecases-display-custom-form",
                         "web/usecases-implement-custom-form-elements",
                         "web/usecases-implement-custom-activity",
-                        // "web/usecases-change-default-search-behavior",
+                        "web/usecases-change-default-map-click-behavior",
                     ],
                 },
                 {
@@ -94,6 +94,7 @@ module.exports = {
                 "web/api-message-bus",
                 "web/api-commands-operations",
                 "web/api-events",
+                "web/api-components",
             ],
         },
     ],
@@ -189,7 +190,7 @@ module.exports = {
                         "mobile/usecases-display-custom-form",
                         "mobile/usecases-implement-custom-form-elements",
                         "mobile/usecases-implement-custom-activity",
-                        "mobile/usecases-change-default-search-behavior",
+                        "mobile/usecases-change-default-map-click-behavior",
                     ],
                 },
                 {
@@ -231,7 +232,7 @@ module.exports = {
             items: [
                 {
                     type: "category",
-                    label: "Quick Start",
+                    label: "Quickstart",
                     items: [
                         "mobile/sdk-getting-started",
                         "mobile/sdk-edit-layout-app-config",

@@ -126,7 +126,7 @@ namespace App1.Components
 
 At this point, the component is hooked up to configuration, and configuration values can be defined and consumed.
 
-Configuration can be defined in the [app json](sdk-edit-layout-app-config.mdx) and linked to the component through the `config` attribute in layout, just like any other component.
+Configuration can be defined in the [app JSON](sdk-edit-layout-app-config.mdx) and linked to the component through the `config` attribute in layout, just like any other component.
 
 <Tabs
   defaultValue="layout"
@@ -138,17 +138,19 @@ Configuration can be defined in the [app json](sdk-edit-layout-app-config.mdx) a
 }>
 <TabItem value="layout">
 
-```xml {7,11}
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    // highlight-next-line
     xmlns:custom="https://your.org/layout/app1">
     <gxm:taskbar>
         <!--Taskbar / custom component-->
         <panel>
+            // highlight-next-line
             <custom:harmless-component icon="warning" config="harmless-component-config"/>
         </panel>
     </gxm:taskbar>

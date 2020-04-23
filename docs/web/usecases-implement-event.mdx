@@ -8,13 +8,13 @@ import TabItem from "@theme/TabItem";
 
 This article will guide you through how to subscribe and publish events within Geocortex Web
 
-## Prequisities
+## Prerequisites
 
 Events can only be published and subscribed to by [custom components](usecases-implement-component-with-ui.mdx) and [custom services](usecases-implement-service.mdx), so it is suggested you learn the basics of building custom components before reading this article.
 
 ## Subscribing to Existing Events
 
-Geocortex Web has a large suite of [built in events](api-events.mdx). Any of these events can be subscribed to by any component or service. The events are accessed through the [`MessageBus`](api-message-bus.mdx) in the case of a service or model, or the [UIContext](sdk-ui-context.mdx) in the case of a component.
+Geocortex Web has a large suite of [built-in events](api-events.mdx). Any of these events can be subscribed to by any component or service. The events are accessed through the [`MessageBus`](api-message-bus.mdx) in the case of a service or model, or the [UIContext](sdk-ui-context.mdx) in the case of a component.
 
 :::important
 Make sure you clean up the subscription handle to avoid dangling references.
@@ -32,28 +32,17 @@ Make sure you clean up the subscription handle to avoid dangling references.
 ```tsx
 import React, { useContext, useState, useEffect } from "react";
 import { LayoutElement } from "@geocortex/web/components";
-import { UIContext } from "@geocortex/web/ui";
+import { UIContext, useSubscribe } from "@geocortex/web/ui";
 import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
 
 export default function CustomComponent(props) {
     const { events } = useContext(UIContext);
-    var [handles, setHandles] = useState<IHandle[]>([]);
 
-    useEffect(() => {
-        setHandles(
-            handles.concat(
-                events.map.initialized.subscribe((e: MapEvent) => {
-                    console.log(
-                        "Map Initialized, do your map dependent component setup here."
-                    );
-                })
-                // Equivalent: this.messages.event("map.initialized").subscribe
-            )
+    useSubscribe(events.map.initialized, (e: MapEvent) => {
+        console.log(
+            "Map Initialized, do your map dependent component setup here."
         );
-        return () => {
-            handles.forEach((h) => h.remove());
-        };
-    }, []);
+    });
 
     return <LayoutElement {...props}></LayoutElement>;
 }
@@ -63,6 +52,9 @@ export default function CustomComponent(props) {
 <TabItem value="model">
 
 ```ts
+import { serializable, ComponentModelBase } from "@geocortex/web/models";
+import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
+
 @serializable
 export default class CustomModel extends ComponentModelBase {
     handles: IHandle[] = [];
@@ -123,7 +115,7 @@ Event names in Geocortex Web generally take the format `<category>.<name>`, with
 ```ts
 @serializable
 export default class Publisher extends ComponentModelBase {
-    public publishCustomEvent(){
+    publishCustomEvent(){
         this.messages.events("my.custom-event").publish({ ... })
     }
 }

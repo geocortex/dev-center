@@ -14,24 +14,24 @@ import FollowAlongSnippet from "./snippets/follow-along.mdx";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
 
 Take this example of a layout with a map and a zoom widget.
 
 ```xml title="layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         <zoom margin="0.5"/>
     </map>
 </layout>
 ```
 
-The first thing it does is declare a map that is linked to "default" configuration that specifies what content to load.
+The first thing it does is declare a `<map>` component that uses the default map configuration.
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [corresponding to the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
+2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
 
 <!-- TODO: Where should the default app layout link be pointing? -->
 
@@ -45,10 +45,10 @@ The position of a component within its parent is controlled by what slot it is p
 
 For example, this configuration will place the zoom widget in the top right of the map.
 
-```xml {4} title="layout.xml"
+```xml title="layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         // highlight-next-line
         <zoom padding="0.5" slot="top-right"/>
     </map>
@@ -150,8 +150,8 @@ Panels are a container component that enable hierarchical navigation between dif
 <TabItem value="layout">
 
 ```xml
-<panel id="search-panel">
-    <stack id="search">
+<panel>
+    <stack>
         <search config="search"/>
         <results-list config="results" active="false" />
     </stack>
@@ -174,7 +174,7 @@ This `search-panel` has two root components:
 -   A `<feature-details>`
 
 When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
-When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component in the place of the existing component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of eachother, with the first component being the bottomost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
+When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component in the place of the existing component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of eachother, with the first component being the bottommost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
 
 ### Activation
 
@@ -183,7 +183,7 @@ When a feature in the results list is opened, the `<feature-details>` component 
 
 ### Deactivation
 
--   If the component is the top most element (it is active), then deactivate it.
+-   If the component is the topmost element (it is active), then deactivate it.
     -   Else, the component is already inactive
 
 :::tip
@@ -192,7 +192,7 @@ The default `layout-large.xml` in the Geocortex Mobile [Quickstart](sdk-getting-
 
 ## Device Form factors
 
-Geocortex Mobile has built in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target desktop and laptop devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropriate.
+Geocortex Mobile has built-in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target desktop and laptop devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropriate.
 
 :::tip
 The Geocortex Mobile SDK [Quickstart](sdk-getting-started.mdx) includes a large and small layout.

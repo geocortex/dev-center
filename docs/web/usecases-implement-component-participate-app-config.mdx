@@ -20,7 +20,7 @@ Learn how to [implement a custom component](usecases-implement-component-partici
 
 Each component has an associated model. The model is the backing data source for a component, and usually has properties that are initialized from configuration. It is best practice to treat the model for a component as the state, and single source of truth, for data values that the component consumes.
 
-By configuring built in [layout elements](concepts-layout.mdx) such as the `<map>`, you've already used models. In this example, the `<map>` component is linked to the `map-extension` model in the configuration.
+By configuring built-in [layout elements](concepts-layout.mdx) such as the `<map>`, you've already used models. In this example, the `<map>` component is linked to the `map-extension` model in the configuration.
 
 <Tabs
   defaultValue="layout"
@@ -33,7 +33,7 @@ By configuring built in [layout elements](concepts-layout.mdx) such as the `<map
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="map-primary" config="my-map-config" />
+    <map config="my-map-config" />
 </layout>
 ```
 
@@ -42,6 +42,7 @@ By configuring built in [layout elements](concepts-layout.mdx) such as the `<map
 
 ```json
 {
+    "schemaVersion": "1.0",
     "items": [
         {
             "$type": "map-extension",
@@ -150,36 +151,41 @@ Marking properties in the `ComponentModelProperties` interface as optional allow
 :::
 
 ```ts
-import { ComponentModelBase, serializable, ComponentModelProperties, PropertyDefs } from "@geocortex/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+    ComponentModelProperties,
+    PropertyDefs,
+} from "@geocortex/web/models";
+import Collection from "esri/core/Collection";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
-    newsItems?: string[];
+    newsItems?: Collection<string>;
     hidden?: boolean;
 }
 
-// highlight-next-line
 @serializable
-export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelProperties> {
+export default class NewsFeedModel extends ComponentModelBase<
+    NewsFeedModelProperties
+> {
     /**
      * Array of items to display in the news feed
      */
-    newsItems: string[];
+    newsItems: Collection<string> = new Collection<string>();
 
     /**
      * Whether or not the news ticker is hidden
      */
     hidden: boolean;
-
-    ...
 }
 ```
 
 ### Participating in the Configuration Lifecycle
 
-Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralize [app items](concepts-app-config.mdx#anatomy-of-an-app-config) into instances of our custom model.
+Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deserialize [app items](concepts-app-config.mdx#anatomy-of-an-app-config) into instances of our custom model.
 
 :::note
-Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes.
+Simple serialization and deserialization logic is used to convert between the `newsItems` configuration property, which is a `string[]`, and the `newsItems` model property, which is an observable [ArcGIS API Collection](https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Collection.html).
 :::
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
@@ -189,6 +195,8 @@ import {
     ComponentModelProperties,
     PropertyDefs,
 } from "@geocortex/web/models";
+import Collection from "esri/core/Collection";
+import { toEsriApiCardinality } from "@geocortex/api/data/_Relationship";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: string[];
@@ -202,7 +210,7 @@ export default class NewsFeedModel extends ComponentModelBase<
     /**
      * Array of items to display in the news feed
      */
-    newsItems: string[];
+    newsItems: Collection<string> = new Collection<string>();
 
     /**
      * Whether or not the news ticker is hidden
@@ -219,6 +227,12 @@ export default class NewsFeedModel extends ComponentModelBase<
             newsItems: {
                 serializeModes: ["initial"],
                 default: ["No news."],
+                serialize: () => this.newsItems.toArray(),
+                deserialize: (newsItems) => {
+                    newsItems.forEach((newsItem) =>
+                        this.newsItems.add(newsItem)
+                    );
+                },
             },
             hidden: {
                 serializeModes: ["initial"],
@@ -266,7 +280,7 @@ export default function NewsFeed(props: NewsFeedProps) {
 In this way, the model is treated as the component state. Below is a full example of the model pulling values from the app config, and the component binding to the data on the model and listening for changes.
 
 :::tip
-It's best practice to use the model to define configurable or persistent state, and use the [React state hooks](https://reactjs.org/docs/hooks-state.html) for UI specific transient state, like an active selection.
+It's best practice to use the model to define configurable or persistent state, and use the [observable property pattern](https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#properties) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
 :::
 
 ### Complete Example
@@ -360,6 +374,7 @@ import {
     ComponentModelProperties,
     PropertyDefs,
 } from "@geocortex/web/models";
+import Collection from "esri/core/Collection";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: string[];
@@ -373,7 +388,7 @@ export default class NewsFeedModel extends ComponentModelBase<
     /**
      * Array of items to display in the news feed
      */
-    newsItems: string[];
+    newsItems: Collection<string> = new Collection<string>();
 
     /**
      * Whether or not the news ticker is hidden
@@ -389,6 +404,12 @@ export default class NewsFeedModel extends ComponentModelBase<
             newsItems: {
                 serializeModes: ["initial"],
                 default: ["No news."],
+                serialize: () => this.newsItems.toArray(),
+                deserialize: (newsItems) => {
+                    newsItems.forEach((newsItem) =>
+                        this.newsItems.add(newsItem)
+                    );
+                },
             },
             hidden: {
                 serializeModes: ["initial"],
@@ -415,7 +436,7 @@ export default class NewsFeedModel extends ComponentModelBase<
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map id="map-primary">
+    <map>
         // highlight-next-line
         <custom:news-feed slot="top-center" config="default"/>
     </map>

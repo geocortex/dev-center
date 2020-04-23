@@ -22,7 +22,7 @@ Extending Geocortex Workflow Server requires you to produce a separate assembly 
 
 1. Launch Microsoft Visual Studio 2019.
 1. Create a new project of type _Class Library_ (.NET Standard)
-    - You can also create a project of type [.NET Core](https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet) to take advantage of its larger featureset. If so, you need to go into the project settings and change the output type to `Class Library`
+    - You can also create a project of type [.NET Core](https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet) to take advantage of its larger feature set. If so, you need to go into the project settings and change the output type to `Class Library`
 1. Edit the `.csproj` file in a text editor and add the `CopyLocalLockFileAssemblies` attribute to the `PropertyGroup`.
 
 ```xml
@@ -35,7 +35,7 @@ Extending Geocortex Workflow Server requires you to produce a separate assembly 
 
 -   This will copy the referenced nuget assemblies to the build output folder, which will be important for later.
 
-1. Add a reference to the `Geocortex.Workflow.Runtime` assembly.  
+1. Add a reference to the `Geocortex.Workflow.Runtime` assembly.
    By default, this is located in`C:\Program Files\Latitude Geographics\Geocortex Workflow\Deployment\service`
 
 :::important
@@ -51,7 +51,7 @@ For Geocortex Workflow Server to find your custom activities, you need to copy t
 1. Build the project.
 1. Find the build output on disk.
     1. In Visual Studio, right-click on your project in Solution Explorer and choose "Open Folder in File Explorer".
-    1. Open the `bin` folder.  
+    1. Open the `bin` folder.
        If you do not see a`bin` folder, it is possible you right-clicked on the solution instead of the project.
     1. In the `bin` folder, open either `Debug` or `Release`, depending on which build configuration you used.
     1. In the `bin\Debug` or `bin\Release` folder, there will be one final sub-directory which will be `netstandard2.0`
@@ -59,7 +59,7 @@ For Geocortex Workflow Server to find your custom activities, you need to copy t
     1. You should now see a number of files including `Geocortex.Workflow.Runtime.dll` and your own project, such as `AssemblyNamespace.dll`.
 1. Find the `CustomAssemblies` folder on disk.
     1. Geocortex Workflow looks in a folder called `CustomAssemblies` for assemblies that contain custom activities.
-       This is located in the folder that you chose when installing Geocortex Workflow. The default location is  
+       This is located in the folder that you chose when installing Geocortex Workflow. The default location is
        `C:\Program Files\Latitude Geographics\Geocortex Workflow\CustomAssemblies`
 1. Copy the relevant files from the build output to the `CustomAssemblies` folder.
     1. Copy your project's assembly. (e.g. `AssemblyNamespace.dll`)

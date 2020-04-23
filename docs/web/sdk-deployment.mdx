@@ -15,7 +15,7 @@ This is a temporary deployment pattern for the preview release. We're actively i
 
 <!-- TODO - update this sentence once information on the designer schema is available -->
 
-Geocortex Web Designer provides a powerful interface for editing the layout and configuration of built in components, but if you need to add a custom component to your application, you will need to upload custom layout and app json.
+Geocortex Web Designer provides a powerful interface for editing the layout and configuration of built-in components, but if you need to add a custom component to your application, you will need to upload custom layout and app JSON.
 
 1. Type `Ctrl + Shift + E` while focused in the Geocortex Web Designer to open up the experimental development editing interface.
 1. Copy and paste the `app.json` and `layout.xml` from your local SDK project to the Geocortex Web Designer Interface.
@@ -26,13 +26,14 @@ You may need to add an app item for the referenced layout file to the app config
 
 ```json
 {
+  "schemaVersion": "1.0",
   "items": [
     ...
     {
+      "$type":"layout",
       "id":"desktop-landscape",
       "title":"Desktop Landscape",
-      "url":"./desktop-landscape.xml",
-      "$type":"layout"
+      "url":"./desktop-landscape.xml"
     }
     ...
   ]

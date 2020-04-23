@@ -4,11 +4,11 @@ description: Geocortex Mobile - Learn how to configure Geocortex Mobile to chang
 ---
 
 import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
+import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
-import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
 
-Many of the behaviors of Geocortex Mobile's built in [components](concepts-components-services.mdx) have configurable behaviors through the [app config](concepts-app-config.mdx).
+Many of the behaviors of Geocortex Mobile's built-in [components](concepts-components-services.mdx) are configurable through the [app config](concepts-app-config.mdx).
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Many of the behaviors of Geocortex Mobile's built in [components](concepts-compo
 
 ## Configuring Behaviors
 
-If you browse the `app.json` that is included with the [Quickstart](sdk-getting-started.mdx), you'll see properties like `action` or `onClick` in items that take an array of [commands and operations](concepts-commands-operations.mdx).
+If you browse the `app.json` that is included with the [Quickstart](sdk-edit-layout-app-config.mdx), you'll see properties like `action` or `onClick` that take an array of [commands and operations](concepts-commands-operations.mdx).
 
 ```json
 {
@@ -50,7 +50,7 @@ If you browse the `app.json` that is included with the [Quickstart](sdk-getting-
 }
 ```
 
-All behaviors defined in this manner are configurable. Commands or operations can be added or removed from the chain to modify its behavior. Further, it's possible to configure a `workflow.run` command that [executes custom behavior](usecases-change-default-search-behavior.mdx), or a [custom command and operation](usecases-implement-command-operation.mdx).
+All behaviors defined in this manner are configurable. Commands or operations can be added or removed from the chain to modify its behavior. Further, it's possible to configure a `workflow.run` command that [executes custom behavior](usecases-change-default-map-click-behavior.mdx), or a [custom command and operation](usecases-implement-command-operation.mdx).
 
 ## Example
 
@@ -74,7 +74,7 @@ Check out the relevant Geocortex Mobile SDK Samples:
 
 ## Next Steps
 
-Geocortex Mobile comes with many built in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviors without writing custom code. If you cannot create the behavior you want with Geocortex Workflow, it might be time to look into using the Geocortex Mobile SDK to implement a custom command or operation.
+Geocortex Mobile comes with many built-in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviors without writing custom code. If you cannot create the behavior you want with Geocortex Workflow, it might be time to look into using the Geocortex Mobile SDK to implement a custom command or operation.
 
 <UseCaseContainer>
     <UseCaseCard
@@ -83,9 +83,9 @@ Geocortex Mobile comes with many built in commands and operations to help you ac
         link="concepts-commands-operations"
     />
     <UseCaseCard
-        title="Change Geocortex Mobile's Default Search Behavior"
-        description="Learn how to Geocortex Workflow to override Geocortex Mobile's default search behavior"
-        link="usecases-change-default-search-behavior"
+        title="Change Geocortex Mobile's Default Map Click Behavior"
+        description="Learn how to Geocortex Workflow to override Geocortex Mobile's default map click behavior"
+        link="usecases-change-default-map-click-behavior"
     />
     <UseCaseCard
         title="Geocortex Workflow"

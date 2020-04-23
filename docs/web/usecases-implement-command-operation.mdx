@@ -11,7 +11,7 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 :::tip
-Geocortex Web has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-behavior.mdx#using-workflows-to-customize-behaviour) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+Geocortex Web has many built-in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-behavior.mdx#using-workflows-to-customize-behavior) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
 This article will walk you through implementing a custom command in Geocortex Web that can record actions and a custom operation that returns a list of executed actions.
@@ -77,7 +77,7 @@ export default function(registry: LibraryRegistry) {
 
 ## Implement the Custom Command and Operation
 
-It's now time to implement the command to record an action, and the operation that returns a history of executed actions in the `CustomService`. We can define each command and operation with an appropiately named public method.
+It's now time to implement the command to record an action, and the operation that returns a history of executed actions in the `CustomService`. We can define each command and operation with an appropriately named protected method.
 
 :::note
 It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
@@ -98,23 +98,17 @@ export type ActionHistory = {
 };
 
 export default class CustomService extends ServiceBase {
-    history: ActionHistory;
+    history: ActionHistory = {
+        thing1: [],
+        thing2: [],
+    };
 
-    constructor() {
-        super();
-
-        this.history = {
-            thing1: [],
-            thing2: [],
-        };
-    }
-
-    public _doAction(args: DoActionArgs) {
+    protected _doAction(args: DoActionArgs) {
         console.log(`Executing action of type ${args.type}`);
         this.history[args.type].push(args.value);
     }
 
-    public _getActionHistory(): ActionHistory {
+    protected _getActionHistory(): ActionHistory {
         return this.history;
     }
 }
@@ -172,8 +166,10 @@ This app config and layout adds three entries to an I Want To Menu that run the 
 
 ```json
 {
+    "schemaVersion": "1.0",
     "items": [
         {
+            "$type": "menu"
             "id": "iwtm-config",
             "items": [
                 "item://menu-item/run-thing-1",
@@ -182,9 +178,9 @@ This app config and layout adds three entries to an I Want To Menu that run the 
             ],
             "title": "Execute Custom behavior",
             "isLandmark": true,
-            "$type": "menu"
         },
         {
+            "$type": "menu-item"
             "id": "run-thing-1",
             "title": "Run Thing 1",
             "action": {
@@ -194,9 +190,9 @@ This app config and layout adds three entries to an I Want To Menu that run the 
                     "value": "Never Gonna Give You Up"
                 }
             },
-            "$type": "menu-item"
         },
         {
+            "$type": "menu-item"
             "id": "run-thing-2",
             "title": "Run Thing 2",
             "action": {
@@ -206,13 +202,12 @@ This app config and layout adds three entries to an I Want To Menu that run the 
                     "value": "Never Gonna Let You Down"
                 }
             },
-            "$type": "menu-item"
         },
         {
             "id": "view-action-history",
+            "$type": "menu-item"
             "title": "View Action History",
             "action": ["custom-service.get-action-history", "ui.alert"],
-            "$type": "menu-item"
         }
     ]
 }
@@ -225,7 +220,7 @@ This app config and layout adds three entries to an I Want To Menu that run the 
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
     <map id="map-primary">
-        <iwtm id="iwtm" config="iwtm-config"/>
+        <iwtm config="iwtm-config"/>
     </map>
 </layout>
 ```
@@ -249,24 +244,19 @@ export type ActionHistory = {
 };
 
 export default class CustomService extends ServiceBase {
-    history: ActionHistory;
-
-    constructor() {
-        super();
-
-        this.history = {
+    history: ActionHistory = {
             thing1: [],
             thing2: [],
         };
-    }
+    };
 
-    public _doAction(args: DoActionArgs) {
+    protected _doAction(args: DoActionArgs) {
         console.log(`Executing action of type ${args.type}`);
         this.history[args.type].push(args.value);
     }
 
     // highlight-start
-    public _getActionHistory(): AlertCommandArgs {
+    protected _getActionHistory(): AlertCommandArgs {
         return { message: JSON.stringify(this.history) };
     }
     // highlight-end
@@ -281,7 +271,7 @@ export default class CustomService extends ServiceBase {
 
 ## Next Steps
 
-Commands and operations are the logical building blocks of executing custom behavior in Geocortex Web, but sometimes you need to take things a bit further. Creating custom components can allow you to design completely custom UI for Gecortex Web, and creating services can enable shared logic and background tasks.
+Commands and operations are the logical building blocks of executing custom behavior in Geocortex Web, but sometimes you need to take things a bit further. Creating custom components can allow you to design completely custom UI for Geocortex Web, and creating services can enable shared logic and background tasks.
 
 <UseCaseContainer>
     <UseCaseCard
@@ -291,12 +281,12 @@ Commands and operations are the logical building blocks of executing custom beha
     />
     <UseCaseCard
         title="Implement a Custom Component with UI"
-        description="Learn how to implement a custom component using the Geocortex Mobile SDK"
+        description="Learn how to implement a custom component using the Geocortex Web SDK"
         link="usecases-implement-component-with-ui"
     />
     <UseCaseCard
         title="Implement a Custom Service"
-        description="Learn how to implement a custom service using the Geocortex Mobile SDK"
+        description="Learn how to implement a custom service using the Geocortex Web SDK"
         link="usecases-implement-service"
     />
     <UseCaseCard

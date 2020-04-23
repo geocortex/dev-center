@@ -12,22 +12,22 @@ import FollowAlongSnippet from "./snippets/follow-along.mdx";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-A layout consists of declaritive XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         <zoom margin="0.5"/>
     </map>
 </layout>
 ```
 
-The first thing it does is declare a map that is linked to "default" configuration that specifies what content to load.
+The first thing it does is declare a `<map>` component that uses the default map configuration.
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [corresponding to the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
+2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
 
 <FollowAlongSnippet />
 
@@ -42,7 +42,7 @@ For example, this configuration will place the zoom widget in the top right of t
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="myMap">
+    <map>
         // highlight-next-line
         <zoom padding="0.5" slot="top-right"/>
     </map>
@@ -138,16 +138,15 @@ Panels are a container component that enable hierarchal navigation between diffe
                 <search/>
                 <results-list/>
             </stack>
-            <feature-details active="false"/>
+            <feature-details/>
         </panel>
-        <map id="myMap">
-        </map>
+        <map/>
     </split>
 </layout>
 ```
 
-When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
-When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of eachother, with the first component being the bottomost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
+When you first open the panel, the first component in the panel is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
+When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of each other, with the first component being the bottommost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
 
 ### Activation
 
@@ -156,8 +155,14 @@ When a feature in the results list is opened, the `<feature-details>` component 
 
 ### Deactivation
 
--   If the component is the top most element (it is active), then deactivate it.
+-   If the component is the topmost element (it is active), then deactivate it.
     -   Else, the component is already inactive
+
+<!-- TODO-API - direct link to tabs and expanders -->
+
+:::tip
+These are just a few examples of the building blocks available to help you organize the layout of your Application. You can also use tabs, expanders, and much more. See the [Component Reference](api-components.mdx) for a full listing.
+:::
 
 ## Models
 
@@ -165,22 +170,14 @@ Components often observe and modify the state of other components.
 Consider the following example:
 
 ```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <map id="mapA"/>
-    <map id="mapB"/>
-    <panel>
-        <stack>
-            <scalebar id="A" />
-            <scalebar id="B" />
-        </stack>
-    </panel>
-</layout>
+<map>
+    <scalebar slot="bottom-left"/>
+</map>
 ```
 
-Our scale bar component displays information about a particular map. In our example, scale bars A and B are expected to show the correct scale based on their context.
+The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map model to display its values.
 
-Layouts achieve these simply by expressing data dependencies in the form of models that are marked as "imported" or "exported". If we know that the scale bar "imports" a particular type of model, and that the map "exports" the same type of model, we can resolve those dependencies simply by plugging exported models into the components that import them.
+Components express this data dependency in the form of models that are marked as "imported" or "exported". If we know that the scale bar "imports" a particular type of model, and that the map "exports" the same type of model, we can resolve those dependencies simply by plugging exported models into the components that import them.
 
 ```ts
 @exportModel
@@ -190,23 +187,37 @@ export class MapComponent {
 
 export class ScaleBarComponent {
     @importModel("map-extension")
-    map: MapExtension;
+    map: MapExtension | undefined;
 
     // ... scale bar stuff ...
 }
 ```
 
-When the system slots each scale bar into the panel, it will attempt to satisfy any model imports declared by the component being slotted.
+When the system places the scale bar into the layout, it will attempt to satisfy any model imports declared by the component. By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in the basic example above.
 
-By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in this basic example;
+:::note
+Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
+:::
+
+However, in the following example with two scale bars, how does each scale bar know which map model it corresponds to? Both are placed outside of a `<map>` component, and there are two possible map models to bind to.
 
 ```xml
-<map>
-    <scalebar/>
-</map>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <stack>
+      <split grow="1">
+        <map id="map-a" grow="1" margin="3"/>
+        <map id="map-b" grow="1" margin="3"/>
+      </split>
+      <split grow="1" valign="center" >
+          <scalebar id="a" grow="1" margin="3"/>
+          <scalebar id="b" grow="1" margin="3"/>
+      </split>
+    </stack>
+</layout>
 ```
 
-However, in the previous example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. To solve this, we can bind each scale bar to the appropriate map with the `models` attribute.
+We can explicitly bind each scale bar to the appropriate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
 
 :::note
 Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
@@ -220,46 +231,16 @@ Learn more about how [models are automatically matched](concepts-advanced-layout
             <stack>
                 <split>
                     <text text="Map A Scale Bar"></text>
-                    <scalebar id="A" models="#mapA"/>
+                    <scalebar id="a" models="#map-a"/>
                 </split>
                 <split>
                     <text text="Map B Scale Bar"></text>
-                    <scalebar id="B" models="#mapB"/>
+                    <scalebar id="b" models="#map-b"/>
                 </split>
             </stack>
         </panel>
-        <map id="mapA"/>
-        <map id="mapB"/>
-    </split>
-</layout>
-```
-
-Somethings, you can have multiple components that need to bind to the same model.
-
-```xml
-<split>
-    <panel id="left-panel">
-        <scalebar active="true" models="#map"/>
-        <results-list models="#map"/>
-        <legend models="#map"/>
-    </panel>
-    <map id="map" />
-</split>
-```
-
-To simplify this binding, we can take advantage of the default behavior of searching up the layout tree for the appropriate model and bind the map to the parent panel instead.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <split>
-        // highlight-next-line
-        <panel id="left-panel" models="#map">
-            <scalebar active="true"/>
-            <results-list />
-            <legend />
-        </panel>
-        <map id="map" />
+        <map id="map-a"/>
+        <map id="map-b"/>
     </split>
 </layout>
 ```

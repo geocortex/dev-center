@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 
-When writing custom components you may want to take advantage of Geocortex Web's large [built in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](usecases-implement-command-operation.mdx).
+When writing custom components you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](usecases-implement-command-operation.mdx).
 
 By the end of this article, you'll have the knowledge to build a custom component that can run commands and operations, as well as register implementations for them.
 
@@ -45,15 +45,12 @@ import React, { useContext } from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import { UIContext } from "@geocortex/web/ui";
 import Button from "@geocortex/web/ui/button/Button";
-import { ConfirmOperationArgs } from "@geocortex/viewer-framework/messaging/registry/ui";
 
 export default function CustomComponent(props) {
-    const { operation, command } = useContext(UIContext);
+    const { operations, commands } = useContext(UIContext);
 
     const displayConfirmDialog = async () => {
-        const result = await operation<ConfirmOperationArgs, boolean>(
-            "ui.confirm"
-        ).execute({
+        const result = await operations.ui.confirm.execute({
             title: "Confirm Me",
         });
 
@@ -85,11 +82,7 @@ Components can also register an implementation for any command. This allows for 
 
 ### Example: Component that Implements a Command
 
-When registering a command implementation for a component, it's best practice to register the implementation in the [components model](concepts-components-services.mdx#component-models-and-configuration). The following component model registers an implementation for a custom command that takes a `string` argument.
-
-:::tip
-If necessary, a component could also register the command implementation through the [UIContext](sdk-ui-context.mdx).
-:::
+When registering a command implementation for a component, you have to register the implementation in the [component's model](concepts-components-services.mdx#component-models-and-configuration). The following component model registers an implementation for a custom command that takes a `string` argument.
 
 ```tsx
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
@@ -119,5 +112,30 @@ export default class CustomModel extends ComponentModelBase {
         // Clean up event handlers.
         this._handles.forEach((h) => h.remove());
     }
+}
+```
+
+You can run any custom commands or operations from another component by locating them by id and providing the appropriate type arguments.
+
+```tsx
+export default function AnotherCustomComponent(props) {
+    const { operation, command } = useContext(UIContext);
+
+    const executeCustomCommand = async () => {
+        // highlight-start
+        await command<string>("custom.my-command").execute({
+            title: "Confirm Me",
+        });
+        // highlight-end
+    }
+
+    const executeCustomOperation = async () => {
+        // highlight-start
+        const result = await operation<InputArgType, OutputArgType>("custom.my-operation").execute({
+            ... // some args
+        });
+        // highlight-end
+    }
+    ...
 }
 ```
