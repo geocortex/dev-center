@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MessageSchema } from "./schema";
+import { MessageSchema, Definition } from "./schema";
 import { trimDefinitionsName } from "./utils";
 
 interface MessagingRefProps {
@@ -11,26 +11,23 @@ interface MessagingRefProps {
 export default function MessagingRef(props: MessagingRefProps) {
     const { isArray, name, schema } = props;
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const refIsLinkable = !!schema.definitions[trimDefinitionsName(name)];
     const trimmedName = trimDefinitionsName(name);
+    const referencedDefinition: Definition | undefined = schema.definitions[trimmedName];
 
-    if (refIsLinkable) {
+    // We'll only render definition tables for object types, everything else can be inlined.
+    if (referencedDefinition && referencedDefinition.type === "object") {
         return (
-            <div>
-                <code>
-                    <button
-                        className="button button--link"
-                        onClick={() => setIsOpen((prev) => !prev)}
-                    >
-                        {trimmedName}
-                        {isArray && "[]"}
-                    </button>
-                </code>
-                {isOpen && <div>Open!</div>}
-            </div>
+            <code>
+                <a href={`#${trimmedName}`}>
+                    {trimmedName}
+                    {isArray && "[]"}
+                </a>
+            </code>
         );
+    }
+
+    // TODO: What to do here?
+    if (referencedDefinition) {
     }
 
     return (

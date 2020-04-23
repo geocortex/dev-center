@@ -51,7 +51,7 @@ export interface Definition {
     additionalProperties?: Definition | boolean;
     required?: string[];
     propertyOrder?: string[];
-    properties?: { [key: string]: any };
+    properties?: { [key: string]: Definition };
     defaultProperties?: string[];
     patternProperties?: { [pattern: string]: Definition };
     typeof?: "function";

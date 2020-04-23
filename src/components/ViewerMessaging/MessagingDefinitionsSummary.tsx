@@ -1,5 +1,6 @@
 import React from "react";
 import { MessageSchema } from "./schema";
+import MessagingDefinition from "./MessagingDefinition";
 
 interface MessagingDefinitionsSummaryProps {
     schema: MessageSchema;
@@ -8,12 +9,19 @@ interface MessagingDefinitionsSummaryProps {
 export default function MessagingDefinitionsSummary(props: MessagingDefinitionsSummaryProps) {
     const { schema } = props;
 
+    const filteredDefinitions: typeof schema.definitions = Object.entries(
+        schema.definitions
+    ).reduce((acc, [name, definition]) => {
+        if (definition.type === "object") {
+            return { ...acc, [name]: definition };
+        }
+        return acc;
+    }, {});
+
     return (
         <div>
-            {Object.keys(schema.definitions).map((defKey) => (
-                <div key={defKey}>
-                    <h3>{defKey}</h3>
-                </div>
+            {Object.keys(filteredDefinitions).map((name) => (
+                <MessagingDefinition key={name} definitionName={name} schema={schema} />
             ))}
         </div>
     );

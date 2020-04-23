@@ -58,14 +58,17 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
                             <tr>
                                 <td>Argument</td>
                                 <td>
-                                    <MessagingArgument def={item.input} schema={schema} />
+                                    <MessagingArgument definition={item.input} schema={schema} />
                                 </td>
                             </tr>
                             {type === "operations" && item.output && (
                                 <tr>
                                     <td>Result</td>
                                     <td>
-                                        <MessagingArgument def={item.output} schema={schema} />
+                                        <MessagingArgument
+                                            definition={item.output}
+                                            schema={schema}
+                                        />
                                     </td>
                                 </tr>
                             )}
