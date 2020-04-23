@@ -1,6 +1,6 @@
 import React from "react";
 import { MessageSchema } from "./schema";
-import { trimDefinitionsName } from "./utils";
+import { trimDefinitionsName, getArgumentDefinitionLinkId } from "./utils";
 import MessagingArgument from "./MessagingArgument";
 
 interface MessagingDefinitionProps {
@@ -19,10 +19,12 @@ export default function MessagingDefinition(props: MessagingDefinitionProps) {
         return null;
     }
 
+    const id = getArgumentDefinitionLinkId(trimmedName);
+
     return (
         <div className="margin-bottom--lg">
             <h3>
-                <a id={trimmedName} href={`#${trimmedName}`}>
+                <a id={id} href={`#${id}`}>
                     {trimmedName}
                 </a>
             </h3>

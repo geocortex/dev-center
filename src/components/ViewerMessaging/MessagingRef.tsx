@@ -18,7 +18,7 @@ export default function MessagingRef(props: MessagingRefProps) {
     if (referencedDefinition && referencedDefinition.type === "object") {
         return (
             <code>
-                <a href={`#${trimmedName}`}>
+                <a href={`#definition-${trimmedName}`}>
                     {trimmedName}
                     {isArray && "[]"}
                 </a>

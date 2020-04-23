@@ -13,11 +13,11 @@ export default function MessagingContent(props: MessagingContentProps) {
     return (
         <>
             <h2>Commands</h2>
-            <MessagingTypeSummary schema={schema} type="commands" />
+            <MessagingTypeSummary schema={schema} type="command" />
             <h2>Operations</h2>
-            <MessagingTypeSummary schema={schema} type="operations" />
+            <MessagingTypeSummary schema={schema} type="operation" />
             <h2>Events</h2>
-            <MessagingTypeSummary schema={schema} type="events" />
+            <MessagingTypeSummary schema={schema} type="event" />
             <h2>Argument Definitions</h2>
             <MessagingDefinitionsSummary schema={schema} />
         </>

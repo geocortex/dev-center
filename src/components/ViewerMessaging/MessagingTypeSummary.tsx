@@ -1,10 +1,11 @@
 import React from "react";
 import MessagingArgument from "./MessagingArgument";
 import { MessageSchema, MessageDefinition } from "./schema";
+import { getActionOrEventDefinitionLinkId } from "./utils";
 
 interface MessagingTypeSummaryProps {
     schema: MessageSchema;
-    type: "commands" | "events" | "operations";
+    type: "command" | "event" | "operation";
 }
 
 function commandIsOperation(command: MessageDefinition) {
@@ -24,9 +25,9 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
     const { schema, type } = props;
     let items: MessageSchema["commands"] | MessageSchema["events"];
 
-    if (type === "commands") {
+    if (type === "command") {
         items = filterObj(schema.commands, (item, raw) => !commandIsOperation(raw[item]));
-    } else if (type === "operations") {
+    } else if (type === "operation") {
         items = filterObj(schema.commands, (item, raw) => commandIsOperation(raw[item]));
     } else {
         items = schema.events;
@@ -36,14 +37,15 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
         <>
             {Object.keys(items).map((key) => {
                 const item = items[key];
-                const linkId = `${type}-${key}`;
+                const linkId = getActionOrEventDefinitionLinkId(key, type);
+
                 return (
                     <table key={key}>
                         <tbody>
                             <tr>
-                                {type === "commands" && <td>Command</td>}
-                                {type === "events" && <td>Event</td>}
-                                {type === "operations" && <td>Operation</td>}
+                                {type === "command" && <td>Command</td>}
+                                {type === "event" && <td>Event</td>}
+                                {type === "operation" && <td>Operation</td>}
                                 <td>
                                     <a id={linkId} href={`#${linkId}`}>
                                         <strong>{key}</strong>
