@@ -134,15 +134,15 @@ Panels are a container component that enable hierarchal navigation between diffe
                 <search/>
                 <results-list/>
             </stack>
-            <feature-details active="false"/>
+            <feature-details/>
         </panel>
         <map/>
     </split>
 </layout>
 ```
 
-When you first open the panel, the first component in the panel that is not explicity set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
-When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of eachother, with the first component being the bottomost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
+When you first open the panel, the first component in the panel is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
+When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of each other, with the first component being the bottommost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
 
 ### Activation
 
@@ -189,7 +189,7 @@ When the system places the scale bar into the layout, it will attempt to satisfy
 Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
 :::
 
-However, in the following example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps. 
+However, in the following example with two scale bars, the scale bars will walk up to the root of the layout and not locate any maps.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -207,7 +207,7 @@ However, in the following example with two scale bars, the scale bars will walk 
 </layout>
 ```
 
-To solve this, we can bind each scale bar to the appropiate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively. 
+To solve this, we can bind each scale bar to the appropiate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

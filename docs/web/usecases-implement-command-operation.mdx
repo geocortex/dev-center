@@ -98,16 +98,10 @@ export type ActionHistory = {
 };
 
 export default class CustomService extends ServiceBase {
-    history: ActionHistory;
-
-    constructor() {
-        super();
-
-        this.history = {
-            thing1: [],
-            thing2: [],
-        };
-    }
+    history: ActionHistory = {
+        thing1: [],
+        thing2: [],
+    };
 
     protected _doAction(args: DoActionArgs) {
         console.log(`Executing action of type ${args.type}`);
@@ -250,16 +244,11 @@ export type ActionHistory = {
 };
 
 export default class CustomService extends ServiceBase {
-    history: ActionHistory;
-
-    constructor() {
-        super();
-
-        this.history = {
+    history: ActionHistory = {
             thing1: [],
             thing2: [],
         };
-    }
+    };
 
     protected _doAction(args: DoActionArgs) {
         console.log(`Executing action of type ${args.type}`);

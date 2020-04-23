@@ -151,36 +151,41 @@ Marking properties in the `ComponentModelProperties` interface as optional allow
 :::
 
 ```ts
-import { ComponentModelBase, serializable, ComponentModelProperties, PropertyDefs } from "@geocortex/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+    ComponentModelProperties,
+    PropertyDefs,
+} from "@geocortex/web/models";
+import Collection from "esri/core/Collection";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
-    newsItems?: string[];
+    newsItems?: Collection<string>;
     hidden?: boolean;
 }
 
-// highlight-next-line
 @serializable
-export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelProperties> {
+export default class NewsFeedModel extends ComponentModelBase<
+    NewsFeedModelProperties
+> {
     /**
      * Array of items to display in the news feed
      */
-    newsItems: string[];
+    newsItems: Collection<string> = new Collection<string>();
 
     /**
      * Whether or not the news ticker is hidden
      */
     hidden: boolean;
-
-    ...
 }
 ```
 
 ### Participating in the Configuration Lifecycle
 
-Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deseralize [app items](concepts-app-config.mdx#anatomy-of-an-app-config) into instances of our custom model.
+Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deserialize [app items](concepts-app-config.mdx#anatomy-of-an-app-config) into instances of our custom model.
 
 :::note
-Specifying a `SerializeMode` of `initial` tells the framework to use the default serialization and deserialization logic, which should be sufficient for most purposes.
+Simple serialization and deserialization logic is used to convert between the `newsItems` configuration property, which is a `string[]`, and the `newsItems` model property, which is an observable [ArcGIS API Collection](https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Collection.html).
 :::
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
@@ -190,6 +195,8 @@ import {
     ComponentModelProperties,
     PropertyDefs,
 } from "@geocortex/web/models";
+import Collection from "esri/core/Collection";
+import { toEsriApiCardinality } from "@geocortex/api/data/_Relationship";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: string[];
@@ -203,7 +210,7 @@ export default class NewsFeedModel extends ComponentModelBase<
     /**
      * Array of items to display in the news feed
      */
-    newsItems: string[];
+    newsItems: Collection<string> = new Collection<string>();
 
     /**
      * Whether or not the news ticker is hidden
@@ -220,6 +227,12 @@ export default class NewsFeedModel extends ComponentModelBase<
             newsItems: {
                 serializeModes: ["initial"],
                 default: ["No news."],
+                serialize: () => this.newsItems.toArray(),
+                deserialize: (newsItems) => {
+                    newsItems.forEach((newsItem) =>
+                        this.newsItems.add(newsItem)
+                    );
+                },
             },
             hidden: {
                 serializeModes: ["initial"],
@@ -361,6 +374,7 @@ import {
     ComponentModelProperties,
     PropertyDefs,
 } from "@geocortex/web/models";
+import Collection from "esri/core/Collection";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: string[];
@@ -374,7 +388,7 @@ export default class NewsFeedModel extends ComponentModelBase<
     /**
      * Array of items to display in the news feed
      */
-    newsItems: string[];
+    newsItems: Collection<string> = new Collection<string>();
 
     /**
      * Whether or not the news ticker is hidden
@@ -390,6 +404,12 @@ export default class NewsFeedModel extends ComponentModelBase<
             newsItems: {
                 serializeModes: ["initial"],
                 default: ["No news."],
+                serialize: () => this.newsItems.toArray(),
+                deserialize: (newsItems) => {
+                    newsItems.forEach((newsItem) =>
+                        this.newsItems.add(newsItem)
+                    );
+                },
             },
             hidden: {
                 serializeModes: ["initial"],

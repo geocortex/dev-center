@@ -283,11 +283,7 @@ export default class NewsFeedModel extends ComponentModelBase {
     /**
      * Array of items to display in the news feed
      */
-    newsItems: Collection<string>;
-
-    constructor() {
-        super();
-    }
+    newsItems: Collection<string> = new Collection<string>();
 
     protected _onInitialize(): Promise<void> {
         super._onInitialize();

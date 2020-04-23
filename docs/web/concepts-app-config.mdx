@@ -82,67 +82,6 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 </TabItem>
 </Tabs>
 
-The same config can be used for multiple items in a layout. For example, this allows you to reuse the same button in multiple locations in the App.
-
-<Tabs
-  defaultValue="layout"
-  values={[
-    { label: "Layout", value: "layout" },
-    { label: "App Config", value: "config" },
-    { label: "UI", value: "ui" },
-  ]}>
-<TabItem value="layout">
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-  <split resizable="true">
-    <panel width="30">
-        <stack margin="0.5">
-            // highlight-next-line
-          <button icon="info" config="do-something" margin="0.5" id="do-something-1"></button>
-        </stack>
-    </panel>
-    <map slot="main">
-        // highlight-next-line
-      <button icon="info" config="do-something" slot="top-center" margin="0.5" id="do-something-2"></button>
-    </map>
-  </split>
-</layout>
-```
-
-</TabItem>
-<TabItem value="config">
-
-```json
-{
-    "schemaVersion": "1.0",
-    "items": [
-        {
-            "$type": "menu-item",
-            // highlight-next-line
-            "id": "do-something",
-            "isEnabled": true,
-            "iconId": "info",
-            "action": {
-                "name": "ui.alert",
-                "arguments": {
-                    "title": "Something?",
-                    "message": "Fine, I did it",
-                    "buttonText": "OK"
-                }
-            }
-        }
-    ]
-}
-```
-
-</TabItem>
-<TabItem value="ui">
-<img src={useBaseUrl("img/web-app-config-basic.png")}/>
-</TabItem>
-</Tabs>
-
 ## Targeting Components by ID
 
 Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](concepts-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.

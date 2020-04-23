@@ -17,7 +17,13 @@ By the end of this article, you'll have the knowledge to build a custom componen
 
 Check out [implementing a custom component](usecases-implement-component-with-ui.mdx) to learn the basics of implementing components.
 
-## Interacting with other Components
+## Overview
+
+<!-- TODO-API direct link to map model -->
+
+Components have multiple ways of interacting with other components and services. When possible, interaction through [commands and operations](usecases-components-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling. When you need stronger coupling and direct access to the API, then model imports or service injection can be used. A good example of this is needing direct access to the [ArcGIS Map](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html), which can be exposed by importing the map model.
+
+## Interacting with other Components through Models
 
 <!-- TODO-API link to map model and scalebar/compass components once available -->
 
@@ -26,6 +32,10 @@ Components can interact with each other through their [respective models](concep
 ### Example: Component that Adds a Graphics Layer to the Map
 
 The following component has a model which imports the map model as a dependency, and then uses that model to add a graphics layer to the [ArcGIS Map object](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html).
+
+:::note
+The property decorated by `@importModel` is completely managed by Geocortex Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.
+:::
 
 <Tabs
   defaultValue="component"
@@ -77,10 +87,8 @@ import { SimpleFillSymbol } from "esri/symbols";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
-    // highlight-start
     @importModel("map-extension")
     mapExtension: MapExtension | undefined;
-    // highlight-end
 
     // based on https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=intro-graphics
     triangleGraphic = new GraphicsLayer({
@@ -102,10 +110,15 @@ export default class CustomModel extends ComponentModelBase {
     });
 
     public addGraphic() {
-        // highlight-start
-        const esriMap = this.mapExtension.map;
-        esriMap.add(this.triangleGraphic);
-        // highlight-end
+        if (this.mapExtension) {
+            const esriMap = this.mapExtension.map;
+            esriMap.add(this.triangleGraphic);
+        } else {
+            console.error(
+                "Could not add graphic to map, as no map model was imported into the 'CustomModel'."
+            );
+            return;
+        }
     }
 }
 ```
@@ -180,7 +193,14 @@ export default class CustomModel extends ComponentModelBase {
     exportedModel: ExportedModel | undefined;
 
     public getContentText() {
-        return this.exportedModel.someCustomModelProperty;
+        if (this.exportedModel) {
+            return this.exportedModel.someCustomModelProperty;
+        } else {
+            console.warn(
+                "Could not import required model 'exported-model' for 'CustomModel'"
+            );
+            return "";
+        }
     }
 }
 ```
@@ -227,6 +247,6 @@ export default function CustomComponent(
 </TabItem>
 </Tabs>
 
-## Interacting with Application Services
+## Interacting with Application Services with Dependency Injection
 
 Components can interact with built in Geocortex Web [services](concepts-components-services.mdx#services). Through services, they can interact with the map, application context, workflows, and more. Services can only be injected into a components through their [associated models](usecases-implement-component-participate-app-config.mdx#component-models). Learn more about how to [inject a service into a component](sdk-service-injection.mdx).
