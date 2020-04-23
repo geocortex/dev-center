@@ -8,6 +8,7 @@ interface ViewerMessagingProps {
 }
 
 export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
+    // `BrowserOnly` prevents children from being rendered statically during build
     return <BrowserOnly>{() => <ViewerMessaging {...props} />}</BrowserOnly>;
 }
 

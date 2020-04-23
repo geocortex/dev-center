@@ -1,4 +1,3 @@
-import Link from "@docusaurus/Link";
 import React from "react";
 import MessagingArgument from "./MessagingArgument";
 import { MessageSchema, MessageDefinition } from "./schema";
@@ -46,9 +45,9 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
                                 {type === "events" && <td>Event</td>}
                                 {type === "operations" && <td>Operation</td>}
                                 <td>
-                                    <Link id={linkId} to={`#${linkId}`}>
+                                    <a id={linkId} href={`#${linkId}`}>
                                         <strong>{key}</strong>
-                                    </Link>
+                                    </a>
                                 </td>
                             </tr>
                             <tr>

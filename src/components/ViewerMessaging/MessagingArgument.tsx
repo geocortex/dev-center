@@ -19,12 +19,16 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
     let definition: Definition | string | undefined = props.definition;
 
     if (typeof definition === "string") {
-        definition = getReferencedDefinition(name, schema);
+        const foundDefinition = getReferencedDefinition(name, schema);
+        console.warn("Couldn't find definition:", definition);
+        definition = foundDefinition;
     }
 
     if (!definition) {
         return <code>null</code>;
-    } else if (definition.$ref) {
+    }
+    // This is a single type referencing another definition
+    else if (definition.$ref) {
         const referencedDef = getReferencedDefinition(definition.$ref, schema);
 
         // We only hyperlink to object type definitions, everything else can be inlined.
@@ -32,48 +36,46 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
             return <MessagingRef name={definition.$ref} schema={schema} />;
         } else if (referencedDef) {
             return <MessagingArgument definition={referencedDef} schema={schema} />;
-        } else {
-            return <MessagingRef name={definition.$ref} schema={schema} />;
         }
-    } else if (definition.type) {
-        if (definition.type === "string") {
-            if (definition.enum) {
-                const enumType = (definition.enum as PrimitiveType[])
-                    .map((val) => `"${val}"`)
-                    .join(" | ");
-                return <code>{enumType}</code>;
-            }
 
-            return <code>string</code>;
+        return <MessagingRef name={definition.$ref} schema={schema} />;
+    }
+    // This is a single type
+    else if (definition.type) {
+        if (definition.type === "string" && definition.enum) {
+            const enumType = (definition.enum as PrimitiveType[])
+                .map((val) => `"${val}"`)
+                .join(" | ");
+            return <code>{enumType}</code>;
         } else if (definition.type === "array" && definition.items) {
             if (Array.isArray(definition.items)) {
-                <>
-                    <div>Any of:</div>
-                    {definition.items.map((option, index) => (
-                        // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
-                        <div key={option.$ref || index}>
-                            <MessagingArgument definition={option} schema={schema} />
-                            []
-                        </div>
-                    ))}
-                </>;
+                return (
+                    <>
+                        <div>Any of:</div>
+                        {definition.items.map((option, index) => (
+                            // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
+                            <div key={option.$ref || index}>
+                                <MessagingArgument definition={option} schema={schema} />
+                                []
+                            </div>
+                        ))}
+                    </>
+                );
             }
             if (definition.items && (definition.items as Definition).$ref) {
                 const itemsRef = (definition.items as Definition).$ref!;
                 return <MessagingRef isArray name={itemsRef} schema={schema} />;
             }
             return <code>{(definition.items as Definition).type}[]</code>;
-        }
-
-        if (definition.type !== "array") {
-            return <code>{definition.type}</code>;
-        } else if (definition.items && (definition.items as Definition).$ref) {
-            const itemsRef = (definition.items as Definition).$ref!;
-            return <MessagingRef isArray name={itemsRef} schema={schema} />;
-        } else {
+        } else if (definition.type === "object") {
+            // We don't support rendering object type inline, should only reference by link.
             return <code>unknown</code>;
         }
-    } else if (definition.anyOf) {
+
+        return <code>{definition.type}</code>;
+    }
+    // This is a union type
+    else if (definition.anyOf) {
         return (
             <>
                 <div>Any of:</div>
@@ -87,5 +89,6 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
         );
     }
 
+    // Didn't contain an appropriate type. Hopefully the description was useful.
     return <code>unknown</code>;
 }

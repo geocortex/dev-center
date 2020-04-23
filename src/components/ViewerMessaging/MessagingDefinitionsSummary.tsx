@@ -9,6 +9,7 @@ interface MessagingDefinitionsSummaryProps {
 export default function MessagingDefinitionsSummary(props: MessagingDefinitionsSummaryProps) {
     const { schema } = props;
 
+    // Grab only the `object` type definitions, everything else can be inlined.
     const filteredDefinitions: typeof schema.definitions = Object.entries(
         schema.definitions
     ).reduce((acc, [name, definition]) => {
