@@ -115,7 +115,7 @@ Event names in Geocortex Web generally take the format `<category>.<name>`, with
 ```ts
 @serializable
 export default class Publisher extends ComponentModelBase {
-    public publishCustomEvent(){
+    publishCustomEvent(){
         this.messages.events("my.custom-event").publish({ ... })
     }
 }
