@@ -46,6 +46,10 @@
     height: auto;
 }
 
+.admonition-heading {
+    --ifm-heading-font-weight: bold;
+}
+
 .footer .footer__links {
     margin-bottom: 3rem;
 }
