@@ -120,7 +120,7 @@ namespace App1.Services
             :base()
         {
             // on creation logic here
-            // highlight-next-line   
+            // highlight-next-line
             customOperations.FetchCustomData.RegisterExecute(FetchData, this);
             dataUpdater = new Thread(new ThreadStart(_dataUpdater));
         }
