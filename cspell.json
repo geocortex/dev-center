@@ -1,6 +1,7 @@
 {
     "words": [
         "Bootstrapper",
+        "broadview",
         "ConfigItemtype",
         "Esri's",
         "Infima",
@@ -47,6 +48,7 @@
         "quickstart",
         "readonly",
         "rerender",
+        "rgba",
         "scalebar",
         "sdks",
         "serializable",
@@ -55,6 +57,7 @@
         "theming",
         "typeof",
         "unmount",
+        "unshift",
         "useWatchAndRerender",
         "usecases",
         "valign",
@@ -64,5 +67,8 @@
         "webserver",
         "xcopy"
     ],
-    "language": "en-US"
+    "language": "en-US",
+    "ignoreRegExpList": [
+        "\\([\\S]*?#[\\S]*?\\)" // internal URLs with a anchor (#) symbol
+    ]
 }
