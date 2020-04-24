@@ -16,7 +16,7 @@ export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
 // Cache the requests to allow this component to be rendered
 // multiple times for the different types: "command", "event", etc.
 // We need to be able to render the headers within markdown so it
-// plays nicely with docusaurus's right TOC.
+// plays nicely with the docusaurus right TOC component.
 const cachedRequests: Record<
     ViewerMessagingProps["product"],
     Promise<Response> | undefined
