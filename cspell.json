@@ -1,6 +1,5 @@
 {
     "words": [
-        "algolia",
         "anonymize",
         "arcgis",
         "autofac",
@@ -58,7 +57,6 @@
         "typeof",
         "unmount",
         "unshift",
-        "useWatchAndRerender",
         "usecases",
         "valign",
         "vertigis",
