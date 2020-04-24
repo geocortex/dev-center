@@ -8,7 +8,10 @@ interface MessagingArgumentProps {
     schema: MessageSchema;
 }
 
-function getReferencedDefinition(name: string, schema: MessageSchema): Definition | undefined {
+function getReferencedDefinition(
+    name: string,
+    schema: MessageSchema
+): Definition | undefined {
     const trimmedName = trimDefinitionsName(name);
     return schema.definitions[trimmedName];
 }
@@ -35,7 +38,9 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
         if (referencedDef && referencedDef.type === "object") {
             return <MessagingRef name={definition.$ref} schema={schema} />;
         } else if (referencedDef) {
-            return <MessagingArgument definition={referencedDef} schema={schema} />;
+            return (
+                <MessagingArgument definition={referencedDef} schema={schema} />
+            );
         }
 
         return <MessagingRef name={definition.$ref} schema={schema} />;
@@ -55,7 +60,10 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
                         {definition.items.map((option, index) => (
                             // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
                             <div key={option.$ref || index}>
-                                <MessagingArgument definition={option} schema={schema} />
+                                <MessagingArgument
+                                    definition={option}
+                                    schema={schema}
+                                />
                                 []
                             </div>
                         ))}
@@ -82,7 +90,10 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
                 {definition.anyOf.map((option, index) => (
                     // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
                     <div key={option.$ref || index}>
-                        <MessagingArgument definition={option} schema={schema} />
+                        <MessagingArgument
+                            definition={option}
+                            schema={schema}
+                        />
                     </div>
                 ))}
             </>

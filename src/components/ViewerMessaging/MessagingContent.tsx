@@ -5,37 +5,26 @@ import MessagingDefinitionsSummary from "./MessagingDefinitionsSummary";
 
 interface MessagingContentProps {
     schema: MessageSchema;
+    type: "argument" | "command" | "event" | "operation";
 }
 
 export default function MessagingContent(props: MessagingContentProps) {
-    const { schema } = props;
+    const { schema, type } = props;
 
     return (
         <>
-            <h2>
-                <a id="commands" href="#commands">
-                    Commands
-                </a>
-            </h2>
-            <MessagingTypeSummary schema={schema} type="command" />
-            <h2>
-                <a id="operations" href="#operations">
-                    Operations
-                </a>
-            </h2>
-            <MessagingTypeSummary schema={schema} type="operation" />
-            <h2>
-                <a id="events" href="#events">
-                    Events
-                </a>
-            </h2>
-            <MessagingTypeSummary schema={schema} type="event" />
-            <h2>
-                <a id="argument-definitions" href="#argument-definitions">
-                    Commands
-                </a>
-            </h2>
-            <MessagingDefinitionsSummary schema={schema} />
+            {type === "argument" && (
+                <MessagingDefinitionsSummary schema={schema} />
+            )}
+            {type === "command" && (
+                <MessagingTypeSummary schema={schema} type="command" />
+            )}
+            {type === "event" && (
+                <MessagingTypeSummary schema={schema} type="event" />
+            )}
+            {type === "operation" && (
+                <MessagingTypeSummary schema={schema} type="operation" />
+            )}
         </>
     );
 }

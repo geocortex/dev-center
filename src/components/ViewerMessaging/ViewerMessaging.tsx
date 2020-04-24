@@ -4,7 +4,8 @@ import MessagingContent from "./MessagingContent";
 import { MessageSchema } from "./schema";
 
 interface ViewerMessagingProps {
-    type: "mobile" | "web";
+    product: "mobile" | "web";
+    type: "argument" | "command" | "event" | "operation";
 }
 
 export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
@@ -12,8 +13,16 @@ export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
     return <BrowserOnly>{() => <ViewerMessaging {...props} />}</BrowserOnly>;
 }
 
+const cachedRequests: Record<
+    ViewerMessagingProps["product"],
+    Promise<Response> | undefined
+> = {
+    mobile: undefined,
+    web: undefined,
+};
+
 function ViewerMessaging(props: ViewerMessagingProps) {
-    const { type } = props;
+    const { product, type } = props;
     const [messagingJson, setMessagingJson] = useState<any>();
 
     // Fetch schema
@@ -21,11 +30,18 @@ function ViewerMessaging(props: ViewerMessagingProps) {
         let didCancel = false;
 
         (async () => {
-            const response = await fetch(
-                `https://apps.geocortex.com/webviewer/messaging-${type}.schema.json`
-            );
-            const responseJson: MessageSchema = await response.json();
+            if (!cachedRequests[product]) {
+                cachedRequests[product] = fetch(
+                    `https://apps.geocortex.com/webviewer/messaging-${product}.schema.json`
+                );
+            }
 
+            const response = await cachedRequests[product]!;
+            if (didCancel) {
+                return;
+            }
+            // Clone to avoid error when reading json multiple times
+            const responseJson: MessageSchema = await response.clone().json();
             if (didCancel) {
                 return;
             }
@@ -36,7 +52,7 @@ function ViewerMessaging(props: ViewerMessagingProps) {
         return () => {
             didCancel = true;
         };
-    }, [type]);
+    }, [product]);
 
     // Scroll to element if id present in URL hash
     useEffect(() => {
@@ -52,5 +68,9 @@ function ViewerMessaging(props: ViewerMessagingProps) {
         }
     }, [messagingJson]);
 
-    return messagingJson ? <MessagingContent schema={messagingJson} /> : <div>Loading...</div>;
+    return messagingJson ? (
+        <MessagingContent schema={messagingJson} type={type} />
+    ) : (
+        <div>Loading...</div>
+    );
 }
