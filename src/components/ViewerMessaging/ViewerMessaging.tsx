@@ -13,6 +13,10 @@ export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
     return <BrowserOnly>{() => <ViewerMessaging {...props} />}</BrowserOnly>;
 }
 
+// Cache the requests to allow this component to be rendered
+// multiple times for the different types: "command", "event", etc.
+// We need to be able to render the headers within markdown so it
+// plays nicely with docusaurus's right TOC.
 const cachedRequests: Record<
     ViewerMessagingProps["product"],
     Promise<Response> | undefined

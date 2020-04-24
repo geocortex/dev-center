@@ -6,6 +6,9 @@ interface MessagingDefinitionsSummaryProps {
     schema: MessageSchema;
 }
 
+// Note that we blindly render all definitions present in the schema.
+// This would need to be refactored if we split up the
+// commands/operations/events across multiple pages.
 export default function MessagingDefinitionsSummary(
     props: MessagingDefinitionsSummaryProps
 ) {
