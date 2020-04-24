@@ -67,7 +67,7 @@ To add a code block, use the markdown syntax like follows:
     import foo from "bar";
     ```
 
--   Use the appropriate language key in the beginning of the code block (`ts` in the case above). This enables the approriate syntax highlighting for the given language. Common keys in this project are:
+-   Use the appropriate language key in the beginning of the code block (`ts` in the case above). This enables the appropriate syntax highlighting for the given language. Common keys in this project are:
     -   `json`
     -   `xml`
     -   `ts`

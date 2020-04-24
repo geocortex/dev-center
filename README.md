@@ -2,7 +2,7 @@
 
 ![CI/CD](https://github.com/geocortex/dev-center/workflows/CI/CD/badge.svg)
 
-This is the source for the Geocortex Developer Center website; feel free to suggest changes to our docs!
+This is the source for the [Geocortex Developer Center](https://developers.geocortex.com) website; feel free to suggest changes to our docs!
 
 ## Contributing
 
