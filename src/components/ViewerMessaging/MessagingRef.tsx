@@ -12,7 +12,8 @@ export default function MessagingRef(props: MessagingRefProps) {
     const { isArray, name, schema } = props;
 
     const trimmedName = trimDefinitionsName(name);
-    const referencedDefinition: Definition | undefined = schema.definitions[trimmedName];
+    const referencedDefinition: Definition | undefined =
+        schema.definitions[trimmedName];
 
     // We'll only render definition tables for object types, everything else can be inlined.
     if (referencedDefinition && referencedDefinition.type === "object") {

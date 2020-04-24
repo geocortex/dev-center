@@ -6,7 +6,9 @@ interface MessagingDefinitionsSummaryProps {
     schema: MessageSchema;
 }
 
-export default function MessagingDefinitionsSummary(props: MessagingDefinitionsSummaryProps) {
+export default function MessagingDefinitionsSummary(
+    props: MessagingDefinitionsSummaryProps
+) {
     const { schema } = props;
 
     // Grab only the `object` type definitions, everything else can be inlined.
@@ -22,7 +24,11 @@ export default function MessagingDefinitionsSummary(props: MessagingDefinitionsS
     return (
         <div>
             {Object.keys(filteredDefinitions).map((name) => (
-                <MessagingDefinition key={name} definitionName={name} schema={schema} />
+                <MessagingDefinition
+                    key={name}
+                    definitionName={name}
+                    schema={schema}
+                />
             ))}
         </div>
     );
