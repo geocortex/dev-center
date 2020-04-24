@@ -79,139 +79,37 @@ export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
 
 ## Register the Form Element Registration Activity
 
-[Build and deploy](sdk-web-getting-started.mdx#building) your new [activity-pack](concepts-key-concepts.mdx#activity-packs). Now you can [build a workflow for Geocortex Web](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/run-workflows-in-gxw.htm#Host_and_Run_your_First_Workflow_..3%3FTocPath%3DConfigure%2520Host%2520Applications%7CHost%2520and%2520Run%2520Workflows%2520in%2520Geocortex%2520Web%7C_____1) that uses your new custom form element!
+[Build and deploy](sdk-web-getting-started.mdx#building) your new [activity-pack](concepts-key-concepts.mdx#activity-packs). Now you can [build a workflow for Geocortex Web](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/run-workflows-in-gxw.htm#Host_and_Run_your_First_Workflow_..3%3FTocPath%3DConfigure%2520Host%2520Applications%7CHost%2520and%2520Run%2520Workflows%2520in%2520Geocortex%2520Web%7C_____1) that uses your new custom form element! It is essential that the register form elements custom activity be run before the custom form element is used, and for that reason, it is best practice to run the form element registration activity at the start of a workflow.
 
-:::important
-It is **essential** that this custom activity be run before the custom form element is used, and for that reason, it is best practice to run the form element registration activity at the start of a workflow.
+:::note
+
+<p>
+    You can
+    <a
+        href={useBaseUrl("workflows/web-custom-form-element.json")}
+        download="custom-form-element.json"
+    >
+        {" "}
+        download this demo workflow{" "}
+    </a>
+    that registers and displays the custom form element and then
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        {" "}
+        import it into workflow designer.{" "}
+    </a>
+    You will have to{" "}
+    <a href="sdk-web-getting-started#host-the-activity-pack">
+        {" "}
+        host the custom activity and form element
+    </a>{" "}
+    for it to function.
+</p>
 :::
 
-You can [import the following workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm) into the Geocortex Workflow Designer to use it. You will have to host the custom activity and form element for it to function. 
-
-<Tabs
-  defaultValue="ui"
-  values={[
-    { label: "UI", value: "ui" },
-    { label: "Workflow Content", value: "workflow" },
-  ]}>
-<TabItem value="ui">
-<img src={useBaseUrl("img/workflow-web-custom-form-element-basic.png")}/>
-</TabItem>
-<TabItem value="workflow">
-
-```json
-{
-	"components": [
-		{
-			"id": 2,
-			"steps": [
-				{
-					"id": 3,
-					"inputs": {},
-					"position": "0,0",
-					"purpose": "start",
-					"title": "Start",
-					"transitions": [
-						{
-							"id": 5,
-							"position": "90,60 90,110",
-							"target": {
-								"id": 4
-							}
-						}
-					]
-				},
-				{
-					"action": "your:unique:namespace::RegisterCustomFormElements",
-					"id": 4,
-					"inputs": {},
-					"position": "-30,110",
-					"title": "Register Custom Form Elements",
-					"transitions": [
-						{
-							"id": 8,
-							"position": "90,140 90,190",
-							"target": {
-								"id": 6
-							}
-						}
-					]
-				},
-				{
-					"action": "gcx:wf:forms:form:DisplayForm",
-					"id": 6,
-					"inputs": {
-						"form": {
-							"accessors": [],
-							"code": "resources.forms[values.id]",
-							"values": {
-								"id": 7
-							}
-						}
-					},
-					"name": "form1",
-					"position": "-30,190",
-					"title": "Display Form"
-				}
-			]
-		}
-	],
-	"forms": [
-		{
-			"defaults": {},
-			"elements": {
-				"custom1": {
-					"customType": "CustomFormElement",
-					"enabled": true,
-					"index": 0,
-					"title": {
-						"markdown": "Custom"
-					},
-					"type": "Custom"
-				},
-				"footer": {
-					"enabled": true,
-					"items": {
-						"0": {
-							"default": true,
-							"index": 0,
-							"label": {
-								"markdown": "Submit"
-							},
-							"validates": true,
-							"value": "submit"
-						},
-						"1": {
-							"index": 1,
-							"label": {
-								"markdown": "Cancel"
-							},
-							"validates": false,
-							"value": "cancel"
-						}
-					},
-					"section": "footer",
-					"type": "ButtonBar"
-				},
-				"header": {
-					"section": "header",
-					"title": {
-						"markdown": "Form Title"
-					},
-					"type": "Header"
-				}
-			},
-			"id": 7
-		}
-	],
-	"start": {
-		"id": 3
-	}
-}
-```
-
-</TabItem>
-</Tabs>
-
+<img src={useBaseUrl("img/workflow-web-custom-form-element-basic.png")} />
 
 ## Example: Star Rating Form Element
 

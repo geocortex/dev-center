@@ -93,7 +93,7 @@ namespace App1.Workflow
 
 ## Register the Form Element Registration Activity
 
-Register the `RegisterCustomFormElementBase` class in the [`IActivityHandlerFactory` for the application](usecases-mobile-implement-custom-activity.mdx#register-the-activity-with-the-iactivityhandlerfactory). 
+Register the `RegisterCustomFormElementBase` class in the [`IActivityHandlerFactory` for the application](usecases-mobile-implement-custom-activity.mdx#register-the-activity-with-the-iactivityhandlerfactory).
 
 ```csharp
 public class ActivityLoader : IActivityHandlerFactory
@@ -108,164 +108,76 @@ public class ActivityLoader : IActivityHandlerFactory
 }
 ```
 
-
 Now you can [build a workflow for Geocortex Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new custom form element!
 
 :::important
 It is **essential** that this custom activity be run before the custom form element is used. It is best practice to run the form element registration activity at the start of a workflow.
 :::
 
-You can run the following workflow that registers the and displays custom form element in your local Geocortex Mobile SDK. You will need to add the workflow content to a file named `custom-form-component-workflow.json` in the platform agnostic project, and then [link the workflow file](https://andrewlock.net/including-linked-files-from-outside-the-project-directory-in-asp-net-core/#adding-files-from-outside-the-project-by-linking) in each of the target platform projects. You can also [import the workflow content](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm) into Geocortex Workflow Designer to see it visualized.
+Next, you need to run workflow that registers and then displays custom form element in your local Geocortex Mobile SDK. You will need to add the workflow content to a file named `custom-form-component-workflow.json` in the platform agnostic project, and then [link the workflow file](https://andrewlock.net/including-linked-files-from-outside-the-project-directory-in-asp-net-core/#adding-files-from-outside-the-project-by-linking) in each of the target platform projects.
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/mobile-custom-form-element.json")}
+        download="custom-form-element.json"
+    >
+        download this demo workflow
+    </a>{" "}
+    that registers and displays the custom form element.
+</p>
+:::
 
 <Tabs
   defaultValue="ui"
   values={[
     { label: "UI", value: "ui" },
-    { label: "Workflow Content", value: "workflow" },
     { label: "App Config", value: "config" },
     { label: "Layout", value: "layout" },
   ]}>
 <TabItem value="ui">
 <img src={useBaseUrl("img/workflow-mobile-custom-form-element-basic.png")}/>
 </TabItem>
-<TabItem value="workflow">
-
-```json title="App1/App1/custom-form-component-workflow.json"
-{
-  "components": [
-    {
-      "id": 2,
-      "steps": [
-        {
-          "id": 3,
-          "inputs": {},
-          "position": "0,0",
-          "purpose": "start",
-          "title": "Start",
-          "transitions": [
-            {
-              "id": 17,
-              "position": "90,60 90,110",                             
-              "target": { "id": 16 }
-            }
-          ]
-        },
-        {
-          "action": "gcx:wf:forms:form:DisplayForm",
-          "id": 6,
-          "inputs": {
-            "form": {
-              "accessors": [],
-              "code": "resources.forms[values.id]",
-              "values": { "id": 7 }
-            }
-          },
-          "name": "form1",
-          "position": "-30,190",
-          "title": "Display Form"
-        },
-        {
-          "action": "gcx:wf:core::RunActivity",
-          "id": 16,
-          "inputs": { "action": "your:unique:namespace::FormElementRegistrationActivity" },
-          "position": "-30,110",
-          "title": "Run Activity",
-          "transitions": [
-            {
-              "id": 18,
-              "position": "90,140 90,190",
-              "sourceConnector": "bottom",
-              "target": { "id": 6 },
-              "targetConnector": "top"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "forms": [
-    {
-      "defaults": {},
-      "elements": {
-        "custom1": {
-          "customType": "CustomFormElement",
-          "enabled": true,
-          "index": 0,
-          "title": { "markdown": "CustomFormElement" },
-          "type": "Custom"
-        },
-        "footer": {
-          "enabled": true,
-          "items": {
-            "0": {
-              "default": true,
-              "index": 0,
-              "label": { "markdown": "Submit" },
-              "validates": true,
-              "value": "submit"
-            },
-            "1": {
-              "index": 1,
-              "label": { "markdown": "Cancel" },
-              "validates": false,
-              "value": "cancel"
-            }
-          },
-          "section": "footer",
-          "type": "ButtonBar"
-        },
-        "header": {
-          "section": "header",
-          "title": { "markdown": "Form Title" },
-          "type": "Header"
-        }
-      },
-      "id": 7
-    }
-  ],
-  "start": { "id": 3 }
-}
-```
-
-</TabItem>
 <TabItem value="config">
 
 ```json title="App1/App1/app.json"
 {
-  "schemaVersion": "1.0",
-  "items": [
-    {
-      "$type": "layout",
-      "id": "desktop-layout",
-      "url": "resource://layout-large.xml",
-      "tags": [ "mobile", "large" ]
-    },
-    {
-      "$type": "workflow",
-      "id": "custom-workflow",
-      "title": "Custom Workflow",
-      "target": "#taskbar",
-      // highlight-next-line
-      "url": "resource://custom-form-component-workflow.json"
-    },
-    {
-      "$type": "menu",
-      "id": "iwtm",
-      "items": [
+    "schemaVersion": "1.0",
+    "items": [
         {
-          "title": "Run Custom Workflow",
-          "isEnabled": true,
-          "iconId": "workflow",
-          "action": {
-            "name": "workflow.run",
-            "arguments": {
-              "id":  "custom-workflow"
-            }
-          }
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "workflow",
+            "id": "custom-workflow",
+            "title": "Custom Workflow",
+            "target": "#taskbar",
+            // highlight-next-line
+            "url": "resource://custom-form-component-workflow.json"
+        },
+        {
+            "$type": "menu",
+            "id": "iwtm",
+            "items": [
+                {
+                    "title": "Run Custom Workflow",
+                    "isEnabled": true,
+                    "iconId": "workflow",
+                    "action": {
+                        "name": "workflow.run",
+                        "arguments": {
+                            "id": "custom-workflow"
+                        }
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
 ```
 
@@ -295,10 +207,9 @@ You can run the following workflow that registers the and displays custom form e
 </TabItem>
 </Tabs>
 
-
 ## Example: Enhanced Activity Indicator Form Element
 
-This example demonstrates a form element that displays an enhanced activity indicator. [Check it out](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Workflow/CustomFormElement) in the [Geocortex Mobile SDK Samples](../mobile/sdk-samples.mdx).
+This example demonstrates a form element that displays an enhanced activity indicator. [Check it out](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Workflow/CustomFormComponent) in the [Geocortex Mobile SDK Samples](../mobile/sdk-samples.mdx).
 
 <Tabs
   defaultValue="custom-form-element"
