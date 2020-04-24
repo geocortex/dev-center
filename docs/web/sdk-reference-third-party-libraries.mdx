@@ -1,0 +1,33 @@
+---
+title: Reference Third Party Libraries
+description: Geocortex Web - Reference third party libraries with the Geocortex Web SDK
+---
+
+## Installing packages
+
+You can install packages directly from [npm](https://www.npmjs.com/) the same way you would in other JavaScript projects, and import them in your code using the [ES6 import syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import):
+
+For example, to install and use the [classnames](https://github.com/JedWatson/classnames), first install the package:
+
+```sh
+npm install classnames
+```
+
+and then import it in your code:
+
+```tsx
+// highlight-next-line
+import classNames from "classnames";
+
+export default function ExampleComponent(props) {
+    return (
+        <div
+            className={classNames("ExampleComponent", {
+                "ExampleComponent-active": props.active,
+            })}
+        >
+            I am a React component.
+        </div>
+    );
+}
+```

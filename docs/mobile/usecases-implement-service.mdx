@@ -1,0 +1,170 @@
+---
+title: Custom Service
+description: Geocortex Mobile - Implement a custom Service
+---
+
+import AutofacSnippet from "../snippets/autofac-mobile.mdx";
+import PrereqsSnippet from "./snippets/prereqs.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+When extending Geocortex Mobile, you may find yourself creating multiple [components](concepts-components-services.mdx#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](concepts-components-services.mdx#services).
+Implementing a custom service in Geocortex Mobile allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](usecases-implement-command-operation.mdx).
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+## Create a New Service
+
+Create a new file `Components/CustomService.cs` under the platform agnostic project.
+In the file, add a new component class `CustomService` and register it with **Autofac**.
+
+<AutofacSnippet />
+
+```csharp
+using App1.Services;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Services;
+using System.Threading.Tasks;
+
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        public CustomService()
+            :base()
+        {
+            // on creation logic here
+        }
+        protected override Task DoInitialize()
+        {
+            // on initialization logic here
+            return Task.CompletedTask;
+        }
+    }
+}
+```
+
+:::info
+The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `CustomService : ServiceBase`. These two pieces register the service with Geocortex Mobile and cause it to be initialized on startup.
+:::
+
+Congratulations! You've created your first working service. This service is available to be injected with Autofac into any custom component. For inspiration with what you can do with services, check out the example below.
+
+## Example
+
+This custom service mimics a fetch of new data every five seconds, and implements an operation which allows components to access the data. If you run this custom service, you can see each fetch of data logged at a debug level.
+
+:::important
+All services should dispose of long held memory or other resources by implementing `Dispose`. For more information, see [memory leaks](sdk-memory-leaks.mdx).
+:::
+
+<Tabs defaultValue="service"
+  values={[
+    { label: 'Service', value: 'service', },
+    { label: 'Operations', value: 'operations', },
+  ]
+}>
+<TabItem value="service">
+
+```csharp
+using App1.Operations;
+using App1.Services;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Logging;
+using Geocortex.Mobile.Composition.Messaging;
+using Geocortex.Mobile.Composition.Services;
+using System.Threading;
+using System.Threading.Tasks;
+
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        private Thread dataUpdater;
+        private int data = 0;
+        private async void _dataUpdater()
+        {
+            try
+            {
+                while (true)
+                {
+                    // Fetch data from a rest endpoint
+                    await Task.Run(() =>
+                    {
+                        // await data.fetch()
+                        data = data + 1;
+                        Logger.Debug($"Custom Service fetched new data. Current Value: {data}");
+                    });
+                    Thread.Sleep(3000);
+                }
+            }
+            catch (ThreadAbortException)
+            {
+                return;
+            }
+
+        }
+
+        private async Task<int> FetchData()
+        {
+            return data;
+        }
+
+        public CustomService(CustomOperations customOperations)
+            :base()
+        {
+            // on creation logic here
+            customOperations.FetchCustomData.RegisterExecute(FetchData, this);
+            dataUpdater = new Thread(new ThreadStart(_dataUpdater));
+        }
+        protected override Task DoInitialize()
+        {
+            // on initialization logic here
+            dataUpdater.Start();
+            return Task.CompletedTask;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            // dispose of any held resources here
+            dataUpdater.Abort();
+            base.Dispose(disposing);
+
+        }
+
+
+    }
+}
+```
+
+</TabItem>
+<TabItem value="operations">
+
+```csharp
+using App1.Operations;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Messaging;
+using Geocortex.Mobile.Infrastructure.Messaging;
+
+[assembly: Export(typeof(CustomOperations), SingleInstance = true)]
+namespace App1.Operations
+{
+    class CustomOperations : OperationsBase
+    {
+        public IOperation<int> FetchCustomData=> GetOperation<int>("custom-data.fetch");
+
+        public CustomOperations(IOperationRegistry operationRegistry)
+            : base(operationRegistry)
+        {
+        }
+    }
+}
+
+```
+
+</TabItem>
+</Tabs>

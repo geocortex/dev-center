@@ -83,7 +83,7 @@ For example this is a complete sample (it would actually run):
     ```xml title="layout.xml"
     <?xml version="1.0" encoding="utf-8" ?>
     <layout xmlns="https://geocortex.com/layout/v1">
-        <map id="myMap">
+        <map>
             <compass padding="0.5"/>
         </map>
     </layout>

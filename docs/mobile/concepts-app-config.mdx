@@ -1,15 +1,15 @@
 ---
 title: App Config
-description: Geocortex Mobile - Learn about how to Geocortex Mobile's configuration concepts
+description: Geocortex Mobile - Learn about Geocortex Mobile's configuration concepts
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
-import AppItemSnippet from "./snippets/app-item.mdx";
+import AppItemSnippet from "../snippets/app-item.mdx";
+import FollowAlongSnippet from "./snippets/follow-along.mdx";
 
 :::note Before learning about app config...
 Check out the [Key Concepts](concepts-key-concepts.mdx).
@@ -23,16 +23,9 @@ While [layouts](concepts-layout.mdx) depict the visual structure of how componen
 
 Every component within the viewer that requires functional, compositional content needs to be configured within the viewer's corresponding app config.
 
-:::tip Want to follow along?
-Check out the [Quickstart](quick-start.mdx) and [edit the default app config and layout](quick-start.mdx#editing-the-layout-and-app-config).
-:::
+<FollowAlongSnippet />
 
-## Anatomy of an App config.
-
-App config files are composed of two main components:
-
-1. High level configuration values
-2. Configuration for individual **app items**
+## Anatomy of an App config
 
 <AppItemSnippet />
 
@@ -41,7 +34,7 @@ App config files are composed of two main components:
 Every component in the layout can be linked to app config with the `config` attribute. The `config` attribute is used to identify the item in the app config that has configuration for the component.
 
 :::note
-If you do not provide a `config` attribute for a component, Geocortex Mobile will attempt to [infer a default value](concepts-advanced-layout.mdx#implicit-config-binding).
+If you do not provide a `config` attribute for a component, Geocortex Mobile will attempt to [infer a default value](concepts-advanced-layout.mdx#component-defaults).
 :::
 
 <Tabs
@@ -55,7 +48,8 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
-    <map id="map-primary" config="default" />
+    // highlight-next-line
+    <map config="my-map-config" />
 </layout>
 ```
 
@@ -68,8 +62,16 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
     "items": [
         {
             "$type": "map-extension",
-            "id": "default",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            // highlight-next-line
+            "id": "my-map-config",
+            "onInitialized": [
+                {
+                    "name": "ui.alert",
+                    "arguments": {
+                        "message": "Hello World"
+                    }
+                }
+            ]
         }
     ]
 }
@@ -96,11 +98,13 @@ The same config can be used for multiple items in a layout. For example, this al
   <gxm:taskbar orientation="vertical">
     <panel grow="1">
         <stack margin="0.5">
-          <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 2</button>
+            // highlight-next-line
+          <button icon="info" config="do-something" slot="top-center-visible" margin="0.5">Do Something 2</button>
         </stack>
     </panel>
-    <map id="map-primary" config="default" slot="main">
-      <button icon="info" config="doSomething" slot="top-center-visible" margin="0.5">Do Something 1</button>
+    <map slot="main">
+      // highlight-next-line
+      <button icon="info" config="do-something" slot="top-center-visible" margin="0.5">Do Something 1</button>
     </map>
   </gxm:taskbar>
 </layout>
@@ -114,13 +118,15 @@ The same config can be used for multiple items in a layout. For example, this al
     "schemaVersion": "1.0",
     "items": [
         {
-            "$type": "map-extension",
-            "id": "default",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
         },
         {
             "$type": "menu-item",
-            "id": "doSomething",
+            // highlight-next-line
+            "id": "do-something",
             "title": "ui.alert",
             "isEnabled": true,
             "iconId": "info",
@@ -143,7 +149,7 @@ The same config can be used for multiple items in a layout. For example, this al
 </TabItem>
 </Tabs>
 
-## Targeting Components with by ID
+## Targeting Components by ID
 
 Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](concepts-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
 
@@ -161,16 +167,18 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 <layout xmlns="https://geocortex.com/layout/v1"
         xmlns:gxm="https://geocortex.com/layout/mobile/v1"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+        xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    // highlight-next-line
     <gxm:taskbar orientation="vertical" id="taskbar">
-        <map id="map-primary" config="default" slot="main">
-            <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
-            <button icon="" config="openDialog" slot="bottom-center-visible" margin="0.5">Open Dialog</button>
+        <map config="default" slot="main">
+            <button icon="info" config="run-workflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
+            <button config="open-dialog" slot="bottom-center-visible" margin="0.5">Open Dialog</button>
         </map>
     </gxm:taskbar>
+      // highlight-next-line
     <dialog id="dialog" active="false">
         <panel>
-            <button icon="info" config="runWorkflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
+            <button icon="info" config="run-workflow" slot="top-center-visible" margin="0.5">Run Workflow in Taskbar</button>
         </panel>
     </dialog>
 </layout>
@@ -185,8 +193,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
     "items": [
         {
             "$type": "map-extension",
-            "id": "default",
-            "webMap": "7e5d9cf959e149af95bb01be8b62c107"
+            "id": "default"
         },
         {
             "$type": "layout",
@@ -196,32 +203,34 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
         },
         {
             "$type": "workflow",
-            "id": "demoWorkflow",
-            "title": "Demo Workflow",
+            "id": "demo-workflow",
+            "title": "Demo Worklfow",
+            // highlight-next-line
             "target": "#taskbar",
             "portalItem": "c3964768dfa84fe5acf7a72ef95dc92b"
         },
         {
             "$type": "menu-item",
-            "id": "runWorkflow",
+            "id": "run-workflow",
             "title": "run.workflow",
             "isEnabled": true,
             "iconId": "info",
             "action": {
                 "name": "workflow.run",
                 "arguments": {
-                    "id": "demoWorkflow"
+                    "id": "demo-workflow"
                 }
             }
         },
         {
             "$type": "menu-item",
-            "id": "openDialog",
+            "id": "open-dialog",
             "title": "Open Dialog",
             "isEnabled": true,
             "iconId": "",
             "action": {
                 "name": "ui.activate",
+                // highlight-next-line
                 "arguments": "dialog"
             }
         }
@@ -290,7 +299,7 @@ In the following example, the app structures a menu with one button, and the lay
   </TabItem>
   <TabItem value="layout">
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
     xmlns="https://geocortex.com/layout/v1"
@@ -299,9 +308,9 @@ In the following example, the app structures a menu with one button, and the lay
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
   <gxm:taskbar id="taskbar" orientation="vertical">
     <!-- Taskbar main content -->
-    <map id="page1-map1" slot="main">
+    <map slot="main">
       <stack margin="0.8" slot="top-right" halign="end">
-        <iwtm config="iwtm" id="IWTM">
+        <iwtm config="iwtm" >
           <user slot="bottom"/>
         </iwtm>
       </stack>
@@ -343,7 +352,7 @@ This example demonstrated a simple application which has a single menu, but the 
         link="concepts-advanced-config"
     />
     <UseCaseCard
-        title="Explore Mobile's built in components"
+        title="Explore Mobile's built-in components"
         description="Dive into Mobile's rich component library in the SDK."
         link="api-components"
     />
