@@ -91,7 +91,7 @@ public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Tempera
 
 ```csharp
 public IOperation<Mischief> NoInputSomeOutput => GetOperation<Mischief>("q.appear");
-public IOperation<Deuterium, WarpSpeed> SomeInputSomeOutput => GetOperation<Deuterium, WarpSpeed>("warpdrive.engage");
+public IOperation<Deuterium, WarpSpeed> SomeInputSomeOutput => GetOperation<Deuterium, WarpSpeed>("warp-drive.engage");
 ```
 
 :::note
@@ -130,7 +130,7 @@ Next, we need to register an implementation for our operation in the `AlertServi
 ```
 
 :::note
-We never have to explicity pass this property because Autofac will automatically inject it.
+We never have to explicitly pass this property because Autofac will automatically inject it.
 :::
 
 2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
@@ -186,7 +186,7 @@ Congratulations! You just created your first custom operation. You can easily te
 
 ## Register Implementation Without an Operations Class
 
-Althought it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can [inject](sdk-dependency-injection.mdx) the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class.
+Although it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can [inject](sdk-dependency-injection.mdx) the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class.
 
 :::tip
 This pattern can be useful for registering dynamically generated commands or implementations.

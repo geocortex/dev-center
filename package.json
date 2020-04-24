@@ -5,7 +5,9 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "lint": "remark -f -q -u validate-links \"docs/**/*.mdx\" && npm run prettier -- --check",
+    "lint": "npm run lint:links && npm run lint:spelling && npm run prettier -- --check",
+    "lint:spelling": "cspell \"{docs,src}/**\"",
+    "lint:links": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
     "prettier": "prettier \"**/*.{css,js,jsx,ts,tsx,md,mdx,json}\"",
     "prettier:write": "npm run prettier -- --write",
     "swizzle": "docusaurus swizzle",
@@ -15,6 +17,7 @@
     "@docusaurus/core": "2.0.0-alpha.50",
     "@docusaurus/preset-classic": "2.0.0-alpha.50",
     "classnames": "^2.2.6",
+    "cspell": "^4.0.57",
     "husky": "^4.2.3",
     "prettier": "^2.0.2",
     "pretty-quick": "^2.0.1",
