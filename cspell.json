@@ -1,11 +1,5 @@
 {
     "words": [
-        "Bootstrapper",
-        "broadview",
-        "ConfigItemtype",
-        "Esri's",
-        "Infima",
-        "MVVM",
         "algolia",
         "anonymize",
         "arcgis",
@@ -13,8 +7,11 @@
         "autowired",
         "autowiring",
         "backgrounded",
+        "bootstrapper",
+        "broadview",
         "callout",
         "classnames",
+        "configitemtype",
         "configurability",
         "cors",
         "customizability",
@@ -24,6 +21,7 @@
         "docusaurus",
         "else's",
         "esri",
+        "esri's",
         "geocortex",
         "geographics",
         "geolocate",
@@ -32,12 +30,14 @@
         "geoprocessing",
         "halign",
         "iactivityhandlerfactory",
+        "infima",
         "ischmitz",
         "iwtm",
         "iwtms",
         "latitudegeo",
         "lifecycle",
         "linq",
+        "mvvm",
         "nameof",
         "netcore",
         "netstandard",
@@ -64,11 +64,17 @@
         "vertigis",
         "viewmodel",
         "webm",
-        "webserver",
         "xcopy"
     ],
     "language": "en-US",
     "ignoreRegExpList": [
         "\\([\\S]*?#[\\S]*?\\)" // internal URLs with a anchor (#) symbol
-    ]
+    ],
+    "ignorePaths": [
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/**",
+        ".vscode"
+    ],
+    "version": "0.1"
 }
