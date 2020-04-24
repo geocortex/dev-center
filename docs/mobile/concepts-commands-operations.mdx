@@ -14,7 +14,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. In Geocortex Mobile, commands and operations are compatible extensions of the [ICommand interface](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/commanding). Operations are implementations of `ICommand` which have been extended to have a `name` property, allowing them to be referenced globally, and an `ExecuteAsync` method, which allows the operation to return a value. Commands and Operations are grouped by namespaces, such as `auth` or `edit`.
+**Commands and operations** are runnable, independent units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. In Geocortex Mobile, commands and operations are compatible extensions of the [ICommand interface](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/commanding). Operations are implementations of `ICommand` which have been extended to have a `name` property, allowing them to be referenced globally, and an `ExecuteAsync` method, which allows the operation to return a value. Commands and Operations are grouped by namespaces, such as `auth` or `edit`.
 
 ```
 auth.sign-in
@@ -27,7 +27,7 @@ edit.delete-features
 
 ## Passing Arguments
 
-Commands and operations can receive arguments that affect their behaviour. A command or operation can either be configured with no explicit arguments, in which case it receives an argument from the context it is run in, or it can be configured with explicit, named, arguments.
+Commands and operations can receive arguments that affect their behavior. A command or operation can either be configured with no explicit arguments, in which case it receives an argument from the context it is run in, or it can be configured with explicit, named, arguments.
 
 ### Explicit Named Arguments
 

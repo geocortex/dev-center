@@ -113,11 +113,3 @@ For example, here's references to a small, medium, and large layout in the `app.
   ]
 }
 ```
-
-## Custom App Items
-
-App items in Geocortex Mobile correspond to a class that extends `VisualAppItem` and registers with **Autofac** as an `AppItem` type, like the `HarmlessComponentConfiguration` in the [app config use case](usecases-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
-
-<AutofacSnippet />
-
-Registering a class in this manner makes mobile aware of a new **app item type**, which can be added to the items list in the `app.json` with the appropriate `$type` specified.
