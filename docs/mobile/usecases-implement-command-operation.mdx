@@ -1,0 +1,207 @@
+---
+title: Custom Commands and Operations
+description: Geocortex Mobile - Learn how to implement a custom command or operation
+---
+
+import AutofacSnippet from "../snippets/autofac-mobile.mdx";
+import PrereqsSnippet from "./snippets/prereqs.mdx";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+:::tip
+Geocortex Mobile has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors. If these Commands and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-map-click-behavior.mdx) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+:::
+
+This article will walk you through implementing a custom command in Geocortex Mobile that displays an alert.
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+## Create the Backing Service
+
+Every Command or Operation in Geocortex Mobile needs to be registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
+
+1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
+2. In the file, add a new service class `AlertService` and register it with **Autofac**.
+
+<AutofacSnippet />
+
+```csharp
+using App1.Services.AlertService;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Services;
+using System.Threading.Tasks;
+
+[assembly: Service(typeof(Service), PropertiesAutowired = true)]
+namespace App1.Services.AlertService
+{
+    class AlertService : ServiceBase
+    {
+        protected override Task DoInitialize()
+        {
+            return Task.CompletedTask;
+        }
+    }
+}
+```
+
+:::info
+The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `AlertService: ServiceBase`. These two pieces register the service with Autofac and Geocortex Mobile and cause it to be initialized on startup.
+:::
+
+3. Create a class `Services/AlertOperations` under the platform agnostic project.
+4. In the file, add a new class `AlertOperations` and register it with Autofac.
+
+```csharp
+using App1.Services.AlertOperations;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Messaging;
+using Geocortex.Mobile.Infrastructure.Messaging;
+
+[assembly: Export(typeof(AlertOperations), SingleInstance = true)]
+namespace App1.Services.AlertOperations
+{
+    class AlertOperations : OperationsBase
+    {
+        public AlertOperations(IOperationRegistry operationRegistry)
+            : base(operationRegistry)
+        {
+        }
+    }
+}
+```
+
+## Implementing the Operation
+
+Creating a new Operation in mobile consists of two pieces:
+
+-   Defining the Operation's name, inputs, and outputs
+-   Registering an "Execution" function for the operation
+    -   This function will be the actual code that executes when the operation is called.
+
+### Define the Operation
+
+An Operation is defined in the class that extends `OperationsBase`. In our example, it's `AlertOperations`.
+
+-   An `IVoidOperation` produces no output, and optionally takes an input.
+
+```csharp
+public IVoidOperation NoInputNoOutput => GetVoidOperation("fire.phasers");
+public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Temperature>("tea.earl-grey");
+```
+
+-   An `IOperation` produces an output, and optionally takes an input.
+
+```csharp
+public IOperation<Mischief> NoInputSomeOutput => GetOperation<Mischief>("q.appear");
+public IOperation<Deuterium, WarpSpeed> SomeInputSomeOutput => GetOperation<Deuterium, WarpSpeed>("warpdrive.engage");
+```
+
+:::note
+Operation names in Geocortex Mobile generally take the format `<category>.<name>`, with multiple words `kebab-cased`.
+:::
+
+For this example, let's define a operation with some input and no output.
+
+```csharp
+class AlertOperations : OperationsBase
+{
+    public IVoidOperation<string> DisplayCustomAlert => GetVoidOperation<string>("custom-alert.display");
+
+    public AlertOperations(IOperationRegistry operationRegistry)
+        : base(operationRegistry)
+    {
+    }
+}
+```
+
+### Register an Implementation for the Operation
+
+Next, we need to register an implementation for our operation in the `AlertService`.
+
+1. Add a public property `AlertOperations` to the Service.
+
+```csharp
+    [assembly: Service(typeof(Service), PropertiesAutowired = true)]
+    class AlertService : ServiceBase
+    {
+        public AlertOperations AlertOperations { get; set; }
+        ...
+    }
+```
+
+:::note
+We never have to explicitly set this property because of some [Autofac autowiring magic](https://autofaccn.readthedocs.io/en/latest/register/prop-method-injection.html) in the assembly attribute.
+:::
+
+2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
+
+```csharp
+class AlertService : ServiceBase
+{
+    public AlertOperations AlertOperations { get; set; }
+
+    protected override Task DoInitialize()
+    {
+        this.AlertOperations.DisplayCustomAlert.RegisterExecute(
+            (args) =>
+            {
+                Application.Current.MainPage.DisplayAlert("Custom Alert", args, "OK");
+                return Task.FromResult((object)null);
+            }, this);
+
+        return Task.CompletedTask;
+    }
+}
+```
+
+:::note
+Multiple implementations can be registered for an Command or Operation.
+:::
+
+Congratulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](usecases-change-default-behavior.mdx).
+
+```json
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "map-extension",
+            "id": "map1",
+            "onClick": [ "tasks.identify", "highlights.pulse", "results.display" ],
+            "onInitialized": [
+                {
+                    "name": "custom-alert.display",
+                    "arguments": "This is a custom operation!"
+                }
+            ]
+        },
+        ...
+    ]
+}
+```
+
+## Next Steps
+
+Commands and operations are the logical building blocks of executing custom behavior in Geocortex Mobile, but sometimes you need to take things a bit further. Creating custom components can allow you to design completely custom UI for Geocortex Mobile, and creating background services can enable the execution of tasks on an arbitrary schedule.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations"
+        description="Learn more about commands and operations"
+        link="concepts-commands-operations"
+    />
+    <UseCaseCard
+        title="Implement a Custom Component with UI"
+        description="Learn how to implement a custom component using the Geocortex Mobile SDK"
+        link="usecases-implement-component-with-ui"
+    />
+    <UseCaseCard
+        title="Implement a Custom Service"
+        description="Learn how to implement a custom service using the Geocortex Mobile SDK"
+        link="usecases-implement-service"
+    />
+</UseCaseContainer>

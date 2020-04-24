@@ -14,7 +14,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-**Commands and operations** are runnable, independant units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to define custom commands and operations for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output. Commands and Operations are grouped by namespace, for example;
+**Commands and operations** are runnable, independent units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output. Commands and Operations are grouped by namespace, for example:
 
 ```
 auth.sign-in
@@ -23,11 +23,11 @@ edit.add-feature
 edit.delete-features
 ```
 
-[Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation with Geocortex Mobile. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](implement-command-operation.mdx) are registered with [Custom Services](implement-service.mdx) or [Custom Components](implement-component-with-ui.mdx) in this manner.
+[Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Mobile. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](usecases-implement-command-operation.mdx) are registered with [Custom Services](usecases-implement-service.mdx) or [Custom Components](usecases-implement-component-with-ui.mdx) in this manner.
 
-### Argument Passing
+## Passing Arguments
 
-Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the various behaviors of a Feature Details component.
+Commands and Operations are most commonly used to configure the behavior of components. For example, here's configuration for the various behaviors of a `<feature-details>` component.
 
 ```json
 {
@@ -59,16 +59,16 @@ In this example, when a feature is deleted,
 -   The results details are hidden,
 -   The feature is removed from the results list.
 
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a Feature Details component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next behavior in line will receive one of two possible inputs.
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next step in line will receive one of two possible inputs.
 
-1. If the previous behavior was a command (which doesn't produce output), then the original input is passed on to the next behavior.
-2. If the previous behavior was an operation (which produces an output), then the output of that operation is passed onto the next behavior.
+1. If the previous step was a command (which doesn't produce output), then the original input is passed on to the next step.
+2. If the previous step was an operation (which produces an output), then the output of that operation is passed onto the next step.
 
 In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example.
 
-### Passing Named Arguments
+## Passing Named Arguments
 
-If you choose, you can override the default arguments passed into a command or operation by provide an `arguments` property.
+If you choose, you can override the default arguments passed into a command or operation by providing an `arguments` property.
 
 ```json
 {
@@ -92,9 +92,9 @@ If you choose, you can override the default arguments passed into a command or o
 
 <!-- TODO-After-API change autocomplete linting note to API definitions -->
 
-This will override the default argument passing behavior for that command or operation. Each command has typed arguments that can will have [autocomplete linting in the app.json](concepts-advanced-config.mdx#autocomplete-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCase'd instead of PascalCased.
+This will override the default argument passing behavior for that command or operation. Each command has typed arguments that can will have [autocomplete in the app.json](concepts-advanced-config.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
 
-### Example
+## Example: Configured Map and I Want To Menu
 
 <Tabs
   defaultValue="app"
@@ -119,9 +119,12 @@ This will override the default argument passing behavior for that command or ope
         },
         {
             "$type": "map-extension",
-            "id": "demoMap",
-            "webMap": "448e4e75180441709a3df35aea2bca5b",
-            "onClick": ["tasks.identify", "highlights.add-focus", "highlights.pulse"]
+            "id": "demo-map",
+            "onClick": [
+                "tasks.identify",
+                "highlights.add-focus",
+                "highlights.pulse"
+            ]
         },
         {
             "$type": "menu",
@@ -135,7 +138,7 @@ This will override the default argument passing behavior for that command or ope
                         {
                             "name": "map.zoom-to-initial-viewpoint",
                             "arguments": {
-                                "maps": "item://map-extension/demoMap"
+                                "maps": "item://map-extension/demo-map"
                             }
                         }
                     ]
@@ -157,7 +160,7 @@ This will override the default argument passing behavior for that command or ope
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
   <gxm:taskbar id="taskbar" orientation="vertical">
-    <map config="demoMap" slot="main">
+    <map config="demo-map" slot="main">
     <stack margin="0.8" slot="top-right">
       <iwtm config="iwtm" />
     </stack>
@@ -187,6 +190,8 @@ This example demonstrates two different types of argument passing behavior. The 
 }
 ```
 
+<!-- TODO - tasks.identify operation direct link -->
+
 `tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape:
 
 ```json
@@ -197,15 +202,17 @@ This example demonstrates two different types of argument passing behavior. The 
 }
 ```
 
-`highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation (or the original input if no operations have run), so it will also receive the output of `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
+`highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation, `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
 :::tip
-Check out [Change Default Behavior](change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.  
+Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.
 :::
 
-The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a [MapExtensionArgs](API Link), which is provided as a named argument. The `maps` property in the argument references the demoMap in the config through an **Item Uri**. Item URI's are a way of referencing other items within the app config. See [Item URI's](concepts-advanced-config.mdx#item-uris-and-resource-uris) for more details.
+<!-- TODO-API - direct link to MapExtensionArgs -->
 
-Mobile has a large array of built in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the demoMap in the config through an **Item Uri**. Item URIs are a way of referencing other items within the app config. See [Item URIs](concepts-advanced-config.mdx#item-uris-and-resource-uris) for more details.
+
+Geocortex Mobile has a large array of built-in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.
 
 <UseCaseContainer>
     <UseCaseCard
@@ -215,13 +222,13 @@ Mobile has a large array of built in command and operations that you can chain t
     />
     <UseCaseCard
         title="Configure Commands and Operations"
-        description="Change built in behavior or add new behavior using app config and layout"
-        link="change-default-behavior"
+        description="Change built-in behavior or add new behavior using app config and layout"
+        link="usecases-change-default-behavior"
     />
     <UseCaseCard
         title="Build your own Commands and Operations"
         description="Use the SDK to implement custom commands and operations"
-        link="custom-command-operation"
+        link="usecases-implement-command-operation"
     />
     <UseCaseCard
         title="Learn about Events built into Geocortex Mobile"

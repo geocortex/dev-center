@@ -11,7 +11,90 @@ module.exports = {
         {
             type: "category",
             label: "Concepts",
-            items: ["web/concepts-commands-operations"],
+            items: [
+                "web/concepts-key-concepts",
+                "web/concepts-layout",
+                "web/concepts-app-config",
+                "web/concepts-commands-operations",
+                "web/concepts-components-services",
+                "web/concepts-events",
+                {
+                    type: "category",
+                    label: "Advanced Topics",
+                    items: [
+                        "web/concepts-advanced-layout",
+                        "web/concepts-advanced-config",
+                    ],
+                },
+            ],
+        },
+        {
+            type: "category",
+            label: "Use Cases",
+            items: [
+                {
+                    type: "category",
+                    label: "Basics",
+                    items: [
+                        "web/usecases-change-default-behavior",
+                        "web/usecases-look-and-feel",
+                        "web/usecases-internationalization",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Workflow",
+                    items: [
+                        "web/usecases-display-custom-form",
+                        "web/usecases-implement-custom-form-elements",
+                        "web/usecases-implement-custom-activity",
+                        "web/usecases-change-default-map-click-behavior",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Advanced",
+                    items: [
+                        "web/usecases-implement-command-operation",
+                        "web/usecases-implement-component-with-ui",
+                        "web/usecases-components-commands-operations",
+                        "web/usecases-implement-component-participate-app-config",
+                        "web/usecases-component-interactions",
+                        "web/usecases-implement-service",
+                        "web/usecases-implement-event",
+                    ],
+                },
+            ],
+        },
+        {
+            type: "category",
+            label: "Getting Started with the SDK",
+            items: [
+                "web/sdk-overview",
+                "web/sdk-create-component",
+                "web/sdk-create-service",
+                "web/sdk-deployment",
+                {
+                    type: "category",
+                    label: "Common Patterns",
+                    items: [
+                        "web/sdk-service-injection",
+                        "web/sdk-component-hooks",
+                        "web/sdk-ui-context",
+                        "web/sdk-reference-third-party-libraries",
+                    ],
+                },
+            ],
+        },
+        {
+            type: "category",
+            label: "API",
+            items: [
+                "web/api-message-bus",
+                "web/api-commands-operations",
+                "web/api-events",
+                "web/api-components",
+            ],
         },
     ],
     workflow: [
@@ -24,28 +107,28 @@ module.exports = {
                     type: "category",
                     label: "Web Applications",
                     items: [
-                        "workflow/implement-custom-activity-web",
-                        "workflow/access-app-properties-web",
-                        "workflow/implement-custom-form-elements-web",
-                        "workflow/reference-third-party-library-web",
+                        "workflow/usecases-web-implement-custom-activity",
+                        "workflow/usecases-web-access-app-properties",
+                        "workflow/usecases-web-implement-custom-form-elements",
+                        "workflow/usecases-web-reference-third-party-library",
                     ],
                 },
                 {
                     type: "category",
                     label: "Geocortex Mobile",
                     items: [
-                        "workflow/implement-custom-activity-mobile",
-                        "workflow/access-app-properties-mobile",
-                        "workflow/implement-custom-form-elements-mobile",
-                        "workflow/reference-third-party-library-mobile",
+                        "workflow/usecases-mobile-implement-custom-activity",
+                        "workflow/usecases-mobile-access-app-properties",
+                        "workflow/usecases-mobile-implement-custom-form-elements",
+                        "workflow/usecases-mobile-reference-third-party-library",
                     ],
                 },
                 {
                     type: "category",
                     label: "Geocortex Workflow Server",
                     items: [
-                        "workflow/implement-custom-activity-server",
-                        "workflow/reference-third-party-library-server",
+                        "workflow/usecases-server-implement-custom-activity",
+                        "workflow/usecases-server-reference-third-party-library",
                     ],
                 },
             ],
@@ -60,19 +143,19 @@ module.exports = {
                     type: "category",
                     label: "Web Applications",
                     items: [
-                        "workflow/getting-started-web",
-                        "workflow/integrating-the-esri-api-web",
-                        "workflow/typescript-activity-block-tags",
+                        "workflow/sdk-web-getting-started",
+                        "workflow/sdk-web-integrating-the-arcgis-api",
+                        "workflow/sdk-web-activity-block-tags",
                     ],
                 },
                 {
                     type: "category",
                     label: ".NET Applications",
                     items: [
-                        "workflow/getting-started-mobile",
-                        "workflow/getting-started-server",
-                        "workflow/register-dotnet-activities",
-                        "workflow/integrating-the-esri-api-dotnet",
+                        "workflow/sdk-net-getting-started-mobile",
+                        "workflow/sdk-net-getting-started-server",
+                        "workflow/sdk-net-register-activities",
+                        "workflow/sdk-net-integrating-the-arcgis-api",
                     ],
                 },
             ],
@@ -80,7 +163,7 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: ["workflow/workflow-server-api"],
+            items: ["workflow/api-server-rest"],
         },
     ],
     mobile: [
@@ -93,10 +176,10 @@ module.exports = {
                     type: "category",
                     label: "Basics",
                     items: [
-                        "mobile/change-default-behavior",
-                        "mobile/look-and-feel",
-                        "mobile/add-medium-layout",
-                        "mobile/internationalization",
+                        "mobile/usecases-change-default-behavior",
+                        "mobile/usecases-look-and-feel",
+                        "mobile/usecases-add-medium-layout",
+                        "mobile/usecases-internationalization",
                     ],
                 },
                 {
@@ -109,28 +192,30 @@ module.exports = {
                             href:
                                 "https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat",
                         },
-                        "mobile/change-default-search-behavior",
                         {
                             type: "link",
                             label: "Implement Custom Workflow Form Elements",
-                            href: "../workflow/implement-custom-form-elements-mobile",
+                            href:
+                                "../workflow/usecases-mobile-implement-custom-form-elements",
                         },
                         {
                             type: "link",
                             label: "Implement Custom Workflow Activity",
-                            href: "../workflow/implement-custom-activity-mobile",
+                            href:
+                                "../workflow/usecases-mobile-implement-custom-activity",
                         },
+                        "mobile/usecases-change-default-map-click-behavior",
                     ],
                 },
                 {
                     type: "category",
                     label: "Advanced",
                     items: [
-                        "mobile/implement-command-operation",
-                        "mobile/implement-component-with-ui",
-                        "mobile/implement-component-participate-app-config",
-                        "mobile/implement-service",
-                        "mobile/implement-event",
+                        "mobile/usecases-implement-command-operation",
+                        "mobile/usecases-implement-component-with-ui",
+                        "mobile/usecases-implement-component-participate-app-config",
+                        "mobile/usecases-implement-service",
+                        "mobile/usecases-implement-event",
                     ],
                 },
             ],
@@ -143,12 +228,15 @@ module.exports = {
                 "mobile/concepts-layout",
                 "mobile/concepts-app-config",
                 "mobile/concepts-commands-operations",
-                "mobile/concepts-events",
                 "mobile/concepts-components-services",
+                "mobile/concepts-events",
                 {
                     type: "category",
                     label: "Advanced Topics",
-                    items: ["mobile/concepts-advanced-layout", "mobile/concepts-advanced-config"],
+                    items: [
+                        "mobile/concepts-advanced-layout",
+                        "mobile/concepts-advanced-config",
+                    ],
                 },
             ],
         },
@@ -156,15 +244,15 @@ module.exports = {
             type: "category",
             label: "Getting Started with the SDK",
             items: [
-                "mobile/quick-start",
-                "mobile/samples",
+                "mobile/sdk-quick-start",
+                "mobile/sdk-samples",
                 {
                     type: "category",
-                    label: "Common Mobile SDK Patterns",
+                    label: "Common Patterns",
                     items: [
-                        "mobile/dependency-injection",
-                        "mobile/viewmodel-helper-class",
-                        "mobile/memory-leaks",
+                        "mobile/sdk-dependency-injection",
+                        "mobile/sdk-viewmodel-helper-class",
+                        "mobile/sdk-memory-leaks",
                     ],
                 },
             ],
@@ -172,7 +260,11 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: ["mobile/api-overview", "mobile/api-commands-operations", "mobile/api-events"],
+            items: [
+                "mobile/api-overview",
+                "mobile/api-commands-operations",
+                "mobile/api-events",
+            ],
         },
     ],
 };
