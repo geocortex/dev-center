@@ -58,6 +58,7 @@
         "unmount",
         "unshift",
         "usecases",
+        "usewatchandrerender",
         "valign",
         "vertigis",
         "viewmodel",
@@ -65,9 +66,6 @@
         "xcopy"
     ],
     "language": "en-US",
-    "ignoreRegExpList": [
-        "\\([\\S]*?#[\\S]*?\\)" // internal URLs with a anchor (#) symbol
-    ],
     "ignorePaths": [
         "**/node_modules/**",
         "**/vscode-extension/**",
