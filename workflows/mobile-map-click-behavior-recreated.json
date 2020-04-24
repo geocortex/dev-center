@@ -1,0 +1,135 @@
+{
+    "components": [
+        {
+            "id": 2,
+            "steps": [
+                {
+                    "id": 3,
+                    "inputs": {},
+                    "position": "10,-80",
+                    "purpose": "start",
+                    "title": "Start",
+                    "transitions": [
+                        {
+                            "id": 21,
+                            "position": "100,-20 100,30",
+                            "target": {
+                                "id": 20
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::GetWorkflowInputs",
+                    "id": 20,
+                    "inputs": {},
+                    "name": "getWorkflowInputs1",
+                    "position": "-20,30",
+                    "title": "Get Workflow Inputs",
+                    "transitions": [
+                        {
+                            "id": 28,
+                            "position": "100,100 100,150",
+                            "target": {
+                                "id": 22
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:app::RunOperation",
+                    "id": 22,
+                    "inputs": {
+                        "operationName": "tasks.identify",
+                        "operationParameter": {
+                            "accessors": ["$getWorkflowInputs1"],
+                            "annotations": [
+                                {
+                                    "count": 19,
+                                    "index": 0,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "$getWorkflowInputs1.inputs.context",
+                            "source": "$getWorkflowInputs1.inputs.context"
+                        }
+                    },
+                    "name": "tasks_identify",
+                    "position": "-20,150",
+                    "title": "tasks.identify",
+                    "transitions": [
+                        {
+                            "id": 25,
+                            "position": "100,220 100,290",
+                            "target": {
+                                "id": 24
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:app::RunCommand",
+                    "id": 24,
+                    "inputs": {
+                        "commandName": "highlights.pulse",
+                        "commandParameter": {
+                            "accessors": ["$tasks_identify"],
+                            "annotations": [
+                                {
+                                    "count": 15,
+                                    "index": 0,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "$tasks_identify.result",
+                            "source": "$tasks_identify.result"
+                        }
+                    },
+                    "name": "highlights_pulse",
+                    "position": "-20,290",
+                    "title": "highlights.pulse",
+                    "transitions": [
+                        {
+                            "id": 27,
+                            "position": "100,360 100,420",
+                            "target": {
+                                "id": 26
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:app::RunCommand",
+                    "id": 26,
+                    "inputs": {
+                        "commandName": "results.display",
+                        "commandParameter": {
+                            "accessors": ["$tasks_identify"],
+                            "annotations": [
+                                {
+                                    "count": 15,
+                                    "index": 0,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "$tasks_identify.result",
+                            "source": "$tasks_identify.result"
+                        }
+                    },
+                    "name": "results_display",
+                    "position": "-20,420",
+                    "title": "results.display"
+                }
+            ]
+        }
+    ],
+    "deploymentConfig": {
+        "supportedApps": {
+            "GMV": true
+        },
+        "worksOffline": true
+    },
+    "start": {
+        "id": 3
+    }
+}
