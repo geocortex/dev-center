@@ -91,8 +91,7 @@ module.exports = {
             label: "API",
             items: [
                 "web/api-message-bus",
-                "web/api-commands-operations",
-                "web/api-events",
+                "web/api-commands-operations-events",
                 "web/api-components",
             ],
         },
@@ -262,8 +261,7 @@ module.exports = {
             label: "API",
             items: [
                 "mobile/api-overview",
-                "mobile/api-commands-operations",
-                "mobile/api-events",
+                "mobile/api-commands-operations-events",
             ],
         },
     ],

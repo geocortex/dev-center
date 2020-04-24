@@ -36,13 +36,13 @@ export default function MessagingDefinition(props: MessagingDefinitionProps) {
                     {definition.description}
                 </div>
             )}
-            <h4>Properties</h4>
+            <div>Properties</div>
             {(!definition.properties ||
                 Object.keys(definition.properties).length === 0) && (
                 <em>This object doesn't currently contain any properties.</em>
             )}
             {definition.properties && (
-                <div className="margin-left--md">
+                <div className="margin-left--sm">
                     {Object.entries(definition.properties).map(
                         ([propName, propDef]) => (
                             <div key={propName} className="margin-bottom--md">
@@ -56,7 +56,7 @@ export default function MessagingDefinition(props: MessagingDefinitionProps) {
                                         </span>
                                     )}
                                 </div>
-                                <div className="margin-left--md">
+                                <div className="margin-left--sm">
                                     <MessagingArgument
                                         definition={propDef}
                                         schema={schema}

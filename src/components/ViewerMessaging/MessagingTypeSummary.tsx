@@ -60,8 +60,8 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
                             </div>
                         )}
                         <div className="margin-bottom--md">
-                            <h4>Argument</h4>
-                            <div className="margin-left--md">
+                            <div>Argument</div>
+                            <div className="margin-left--sm">
                                 <MessagingArgument
                                     definition={item.input}
                                     schema={schema}
@@ -70,8 +70,8 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
                         </div>
                         {type === "operation" && item.output && (
                             <>
-                                <h4>Result</h4>
-                                <div className="margin-left--md">
+                                <div>Result</div>
+                                <div className="margin-left--sm">
                                     <MessagingArgument
                                         definition={item.output}
                                         schema={schema}
