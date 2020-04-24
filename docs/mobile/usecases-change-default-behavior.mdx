@@ -1,0 +1,85 @@
+---
+title: Change Default Application Behavior
+description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change default application behavior
+---
+
+import PrereqsSnippet from "./snippets/prereqs.mdx";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+Many of the behaviors of Geocortex Mobile's built in [components](concepts-components-services.mdx) are configurable through the [app config](concepts-app-config.mdx). If you browse the `app.json` that is included with the [Quickstart](sdk-quick-start.mdx), you'll see properties like `action` or `onClick` that take an array of [commands and operations](concepts-commands-operations.mdx).
+
+```json
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "map-extension",
+            "id": "map1",
+            "onClick": [ "tasks.identify", "highlights.pulse", "results.display" ]
+        },
+        ...
+        {
+            "$type": "menu-item",
+            "id": "addPointAtCenterAction",
+            "title": "Add Measurement Point at Center",
+            "action": [
+                {
+                    "name": "sketching.add-point-at-center",
+                    "arguments": {
+                        "maps": "item://map-extension/map1"
+                    }
+                }
+            ]
+        },
+        ...
+    ]
+}
+```
+
+All behaviors defined in this manner are configurable. Commands or operations can be added or removed from the chain to modify its behavior. Further, it's possible to configure a `workflow.run` command that [executes custom behavior](usecases-change-default-map-click-behavior.mdx), or a [custom command and operation](usecases-implement-command-operation.mdx).
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+## Example
+
+This is modified configuration for the `map1` Map Extension in the Quickstart. The map's `onClick` behavior has been changed to remove the `highlights.pulse` command and execute `map.zoom-to-features` instead.
+
+```json
+{
+    "$type": "map-extension",
+    "id": "map1",
+    "onClick": [ "tasks.identify", "results.display", "map.zoom-to-features" ]
+},
+```
+
+## Next Steps
+
+Geocortex Mobile comes with many built-in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviors without writing custom code. If you cannot create the behavior you want with Geocortex Workflow, it might be time to look into using the Geocortex Mobile SDK to implement a custom command or operation.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations"
+        description="Learn more about commands and operations"
+        link="concepts-commands-operations"
+    />
+    <UseCaseCard
+        title="Change Geocortex Mobile's Default Map Click Behavior"
+        description="Learn how to Geocortex Workflow to override Geocortex Mobile's default map click behavior"
+        link="usecases-change-default-map-click-behavior"
+    />
+    <UseCaseCard
+        title="Geocortex Workflow"
+        description="Learn more about Geocortex Workflow"
+        link="../workflow/overview"
+    />
+    <UseCaseCard
+        title="Implement Custom Command/Operation"
+        description="Implement a custom Command/Operation with the Geocortex Mobile SDK"
+        link="usecases-implement-command-operation"
+    />
+</UseCaseContainer>

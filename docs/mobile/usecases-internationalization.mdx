@@ -1,0 +1,49 @@
+---
+title: Internationalization
+description: Geocortex Mobile - Internationalization
+---
+
+import PrereqsSnippet from "./snippets/prereqs.mdx";
+
+Geocortex Mobile, being a Xamarin Forms Application, comes with built-in [support for full internationalization](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/localization/text?pivots=windows) of existing and new language strings.
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+## Specifying a Default Language
+
+Xamarin forms describes how to [specify a default language for your app](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/localization/text?pivots=windows#specify-the-default-culture).
+
+## Adding New Cultures for Existing Language Strings
+
+The [Quickstart](sdk-quick-start.mdx) project comes with multiple AppResources files in the root of the platform agnostic project to provide an example of adding a culture to your application.
+
+## Providing Language Strings for a Component
+
+<!-- TODO: Validate link when available -->
+
+The [SDK Samples](sdk-samples.mdx) project includes a [internationalization example](https://github.com/mobile-sdk-samples/samples/internationalization) which demonstrates how to configure resource files on a component level.
+
+## Language Strings and App Config
+
+All language strings used for properties in the [app config](concepts-app-config.mdx), like "title" or "description", are automatically translated by the application.
+
+```json
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "menu-item",
+            "id": "zoom-to-extent",
+            "iconId": "zoom-extent",
+            "title": "language-zoom-extent-title",
+            "description": "language-zoom-extent-description",
+            "action": "map.zoom-to-layer-extent"
+        },
+        ...
+    ]
+}
+```
