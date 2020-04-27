@@ -1,7 +1,10 @@
+import Heading from "@theme/Heading";
 import React from "react";
 import MessagingArgument from "./MessagingArgument";
 import { MessageSchema, MessageDefinition } from "./schema";
 import { getActionOrEventDefinitionLinkId } from "./utils";
+
+const H3 = Heading("h3");
 
 interface MessagingTypeSummaryProps {
     schema: MessageSchema;
@@ -49,11 +52,7 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
 
                 return (
                     <div key={key} className="margin-bottom--lg">
-                        <h3>
-                            <a id={linkId} href={`#${linkId}`}>
-                                {key}
-                            </a>
-                        </h3>
+                        <H3 id={linkId}>{key}</H3>
                         {item.description && (
                             <div className="margin-bottom--md">
                                 {item.description}

@@ -1,7 +1,10 @@
+import Heading from "@theme/Heading";
 import React from "react";
 import { MessageSchema } from "./schema";
 import { trimDefinitionsName, getArgumentDefinitionLinkId } from "./utils";
 import MessagingArgument from "./MessagingArgument";
+
+const H3 = Heading("h3");
 
 interface MessagingDefinitionProps {
     definitionName: string;
@@ -26,11 +29,12 @@ export default function MessagingDefinition(props: MessagingDefinitionProps) {
 
     return (
         <div className="margin-bottom--lg">
-            <h3>
+            <H3 id={id}>{trimmedName}</H3>
+            {/* <h3>
                 <a id={id} href={`#${id}`}>
                     {trimmedName}
                 </a>
-            </h3>
+            </h3> */}
             {definition.description && (
                 <div className="margin-bottom--md">
                     {definition.description}
