@@ -30,11 +30,6 @@ export default function MessagingDefinition(props: MessagingDefinitionProps) {
     return (
         <div className="margin-bottom--lg">
             <H3 id={id}>{trimmedName}</H3>
-            {/* <h3>
-                <a id={id} href={`#${id}`}>
-                    {trimmedName}
-                </a>
-            </h3> */}
             {definition.description && (
                 <div className="margin-bottom--md">
                     {definition.description}
