@@ -16,8 +16,6 @@ module.exports = {
                 "web/concepts-layout",
                 "web/concepts-app-config",
                 "web/concepts-commands-operations",
-                "web/concepts-components-services",
-                "web/concepts-events",
                 {
                     type: "category",
                     label: "Advanced Concepts",
@@ -32,36 +30,16 @@ module.exports = {
             type: "category",
             label: "Use Cases",
             items: [
+                "web/usecases-change-default-behavior",
+                "web/usecases-look-and-feel",
                 {
                     type: "category",
-                    label: "Basics",
-                    items: [
-                        "web/usecases-change-default-behavior",
-                        "web/usecases-look-and-feel",
-                        "web/usecases-internationalization",
-                    ],
-                },
-                {
-                    type: "category",
-                    label: "Workflow",
+                    label: "Configuring Workflows",
                     items: [
                         "web/usecases-display-custom-form",
                         "web/usecases-implement-custom-form-elements",
                         "web/usecases-implement-custom-activity",
                         "web/usecases-change-default-map-click-behavior",
-                    ],
-                },
-                {
-                    type: "category",
-                    label: "Advanced",
-                    items: [
-                        "web/usecases-implement-command-operation",
-                        "web/usecases-implement-component-with-ui",
-                        "web/usecases-components-commands-operations",
-                        "web/usecases-implement-component-participate-app-config",
-                        "web/usecases-component-interactions",
-                        "web/usecases-implement-service",
-                        "web/usecases-implement-event",
                     ],
                 },
             ],
@@ -71,19 +49,49 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
-                "web/sdk-create-component",
-                "web/sdk-create-service",
-                "web/sdk-deployment",
+                "web/concepts-components-services",
                 {
                     type: "category",
-                    label: "Common Patterns",
+                    label: "Components",
                     items: [
-                        "web/sdk-service-injection",
+                        "web/sdk-components-overview",
+                        "web/sdk-create-component",
                         "web/sdk-component-hooks",
+                        "web/usecases-internationalization",
                         "web/sdk-ui-context",
-                        "web/sdk-reference-third-party-libraries",
+                        "web/usecases-components-commands-operations",
+                        "web/usecases-component-interactions",
                     ],
                 },
+                {
+                    type: "category",
+                    label: "Services",
+                    items: [
+                        "web/sdk-services-overview",
+                        "web/sdk-create-service",
+                        "web/sdk-service-injection",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Events",
+                    items: [
+                        "web/concepts-events",
+                        "web/usecases-implement-event",
+                    ],
+                },
+                "web/sdk-deployment",
+                "web/sdk-reference-third-party-libraries",
+            ],
+        },
+        {
+            type: "category",
+            label: "SDK Use Cases",
+            items: [
+                "web/usecases-implement-command-operation",
+                "web/usecases-implement-component-with-ui",
+                "web/usecases-implement-component-participate-app-config",
+                "web/usecases-implement-service",
             ],
         },
         {
