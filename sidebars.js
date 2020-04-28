@@ -23,7 +23,7 @@ module.exports = {
                     label: "Advanced Concepts",
                     items: [
                         "web/concepts-advanced-layout",
-                        "web/concepts-advanced-config",
+                        "web/concepts-advanced-app-config",
                     ],
                 },
             ],
@@ -183,7 +183,7 @@ module.exports = {
                     label: "Advanced Concepts",
                     items: [
                         "mobile/concepts-advanced-layout",
-                        "mobile/concepts-advanced-config",
+                        "mobile/concepts-advanced-app-config",
                     ],
                 },
             ],
