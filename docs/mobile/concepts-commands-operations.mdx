@@ -14,7 +14,11 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](concepts-key-concepts.mdx).
 :::
 
-**Commands and operations** are runnable, independent units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output. Commands and Operations are grouped by namespace, for example:
+**Commands and operations** are runnable, independent units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output.
+
+The full list of existing commands and operations available in Geocortex Mobile can be [found in the API documentation](api-commands-operations-events.mdx).
+
+Commands and Operations are grouped by namespace, for example:
 
 ```
 auth.sign-in
@@ -192,7 +196,7 @@ This example demonstrates two different types of argument passing behavior. The 
 
 <!-- TODO - tasks.identify operation direct link -->
 
-`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape:
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations-events.mdx), `tasks.identify` has output with the shape:
 
 ```json
 {
