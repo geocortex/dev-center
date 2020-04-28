@@ -20,10 +20,10 @@ module.exports = {
                 "web/concepts-events",
                 {
                     type: "category",
-                    label: "Advanced Topics",
+                    label: "Advanced Concepts",
                     items: [
                         "web/concepts-advanced-layout",
-                        "web/concepts-advanced-config",
+                        "web/concepts-advanced-app-config",
                     ],
                 },
             ],
@@ -98,6 +98,7 @@ module.exports = {
     ],
     workflow: [
         "workflow/overview",
+        "workflow/concepts-key-concepts",
         {
             type: "category",
             label: "Use Cases",
@@ -132,7 +133,6 @@ module.exports = {
                 },
             ],
         },
-        "workflow/concepts-key-concepts",
         {
             type: "category",
             label: "Getting Started with the SDK",
@@ -167,6 +167,26 @@ module.exports = {
     ],
     mobile: [
         "mobile/overview",
+        {
+            type: "category",
+            label: "Concepts",
+            items: [
+                "mobile/concepts-key-concepts",
+                "mobile/concepts-layout",
+                "mobile/concepts-app-config",
+                "mobile/concepts-commands-operations",
+                "mobile/concepts-components-services",
+                "mobile/concepts-events",
+                {
+                    type: "category",
+                    label: "Advanced Concepts",
+                    items: [
+                        "mobile/concepts-advanced-layout",
+                        "mobile/concepts-advanced-app-config",
+                    ],
+                },
+            ],
+        },
         {
             type: "category",
             label: "Use Cases",
@@ -215,26 +235,6 @@ module.exports = {
                         "mobile/usecases-implement-component-participate-app-config",
                         "mobile/usecases-implement-service",
                         "mobile/usecases-implement-event",
-                    ],
-                },
-            ],
-        },
-        {
-            type: "category",
-            label: "Concepts",
-            items: [
-                "mobile/concepts-key-concepts",
-                "mobile/concepts-layout",
-                "mobile/concepts-app-config",
-                "mobile/concepts-commands-operations",
-                "mobile/concepts-components-services",
-                "mobile/concepts-events",
-                {
-                    type: "category",
-                    label: "Advanced Topics",
-                    items: [
-                        "mobile/concepts-advanced-layout",
-                        "mobile/concepts-advanced-config",
                     ],
                 },
             ],

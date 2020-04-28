@@ -96,7 +96,7 @@ If you choose, you can override the default arguments passed into a command or o
 
 <!-- TODO-After-API change autocomplete linting note to API definitions -->
 
-This will override the default argument passing behavior for that command or operation. Each command has typed arguments that have [autocomplete in the app.json](concepts-advanced-config.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
+This will override the default argument passing behavior for that command or operation. Each command has typed arguments that have [autocomplete in the app.json](concepts-advanced-app-config.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
 
 ## Example: Configured Map and I Want To Menu
 
@@ -214,7 +214,7 @@ Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for mo
 
 <!-- TODO-API - direct link to MapExtensionArgs -->
 
-The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item Uri**. Item URIs are a way of referencing other items within the app config. See [Item URIs](concepts-advanced-config.mdx#item-uris-and-resource-uris) for more details.
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item Uri**. Item URIs are a way of referencing other items within the app config. See [Item URIs](concepts-advanced-app-config.mdx#item-uris-and-resource-uris) for more details.
 
 Geocortex Mobile has a large array of built-in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.
 
