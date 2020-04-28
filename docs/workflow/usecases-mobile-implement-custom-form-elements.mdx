@@ -29,7 +29,7 @@ Implementing a custom form element in Geocortex Mobile consists of three steps:
 
 ## Set up the Custom Form Element Skeleton
 
-1. Create a new file `CustomFormComponent` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-quick-start.mdx).
+1. Create a new file `CustomFormElement` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-quick-start.mdx).
 2. Add a new skeleton form element that implements `FormComponent`.
 
 ```csharp
@@ -38,11 +38,11 @@ using Xamarin.Forms;
 
 namespace App1.Workflow
 {
-    public class CustomFormComponent : FormComponent
+    public class CustomFormElement : FormComponent
     {
         private readonly View _view;
 
-        public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+        public CustomFormElement(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base(element, name)
         {
             _view = new Label() { Text = "I'm a custom form component!" };
@@ -84,7 +84,7 @@ namespace App1.Workflow
         public override Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
             IDictionary<string, object> result = new Dictionary<string, object>();
-            Register("CustomFormComponent", typeof(CustomFormComponent), context);
+            Register("CustomFormElement", typeof(CustomFormElement), context);
             return Task.FromResult(result);
         }
     }
@@ -93,13 +93,121 @@ namespace App1.Workflow
 
 ## Register the Form Element Registration Activity
 
-Register the `RegisterCustomFormElementBase` class in the [`IActivityHandlerFactory` for the application](usecases-mobile-implement-custom-activity.mdx#register-the-activity-with-the-iactivityhandlerfactory). Now you can [build a workflow for Geocortex Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new custom form element!
+Register the `RegisterCustomFormElementBase` class in the [`IActivityHandlerFactory` for the application](usecases-mobile-implement-custom-activity.mdx#register-the-activity-with-the-iactivityhandlerfactory).
+
+```csharp
+public class ActivityLoader : IActivityHandlerFactory
+{
+    public ActivityLoader()
+    {
+        ...
+        RegisteredActivities[FormElementRegistrationActivity.Action] = () => new FormElementRegistrationActivity();
+        ...
+    }
+    ...
+}
+```
+
+Now you can [build a workflow for Geocortex Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new custom form element!
 
 :::important
 It is **essential** that this custom activity be run before the custom form element is used. It is best practice to run the form element registration activity at the start of a workflow.
 :::
 
-### Example: Enhanced Activity Indicator Form Element
+Next you need to run the workflow you just created in your Geocortex Mobile SDK project. You will need to add the workflow content to a file named `custom-form-component-workflow.json` in the platform agnostic project, and then [link the workflow file](https://andrewlock.net/including-linked-files-from-outside-the-project-directory-in-asp-net-core/#adding-files-from-outside-the-project-by-linking) in each of the target platform projects.
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/mobile-custom-form-element.json")}
+        download="custom-form-element.json"
+    >
+        download this demo workflow
+    </a>{" "}
+    that registers and displays the custom form element.
+</p>
+:::
+
+<Tabs
+  defaultValue="ui"
+  values={[
+    { label: "UI", value: "ui" },
+    { label: "App Config", value: "config" },
+    { label: "Layout", value: "layout" },
+  ]}>
+<TabItem value="ui">
+<img src={useBaseUrl("img/workflow-mobile-custom-form-element-basic.png")}/>
+</TabItem>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "workflow",
+            "id": "custom-workflow",
+            "title": "Custom Workflow",
+            "target": "#taskbar",
+            // highlight-next-line
+            "url": "resource://custom-form-component-workflow.json"
+        },
+        {
+            "$type": "menu",
+            "id": "iwtm",
+            "items": [
+                {
+                    "title": "Run Custom Workflow",
+                    "isEnabled": true,
+                    "iconId": "workflow",
+                    "action": {
+                        "name": "workflow.run",
+                        "arguments": {
+                            "id": "custom-workflow"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+    <!-- Taskbar main content -->
+    <map id="page1-map1" slot="main">
+      <stack margin="0.8" slot="top-right" halign="end">
+        <iwtm config="iwtm" id="IWTM">
+          <user slot="bottom"/>
+        </iwtm>
+      </stack>
+    </map>
+  </gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+</Tabs>
+
+## Example: Enhanced Activity Indicator Form Element
 
 This example demonstrates a form element that displays an enhanced activity indicator. [Check it out](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Workflow/CustomFormComponent) in the [Geocortex Mobile SDK Samples](../mobile/sdk-samples.mdx).
 
@@ -179,7 +287,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using App1.Samples.Workflow.CustomActivity;
+using App1.Workflow;
 using Geocortex.Mobile.Composition;
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Definition;
@@ -229,9 +337,7 @@ namespace App1.Workflow
 
 </TabItem>
 <TabItem value="ui">
-
-<!-- TODO: screenshot of sample here once we decide on video/photo parameters -->
-
+<img src={useBaseUrl("img/workflow-mobile-custom-form-element-activity-indicator.png")}/>
 </TabItem>
 </Tabs>
 
@@ -313,10 +419,10 @@ namespace App1.Workflow
 A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
 
 ```csharp
-class CustomFormComponent : FormComponent
+class CustomFormElement : FormComponent
 {
     ...
-    public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+    public CustomFormElement(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base (element, name)
     {
         var layout = new Button()

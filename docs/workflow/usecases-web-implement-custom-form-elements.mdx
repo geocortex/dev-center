@@ -4,6 +4,7 @@ sidebar_label: Implement a Custom Form Element
 description: Geocortex Workflow - Implement custom form elements for web applications
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import HostEsriApiVersionSnippet from "./snippets/host-esri-api-version.mdx";
 import WebPrereqs from "./snippets/prereqs-web.mdx";
 import Tabs from "@theme/Tabs";
@@ -78,13 +79,39 @@ export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
 
 ## Register the Form Element Registration Activity
 
-[Build and deploy](sdk-web-getting-started.mdx#building) your new [activity-pack](concepts-key-concepts.mdx#activity-packs). Now you can [build a workflow for Geocortex Web](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/run-workflows-in-gxw.htm#Host_and_Run_your_First_Workflow_..3%3FTocPath%3DConfigure%2520Host%2520Applications%7CHost%2520and%2520Run%2520Workflows%2520in%2520Geocortex%2520Web%7C_____1) that uses your new custom form element!
+[Build and deploy](sdk-web-getting-started.mdx#building) your new [workflow activity pack](concepts-key-concepts.mdx#activity-packs). Now you can [build a workflow for Geocortex Web](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/run-workflows-in-gxw.htm#Host_and_Run_your_First_Workflow_..3%3FTocPath%3DConfigure%2520Host%2520Applications%7CHost%2520and%2520Run%2520Workflows%2520in%2520Geocortex%2520Web%7C_____1) that uses your new custom form element! It is essential that the register form elements custom activity be run before the custom form element is used, and for that reason, it is best practice to run the form element registration activity at the start of a workflow.
 
-:::important
-It is **essential** that this custom activity be run before the custom form element is used. It is best practice to run the form element registration activity at the start of a workflow.
+:::note
+
+<p>
+    You can
+    <a
+        href={useBaseUrl("workflows/web-custom-form-element.json")}
+        download="custom-form-element.json"
+    >
+        {" "}
+        download this demo workflow{" "}
+    </a>
+    that registers and displays the custom form element and then
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        {" "}
+        import it into Workflow Designer.{" "}
+    </a>
+    You will have to{" "}
+    <a href="sdk-web-getting-started#host-the-activity-pack">
+        {" "}
+        host the custom activity and form element
+    </a>{" "}
+    for it to function.
+</p>
 :::
 
-### Example: Star Rating Form Element
+<img src={useBaseUrl("img/workflow-web-custom-form-element-basic.png")} />
+
+## Example: Star Rating Form Element
 
 The following example creates and registers a "star rating" custom form element.
 
@@ -203,7 +230,7 @@ export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
 
 </TabItem>
 <TabItem value="ui">
-{/* TODO: screenshot */}
+<img src={useBaseUrl("img/workflow-web-custom-star-rating.png")}/>
 </TabItem>
 </Tabs>
 
