@@ -481,7 +481,7 @@ var react = __webpack_require__(2);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/TabGroupChoiceContext.js
-var TabGroupChoiceContext = __webpack_require__(91);
+var TabGroupChoiceContext = __webpack_require__(93);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useTabGroupChoiceContext.js
 /**
@@ -594,7 +594,7 @@ module.exports = require("path");
 "use strict";
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(92);
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(94);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -629,7 +629,7 @@ module.exports = Token;
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var helpers = __webpack_require__(108);
+var helpers = __webpack_require__(110);
 
 function store(serializeContext, token) {
   serializeContext.output.push(typeof token == 'string' ? token : token[1]);
@@ -703,12 +703,12 @@ const frontMatter={};const metadata={"id":"mobile/snippets/prereqs","title":"pre
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var fs = __webpack_require__(36)
+var fs = __webpack_require__(38)
 var polyfills = __webpack_require__(391)
 var legacy = __webpack_require__(393)
 var clone = __webpack_require__(394)
 
-var util = __webpack_require__(53)
+var util = __webpack_require__(56)
 
 /* istanbul ignore next - node 0.x polyfill */
 var gracefulQueue
@@ -785,7 +785,7 @@ if (!global[gracefulQueue]) {
   if (/\bgfs4\b/i.test(process.env.NODE_DEBUG || '')) {
     process.on('exit', function() {
       debug(global[gracefulQueue])
-      __webpack_require__(115).equal(global[gracefulQueue].length, 0)
+      __webpack_require__(117).equal(global[gracefulQueue].length, 0)
     })
   }
 }
@@ -1059,9 +1059,9 @@ function retry () {
 /* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(57);
-/* harmony import */ var _docusaurus_isInternalUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
-/* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(63);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(60);
+/* harmony import */ var _docusaurus_isInternalUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
+/* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(45);
 /* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_4__);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -1204,7 +1204,7 @@ __webpack_require__.d(__webpack_exports__, "i", function() { return /* binding *
 // UNUSED EXPORTS: MemoryRouter, Prompt, Redirect, generatePath, useParams, useRouteMatch
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
-var inheritsLoose = __webpack_require__(31);
+var inheritsLoose = __webpack_require__(32);
 
 // EXTERNAL MODULE: ./node_modules/react/index.js
 var react = __webpack_require__(2);
@@ -1218,7 +1218,7 @@ var prop_types_default = /*#__PURE__*/__webpack_require__.n(prop_types);
 var esm_history = __webpack_require__(26);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inheritsLoose.js
-var helpers_inheritsLoose = __webpack_require__(125);
+var helpers_inheritsLoose = __webpack_require__(127);
 var inheritsLoose_default = /*#__PURE__*/__webpack_require__.n(helpers_inheritsLoose);
 
 // EXTERNAL MODULE: ./node_modules/gud/index.js
@@ -1407,14 +1407,14 @@ var tiny_invariant_esm = __webpack_require__(24);
 var esm_extends = __webpack_require__(1);
 
 // EXTERNAL MODULE: ./node_modules/react-router/node_modules/path-to-regexp/index.js
-var path_to_regexp = __webpack_require__(126);
+var path_to_regexp = __webpack_require__(128);
 var path_to_regexp_default = /*#__PURE__*/__webpack_require__.n(path_to_regexp);
 
 // EXTERNAL MODULE: ./node_modules/react-is/index.js
 var react_is = __webpack_require__(163);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
-var objectWithoutPropertiesLoose = __webpack_require__(48);
+var objectWithoutPropertiesLoose = __webpack_require__(51);
 
 // EXTERNAL MODULE: ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js
 var hoist_non_react_statics_cjs = __webpack_require__(280);
@@ -3170,16 +3170,21 @@ function createMemoryHistory(props) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={};const metadata={"id":"web/snippets/framework-components","title":"framework-components","description":"<!-- TODO-API link once available -->","source":"@site/docs/web/snippets/framework-components.mdx","permalink":"/docs/web/snippets/framework-components","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/snippets/framework-components.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`This example uses Geocortex Framework UI components`))));};MDXContent.isMDXComponent=true;
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _docusaurus_useDocusaurusContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(479);
+/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _styles_module_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(286);
+/* harmony import */ var _styles_module_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_module_css__WEBPACK_IMPORTED_MODULE_4__);
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ /* eslint-disable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid */const Heading=Tag=>function TargetComponent({id,...props}){const{siteConfig:{themeConfig:{navbar:{hideOnScroll=false}={}}={}}={}}=Object(_docusaurus_useDocusaurusContext__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])();if(!id){return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tag,props);}return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Tag,props,/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a",{"aria-hidden":"true",tabIndex:"-1",className:classnames__WEBPACK_IMPORTED_MODULE_1___default()('anchor',{[_styles_module_css__WEBPACK_IMPORTED_MODULE_4___default.a.enhancedAnchor]:!hideOnScroll}),id:id}),/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a",{"aria-hidden":"true",tabIndex:"-1",className:"hash-link",href:`#${id}`,title:"Direct link to heading"},"#"),props.children);};/* harmony default export */ __webpack_exports__["a"] = (Heading);
 
 /***/ }),
 /* 28 */
@@ -3195,7 +3200,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={};const metadata={"id":"snippets/app-item","title":"app-item","description":"An app config file is composed of a list of **app items**. App items can potentially be anything. Each app item has an **item `$type`**, which viewer is aware of and knows how to locate and load. They usually they represent configuration for components, maps, portal items, or shared data. All item app configuration is specified within the `items` array of the **`app.json`** file.","source":"@site/docs/snippets/app-item.mdx","permalink":"/docs/snippets/app-item","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/snippets/app-item.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`An app config file is composed of a list of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`app items`),`. App items can potentially be anything. Each app item has an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`item `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"strong"},`$type`)),`, which viewer is aware of and knows how to locate and load. They usually they represent configuration for components, maps, portal items, or shared data. All item app configuration is specified within the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`items`),` array of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"strong"},`app.json`)),` file.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Each component can only load a certain `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`$type`),` of app item which corresponds to it. For example, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<map>`),` components can only load app items of type `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`map-extension`),` as their configuration.`))));};MDXContent.isMDXComponent=true;
+const frontMatter={};const metadata={"id":"web/snippets/framework-components","title":"framework-components","description":"<!-- TODO-API link once available -->","source":"@site/docs/web/snippets/framework-components.mdx","permalink":"/docs/web/snippets/framework-components","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/snippets/framework-components.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`This example uses Geocortex Framework UI components`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 29 */
@@ -3211,10 +3216,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={};const metadata={"id":"workflow/snippets/prereqs-web","title":"prereqs-web","description":"Follow the instructions in the [Web Applications SDK](../sdk-web-getting-started.mdx) page to set up your development environment.","source":"@site/docs/workflow/snippets/prereqs-web.mdx","permalink":"/docs/workflow/snippets/prereqs-web","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/snippets/prereqs-web.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-web-getting-started"}),`Web Applications SDK`),` page to set up your development environment.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`A working knowledge of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.typescriptlang.org/"}),`TypeScript`),` is recommended before extending Workflow for web-based hosts.`))));};MDXContent.isMDXComponent=true;
+const frontMatter={};const metadata={"id":"snippets/app-item","title":"app-item","description":"An app config file is composed of a list of **app items**. App items can potentially be anything. Each app item has an **item `$type`**, which viewer is aware of and knows how to locate and load. They usually they represent configuration for components, maps, portal items, or shared data. All item app configuration is specified within the `items` array of the **`app.json`** file.","source":"@site/docs/snippets/app-item.mdx","permalink":"/docs/snippets/app-item","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/snippets/app-item.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`An app config file is composed of a list of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`app items`),`. App items can potentially be anything. Each app item has an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`item `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"strong"},`$type`)),`, which viewer is aware of and knows how to locate and load. They usually they represent configuration for components, maps, portal items, or shared data. All item app configuration is specified within the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`items`),` array of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"strong"},`app.json`)),` file.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Each component can only load a certain `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`$type`),` of app item which corresponds to it. For example, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<map>`),` components can only load app items of type `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`map-extension`),` as their configuration.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 30 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
+/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+const frontMatter={};const metadata={"id":"workflow/snippets/prereqs-web","title":"prereqs-web","description":"Follow the instructions in the [Web Applications SDK](../sdk-web-getting-started.mdx) page to set up your development environment.","source":"@site/docs/workflow/snippets/prereqs-web.mdx","permalink":"/docs/workflow/snippets/prereqs-web","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/snippets/prereqs-web.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-web-getting-started"}),`Web Applications SDK`),` page to set up your development environment.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`A working knowledge of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.typescriptlang.org/"}),`TypeScript`),` is recommended before extending Workflow for web-based hosts.`))));};MDXContent.isMDXComponent=true;
+
+/***/ }),
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3227,7 +3248,7 @@ const frontMatter={};const metadata={"id":"workflow/snippets/prereqs-web","title
  */function isInternalUrl(url){return /^(https?:|\/\/)/.test(url)===false;}
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3239,19 +3260,88 @@ function _inheritsLoose(subClass, superClass) {
 }
 
 /***/ }),
-/* 32 */
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "a", function() { return /* reexport */ ViewerMessagingWrapper; });
+
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(2);
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/ExecutionEnvironment.js
+var ExecutionEnvironment = __webpack_require__(45);
+var ExecutionEnvironment_default = /*#__PURE__*/__webpack_require__.n(ExecutionEnvironment);
+
+// CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/exports/BrowserOnly.js
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */function BrowserOnly({children}){return ExecutionEnvironment_default.a.canUseDOM&&children!=null&&/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,children());}/* harmony default export */ var exports_BrowserOnly = (BrowserOnly);
+// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Heading/index.js
+var Heading = __webpack_require__(27);
+
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/utils.ts
+function trimDefinitionsName(def){return def.replace("#/definitions/","");}function getArgumentDefinitionLinkId(def){return`definition-${trimDefinitionsName(def)}`;}function getActionOrEventDefinitionLinkId(def,type){return`${type}-${def}`;}
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/MessagingRef.tsx
+function MessagingRef(props){const{isArray,name,schema}=props;const trimmedName=trimDefinitionsName(name);const referencedDefinition=schema.definitions[trimmedName];// We'll only render definition tables for object types, everything else can be inlined.
+if(referencedDefinition&&referencedDefinition.type==="object"){return/*#__PURE__*/react_default.a.createElement("code",null,/*#__PURE__*/react_default.a.createElement("a",{href:`#definition-${trimmedName}`},trimmedName,isArray&&"[]"));}return/*#__PURE__*/react_default.a.createElement("code",null,trimmedName,isArray&&"[]");}
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/MessagingArgument.tsx
+function getReferencedDefinition(name,schema){const trimmedName=trimDefinitionsName(name);return schema.definitions[trimmedName];}function MessagingArgument(props){const{schema}=props;let definition=props.definition;if(typeof definition==="string"){const foundDefinition=getReferencedDefinition(name,schema);console.warn("Couldn't find definition:",definition);definition=foundDefinition;}if(!definition){return/*#__PURE__*/react_default.a.createElement("code",null,"null");}// This is a single type referencing another definition
+else if(definition.$ref){const referencedDef=getReferencedDefinition(definition.$ref,schema);// We only hyperlink to object type definitions, everything else can be inlined.
+if(referencedDef&&referencedDef.type==="object"){return/*#__PURE__*/react_default.a.createElement(MessagingRef,{name:definition.$ref,schema:schema});}else if(referencedDef){return/*#__PURE__*/react_default.a.createElement(MessagingArgument,{definition:referencedDef,schema:schema});}return/*#__PURE__*/react_default.a.createElement(MessagingRef,{name:definition.$ref,schema:schema});}// This is a single type
+else if(definition.type){if(definition.type==="string"&&definition.enum){const enumType=definition.enum.map(val=>`"${val}"`).join(" | ");return/*#__PURE__*/react_default.a.createElement("code",null,enumType);}else if(definition.type==="array"&&definition.items){if(Array.isArray(definition.items)){return/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,/*#__PURE__*/react_default.a.createElement("div",null,"Any of:"),definition.items.map((option,index)=>/*#__PURE__*/ // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
+react_default.a.createElement("div",{key:option.$ref||index},/*#__PURE__*/react_default.a.createElement(MessagingArgument,{definition:option,schema:schema}),"[]")));}if(definition.items&&definition.items.$ref){const itemsRef=definition.items.$ref;return/*#__PURE__*/react_default.a.createElement(MessagingRef,{isArray:true,name:itemsRef,schema:schema});}return/*#__PURE__*/react_default.a.createElement("code",null,definition.items.type,"[]");}else if(definition.type==="object"){// We don't support rendering object type inline, should only reference by link.
+return/*#__PURE__*/react_default.a.createElement("code",null,"unknown");}return/*#__PURE__*/react_default.a.createElement("code",null,definition.type);}// This is a union type
+else if(definition.anyOf){return/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,/*#__PURE__*/react_default.a.createElement("div",null,"Any of:"),definition.anyOf.map((option,index)=>/*#__PURE__*/ // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
+react_default.a.createElement("div",{key:option.$ref||index},/*#__PURE__*/react_default.a.createElement(MessagingArgument,{definition:option,schema:schema}))));}// Didn't contain an appropriate type. Hopefully the description was useful.
+return/*#__PURE__*/react_default.a.createElement("code",null,"unknown");}
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/MessagingTypeSummary.tsx
+const H3=Object(Heading["a" /* default */])("h3");function commandIsOperation(command){return!!command.output;}function filterObj(raw,predicate){return Object.keys(raw).filter(key=>predicate(key,raw)).reduce((obj,key)=>{obj[key]=raw[key];return obj;},{});}function MessagingTypeSummary(props){const{schema,type}=props;let items;if(type==="command"){items=filterObj(schema.commands,(item,raw)=>!commandIsOperation(raw[item]));}else if(type==="operation"){items=filterObj(schema.commands,(item,raw)=>commandIsOperation(raw[item]));}else{items=schema.events;}return/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,Object.keys(items).map(key=>{const item=items[key];const linkId=getActionOrEventDefinitionLinkId(key,type);return/*#__PURE__*/react_default.a.createElement("div",{key:key,className:"margin-bottom--lg"},/*#__PURE__*/react_default.a.createElement(H3,{id:linkId},key),item.description&&/*#__PURE__*/react_default.a.createElement("div",{className:"margin-bottom--md"},item.description),/*#__PURE__*/react_default.a.createElement("div",{className:"margin-bottom--md"},/*#__PURE__*/react_default.a.createElement("div",null,"Argument"),/*#__PURE__*/react_default.a.createElement("div",{className:"margin-left--sm"},/*#__PURE__*/react_default.a.createElement(MessagingArgument,{definition:item.input,schema:schema}))),type==="operation"&&item.output&&/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,/*#__PURE__*/react_default.a.createElement("div",null,"Result"),/*#__PURE__*/react_default.a.createElement("div",{className:"margin-left--sm"},/*#__PURE__*/react_default.a.createElement(MessagingArgument,{definition:item.output,schema:schema}))));}));}
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/MessagingDefinition.tsx
+const MessagingDefinition_H3=Object(Heading["a" /* default */])("h3");function MessagingDefinition(props){const{definitionName,schema}=props;const trimmedName=trimDefinitionsName(definitionName);const definition=schema.definitions[trimmedName];if(definition.type!=="object"){console.warn("Tried to render definition for non-object type",trimmedName);return null;}const id=getArgumentDefinitionLinkId(trimmedName);return/*#__PURE__*/react_default.a.createElement("div",{className:"margin-bottom--lg"},/*#__PURE__*/react_default.a.createElement(MessagingDefinition_H3,{id:id},trimmedName),definition.description&&/*#__PURE__*/react_default.a.createElement("div",{className:"margin-bottom--md"},definition.description),/*#__PURE__*/react_default.a.createElement("div",null,"Properties"),(!definition.properties||Object.keys(definition.properties).length===0)&&/*#__PURE__*/react_default.a.createElement("em",null,"This object doesn't currently contain any properties."),definition.properties&&/*#__PURE__*/react_default.a.createElement("div",{className:"margin-left--sm"},Object.entries(definition.properties).map(([propName,propDef])=>{var _definition$required;return/*#__PURE__*/react_default.a.createElement("div",{key:propName,className:"margin-bottom--md"},/*#__PURE__*/react_default.a.createElement("div",{className:"margin-bottom--sm"},/*#__PURE__*/react_default.a.createElement("code",null,propName),((_definition$required=definition.required)===null||_definition$required===void 0?void 0:_definition$required.includes(propName))&&/*#__PURE__*/react_default.a.createElement("span",{className:"badge badge--secondary"},"Required")),/*#__PURE__*/react_default.a.createElement("div",{className:"margin-left--sm"},/*#__PURE__*/react_default.a.createElement(MessagingArgument,{definition:propDef,schema:schema}),propDef.description&&/*#__PURE__*/react_default.a.createElement("div",{className:"margin-top--sm"},propDef.description)));})));}
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/MessagingDefinitionsSummary.tsx
+// Note that we blindly render all definitions present in the schema.
+// This would need to be refactored if we split up the
+// commands/operations/events across multiple pages.
+function MessagingDefinitionsSummary(props){const{schema}=props;// Grab only the `object` type definitions, everything else can be inlined.
+const filteredDefinitions=Object.entries(schema.definitions).reduce((acc,[name,definition])=>{if(definition.type==="object"){return{...acc,[name]:definition};}return acc;},{});return/*#__PURE__*/react_default.a.createElement("div",null,Object.keys(filteredDefinitions).map(name=>/*#__PURE__*/react_default.a.createElement(MessagingDefinition,{key:name,definitionName:name,schema:schema})));}
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/MessagingContent.tsx
+function MessagingContent(props){const{schema,type}=props;return/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,type==="argument"&&/*#__PURE__*/react_default.a.createElement(MessagingDefinitionsSummary,{schema:schema}),type==="command"&&/*#__PURE__*/react_default.a.createElement(MessagingTypeSummary,{schema:schema,type:"command"}),type==="event"&&/*#__PURE__*/react_default.a.createElement(MessagingTypeSummary,{schema:schema,type:"event"}),type==="operation"&&/*#__PURE__*/react_default.a.createElement(MessagingTypeSummary,{schema:schema,type:"operation"}));}
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/ViewerMessaging.tsx
+function ViewerMessagingWrapper(props){// `BrowserOnly` prevents children from being rendered statically during build
+return/*#__PURE__*/react_default.a.createElement(exports_BrowserOnly,null,()=>/*#__PURE__*/react_default.a.createElement(ViewerMessaging,props));}// Cache the requests to allow this component to be rendered
+// multiple times for the different types: "command", "event", etc.
+// We need to be able to render the headers within markdown so it
+// plays nicely with the docusaurus right TOC component.
+const cachedRequests={mobile:undefined,web:undefined};function ViewerMessaging(props){const{product,type}=props;const[messagingJson,setMessagingJson]=Object(react["useState"])();// Fetch schema
+Object(react["useEffect"])(()=>{let didCancel=false;(async()=>{if(!cachedRequests[product]){cachedRequests[product]=fetch(`https://apps.geocortex.com/webviewer/messaging-${product}.schema.json`);}const response=await cachedRequests[product];if(didCancel){return;}// Clone to avoid error when reading json multiple times
+const responseJson=await response.clone().json();if(didCancel){return;}setMessagingJson(responseJson);})();return()=>{didCancel=true;};},[product]);// Scroll to element if id present in URL hash
+Object(react["useEffect"])(()=>{if(!messagingJson){return;}// Decode entities in the URL
+// Sometimes a URL like #/foo#bar will be encoded as #/foo%23bar
+const hash=window.decodeURIComponent(window.location.hash);if(hash){var _document$getElementB;(_document$getElementB=document.getElementById(hash.substring(1)))===null||_document$getElementB===void 0?void 0:_document$getElementB.scrollIntoView();}},[messagingJson]);return messagingJson?/*#__PURE__*/react_default.a.createElement(MessagingContent,{schema:messagingJson,type:type}):/*#__PURE__*/react_default.a.createElement("div",null,"Loading...");}
+// CONCATENATED MODULE: ./src/components/ViewerMessaging/index.ts
+
+
+/***/ }),
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = require("url");
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 const u = __webpack_require__(20).fromPromise
-const fs = __webpack_require__(155)
+const fs = __webpack_require__(157)
 
 function pathExists (path) {
   return fs.access(path).then(() => true).catch(() => false)
@@ -3264,13 +3354,13 @@ module.exports = {
 
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var DOM = __webpack_require__(45);
+var DOM = __webpack_require__(48);
 
 function escapeRegExp(str) {
   return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
@@ -3402,7 +3492,7 @@ module.exports = {
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3418,18 +3508,18 @@ __webpack_require__.r(__webpack_exports__);
 const frontMatter={};const metadata={"id":"workflow/snippets/prereqs-mobile","title":"prereqs-mobile","description":":::important","source":"@site/docs/workflow/snippets/prereqs-mobile.mdx","permalink":"/docs/workflow/snippets/prereqs-mobile","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/snippets/prereqs-mobile.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Extending Geocortex Workflow for Mobile requires development and deployment of a custom Geocortex Mobile Application using the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-quick-start"}),`Geocortex Mobile SDK`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-net-getting-started-mobile"}),`Geocortex Mobile SDK`),` page to set up the environment for extending Workflow for Geocortex Mobile.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`A working knowledge of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://dotnet.microsoft.com/"}),`C# and the .NET platform`),` is recommended before extending Workflow for Geocortex Mobile`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = require("fs");
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var roundingPrecisionFrom = __webpack_require__(134).roundingPrecisionFrom;
+var roundingPrecisionFrom = __webpack_require__(136).roundingPrecisionFrom;
 
-var override = __webpack_require__(50);
+var override = __webpack_require__(53);
 
 var OptimizationLevel = {
   Zero: '0',
@@ -3651,45 +3741,13 @@ module.exports = {
 
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = function clone(obj) {
   return JSON.parse(JSON.stringify(obj));
 };
 
-
-/***/ }),
-/* 39 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={};const metadata={"id":"web/snippets/prereqs-layout-config-editing","title":"prereqs-layout-config-editing","description":"-   Follow along by setting up the [Geocortex Web SDK](../sdk-overview.mdx) and editing the minimal layout and app config provided.","source":"@site/docs/web/snippets/prereqs-layout-config-editing.mdx","permalink":"/docs/web/snippets/prereqs-layout-config-editing","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/snippets/prereqs-layout-config-editing.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Follow along by setting up the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/web/sdk-overview"}),`Geocortex Web SDK`),` and editing the minimal layout and app config provided.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/web/sdk-deployment#modifying-layout-and-app-config-using-the-geocortex-web-designer"}),`deployment instructions`),` to learn about how to deploy layout and app config to an application.`)));};MDXContent.isMDXComponent=true;
-
-/***/ }),
-/* 40 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={};const metadata={"id":"mobile/snippets/designer-callout","title":"designer-callout","description":":::note Have you explored the Geocortex Mobile Designer?","source":"@site/docs/mobile/snippets/designer-callout.mdx","permalink":"/docs/mobile/snippets/designer-callout","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/snippets/designer-callout.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Have you explored the Geocortex Mobile Designer?`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/mobileviewer/designer/"}),`Geocortex Mobile Designer`),` allows you to edit your application's layout, configure custom behaviors for buttons and other UI components, and solve complex business problems through `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/overview"}),`Geocortex Workflow`),`. Many use cases can be solved through the Geocortex Mobile Designer and don't require custom development.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 41 */
@@ -3705,10 +3763,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={};const metadata={"id":"web/snippets/follow-along","title":"follow-along","description":":::tip Want to follow along?","source":"@site/docs/web/snippets/follow-along.mdx","permalink":"/docs/web/snippets/follow-along","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/snippets/follow-along.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`Want to follow along?`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Download and setup the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-overview"}),`Geocortex Web SDK`),` and edit the minimal layout and app config provided.`))));};MDXContent.isMDXComponent=true;
+const frontMatter={};const metadata={"id":"web/snippets/prereqs-layout-config-editing","title":"prereqs-layout-config-editing","description":"-   Follow along by setting up the [Geocortex Web SDK](../sdk-overview.mdx) and editing the minimal layout and app config provided.","source":"@site/docs/web/snippets/prereqs-layout-config-editing.mdx","permalink":"/docs/web/snippets/prereqs-layout-config-editing","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/snippets/prereqs-layout-config-editing.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Follow along by setting up the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/web/sdk-overview"}),`Geocortex Web SDK`),` and editing the minimal layout and app config provided.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/web/sdk-deployment#modifying-layout-and-app-config-using-the-geocortex-web-designer"}),`deployment instructions`),` to learn about how to deploy layout and app config to an application.`)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
+/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+const frontMatter={};const metadata={"id":"mobile/snippets/designer-callout","title":"designer-callout","description":":::note Have you explored the Geocortex Mobile Designer?","source":"@site/docs/mobile/snippets/designer-callout.mdx","permalink":"/docs/mobile/snippets/designer-callout","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/snippets/designer-callout.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Have you explored the Geocortex Mobile Designer?`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/mobileviewer/designer/"}),`Geocortex Mobile Designer`),` allows you to edit your application's layout, configure custom behaviors for buttons and other UI components, and solve complex business problems through `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/overview"}),`Geocortex Workflow`),`. Many use cases can be solved through the Geocortex Mobile Designer and don't require custom development.`))));};MDXContent.isMDXComponent=true;
+
+/***/ }),
+/* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
+/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+const frontMatter={};const metadata={"id":"web/snippets/follow-along","title":"follow-along","description":":::tip Want to follow along?","source":"@site/docs/web/snippets/follow-along.mdx","permalink":"/docs/web/snippets/follow-along","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/snippets/follow-along.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`Want to follow along?`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Download and setup the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-overview"}),`Geocortex Web SDK`),` and edit the minimal layout and app config provided.`))));};MDXContent.isMDXComponent=true;
+
+/***/ }),
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3759,7 +3849,18 @@ namespace App1.Workflow.CustomActivity
 `)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 43 */
+/* 45 */
+/***/ (function(module, exports) {
+
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */const canUseDOM=!!(typeof window!=='undefined'&&window.document&&window.document.createElement);const ExecutionEnvironment={canUseDOM,canUseEventListeners:canUseDOM&&!!(window.addEventListener||window.attachEvent),canUseIntersectionObserver:canUseDOM&&'IntersectionObserver'in window,canUseViewport:canUseDOM&&!!window.screen};module.exports=ExecutionEnvironment;
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -3775,7 +3876,7 @@ module.exports = {
 
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Contains the interpretation of CSS properties, as used by the property optimizer
@@ -3784,7 +3885,7 @@ var breakUp = __webpack_require__(315);
 var canOverride = __webpack_require__(316);
 var restore = __webpack_require__(318);
 
-var override = __webpack_require__(50);
+var override = __webpack_require__(53);
 
 // Properties to process
 // Extend this object in order to add support for more properties in the optimizer.
@@ -4844,7 +4945,7 @@ module.exports = override(compactable, vendorPrefixedCompactable);
 
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4856,7 +4957,7 @@ module.exports = {
 
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4872,7 +4973,7 @@ __webpack_require__.r(__webpack_exports__);
 const frontMatter={};const metadata={"id":"web/snippets/designer-callout","title":"designer-callout","description":":::note Have you explored the Geocortex Web Designer?","source":"@site/docs/web/snippets/designer-callout.mdx","permalink":"/docs/web/snippets/designer-callout","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/snippets/designer-callout.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Have you explored the Geocortex Web Designer?`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/webviewer/designer/"}),`Geocortex Web Designer`),` allows you to edit your application's layout, configure custom behaviors for buttons and other UI components, and solve complex business problems through `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/overview"}),`Geocortex Workflow`),`. Many use cases can be solved through the Geocortex Web Designer and don't require custom development.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4887,7 +4988,7 @@ const frontMatter={};const metadata={"id":"web/snippets/designer-callout","title
 function DemoVideo({src}){return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("video",{autoPlay:true,loop:true,muted:true},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("source",{src:src,type:"video/webm"}),"Your browser does not support the video tag.");}
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4908,7 +5009,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 }
 
 /***/ }),
-/* 49 */
+/* 52 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -4922,7 +5023,7 @@ module.exports = {
 
 
 /***/ }),
-/* 50 */
+/* 53 */
 /***/ (function(module, exports) {
 
 function override(source1, source2) {
@@ -4962,10 +5063,10 @@ module.exports = override;
 
 
 /***/ }),
-/* 51 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Hack = __webpack_require__(106);
+var Hack = __webpack_require__(108);
 
 var Marker = __webpack_require__(18);
 var Token = __webpack_require__(13);
@@ -5159,23 +5260,23 @@ module.exports = {
 
 
 /***/ }),
-/* 52 */
+/* 55 */
 /***/ (function(module, exports) {
 
 module.exports = require("https");
 
 /***/ }),
-/* 53 */
+/* 56 */
 /***/ (function(module, exports) {
 
 module.exports = require("util");
 
 /***/ }),
-/* 54 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 try {
-  var util = __webpack_require__(53);
+  var util = __webpack_require__(56);
   /* istanbul ignore next */
   if (typeof util.inherits !== 'function') throw '';
   module.exports = util.inherits;
@@ -5186,7 +5287,7 @@ try {
 
 
 /***/ }),
-/* 55 */
+/* 58 */
 /***/ (function(module, exports) {
 
 
@@ -5214,10 +5315,10 @@ module.exports = function forEach (obj, fn, ctx) {
 
 
 /***/ }),
-/* 56 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var foreach = __webpack_require__(55);
+var foreach = __webpack_require__(58);
 
 module.exports = function map(arr, fn) {
   var newArr = [];
@@ -5229,7 +5330,7 @@ module.exports = function map(arr, fn) {
 
 
 /***/ }),
-/* 57 */
+/* 60 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5244,14 +5345,14 @@ module.exports = function map(arr, fn) {
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "d", function() { return react_router__WEBPACK_IMPORTED_MODULE_0__["h"]; });
 
-/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(31);
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(32);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var history__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(26);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1);
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(48);
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(51);
 /* harmony import */ var tiny_invariant__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(24);
 
 
@@ -5516,7 +5617,7 @@ if (false) { var ariaCurrentType; }
 
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5532,7 +5633,7 @@ __webpack_require__.r(__webpack_exports__);
 const frontMatter={};const metadata={"id":"mobile/snippets/follow-along","title":"follow-along","description":":::tip Want to follow along?","source":"@site/docs/mobile/snippets/follow-along.mdx","permalink":"/docs/mobile/snippets/follow-along","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/snippets/follow-along.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`Want to follow along?`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-quick-start"}),`Quickstart`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-quick-start#editing-the-layout-and-app-config"}),`edit the default app config and layout`),`.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8712,7 +8813,7 @@ Prism.languages.yml = Prism.languages.yaml;
 
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8728,7 +8829,7 @@ __webpack_require__.r(__webpack_exports__);
 const frontMatter={};const metadata={"id":"workflow/snippets/host-esri-api-version","title":"host-esri-api-version","description":":::important","source":"@site/docs/workflow/snippets/host-esri-api-version.mdx","permalink":"/docs/workflow/snippets/host-esri-api-version","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/snippets/host-esri-api-version.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`If you decide to integrate the ArcGIS JavaScript API into your application, ensure you are using the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-web-integrating-the-arcgis-api#using-alternate-arcgis-api-for-javascript-versions"}),`right API version for your target workflow host`),`.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 61 */
+/* 64 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8744,7 +8845,7 @@ __webpack_require__.r(__webpack_exports__);
 const frontMatter={};const metadata={"id":"workflow/snippets/designer-callout","title":"designer-callout","description":":::note Have you explored the Geocortex Workflow Designer?","source":"@site/docs/workflow/snippets/designer-callout.mdx","permalink":"/docs/workflow/snippets/designer-callout","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/snippets/designer-callout.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Have you explored the Geocortex Workflow Designer?`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/workflow/designer/"}),`Geocortex Workflow Designer`),` has a wide range of built-in activities you can use to satisfy your business case. You can take the behavior of workflow even farther by running the commands and operations available in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-commands-operations"}),`Geocortex Web`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-commands-operations"}),`Geocortex Mobile`),`.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 62 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8787,22 +8888,11 @@ namespace App1.Components
 `)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */const canUseDOM=!!(typeof window!=='undefined'&&window.document&&window.document.createElement);const ExecutionEnvironment={canUseDOM,canUseEventListeners:canUseDOM&&!!(window.addEventListener||window.attachEvent),canUseIntersectionObserver:canUseDOM&&'IntersectionObserver'in window,canUseViewport:canUseDOM&&!!window.screen};module.exports=ExecutionEnvironment;
-
-/***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(57);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(60);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "a", function() { return react_router_dom__WEBPACK_IMPORTED_MODULE_0__["b"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "b", function() { return react_router_dom__WEBPACK_IMPORTED_MODULE_0__["c"]; });
@@ -8817,13 +8907,13 @@ namespace App1.Components
  */
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _theme_ThemeContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(96);
+/* harmony import */ var _theme_ThemeContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(98);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8832,14 +8922,14 @@ namespace App1.Components
  */function useThemeContext(){return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_theme_ThemeContext__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]);}/* harmony default export */ __webpack_exports__["a"] = (useThemeContext);
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({"plugins":["@docusaurus/plugin-google-gtag"],"themes":[],"customFields":{},"themeConfig":{"algolia":{"apiKey":"fcdd20750dc409ec43b89e692fcbb72c","indexName":"geocortex"},"navbar":{"title":"Developer Center","logo":{"alt":"Geocortex Logo","src":"img/logo.png"},"links":[{"to":"docs/web/overview","label":"Web","position":"left","activeBasePath":"docs/web"},{"to":"docs/mobile/overview","label":"Mobile","position":"left","activeBasePath":"docs/mobile"},{"to":"docs/workflow/overview","label":"Workflow","position":"left","activeBasePath":"docs/workflow"}]},"footer":{"style":"dark","copyright":"Copyright © 2020 Latitude Geographics Group Ltd. All rights reserved.","links":[{"title":"About","items":[{"label":"Geocortex.com","to":"https://geocortex.com"},{"label":"Geocortex Documentation Center","to":"https://docs.geocortex.com"},{"label":"GitHub","to":"https://github.com/geocortex/dev-center"}]},{"title":"Geocortex Apps","items":[{"label":"Geocortex Web","to":"https://apps.geocortex.com/webviewer/designer/"},{"label":"Geocortex Mobile","to":"https://apps.geocortex.com/mobileviewer/designer/"},{"label":"Geocortex Workflow","to":"https://apps.geocortex.com/workflow/designer/"}]}]},"prism":{"additionalLanguages":["csharp"]},"gtag":{"trackingID":"UA-103604191-6","anonymizeIP":true}},"title":"Developer Center","tagline":"by developers, for developers","url":"https://geocortex.github.io/","baseUrl":"/","favicon":"img/favicon.png","organizationName":"geocortex","projectName":"dev-center","presets":[["@docusaurus/preset-classic",{"docs":{"editUrl":"https://github.com/geocortex/dev-center/edit/master/","sidebarPath":"/home/runner/work/dev-center/dev-center/sidebars.js"},"theme":{"customCss":"/home/runner/work/dev-center/dev-center/src/css/custom.css"}}]]});
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8849,10 +8939,10 @@ var react = __webpack_require__(2);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Head.js
-var Head = __webpack_require__(93);
+var Head = __webpack_require__(95);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/isInternalUrl.js
-var isInternalUrl = __webpack_require__(30);
+var isInternalUrl = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
 var useDocusaurusContext = __webpack_require__(12);
@@ -8868,7 +8958,7 @@ var useBaseUrl = __webpack_require__(6);
  * LICENSE file in the root directory of this source tree.
  */const themes={light:'',dark:'dark'};const useTheme=()=>{const{siteConfig:{themeConfig:{disableDarkMode}}={}}=Object(useDocusaurusContext["a" /* default */])();const[theme,setTheme]=Object(react["useState"])(typeof document!=='undefined'?document.documentElement.getAttribute('data-theme'):themes.light);const setThemeSyncWithLocalStorage=Object(react["useCallback"])(newTheme=>{try{localStorage.setItem('theme',newTheme);}catch(err){console.error(err);}},[setTheme]);const setLightTheme=Object(react["useCallback"])(()=>{setTheme(themes.light);setThemeSyncWithLocalStorage(themes.light);},[]);const setDarkTheme=Object(react["useCallback"])(()=>{setTheme(themes.dark);setThemeSyncWithLocalStorage(themes.dark);},[]);Object(react["useEffect"])(()=>{document.documentElement.setAttribute('data-theme',theme);},[theme]);Object(react["useEffect"])(()=>{if(disableDarkMode){return;}try{const localStorageTheme=localStorage.getItem('theme');if(localStorageTheme!==null){setTheme(localStorageTheme);}}catch(err){console.error(err);}},[setTheme]);Object(react["useEffect"])(()=>{if(disableDarkMode){return;}window.matchMedia('(prefers-color-scheme: dark)').addListener(({matches})=>{setTheme(matches?themes.dark:themes.light);});},[]);return{isDarkTheme:theme===themes.dark,setLightTheme,setDarkTheme};};/* harmony default export */ var hooks_useTheme = (useTheme);
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/ThemeContext.js
-var ThemeContext = __webpack_require__(96);
+var ThemeContext = __webpack_require__(98);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/ThemeProvider/index.js
 /**
@@ -8885,7 +8975,7 @@ var ThemeContext = __webpack_require__(96);
  * LICENSE file in the root directory of this source tree.
  */const TAB_CHOICE_PREFIX='docusaurus.tab.';const useTabGroupChoice=()=>{const[tabGroupChoices,setChoices]=Object(react["useState"])({});const setChoiceSyncWithLocalStorage=Object(react["useCallback"])((groupId,newChoice)=>{try{localStorage.setItem(`${TAB_CHOICE_PREFIX}${groupId}`,newChoice);}catch(err){console.error(err);}},[]);Object(react["useEffect"])(()=>{try{const localStorageChoices={};for(let i=0;i<localStorage.length;i+=1){const storageKey=localStorage.key(i);if(storageKey.startsWith(TAB_CHOICE_PREFIX)){const groupId=storageKey.substring(TAB_CHOICE_PREFIX.length);localStorageChoices[groupId]=localStorage.getItem(storageKey);}}setChoices(localStorageChoices);}catch(err){console.error(err);}},[]);return{tabGroupChoices,setTabGroupChoices:(groupId,newChoice)=>{setChoices(oldChoices=>({...oldChoices,[groupId]:newChoice}));setChoiceSyncWithLocalStorage(groupId,newChoice);}};};/* harmony default export */ var hooks_useTabGroupChoice = (useTabGroupChoice);
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/TabGroupChoiceContext.js
-var TabGroupChoiceContext = __webpack_require__(91);
+var TabGroupChoiceContext = __webpack_require__(93);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/TabGroupChoiceProvider/index.js
 /**
@@ -8895,7 +8985,7 @@ var TabGroupChoiceContext = __webpack_require__(91);
  * LICENSE file in the root directory of this source tree.
  */function TabGroupChoiceProvider(props){const{tabGroupChoices,setTabGroupChoices}=hooks_useTabGroupChoice();return/*#__PURE__*/react_default.a.createElement(TabGroupChoiceContext["a" /* default */].Provider,{value:{tabGroupChoices,setTabGroupChoices}},props.children);}/* harmony default export */ var theme_TabGroupChoiceProvider = (TabGroupChoiceProvider);
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/AnnouncementBar/styles.module.css
-var styles_module = __webpack_require__(99);
+var styles_module = __webpack_require__(101);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/AnnouncementBar/index.js
@@ -8919,7 +9009,7 @@ var Link = __webpack_require__(17);
 var interopRequireWildcard = __webpack_require__(5);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/router.js
-var router = __webpack_require__(64);
+var router = __webpack_require__(66);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-search-algolia/src/theme/SearchBar/styles.css
 var styles = __webpack_require__(419);
@@ -8943,7 +9033,7 @@ var component = __webpack_require__(282);
 var component_default = /*#__PURE__*/__webpack_require__.n(component);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Toggle/styles.module.css
-var Toggle_styles_module = __webpack_require__(76);
+var Toggle_styles_module = __webpack_require__(78);
 var Toggle_styles_module_default = /*#__PURE__*/__webpack_require__.n(Toggle_styles_module);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Toggle/index.js
@@ -8954,7 +9044,7 @@ var Toggle_styles_module_default = /*#__PURE__*/__webpack_require__.n(Toggle_sty
  * LICENSE file in the root directory of this source tree.
  */const Moon=()=>/*#__PURE__*/react_default.a.createElement("span",{className:classnames_default()(Toggle_styles_module_default.a.toggle,Toggle_styles_module_default.a.moon)});const Sun=()=>/*#__PURE__*/react_default.a.createElement("span",{className:classnames_default()(Toggle_styles_module_default.a.toggle,Toggle_styles_module_default.a.sun)});/* harmony default export */ var Toggle = (function(props){const{isClient}=Object(useDocusaurusContext["a" /* default */])();return/*#__PURE__*/react_default.a.createElement(component_default.a,Object(esm_extends["a" /* default */])({disabled:!isClient,icons:{checked:/*#__PURE__*/react_default.a.createElement(Moon,null),unchecked:/*#__PURE__*/react_default.a.createElement(Sun,null)}},props));});
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useThemeContext.js
-var useThemeContext = __webpack_require__(65);
+var useThemeContext = __webpack_require__(67);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useLocationHash.js
 /**
@@ -8971,13 +9061,13 @@ var useThemeContext = __webpack_require__(65);
  * LICENSE file in the root directory of this source tree.
  */const useHideableNavbar=hideOnScroll=>{const[isNavbarVisible,setIsNavbarVisible]=Object(react["useState"])(true);const[isFocusedAnchor,setIsFocusedAnchor]=Object(react["useState"])(false);const[lastScrollTop,setLastScrollTop]=Object(react["useState"])(0);const[navbarHeight,setNavbarHeight]=Object(react["useState"])(0);const navbarRef=Object(react["useCallback"])(node=>{if(node!==null){setNavbarHeight(node.getBoundingClientRect().height);}},[]);const location=Object(router["c" /* useLocation */])();const[hash,setHash]=hooks_useLocationHash(location.hash);const handleScroll=()=>{const scrollTop=window.pageYOffset||document.documentElement.scrollTop;if(scrollTop===0){setIsNavbarVisible(true);}if(scrollTop<navbarHeight){return;}if(isFocusedAnchor){setIsFocusedAnchor(false);setIsNavbarVisible(false);setLastScrollTop(scrollTop);return;}const documentHeight=document.documentElement.scrollHeight-navbarHeight;const windowHeight=window.innerHeight;if(lastScrollTop&&scrollTop>=lastScrollTop){setIsNavbarVisible(false);}else if(scrollTop+windowHeight<documentHeight){setIsNavbarVisible(true);}setLastScrollTop(scrollTop);};Object(react["useEffect"])(()=>{if(!hideOnScroll){return undefined;}window.addEventListener('scroll',handleScroll);return()=>{window.removeEventListener('scroll',handleScroll);};},[lastScrollTop,navbarHeight]);Object(react["useEffect"])(()=>{if(!hideOnScroll){return;}setIsNavbarVisible(true);setHash(location.hash);},[location]);Object(react["useEffect"])(()=>{if(!hideOnScroll){return;}if(!hash){return;}setIsFocusedAnchor(true);},[hash]);return{navbarRef,isNavbarVisible};};/* harmony default export */ var hooks_useHideableNavbar = (useHideableNavbar);
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useLockBodyScroll.js
-var useLockBodyScroll = __webpack_require__(97);
+var useLockBodyScroll = __webpack_require__(99);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useLogo.js
-var useLogo = __webpack_require__(98);
+var useLogo = __webpack_require__(100);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Navbar/styles.module.css
-var Navbar_styles_module = __webpack_require__(77);
+var Navbar_styles_module = __webpack_require__(79);
 var Navbar_styles_module_default = /*#__PURE__*/__webpack_require__.n(Navbar_styles_module);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Navbar/index.js
@@ -9010,7 +9100,7 @@ var Layout_styles = __webpack_require__(478);
  */function Layout(props){const{siteConfig={}}=Object(useDocusaurusContext["a" /* default */])();const{favicon,title:siteTitle,themeConfig:{image:defaultImage},url:siteUrl}=siteConfig;const{children,title,noFooter,description,image,keywords,permalink,version}=props;const metaTitle=title?`${title} | ${siteTitle}`:siteTitle;const metaImage=image||defaultImage;let metaImageUrl=siteUrl+Object(useBaseUrl["a" /* default */])(metaImage);if(!Object(isInternalUrl["a" /* default */])(metaImage)){metaImageUrl=metaImage;}const faviconUrl=Object(useBaseUrl["a" /* default */])(favicon);return/*#__PURE__*/react_default.a.createElement(theme_ThemeProvider,null,/*#__PURE__*/react_default.a.createElement(theme_TabGroupChoiceProvider,null,/*#__PURE__*/react_default.a.createElement(Head["a" /* default */],null,/*#__PURE__*/react_default.a.createElement("html",{lang:"en"}),metaTitle&&/*#__PURE__*/react_default.a.createElement("title",null,metaTitle),metaTitle&&/*#__PURE__*/react_default.a.createElement("meta",{property:"og:title",content:metaTitle}),favicon&&/*#__PURE__*/react_default.a.createElement("link",{rel:"shortcut icon",href:faviconUrl}),description&&/*#__PURE__*/react_default.a.createElement("meta",{name:"description",content:description}),description&&/*#__PURE__*/react_default.a.createElement("meta",{property:"og:description",content:description}),version&&/*#__PURE__*/react_default.a.createElement("meta",{name:"docsearch:version",content:version}),keywords&&keywords.length&&/*#__PURE__*/react_default.a.createElement("meta",{name:"keywords",content:keywords.join(',')}),metaImage&&/*#__PURE__*/react_default.a.createElement("meta",{property:"og:image",content:metaImageUrl}),metaImage&&/*#__PURE__*/react_default.a.createElement("meta",{property:"twitter:image",content:metaImageUrl}),metaImage&&/*#__PURE__*/react_default.a.createElement("meta",{name:"twitter:image:alt",content:`Image for ${metaTitle}`}),permalink&&/*#__PURE__*/react_default.a.createElement("meta",{property:"og:url",content:siteUrl+permalink}),/*#__PURE__*/react_default.a.createElement("meta",{name:"twitter:card",content:"summary_large_image"})),/*#__PURE__*/react_default.a.createElement(theme_AnnouncementBar,null),/*#__PURE__*/react_default.a.createElement(theme_Navbar,null),/*#__PURE__*/react_default.a.createElement("div",{className:"main-wrapper"},children),!noFooter&&/*#__PURE__*/react_default.a.createElement(theme_Footer,null)));}/* harmony default export */ var theme_Layout = __webpack_exports__["a"] = (Layout);
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -9024,10 +9114,10 @@ module.exports = {
 
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Hack = __webpack_require__(106);
+var Hack = __webpack_require__(108);
 
 var Marker = __webpack_require__(18);
 
@@ -9096,513 +9186,6 @@ function restoreHack(property) {
 }
 
 module.exports = restoreFromOptimizing;
-
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports) {
-
-/* -*- Mode: js; js-indent-level: 2; -*- */
-/*
- * Copyright 2011 Mozilla Foundation and contributors
- * Licensed under the New BSD license. See LICENSE or:
- * http://opensource.org/licenses/BSD-3-Clause
- */
-
-/**
- * This is a helper function for getting values from parameter/options
- * objects.
- *
- * @param args The object we are extracting values from
- * @param name The name of the property we are getting.
- * @param defaultValue An optional value to return if the property is missing
- * from the object. If this is not specified and the property is missing, an
- * error will be thrown.
- */
-function getArg(aArgs, aName, aDefaultValue) {
-  if (aName in aArgs) {
-    return aArgs[aName];
-  } else if (arguments.length === 3) {
-    return aDefaultValue;
-  } else {
-    throw new Error('"' + aName + '" is a required argument.');
-  }
-}
-exports.getArg = getArg;
-
-var urlRegexp = /^(?:([\w+\-.]+):)?\/\/(?:(\w+:\w+)@)?([\w.-]*)(?::(\d+))?(.*)$/;
-var dataUrlRegexp = /^data:.+\,.+$/;
-
-function urlParse(aUrl) {
-  var match = aUrl.match(urlRegexp);
-  if (!match) {
-    return null;
-  }
-  return {
-    scheme: match[1],
-    auth: match[2],
-    host: match[3],
-    port: match[4],
-    path: match[5]
-  };
-}
-exports.urlParse = urlParse;
-
-function urlGenerate(aParsedUrl) {
-  var url = '';
-  if (aParsedUrl.scheme) {
-    url += aParsedUrl.scheme + ':';
-  }
-  url += '//';
-  if (aParsedUrl.auth) {
-    url += aParsedUrl.auth + '@';
-  }
-  if (aParsedUrl.host) {
-    url += aParsedUrl.host;
-  }
-  if (aParsedUrl.port) {
-    url += ":" + aParsedUrl.port
-  }
-  if (aParsedUrl.path) {
-    url += aParsedUrl.path;
-  }
-  return url;
-}
-exports.urlGenerate = urlGenerate;
-
-/**
- * Normalizes a path, or the path portion of a URL:
- *
- * - Replaces consecutive slashes with one slash.
- * - Removes unnecessary '.' parts.
- * - Removes unnecessary '<dir>/..' parts.
- *
- * Based on code in the Node.js 'path' core module.
- *
- * @param aPath The path or url to normalize.
- */
-function normalize(aPath) {
-  var path = aPath;
-  var url = urlParse(aPath);
-  if (url) {
-    if (!url.path) {
-      return aPath;
-    }
-    path = url.path;
-  }
-  var isAbsolute = exports.isAbsolute(path);
-
-  var parts = path.split(/\/+/);
-  for (var part, up = 0, i = parts.length - 1; i >= 0; i--) {
-    part = parts[i];
-    if (part === '.') {
-      parts.splice(i, 1);
-    } else if (part === '..') {
-      up++;
-    } else if (up > 0) {
-      if (part === '') {
-        // The first part is blank if the path is absolute. Trying to go
-        // above the root is a no-op. Therefore we can remove all '..' parts
-        // directly after the root.
-        parts.splice(i + 1, up);
-        up = 0;
-      } else {
-        parts.splice(i, 2);
-        up--;
-      }
-    }
-  }
-  path = parts.join('/');
-
-  if (path === '') {
-    path = isAbsolute ? '/' : '.';
-  }
-
-  if (url) {
-    url.path = path;
-    return urlGenerate(url);
-  }
-  return path;
-}
-exports.normalize = normalize;
-
-/**
- * Joins two paths/URLs.
- *
- * @param aRoot The root path or URL.
- * @param aPath The path or URL to be joined with the root.
- *
- * - If aPath is a URL or a data URI, aPath is returned, unless aPath is a
- *   scheme-relative URL: Then the scheme of aRoot, if any, is prepended
- *   first.
- * - Otherwise aPath is a path. If aRoot is a URL, then its path portion
- *   is updated with the result and aRoot is returned. Otherwise the result
- *   is returned.
- *   - If aPath is absolute, the result is aPath.
- *   - Otherwise the two paths are joined with a slash.
- * - Joining for example 'http://' and 'www.example.com' is also supported.
- */
-function join(aRoot, aPath) {
-  if (aRoot === "") {
-    aRoot = ".";
-  }
-  if (aPath === "") {
-    aPath = ".";
-  }
-  var aPathUrl = urlParse(aPath);
-  var aRootUrl = urlParse(aRoot);
-  if (aRootUrl) {
-    aRoot = aRootUrl.path || '/';
-  }
-
-  // `join(foo, '//www.example.org')`
-  if (aPathUrl && !aPathUrl.scheme) {
-    if (aRootUrl) {
-      aPathUrl.scheme = aRootUrl.scheme;
-    }
-    return urlGenerate(aPathUrl);
-  }
-
-  if (aPathUrl || aPath.match(dataUrlRegexp)) {
-    return aPath;
-  }
-
-  // `join('http://', 'www.example.com')`
-  if (aRootUrl && !aRootUrl.host && !aRootUrl.path) {
-    aRootUrl.host = aPath;
-    return urlGenerate(aRootUrl);
-  }
-
-  var joined = aPath.charAt(0) === '/'
-    ? aPath
-    : normalize(aRoot.replace(/\/+$/, '') + '/' + aPath);
-
-  if (aRootUrl) {
-    aRootUrl.path = joined;
-    return urlGenerate(aRootUrl);
-  }
-  return joined;
-}
-exports.join = join;
-
-exports.isAbsolute = function (aPath) {
-  return aPath.charAt(0) === '/' || urlRegexp.test(aPath);
-};
-
-/**
- * Make a path relative to a URL or another path.
- *
- * @param aRoot The root path or URL.
- * @param aPath The path or URL to be made relative to aRoot.
- */
-function relative(aRoot, aPath) {
-  if (aRoot === "") {
-    aRoot = ".";
-  }
-
-  aRoot = aRoot.replace(/\/$/, '');
-
-  // It is possible for the path to be above the root. In this case, simply
-  // checking whether the root is a prefix of the path won't work. Instead, we
-  // need to remove components from the root one by one, until either we find
-  // a prefix that fits, or we run out of components to remove.
-  var level = 0;
-  while (aPath.indexOf(aRoot + '/') !== 0) {
-    var index = aRoot.lastIndexOf("/");
-    if (index < 0) {
-      return aPath;
-    }
-
-    // If the only part of the root that is left is the scheme (i.e. http://,
-    // file:///, etc.), one or more slashes (/), or simply nothing at all, we
-    // have exhausted all components, so the path is not relative to the root.
-    aRoot = aRoot.slice(0, index);
-    if (aRoot.match(/^([^\/]+:\/)?\/*$/)) {
-      return aPath;
-    }
-
-    ++level;
-  }
-
-  // Make sure we add a "../" for each component we removed from the root.
-  return Array(level + 1).join("../") + aPath.substr(aRoot.length + 1);
-}
-exports.relative = relative;
-
-var supportsNullProto = (function () {
-  var obj = Object.create(null);
-  return !('__proto__' in obj);
-}());
-
-function identity (s) {
-  return s;
-}
-
-/**
- * Because behavior goes wacky when you set `__proto__` on objects, we
- * have to prefix all the strings in our set with an arbitrary character.
- *
- * See https://github.com/mozilla/source-map/pull/31 and
- * https://github.com/mozilla/source-map/issues/30
- *
- * @param String aStr
- */
-function toSetString(aStr) {
-  if (isProtoString(aStr)) {
-    return '$' + aStr;
-  }
-
-  return aStr;
-}
-exports.toSetString = supportsNullProto ? identity : toSetString;
-
-function fromSetString(aStr) {
-  if (isProtoString(aStr)) {
-    return aStr.slice(1);
-  }
-
-  return aStr;
-}
-exports.fromSetString = supportsNullProto ? identity : fromSetString;
-
-function isProtoString(s) {
-  if (!s) {
-    return false;
-  }
-
-  var length = s.length;
-
-  if (length < 9 /* "__proto__".length */) {
-    return false;
-  }
-
-  if (s.charCodeAt(length - 1) !== 95  /* '_' */ ||
-      s.charCodeAt(length - 2) !== 95  /* '_' */ ||
-      s.charCodeAt(length - 3) !== 111 /* 'o' */ ||
-      s.charCodeAt(length - 4) !== 116 /* 't' */ ||
-      s.charCodeAt(length - 5) !== 111 /* 'o' */ ||
-      s.charCodeAt(length - 6) !== 114 /* 'r' */ ||
-      s.charCodeAt(length - 7) !== 112 /* 'p' */ ||
-      s.charCodeAt(length - 8) !== 95  /* '_' */ ||
-      s.charCodeAt(length - 9) !== 95  /* '_' */) {
-    return false;
-  }
-
-  for (var i = length - 10; i >= 0; i--) {
-    if (s.charCodeAt(i) !== 36 /* '$' */) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-/**
- * Comparator between two mappings where the original positions are compared.
- *
- * Optionally pass in `true` as `onlyCompareGenerated` to consider two
- * mappings with the same original source/line/column, but different generated
- * line and column the same. Useful when searching for a mapping with a
- * stubbed out mapping.
- */
-function compareByOriginalPositions(mappingA, mappingB, onlyCompareOriginal) {
-  var cmp = strcmp(mappingA.source, mappingB.source);
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.originalLine - mappingB.originalLine;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.originalColumn - mappingB.originalColumn;
-  if (cmp !== 0 || onlyCompareOriginal) {
-    return cmp;
-  }
-
-  cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.generatedLine - mappingB.generatedLine;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  return strcmp(mappingA.name, mappingB.name);
-}
-exports.compareByOriginalPositions = compareByOriginalPositions;
-
-/**
- * Comparator between two mappings with deflated source and name indices where
- * the generated positions are compared.
- *
- * Optionally pass in `true` as `onlyCompareGenerated` to consider two
- * mappings with the same generated line and column, but different
- * source/name/original line and column the same. Useful when searching for a
- * mapping with a stubbed out mapping.
- */
-function compareByGeneratedPositionsDeflated(mappingA, mappingB, onlyCompareGenerated) {
-  var cmp = mappingA.generatedLine - mappingB.generatedLine;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-  if (cmp !== 0 || onlyCompareGenerated) {
-    return cmp;
-  }
-
-  cmp = strcmp(mappingA.source, mappingB.source);
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.originalLine - mappingB.originalLine;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.originalColumn - mappingB.originalColumn;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  return strcmp(mappingA.name, mappingB.name);
-}
-exports.compareByGeneratedPositionsDeflated = compareByGeneratedPositionsDeflated;
-
-function strcmp(aStr1, aStr2) {
-  if (aStr1 === aStr2) {
-    return 0;
-  }
-
-  if (aStr1 === null) {
-    return 1; // aStr2 !== null
-  }
-
-  if (aStr2 === null) {
-    return -1; // aStr1 !== null
-  }
-
-  if (aStr1 > aStr2) {
-    return 1;
-  }
-
-  return -1;
-}
-
-/**
- * Comparator between two mappings with inflated source and name strings where
- * the generated positions are compared.
- */
-function compareByGeneratedPositionsInflated(mappingA, mappingB) {
-  var cmp = mappingA.generatedLine - mappingB.generatedLine;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.generatedColumn - mappingB.generatedColumn;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = strcmp(mappingA.source, mappingB.source);
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.originalLine - mappingB.originalLine;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  cmp = mappingA.originalColumn - mappingB.originalColumn;
-  if (cmp !== 0) {
-    return cmp;
-  }
-
-  return strcmp(mappingA.name, mappingB.name);
-}
-exports.compareByGeneratedPositionsInflated = compareByGeneratedPositionsInflated;
-
-/**
- * Strip any JSON XSSI avoidance prefix from the string (as documented
- * in the source maps specification), and then parse the string as
- * JSON.
- */
-function parseSourceMapInput(str) {
-  return JSON.parse(str.replace(/^\)]}'[^\n]*\n/, ''));
-}
-exports.parseSourceMapInput = parseSourceMapInput;
-
-/**
- * Compute the URL of a source given the the source root, the source's
- * URL, and the source map's URL.
- */
-function computeSourceURL(sourceRoot, sourceURL, sourceMapURL) {
-  sourceURL = sourceURL || '';
-
-  if (sourceRoot) {
-    // This follows what Chrome does.
-    if (sourceRoot[sourceRoot.length - 1] !== '/' && sourceURL[0] !== '/') {
-      sourceRoot += '/';
-    }
-    // The spec says:
-    //   Line 4: An optional source root, useful for relocating source
-    //   files on a server or removing repeated values in the
-    //   “sources” entry.  This value is prepended to the individual
-    //   entries in the “source” field.
-    sourceURL = sourceRoot + sourceURL;
-  }
-
-  // Historically, SourceMapConsumer did not take the sourceMapURL as
-  // a parameter.  This mode is still somewhat supported, which is why
-  // this code block is conditional.  However, it's preferable to pass
-  // the source map URL to SourceMapConsumer, so that this function
-  // can implement the source URL resolution algorithm as outlined in
-  // the spec.  This block is basically the equivalent of:
-  //    new URL(sourceURL, sourceMapURL).toString()
-  // ... except it avoids using URL, which wasn't available in the
-  // older releases of node still supported by this library.
-  //
-  // The spec says:
-  //   If the sources are not absolute URLs after prepending of the
-  //   “sourceRoot”, the sources are resolved relative to the
-  //   SourceMap (like resolving script src in a html document).
-  if (sourceMapURL) {
-    var parsed = urlParse(sourceMapURL);
-    if (!parsed) {
-      throw new Error("sourceMapURL could not be parsed");
-    }
-    if (parsed.path) {
-      // Strip the last path component, but keep the "/".
-      var index = parsed.path.lastIndexOf('/');
-      if (index >= 0) {
-        parsed.path = parsed.path.substring(0, index + 1);
-      }
-    }
-    sourceURL = join(urlGenerate(parsed), sourceURL);
-  }
-
-  return normalize(sourceURL);
-}
-exports.computeSourceURL = computeSourceURL;
-
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports) {
-
-var REMOTE_RESOURCE_PATTERN = /^(\w+:\/\/|\/\/)/;
-
-function isRemoteResource(uri) {
-  return REMOTE_RESOURCE_PATTERN.test(uri);
-}
-
-module.exports = isRemoteResource;
 
 
 /***/ }),
@@ -10101,6 +9684,513 @@ exports.computeSourceURL = computeSourceURL;
 
 /***/ }),
 /* 73 */
+/***/ (function(module, exports) {
+
+var REMOTE_RESOURCE_PATTERN = /^(\w+:\/\/|\/\/)/;
+
+function isRemoteResource(uri) {
+  return REMOTE_RESOURCE_PATTERN.test(uri);
+}
+
+module.exports = isRemoteResource;
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports) {
+
+/* -*- Mode: js; js-indent-level: 2; -*- */
+/*
+ * Copyright 2011 Mozilla Foundation and contributors
+ * Licensed under the New BSD license. See LICENSE or:
+ * http://opensource.org/licenses/BSD-3-Clause
+ */
+
+/**
+ * This is a helper function for getting values from parameter/options
+ * objects.
+ *
+ * @param args The object we are extracting values from
+ * @param name The name of the property we are getting.
+ * @param defaultValue An optional value to return if the property is missing
+ * from the object. If this is not specified and the property is missing, an
+ * error will be thrown.
+ */
+function getArg(aArgs, aName, aDefaultValue) {
+  if (aName in aArgs) {
+    return aArgs[aName];
+  } else if (arguments.length === 3) {
+    return aDefaultValue;
+  } else {
+    throw new Error('"' + aName + '" is a required argument.');
+  }
+}
+exports.getArg = getArg;
+
+var urlRegexp = /^(?:([\w+\-.]+):)?\/\/(?:(\w+:\w+)@)?([\w.-]*)(?::(\d+))?(.*)$/;
+var dataUrlRegexp = /^data:.+\,.+$/;
+
+function urlParse(aUrl) {
+  var match = aUrl.match(urlRegexp);
+  if (!match) {
+    return null;
+  }
+  return {
+    scheme: match[1],
+    auth: match[2],
+    host: match[3],
+    port: match[4],
+    path: match[5]
+  };
+}
+exports.urlParse = urlParse;
+
+function urlGenerate(aParsedUrl) {
+  var url = '';
+  if (aParsedUrl.scheme) {
+    url += aParsedUrl.scheme + ':';
+  }
+  url += '//';
+  if (aParsedUrl.auth) {
+    url += aParsedUrl.auth + '@';
+  }
+  if (aParsedUrl.host) {
+    url += aParsedUrl.host;
+  }
+  if (aParsedUrl.port) {
+    url += ":" + aParsedUrl.port
+  }
+  if (aParsedUrl.path) {
+    url += aParsedUrl.path;
+  }
+  return url;
+}
+exports.urlGenerate = urlGenerate;
+
+/**
+ * Normalizes a path, or the path portion of a URL:
+ *
+ * - Replaces consecutive slashes with one slash.
+ * - Removes unnecessary '.' parts.
+ * - Removes unnecessary '<dir>/..' parts.
+ *
+ * Based on code in the Node.js 'path' core module.
+ *
+ * @param aPath The path or url to normalize.
+ */
+function normalize(aPath) {
+  var path = aPath;
+  var url = urlParse(aPath);
+  if (url) {
+    if (!url.path) {
+      return aPath;
+    }
+    path = url.path;
+  }
+  var isAbsolute = exports.isAbsolute(path);
+
+  var parts = path.split(/\/+/);
+  for (var part, up = 0, i = parts.length - 1; i >= 0; i--) {
+    part = parts[i];
+    if (part === '.') {
+      parts.splice(i, 1);
+    } else if (part === '..') {
+      up++;
+    } else if (up > 0) {
+      if (part === '') {
+        // The first part is blank if the path is absolute. Trying to go
+        // above the root is a no-op. Therefore we can remove all '..' parts
+        // directly after the root.
+        parts.splice(i + 1, up);
+        up = 0;
+      } else {
+        parts.splice(i, 2);
+        up--;
+      }
+    }
+  }
+  path = parts.join('/');
+
+  if (path === '') {
+    path = isAbsolute ? '/' : '.';
+  }
+
+  if (url) {
+    url.path = path;
+    return urlGenerate(url);
+  }
+  return path;
+}
+exports.normalize = normalize;
+
+/**
+ * Joins two paths/URLs.
+ *
+ * @param aRoot The root path or URL.
+ * @param aPath The path or URL to be joined with the root.
+ *
+ * - If aPath is a URL or a data URI, aPath is returned, unless aPath is a
+ *   scheme-relative URL: Then the scheme of aRoot, if any, is prepended
+ *   first.
+ * - Otherwise aPath is a path. If aRoot is a URL, then its path portion
+ *   is updated with the result and aRoot is returned. Otherwise the result
+ *   is returned.
+ *   - If aPath is absolute, the result is aPath.
+ *   - Otherwise the two paths are joined with a slash.
+ * - Joining for example 'http://' and 'www.example.com' is also supported.
+ */
+function join(aRoot, aPath) {
+  if (aRoot === "") {
+    aRoot = ".";
+  }
+  if (aPath === "") {
+    aPath = ".";
+  }
+  var aPathUrl = urlParse(aPath);
+  var aRootUrl = urlParse(aRoot);
+  if (aRootUrl) {
+    aRoot = aRootUrl.path || '/';
+  }
+
+  // `join(foo, '//www.example.org')`
+  if (aPathUrl && !aPathUrl.scheme) {
+    if (aRootUrl) {
+      aPathUrl.scheme = aRootUrl.scheme;
+    }
+    return urlGenerate(aPathUrl);
+  }
+
+  if (aPathUrl || aPath.match(dataUrlRegexp)) {
+    return aPath;
+  }
+
+  // `join('http://', 'www.example.com')`
+  if (aRootUrl && !aRootUrl.host && !aRootUrl.path) {
+    aRootUrl.host = aPath;
+    return urlGenerate(aRootUrl);
+  }
+
+  var joined = aPath.charAt(0) === '/'
+    ? aPath
+    : normalize(aRoot.replace(/\/+$/, '') + '/' + aPath);
+
+  if (aRootUrl) {
+    aRootUrl.path = joined;
+    return urlGenerate(aRootUrl);
+  }
+  return joined;
+}
+exports.join = join;
+
+exports.isAbsolute = function (aPath) {
+  return aPath.charAt(0) === '/' || urlRegexp.test(aPath);
+};
+
+/**
+ * Make a path relative to a URL or another path.
+ *
+ * @param aRoot The root path or URL.
+ * @param aPath The path or URL to be made relative to aRoot.
+ */
+function relative(aRoot, aPath) {
+  if (aRoot === "") {
+    aRoot = ".";
+  }
+
+  aRoot = aRoot.replace(/\/$/, '');
+
+  // It is possible for the path to be above the root. In this case, simply
+  // checking whether the root is a prefix of the path won't work. Instead, we
+  // need to remove components from the root one by one, until either we find
+  // a prefix that fits, or we run out of components to remove.
+  var level = 0;
+  while (aPath.indexOf(aRoot + '/') !== 0) {
+    var index = aRoot.lastIndexOf("/");
+    if (index < 0) {
+      return aPath;
+    }
+
+    // If the only part of the root that is left is the scheme (i.e. http://,
+    // file:///, etc.), one or more slashes (/), or simply nothing at all, we
+    // have exhausted all components, so the path is not relative to the root.
+    aRoot = aRoot.slice(0, index);
+    if (aRoot.match(/^([^\/]+:\/)?\/*$/)) {
+      return aPath;
+    }
+
+    ++level;
+  }
+
+  // Make sure we add a "../" for each component we removed from the root.
+  return Array(level + 1).join("../") + aPath.substr(aRoot.length + 1);
+}
+exports.relative = relative;
+
+var supportsNullProto = (function () {
+  var obj = Object.create(null);
+  return !('__proto__' in obj);
+}());
+
+function identity (s) {
+  return s;
+}
+
+/**
+ * Because behavior goes wacky when you set `__proto__` on objects, we
+ * have to prefix all the strings in our set with an arbitrary character.
+ *
+ * See https://github.com/mozilla/source-map/pull/31 and
+ * https://github.com/mozilla/source-map/issues/30
+ *
+ * @param String aStr
+ */
+function toSetString(aStr) {
+  if (isProtoString(aStr)) {
+    return '$' + aStr;
+  }
+
+  return aStr;
+}
+exports.toSetString = supportsNullProto ? identity : toSetString;
+
+function fromSetString(aStr) {
+  if (isProtoString(aStr)) {
+    return aStr.slice(1);
+  }
+
+  return aStr;
+}
+exports.fromSetString = supportsNullProto ? identity : fromSetString;
+
+function isProtoString(s) {
+  if (!s) {
+    return false;
+  }
+
+  var length = s.length;
+
+  if (length < 9 /* "__proto__".length */) {
+    return false;
+  }
+
+  if (s.charCodeAt(length - 1) !== 95  /* '_' */ ||
+      s.charCodeAt(length - 2) !== 95  /* '_' */ ||
+      s.charCodeAt(length - 3) !== 111 /* 'o' */ ||
+      s.charCodeAt(length - 4) !== 116 /* 't' */ ||
+      s.charCodeAt(length - 5) !== 111 /* 'o' */ ||
+      s.charCodeAt(length - 6) !== 114 /* 'r' */ ||
+      s.charCodeAt(length - 7) !== 112 /* 'p' */ ||
+      s.charCodeAt(length - 8) !== 95  /* '_' */ ||
+      s.charCodeAt(length - 9) !== 95  /* '_' */) {
+    return false;
+  }
+
+  for (var i = length - 10; i >= 0; i--) {
+    if (s.charCodeAt(i) !== 36 /* '$' */) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/**
+ * Comparator between two mappings where the original positions are compared.
+ *
+ * Optionally pass in `true` as `onlyCompareGenerated` to consider two
+ * mappings with the same original source/line/column, but different generated
+ * line and column the same. Useful when searching for a mapping with a
+ * stubbed out mapping.
+ */
+function compareByOriginalPositions(mappingA, mappingB, onlyCompareOriginal) {
+  var cmp = strcmp(mappingA.source, mappingB.source);
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.originalLine - mappingB.originalLine;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.originalColumn - mappingB.originalColumn;
+  if (cmp !== 0 || onlyCompareOriginal) {
+    return cmp;
+  }
+
+  cmp = mappingA.generatedColumn - mappingB.generatedColumn;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.generatedLine - mappingB.generatedLine;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  return strcmp(mappingA.name, mappingB.name);
+}
+exports.compareByOriginalPositions = compareByOriginalPositions;
+
+/**
+ * Comparator between two mappings with deflated source and name indices where
+ * the generated positions are compared.
+ *
+ * Optionally pass in `true` as `onlyCompareGenerated` to consider two
+ * mappings with the same generated line and column, but different
+ * source/name/original line and column the same. Useful when searching for a
+ * mapping with a stubbed out mapping.
+ */
+function compareByGeneratedPositionsDeflated(mappingA, mappingB, onlyCompareGenerated) {
+  var cmp = mappingA.generatedLine - mappingB.generatedLine;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.generatedColumn - mappingB.generatedColumn;
+  if (cmp !== 0 || onlyCompareGenerated) {
+    return cmp;
+  }
+
+  cmp = strcmp(mappingA.source, mappingB.source);
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.originalLine - mappingB.originalLine;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.originalColumn - mappingB.originalColumn;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  return strcmp(mappingA.name, mappingB.name);
+}
+exports.compareByGeneratedPositionsDeflated = compareByGeneratedPositionsDeflated;
+
+function strcmp(aStr1, aStr2) {
+  if (aStr1 === aStr2) {
+    return 0;
+  }
+
+  if (aStr1 === null) {
+    return 1; // aStr2 !== null
+  }
+
+  if (aStr2 === null) {
+    return -1; // aStr1 !== null
+  }
+
+  if (aStr1 > aStr2) {
+    return 1;
+  }
+
+  return -1;
+}
+
+/**
+ * Comparator between two mappings with inflated source and name strings where
+ * the generated positions are compared.
+ */
+function compareByGeneratedPositionsInflated(mappingA, mappingB) {
+  var cmp = mappingA.generatedLine - mappingB.generatedLine;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.generatedColumn - mappingB.generatedColumn;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = strcmp(mappingA.source, mappingB.source);
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.originalLine - mappingB.originalLine;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  cmp = mappingA.originalColumn - mappingB.originalColumn;
+  if (cmp !== 0) {
+    return cmp;
+  }
+
+  return strcmp(mappingA.name, mappingB.name);
+}
+exports.compareByGeneratedPositionsInflated = compareByGeneratedPositionsInflated;
+
+/**
+ * Strip any JSON XSSI avoidance prefix from the string (as documented
+ * in the source maps specification), and then parse the string as
+ * JSON.
+ */
+function parseSourceMapInput(str) {
+  return JSON.parse(str.replace(/^\)]}'[^\n]*\n/, ''));
+}
+exports.parseSourceMapInput = parseSourceMapInput;
+
+/**
+ * Compute the URL of a source given the the source root, the source's
+ * URL, and the source map's URL.
+ */
+function computeSourceURL(sourceRoot, sourceURL, sourceMapURL) {
+  sourceURL = sourceURL || '';
+
+  if (sourceRoot) {
+    // This follows what Chrome does.
+    if (sourceRoot[sourceRoot.length - 1] !== '/' && sourceURL[0] !== '/') {
+      sourceRoot += '/';
+    }
+    // The spec says:
+    //   Line 4: An optional source root, useful for relocating source
+    //   files on a server or removing repeated values in the
+    //   “sources” entry.  This value is prepended to the individual
+    //   entries in the “source” field.
+    sourceURL = sourceRoot + sourceURL;
+  }
+
+  // Historically, SourceMapConsumer did not take the sourceMapURL as
+  // a parameter.  This mode is still somewhat supported, which is why
+  // this code block is conditional.  However, it's preferable to pass
+  // the source map URL to SourceMapConsumer, so that this function
+  // can implement the source URL resolution algorithm as outlined in
+  // the spec.  This block is basically the equivalent of:
+  //    new URL(sourceURL, sourceMapURL).toString()
+  // ... except it avoids using URL, which wasn't available in the
+  // older releases of node still supported by this library.
+  //
+  // The spec says:
+  //   If the sources are not absolute URLs after prepending of the
+  //   “sourceRoot”, the sources are resolved relative to the
+  //   SourceMap (like resolving script src in a html document).
+  if (sourceMapURL) {
+    var parsed = urlParse(sourceMapURL);
+    if (!parsed) {
+      throw new Error("sourceMapURL could not be parsed");
+    }
+    if (parsed.path) {
+      // Strip the last path component, but keep the "/".
+      var index = parsed.path.lastIndexOf('/');
+      if (index >= 0) {
+        parsed.path = parsed.path.substring(0, index + 1);
+      }
+    }
+    sourceURL = join(urlGenerate(parsed), sourceURL);
+  }
+
+  return normalize(sourceURL);
+}
+exports.computeSourceURL = computeSourceURL;
+
+
+/***/ }),
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10110,10 +10200,10 @@ exports.computeSourceURL = computeSourceURL;
 // We use custom error "types" so that we can act on them when we need it
 // e.g.: if error instanceof errors.UnparsableJSON then..
 
-var inherits = __webpack_require__(54);
+var inherits = __webpack_require__(57);
 
 function AlgoliaSearchError(message, extraProperties) {
-  var forEach = __webpack_require__(55);
+  var forEach = __webpack_require__(58);
 
   var error = this;
 
@@ -10193,7 +10283,7 @@ module.exports = {
 
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10209,7 +10299,7 @@ __webpack_require__.r(__webpack_exports__);
 const frontMatter={};const metadata={"id":"workflow/snippets/prereqs-server","title":"prereqs-server","description":":::important","source":"@site/docs/workflow/snippets/prereqs-server.mdx","permalink":"/docs/workflow/snippets/prereqs-server","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/snippets/prereqs-server.mdx"};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Extending Geocortex Workflow with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0"}),`server side components`),` requires an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/installation.htm"}),`on premise installation of Geocortex Workflow`),`. You will need administrative access to this installation.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-net-getting-started-server"}),`Geocortex Workflow Server`),` page to set up your development environment.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`A working knowledge of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://dotnet.microsoft.com/"}),`C# and the .NET platform`),` is recommended before extending Geocortex Workflow Server`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10548,7 +10638,7 @@ Loadable.preloadReady = function () {
 module.exports = Loadable;
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -10560,7 +10650,7 @@ module.exports = {
 
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -10573,12 +10663,12 @@ module.exports = {
 
 
 /***/ }),
-/* 78 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var systemLineBreak = __webpack_require__(132).EOL;
+var systemLineBreak = __webpack_require__(134).EOL;
 
-var override = __webpack_require__(50);
+var override = __webpack_require__(53);
 
 var Breaks = {
   AfterAtRule: 'afterAtRule',
@@ -10795,7 +10885,7 @@ module.exports = {
 
 
 /***/ }),
-/* 79 */
+/* 81 */
 /***/ (function(module, exports) {
 
 function formatPosition(metadata) {
@@ -10812,11 +10902,11 @@ module.exports = formatPosition;
 
 
 /***/ }),
-/* 80 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Marker = __webpack_require__(18);
-var split = __webpack_require__(107);
+var split = __webpack_require__(109);
 
 var DEEP_SELECTOR_PATTERN = /\/deep\//;
 var DOUBLE_COLON_PATTERN = /^::/;
@@ -11077,20 +11167,20 @@ module.exports = isMergeable;
 
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var mergeIntoShorthands = __webpack_require__(314);
 var overrideProperties = __webpack_require__(319);
-var populateComponents = __webpack_require__(109);
+var populateComponents = __webpack_require__(111);
 
-var restoreWithComponents = __webpack_require__(110);
+var restoreWithComponents = __webpack_require__(112);
 
-var wrapForOptimizing = __webpack_require__(51).all;
-var removeUnused = __webpack_require__(133);
-var restoreFromOptimizing = __webpack_require__(69);
+var wrapForOptimizing = __webpack_require__(54).all;
+var removeUnused = __webpack_require__(135);
+var restoreFromOptimizing = __webpack_require__(71);
 
-var OptimizationLevel = __webpack_require__(37).OptimizationLevel;
+var OptimizationLevel = __webpack_require__(39).OptimizationLevel;
 
 function optimizeProperties(properties, withOverriding, withMerging, context) {
   var levelOptions = context.options.level[OptimizationLevel.Two];
@@ -11123,10 +11213,10 @@ module.exports = optimizeProperties;
 
 
 /***/ }),
-/* 82 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var wrapSingle = __webpack_require__(51).single;
+var wrapSingle = __webpack_require__(54).single;
 
 var Token = __webpack_require__(13);
 
@@ -11162,12 +11252,12 @@ module.exports = {
 
 
 /***/ }),
-/* 83 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // TODO: it'd be great to merge it with the other canReorder functionality
 
-var rulesOverlap = __webpack_require__(139);
+var rulesOverlap = __webpack_require__(141);
 var specificitiesOverlap = __webpack_require__(325);
 
 var FLEX_PROPERTIES = /align\-items|box\-align|box\-pack|flex|justify/;
@@ -11261,13 +11351,13 @@ module.exports = {
 
 
 /***/ }),
-/* 84 */
+/* 86 */
 /***/ (function(module, exports) {
 
 module.exports = require("http");
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports) {
 
 var NO_PROTOCOL_RESOURCE_PATTERN = /^\/\//;
@@ -11280,7 +11370,7 @@ module.exports = hasProtocol;
 
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11459,7 +11549,7 @@ module.exports = {
 
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11475,7 +11565,7 @@ module.exports = {
 
 
 /***/ }),
-/* 88 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -11491,7 +11581,7 @@ if (typeof process !== 'undefined' && process.type === 'renderer') {
 
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11588,7 +11678,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11601,7 +11691,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /* harmony import */ var react_fast_compare__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_fast_compare__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(89);
+/* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(91);
 /* harmony import */ var object_assign__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(object_assign__WEBPACK_IMPORTED_MODULE_4__);
 
 
@@ -12504,7 +12594,7 @@ HelmetExport.renderStatic = HelmetExport.rewind;
 
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12518,7 +12608,7 @@ HelmetExport.renderStatic = HelmetExport.rewind;
  */const TabGroupChoiceContext=Object(react__WEBPACK_IMPORTED_MODULE_0__["createContext"])({tabGroupChoices:{},setTabGroupChoices:()=>{}});/* harmony default export */ __webpack_exports__["a"] = (TabGroupChoiceContext);
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12532,13 +12622,13 @@ HelmetExport.renderStatic = HelmetExport.rewind;
  *//* harmony default export */ __webpack_exports__["a"] = (react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({}));
 
 /***/ }),
-/* 93 */
+/* 95 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(90);
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(92);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -12547,11 +12637,11 @@ HelmetExport.renderStatic = HelmetExport.rewind;
  */function Head(props){return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_helmet__WEBPACK_IMPORTED_MODULE_1__[/* Helmet */ "a"],props);}/* harmony default export */ __webpack_exports__["a"] = (Head);
 
 /***/ }),
-/* 94 */
+/* 96 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(95);
+/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(97);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -12560,7 +12650,7 @@ HelmetExport.renderStatic = HelmetExport.rewind;
  *//* harmony default export */ __webpack_exports__["a"] = (react_router_config__WEBPACK_IMPORTED_MODULE_0__[/* renderRoutes */ "b"]);
 
 /***/ }),
-/* 95 */
+/* 97 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12632,7 +12722,7 @@ function renderRoutes(routes, extraProps, switchProps) {
 
 
 /***/ }),
-/* 96 */
+/* 98 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12646,7 +12736,7 @@ function renderRoutes(routes, extraProps, switchProps) {
  */const ThemeContext=react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext({isDarkTheme:false,setLightTheme:()=>{},setDarkTheme:()=>{}});/* harmony default export */ __webpack_exports__["a"] = (ThemeContext);
 
 /***/ }),
-/* 97 */
+/* 99 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12660,14 +12750,14 @@ function renderRoutes(routes, extraProps, switchProps) {
  */function useLockBodyScroll(lock=true){Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(()=>{document.body.style.overflow=lock?'hidden':'visible';return()=>{document.body.style.overflow='visible';};},[lock]);}/* harmony default export */ __webpack_exports__["a"] = (useLockBodyScroll);
 
 /***/ }),
-/* 98 */
+/* 100 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var _docusaurus_useDocusaurusContext__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
-/* harmony import */ var _theme_hooks_useThemeContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(65);
+/* harmony import */ var _theme_hooks_useThemeContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(67);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var _docusaurus_isInternalUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
+/* harmony import */ var _docusaurus_isInternalUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -12676,7 +12766,7 @@ function renderRoutes(routes, extraProps, switchProps) {
  */const useLogo=()=>{const{siteConfig:{baseUrl,themeConfig:{navbar:{logo={}}={}}}={}}=Object(_docusaurus_useDocusaurusContext__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])();const{isDarkTheme}=Object(_theme_hooks_useThemeContext__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"])();const logoLink=logo.href||baseUrl;let logoLinkProps={};if(logo.target){logoLinkProps={target:logo.target};}else if(!Object(_docusaurus_isInternalUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(logoLink)){logoLinkProps={rel:'noopener noreferrer',target:'_blank'};}const logoSrc=logo.srcDark&&isDarkTheme?logo.srcDark:logo.src;const logoImageUrl=Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"])(logoSrc);return{logoLink,logoLinkProps,logoImageUrl,logoAlt:logo.alt};};/* harmony default export */ __webpack_exports__["a"] = (useLogo);
 
 /***/ }),
-/* 99 */
+/* 101 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -12688,7 +12778,7 @@ module.exports = {
 
 
 /***/ }),
-/* 100 */
+/* 102 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -12700,7 +12790,7 @@ module.exports = {
 
 
 /***/ }),
-/* 101 */
+/* 103 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -12712,7 +12802,7 @@ module.exports = {
 
 
 /***/ }),
-/* 102 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* NProgress, (c) 2013, 2014 Rico Sta. Cruz - http://ricostacruz.com/nprogress
@@ -13194,8 +13284,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* NProgress, 
 
 
 /***/ }),
-/* 103 */,
-/* 104 */
+/* 105 */,
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var naturalCompare = __webpack_require__(309);
@@ -13224,12 +13314,12 @@ module.exports = sortSelectors;
 
 
 /***/ }),
-/* 105 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Spaces = __webpack_require__(78).Spaces;
+var Spaces = __webpack_require__(80).Spaces;
 var Marker = __webpack_require__(18);
-var formatPosition = __webpack_require__(79);
+var formatPosition = __webpack_require__(81);
 
 var CASE_ATTRIBUTE_PATTERN = /[\s"'][iI]\s*\]/;
 var CASE_RESTORE_PATTERN = /([\d\w])([iI])\]/g;
@@ -13443,7 +13533,7 @@ module.exports = tidyRules;
 
 
 /***/ }),
-/* 106 */
+/* 108 */
 /***/ (function(module, exports) {
 
 var Hack = {
@@ -13457,7 +13547,7 @@ module.exports = Hack;
 
 
 /***/ }),
-/* 107 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Marker = __webpack_require__(18);
@@ -13513,13 +13603,13 @@ module.exports = split;
 
 
 /***/ }),
-/* 108 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var emptyCharacter = '';
 
-var Breaks = __webpack_require__(78).Breaks;
-var Spaces = __webpack_require__(78).Spaces;
+var Breaks = __webpack_require__(80).Breaks;
+var Spaces = __webpack_require__(80).Spaces;
 
 var Marker = __webpack_require__(18);
 var Token = __webpack_require__(13);
@@ -13766,11 +13856,11 @@ module.exports = {
 
 
 /***/ }),
-/* 109 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var compactable = __webpack_require__(44);
-var InvalidPropertyError = __webpack_require__(137);
+var compactable = __webpack_require__(47);
+var InvalidPropertyError = __webpack_require__(139);
 
 function populateComponents(properties, validator, warnings) {
   var component;
@@ -13814,10 +13904,10 @@ module.exports = populateComponents;
 
 
 /***/ }),
-/* 110 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var compactable = __webpack_require__(44);
+var compactable = __webpack_require__(47);
 
 function restoreWithComponents(property) {
   var descriptor = compactable[property.name];
@@ -13833,7 +13923,7 @@ module.exports = restoreWithComponents;
 
 
 /***/ }),
-/* 111 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // This extractor is used in level 2 optimizations
@@ -13912,14 +14002,14 @@ module.exports = extractProperties;
 
 
 /***/ }),
-/* 112 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var path = __webpack_require__(11);
-var url = __webpack_require__(32);
+var url = __webpack_require__(34);
 
-var isRemoteResource = __webpack_require__(71);
-var hasProtocol = __webpack_require__(85);
+var isRemoteResource = __webpack_require__(73);
+var hasProtocol = __webpack_require__(87);
 
 var HTTP_PROTOCOL = 'http:';
 
@@ -13995,7 +14085,7 @@ module.exports = isAllowedResource;
 
 
 /***/ }),
-/* 113 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14066,7 +14156,7 @@ module.exports =
 
 
 /***/ }),
-/* 114 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14122,13 +14212,13 @@ module.exports =
 
 
 /***/ }),
-/* 115 */
+/* 117 */
 /***/ (function(module, exports) {
 
 module.exports = require("assert");
 
 /***/ }),
-/* 116 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14147,13 +14237,13 @@ module.exports = {
 
 
 /***/ }),
-/* 117 */
+/* 119 */
 /***/ (function(module, exports) {
 
 module.exports = require("net");
 
 /***/ }),
-/* 118 */
+/* 120 */
 /***/ (function(module, exports) {
 
 module.exports = function deprecate(fn, message) {
@@ -14174,7 +14264,7 @@ module.exports = function deprecate(fn, message) {
 
 
 /***/ }),
-/* 119 */
+/* 121 */
 /***/ (function(module, exports) {
 
 module.exports = function deprecatedMessage(previousUsage, newUsage) {
@@ -14187,13 +14277,13 @@ module.exports = function deprecatedMessage(previousUsage, newUsage) {
 
 
 /***/ }),
-/* 120 */
+/* 122 */
 /***/ (function(module, exports) {
 
 module.exports = require("events");
 
 /***/ }),
-/* 121 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14211,7 +14301,7 @@ module.exports = require("events");
  * Module dependencies.
  */
 
-var util = __webpack_require__(53);
+var util = __webpack_require__(56);
 var debug;
 var node10 = process.version.indexOf('v0.10.') === 0;
 
@@ -14231,7 +14321,7 @@ exports.inherits = util.inherits;
 
 
 /***/ }),
-/* 122 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14340,13 +14430,13 @@ function bindContext(fn, context) {
 
 
 /***/ }),
-/* 123 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _ = __webpack_require__(34);
+var _ = __webpack_require__(36);
 
 var css = {
   wrapper: {
@@ -14444,14 +14534,14 @@ module.exports = css;
 
 
 /***/ }),
-/* 124 */
+/* 126 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _theme_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(67);
+/* harmony import */ var _theme_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(69);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -14460,7 +14550,7 @@ __webpack_require__.r(__webpack_exports__);
  */function NotFound(){return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_theme_Layout__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"],{title:"Page Not Found"},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div",{className:"container margin-vert--xl"},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div",{className:"row"},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div",{className:"col col--6 col--offset-3"},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1",{className:"hero__title"},"Page Not Found"),/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p",null,"We could not find what you were looking for."),/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p",null,"Please contact the owner of the site that linked you to the original URL and let them know their link is broken.")))));}/* harmony default export */ __webpack_exports__["default"] = (NotFound);
 
 /***/ }),
-/* 125 */
+/* 127 */
 /***/ (function(module, exports) {
 
 function _inheritsLoose(subClass, superClass) {
@@ -14472,7 +14562,7 @@ function _inheritsLoose(subClass, superClass) {
 module.exports = _inheritsLoose;
 
 /***/ }),
-/* 126 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isarray = __webpack_require__(417)
@@ -14904,7 +14994,7 @@ function pathToRegexp (path, keys, options) {
 
 
 /***/ }),
-/* 127 */
+/* 129 */
 /***/ (function(module, exports) {
 
 function parsePart(str) {
@@ -14960,7 +15050,7 @@ module.exports.parse = function(str) {
 
 
 /***/ }),
-/* 128 */
+/* 130 */
 /***/ (function(module, exports) {
 
 // Exports
@@ -14971,13 +15061,13 @@ module.exports = {
 
 
 /***/ }),
-/* 129 */
+/* 131 */
 /***/ (function(module, exports) {
 
 module.exports = require("stream");
 
 /***/ }),
-/* 130 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15005,19 +15095,19 @@ exports.hasEntry = _hasEntry["default"];
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 /***/ }),
-/* 131 */
+/* 133 */
 /***/ (function(module, exports) {
 
 module.exports = require("crypto");
 
 /***/ }),
-/* 132 */
+/* 134 */
 /***/ (function(module, exports) {
 
 module.exports = require("os");
 
 /***/ }),
-/* 133 */
+/* 135 */
 /***/ (function(module, exports) {
 
 function removeUnused(properties) {
@@ -15034,10 +15124,10 @@ module.exports = removeUnused;
 
 
 /***/ }),
-/* 134 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var override = __webpack_require__(50);
+var override = __webpack_require__(53);
 
 var INTEGER_PATTERN = /^\d+$/;
 
@@ -15128,7 +15218,7 @@ module.exports = {
 
 
 /***/ }),
-/* 135 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Marker = __webpack_require__(18);
@@ -15162,7 +15252,7 @@ module.exports = everyValuesPair;
 
 
 /***/ }),
-/* 136 */
+/* 138 */
 /***/ (function(module, exports) {
 
 function hasInherit(property) {
@@ -15178,7 +15268,7 @@ module.exports = hasInherit;
 
 
 /***/ }),
-/* 137 */
+/* 139 */
 /***/ (function(module, exports) {
 
 function InvalidPropertyError(message) {
@@ -15194,7 +15284,7 @@ module.exports = InvalidPropertyError;
 
 
 /***/ }),
-/* 138 */
+/* 140 */
 /***/ (function(module, exports) {
 
 var VENDOR_PREFIX_PATTERN = /(?:^|\W)(\-\w+\-)/g;
@@ -15223,7 +15313,7 @@ module.exports = {
 
 
 /***/ }),
-/* 139 */
+/* 141 */
 /***/ (function(module, exports) {
 
 var MODIFIER_PATTERN = /\-\-.+$/;
@@ -15261,7 +15351,7 @@ module.exports = rulesOverlap;
 
 
 /***/ }),
-/* 140 */
+/* 142 */
 /***/ (function(module, exports) {
 
 function cloneArray(array) {
@@ -15279,7 +15369,7 @@ module.exports = cloneArray;
 
 
 /***/ }),
-/* 141 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -15287,13 +15377,13 @@ module.exports = cloneArray;
  * Licensed under the New BSD license. See LICENSE.txt or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
-exports.SourceMapGenerator = __webpack_require__(142).SourceMapGenerator;
+exports.SourceMapGenerator = __webpack_require__(144).SourceMapGenerator;
 exports.SourceMapConsumer = __webpack_require__(350).SourceMapConsumer;
 exports.SourceNode = __webpack_require__(353).SourceNode;
 
 
 /***/ }),
-/* 142 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -15303,9 +15393,9 @@ exports.SourceNode = __webpack_require__(353).SourceNode;
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var base64VLQ = __webpack_require__(143);
-var util = __webpack_require__(70);
-var ArraySet = __webpack_require__(144).ArraySet;
+var base64VLQ = __webpack_require__(145);
+var util = __webpack_require__(72);
+var ArraySet = __webpack_require__(146).ArraySet;
 var MappingList = __webpack_require__(349).MappingList;
 
 /**
@@ -15724,7 +15814,7 @@ exports.SourceMapGenerator = SourceMapGenerator;
 
 
 /***/ }),
-/* 143 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -15870,7 +15960,7 @@ exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
 
 
 /***/ }),
-/* 144 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -15880,7 +15970,7 @@ exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var util = __webpack_require__(70);
+var util = __webpack_require__(72);
 var has = Object.prototype.hasOwnProperty;
 var hasNativeMap = typeof Map !== "undefined";
 
@@ -15997,7 +16087,7 @@ exports.ArraySet = ArraySet;
 
 
 /***/ }),
-/* 145 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var path = __webpack_require__(11);
@@ -16018,11 +16108,11 @@ module.exports = rebaseLocalMap;
 
 
 /***/ }),
-/* 146 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var path = __webpack_require__(11);
-var url = __webpack_require__(32);
+var url = __webpack_require__(34);
 
 function rebaseRemoteMap(sourceMap, sourceUri) {
   var sourceDirectory = path.dirname(sourceUri);
@@ -16038,10 +16128,10 @@ module.exports = rebaseRemoteMap;
 
 
 /***/ }),
-/* 147 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var split = __webpack_require__(107);
+var split = __webpack_require__(109);
 
 var BRACE_PREFIX = /^\(/;
 var BRACE_SUFFIX = /\)$/;
@@ -16079,7 +16169,7 @@ module.exports = extractImportUrlAndMedia;
 
 
 /***/ }),
-/* 148 */
+/* 150 */
 /***/ (function(module, exports) {
 
 function restoreImport(uri, mediaQuery) {
@@ -16090,7 +16180,7 @@ module.exports = restoreImport;
 
 
 /***/ }),
-/* 149 */
+/* 151 */
 /***/ (function(module, exports) {
 
 var IMPORT_PREFIX_PATTERN = /^@import/i;
@@ -16103,7 +16193,7 @@ module.exports = isImport;
 
 
 /***/ }),
-/* 150 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16128,7 +16218,7 @@ exports.createMapFromString = function(values, ignoreCase) {
 
 
 /***/ }),
-/* 151 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16145,7 +16235,7 @@ module.exports =
 
 
 /***/ }),
-/* 152 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -16155,9 +16245,9 @@ module.exports =
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var base64VLQ = __webpack_require__(153);
-var util = __webpack_require__(72);
-var ArraySet = __webpack_require__(154).ArraySet;
+var base64VLQ = __webpack_require__(155);
+var util = __webpack_require__(74);
+var ArraySet = __webpack_require__(156).ArraySet;
 var MappingList = __webpack_require__(386).MappingList;
 
 /**
@@ -16576,7 +16666,7 @@ exports.SourceMapGenerator = SourceMapGenerator;
 
 
 /***/ }),
-/* 153 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -16722,7 +16812,7 @@ exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
 
 
 /***/ }),
-/* 154 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */
@@ -16732,7 +16822,7 @@ exports.decode = function base64VLQ_decode(aStr, aIndex, aOutParam) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var util = __webpack_require__(72);
+var util = __webpack_require__(74);
 var has = Object.prototype.hasOwnProperty;
 var hasNativeMap = typeof Map !== "undefined";
 
@@ -16849,7 +16939,7 @@ exports.ArraySet = ArraySet;
 
 
 /***/ }),
-/* 155 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16965,7 +17055,7 @@ if (typeof fs.realpath.native === 'function') {
 
 
 /***/ }),
-/* 156 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16977,7 +17067,7 @@ module.exports = {
 
 
 /***/ }),
-/* 157 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17009,14 +17099,14 @@ module.exports = {
 
 
 /***/ }),
-/* 158 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 const fs = __webpack_require__(16)
-const os = __webpack_require__(132)
+const os = __webpack_require__(134)
 const path = __webpack_require__(11)
 
 // HFS, ext{2,3}, FAT do not, Node.js v0.10 does not
@@ -17095,7 +17185,7 @@ module.exports = {
 
 
 /***/ }),
-/* 159 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17106,38 +17196,6 @@ module.exports = {
   copy: u(__webpack_require__(399))
 }
 
-
-/***/ }),
-/* 160 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={title:'Events',description:'Geocortex Mobile - Events API reference'};const metadata={"id":"mobile/api-events","title":"Events","description":"Geocortex Mobile - Events API reference","source":"@site/docs/mobile/api-events.mdx","permalink":"/docs/mobile/api-events","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/api-events.mdx","sidebar":"mobile","previous":{"title":"Commands and Operations","permalink":"/docs/mobile/api-commands-operations"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
-
-/***/ }),
-/* 161 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={title:'Commands and Operations',description:'Geocortex Web - Commands and Operations API Reference'};const metadata={"id":"web/api-commands-operations","title":"Commands and Operations","description":"Geocortex Web - Commands and Operations API Reference","source":"@site/docs/web/api-commands-operations.mdx","permalink":"/docs/web/api-commands-operations","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/api-commands-operations.mdx","sidebar":"web","previous":{"title":"Message Bus","permalink":"/docs/web/api-message-bus"},"next":{"title":"Events","permalink":"/docs/web/api-events"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 162 */
@@ -17157,7 +17215,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4);
-/* harmony import */ var _snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(39);
+/* harmony import */ var _snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(41);
 const frontMatter={title:'Change Default Application Behavior',description:'Geocortex Web - Learn how to configure Geocortex Web to change default application behavior'};const metadata={"id":"web/usecases-change-default-behavior","title":"Change Default Application Behavior","description":"Geocortex Web - Learn how to configure Geocortex Web to change default application behavior","source":"@site/docs/web/usecases-change-default-behavior.mdx","permalink":"/docs/web/usecases-change-default-behavior","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-change-default-behavior.mdx","sidebar":"web","previous":{"title":"Advanced App Config","permalink":"/docs/web/concepts-advanced-app-config"},"next":{"title":"Customize the Look and Feel","permalink":"/docs/web/usecases-look-and-feel"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Custom Behavior of Built-in Components',id:'custom-behavior-of-built-in-components',children:[]},{value:'Using Workflows to Customize Behavior',id:'using-workflows-to-customize-behavior',children:[]},{value:'Discovering Configurable Properties',id:'discovering-configurable-properties',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Many of the behaviors of Geocortex Web's built-in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services"}),`components`),` are configurable through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-app-config"}),`app config`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_7__["default"],{mdxType:"PrereqsLayoutConfigSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"custom-behavior-of-built-in-components"},`Custom Behavior of Built-in Components`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The following example overrides the default behavior for a map click by modifying the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`onClick`),` property in the app config for the map component.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{defaultValue:"config",values:[{label:"App Config",value:"config"},{label:"Layout",value:"layout"}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{value:"config",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-json"}),`{
     "schemaVersion": "1.0",
     "items": [
@@ -17229,7 +17287,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
+/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(42);
 const frontMatter={title:'Key Concepts',description:'Geocortex Mobile - Learn about key concepts of the Geocortex Mobile Framework',hide_table_of_contents:true};const metadata={"id":"mobile/concepts-key-concepts","title":"Key Concepts","description":"Geocortex Mobile - Learn about key concepts of the Geocortex Mobile Framework","source":"@site/docs/mobile/concepts-key-concepts.mdx","permalink":"/docs/mobile/concepts-key-concepts","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/concepts-key-concepts.mdx","sidebar":"mobile","previous":{"title":"Overview","permalink":"/docs/mobile/overview"},"next":{"title":"Layout","permalink":"/docs/mobile/concepts-layout"}};/* @jsx mdx */const rightToc=[{value:'Applications',id:'applications',children:[{value:'1. Layout XML that represents the visual layout of the application',id:'1-layout-xml-that-represents-the-visual-layout-of-the-application',children:[]},{value:'2. App Config JSON for the application',id:'2-app-config-json-for-the-application',children:[]},{value:'3. The Geocortex Mobile code which renders the layout and powers functionality',id:'3-the-geocortex-mobile-code-which-renders-the-layout-and-powers-functionality',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"DesignerCallout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"applications"},`Applications`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The core element of the Geocortex Mobile Framework is an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Application`),`. Applications are composed of three main pieces:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"1-layout-xml-that-represents-the-visual-layout-of-the-application"},`1. Layout XML that represents the visual layout of the application`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-xml"}),`<?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map config="default" />
@@ -17270,10 +17328,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
-/* harmony import */ var _src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
+/* harmony import */ var _src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(50);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(7);
-const frontMatter={title:'Commands and Operations',description:'Geocortex Mobile - Learn about commands and operations'};const metadata={"id":"mobile/concepts-commands-operations","title":"Commands and Operations","description":"Geocortex Mobile - Learn about commands and operations","source":"@site/docs/mobile/concepts-commands-operations.mdx","permalink":"/docs/mobile/concepts-commands-operations","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/concepts-commands-operations.mdx","sidebar":"mobile","previous":{"title":"App Config","permalink":"/docs/mobile/concepts-app-config"},"next":{"title":"Components and Services","permalink":"/docs/mobile/concepts-components-services"}};/* @jsx mdx */const rightToc=[{value:'Passing Arguments',id:'passing-arguments',children:[]},{value:'Passing Named Arguments',id:'passing-named-arguments',children:[]},{value:'Example: Configured Map and I Want To Menu',id:'example-configured-map-and-i-want-to-menu',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Before learning about commands and operations...`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-key-concepts"}),`Key Concepts`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Commands and operations`),` are runnable, independent units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-command-operation"}),`define custom commands and operations`),` for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output. Commands and Operations are grouped by namespace, for example:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{}),`auth.sign-in
+const frontMatter={title:'Commands and Operations',description:'Geocortex Mobile - Learn about commands and operations'};const metadata={"id":"mobile/concepts-commands-operations","title":"Commands and Operations","description":"Geocortex Mobile - Learn about commands and operations","source":"@site/docs/mobile/concepts-commands-operations.mdx","permalink":"/docs/mobile/concepts-commands-operations","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/concepts-commands-operations.mdx","sidebar":"mobile","previous":{"title":"App Config","permalink":"/docs/mobile/concepts-app-config"},"next":{"title":"Components and Services","permalink":"/docs/mobile/concepts-components-services"}};/* @jsx mdx */const rightToc=[{value:'Passing Arguments',id:'passing-arguments',children:[]},{value:'Passing Named Arguments',id:'passing-named-arguments',children:[]},{value:'Example: Configured Map and I Want To Menu',id:'example-configured-map-and-i-want-to-menu',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Before learning about commands and operations...`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-key-concepts"}),`Key Concepts`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Commands and operations`),` are runnable, independent units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-command-operation"}),`define custom commands and operations`),` for use throughout the application. Commands are units of work which may take an input but do not produce an output, while operations differ because they produce output.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The full list of existing commands and operations available in Geocortex Mobile can be `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/api-commands-operations-events"}),`found in the API documentation`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Commands and Operations are grouped by namespace, for example:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{}),`auth.sign-in
 auth.sign-out
 edit.add-feature
 edit.delete-features
@@ -17366,7 +17424,7 @@ edit.delete-features
   "geometry": "Esri.Point(<map-click-location>)",
   ... <other props>
 }
-`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` receives this argument, and since it is an operation, produces an output. Looking at the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/api-commands-operations"}),`Commands and Operations Documentation`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` has output with the shape:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-json"}),`{
+`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` receives this argument, and since it is an operation, produces an output. Looking at the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/api-commands-operations-events"}),`Commands and Operations Documentation`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` has output with the shape:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-json"}),`{
   "features": [<feature1>, <feature2>, ...],
   "results": [<Result(feature1)>, <Result(feature2)>, ...],
   ... <other props>
@@ -17457,7 +17515,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
-/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(27);
+/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(28);
 const frontMatter={title:'App Config for a Component',description:'Geocortex Web - Learn how to make a component participate in app config.'};const metadata={"id":"web/usecases-implement-component-participate-app-config","title":"App Config for a Component","description":"Geocortex Web - Learn how to make a component participate in app config.","source":"@site/docs/web/usecases-implement-component-participate-app-config.mdx","permalink":"/docs/web/usecases-implement-component-participate-app-config","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-implement-component-participate-app-config.mdx","sidebar":"web","previous":{"title":"Commands and Operations in Components","permalink":"/docs/web/usecases-components-commands-operations"},"next":{"title":"Component Interactions","permalink":"/docs/web/usecases-component-interactions"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Component Models',id:'component-models',children:[]},{value:'Example: Model for the News Feed Component',id:'example-model-for-the-news-feed-component',children:[{value:'Starting Point',id:'starting-point',children:[]},{value:'Defining Model Properties',id:'defining-model-properties',children:[]},{value:'Participating in the Configuration Lifecycle',id:'participating-in-the-configuration-lifecycle',children:[]},{value:'Consuming the Configuration in the Component',id:'consuming-the-configuration-in-the-component',children:[]},{value:'Complete Example',id:'complete-example',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web has a powerful `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-app-config"}),`app configuration`),` model which can be used to easily change the behavior of an application without modifying custom code. Using app config to power a components behavior increases its reusability and customizability.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`By the end of this article, you'll have the knowledge to build a component that displays relevant news items at the top of your map. These news items will be populated from config, along with a value that tells the news component whether or not to be visible by default.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Learn how to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-participate-app-config"}),`implement a custom component`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"component-models"},`Component Models`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Each component has an associated model. The model is the backing data source for a component, and usually has properties that are initialized from configuration. It is best practice to treat the model for a component as the state, and single source of truth, for data values that the component consumes.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`By configuring built-in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-layout"}),`layout elements`),` such as the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<map>`),`, you've already used models. In this example, the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<map>`),` component is linked to the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`map-extension`),` model in the configuration.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{defaultValue:"layout",values:[{label:"Layout",value:"layout"},{label:"App Config",value:"config"}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"layout",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-xml"}),`<?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map config="my-map-config" />
@@ -17796,7 +17854,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
-/* harmony import */ var _snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(35);
+/* harmony import */ var _snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(37);
 const frontMatter={title:'Access App Properties in an Activity',description:'Geocortex Workflow - Access app properties in a Geocortex Mobile workflow activity'};const metadata={"id":"workflow/usecases-mobile-access-app-properties","title":"Access App Properties in an Activity","description":"Geocortex Workflow - Access app properties in a Geocortex Mobile workflow activity","source":"@site/docs/workflow/usecases-mobile-access-app-properties.mdx","permalink":"/docs/workflow/usecases-mobile-access-app-properties","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/usecases-mobile-access-app-properties.mdx","sidebar":"workflow","previous":{"title":"Implement a Custom Activity for Geocortex Mobile","permalink":"/docs/workflow/usecases-mobile-implement-custom-activity"},"next":{"title":"Implement a Custom Form Element for Geocortex Mobile","permalink":"/docs/workflow/usecases-mobile-implement-custom-form-elements"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Access Geocortex Mobile Functionality',id:'access-geocortex-mobile-functionality',children:[{value:'Example: Display Geocortex Mobile Alert',id:'example-display-geocortex-mobile-alert',children:[]}]},{value:'Access the Map',id:'access-the-map',children:[{value:'Example: Place Callout at Center Point',id:'example-place-callout-at-center-point',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article applies to building workflow activities that will be run on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxm/"}),`Geocortex Mobile`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_5__["default"],{mdxType:"MobilePrereqs"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Learn how to build a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-mobile-implement-custom-activity"}),`custom activity`),` for Geocortex Mobile before reading this article.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"access-geocortex-mobile-functionality"},`Access Geocortex Mobile Functionality`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Accessing Geocortex Mobile functionality in custom workflow activities uses the built-in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-dependency-injection"}),`dependency injection pattern`),` to inject shared Geocortex Mobile `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-components-services"}),`services`),` such as the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`UIOperations`),` service.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Add the class you want to inject to the constructor of the custom activity`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-csharp"}),`private UIOperations _uiOperations;
 
 public DisplayGeocortexMobileAlert(UIOperations uiOperations)
@@ -18000,28 +18058,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={title:'Events',description:'Geocortex Web - Events API Reference'};const metadata={"id":"web/api-events","title":"Events","description":"Geocortex Web - Events API Reference","source":"@site/docs/web/api-events.mdx","permalink":"/docs/web/api-events","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/api-events.mdx","sidebar":"web","previous":{"title":"Commands and Operations","permalink":"/docs/web/api-commands-operations"},"next":{"title":"Components","permalink":"/docs/web/api-components"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
-
-/***/ }),
-/* 173 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
 const frontMatter={title:'Display a Custom Form',description:'Geocortex Web - Learn how to display a custom form'};const metadata={"id":"web/usecases-display-custom-form","title":"Display a Custom Form","description":"Geocortex Web - Learn how to display a custom form","source":"@site/docs/web/usecases-display-custom-form.mdx","permalink":"/docs/web/usecases-display-custom-form","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-display-custom-form.mdx","sidebar":"web","previous":{"title":"Internationalization","permalink":"/docs/web/usecases-internationalization"},"next":{"title":"Implement a Custom Form Element","permalink":"/docs/web/usecases-implement-custom-form-elements"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web comes with bundled with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/geocortex-workflow/"}),`Geocortex Workflow`),`. Using Geocortex Workflow, you can create custom user interactions with custom forms and business logic, without ever having to implement custom code.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Add a Workflow to a Geocortex Web Application",description:"Learn how to add a workflow to a Geocortex Web Application",link:"https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____0",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Build a Custom Form",description:"Learn how to build a custom form with Geocortex Workflow",link:"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 174 */
+/* 173 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18038,7 +18080,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
 /* harmony import */ var _snippets_prereqs_custom_code_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(22);
-/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(27);
+/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(28);
 const frontMatter={title:'Custom Component with UI',description:'Geocortex Web - Learn how to implement a custom component with UI'};const metadata={"id":"web/usecases-implement-component-with-ui","title":"Custom Component with UI","description":"Geocortex Web - Learn how to implement a custom component with UI","source":"@site/docs/web/usecases-implement-component-with-ui.mdx","permalink":"/docs/web/usecases-implement-component-with-ui","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-implement-component-with-ui.mdx","sidebar":"web","previous":{"title":"Custom Commands and Operations","permalink":"/docs/web/usecases-implement-command-operation"},"next":{"title":"Commands and Operations in Components","permalink":"/docs/web/usecases-components-commands-operations"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Create a Component Skeleton',id:'create-a-component-skeleton',children:[]},{value:'Register the Component with the Web SDK',id:'register-the-component-with-the-web-sdk',children:[]},{value:'Add the Component to your Layout',id:'add-the-component-to-your-layout',children:[]},{value:'Build out your Component&#39;s UI',id:'build-out-your-components-ui',children:[{value:'Example: RSS Feed of News Updates',id:'example-rss-feed-of-news-updates',children:[]},{value:'Example: Component that Uses Built-in Icons',id:'example-component-that-uses-built-in-icons',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Did you know Geocortex Workflow allows you to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0"}),`create custom forms`),` you can present to an end user?`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do in Geocortex Web. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services"}),`Components`),` can display custom, dynamic UI, register command and operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Web app, so it's worthwhile to try simpler options like `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-change-default-behavior"}),`changing the default behavior`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-change-default-behavior#using-workflows-to-customize-behavior"}),`Geocortex Workflow`),` first.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`By the end of this article, you'll have the knowledge to build a component that displays relevant news items at the top of your map.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_custom_code_mdx__WEBPACK_IMPORTED_MODULE_6__["default"],{mdxType:"PrereqsCustomCodeSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"create-a-component-skeleton"},`Create a Component Skeleton`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The first thing we need to do is create the necessary files for a custom component. Every component needs an associated model that extends `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ComponentModelBase`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Create a new folder structure with the following files. These files define a new component with a simple visual structure and export it from the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`CustomComponent`),` folder.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`src/components/CustomComponent/CustomComponent.tsx`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`src/components/CustomComponent/CustomModel.ts`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`src/components/CustomComponent/index.ts`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`In Geocortex Web, components are simply `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://reactjs.org/docs/components-and-props.html"}),`React Components`),` that return a root `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`LayoutElement`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{defaultValue:"component",values:[{label:'Component',value:'component'},{label:'Model',value:'model'},{label:'Component Index',value:'index'}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"component",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-tsx","metastring":"title=\"src/components/CustomComponent/CustomComponent.tsx\"","title":"\"src/components/CustomComponent/CustomComponent.tsx\""}),`import React from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import { CustomModel } from ".";
@@ -18203,7 +18245,7 @@ export default function ComponentWithIcon(props) {
 `))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"ui",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("img/web-component-with-icon.png")}))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 175 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18216,7 +18258,7 @@ module.exports = __webpack_require__(428);
 
 
 /***/ }),
-/* 176 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -18424,7 +18466,7 @@ function coerce(val) {
 
 
 /***/ }),
-/* 177 */
+/* 176 */
 /***/ (function(module, exports) {
 
 exports = module.exports = SemVer
@@ -19913,12 +19955,12 @@ function coerce (version) {
 
 
 /***/ }),
-/* 178 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = buildSearchMethod;
 
-var errors = __webpack_require__(73);
+var errors = __webpack_require__(75);
 
 /**
  * Creates a search method to be used in clients
@@ -19986,12 +20028,12 @@ function buildSearchMethod(queryParam, url) {
 
 
 /***/ }),
-/* 179 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildSearchMethod = __webpack_require__(178);
-var deprecate = __webpack_require__(118);
-var deprecatedMessage = __webpack_require__(119);
+var buildSearchMethod = __webpack_require__(177);
+var deprecate = __webpack_require__(120);
+var deprecatedMessage = __webpack_require__(121);
 
 module.exports = IndexCore;
 
@@ -20149,7 +20191,7 @@ IndexCore.prototype.similarSearch = deprecate(
 * @see {@link https://www.algolia.com/doc/rest_api#Browse|Algolia REST API Documentation}
 */
 IndexCore.prototype.browse = function(query, queryParameters, callback) {
-  var merge = __webpack_require__(180);
+  var merge = __webpack_require__(179);
 
   var indexObj = this;
 
@@ -20244,8 +20286,8 @@ IndexCore.prototype.browseFrom = function(cursor, callback) {
 * @param callback (optional)
 */
 IndexCore.prototype.searchForFacetValues = function(params, callback) {
-  var clone = __webpack_require__(38);
-  var omit = __webpack_require__(181);
+  var clone = __webpack_require__(40);
+  var omit = __webpack_require__(180);
   var usage = 'Usage: index.searchForFacetValues({facetName, facetQuery, ...params}[, callback])';
 
   if (params.facetName === undefined || params.facetQuery === undefined) {
@@ -20335,7 +20377,7 @@ IndexCore.prototype.getObject = function(objectID, attrs, callback) {
 */
 IndexCore.prototype.getObjects = function(objectIDs, attributesToRetrieve, callback) {
   var isArray = __webpack_require__(21);
-  var map = __webpack_require__(56);
+  var map = __webpack_require__(59);
 
   var usage = 'Usage: index.getObjects(arrayOfObjectIDs[, callback])';
 
@@ -20381,10 +20423,10 @@ IndexCore.prototype.typeAheadValueOption = null;
 
 
 /***/ }),
-/* 180 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var foreach = __webpack_require__(55);
+var foreach = __webpack_require__(58);
 
 module.exports = function merge(destination/* , sources */) {
   var sources = Array.prototype.slice.call(arguments);
@@ -20406,12 +20448,12 @@ module.exports = function merge(destination/* , sources */) {
 
 
 /***/ }),
-/* 181 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function omit(obj, test) {
-  var keys = __webpack_require__(182);
-  var foreach = __webpack_require__(55);
+  var keys = __webpack_require__(181);
+  var foreach = __webpack_require__(58);
 
   var filtered = {};
 
@@ -20426,14 +20468,14 @@ module.exports = function omit(obj, test) {
 
 
 /***/ }),
-/* 182 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var slice = Array.prototype.slice;
-var isArgs = __webpack_require__(183);
+var isArgs = __webpack_require__(182);
 
 var origKeys = Object.keys;
 var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(443);
@@ -20465,7 +20507,7 @@ module.exports = keysShim;
 
 
 /***/ }),
-/* 183 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20489,7 +20531,7 @@ module.exports = function isArguments(value) {
 
 
 /***/ }),
-/* 184 */
+/* 183 */
 /***/ (function(module, exports) {
 
 // Parse cloud does not supports setTimeout
@@ -20502,15 +20544,15 @@ module.exports = function exitPromise(fn, _setTimeout) {
 
 
 /***/ }),
-/* 185 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(186);
+module.exports = __webpack_require__(185);
 module.exports.HttpsAgent = __webpack_require__(452);
 
 
 /***/ }),
-/* 186 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20532,8 +20574,8 @@ module.exports.HttpsAgent = __webpack_require__(452);
  * Module dependencies.
  */
 
-var https = __webpack_require__(52);
-var utils = __webpack_require__(121);
+var https = __webpack_require__(55);
+var utils = __webpack_require__(123);
 var OriginalAgent = __webpack_require__(451).Agent;
 var OriginalHttpsAgent = https.Agent;
 
@@ -20614,7 +20656,7 @@ function inspect(obj) {
 
 
 /***/ }),
-/* 187 */
+/* 186 */
 /***/ (function(module, exports) {
 
 /* istanbul ignore next */
@@ -21937,7 +21979,7 @@ function inspect(obj) {
 
 
 /***/ }),
-/* 188 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21945,8 +21987,8 @@ function inspect(obj) {
 
 var namespace = 'autocomplete:';
 
-var _ = __webpack_require__(34);
-var DOM = __webpack_require__(45);
+var _ = __webpack_require__(36);
+var DOM = __webpack_require__(48);
 
 // constructor
 // -----------
@@ -21977,7 +22019,7 @@ module.exports = EventBus;
 
 
 /***/ }),
-/* 189 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21993,14 +22035,14 @@ module.exports = {
 
 
 /***/ }),
-/* 190 */
+/* 189 */
 /***/ (function(module, exports) {
 
 module.exports = "0.36.0";
 
 
 /***/ }),
-/* 191 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22013,7 +22055,7 @@ module.exports = function parseAlgoliaClientVersion(agent) {
 
 
 /***/ }),
-/* 192 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22023,7 +22065,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _zepto = __webpack_require__(187);
+var _zepto = __webpack_require__(186);
 
 var _zepto2 = _interopRequireDefault(_zepto);
 
@@ -22032,7 +22074,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = _zepto2.default;
 
 /***/ }),
-/* 193 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22044,7 +22086,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = '2.6.3';
 
 /***/ }),
-/* 194 */
+/* 193 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22057,7 +22099,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
+/* harmony import */ var _snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(3);
@@ -22114,13 +22156,13 @@ const frontMatter={title:'Advanced App Config',description:'Geocortex Web - Lear
 `))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{value:"ui",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])("img/web-app-config-basic.png")}))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`In addition, multiple components can use the same configuration type. For example, components like the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<iwtm>`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<button>`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<toolbar>`),` all use the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`menu-item`),` type in some manner for their configuration. Custom components can also adopt existing item types as their `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services#component-models-and-configuration"}),`models`),`.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 195 */
+/* 194 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"docsSidebars\":{\"web\":[{\"type\":\"link\",\"label\":\"Overview\",\"href\":\"/docs/web/overview\"},{\"type\":\"category\",\"label\":\"Concepts\",\"items\":[{\"type\":\"link\",\"label\":\"Key Concepts\",\"href\":\"/docs/web/concepts-key-concepts\"},{\"type\":\"link\",\"label\":\"Layout\",\"href\":\"/docs/web/concepts-layout\"},{\"type\":\"link\",\"label\":\"App Config\",\"href\":\"/docs/web/concepts-app-config\"},{\"type\":\"link\",\"label\":\"Commands and Operations\",\"href\":\"/docs/web/concepts-commands-operations\"},{\"type\":\"link\",\"label\":\"Components and Services\",\"href\":\"/docs/web/concepts-components-services\"},{\"type\":\"link\",\"label\":\"Events\",\"href\":\"/docs/web/concepts-events\"},{\"type\":\"category\",\"label\":\"Advanced Concepts\",\"items\":[{\"type\":\"link\",\"label\":\"Advanced Layout\",\"href\":\"/docs/web/concepts-advanced-layout\"},{\"type\":\"link\",\"label\":\"Advanced App Config\",\"href\":\"/docs/web/concepts-advanced-app-config\"}]}]},{\"type\":\"category\",\"label\":\"Use Cases\",\"items\":[{\"type\":\"category\",\"label\":\"Basics\",\"items\":[{\"type\":\"link\",\"label\":\"Change Default Application Behavior\",\"href\":\"/docs/web/usecases-change-default-behavior\"},{\"type\":\"link\",\"label\":\"Customize the Look and Feel\",\"href\":\"/docs/web/usecases-look-and-feel\"},{\"type\":\"link\",\"label\":\"Internationalization\",\"href\":\"/docs/web/usecases-internationalization\"}]},{\"type\":\"category\",\"label\":\"Workflow\",\"items\":[{\"type\":\"link\",\"label\":\"Display a Custom Form\",\"href\":\"/docs/web/usecases-display-custom-form\"},{\"type\":\"link\",\"label\":\"Implement a Custom Form Element\",\"href\":\"/docs/web/usecases-implement-custom-form-elements\"},{\"type\":\"link\",\"label\":\"Implement a Custom Activity\",\"href\":\"/docs/web/usecases-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Change Default Map Click Behavior\",\"href\":\"/docs/web/usecases-change-default-map-click-behavior\"}]},{\"type\":\"category\",\"label\":\"Advanced\",\"items\":[{\"type\":\"link\",\"label\":\"Custom Commands and Operations\",\"href\":\"/docs/web/usecases-implement-command-operation\"},{\"type\":\"link\",\"label\":\"Custom Component with UI\",\"href\":\"/docs/web/usecases-implement-component-with-ui\"},{\"type\":\"link\",\"label\":\"Commands and Operations in Components\",\"href\":\"/docs/web/usecases-components-commands-operations\"},{\"type\":\"link\",\"label\":\"App Config for a Component\",\"href\":\"/docs/web/usecases-implement-component-participate-app-config\"},{\"type\":\"link\",\"label\":\"Component Interactions\",\"href\":\"/docs/web/usecases-component-interactions\"},{\"type\":\"link\",\"label\":\"Custom Service\",\"href\":\"/docs/web/usecases-implement-service\"},{\"type\":\"link\",\"label\":\"Using and Creating Events\",\"href\":\"/docs/web/usecases-implement-event\"}]}]},{\"type\":\"category\",\"label\":\"Getting Started with the SDK\",\"items\":[{\"type\":\"link\",\"label\":\"SDK Overview\",\"href\":\"/docs/web/sdk-overview\"},{\"type\":\"link\",\"label\":\"Create a Component\",\"href\":\"/docs/web/sdk-create-component\"},{\"type\":\"link\",\"label\":\"Create a Service\",\"href\":\"/docs/web/sdk-create-service\"},{\"type\":\"link\",\"label\":\"Deployment\",\"href\":\"/docs/web/sdk-deployment\"},{\"type\":\"category\",\"label\":\"Common Patterns\",\"items\":[{\"type\":\"link\",\"label\":\"Injecting Services\",\"href\":\"/docs/web/sdk-service-injection\"},{\"type\":\"link\",\"label\":\"Component Hooks\",\"href\":\"/docs/web/sdk-component-hooks\"},{\"type\":\"link\",\"label\":\"UIContext\",\"href\":\"/docs/web/sdk-ui-context\"},{\"type\":\"link\",\"label\":\"Reference Third Party Libraries\",\"href\":\"/docs/web/sdk-reference-third-party-libraries\"}]}]},{\"type\":\"category\",\"label\":\"API\",\"items\":[{\"type\":\"link\",\"label\":\"Message Bus\",\"href\":\"/docs/web/api-message-bus\"},{\"type\":\"link\",\"label\":\"Commands and Operations\",\"href\":\"/docs/web/api-commands-operations\"},{\"type\":\"link\",\"label\":\"Events\",\"href\":\"/docs/web/api-events\"},{\"type\":\"link\",\"label\":\"Components\",\"href\":\"/docs/web/api-components\"}]}],\"workflow\":[{\"type\":\"link\",\"label\":\"Overview\",\"href\":\"/docs/workflow/overview\"},{\"type\":\"link\",\"label\":\"Concepts\",\"href\":\"/docs/workflow/concepts-key-concepts\"},{\"type\":\"category\",\"label\":\"Use Cases\",\"items\":[{\"type\":\"category\",\"label\":\"Web Applications\",\"items\":[{\"type\":\"link\",\"label\":\"Implement a Custom Activity\",\"href\":\"/docs/workflow/usecases-web-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Access App Properties in an Activity\",\"href\":\"/docs/workflow/usecases-web-access-app-properties\"},{\"type\":\"link\",\"label\":\"Implement a Custom Form Element\",\"href\":\"/docs/workflow/usecases-web-implement-custom-form-elements\"},{\"type\":\"link\",\"label\":\"Reference a Third Party Library\",\"href\":\"/docs/workflow/usecases-web-reference-third-party-library\"}]},{\"type\":\"category\",\"label\":\"Geocortex Mobile\",\"items\":[{\"type\":\"link\",\"label\":\"Implement a Custom Activity\",\"href\":\"/docs/workflow/usecases-mobile-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Access App Properties in an Activity\",\"href\":\"/docs/workflow/usecases-mobile-access-app-properties\"},{\"type\":\"link\",\"label\":\"Implement a Custom Form Element\",\"href\":\"/docs/workflow/usecases-mobile-implement-custom-form-elements\"},{\"type\":\"link\",\"label\":\"Reference a Third Party Library\",\"href\":\"/docs/workflow/usecases-mobile-reference-third-party-library\"}]},{\"type\":\"category\",\"label\":\"Geocortex Workflow Server\",\"items\":[{\"type\":\"link\",\"label\":\"Implement a Custom Activity\",\"href\":\"/docs/workflow/usecases-server-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Reference a Third Party Library\",\"href\":\"/docs/workflow/usecases-server-reference-third-party-library\"}]}]},{\"type\":\"category\",\"label\":\"Getting Started with the SDK\",\"items\":[{\"type\":\"link\",\"label\":\"SDK Overview\",\"href\":\"/docs/workflow/sdk-overview\"},{\"type\":\"category\",\"label\":\"Web Applications\",\"items\":[{\"type\":\"link\",\"label\":\"Getting Started\",\"href\":\"/docs/workflow/sdk-web-getting-started\"},{\"type\":\"link\",\"label\":\"Integrating the ArcGIS API for JavaScript\",\"href\":\"/docs/workflow/sdk-web-integrating-the-arcgis-api\"},{\"type\":\"link\",\"label\":\"Activity Block Tags\",\"href\":\"/docs/workflow/sdk-web-activity-block-tags\"}]},{\"type\":\"category\",\"label\":\".NET Applications\",\"items\":[{\"type\":\"link\",\"label\":\"Geocortex Mobile\",\"href\":\"/docs/workflow/sdk-net-getting-started-mobile\"},{\"type\":\"link\",\"label\":\"Geocortex Workflow Server\",\"href\":\"/docs/workflow/sdk-net-getting-started-server\"},{\"type\":\"link\",\"label\":\"Registering .NET Activities with Geocortex Workflow Designer\",\"href\":\"/docs/workflow/sdk-net-register-activities\"},{\"type\":\"link\",\"label\":\"Integrating the ArcGIS Runtime SDK for .NET\",\"href\":\"/docs/workflow/sdk-net-integrating-the-arcgis-api\"}]}]},{\"type\":\"category\",\"label\":\"API\",\"items\":[{\"type\":\"link\",\"label\":\"Workflow Server REST API\",\"href\":\"/docs/workflow/api-server-rest\"}]}],\"mobile\":[{\"type\":\"link\",\"label\":\"Overview\",\"href\":\"/docs/mobile/overview\"},{\"type\":\"category\",\"label\":\"Concepts\",\"items\":[{\"type\":\"link\",\"label\":\"Key Concepts\",\"href\":\"/docs/mobile/concepts-key-concepts\"},{\"type\":\"link\",\"label\":\"Layout\",\"href\":\"/docs/mobile/concepts-layout\"},{\"type\":\"link\",\"label\":\"App Config\",\"href\":\"/docs/mobile/concepts-app-config\"},{\"type\":\"link\",\"label\":\"Commands and Operations\",\"href\":\"/docs/mobile/concepts-commands-operations\"},{\"type\":\"link\",\"label\":\"Components and Services\",\"href\":\"/docs/mobile/concepts-components-services\"},{\"type\":\"link\",\"label\":\"Events\",\"href\":\"/docs/mobile/concepts-events\"},{\"type\":\"category\",\"label\":\"Advanced Concepts\",\"items\":[{\"type\":\"link\",\"label\":\"Advanced Layout\",\"href\":\"/docs/mobile/concepts-advanced-layout\"},{\"type\":\"link\",\"label\":\"Advanced App Config\",\"href\":\"/docs/mobile/concepts-advanced-app-config\"}]}]},{\"type\":\"category\",\"label\":\"Use Cases\",\"items\":[{\"type\":\"category\",\"label\":\"Basics\",\"items\":[{\"type\":\"link\",\"label\":\"Change Default Application Behavior\",\"href\":\"/docs/mobile/usecases-change-default-behavior\"},{\"type\":\"link\",\"label\":\"Customize the Look and Feel\",\"href\":\"/docs/mobile/usecases-look-and-feel\"},{\"type\":\"link\",\"label\":\"Add a Medium Layout\",\"href\":\"/docs/mobile/usecases-add-medium-layout\"},{\"type\":\"link\",\"label\":\"Internationalization\",\"href\":\"/docs/mobile/usecases-internationalization\"}]},{\"type\":\"category\",\"label\":\"Workflow\",\"items\":[{\"type\":\"link\",\"label\":\"Display a Custom Form\",\"href\":\"https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat\"},{\"type\":\"link\",\"label\":\"Implement Custom Workflow Form Elements\",\"href\":\"../workflow/usecases-mobile-implement-custom-form-elements\"},{\"type\":\"link\",\"label\":\"Implement Custom Workflow Activity\",\"href\":\"../workflow/usecases-mobile-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Change Default Map Click Behavior\",\"href\":\"/docs/mobile/usecases-change-default-map-click-behavior\"}]},{\"type\":\"category\",\"label\":\"Advanced\",\"items\":[{\"type\":\"link\",\"label\":\"Custom Commands and Operations\",\"href\":\"/docs/mobile/usecases-implement-command-operation\"},{\"type\":\"link\",\"label\":\"Custom Component with UI\",\"href\":\"/docs/mobile/usecases-implement-component-with-ui\"},{\"type\":\"link\",\"label\":\"App Config for a Component\",\"href\":\"/docs/mobile/usecases-implement-component-participate-app-config\"},{\"type\":\"link\",\"label\":\"Custom Service\",\"href\":\"/docs/mobile/usecases-implement-service\"},{\"type\":\"link\",\"label\":\"Custom Event\",\"href\":\"/docs/mobile/usecases-implement-event\"}]}]},{\"type\":\"category\",\"label\":\"Getting Started with the SDK\",\"items\":[{\"type\":\"link\",\"label\":\"Quickstart\",\"href\":\"/docs/mobile/sdk-quick-start\"},{\"type\":\"link\",\"label\":\"SDK Samples\",\"href\":\"/docs/mobile/sdk-samples\"},{\"type\":\"category\",\"label\":\"Common Patterns\",\"items\":[{\"type\":\"link\",\"label\":\"Dependency Injection\",\"href\":\"/docs/mobile/sdk-dependency-injection\"},{\"type\":\"link\",\"label\":\"View Model Helper Class\",\"href\":\"/docs/mobile/sdk-viewmodel-helper-class\"},{\"type\":\"link\",\"label\":\"Memory Management\",\"href\":\"/docs/mobile/sdk-memory-leaks\"}]}]},{\"type\":\"category\",\"label\":\"API\",\"items\":[{\"type\":\"link\",\"label\":\"Overview\",\"href\":\"/docs/mobile/api-overview\"},{\"type\":\"link\",\"label\":\"Commands and Operations\",\"href\":\"/docs/mobile/api-commands-operations\"},{\"type\":\"link\",\"label\":\"Events\",\"href\":\"/docs/mobile/api-events\"}]}]},\"permalinkToSidebar\":{\"/docs/mobile/api-commands-operations\":\"mobile\",\"/docs/mobile/api-events\":\"mobile\",\"/docs/mobile/api-overview\":\"mobile\",\"/docs/mobile/concepts-advanced-app-config\":\"mobile\",\"/docs/mobile/concepts-advanced-layout\":\"mobile\",\"/docs/mobile/concepts-app-config\":\"mobile\",\"/docs/mobile/concepts-commands-operations\":\"mobile\",\"/docs/mobile/concepts-components-services\":\"mobile\",\"/docs/mobile/concepts-events\":\"mobile\",\"/docs/mobile/concepts-key-concepts\":\"mobile\",\"/docs/mobile/concepts-layout\":\"mobile\",\"/docs/mobile/overview\":\"mobile\",\"/docs/mobile/sdk-dependency-injection\":\"mobile\",\"/docs/mobile/sdk-memory-leaks\":\"mobile\",\"/docs/mobile/sdk-quick-start\":\"mobile\",\"/docs/mobile/sdk-samples\":\"mobile\",\"/docs/mobile/sdk-viewmodel-helper-class\":\"mobile\",\"/docs/mobile/usecases-add-medium-layout\":\"mobile\",\"/docs/mobile/usecases-change-default-behavior\":\"mobile\",\"/docs/mobile/usecases-change-default-map-click-behavior\":\"mobile\",\"/docs/mobile/usecases-implement-command-operation\":\"mobile\",\"/docs/mobile/usecases-implement-component-participate-app-config\":\"mobile\",\"/docs/mobile/usecases-implement-component-with-ui\":\"mobile\",\"/docs/mobile/usecases-implement-event\":\"mobile\",\"/docs/mobile/usecases-implement-service\":\"mobile\",\"/docs/mobile/usecases-internationalization\":\"mobile\",\"/docs/mobile/usecases-look-and-feel\":\"mobile\",\"/docs/web/api-commands-operations\":\"web\",\"/docs/web/api-components\":\"web\",\"/docs/web/api-events\":\"web\",\"/docs/web/api-message-bus\":\"web\",\"/docs/web/concepts-advanced-app-config\":\"web\",\"/docs/web/concepts-advanced-layout\":\"web\",\"/docs/web/concepts-app-config\":\"web\",\"/docs/web/concepts-commands-operations\":\"web\",\"/docs/web/concepts-components-services\":\"web\",\"/docs/web/concepts-events\":\"web\",\"/docs/web/concepts-key-concepts\":\"web\",\"/docs/web/concepts-layout\":\"web\",\"/docs/web/overview\":\"web\",\"/docs/web/sdk-component-hooks\":\"web\",\"/docs/web/sdk-create-component\":\"web\",\"/docs/web/sdk-create-service\":\"web\",\"/docs/web/sdk-deployment\":\"web\",\"/docs/web/sdk-overview\":\"web\",\"/docs/web/sdk-reference-third-party-libraries\":\"web\",\"/docs/web/sdk-service-injection\":\"web\",\"/docs/web/sdk-ui-context\":\"web\",\"/docs/web/usecases-change-default-behavior\":\"web\",\"/docs/web/usecases-change-default-map-click-behavior\":\"web\",\"/docs/web/usecases-component-interactions\":\"web\",\"/docs/web/usecases-components-commands-operations\":\"web\",\"/docs/web/usecases-display-custom-form\":\"web\",\"/docs/web/usecases-implement-command-operation\":\"web\",\"/docs/web/usecases-implement-component-participate-app-config\":\"web\",\"/docs/web/usecases-implement-component-with-ui\":\"web\",\"/docs/web/usecases-implement-custom-activity\":\"web\",\"/docs/web/usecases-implement-custom-form-elements\":\"web\",\"/docs/web/usecases-implement-event\":\"web\",\"/docs/web/usecases-implement-service\":\"web\",\"/docs/web/usecases-internationalization\":\"web\",\"/docs/web/usecases-look-and-feel\":\"web\",\"/docs/workflow/api-server-rest\":\"workflow\",\"/docs/workflow/concepts-key-concepts\":\"workflow\",\"/docs/workflow/overview\":\"workflow\",\"/docs/workflow/sdk-net-getting-started-mobile\":\"workflow\",\"/docs/workflow/sdk-net-getting-started-server\":\"workflow\",\"/docs/workflow/sdk-net-integrating-the-arcgis-api\":\"workflow\",\"/docs/workflow/sdk-net-register-activities\":\"workflow\",\"/docs/workflow/sdk-overview\":\"workflow\",\"/docs/workflow/sdk-web-activity-block-tags\":\"workflow\",\"/docs/workflow/sdk-web-getting-started\":\"workflow\",\"/docs/workflow/sdk-web-integrating-the-arcgis-api\":\"workflow\",\"/docs/workflow/usecases-mobile-access-app-properties\":\"workflow\",\"/docs/workflow/usecases-mobile-implement-custom-activity\":\"workflow\",\"/docs/workflow/usecases-mobile-implement-custom-form-elements\":\"workflow\",\"/docs/workflow/usecases-mobile-reference-third-party-library\":\"workflow\",\"/docs/workflow/usecases-server-implement-custom-activity\":\"workflow\",\"/docs/workflow/usecases-server-reference-third-party-library\":\"workflow\",\"/docs/workflow/usecases-web-access-app-properties\":\"workflow\",\"/docs/workflow/usecases-web-implement-custom-activity\":\"workflow\",\"/docs/workflow/usecases-web-implement-custom-form-elements\":\"workflow\",\"/docs/workflow/usecases-web-reference-third-party-library\":\"workflow\"}}");
+module.exports = JSON.parse("{\"docsSidebars\":{\"web\":[{\"type\":\"link\",\"label\":\"Overview\",\"href\":\"/docs/web/overview\"},{\"type\":\"category\",\"label\":\"Concepts\",\"items\":[{\"type\":\"link\",\"label\":\"Key Concepts\",\"href\":\"/docs/web/concepts-key-concepts\"},{\"type\":\"link\",\"label\":\"Layout\",\"href\":\"/docs/web/concepts-layout\"},{\"type\":\"link\",\"label\":\"App Config\",\"href\":\"/docs/web/concepts-app-config\"},{\"type\":\"link\",\"label\":\"Commands and Operations\",\"href\":\"/docs/web/concepts-commands-operations\"},{\"type\":\"link\",\"label\":\"Components and Services\",\"href\":\"/docs/web/concepts-components-services\"},{\"type\":\"link\",\"label\":\"Events\",\"href\":\"/docs/web/concepts-events\"},{\"type\":\"category\",\"label\":\"Advanced Concepts\",\"items\":[{\"type\":\"link\",\"label\":\"Advanced Layout\",\"href\":\"/docs/web/concepts-advanced-layout\"},{\"type\":\"link\",\"label\":\"Advanced App Config\",\"href\":\"/docs/web/concepts-advanced-app-config\"}]}]},{\"type\":\"category\",\"label\":\"Use Cases\",\"items\":[{\"type\":\"category\",\"label\":\"Basics\",\"items\":[{\"type\":\"link\",\"label\":\"Change Default Application Behavior\",\"href\":\"/docs/web/usecases-change-default-behavior\"},{\"type\":\"link\",\"label\":\"Customize the Look and Feel\",\"href\":\"/docs/web/usecases-look-and-feel\"},{\"type\":\"link\",\"label\":\"Internationalization\",\"href\":\"/docs/web/usecases-internationalization\"}]},{\"type\":\"category\",\"label\":\"Workflow\",\"items\":[{\"type\":\"link\",\"label\":\"Display a Custom Form\",\"href\":\"/docs/web/usecases-display-custom-form\"},{\"type\":\"link\",\"label\":\"Implement a Custom Form Element\",\"href\":\"/docs/web/usecases-implement-custom-form-elements\"},{\"type\":\"link\",\"label\":\"Implement a Custom Activity\",\"href\":\"/docs/web/usecases-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Change Default Map Click Behavior\",\"href\":\"/docs/web/usecases-change-default-map-click-behavior\"}]},{\"type\":\"category\",\"label\":\"Advanced\",\"items\":[{\"type\":\"link\",\"label\":\"Custom Commands and Operations\",\"href\":\"/docs/web/usecases-implement-command-operation\"},{\"type\":\"link\",\"label\":\"Custom Component with UI\",\"href\":\"/docs/web/usecases-implement-component-with-ui\"},{\"type\":\"link\",\"label\":\"Commands and Operations in Components\",\"href\":\"/docs/web/usecases-components-commands-operations\"},{\"type\":\"link\",\"label\":\"App Config for a Component\",\"href\":\"/docs/web/usecases-implement-component-participate-app-config\"},{\"type\":\"link\",\"label\":\"Component Interactions\",\"href\":\"/docs/web/usecases-component-interactions\"},{\"type\":\"link\",\"label\":\"Custom Service\",\"href\":\"/docs/web/usecases-implement-service\"},{\"type\":\"link\",\"label\":\"Using and Creating Events\",\"href\":\"/docs/web/usecases-implement-event\"}]}]},{\"type\":\"category\",\"label\":\"Getting Started with the SDK\",\"items\":[{\"type\":\"link\",\"label\":\"SDK Overview\",\"href\":\"/docs/web/sdk-overview\"},{\"type\":\"link\",\"label\":\"Create a Component\",\"href\":\"/docs/web/sdk-create-component\"},{\"type\":\"link\",\"label\":\"Create a Service\",\"href\":\"/docs/web/sdk-create-service\"},{\"type\":\"link\",\"label\":\"Deployment\",\"href\":\"/docs/web/sdk-deployment\"},{\"type\":\"category\",\"label\":\"Common Patterns\",\"items\":[{\"type\":\"link\",\"label\":\"Injecting Services\",\"href\":\"/docs/web/sdk-service-injection\"},{\"type\":\"link\",\"label\":\"Component Hooks\",\"href\":\"/docs/web/sdk-component-hooks\"},{\"type\":\"link\",\"label\":\"UIContext\",\"href\":\"/docs/web/sdk-ui-context\"},{\"type\":\"link\",\"label\":\"Reference Third Party Libraries\",\"href\":\"/docs/web/sdk-reference-third-party-libraries\"}]}]},{\"type\":\"category\",\"label\":\"API\",\"items\":[{\"type\":\"link\",\"label\":\"Message Bus\",\"href\":\"/docs/web/api-message-bus\"},{\"type\":\"link\",\"label\":\"Commands, Operations and Events\",\"href\":\"/docs/web/api-commands-operations-events\"},{\"type\":\"link\",\"label\":\"Components\",\"href\":\"/docs/web/api-components\"}]}],\"workflow\":[{\"type\":\"link\",\"label\":\"Overview\",\"href\":\"/docs/workflow/overview\"},{\"type\":\"link\",\"label\":\"Concepts\",\"href\":\"/docs/workflow/concepts-key-concepts\"},{\"type\":\"category\",\"label\":\"Use Cases\",\"items\":[{\"type\":\"category\",\"label\":\"Web Applications\",\"items\":[{\"type\":\"link\",\"label\":\"Implement a Custom Activity\",\"href\":\"/docs/workflow/usecases-web-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Access App Properties in an Activity\",\"href\":\"/docs/workflow/usecases-web-access-app-properties\"},{\"type\":\"link\",\"label\":\"Implement a Custom Form Element\",\"href\":\"/docs/workflow/usecases-web-implement-custom-form-elements\"},{\"type\":\"link\",\"label\":\"Reference a Third Party Library\",\"href\":\"/docs/workflow/usecases-web-reference-third-party-library\"}]},{\"type\":\"category\",\"label\":\"Geocortex Mobile\",\"items\":[{\"type\":\"link\",\"label\":\"Implement a Custom Activity\",\"href\":\"/docs/workflow/usecases-mobile-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Access App Properties in an Activity\",\"href\":\"/docs/workflow/usecases-mobile-access-app-properties\"},{\"type\":\"link\",\"label\":\"Implement a Custom Form Element\",\"href\":\"/docs/workflow/usecases-mobile-implement-custom-form-elements\"},{\"type\":\"link\",\"label\":\"Reference a Third Party Library\",\"href\":\"/docs/workflow/usecases-mobile-reference-third-party-library\"}]},{\"type\":\"category\",\"label\":\"Geocortex Workflow Server\",\"items\":[{\"type\":\"link\",\"label\":\"Implement a Custom Activity\",\"href\":\"/docs/workflow/usecases-server-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Reference a Third Party Library\",\"href\":\"/docs/workflow/usecases-server-reference-third-party-library\"}]}]},{\"type\":\"category\",\"label\":\"Getting Started with the SDK\",\"items\":[{\"type\":\"link\",\"label\":\"SDK Overview\",\"href\":\"/docs/workflow/sdk-overview\"},{\"type\":\"category\",\"label\":\"Web Applications\",\"items\":[{\"type\":\"link\",\"label\":\"Getting Started\",\"href\":\"/docs/workflow/sdk-web-getting-started\"},{\"type\":\"link\",\"label\":\"Integrating the ArcGIS API for JavaScript\",\"href\":\"/docs/workflow/sdk-web-integrating-the-arcgis-api\"},{\"type\":\"link\",\"label\":\"Activity Block Tags\",\"href\":\"/docs/workflow/sdk-web-activity-block-tags\"}]},{\"type\":\"category\",\"label\":\".NET Applications\",\"items\":[{\"type\":\"link\",\"label\":\"Geocortex Mobile\",\"href\":\"/docs/workflow/sdk-net-getting-started-mobile\"},{\"type\":\"link\",\"label\":\"Geocortex Workflow Server\",\"href\":\"/docs/workflow/sdk-net-getting-started-server\"},{\"type\":\"link\",\"label\":\"Registering .NET Activities with Geocortex Workflow Designer\",\"href\":\"/docs/workflow/sdk-net-register-activities\"},{\"type\":\"link\",\"label\":\"Integrating the ArcGIS Runtime SDK for .NET\",\"href\":\"/docs/workflow/sdk-net-integrating-the-arcgis-api\"}]}]},{\"type\":\"category\",\"label\":\"API\",\"items\":[{\"type\":\"link\",\"label\":\"Workflow Server REST API\",\"href\":\"/docs/workflow/api-server-rest\"}]}],\"mobile\":[{\"type\":\"link\",\"label\":\"Overview\",\"href\":\"/docs/mobile/overview\"},{\"type\":\"category\",\"label\":\"Concepts\",\"items\":[{\"type\":\"link\",\"label\":\"Key Concepts\",\"href\":\"/docs/mobile/concepts-key-concepts\"},{\"type\":\"link\",\"label\":\"Layout\",\"href\":\"/docs/mobile/concepts-layout\"},{\"type\":\"link\",\"label\":\"App Config\",\"href\":\"/docs/mobile/concepts-app-config\"},{\"type\":\"link\",\"label\":\"Commands and Operations\",\"href\":\"/docs/mobile/concepts-commands-operations\"},{\"type\":\"link\",\"label\":\"Components and Services\",\"href\":\"/docs/mobile/concepts-components-services\"},{\"type\":\"link\",\"label\":\"Events\",\"href\":\"/docs/mobile/concepts-events\"},{\"type\":\"category\",\"label\":\"Advanced Concepts\",\"items\":[{\"type\":\"link\",\"label\":\"Advanced Layout\",\"href\":\"/docs/mobile/concepts-advanced-layout\"},{\"type\":\"link\",\"label\":\"Advanced App Config\",\"href\":\"/docs/mobile/concepts-advanced-app-config\"}]}]},{\"type\":\"category\",\"label\":\"Use Cases\",\"items\":[{\"type\":\"category\",\"label\":\"Basics\",\"items\":[{\"type\":\"link\",\"label\":\"Change Default Application Behavior\",\"href\":\"/docs/mobile/usecases-change-default-behavior\"},{\"type\":\"link\",\"label\":\"Customize the Look and Feel\",\"href\":\"/docs/mobile/usecases-look-and-feel\"},{\"type\":\"link\",\"label\":\"Add a Medium Layout\",\"href\":\"/docs/mobile/usecases-add-medium-layout\"},{\"type\":\"link\",\"label\":\"Internationalization\",\"href\":\"/docs/mobile/usecases-internationalization\"}]},{\"type\":\"category\",\"label\":\"Workflow\",\"items\":[{\"type\":\"link\",\"label\":\"Display a Custom Form\",\"href\":\"https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat\"},{\"type\":\"link\",\"label\":\"Implement Custom Workflow Form Elements\",\"href\":\"../workflow/usecases-mobile-implement-custom-form-elements\"},{\"type\":\"link\",\"label\":\"Implement Custom Workflow Activity\",\"href\":\"../workflow/usecases-mobile-implement-custom-activity\"},{\"type\":\"link\",\"label\":\"Change Default Map Click Behavior\",\"href\":\"/docs/mobile/usecases-change-default-map-click-behavior\"}]},{\"type\":\"category\",\"label\":\"Advanced\",\"items\":[{\"type\":\"link\",\"label\":\"Custom Commands and Operations\",\"href\":\"/docs/mobile/usecases-implement-command-operation\"},{\"type\":\"link\",\"label\":\"Custom Component with UI\",\"href\":\"/docs/mobile/usecases-implement-component-with-ui\"},{\"type\":\"link\",\"label\":\"App Config for a Component\",\"href\":\"/docs/mobile/usecases-implement-component-participate-app-config\"},{\"type\":\"link\",\"label\":\"Custom Service\",\"href\":\"/docs/mobile/usecases-implement-service\"},{\"type\":\"link\",\"label\":\"Custom Event\",\"href\":\"/docs/mobile/usecases-implement-event\"}]}]},{\"type\":\"category\",\"label\":\"Getting Started with the SDK\",\"items\":[{\"type\":\"link\",\"label\":\"Quickstart\",\"href\":\"/docs/mobile/sdk-quick-start\"},{\"type\":\"link\",\"label\":\"SDK Samples\",\"href\":\"/docs/mobile/sdk-samples\"},{\"type\":\"category\",\"label\":\"Common Patterns\",\"items\":[{\"type\":\"link\",\"label\":\"Dependency Injection\",\"href\":\"/docs/mobile/sdk-dependency-injection\"},{\"type\":\"link\",\"label\":\"View Model Helper Class\",\"href\":\"/docs/mobile/sdk-viewmodel-helper-class\"},{\"type\":\"link\",\"label\":\"Memory Management\",\"href\":\"/docs/mobile/sdk-memory-leaks\"}]}]},{\"type\":\"category\",\"label\":\"API\",\"items\":[{\"type\":\"link\",\"label\":\"Overview\",\"href\":\"/docs/mobile/api-overview\"},{\"type\":\"link\",\"label\":\"Commands, Operations and Events\",\"href\":\"/docs/mobile/api-commands-operations-events\"}]}]},\"permalinkToSidebar\":{\"/docs/mobile/api-commands-operations-events\":\"mobile\",\"/docs/mobile/api-overview\":\"mobile\",\"/docs/mobile/concepts-advanced-app-config\":\"mobile\",\"/docs/mobile/concepts-advanced-layout\":\"mobile\",\"/docs/mobile/concepts-app-config\":\"mobile\",\"/docs/mobile/concepts-commands-operations\":\"mobile\",\"/docs/mobile/concepts-components-services\":\"mobile\",\"/docs/mobile/concepts-events\":\"mobile\",\"/docs/mobile/concepts-key-concepts\":\"mobile\",\"/docs/mobile/concepts-layout\":\"mobile\",\"/docs/mobile/overview\":\"mobile\",\"/docs/mobile/sdk-dependency-injection\":\"mobile\",\"/docs/mobile/sdk-memory-leaks\":\"mobile\",\"/docs/mobile/sdk-quick-start\":\"mobile\",\"/docs/mobile/sdk-samples\":\"mobile\",\"/docs/mobile/sdk-viewmodel-helper-class\":\"mobile\",\"/docs/mobile/usecases-add-medium-layout\":\"mobile\",\"/docs/mobile/usecases-change-default-behavior\":\"mobile\",\"/docs/mobile/usecases-change-default-map-click-behavior\":\"mobile\",\"/docs/mobile/usecases-implement-command-operation\":\"mobile\",\"/docs/mobile/usecases-implement-component-participate-app-config\":\"mobile\",\"/docs/mobile/usecases-implement-component-with-ui\":\"mobile\",\"/docs/mobile/usecases-implement-event\":\"mobile\",\"/docs/mobile/usecases-implement-service\":\"mobile\",\"/docs/mobile/usecases-internationalization\":\"mobile\",\"/docs/mobile/usecases-look-and-feel\":\"mobile\",\"/docs/web/api-commands-operations-events\":\"web\",\"/docs/web/api-components\":\"web\",\"/docs/web/api-message-bus\":\"web\",\"/docs/web/concepts-advanced-app-config\":\"web\",\"/docs/web/concepts-advanced-layout\":\"web\",\"/docs/web/concepts-app-config\":\"web\",\"/docs/web/concepts-commands-operations\":\"web\",\"/docs/web/concepts-components-services\":\"web\",\"/docs/web/concepts-events\":\"web\",\"/docs/web/concepts-key-concepts\":\"web\",\"/docs/web/concepts-layout\":\"web\",\"/docs/web/overview\":\"web\",\"/docs/web/sdk-component-hooks\":\"web\",\"/docs/web/sdk-create-component\":\"web\",\"/docs/web/sdk-create-service\":\"web\",\"/docs/web/sdk-deployment\":\"web\",\"/docs/web/sdk-overview\":\"web\",\"/docs/web/sdk-reference-third-party-libraries\":\"web\",\"/docs/web/sdk-service-injection\":\"web\",\"/docs/web/sdk-ui-context\":\"web\",\"/docs/web/usecases-change-default-behavior\":\"web\",\"/docs/web/usecases-change-default-map-click-behavior\":\"web\",\"/docs/web/usecases-component-interactions\":\"web\",\"/docs/web/usecases-components-commands-operations\":\"web\",\"/docs/web/usecases-display-custom-form\":\"web\",\"/docs/web/usecases-implement-command-operation\":\"web\",\"/docs/web/usecases-implement-component-participate-app-config\":\"web\",\"/docs/web/usecases-implement-component-with-ui\":\"web\",\"/docs/web/usecases-implement-custom-activity\":\"web\",\"/docs/web/usecases-implement-custom-form-elements\":\"web\",\"/docs/web/usecases-implement-event\":\"web\",\"/docs/web/usecases-implement-service\":\"web\",\"/docs/web/usecases-internationalization\":\"web\",\"/docs/web/usecases-look-and-feel\":\"web\",\"/docs/workflow/api-server-rest\":\"workflow\",\"/docs/workflow/concepts-key-concepts\":\"workflow\",\"/docs/workflow/overview\":\"workflow\",\"/docs/workflow/sdk-net-getting-started-mobile\":\"workflow\",\"/docs/workflow/sdk-net-getting-started-server\":\"workflow\",\"/docs/workflow/sdk-net-integrating-the-arcgis-api\":\"workflow\",\"/docs/workflow/sdk-net-register-activities\":\"workflow\",\"/docs/workflow/sdk-overview\":\"workflow\",\"/docs/workflow/sdk-web-activity-block-tags\":\"workflow\",\"/docs/workflow/sdk-web-getting-started\":\"workflow\",\"/docs/workflow/sdk-web-integrating-the-arcgis-api\":\"workflow\",\"/docs/workflow/usecases-mobile-access-app-properties\":\"workflow\",\"/docs/workflow/usecases-mobile-implement-custom-activity\":\"workflow\",\"/docs/workflow/usecases-mobile-implement-custom-form-elements\":\"workflow\",\"/docs/workflow/usecases-mobile-reference-third-party-library\":\"workflow\",\"/docs/workflow/usecases-server-implement-custom-activity\":\"workflow\",\"/docs/workflow/usecases-server-reference-third-party-library\":\"workflow\",\"/docs/workflow/usecases-web-access-app-properties\":\"workflow\",\"/docs/workflow/usecases-web-implement-custom-activity\":\"workflow\",\"/docs/workflow/usecases-web-implement-custom-form-elements\":\"workflow\",\"/docs/workflow/usecases-web-reference-third-party-library\":\"workflow\"}}");
 
 /***/ }),
-/* 196 */
+/* 195 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22172,7 +22214,7 @@ namespace App1.Services
 `)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 197 */
+/* 196 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22190,8 +22232,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7);
-/* harmony import */ var _snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(28);
-/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(41);
+/* harmony import */ var _snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(29);
+/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(43);
 const frontMatter={title:'App Config',description:'Geocortex Web - Learn about Geocortex Web\'s configuration concepts'};const metadata={"id":"web/concepts-app-config","title":"App Config","description":"Geocortex Web - Learn about Geocortex Web's configuration concepts","source":"@site/docs/web/concepts-app-config.mdx","permalink":"/docs/web/concepts-app-config","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/concepts-app-config.mdx","sidebar":"web","previous":{"title":"Layout","permalink":"/docs/web/concepts-layout"},"next":{"title":"Commands and Operations","permalink":"/docs/web/concepts-commands-operations"}};/* @jsx mdx */const rightToc=[{value:'Anatomy of an App config.',id:'anatomy-of-an-app-config',children:[]},{value:'Linking Layout to App Config',id:'linking-layout-to-app-config',children:[]},{value:'Targeting Components by ID',id:'targeting-components-by-id',children:[]},{value:'Example: Application with Hidden Side Panel',id:'example-application-with-hidden-side-panel',children:[]},{value:'Next Steps: Commands and Operations',id:'next-steps-commands-and-operations',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Before learning about app config...`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-key-concepts"}),`Key Concepts`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`While `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-layout"}),`layouts`),` depict the visual structure of how components are going to appear in the viewer, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`app config`),` is used to define the functional structure within a given component.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},`Think of the app config as the structural materials for building a house (wood, bricks, etc.) and the layout as the blueprints for the house.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},`The materials are the fundamental building blocks that create the house itself, and the blueprints allow for them to be structured together into something that people can interact with.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Every component within the viewer that requires functional, compositional content needs to be configured within the viewer's corresponding app config.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_9__["default"],{mdxType:"FollowAlongSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"anatomy-of-an-app-config"},`Anatomy of an App config.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_8__["default"],{mdxType:"AppItemSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"linking-layout-to-app-config"},`Linking Layout to App Config`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Every component in the layout can be linked to app config with the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`config`),` attribute. The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`config`),` attribute is used to identify the item in the app config that has configuration for the component.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`If you do not provide a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`config`),` attribute for a component, Geocortex Web will attempt to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-advanced-layout#component-defaults"}),`infer a default value`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{defaultValue:"layout",values:[{label:"Layout",value:"layout"},{label:"App Config",value:"config"},{label:"UI",value:"ui"}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"layout",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-xml"}),`<?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map config="my-map-config"/>
@@ -22403,7 +22445,7 @@ const frontMatter={title:'App Config',description:'Geocortex Web - Learn about G
 `))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"ui",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("img/web-app-config-hidden-side-panel.png")}))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps-commands-and-operations"},`Next Steps: Commands and Operations`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article demonstrated some simple examples of layouts with buttons that affect the map or other components in the UI. Commands and operations are the infrastructure which powers those behaviors, and power much of the behavior internal to Geocortex Web.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Commands and Operations",description:"Learn about Commands and Operations and how to configure them.",link:"concepts-commands-operations",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Advanced App Config Topics",description:"Learn more about what you can accomplish with app config.",link:"concepts-advanced-app-config",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Explore Web's built-in components",description:"Dive into Web's rich component library in the SDK.",link:"api-components",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 198 */
+/* 197 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22434,7 +22476,7 @@ export default function ExampleComponent(props) {
 `)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 199 */
+/* 198 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22451,7 +22493,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
 /* harmony import */ var _snippets_prereqs_custom_code_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(22);
-/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(27);
+/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(28);
 const frontMatter={title:'Component Interactions',description:'Geocortex Web - Learn how to make custom components interact in Geocortex Web'};const metadata={"id":"web/usecases-component-interactions","title":"Component Interactions","description":"Geocortex Web - Learn how to make custom components interact in Geocortex Web","source":"@site/docs/web/usecases-component-interactions.mdx","permalink":"/docs/web/usecases-component-interactions","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-component-interactions.mdx","sidebar":"web","previous":{"title":"App Config for a Component","permalink":"/docs/web/usecases-implement-component-participate-app-config"},"next":{"title":"Custom Service","permalink":"/docs/web/usecases-implement-service"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Overview',id:'overview',children:[]},{value:'Interacting with other Components through Models',id:'interacting-with-other-components-through-models',children:[{value:'Example: Component that Adds a Graphics Layer to the Map',id:'example-component-that-adds-a-graphics-layer-to-the-map',children:[]},{value:'Example: Component That Exports Its Model',id:'example-component-that-exports-its-model',children:[]}]},{value:'Interacting with Application Services with Dependency Injection',id:'interacting-with-application-services-with-dependency-injection',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do in Geocortex Web. Components can interact with other components and services, both built-in and custom, which can allow complex application interactions to occur.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`By the end of this article, you'll have the knowledge to build a custom component that can interact with other components and services.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-with-ui"}),`implementing a custom component`),` to learn the basics of implementing components.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"overview"},`Overview`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Components have multiple ways of interacting with other components and services. When possible, interaction through `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-components-commands-operations#running-commands-and-operations"}),`commands and operations`),` should be preferred, as this introduces the loosest coupling. When you need stronger coupling and direct access to the API, then model imports or service injection can be used. A good example of this is needing direct access to the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html"}),`ArcGIS Map`),`, which can be exposed by importing the map model.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"interacting-with-other-components-through-models"},`Interacting with other Components through Models`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Components can interact with each other through their `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-layout#models"}),`respective models`),`. A model can either declare that it is exported, like the map model, or that it imports a model. Components like the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<scalebar>`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<compass>`),` import the map model, and this is what allows them to respond to changes in the maps state.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"example-component-that-adds-a-graphics-layer-to-the-map"},`Example: Component that Adds a Graphics Layer to the Map`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The following component has a model which imports the map model as a dependency, and then uses that model to add a graphics layer to the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html"}),`ArcGIS Map object`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The property decorated by `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`@importModel`),` is completely managed by Geocortex Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{defaultValue:"component",values:[{label:'Component',value:'component'},{label:'Model',value:'model'},{label:'Layout',value:'layout'},{label:'UI',value:'ui'}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"component",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-tsx","metastring":"title=\"src/components/CustomComponent/CustomComponent.tsx\"","title":"\"src/components/CustomComponent/CustomComponent.tsx\""}),`import React from "react";
 import {
     LayoutElement,
@@ -22588,7 +22630,7 @@ export default function CustomComponent(
 `)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"interacting-with-application-services-with-dependency-injection"},`Interacting with Application Services with Dependency Injection`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Components can interact with built-in Geocortex Web `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services#services"}),`services`),`. Through services, they can interact with the map, application context, workflows, and more. Services can only be injected into a components through their `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-participate-app-config#component-models"}),`associated models`),`. Learn more about how to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-service-injection"}),`inject a service into a component`),`.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 200 */
+/* 199 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22607,7 +22649,7 @@ const frontMatter={title:'Getting Started with the Web Applications SDK',sidebar
 Activity packs must be hosted by a web server that supports SSL and CORS.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h4",{"id":"server-requirements"},`Server Requirements`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The server must have a valid SSL certificate.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The server must support `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://en.wikipedia.org/wiki/Cross-origin_resource_sharing"}),`Cross-Origin Resource Sharing (CORS)`),` and allow CORS requests from the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`https://apps.geocortex.com`),` origin.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`If you sign in to Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`https://acme.apps.geocortex.com`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Hosting Workflow activity packs in this manner allows Workflow Designer to read the list of custom activities and their metadata from the source files.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h4",{"id":"development-web-server"},`Development Web Server`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`For ease of development, this project includes an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.npmjs.com/package/express"}),`Express`),` web server that supports SSL and is suitable for most development purposes.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`To start the development web server and enable a compile-on-save watch task:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Run `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`npm start`),` in the terminal to start the build and the development web server.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Note: You can press `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`CTRL+C`),` in the terminal to stop the watch and the development web server.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The development web server is only available while the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`start`),` task is running.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The development web server is available at https://localhost:57999/ by default.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`You can change the port by modifying `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`.build/tsc.js`),`. Edit the first line:`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("br",{parentName:"li"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`var PORT = 57999;`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The development web server serves the content of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`dist`),` directory.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The SSL certificate of the development web server is not valid. To work around this, do one of the following:`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Open https://localhost:57999/ in a web browser and allow the invalid certificate as an exception.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Trust the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`.build/ca.crt`),` file (add it to your Trusted Root Authority store).`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Replace the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`.build/localhost.crt`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`.build/localhost.key`),` files with a known valid certificate.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The development web server supports CORS requests from any origin by default.`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`As `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`localhost`),` is only accessible to your host machine, activity packs hosted in this manner will not be accessible when running Geocortex Workflow Designer on a different machine.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"register-the-activity-pack"},`Register the Activity Pack`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`To make an activity pack available to workflow authors in Workflow Designer you must create a special item in ArcGIS Online or Portal for ArcGIS that references it.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Sign in to ArcGIS Online or Portal for ArcGIS.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Go to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`My Content`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Select `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`Add Item`),` > `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`An application`),`.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Type: `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`Web Mapping`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Purpose: `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`Ready To Use`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`API: `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`JavaScript`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`URL: The URL to your activity pack.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Use https://localhost:57999/ for the development server.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Title: Your desired title.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Tags: `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`Must`),` include `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`geocortex-workflow-activity-pack`),`.`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The activity pack will `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`not`),` be registered unless it includes the tag `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`geocortex-workflow-activity-pack`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"sharing-the-activity-pack"},`Sharing the Activity Pack`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`As a workflow author, you will see custom activities in Workflow Designer from the activity packs you have registered. You will also see activity packs that have been shared with you via groups you are a member of.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`To share an activity pack with other workflow authors in your organization share the ArcGIS item that represents the activity pack with a group that contains the target users.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`You do not need to share activity packs with the end users of your applications that run workflows containing custom activities.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for web applications",link:"usecases-web-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Implement a Custom Form Element",description:"Implement a custom form element for web applications",link:"usecases-web-implement-custom-form-elements",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Reference a Third Party Library",description:"Reference a third party library in web applications",link:"usecases-web-reference-third-party-library",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Integrate the ArcGIS API for JavaScript into custom activities",description:"Integrate the ArcGIS API for JavaScript into custom code",link:"sdk-web-integrating-the-arcgis-api",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 201 */
+/* 200 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22704,7 +22746,7 @@ The default value for a component varies by component. For most components, if n
 Some components will stretch across the cross-axis even if the cross-axis alignment is set on the parent: map, stack, split.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 202 */
+/* 201 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22719,7 +22761,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _snippets_prereqs_custom_code_mdx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(22);
-/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(27);
+/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(28);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(3);
 const frontMatter={title:'Custom Service',description:'Geocortex Web - Implement a custom Service'};const metadata={"id":"web/usecases-implement-service","title":"Custom Service","description":"Geocortex Web - Implement a custom Service","source":"@site/docs/web/usecases-implement-service.mdx","permalink":"/docs/web/usecases-implement-service","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-implement-service.mdx","sidebar":"web","previous":{"title":"Component Interactions","permalink":"/docs/web/usecases-component-interactions"},"next":{"title":"Using and Creating Events","permalink":"/docs/web/usecases-implement-event"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Example: Service that Implements Commands and Operations',id:'example-service-that-implements-commands-and-operations',children:[]},{value:'Example: Service that Manages Shared Dynamic Data',id:'example-service-that-manages-shared-dynamic-data',children:[{value:'Create a Service Skeleton',id:'create-a-service-skeleton',children:[]},{value:'Register the Custom Service',id:'register-the-custom-service',children:[]},{value:'Mock a Sporadically Updated Data Source',id:'mock-a-sporadically-updated-data-source',children:[]},{value:'Consume the Data in the Component Model',id:'consume-the-data-in-the-component-model',children:[]},{value:'Complete Example',id:'complete-example',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`When extending Geocortex Web, you may find yourself creating multiple `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services#components"}),`components`),` that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services#services"}),`service`),`.
@@ -22925,7 +22967,7 @@ export default function (registry: LibraryRegistry) {
 `))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{value:"ui",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("img/web-implement-service-example.png")}))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 203 */
+/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22940,7 +22982,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
-const frontMatter={title:'Using and Creating Events',description:'Geocortex Web - Learn how to use existing events and create new ones'};const metadata={"id":"web/usecases-implement-event","title":"Using and Creating Events","description":"Geocortex Web - Learn how to use existing events and create new ones","source":"@site/docs/web/usecases-implement-event.mdx","permalink":"/docs/web/usecases-implement-event","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-implement-event.mdx","sidebar":"web","previous":{"title":"Custom Service","permalink":"/docs/web/usecases-implement-service"},"next":{"title":"SDK Overview","permalink":"/docs/web/sdk-overview"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Subscribing to Existing Events',id:'subscribing-to-existing-events',children:[]},{value:'Publishing Existing Events',id:'publishing-existing-events',children:[]},{value:'Custom Events',id:'custom-events',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article will guide you through how to subscribe and publish events within Geocortex Web`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events can only be published and subscribed to by `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-with-ui"}),`custom components`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-service"}),`custom services`),`, so it is suggested you learn the basics of building custom components before reading this article.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"subscribing-to-existing-events"},`Subscribing to Existing Events`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web has a large suite of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-events"}),`built-in events`),`. Any of these events can be subscribed to by any component or service. The events are accessed through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-message-bus"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`MessageBus`)),` in the case of a service or model, or the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-ui-context"}),`UIContext`),` in the case of a component.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Make sure you clean up the subscription handle to avoid dangling references.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{defaultValue:"component",values:[{label:'Component',value:'component'},{label:'Model',value:'model'}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{value:"component",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-tsx"}),`import React, { useContext, useState, useEffect } from "react";
+const frontMatter={title:'Using and Creating Events',description:'Geocortex Web - Learn how to use existing events and create new ones'};const metadata={"id":"web/usecases-implement-event","title":"Using and Creating Events","description":"Geocortex Web - Learn how to use existing events and create new ones","source":"@site/docs/web/usecases-implement-event.mdx","permalink":"/docs/web/usecases-implement-event","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-implement-event.mdx","sidebar":"web","previous":{"title":"Custom Service","permalink":"/docs/web/usecases-implement-service"},"next":{"title":"SDK Overview","permalink":"/docs/web/sdk-overview"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Subscribing to Existing Events',id:'subscribing-to-existing-events',children:[]},{value:'Publishing Existing Events',id:'publishing-existing-events',children:[]},{value:'Custom Events',id:'custom-events',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article will guide you through how to subscribe and publish events within Geocortex Web`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events can only be published and subscribed to by `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-with-ui"}),`custom components`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-service"}),`custom services`),`, so it is suggested you learn the basics of building custom components before reading this article.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"subscribing-to-existing-events"},`Subscribing to Existing Events`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web has a large suite of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-commands-operations-events#events"}),`built-in events`),`. Any of these events can be subscribed to by any component or service. The events are accessed through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-message-bus"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`MessageBus`)),` in the case of a service or model, or the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-ui-context"}),`UIContext`),` in the case of a component.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Make sure you clean up the subscription handle to avoid dangling references.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{defaultValue:"component",values:[{label:'Component',value:'component'},{label:'Model',value:'model'}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{value:"component",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-tsx"}),`import React, { useContext, useState, useEffect } from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import { UIContext, useSubscribe } from "@geocortex/web/ui";
 import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
@@ -23015,7 +23057,7 @@ export default class Subscriber extends ComponentModelBase {
 `)))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 204 */
+/* 203 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23178,7 +23220,7 @@ const frontMatter={title:'Change Default Map Click Behavior',description:'Geocor
 ,link:"https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Implement Custom Command or Operation",description:"Implement a custom command or operation with the Mobile SDK",link:"usecases-implement-command-operation",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 205 */
+/* 204 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23223,7 +23265,7 @@ export class DoesNotWorkOnMobile {
 `)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 206 */
+/* 205 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23238,11 +23280,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
-/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(61);
+/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(64);
 const frontMatter={title:'Concepts',description:'Geocortex Workflow - Learn about key concepts.'};const metadata={"id":"workflow/concepts-key-concepts","title":"Concepts","description":"Geocortex Workflow - Learn about key concepts.","source":"@site/docs/workflow/concepts-key-concepts.mdx","permalink":"/docs/workflow/concepts-key-concepts","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/concepts-key-concepts.mdx","sidebar":"workflow","previous":{"title":"Overview","permalink":"/docs/workflow/overview"},"next":{"title":"Implement a Custom Activity for Web Applications","permalink":"/docs/workflow/usecases-web-implement-custom-activity"}};/* @jsx mdx */const rightToc=[{value:'Workflow',id:'workflow',children:[]},{value:'Activities',id:'activities',children:[]},{value:'Form Elements',id:'form-elements',children:[]},{value:'Geocortex Workflow Designer and Runtime',id:'geocortex-workflow-designer-and-runtime',children:[]},{value:'Geocortex Workflow Hosts',id:'geocortex-workflow-hosts',children:[]},{value:'Activity Packs',id:'activity-packs',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__["default"],{mdxType:"DesignerCallout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow is a flexible tool for automating business processes. It allows you to create `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`workflows`),`, which are composed of various `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`activities`),`, control flow elements such as loops, and forms that enable user interaction. Workflows can run on different platforms, including `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxw/"}),`Geocortex Web`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxm/"}),`Geocortex Mobile`),`, on a business server, or in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview"}),`Web AppBuilder for ArcGIS`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"workflow"},`Workflow`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`A `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`workflow`),` is a collection of connected activities and forms, and is created using Geocortex Workflow Designer. Workflows are generic and not tied to a platform by default, but certain activities and features will only work in certain platforms.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"activities"},`Activities`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Activities are the building blocks of a workflow. Each activity represents a unit of work. For example, Geocortex Workflow provides activities to set the map extent, perform geocoding, and gather input from the user. In all, Geocortex Workflow `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0"}),`provides over 200 activities`),` for building workflows.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Most activities have inputs - the values that the activity operates on, and outputs - the results of the activity's operations. When you add an activity to a workflow, you customize the activity by configuring the activity's inputs. The outputs are computed when the workflow runs.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Activities have metadata that Geocortex Workflow Designer presents to an end user for easy workflow creation. This metadata can be defined in an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`activity pack`),`. They also have an implementation, which powers the behavior of the activity. This implementation is defined in the appropriate language for the target platform; activities for web applications are defined in TypeScript, and activities for Geocortex Mobile applications are defined in C#.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"form-elements"},`Form Elements`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Some platforms have UI, like Geocortex Web or Geocortex Mobile, and can use forms to facilitate end user interaction. Geocortex Workflow `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0"}),`provides over twenty configurable `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`form elements`)),` for building forms, like the Auto Complete, Geometry Picker, Date Picker, Number Slider, and Text Area elements. Just as activities are the building blocks of workflows, form elements are the building blocks of forms.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"geocortex-workflow-designer-and-runtime"},`Geocortex Workflow Designer and Runtime`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow includes a powerful tool for building workflows, Geocortex Workflow Designer. Designer's drag-and-drop interface and library of predefined activities simplify the process of creating custom functionality for your web mapping applications, without programming. Geocortex Workflow Designer uses activity definitions to produce workflows.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`When a workflow is run, the workflow definition is read and executed by the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`workflow runtime`),`. The runtime is responsible for locating the activity implementation definitions, and executing them with the inputs defined in the workflow definitions. Each `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`workflow host`),` has a different runtime:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Geocortex Web and Web AppBuilder for ArcGIS use the TypeScript workflow runtime`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Geocortex Mobile and Geocortex Workflow Server use the .NET workflow runtime`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Types of Workflows`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Another distinction between workflows is `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`client`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`server workflows`)),`. Client workflows can be run in an interface that uses visual elements, such as Geocortex Web or Mobile, while server workflows can only be run on Geocortex Workflow Server (which has no visual interface).`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"geocortex-workflow-hosts"},`Geocortex Workflow Hosts`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow, is a cross platform product. If an environment supports a version of the workflow runtime it, is called a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`workflow host`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The current existing workflow hosts are:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Web Applications`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Geocortex Web (client)`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Geocortex Viewer for HTML5 (client)`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Web AppBuilder for ArcGIS (client)`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`.NET Applications`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Geocortex Mobile (client)`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Geocortex Workflow Server (server)`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/hosting.htm%3FTocPath%3DConfigure%2520Host%2520Applications%7C_____0"}),`Learn more about the different workflow hosts`),` or about `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/run-in-different-environments.htm#Run_a_Workflow_in_Different_Environments%3FTocPath%3DRun%2520a%2520Workflow%2520in%2520Different%2520Environments%7C_____0"}),`adapting workflows to different environments`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"activity-packs"},`Activity Packs`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`An activity pack defines a collection of activities that Geocortex Workflow Designer is aware of. An activity pack defines the metadata for one or more activities so that it can participate in the Geocortex Workflow Designer interface.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`If the activities are targeted for web platforms, the activity pack can also define activity implementations and form elements otherwise, activity implementations and form elements are defined on the target platform.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Activity packs must be registered as an ArcGIS item, and this makes them `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-web-getting-started#sharing-the-activity-pack"}),`shareable with other workflow authors`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Get Started with the Web Applications SDK",description:"Build custom activities and form elements with the Web Applications SDK",link:"getting-started-web",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Get Started with the Geocortex Mobile SDK",description:"Build custom activities and form elements with the Geocortex Mobile SDK",link:"getting-started-mobile",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Get Started with Geocortex Workflow Server",description:"Build custom activities for a server environment with Geocortex Workflow Server",link:"getting-started-server",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 207 */
+/* 206 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -23260,8 +23302,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(7);
-/* harmony import */ var _snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(28);
-/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(58);
+/* harmony import */ var _snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(29);
+/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(61);
 const frontMatter={title:'App Config',description:'Geocortex Mobile - Learn about Geocortex Mobile\'s configuration concepts'};const metadata={"id":"mobile/concepts-app-config","title":"App Config","description":"Geocortex Mobile - Learn about Geocortex Mobile's configuration concepts","source":"@site/docs/mobile/concepts-app-config.mdx","permalink":"/docs/mobile/concepts-app-config","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/concepts-app-config.mdx","sidebar":"mobile","previous":{"title":"Layout","permalink":"/docs/mobile/concepts-layout"},"next":{"title":"Commands and Operations","permalink":"/docs/mobile/concepts-commands-operations"}};/* @jsx mdx */const rightToc=[{value:'Anatomy of an App config',id:'anatomy-of-an-app-config',children:[]},{value:'Linking Layout to App Config',id:'linking-layout-to-app-config',children:[]},{value:'Targeting Components by ID',id:'targeting-components-by-id',children:[]},{value:'Example: Basic App Config with IWTM',id:'example-basic-app-config-with-iwtm',children:[]},{value:'Next Steps: Commands and Operations',id:'next-steps-commands-and-operations',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Before learning about app config...`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-key-concepts"}),`Key Concepts`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`While `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-layout"}),`layouts`),` depict the visual structure of how components are going to appear in the viewer, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`app config`),` is used to define the functional structure within a given component.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},`Think of the app config as the structural materials for building a house (wood, bricks, etc.) and the layout as the blueprints for the house.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},`The materials are the fundamental building blocks that create the house itself, and the blueprints allow for them to be structured together into something that people can interact with.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Every component within the viewer that requires functional, compositional content needs to be configured within the viewer's corresponding app config.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_9__["default"],{mdxType:"FollowAlongSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"anatomy-of-an-app-config"},`Anatomy of an App config`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_8__["default"],{mdxType:"AppItemSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"linking-layout-to-app-config"},`Linking Layout to App Config`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Every component in the layout can be linked to app config with the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`config`),` attribute. The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`config`),` attribute is used to identify the item in the app config that has configuration for the component.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`If you do not provide a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`config`),` attribute for a component, Geocortex Mobile will attempt to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-advanced-layout#component-defaults"}),`infer a default value`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{defaultValue:"layout",values:[{label:"layout",value:"layout"},{label:"app config",value:"config"}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"layout",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-xml"}),`<?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     // highlight-next-line
@@ -23444,6 +23486,22 @@ const frontMatter={title:'App Config',description:'Geocortex Mobile - Learn abou
 `))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"ui",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("img/iwtm-config-example.png")}))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<iwtm>`),` Component in the layout is bound to the IWTM configuration by the attribute `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`config="iwtm"`),`, where `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`iwtm`),` corresponds to the ID of the IWTM configuration. All components can be bound to config in this manner, and multiple components can be bound to the same configuration.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Each app item has a different `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`$type`),` and different configurable properties associated with it. The example application has two items in the app config:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`A layout `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`$type`),` item which serves as a default layout and references the layout.xml`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`A menu `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`$type`),` item which provides config for the I Want To Menu in the layout`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The functionality of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`config`),` attribute is dependent on the fact that IDs across app items of the same type are unique. That is, two items of types `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`layer-extension`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`map-extension`),` can both have the ID `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`default`),`, but two items of the same type `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`layer-extension`),` cannot have the same ID `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`default`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps-commands-and-operations"},`Next Steps: Commands and Operations`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This example demonstrated a simple application which has a single menu, but the pattern of loosely coupling layout components with items in app config can allow you to build powerful apps with multiple layouts for different form factors and use cases. What we didn't cover in this example was how the menu items are powered. How can we make a menu item, and more generically, a button press or other app interaction, power actions in the application? The answer is to link app items to commands and operations.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Commands and Operations",description:"Learn about Commands and Operations and how to configure them.",link:"concepts-commands-operations",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Advanced App Config Topics",description:"Learn more about what you can accomplish with app config.",link:"concepts-advanced-app-config",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Explore Mobile's built-in components",description:"Dive into Mobile's rich component library in the SDK.",link:"api-components",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
+/* 207 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
+/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+const frontMatter={title:'Overview',description:'Geocortex Mobile - API Overview'};const metadata={"id":"mobile/api-overview","title":"Overview","description":"Geocortex Mobile - API Overview","source":"@site/docs/mobile/api-overview.mdx","permalink":"/docs/mobile/api-overview","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/api-overview.mdx","sidebar":"mobile","previous":{"title":"Memory Management","permalink":"/docs/mobile/sdk-memory-leaks"},"next":{"title":"Commands, Operations and Events","permalink":"/docs/mobile/api-commands-operations-events"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
+
+/***/ }),
 /* 208 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -23457,7 +23515,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={title:'Overview',description:'Geocortex Mobile - API Overview'};const metadata={"id":"mobile/api-overview","title":"Overview","description":"Geocortex Mobile - API Overview","source":"@site/docs/mobile/api-overview.mdx","permalink":"/docs/mobile/api-overview","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/api-overview.mdx","sidebar":"mobile","previous":{"title":"Memory Management","permalink":"/docs/mobile/sdk-memory-leaks"},"next":{"title":"Commands and Operations","permalink":"/docs/mobile/api-commands-operations"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
+/* harmony import */ var _src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(33);
+const frontMatter={title:'Commands, Operations and Events',description:'Geocortex Web - Commands, Operations and Events API Reference'};const metadata={"id":"web/api-commands-operations-events","title":"Commands, Operations and Events","description":"Geocortex Web - Commands, Operations and Events API Reference","source":"@site/docs/web/api-commands-operations-events.mdx","permalink":"/docs/web/api-commands-operations-events","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/api-commands-operations-events.mdx","sidebar":"web","previous":{"title":"Message Bus","permalink":"/docs/web/api-message-bus"},"next":{"title":"Components","permalink":"/docs/web/api-components"}};/* @jsx mdx */const rightToc=[{value:'Commands',id:'commands',children:[]},{value:'Operations',id:'operations',children:[]},{value:'Events',id:'events',children:[]},{value:'Argument Definitions',id:'argument-definitions',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Commands and operations are runnable, independent units of work within Geocortex Web. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"#commands"}),`Commands`),` are units of work which may take an input but do not produce an output, while `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"#operations"}),`operations`),` differ because they produce output. You can learn more about commands and operations in our `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-commands-operations"}),`conceptual documentation`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"#events"}),`Events`),` are distinct, discrete messaging about a change or update that occurs in the viewer. They can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes. You can learn more about events in our `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-events"}),`conceptual documentation`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"commands"},`Commands`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{product:"web",type:"command",mdxType:"ViewerMessaging"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"operations"},`Operations`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{product:"web",type:"operation",mdxType:"ViewerMessaging"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"events"},`Events`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{product:"web",type:"event",mdxType:"ViewerMessaging"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"argument-definitions"},`Argument Definitions`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{product:"web",type:"argument",mdxType:"ViewerMessaging"}));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 209 */
@@ -23473,7 +23532,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={title:'Components',description:'Geocortex Web - Component API'};const metadata={"id":"web/api-components","title":"Components","description":"Geocortex Web - Component API","source":"@site/docs/web/api-components.mdx","permalink":"/docs/web/api-components","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/api-components.mdx","sidebar":"web","previous":{"title":"Events","permalink":"/docs/web/api-events"}};/* @jsx mdx */const rightToc=[{value:'Map',id:'map',children:[]},{value:'Search',id:'search',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"map"},`Map`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"search"},`Search`));};MDXContent.isMDXComponent=true;
+const frontMatter={title:'Components',description:'Geocortex Web - Component API'};const metadata={"id":"web/api-components","title":"Components","description":"Geocortex Web - Component API","source":"@site/docs/web/api-components.mdx","permalink":"/docs/web/api-components","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/api-components.mdx","sidebar":"web","previous":{"title":"Commands, Operations and Events","permalink":"/docs/web/api-commands-operations-events"}};/* @jsx mdx */const rightToc=[{value:'Map',id:'map',children:[]},{value:'Search',id:'search',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"map"},`Map`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"search"},`Search`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 210 */
@@ -23489,7 +23548,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_doomsday_cookie_clicker_view_model_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(62);
+/* harmony import */ var _snippets_doomsday_cookie_clicker_view_model_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(65);
 const frontMatter={title:'View Model Helper Class',description:'Geocortex Mobile - Learn about the base class for ViewModels in mobile, NotifyPropertyBase'};const metadata={"id":"mobile/sdk-viewmodel-helper-class","title":"View Model Helper Class","description":"Geocortex Mobile - Learn about the base class for ViewModels in mobile, NotifyPropertyBase","source":"@site/docs/mobile/sdk-viewmodel-helper-class.mdx","permalink":"/docs/mobile/sdk-viewmodel-helper-class","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/sdk-viewmodel-helper-class.mdx","sidebar":"mobile","previous":{"title":"Dependency Injection","permalink":"/docs/mobile/sdk-dependency-injection"},"next":{"title":"Memory Management","permalink":"/docs/mobile/sdk-memory-leaks"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`As per `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm#a-simple-viewmodel"}),`.NET and Xamarin Forms guidelines`),`, ViewModels usually implement the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`INotifyPropertyChanged`),` interface to inform the view of changes to the data model. This involves a lot of boilerplate, so Geocortex Mobile has a class, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`NotifyPropertyBase`),`, which handles the boilerplate and simplifies your code.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The ViewModel of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-component-with-ui#example-doomsday-cookie-clicker"}),`Doomsday Cookie Clicker`),` is a good example of this pattern.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_doomsday_cookie_clicker_view_model_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"DoomsdayCookieClickerViewModel"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`NotifyPropertyBase`),` implements `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`INotifyPropertyChanged`),` for you and provides a helper function, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`SetProperty`),`. This helper function will ensure that `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`OnPropertyChanged`),` is called if the value has changed and that the underlying field is set.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
@@ -23507,8 +23566,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
-/* harmony import */ var _snippets_host_esri_api_version_mdx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(60);
-/* harmony import */ var _snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(29);
+/* harmony import */ var _snippets_host_esri_api_version_mdx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(63);
+/* harmony import */ var _snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(30);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(3);
 const frontMatter={title:'Implement a Custom Form Element for Web Applications',sidebar_label:'Implement a Custom Form Element',description:'Geocortex Workflow - Implement custom form elements for web applications'};const metadata={"id":"workflow/usecases-web-implement-custom-form-elements","title":"Implement a Custom Form Element for Web Applications","description":"Geocortex Workflow - Implement custom form elements for web applications","source":"@site/docs/workflow/usecases-web-implement-custom-form-elements.mdx","permalink":"/docs/workflow/usecases-web-implement-custom-form-elements","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/usecases-web-implement-custom-form-elements.mdx","sidebar_label":"Implement a Custom Form Element","sidebar":"workflow","previous":{"title":"Access App Properties in an Activity","permalink":"/docs/workflow/usecases-web-access-app-properties"},"next":{"title":"Reference a Third Party Library for Web Application Environments","permalink":"/docs/workflow/usecases-web-reference-third-party-library"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Overview',id:'overview',children:[]},{value:'Set up the Custom Form Element Skeleton',id:'set-up-the-custom-form-element-skeleton',children:[]},{value:'Set up a Form Element Registration Activity',id:'set-up-a-form-element-registration-activity',children:[]},{value:'Register the Form Element Registration Activity',id:'register-the-form-element-registration-activity',children:[]},{value:'Example: Star Rating Form Element',id:'example-star-rating-form-element',children:[]},{value:'Raising Form Events',id:'raising-form-events',children:[{value:'Example: Custom Form Element that Raises Events',id:'example-custom-form-element-that-raises-events',children:[]}]},{value:'Get Properties of Custom Form Elements at Runtime',id:'get-properties-of-custom-form-elements-at-runtime',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#form-elements"}),`form element`),` allows you to augment the existing `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/auto-complete.htm%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7C_____0"}),`form elements that come with Geocortex Workflow`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article applies to building Workflow form elements that will be run on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#geocortex-workflow-hosts"}),`web application workflow hosts`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_5__["default"],{mdxType:"WebPrereqs"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Custom workflow form elements are built in TypeScript and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://reactjs.org/"}),`React`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"overview"},`Overview`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom form element in Geocortex Mobile consists of three steps:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Creating the custom form element and implementing the UI.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Creating an activity which will register this form component with Geocortex Workflow.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Registering the activity with Geocortex Workflow and running it `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`before`),` using the custom form element.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"set-up-the-custom-form-element-skeleton"},`Set up the Custom Form Element Skeleton`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Create a new file `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`CustomFormElement.tsx`),` in the activity SDK.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Create a skeleton React form element.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-tsx"}),`import * as React from "react";
@@ -23700,9 +23759,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_logarithm_activity_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(42);
+/* harmony import */ var _snippets_logarithm_activity_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
 /* harmony import */ var _snippets_autofac_mobile_mdx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(19);
-/* harmony import */ var _snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(35);
+/* harmony import */ var _snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(37);
 const frontMatter={title:'Implement a Custom Activity for Geocortex Mobile',sidebar_label:'Implement a Custom Activity',description:'Geocortex Workflow - Implement a custom activity for Geocortex Mobile'};const metadata={"id":"workflow/usecases-mobile-implement-custom-activity","title":"Implement a Custom Activity for Geocortex Mobile","description":"Geocortex Workflow - Implement a custom activity for Geocortex Mobile","source":"@site/docs/workflow/usecases-mobile-implement-custom-activity.mdx","permalink":"/docs/workflow/usecases-mobile-implement-custom-activity","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/usecases-mobile-implement-custom-activity.mdx","sidebar_label":"Implement a Custom Activity","sidebar":"workflow","previous":{"title":"Reference a Third Party Library for Web Application Environments","permalink":"/docs/workflow/usecases-web-reference-third-party-library"},"next":{"title":"Access App Properties in an Activity","permalink":"/docs/workflow/usecases-mobile-access-app-properties"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Set up the Activity Skeleton',id:'set-up-the-activity-skeleton',children:[]},{value:'Register the Activity with the <code>IActivityHandlerFactory</code>',id:'register-the-activity-with-the-iactivityhandlerfactory',children:[]},{value:'Implement the Custom Activity',id:'implement-the-custom-activity',children:[{value:'Example: Logarithm of a Number',id:'example-logarithm-of-a-number',children:[]}]},{value:'Test and Deploy your Activity',id:'test-and-deploy-your-activity',children:[]},{value:'Relevant SDK Sample',id:'relevant-sdk-sample',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#activities"}),`activity`),` allows you to build a reusable, completely custom behavior to augment the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0"}),`existing activities`),` that come with Geocortex Workflow.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article applies to building workflow activities that will be run on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxm/"}),`Geocortex Mobile`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_5__["default"],{mdxType:"MobilePrereqs"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"set-up-the-activity-skeleton"},`Set up the Activity Skeleton`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Create a new file `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`CustomActivity`),` in the platform agnostic project of the Geocortex Mobile `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/mobile/sdk-quick-start"}),`Quickstart`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Add a new skeleton workflow activity that implements `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`IActivityHandler`),`.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-csharp"}),`using Geocortex.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -23953,7 +24012,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={title:'Message Bus',description:'Geocortex Web - Message Bus'};const metadata={"id":"web/api-message-bus","title":"Message Bus","description":"Geocortex Web - Message Bus","source":"@site/docs/web/api-message-bus.mdx","permalink":"/docs/web/api-message-bus","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/api-message-bus.mdx","sidebar":"web","previous":{"title":"Reference Third Party Libraries","permalink":"/docs/web/sdk-reference-third-party-libraries"},"next":{"title":"Commands and Operations","permalink":"/docs/web/api-commands-operations"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
+const frontMatter={title:'Message Bus',description:'Geocortex Web - Message Bus'};const metadata={"id":"web/api-message-bus","title":"Message Bus","description":"Geocortex Web - Message Bus","source":"@site/docs/web/api-message-bus.mdx","permalink":"/docs/web/api-message-bus","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/api-message-bus.mdx","sidebar":"web","previous":{"title":"Reference Third Party Libraries","permalink":"/docs/web/sdk-reference-third-party-libraries"},"next":{"title":"Commands, Operations and Events","permalink":"/docs/web/api-commands-operations-events"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 217 */
@@ -23985,7 +24044,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
+/* harmony import */ var _snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
 const frontMatter={title:'Integrating the ArcGIS API for JavaScript',description:'Geocortex Workflow - Integrate the ArcGIS API for JavaScript into custom activities for web applications'};const metadata={"id":"workflow/sdk-web-integrating-the-arcgis-api","title":"Integrating the ArcGIS API for JavaScript","description":"Geocortex Workflow - Integrate the ArcGIS API for JavaScript into custom activities for web applications","source":"@site/docs/workflow/sdk-web-integrating-the-arcgis-api.mdx","permalink":"/docs/workflow/sdk-web-integrating-the-arcgis-api","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/sdk-web-integrating-the-arcgis-api.mdx","sidebar":"workflow","previous":{"title":"Getting Started with the Web Applications SDK","permalink":"/docs/workflow/sdk-web-getting-started"},"next":{"title":"Activity Block Tags","permalink":"/docs/workflow/sdk-web-activity-block-tags"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Prerequisites',id:'prerequisites',children:[{value:'Example: Custom Activity for Expanding a Polygon',id:'example-custom-activity-for-expanding-a-polygon',children:[]}]},{value:'Using Alternate ArcGIS API for JavaScript Versions',id:'using-alternate-arcgis-api-for-javascript-versions',children:[{value:'Change the API Version used by the Activity SDK',id:'change-the-api-version-used-by-the-activity-sdk',children:[]},{value:'Build Activities to work with both ArcGIS API Versions',id:'build-activities-to-work-with-both-arcgis-api-versions',children:[]},{value:'Example: ExpandPolygon Custom Activity that is 4.x and 3.x ArcGIS API Compatible',id:'example-expandpolygon-custom-activity-that-is-4x-and-3x-arcgis-api-compatible',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/workflow/designer/"}),`Geocortex Workflow`),` was designed to be a flexible tool for implementing business logic for mapping applications, and tightly integrates with ArcGIS API for JavaScript. You may want to use the ArcGIS API in your own custom activities; this article will explain how to reference ArcGIS API types in your custom activity or custom form element for web applications.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article applies to building workflow activities and form elements that will be run in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#geocortex-workflow-hosts"}),`web application workflow hosts`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"WebPrereqs"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-web-implement-custom-activity"}),`Implement a Custom Activity`),` to create a custom workflow activity. You can then import ArcGIS API types with a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`require`),` call.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"example-custom-activity-for-expanding-a-polygon"},`Example: Custom Activity for Expanding a Polygon`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This is a custom activity which imports types from the ArcGIS API for JavaScript to expand a polygon by a given factor and returns the new extent bounds.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`activity-sdk`),` uses the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://developers.arcgis.com/javascript/3/"}),`ArcGIS API for JavaScript 3.x`),` by default. See `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-web-integrating-the-arcgis-api#using-alternate-arcgis-api-for-javascript-versions"}),`Using Alternate ArcGIS API Versions`),` for details.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-ts"}),`// Import the desired type
 import * as Extent from "esri/geometry/Extent";
 import * as Polygon from "esri/geometry/Polygon";
@@ -24683,12 +24742,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+/* harmony import */ var _src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(33);
+const frontMatter={title:'Commands, Operations and Events',description:'Geocortex Mobile - Commands, Operations and Events API Reference'};const metadata={"id":"mobile/api-commands-operations-events","title":"Commands, Operations and Events","description":"Geocortex Mobile - Commands, Operations and Events API Reference","source":"@site/docs/mobile/api-commands-operations-events.mdx","permalink":"/docs/mobile/api-commands-operations-events","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/api-commands-operations-events.mdx","sidebar":"mobile","previous":{"title":"Overview","permalink":"/docs/mobile/api-overview"}};/* @jsx mdx */const rightToc=[{value:'Commands',id:'commands',children:[]},{value:'Operations',id:'operations',children:[]},{value:'Events',id:'events',children:[]},{value:'Argument Definitions',id:'argument-definitions',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Commands and operations are runnable, independent units of work within Geocortex Mobile. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"#commands"}),`Commands`),` are units of work which may take an input but do not produce an output, while `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"#operations"}),`operations`),` differ because they produce output. You can learn more about commands and operations in our `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-commands-operations"}),`conceptual documentation`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"#events"}),`Events`),` are distinct, discrete messaging about a change or update that occurs in the viewer. They can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes. You can learn more about events in our `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-events"}),`conceptual documentation`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"commands"},`Commands`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{product:"mobile",type:"command",mdxType:"ViewerMessaging"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"operations"},`Operations`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{product:"mobile",type:"operation",mdxType:"ViewerMessaging"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"events"},`Events`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{product:"mobile",type:"event",mdxType:"ViewerMessaging"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"argument-definitions"},`Argument Definitions`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_ViewerMessaging__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{product:"mobile",type:"argument",mdxType:"ViewerMessaging"}));};MDXContent.isMDXComponent=true;
+
+/***/ }),
+/* 227 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
+/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 const frontMatter={title:'Geocortex Mobile',description:'Geocortex Workflow - Get started with developing workflow on Geocortex Mobile'};const metadata={"id":"workflow/sdk-net-getting-started-mobile","title":"Geocortex Mobile","description":"Geocortex Workflow - Get started with developing workflow on Geocortex Mobile","source":"@site/docs/workflow/sdk-net-getting-started-mobile.mdx","permalink":"/docs/workflow/sdk-net-getting-started-mobile","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/sdk-net-getting-started-mobile.mdx","sidebar":"workflow","previous":{"title":"Activity Block Tags","permalink":"/docs/workflow/sdk-web-activity-block-tags"},"next":{"title":"Geocortex Workflow Server","permalink":"/docs/workflow/sdk-net-getting-started-server"}};/* @jsx mdx */const rightToc=[{value:'SDK Samples',id:'sdk-samples',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Geocortex Mobile SDK is used to extend Geocortex Workflow functionality for Geocortex Mobile. Follow the instructions in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-quick-start"}),`Quickstart`),` project to get set up for Geocortex Mobile + Geocortex Workflow custom development.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Creating custom workflow activities for Geocortex Mobile requires the development and deployment of a custom Geocortex Mobile application.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"sdk-samples"},`SDK Samples`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Geocortex Mobile SDK includes various `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-samples"}),`SDK Samples`),` for development, including `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Workflow/CustomActivity"}),`a sample which demonstrate custom workflow functionality`),` .`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for Geocortex Mobile",link:"usecases-mobile-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Implement a Custom Form Element",description:"Implement a custom form element for Geocortex Mobile",link:"usecases-mobile-implement-custom-form-elements",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Reference a Third Party library",description:"Reference a third party library in Geocortex Mobile",link:"usecases-mobile-reference-third-party-library",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24887,7 +24963,7 @@ The branding component can be found and edited in the `,Object(_mdx_js_react__WE
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"changing-the-visual-layout-of-an-application"},`Changing the Visual Layout of an Application`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`An app's layout defines how elements are visually organized in a Geocortex Mobile Application. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-layout"}),`This article`),` will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Mobile. Further styling within the layout can be done using `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-advanced-layout#presentation-attributes"}),`presentation attributes`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"changing-or-adding-icons"},`Changing or Adding Icons`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"coming-soon"},`Coming Soon...`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -24905,7 +24981,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4);
-/* harmony import */ var _snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(39);
+/* harmony import */ var _snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(41);
 const frontMatter={title:'Change Default Map Click Behavior',description:'Geocortex Web - Learn how to configure Geocortex Web to change the default map click behavior'};const metadata={"id":"web/usecases-change-default-map-click-behavior","title":"Change Default Map Click Behavior","description":"Geocortex Web - Learn how to configure Geocortex Web to change the default map click behavior","source":"@site/docs/web/usecases-change-default-map-click-behavior.mdx","permalink":"/docs/web/usecases-change-default-map-click-behavior","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-change-default-map-click-behavior.mdx","sidebar":"web","previous":{"title":"Implement a Custom Activity","permalink":"/docs/web/usecases-implement-custom-activity"},"next":{"title":"Custom Commands and Operations","permalink":"/docs/web/usecases-implement-command-operation"}};/* @jsx mdx */const rightToc=[{value:'What you&#39;re Building',id:'what-youre-building',children:[]},{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Initial Set up',id:'initial-set-up',children:[]},{value:'Set up a Workflow to Run on Map Click',id:'set-up-a-workflow-to-run-on-map-click',children:[]},{value:'Extend the Workflow to Create a Graphic Buffering the Click Geometry',id:'extend-the-workflow-to-create-a-graphic-buffering-the-click-geometry',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/workflow/designer/"}),`Geocortex Workflow`),` and editing the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-app-config"}),`app config`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`It's actually possible to configure the Map's `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`onClick`),` event in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/webviewer/designer/"}),`Geocortex Web Designer`),`, by setting a workflow as the action for the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0"}),`Maps click event`),`. However, the point of this use case is to demonstrate the concept of configuring actions using the app config.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"what-youre-building"},`What you're Building`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`We will modify the default map on click behavior to buffer the click geometry by a user provided distance and create a graphic which visualizes this buffer.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("img/web-custom-map-click-workflow-finished.png"),alt:"Map Click Workflow with Buffer Behavior"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_8__["default"],{mdxType:"PrereqsLayoutConfigEditingSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"initial-set-up"},`Initial Set up`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Start the Geocortex Web SDK with the following layout and app json. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Try clicking the map. It should return results for the point you clicked in the results list.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{defaultValue:"layout",values:[{label:"Layout",value:"layout"},{label:"App Config",value:"config"}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"config",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-json","metastring":"title=\"app/app.json\"","title":"\"app/app.json\""}),`{
     "schemaVersion": "1.0",
     "items": [
@@ -24988,7 +25064,7 @@ const frontMatter={title:'Change Default Map Click Behavior',description:'Geocor
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",{"start":6},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Run the app and test your workflow. You should see your alert pop up when you try to click on the map.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("img/web-custom-map-click-workflow-alert.png"),alt:"Map Click Workflow with Alert"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",{"start":7},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Open up your workflow in the Workflow Designer again. The default behavior we just overrode can be recreated with the use of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169"}),`RunCommand`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173"}),`RunOperation`),` activities. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`geometry.add-pixel-tolerance`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`tasks.identify`),` are operations, so they need RunOperation activities, and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`results.display-details`),` is a command so it needs a RunCommand Activity. Chain these three activities together, passing the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4"}),`workflow context`),` to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`geometry.add-pixel-tolerance`),` and then passing the output of that operation to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`tasks.identify`),`, and finally passing the output of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`tasks.identify`),` to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`results.display-details`),`.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,"You can"," ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",{href:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("workflows/web-map-click-behavior-recreated.json"),download:"map-click-behavior-recreated.json"},"download this workflow")," ","and then"," ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",{href:"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm",target:"_blank"},"import it into workflow designer.")))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("img/web-custom-map-click-workflow-recreated.png"),alt:"Map Click Workflow with Original Operations"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",{"start":8},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Save the workflow and reload the application. Test the map click functionality and ensure it works as it originally did.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"extend-the-workflow-to-create-a-graphic-buffering-the-click-geometry"},`Extend the Workflow to Create a Graphic Buffering the Click Geometry`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`At this point, you can choose to extend the map click behavior with Geocortex Workflow in whatever way is appropriate for your use case. You could execute a different "identify" for external results and add them to the set of results displayed, or zoom the map to a specific orientation and scale, or display a form for the user to fill out with relevant information to that location. For this example, a workflow was created which asks a user for a buffer distance, and creates a graphic showing the buffer around the click location.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,"You can"," ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",{href:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("workflows/web-map-click-behavior-buffer.json"),download:"map-click-behavior-buffer.json"},"download this buffer geometry workflow")," ","and then"," ",Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",{href:"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm",target:"_blank"},"import it into workflow designer.")))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("img",{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("img/web-custom-map-click-workflow-finished.png"),alt:"Map Click Workflow with Buffer Behavior"}));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25005,7 +25081,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _snippets_prereqs_custom_code_mdx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(22);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(3);
-/* harmony import */ var _snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(39);
+/* harmony import */ var _snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(41);
 const frontMatter={title:'Customize the Look and Feel',description:'Geocortex Web - Learn how to customize the look and feel of your Geocortex Web application'};const metadata={"id":"web/usecases-look-and-feel","title":"Customize the Look and Feel","description":"Geocortex Web - Learn how to customize the look and feel of your Geocortex Web application","source":"@site/docs/web/usecases-look-and-feel.mdx","permalink":"/docs/web/usecases-look-and-feel","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-look-and-feel.mdx","sidebar":"web","previous":{"title":"Change Default Application Behavior","permalink":"/docs/web/usecases-change-default-behavior"},"next":{"title":"Internationalization","permalink":"/docs/web/usecases-internationalization"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[{value:'Seeding a New Theme from an Existing Theme',id:'seeding-a-new-theme-from-an-existing-theme',children:[]},{value:'Customizing Theme Colors',id:'customizing-theme-colors',children:[]},{value:'List of Theme Colors',id:'list-of-theme-colors',children:[]},{value:'Using Theme Colors In Custom Components',id:'using-theme-colors-in-custom-components',children:[]},{value:'Changing the Visual Layout of an Application',id:'changing-the-visual-layout-of-an-application',children:[]}]},{value:'Adding Icons',id:'adding-icons',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web's appearance is built around two concepts: theme and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-layout"}),`layout`),`. The theme controls the color scheme of the app, while the layout controls the organization of content.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_layout_config_editing_mdx__WEBPACK_IMPORTED_MODULE_7__["default"],{mdxType:"PrereqsLayoutConfigSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"seeding-a-new-theme-from-an-existing-theme"},`Seeding a New Theme from an Existing Theme`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Two predefined themes are included with Geocortex Web, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`light`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`dark`),`. You can select a predefined theme and accent color with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4"}),`Geocortex Web Designer`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The branding `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services#services"}),`service`),` is responsible for the theming of the application. To select a theme and accent color from within the config, you can configure the branding service in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-app-config"}),`app config`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{defaultValue:"config",values:[{label:"App Config",value:"config"},{label:"UI",value:"ui"}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{value:"config",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-json"}),`{
     "schemaVersion": "1.0",
     "items": [
@@ -25141,7 +25217,7 @@ const frontMatter={title:'Customize the Look and Feel',description:'Geocortex We
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"changing-the-visual-layout-of-an-application"},`Changing the Visual Layout of an Application`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`How elements are laid out in a Geocortex Web Application is defined by an app's layout. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-layout"}),`This article`),` will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Web. Further styling within the layout can be done using `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-advanced-layout#presentation-attributes"}),`presentation attributes`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"adding-icons"},`Adding Icons`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h4",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25171,7 +25247,7 @@ Geocortex.Workflow.Runtime.xml
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",{"start":2},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Edit the post build event in the project properties.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Add a command which copies the build output to the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`Custom Assemblies`),` folder.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`xcopy "$(OutDir)*" "C:\\Program Files\\Latitude Geographics\\Geocortex Workflow\\CustomAssemblies" /Exclude:$(ProjectDir)excludedFiles.txt /y`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Run a rebuild and ensure all appropriate files are copied.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`You may need to stop then restart Geocortex Workflow Server in order for the post build step to copy your custom code.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Check out the use cases to learn how to build custom activities for Geocortex Workflow Server and augment them with third party libraries.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for Geocortex Workflow Server",link:"usecases-server-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Reference a Third Party Library",description:"Reference a third party library in custom code.",link:"usecases-server-reference-third-party-library",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25184,13 +25260,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
+/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(49);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
 const frontMatter={title:'Overview',description:'Geocortex Web - Overview'};const metadata={"id":"web/overview","title":"Overview","description":"Geocortex Web - Overview","source":"@site/docs/web/overview.mdx","permalink":"/docs/web/overview","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/overview.mdx","sidebar":"web","next":{"title":"Key Concepts","permalink":"/docs/web/concepts-key-concepts"}};/* @jsx mdx */const rightToc=[{value:'Start with the Concepts',id:'start-with-the-concepts',children:[]},{value:'Explore the Use Cases',id:'explore-the-use-cases',children:[]},{value:'Take your Application Further with the SDK',id:'take-your-application-further-with-the-sdk',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web is a next-generation framework for creating sleek and effective GIS applications for a wide variety of browsers. Apps allow users to view and interact with web-based maps and associated data. Geocortex Web can seamlessly display both 2D and 3D map data. Integration with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/overview"}),`Geocortex Workflow`),` ensures that you can build apps for many business processes. Geocortex Web is part of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/"}),`Geocortex suite of products`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web apps are created, configured and deployed with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/webviewer/designer/"}),`Geocortex Web Designer`),`. Web Designer is an intuitive web application that displays a live preview of Geocortex Web apps as they are being configured.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"DesignerCallout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"start-with-the-concepts"},`Start with the Concepts`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The core element of Geocortex Web is an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Application`),`. Applications are composed of three main pieces:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-layout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`Layout XML`)),` that represents the visual layout of the application.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-app-config"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`App Config JSON`)),` that configures the application.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},`The Geocortex Web code which renders the layout and powers functionality.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-key-concepts"}),`Explore the concepts`),` to learn more about how you can use the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-layout"}),`layout`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-app-config"}),`app config`),` to create custom behavior and appearance. You can also learn about the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services"}),`components and services`),` that are key to extending Geocortex Web with custom code.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"explore-the-use-cases"},`Explore the Use Cases`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Explore how the app config and layout can be used to change the look and feel as well as modify and extend the built-in behavior of a Geocortex Web Application.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Change or extend built-in behavior",description:"Change the default behavior of map clicks, map initialization, and more",link:"usecases-change-default-behavior",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Customize the look and feel",description:"Change the appearance of your application with themes and configuration",link:"usecases-look-and-feel",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Display a Custom Form",description:"Display a custom form using Geocortex Workflow",link:"usecases-display-custom-form",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Take Custom Behavior even Further with Workflow",description:"Use Geocortex Workflow to configure custom behavior for button presses, application startup, map clicks and more",link:"usecases-change-default-map-click-behavior",mdxType:"UseCaseCard"})),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"take-your-application-further-with-the-sdk"},`Take your Application Further with the SDK`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Use the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-overview"}),`Geocortex Web SDK`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-overview"}),`Geocortex Workflow SDK`),` to build completely custom UI and behavior.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Implement a Custom Form Element with Geocortex Workflow",description:"Extend Geocortex Workflow forms with custom UI and functionality",link:"usecases-implement-custom-form-elements",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Create a Custom Activity with Geocortex Workflow",description:"Define custom behavior in Geocortex Workflow that can be leveraged in Geocortex Web",link:"usecases-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Extend Geocortex Web Functionality with Custom Commands and Operations",description:"Add commands and operations to Geocortex Web that implement custom behavior",link:"usecases-implement-command-operation",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Create new UI elements with Custom Components",description:"Create fully custom UI components that can be used in Geocortex Web apps",link:"usecases-implement-component-with-ui",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Extend Geocortex Web's Capabilities with Custom Services",description:"Create background services which can provide utility functions, do background work, and more",link:"usecases-implement-service",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 232 */
+/* 233 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25206,7 +25282,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(41);
+/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(43);
 const frontMatter={title:'Layout',description:'Geocortex Web - Learn about layout concepts'};const metadata={"id":"web/concepts-layout","title":"Layout","description":"Geocortex Web - Learn about layout concepts","source":"@site/docs/web/concepts-layout.mdx","permalink":"/docs/web/concepts-layout","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/concepts-layout.mdx","sidebar":"web","previous":{"title":"Key Concepts","permalink":"/docs/web/concepts-key-concepts"},"next":{"title":"App Config","permalink":"/docs/web/concepts-app-config"}};/* @jsx mdx */const rightToc=[{value:'Slotting',id:'slotting',children:[]},{value:'Stacks and Splits',id:'stacks-and-splits',children:[]},{value:'Panels',id:'panels',children:[{value:'Activation',id:'activation',children:[]},{value:'Deactivation',id:'deactivation',children:[]}]},{value:'Models',id:'models',children:[]},{value:'Namespaces',id:'namespaces',children:[]},{value:'Next Steps: Components and App Config',id:'next-steps-components-and-app-config',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Before learning about layout...`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-key-concepts"}),`Key Concepts`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-xml"}),`<?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map>
@@ -25321,7 +25397,7 @@ export class ScaleBarComponent {
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`When adding custom components, you will need to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-with-ui#add-the-component-to-your-layout"}),`add their custom namespace`),` to your xml definition.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps-components-and-app-config"},`Next Steps: Components and App Config`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`In our examples so far, xml elements like `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<text>`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<stack>`),` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has its own configuration, such as the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`text`),` property for `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<text>`),` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`app.json`),` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful, flexible applications with responsive, declarative layouts.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"App Config",description:"Learn about app configuration and its interaction with layout.",link:"concepts-app-config",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Advanced Layout Topics",description:"Learn more about what you can accomplish with layouts.",link:"concepts-advanced-layout",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 233 */
+/* 234 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25334,13 +25410,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
+/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(49);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
 const frontMatter={title:'SDK Overview',description:'Geocortex Web - Learn about getting started with the Geocortex Web SDK'};const metadata={"id":"web/sdk-overview","title":"SDK Overview","description":"Geocortex Web - Learn about getting started with the Geocortex Web SDK","source":"@site/docs/web/sdk-overview.mdx","permalink":"/docs/web/sdk-overview","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/sdk-overview.mdx","sidebar":"web","previous":{"title":"Using and Creating Events","permalink":"/docs/web/usecases-implement-event"},"next":{"title":"Create a Component","permalink":"/docs/web/sdk-create-component"}};/* @jsx mdx */const rightToc=[{value:'Overview',id:'overview',children:[]},{value:'Requirements',id:'requirements',children:[]},{value:'Getting Started',id:'getting-started',children:[]},{value:'Project Structure',id:'project-structure',children:[]},{value:'Development Patterns',id:'development-patterns',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-warning alert alert--danger"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"})))),`warning`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The Geocortex Web SDK is currently in preview. The patterns for development and deployment are still under active development and are subject to change. Deploying your custom code into production is not recommended until the SDK is finalized.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`If the built-in configurability of Geocortex Web does not serve your purposes, then it might be time to dive into the Geocortex Web SDK. Building applications on top of the Geocortex Web SDK requires engaging in the development, testing, and deployment of custom code, so it's worthwhile to make sure your problem cannot be solved `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/overview#explore-the-use-cases"}),`with workflow or other advanced configuration`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`If you still think you need to use the Geocortex Web SDK, then let's get started!`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"DesignerCallout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"overview"},`Overview`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Geocortex SDK provides a development toolkit for building custom `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-with-ui"}),`components`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-service"}),`services`),`, and more into a package that can be deployed to Geocortex Web called a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("em",{parentName:"p"},`library`),`. Once the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("em",{parentName:"p"},`library`),` has been developed, it can then be `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-deployment"}),`deployed`),` to your SaaS or on-premises environment.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"requirements"},`Requirements`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The latest LTS version of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://nodejs.org/en/"}),`Node.js`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`You can run `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`node -v`),` in your terminal to check the version you have installed`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`A code editor of your choice. We recommend `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://code.visualstudio.com/"}),`Visual Studio Code`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"getting-started"},`Getting Started`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Run `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`npx @vertigis/web-sdk@beta create <library-name>`),` where `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`<library-name>`),` is the name of the directory that will be created in the current working directory`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`For example: `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`npx @vertigis/web-sdk@beta create test-lib`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Open the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`library-name`),` directory in your favorite IDE. We recommend using Visual Studio Code for the best experience.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Run `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`npm start`),` to start the development server`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The running development server automatically detects changes to your source files. You can simply edit the layout, config, or custom code and the development server will automatically refresh the application with the latest changes.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"project-structure"},`Project Structure`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The created project contains a few important directories:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`src`),` directory, which contains your custom library code. We've included a sample component to get you started`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`app`),` directory, which contains a minimal development application `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/web/concepts-key-concepts"}),`layout and app config`),` to be used for testing your custom code before deployment to production`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"development-patterns"},`Development Patterns`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`If you are developing custom code that is mostly independent of app context, we suggest that you use the minimal layout and app config with only the required components.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`If you need to develop custom code that requires the context of a custom application built in Geocortex Web Designer, take the following steps to import your SaaS or on premise application into your local Web SDK environment.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Open your application in Geocortex Web Designer.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/download-app-configuration.htm"}),`Download the application configuration`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Delete the contents of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`app`),` directory.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Extract the contents to you in your Web SDK Applications `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`app`),` directory, overwriting existing app config and layout.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Develop your custom code on top of your existing application.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`You may need to rename the downloaded layout file to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`layout.xml`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Create a Component",description:"Learn how to create a basic component.",link:"sdk-create-component",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Deploy your Application",description:"Learn how to deploy your custom library, layout and app config.",link:"sdk-deployment",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25446,7 +25522,7 @@ public IOperation<Deuterium, WarpSpeed> SomeInputSomeOutput => GetOperation<Deut
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Commands and operations are the logical building blocks of executing custom behavior in Geocortex Mobile, but sometimes you need to take things a bit further. Creating custom components can allow you to design completely custom UI for Geocortex Mobile, and creating background services can enable the execution of tasks on an arbitrary schedule.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Commands and Operations",description:"Learn more about commands and operations",link:"concepts-commands-operations",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Implement a Custom Component with UI",description:"Learn how to implement a custom component using the Geocortex Mobile SDK",link:"usecases-implement-component-with-ui",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{title:"Implement a Custom Service",description:"Learn how to implement a custom service using the Geocortex Mobile SDK",link:"usecases-implement-service",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25459,8 +25535,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_prereqs_server_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(74);
-/* harmony import */ var _snippets_logarithm_activity_mdx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(42);
+/* harmony import */ var _snippets_prereqs_server_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(76);
+/* harmony import */ var _snippets_logarithm_activity_mdx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(44);
 const frontMatter={title:'Implement a Custom Activity for Geocortex Workflow Server',sidebar_label:'Implement a Custom Activity',description:'Geocortex Workflow - Implement a custom activity for Geocortex Workflow Server'};const metadata={"id":"workflow/usecases-server-implement-custom-activity","title":"Implement a Custom Activity for Geocortex Workflow Server","description":"Geocortex Workflow - Implement a custom activity for Geocortex Workflow Server","source":"@site/docs/workflow/usecases-server-implement-custom-activity.mdx","permalink":"/docs/workflow/usecases-server-implement-custom-activity","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/usecases-server-implement-custom-activity.mdx","sidebar_label":"Implement a Custom Activity","sidebar":"workflow","previous":{"title":"Reference a Third Party Library through the Geocortex Mobile SDK","permalink":"/docs/workflow/usecases-mobile-reference-third-party-library"},"next":{"title":"Reference a Third Party Library in Geocortex Workflow Server","permalink":"/docs/workflow/usecases-server-reference-third-party-library"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Set up a new Custom Workflow Project',id:'set-up-a-new-custom-workflow-project',children:[]},{value:'Set up the Activity Skeleton',id:'set-up-the-activity-skeleton',children:[]},{value:'Register the Activity with an Assembly Attribute',id:'register-the-activity-with-an-assembly-attribute',children:[]},{value:'Deploy the Activity',id:'deploy-the-activity',children:[]},{value:'Implement the Custom Activity',id:'implement-the-custom-activity',children:[{value:'Example: Logarithm of a Number',id:'example-logarithm-of-a-number',children:[]}]},{value:'Test your Activity',id:'test-your-activity',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#activities"}),`activity`),` allows you to build a reusable, completely custom behavior to augment the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0"}),`existing activities`),` that come with Geocortex Workflow.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article applies to building workflow activities that will be run on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0"}),`Geocortex Workflow Server`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_server_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"ServerPrereqs"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"set-up-a-new-custom-workflow-project"},`Set up a new Custom Workflow Project`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-net-getting-started-server#setting-up-a-geocortex-workflow-server-extension-project"}),`set up a new Geocortex Workflow Server extension project`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"set-up-the-activity-skeleton"},`Set up the Activity Skeleton`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Create a new file `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`CustomActivity`),` in the project.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Add a new skeleton workflow activity that implements `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`IActivityHandler`),`.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-csharp"}),`using Geocortex.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -25481,7 +25557,7 @@ namespace App1.Workflow.CustomActivity
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This registers the assembly to a namespace that Geocortex Workflow Server can discover.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`By convention, assembly attributes are typically added to a file called `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`"Properties\\AssemblyInfo.cs"`),`, but they can be added to any code file.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"deploy-the-activity"},`Deploy the Activity`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-net-getting-started-server#deploying-geocortex-workflow-server-activities"}),`deploy Geocortex Workflow Server activities`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"implement-the-custom-activity"},`Implement the Custom Activity`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`We now have a empty activity that Geocortex Workflow Server can use that takes no inputs and produces no outputs. At this point, you can implement the appropriate business logic for your use case, using the features available with .NET Standard or .NET Core. This activity still does not have an easy to use interface in Geocortex Workflow Designer, but can be executed using `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`RunActivity`)),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"example-logarithm-of-a-number"},`Example: Logarithm of a Number`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The following activity will calculate the log of a number with a given (optional) base.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_logarithm_activity_mdx__WEBPACK_IMPORTED_MODULE_4__["default"],{mdxType:"LogarithmActivitySnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"test-your-activity"},`Test your Activity`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`You can run your new activity with a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0"}),`server workflow`),`. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`RunActivity`)),` can be used to execute your activity by the name defined in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`CustomActivity.cs`),` (for this example, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`your:unique:namespace::CustomActivity`),`, or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`your:unique:namespace::CalculateLog`),`). Check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-net-getting-started-server#debugging-server-workflow-activities"}),`this article`),` to learn how to debug your custom activity code in Visual Studio.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`If you want your custom activity to show up with a friendly user interface in Geocortex Workflow Designer, check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-net-register-activities"}),`Registering .NET Activities with Geocortex Workflow Designer`),`.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25554,7 +25630,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"creation-and-initialization"},`Creation and Initialization`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`In general, components and services are created as needed at runtime in Geocortex Web, with a few exceptions.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`First, all core services, like the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/web/api-message-bus"}),`MessageBus`),`, and services `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/web/usecases-implement-service#register-the-custom-service"}),`registered with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`loadOnStartup: true`)),`, will be initialized in parallel.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Next, the components in the layout which are initially active will be initialized in parallel, along with their models and any `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/web/sdk-service-injection"}),`services they inject`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Finally, other services and components are initialized as needed, usually when a.) a command they implement is run or b.) they are activated explicitly in the layout.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Component",description:"Learn how to implement a custom component using the Geocortex Web SDK",link:"usecases-implement-component-with-ui",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Service",description:"Learn how to implement a custom service using the Geocortex Web SDK",link:"usecases-implement-service",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25570,10 +25646,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
-/* harmony import */ var _src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
+/* harmony import */ var _src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(50);
 /* harmony import */ var _snippets_autofac_mobile_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(19);
 /* harmony import */ var _snippets_prereqs_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
-/* harmony import */ var _snippets_doomsday_cookie_clicker_view_model_mdx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(62);
+/* harmony import */ var _snippets_doomsday_cookie_clicker_view_model_mdx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(65);
 const frontMatter={title:'Custom Component with UI',description:'Geocortex Mobile - Learn how to implement a custom component with UI'};const metadata={"id":"mobile/usecases-implement-component-with-ui","title":"Custom Component with UI","description":"Geocortex Mobile - Learn how to implement a custom component with UI","source":"@site/docs/mobile/usecases-implement-component-with-ui.mdx","permalink":"/docs/mobile/usecases-implement-component-with-ui","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/usecases-implement-component-with-ui.mdx","sidebar":"mobile","previous":{"title":"Custom Commands and Operations","permalink":"/docs/mobile/usecases-implement-command-operation"},"next":{"title":"App Config for a Component","permalink":"/docs/mobile/usecases-implement-component-participate-app-config"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Create a Component Skeleton',id:'create-a-component-skeleton',children:[]},{value:'Add the Component to your Layout',id:'add-the-component-to-your-layout',children:[]},{value:'Use XAML to define your UI',id:'use-xaml-to-define-your-ui',children:[]},{value:'Extend your Component with Custom Code',id:'extend-your-component-with-custom-code',children:[{value:'Example: Doomsday Cookie Clicker',id:'example-doomsday-cookie-clicker',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Did you know Geocortex Workflow allows you to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0"}),`create custom forms`),` you can present to an end user?`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom component in Mobile gives you the highest degree of flexibility with what you can do. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-components-services"}),`Components`),` can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-commands-operations"}),`Commands and Operations`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-change-default-map-click-behavior"}),`Workflow`),` first.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_mdx__WEBPACK_IMPORTED_MODULE_8__["default"],{mdxType:"PrereqsSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"create-a-component-skeleton"},`Create a Component Skeleton`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Create a new file `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Components/HarmlessComponent.cs`),` under the platform agnostic project.
 In the file, add a new component class `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`HarmlessComponent`),` and register it with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Autofac`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_autofac_mobile_mdx__WEBPACK_IMPORTED_MODULE_7__["default"],{mdxType:"AutofacSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-csharp"}),`using App1;
 using App1.Components;
@@ -25754,7 +25830,7 @@ namespace App1.Components
 `))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"view-model",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_doomsday_cookie_clicker_view_model_mdx__WEBPACK_IMPORTED_MODULE_9__["default"],{mdxType:"DoomsdayCookieClickerViewModel"})),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"ui",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"],{src:Object(_docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])("video/component-with-ui-demo.webm"),mdxType:"DemoVideo"}))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This example refactored the original example to use `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://autofaccn.readthedocs.io/en/latest/register/registration.html"}),`Autofac dependency injection`),` to instantiate the View and ViewModel. Setting up your classes so dependencies are handled by Autofac in the constructor allows you to allow inject other Geocortex Mobile classes registered with Autofac, like how the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`UIOperations`),` class is injected into the view.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Learn more of this ViewModel's use of the Geocortex Mobile helper class `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-viewmodel-helper-class"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`NotifyPropertyBase`)),`.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25805,7 +25881,7 @@ const frontMatter={title:'Change Default Application Behavior',description:'Geoc
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Mobile comes with many built-in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviors without writing custom code. If you cannot create the behavior you want with Geocortex Workflow, it might be time to look into using the Geocortex Mobile SDK to implement a custom command or operation.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{title:"Commands and Operations",description:"Learn more about commands and operations",link:"concepts-commands-operations",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{title:"Change Geocortex Mobile's Default Map Click Behavior",description:"Learn how to Geocortex Workflow to override Geocortex Mobile's default map click behavior",link:"usecases-change-default-map-click-behavior",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{title:"Geocortex Workflow",description:"Learn more about Geocortex Workflow",link:"../workflow/overview",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{title:"Implement Custom Command/Operation",description:"Implement a custom Command/Operation with the Geocortex Mobile SDK",link:"usecases-implement-command-operation",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 239 */
+/* 240 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25818,12 +25894,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
+/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(42);
 const frontMatter={title:'Quickstart',description:'Geocortex Mobile - Learn about the Geocortex Mobile SDK Quickstart project'};const metadata={"id":"mobile/sdk-quick-start","title":"Quickstart","description":"Geocortex Mobile - Learn about the Geocortex Mobile SDK Quickstart project","source":"@site/docs/mobile/sdk-quick-start.mdx","permalink":"/docs/mobile/sdk-quick-start","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/sdk-quick-start.mdx","sidebar":"mobile","previous":{"title":"Custom Event","permalink":"/docs/mobile/usecases-implement-event"},"next":{"title":"SDK Samples","permalink":"/docs/mobile/sdk-samples"}};/* @jsx mdx */const rightToc=[{value:'Requirements',id:'requirements',children:[{value:'Windows',id:'windows',children:[]},{value:'iOS',id:'ios',children:[]},{value:'Android',id:'android',children:[]}]},{value:'Getting Up and Running',id:'getting-up-and-running',children:[{value:'Build and run for Windows 10',id:'build-and-run-for-windows-10',children:[]},{value:'Build and run for Android',id:'build-and-run-for-android',children:[]},{value:'Build and run for iOS',id:'build-and-run-for-ios',children:[]}]},{value:'Anatomy of the Quickstart',id:'anatomy-of-the-quickstart',children:[{value:'Geocortex Mobile SDK Packages',id:'geocortex-mobile-sdk-packages',children:[]},{value:'Entry Points',id:'entry-points',children:[]}]},{value:'Error Handling',id:'error-handling',children:[]},{value:'Editing the Layout and App Config',id:'editing-the-layout-and-app-config',children:[]},{value:'Referencing Third Party Libraries',id:'referencing-third-party-libraries',children:[]},{value:'Development Patterns',id:'development-patterns',children:[]},{value:'Deployment',id:'deployment',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"DesignerCallout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`If the built-in configurability of Geocortex Mobile does not serve your purposes, then it might be time to dive into the Geocortex Mobile SDK. Building applications on top of the Geocortex Mobile SDK requires engaging in the development, testing, and deployment of a custom application, so it's worthwhile to make sure your problem cannot be solved `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/overview#explore-the-use-cases"}),`with workflow or other advanced configuration`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`If you still think you need to use the Geocortex Mobile SDK, then lets get started!`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"requirements"},`Requirements`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Visual Studio 2019 or higher on Windows is the only officially supported development environment for the Geocortex Mobile SDK. Other development environments may be possible, but have not been verified.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"windows"},`Windows`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Windows 10 - To run the app on Windows 10, you must have Fall Creators Update installed on your Windows development PC.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The SDK targets Windows 10, version 1809 (10.0; Build 17763).`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`The minimum supported version is Windows 10 Fall Creators Update (10.0; Build 16299).`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"ios"},`iOS`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`To be able to build iOS applications, you must have a Mac; Windows cannot build iOS applications.
 Setup is required to allow Visual Studio on Windows to use the Mac to build the iOS project.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`See: `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/"}),`iOS Build on Windows`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Required software on the Mac:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`XCode`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Visual Studio for Mac`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`See the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/ios/deploy-test/"}),`Xamarin guide`),` on deploying and testing iOS apps for more details.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"android"},`Android`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`No extra setup is required. You can install your emulator of choice, or debug on a physical device. See the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/android/deploy-test/"}),`Xamarin guide`),` on deploying and testing Android apps for more detail.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"getting-up-and-running"},`Getting Up and Running`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`A `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://github.com/geocortex/vertigis-mobile-quickstart"}),`Geocortex Mobile Quickstart`),` is provided, which is a basic Geocortex Mobile application. This Quickstart is essentially a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/get-started/Quickstarts/single-page?pivots=windows"}),`Xamarin Forms Quickstart Application`),` that initializes and boots Geocortex Mobile on each platform. To get up and running, simply check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://github.com/geocortex/vertigis-mobile-quickstart"}),`Mobile Quickstart Repository`),` and start the solution on the appropriate platform.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Geocortex Mobile is built on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/xamarin-forms/"}),`Xamarin Forms`),`, a framework for building cross platform native apps. As a consequence, building non trivial extensions to Geocortex Mobile will require some Xamarin development knowledge.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"build-and-run-for-windows-10"},`Build and run for Windows 10`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Set `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`App1.UWP`),` as your startup project.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Change the architecture from `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("em",{parentName:"li"},`Any CPU`),` to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("em",{parentName:"li"},`x86`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("em",{parentName:"li"},`x64`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Build and run.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"build-and-run-for-android"},`Build and run for Android`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Set `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`App1.Android`),` as your startup project.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Choose your target device or emulator from the run dropdown in the toolbar.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Please note that building and deploying to an emulator is faster than using a device.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Build and run.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"build-and-run-for-ios"},`Build and run for iOS`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Set `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`App1.iOS`),` as your startup project.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Ensure you are `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/connecting-to-mac/"}),`paired with a Mac`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Choose your target device (must be plugged into Mac) or simulator from the run dropdown in the toolbar.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Please note that building and deploying to a simulator is faster than using a device.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Build and run.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"anatomy-of-the-quickstart"},`Anatomy of the Quickstart`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Quickstart is composed of four projects, one for each platform, and a common project that is shared by all platforms. This is a standard Xamarin Forms setup, as described `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/get-started/Quickstarts/deepdive?pivots=windows#anatomy-of-a-xamarinforms-application"}),`in their documentation`),`. Changes have been made to each project to support the bootstrapping of a Geocortex Mobile application using the SDK.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"geocortex-mobile-sdk-packages"},`Geocortex Mobile SDK Packages`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Geocortex Mobile SDK is composed of Geocortex packages:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`Geocortex Icons`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`This package provides configurable vector icons for use in Geocortex Mobile apps.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`Geocortex Mobile`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`This package is the heart of the Mobile SDK, and powers the interface and interactions of a Mobile Xamarin Application.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`This package includes the Geocortex.API namespace, an API for working with foundational Geocortex models, configuration, Esri's ArcGIS types, etc.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`Geocortex Workflow`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Geocortex Mobile heavily relies on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/workflow/overview"}),`Geocortex Workflow`),` to power its functionality.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`Geocortex Workflow is itself composed of many packages (Image Activities, Forms, GIS, Runtime).`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`Geocortex Viewer Framework`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`This package provides the definitions of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/mobile/concepts-layout"}),`layout`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/mobile/concepts-app-config"}),`app config`),` that are central to every Mobile app.`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"entry-points"},`Entry Points`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Each platform has platform specific setup and an entry point, after which they all bootstrap the application through the platform agnostic project. In the platform agnostic project, the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`OnStart`),` method of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`App.cs`),` calls the Geocortex Mobile SDK Bootstrapper, and loads and displays the application with the given `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`app.json`),` configuration.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h4",{"id":"android-1"},`Android`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`OnCreate`),` method of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`MainActivity.cs`),` file in the Android specific project handles Android specific setup.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h4",{"id":"ios-1"},`iOS`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`FinishedLaunching`),` method of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`AppDelegate.cs`),` in the iOS specific project handles iOS specific setup.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h4",{"id":"universal-windows"},`Universal Windows`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The constructors of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`App.xaml.cs`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`MainPage.xaml.cs`),` files in the UWP specific project handles Windows specific setup.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"error-handling"},`Error Handling`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`In each of the platform specific setups, there is a call to the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`HandleExceptions`),` method. This method tells Geocortex Mobile to handle exceptions and display an Error. If you need to have control over global error handling, you can remove the call to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`HandleExceptions`),` and implement your own global exception handling for the Xamarin Application. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://stackoverflow.com/questions/39503390/global-exception-handling-in-xamarin-cross-platform"}),`This Stack Overflow post`),` is a good starting point for implementing global error handling.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"editing-the-layout-and-app-config"},`Editing the Layout and App Config`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Many changes to Geocortex Mobile will require editing the layout and app config for your custom application. The app config and layout files are contained in the shared platform agnostic project. Each platform specific project links to these files as an asset or a reference, so editing the files in the platform agnostic project will change them for all platforms. Check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-layout"}),`layout`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-app-config"}),`app config`),` to learn more about configuring Geocortex Mobile with these files.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"referencing-third-party-libraries"},`Referencing Third Party Libraries`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Geocortex Mobile Quickstart is simply a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/get-started/Quickstarts/deepdive?pivots=windows"}),`.NET Xamarin Forms project`),` so you can add dependencies to it like any other .NET project.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-caution alert alert--warning"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"16","height":"16","viewBox":"0 0 16 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"})))),`caution`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`However, the Geocortex Mobile SDK relies on exact versions of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://developers.arcgis.com/arcgis-runtime/"}),`ArcGIS Runtime`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://dotnet.microsoft.com/apps/xamarin/xamarin-forms"}),`Xamarin Forms`),` NuGet packages.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"development-patterns"},`Development Patterns`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`For the most part, the Geocortex Mobile project follows the development practices outlined in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/"}),`Enterprise Application Patterns using Xamarin.Forms`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`One major deviation from usual Xamarin Development patterns is that `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://autofac.org/"}),`Autofac`),` is used as the Dependency Injection framework.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"deployment"},`Deployment`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Quickstart provided is a standard Xamarin forms application, and can be deployed in accordance to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.microsoft.com/en-us/xamarin/xamarin-forms/deploy-test/"}),`Xamarin's guidelines`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Quickstart is a useful starting point for your custom Geocortex Mobile application. Build on top of it by following along with a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-command-operation"}),`use case`),`, or check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://github.com/geocortex/vertigis-mobile-samples"}),`SDK Samples`),` for inspiration and examples of what you can accomplish with the Geocortex Mobile SDK.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 240 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25839,7 +25915,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
-/* harmony import */ var _snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(35);
+/* harmony import */ var _snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(37);
 const frontMatter={title:'Implement a Custom Form Element for Geocortex Mobile',sidebar_label:'Implement a Custom Form Element',description:'Geocortex Workflow - Implement custom form elements for Geocortex Mobile'};const metadata={"id":"workflow/usecases-mobile-implement-custom-form-elements","title":"Implement a Custom Form Element for Geocortex Mobile","description":"Geocortex Workflow - Implement custom form elements for Geocortex Mobile","source":"@site/docs/workflow/usecases-mobile-implement-custom-form-elements.mdx","permalink":"/docs/workflow/usecases-mobile-implement-custom-form-elements","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/usecases-mobile-implement-custom-form-elements.mdx","sidebar_label":"Implement a Custom Form Element","sidebar":"workflow","previous":{"title":"Access App Properties in an Activity","permalink":"/docs/workflow/usecases-mobile-access-app-properties"},"next":{"title":"Reference a Third Party Library through the Geocortex Mobile SDK","permalink":"/docs/workflow/usecases-mobile-reference-third-party-library"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Overview',id:'overview',children:[]},{value:'Set up the Custom Form Element Skeleton',id:'set-up-the-custom-form-element-skeleton',children:[]},{value:'Set up a Form Element Registration Activity',id:'set-up-a-form-element-registration-activity',children:[]},{value:'Register the Form Element Registration Activity',id:'register-the-form-element-registration-activity',children:[]},{value:'Example: Enhanced Activity Indicator Form Element',id:'example-enhanced-activity-indicator-form-element',children:[]},{value:'Raising Form Events',id:'raising-form-events',children:[{value:'Example: Custom Form Element that Raises Events',id:'example-custom-form-element-that-raises-events',children:[]}]},{value:'Get Properties of Custom Form Elements at Runtime',id:'get-properties-of-custom-form-elements-at-runtime',children:[]},{value:'Relevant SDK Sample',id:'relevant-sdk-sample',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#form-elements"}),`form element`),` allows you to augment the existing `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/auto-complete.htm%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7C_____0"}),`form elements that come with Geocortex Workflow`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article applies to building workflow form elements that will be run on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxm/"}),`Geocortex Mobile`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_6__["default"],{mdxType:"MobilePrereqs"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"overview"},`Overview`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom form element in Geocortex Mobile consists of three steps:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Creating the custom form element and implementing the UI.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Creating an activity which will register this form component with Geocortex Workflow.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Registering the activity with Geocortex Workflow and running it using the custom form element.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"set-up-the-custom-form-element-skeleton"},`Set up the Custom Form Element Skeleton`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Create a new file `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`CustomFormElement`),` in the platform agnostic project of the Geocortex Mobile `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"/docs/mobile/sdk-quick-start"}),`Quickstart`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Add a new skeleton form element that implements `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`FormComponent`),`.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-csharp"}),`using Geocortex.Workflow.Forms.Components;
 using Xamarin.Forms;
 
@@ -26132,7 +26208,7 @@ namespace App1.Workflow
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`You can then use an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/expressions.htm"}),`expression`),` in Geocortex Workflow Designer to access the custom property of the form element. For example, to access the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`value`),` property you can use an expression like `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`=$form1.state.custom1.value`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"relevant-sdk-sample"},`Relevant SDK Sample`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Check out the relevant Geocortex Mobile SDK Sample:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Workflow/CustomFormComponent"}),`Custom Workflow Form Element`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 241 */
+/* 242 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26148,10 +26224,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
-/* harmony import */ var _src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
+/* harmony import */ var _src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(50);
 /* harmony import */ var _snippets_autofac_mobile_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(19);
 /* harmony import */ var _snippets_prereqs_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(15);
-const frontMatter={title:'Custom Event',description:'Geocortex Mobile - Learn how to implement a custom event'};const metadata={"id":"mobile/usecases-implement-event","title":"Custom Event","description":"Geocortex Mobile - Learn how to implement a custom event","source":"@site/docs/mobile/usecases-implement-event.mdx","permalink":"/docs/mobile/usecases-implement-event","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/usecases-implement-event.mdx","sidebar":"mobile","previous":{"title":"Custom Service","permalink":"/docs/mobile/usecases-implement-service"},"next":{"title":"Quickstart","permalink":"/docs/mobile/sdk-quick-start"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Create Skeleton Events Container',id:'create-skeleton-events-container',children:[]},{value:'Defining an Event',id:'defining-an-event',children:[]},{value:'Using the Event',id:'using-the-event',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-info alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`info`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Geocortex Mobile has many built-in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-events"}),`Events`),` that can be used to hook into various changes that occur in the application. Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/api-events"}),`Events API`),` to see if the event you need already exists.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article will walk you through implementing a custom event in Geocortex Mobile that runs every five seconds.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_mdx__WEBPACK_IMPORTED_MODULE_8__["default"],{mdxType:"PrereqsSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"create-skeleton-events-container"},`Create Skeleton Events Container`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Create a new file `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Events\\CustomEvents`),` in the platform agnostic project.
+const frontMatter={title:'Custom Event',description:'Geocortex Mobile - Learn how to implement a custom event'};const metadata={"id":"mobile/usecases-implement-event","title":"Custom Event","description":"Geocortex Mobile - Learn how to implement a custom event","source":"@site/docs/mobile/usecases-implement-event.mdx","permalink":"/docs/mobile/usecases-implement-event","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/usecases-implement-event.mdx","sidebar":"mobile","previous":{"title":"Custom Service","permalink":"/docs/mobile/usecases-implement-service"},"next":{"title":"Quickstart","permalink":"/docs/mobile/sdk-quick-start"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Create Skeleton Events Container',id:'create-skeleton-events-container',children:[]},{value:'Defining an Event',id:'defining-an-event',children:[]},{value:'Using the Event',id:'using-the-event',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-info alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`info`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Geocortex Mobile has many built-in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-events"}),`Events`),` that can be used to hook into various changes that occur in the application. Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/api-commands-operations-events#events"}),`Events API`),` to see if the event you need already exists.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article will walk you through implementing a custom event in Geocortex Mobile that runs every five seconds.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_mdx__WEBPACK_IMPORTED_MODULE_8__["default"],{mdxType:"PrereqsSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"create-skeleton-events-container"},`Create Skeleton Events Container`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Create a new file `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Events\\CustomEvents`),` in the platform agnostic project.
 Add a new class `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`CustomEvents`),` that implement Mobile's `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`EventsBase`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-csharp"}),`using App1.Events;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
@@ -26351,7 +26427,7 @@ namespace App1.Services
 One thing to note about this example is the use of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`IDisposable`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`IDisposableTracker`),` to clean up event handlers in the View code behind and Service. Implementing these interfaces correctly is essentially to preventing `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-memory-leaks"}),`Memory Leaks in your Mobile Application`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 242 */
+/* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26364,7 +26440,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
+/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(49);
 const frontMatter={title:'Key Concepts',description:'Geocortex Web - Learn about key concepts of the Geocortex Web Framework',hide_table_of_contents:true};const metadata={"id":"web/concepts-key-concepts","title":"Key Concepts","description":"Geocortex Web - Learn about key concepts of the Geocortex Web Framework","source":"@site/docs/web/concepts-key-concepts.mdx","permalink":"/docs/web/concepts-key-concepts","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/concepts-key-concepts.mdx","sidebar":"web","previous":{"title":"Overview","permalink":"/docs/web/overview"},"next":{"title":"Layout","permalink":"/docs/web/concepts-layout"}};/* @jsx mdx */const rightToc=[{value:'Applications',id:'applications',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"applications"},`Applications`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The core element of Geocortex Web is an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Application`),`. Applications are composed of three main pieces:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h4",{"id":"1-layout-xml-that-represents-the-visual-layout-of-the-application"},`1. Layout XML that represents the visual layout of the application.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-xml"}),`<layout xmlns="https://geocortex.com/layout/v1">
     <map config="default" />
 </layout>
@@ -26388,7 +26464,7 @@ const frontMatter={title:'Key Concepts',description:'Geocortex Web - Learn about
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`App Config files describe component configuration and other values relevant to application behavior. An app config file is composed of a list of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`app items`),`. App items can correspond to components in the layout, portal items, or any `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-advanced-app-config#custom-app-items"}),`other defined item type`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h4",{"id":"3-the-geocortex-web-code-which-renders-the-layout-and-powers-functionality"},`3. The Geocortex Web code which renders the layout and powers functionality.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web consumes layout and app config to create fully functional web mapping applications. You can use Geocortex Web out of the box, or extend it using the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-overview"}),`Geocortex Web SDK`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("br",null),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`These three pieces are the building blocks behind an application, with the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`layout.xml`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`app.json`),` files being the driving forces that control how an application looks, how it responds to user interaction, and what data it consumes. Extensive customization can be done simply by modifying these two files, without requiring any custom code.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 243 */
+/* 244 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26401,7 +26477,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
+/* harmony import */ var _snippets_app_item_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
 /* harmony import */ var _snippets_autofac_mobile_mdx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(19);
 const frontMatter={title:'Advanced App Config',description:'Geocortex Mobile - Learn about Geocortex Mobile\'s advanced configuration options'};const metadata={"id":"mobile/concepts-advanced-app-config","title":"Advanced App Config","description":"Geocortex Mobile - Learn about Geocortex Mobile's advanced configuration options","source":"@site/docs/mobile/concepts-advanced-app-config.mdx","permalink":"/docs/mobile/concepts-advanced-app-config","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/concepts-advanced-app-config.mdx","sidebar":"mobile","previous":{"title":"Advanced Layout","permalink":"/docs/mobile/concepts-advanced-layout"},"next":{"title":"Change Default Application Behavior","permalink":"/docs/mobile/usecases-change-default-behavior"}};/* @jsx mdx */const rightToc=[{value:'Schema Properties',id:'schema-properties',children:[]},{value:'App Items',id:'app-items',children:[]},{value:'Item URIs and Resource URIs',id:'item-uris-and-resource-uris',children:[]},{value:'Custom App Items',id:'custom-app-items',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"schema-properties"},`Schema Properties`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The two properties `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`$schema`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`schemaVersion`),` should always be present in an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`app.json`),` file.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-json"}),`{
   "$schema": "..\\\\..\\\\ViewerFramework\\\\app-config\\\\mobile\\\\mobile-app-config.schema.json",
@@ -26448,7 +26524,7 @@ const frontMatter={title:'Advanced App Config',description:'Geocortex Mobile - L
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"custom-app-items"},`Custom App Items`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`App items in Geocortex Mobile correspond to a class that extends `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`VisualAppItem`),` and registers with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Autofac`),` as an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`AppItem`),` type, like the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`HarmlessComponentConfiguration`),` in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-component-participate-app-config#create-a-skeleton-app-config-definition"}),`app config use case`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_autofac_mobile_mdx__WEBPACK_IMPORTED_MODULE_4__["default"],{mdxType:"AutofacSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Registering a class in this manner makes mobile aware of a new `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`app item type`),`, which can be added to the items list in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`app.json`),` with the appropriate `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`$type`),` specified.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 244 */
+/* 245 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26461,7 +26537,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
+/* harmony import */ var _snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
 const frontMatter={title:'Reference a Third Party Library for Web Application Environments',sidebar_label:'Reference a Third Party Library',description:'Geocortex Workflow - Reference a third party library in workflow for web applications'};const metadata={"id":"workflow/usecases-web-reference-third-party-library","title":"Reference a Third Party Library for Web Application Environments","description":"Geocortex Workflow - Reference a third party library in workflow for web applications","source":"@site/docs/workflow/usecases-web-reference-third-party-library.mdx","permalink":"/docs/workflow/usecases-web-reference-third-party-library","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/usecases-web-reference-third-party-library.mdx","sidebar_label":"Reference a Third Party Library","sidebar":"workflow","previous":{"title":"Implement a Custom Form Element for Web Applications","permalink":"/docs/workflow/usecases-web-implement-custom-form-elements"},"next":{"title":"Implement a Custom Activity for Geocortex Mobile","permalink":"/docs/workflow/usecases-mobile-implement-custom-activity"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Adding a Dependency',id:'adding-a-dependency',children:[]},{value:'Reference External React Components',id:'reference-external-react-components',children:[{value:'Example: Using the react-circular-color Component.',id:'example-using-the-react-circular-color-component',children:[]}]},{value:'Limitations',id:'limitations',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`You can reference external JavaScript libraries to augment `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-web-implement-custom-activity"}),`custom activities`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-web-implement-custom-form-elements"}),`custom form elements`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article applies to reference third party libraries for TypeScript `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#activity-packs"}),`activity packs`),` that will be run on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#geocortex-workflow-hosts"}),`web application workflow hosts`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"WebPrereqs"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"adding-a-dependency"},`Adding a Dependency`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Install the dependency in the activity sdk. For example, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`npm install moment`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`Copy`),` the dependency to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`dist/deps/`),`.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`It's important that you `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`copy`),` and not move the dependency from the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`node_modules`),` folder, as this will make it accessible to both the development server and production activity pack.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",{"start":3},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Add a call to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`mapDependencies()`),` to the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`configure()`),` method in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`src/main.ts`),`.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`For example, if you wanted to use the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://github.com/moment/moment"}),`moment.js`),` library and had the file `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`moment.js`),` located in a folder called `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`deps/moment`),` within the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`dist`),` folder, you would write the following:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-ts"}),`import { mapDependencies } from "@geocortex/workflow/runtime/app/ActivityPackUtils";
 
 function configure(prefix: string) {
@@ -26502,7 +26578,7 @@ function configure(prefix: string) {
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"limitations"},`Limitations`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`There are some limitations on the types of component you can load:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`You can only import components that are defined using the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"https://www.davidbcalhoun.com/2014/what-is-amd-commonjs-and-umd/"}),`AMD or UMD`),` syntax.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`You cannot import components defined using the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"li"},{"href":"http://requirejs.org/docs/commonjs.html"}),`CommonJS`),` syntax.`)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 245 */
+/* 246 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26520,7 +26596,7 @@ __webpack_require__.r(__webpack_exports__);
 const frontMatter={title:'SDK Samples',description:'Geocortex Mobile - Learn about the Geocortex Mobile SDK Samples project'};const metadata={"id":"mobile/sdk-samples","title":"SDK Samples","description":"Geocortex Mobile - Learn about the Geocortex Mobile SDK Samples project","source":"@site/docs/mobile/sdk-samples.mdx","permalink":"/docs/mobile/sdk-samples","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/sdk-samples.mdx","sidebar":"mobile","previous":{"title":"Quickstart","permalink":"/docs/mobile/sdk-quick-start"},"next":{"title":"Dependency Injection","permalink":"/docs/mobile/sdk-dependency-injection"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Alongside the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://github.com/geocortex/vertigis-mobile-quickstart"}),`Quickstart Project`),`, a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://github.com/geocortex/vertigis-mobile-samples"}),`SDK Samples project`),` has been created which demonstrates using the SDK to extend Geocortex Mobile with custom components, operations and services. The samples project also demonstrates configurations, conceptual ideas, and the use and extension of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/overview"}),`Geocortex Workflow`),`. Running the project displays a selector which lets you explore the live samples.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Quickstart",description:"Check out the Geocortex Mobile SDK Quickstart Project.",link:"https://github.com/geocortex/vertigis-mobile-quickstart",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"SDK Samples",description:"Check out the Geocortex Mobile SDK Samples Project.",link:"https://github.com/geocortex/vertigis-mobile-samples",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 246 */
+/* 247 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26536,7 +26612,7 @@ __webpack_require__.r(__webpack_exports__);
 const frontMatter={title:'Reference a Third Party Library in Geocortex Workflow Server',sidebar_label:'Reference a Third Party Library',description:'Geocortex Workflow - Reference a third party library in a Geocortex Workflow Server extension'};const metadata={"id":"workflow/usecases-server-reference-third-party-library","title":"Reference a Third Party Library in Geocortex Workflow Server","description":"Geocortex Workflow - Reference a third party library in a Geocortex Workflow Server extension","source":"@site/docs/workflow/usecases-server-reference-third-party-library.mdx","permalink":"/docs/workflow/usecases-server-reference-third-party-library","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/usecases-server-reference-third-party-library.mdx","sidebar_label":"Reference a Third Party Library","sidebar":"workflow","previous":{"title":"Implement a Custom Activity for Geocortex Workflow Server","permalink":"/docs/workflow/usecases-server-implement-custom-activity"},"next":{"title":"SDK Overview","permalink":"/docs/workflow/sdk-overview"}};/* @jsx mdx */const rightToc=[{value:'Set up your Custom Code',id:'set-up-your-custom-code',children:[]},{value:'Add a Third Party library',id:'add-a-third-party-library',children:[]},{value:'Build and Copy the Project Output',id:'build-and-copy-the-project-output',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`As discussed in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-net-getting-started-server#setting-up-a-geocortex-workflow-server-extension-project"}),`Geocortex Workflow Server`),`, deploying a custom activity to Geocortex Workflow Server involves creating a .NET project that generates compatible assemblies and then copying them to the build folder. Add a third party assembly is as simply as adding the library to your .NET project and then ensuring it is copied along with the user defined code.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"set-up-your-custom-code"},`Set up your Custom Code`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-server-implement-custom-activity"}),`implement custom activity`),` to implement and deploy a basic custom activity.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"add-a-third-party-library"},`Add a Third Party library`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Add a third party library via a nuget package, and use it in your custom activity.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"build-and-copy-the-project-output"},`Build and Copy the Project Output`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Build the project to output the user and referenced assemblies. Follow the instructions to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-server-implement-custom-activity#deploy-the-activity"}),`Deploy the Activity`),`. Ensure that you locate and copy the third party assemblies. If you don't see them in the build output folder, review the instructions and ensure you have followed all the steps.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`An important step not to miss is adding the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`CopyLocalLockFileAssemblies`),` attribute to the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`.csproj`),` file if you created a .NET Standard class library. Without this attribute, your nuget package reference assemblies will not be output to the build folder.`))));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 247 */
+/* 248 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26591,7 +26667,7 @@ export default function (registry: LibraryRegistry) {
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Deploy your Service",description:"Learn how to deploy your custom service",link:"sdk-deployment",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Create a Service that Manages Dynamic Data",description:"Follow along with a more in depth service example",link:"usecases-implement-service",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 248 */
+/* 249 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26610,10 +26686,10 @@ const frontMatter={title:'Events',description:'Geocortex Mobile - Learn about ev
 app.backgrounded
 geolocation.position-changed
 geolocation.position-lost
-`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events can publish custom arguments with information about the change they are communicating. The full list of existing events available in Geocortex Mobile can be `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/api-events"}),`found in the API`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"usage"},`Usage`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events are internal to the Geocortex Mobile SDK, so they can only be consumed by custom code. Any `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-component-with-ui"}),`Custom Component`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-service"}),`Custom Service`),` can publish or subscribe to built-in or custom events.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implementing Custom Events",description:"Learn how to implement a custom Event.",link:"sdk-implement-event",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Events API",description:"Check out the full list of Events available in Geocortex Mobile.",link:"api-events",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
+`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events can publish custom arguments with information about the change they are communicating. The full list of existing events available in Geocortex Mobile can be `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/api-commands-operations-events#events"}),`found in the API`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"usage"},`Usage`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events are internal to the Geocortex Mobile SDK, so they can only be consumed by custom code. Any `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-component-with-ui"}),`Custom Component`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-service"}),`Custom Service`),` can publish or subscribe to built-in or custom events.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implementing Custom Events",description:"Learn how to implement a custom Event.",link:"sdk-implement-event",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Events API",description:"Check out the full list of Events available in Geocortex Mobile.",link:"api-commands-operations-events#events",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 249 */
+/* 250 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26646,7 +26722,7 @@ const frontMatter={title:'Internationalization',description:'Geocortex Mobile - 
 `)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 250 */
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26661,27 +26737,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
-const frontMatter={title:'Events',description:'Geocortex Web - Learn about event concepts'};const metadata={"id":"web/concepts-events","title":"Events","description":"Geocortex Web - Learn about event concepts","source":"@site/docs/web/concepts-events.mdx","permalink":"/docs/web/concepts-events","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/concepts-events.mdx","sidebar":"web","previous":{"title":"Components and Services","permalink":"/docs/web/concepts-components-services"},"next":{"title":"Advanced Layout","permalink":"/docs/web/concepts-advanced-layout"}};/* @jsx mdx */const rightToc=[{value:'Usage',id:'usage',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Events`),` are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services"}),`component or service`),`, and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events in Geocortex Web are grouped by categories, such as `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ui`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`viewer`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{}),`ui.activated
+const frontMatter={title:'Events',description:'Geocortex Web - Learn about event concepts'};const metadata={"id":"web/concepts-events","title":"Events","description":"Geocortex Web - Learn about event concepts","source":"@site/docs/web/concepts-events.mdx","permalink":"/docs/web/concepts-events","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/concepts-events.mdx","sidebar":"web","previous":{"title":"Components and Services","permalink":"/docs/web/concepts-components-services"},"next":{"title":"Advanced Layout","permalink":"/docs/web/concepts-advanced-layout"}};/* @jsx mdx */const rightToc=[{value:'Usage',id:'usage',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Events`),` are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services"}),`component or service`),`, and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The full list of existing events available in Geocortex Web can be `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-commands-operations-events#events"}),`found in the API documentation`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events in Geocortex Web are grouped by categories, such as `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ui`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`viewer`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{}),`ui.activated
 coordinates.coordinate-systems-changed
 viewer.layout-changed
 auth.sign-in-failed
-`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events can publish custom arguments with information about the change they are communicating. The full list of existing events available in Geocortex Web can be `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-events"}),`found in the API`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"usage"},`Usage`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events are internal to Geocortex Web, so they can only be consumed by custom code. Custom components can access events through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-ui-context"}),`UIContext`),` or through `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services#component-models-and-configuration"}),`their models`),`. Custom services can publish or subscribe to built-in or custom events through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-message-bus"}),`MessageBus`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Subscribing to Existing Events",description:"Learn how to subscribe to an existing event",link:"usecases-implement-event#subscribing-to-existing-events",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Events API",description:"Check out the full list of Events available in Geocortex Web",link:"api-events",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implementing Custom Events",description:"Learn how to implement a custom Event.",link:"usecases-implement-event",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
-
-/***/ }),
-/* 251 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={title:'Memory Management',description:'Geocortex Mobile - Learn about memory management in Geocortex Mobile'};const metadata={"id":"mobile/sdk-memory-leaks","title":"Memory Management","description":"Geocortex Mobile - Learn about memory management in Geocortex Mobile","source":"@site/docs/mobile/sdk-memory-leaks.mdx","permalink":"/docs/mobile/sdk-memory-leaks","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/sdk-memory-leaks.mdx","sidebar":"mobile","previous":{"title":"View Model Helper Class","permalink":"/docs/mobile/sdk-viewmodel-helper-class"},"next":{"title":"Overview","permalink":"/docs/mobile/api-overview"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
+`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events can publish custom arguments with information about the change they are communicating.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"usage"},`Usage`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Events are internal to Geocortex Web, so they can only be consumed by custom code. Custom components can access events through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-ui-context"}),`UIContext`),` or through `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-components-services#component-models-and-configuration"}),`their models`),`. Custom services can publish or subscribe to built-in or custom events through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-message-bus"}),`MessageBus`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Subscribing to Existing Events",description:"Learn how to subscribe to an existing event",link:"usecases-implement-event#subscribing-to-existing-events",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Events API",description:"Check out the full list of Events available in Geocortex Web",link:"api-commands-operations-events#events",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implementing Custom Events",description:"Learn how to implement a custom Event.",link:"usecases-implement-event",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 252 */
@@ -26697,10 +26757,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
-/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(61);
-const frontMatter={title:'Overview',description:'Geocortex Workflow - Learn about extending Geocortex Workflow'};const metadata={"id":"workflow/overview","title":"Overview","description":"Geocortex Workflow - Learn about extending Geocortex Workflow","source":"@site/docs/workflow/overview.mdx","permalink":"/docs/workflow/overview","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/overview.mdx","sidebar":"workflow","next":{"title":"Concepts","permalink":"/docs/workflow/concepts-key-concepts"}};/* @jsx mdx */const rightToc=[{value:'Start with the Concepts',id:'start-with-the-concepts',children:[]},{value:'Explore the Use Cases',id:'explore-the-use-cases',children:[{value:'Web Applications',id:'web-applications',children:[]},{value:'Geocortex Mobile',id:'geocortex-mobile',children:[]},{value:'Geocortex Workflow Server',id:'geocortex-workflow-server',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow is a flexible tool for turning turning sophisticated business processes into a set of simple, guided end-user interactions. Geocortex Workflow is part of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/"}),`Geocortex suite of products`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow allows you to integrate geographic information and processing with other business tasks to create sophisticated functionality for your applications. For example, you could create a workflow that produces a tax parcel report for the user, or you could create a workflow that gets information about the geology and nearby features of a survey location specified by the user. The possibilities are endless—from automated reporting, to complex spatial analytics, to specific and tailored search experiences, you can use Geocortex Workflow for almost any process that you want to streamline and automate for your users.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow was designed to be cross-platform, and it can run in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxw/"}),`Geocortex Web`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxm/"}),`Geocortex Mobile`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/essentials/gvh/"}),`Geocortex Viewer for HTML5`),`, on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview"}),`Web AppBuilder for ArcGIS`),`, or on a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0"}),`Geocortex Workflow Server`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__["default"],{mdxType:"DesignerCallout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"start-with-the-concepts"},`Start with the Concepts`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow is built on the concept of a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#workflow"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`workflow`)),`. A workflow is a collection of connected `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`activities`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`forms`),`, that can be created using Geocortex Workflow Designer.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#activities"}),`Workflow `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`activities`)),` are the building blocks of a workflow. They allow you to perform actions in sequence that interact with the application and the end user, capturing your business logic in a reusable, easy to understand format.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#form-elements"}),`Workflow `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`forms`)),` allow the creation of a customizable form that can be displayed to an end user. When combined with activities, you can create powerful experiences which can automate any number of manual processes in your applications.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Geocortex Workflow Runtime is the engine which runs these generic workflows on multiple platforms, including Geocortex Web and Geocortex Mobile.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts"}),`Explore the concepts`),` to learn more about activities, forms, the Geocortex Workflow Designer, and the cross-platform nature of Geocortex Workflow.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"explore-the-use-cases"},`Explore the Use Cases`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Check out the various use cases to get started with extending Geocortex Workflow for your target `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#geocortex-workflow-hosts"}),`workflow host`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"web-applications"},`Web Applications`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for Web Applications",link:"usecases-web-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Form Element",description:"Implement a custom form for Web Applications",link:"usecases-web-implement-custom-form-elements",mdxType:"UseCaseCard"})),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"geocortex-mobile"},`Geocortex Mobile`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for Geocortex Mobile applications",link:"usecases-mobile-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Form Element",description:"Implement a custom form for Geocortex Mobile applications",link:"usecases-mobile-implement-custom-form-elements",mdxType:"UseCaseCard"})),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"geocortex-workflow-server"},`Geocortex Workflow Server`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for Geocortex Workflow Server",link:"usecases-server-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Reference a Third Party Library",description:"Reference a third party library in custom Geocortex Workflow Server activities.",link:"usecases-server-reference-third-party-library",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
+const frontMatter={title:'Memory Management',description:'Geocortex Mobile - Learn about memory management in Geocortex Mobile'};const metadata={"id":"mobile/sdk-memory-leaks","title":"Memory Management","description":"Geocortex Mobile - Learn about memory management in Geocortex Mobile","source":"@site/docs/mobile/sdk-memory-leaks.mdx","permalink":"/docs/mobile/sdk-memory-leaks","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/sdk-memory-leaks.mdx","sidebar":"mobile","previous":{"title":"View Model Helper Class","permalink":"/docs/mobile/sdk-viewmodel-helper-class"},"next":{"title":"Overview","permalink":"/docs/mobile/api-overview"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 253 */
@@ -26716,10 +26773,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
+/* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
+/* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
+/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(64);
+const frontMatter={title:'Overview',description:'Geocortex Workflow - Learn about extending Geocortex Workflow'};const metadata={"id":"workflow/overview","title":"Overview","description":"Geocortex Workflow - Learn about extending Geocortex Workflow","source":"@site/docs/workflow/overview.mdx","permalink":"/docs/workflow/overview","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/overview.mdx","sidebar":"workflow","next":{"title":"Concepts","permalink":"/docs/workflow/concepts-key-concepts"}};/* @jsx mdx */const rightToc=[{value:'Start with the Concepts',id:'start-with-the-concepts',children:[]},{value:'Explore the Use Cases',id:'explore-the-use-cases',children:[{value:'Web Applications',id:'web-applications',children:[]},{value:'Geocortex Mobile',id:'geocortex-mobile',children:[]},{value:'Geocortex Workflow Server',id:'geocortex-workflow-server',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow is a flexible tool for turning turning sophisticated business processes into a set of simple, guided end-user interactions. Geocortex Workflow is part of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/"}),`Geocortex suite of products`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow allows you to integrate geographic information and processing with other business tasks to create sophisticated functionality for your applications. For example, you could create a workflow that produces a tax parcel report for the user, or you could create a workflow that gets information about the geology and nearby features of a survey location specified by the user. The possibilities are endless—from automated reporting, to complex spatial analytics, to specific and tailored search experiences, you can use Geocortex Workflow for almost any process that you want to streamline and automate for your users.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow was designed to be cross-platform, and it can run in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxw/"}),`Geocortex Web`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/gxm/"}),`Geocortex Mobile`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/essentials/gvh/"}),`Geocortex Viewer for HTML5`),`, on `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview"}),`Web AppBuilder for ArcGIS`),`, or on a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0"}),`Geocortex Workflow Server`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__["default"],{mdxType:"DesignerCallout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"start-with-the-concepts"},`Start with the Concepts`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow is built on the concept of a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#workflow"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`workflow`)),`. A workflow is a collection of connected `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`activities`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`forms`),`, that can be created using Geocortex Workflow Designer.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#activities"}),`Workflow `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`activities`)),` are the building blocks of a workflow. They allow you to perform actions in sequence that interact with the application and the end user, capturing your business logic in a reusable, easy to understand format.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#form-elements"}),`Workflow `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`forms`)),` allow the creation of a customizable form that can be displayed to an end user. When combined with activities, you can create powerful experiences which can automate any number of manual processes in your applications.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The Geocortex Workflow Runtime is the engine which runs these generic workflows on multiple platforms, including Geocortex Web and Geocortex Mobile.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts"}),`Explore the concepts`),` to learn more about activities, forms, the Geocortex Workflow Designer, and the cross-platform nature of Geocortex Workflow.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"explore-the-use-cases"},`Explore the Use Cases`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Check out the various use cases to get started with extending Geocortex Workflow for your target `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#geocortex-workflow-hosts"}),`workflow host`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"web-applications"},`Web Applications`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for Web Applications",link:"usecases-web-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Form Element",description:"Implement a custom form for Web Applications",link:"usecases-web-implement-custom-form-elements",mdxType:"UseCaseCard"})),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"geocortex-mobile"},`Geocortex Mobile`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for Geocortex Mobile applications",link:"usecases-mobile-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Form Element",description:"Implement a custom form for Geocortex Mobile applications",link:"usecases-mobile-implement-custom-form-elements",mdxType:"UseCaseCard"})),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"geocortex-workflow-server"},`Geocortex Workflow Server`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Activity",description:"Implement a custom activity for Geocortex Workflow Server",link:"usecases-server-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Reference a Third Party Library",description:"Reference a third party library in custom Geocortex Workflow Server activities.",link:"usecases-server-reference-third-party-library",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
+
+/***/ }),
+/* 254 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
+/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(7);
-/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(58);
+/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(61);
 const frontMatter={title:'Layout',description:'Geocortex Mobile - Learn about layout concepts'};const metadata={"id":"mobile/concepts-layout","title":"Layout","description":"Geocortex Mobile - Learn about layout concepts","source":"@site/docs/mobile/concepts-layout.mdx","permalink":"/docs/mobile/concepts-layout","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/concepts-layout.mdx","sidebar":"mobile","previous":{"title":"Key Concepts","permalink":"/docs/mobile/concepts-key-concepts"},"next":{"title":"App Config","permalink":"/docs/mobile/concepts-app-config"}};/* @jsx mdx */const rightToc=[{value:'Slotting',id:'slotting',children:[]},{value:'Stacks and Splits',id:'stacks-and-splits',children:[]},{value:'Panels',id:'panels',children:[{value:'Activation',id:'activation',children:[]},{value:'Deactivation',id:'deactivation',children:[]}]},{value:'Device Form factors',id:'device-form-factors',children:[{value:'Fallback Layouts',id:'fallback-layouts',children:[]}]},{value:'Namespaces',id:'namespaces',children:[]},{value:'Next Steps: Components and App Config',id:'next-steps-components-and-app-config',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Before learning about layout...`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-key-concepts"}),`Key Concepts`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Take this example of a layout with a map and a zoom widget.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-xml","metastring":"title=\"layout.xml\"","title":"\"layout.xml\""}),`<?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map>
@@ -26800,7 +26876,7 @@ When a feature in the results list is opened, the `,Object(_mdx_js_react__WEBPAC
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`When adding custom components, you will need to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-component-with-ui#add-the-component-to-your-layout"}),`add their custom namespace`),` to your xml definition.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps-components-and-app-config"},`Next Steps: Components and App Config`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`In our examples so far, xml elements like `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<text>`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<stack>`),` have been used. Each of these xml elements corresponds to a Component in Mobile. Each component has its own configuration, such as the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`text`),` property for `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`<text>`),` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`app.json`),` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful, flexible applications with different layouts for different form factors or use cases.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"App Config",description:"Learn about app configuration and its interaction with layout.",link:"concepts-app-config",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{title:"Advanced Layout Topics",description:"Learn more about what you can accomplish with layouts.",link:"concepts-advanced-layout",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 254 */
+/* 255 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -26944,7 +27020,7 @@ export default function TranslatableText(props) {
 `)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 255 */
+/* 256 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27056,7 +27132,7 @@ The default value for a component varies by component. For most components, if n
 Some components will stretch across the cross-axis even if the cross-axis alignment is set on the parent: map, stack, split.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 256 */
+/* 257 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27073,8 +27149,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
 /* harmony import */ var _snippets_prereqs_custom_code_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(22);
-/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(27);
-const frontMatter={title:'Commands and Operations in Components',description:'Geocortex Web - Learn how to register and run commands and operations in custom components'};const metadata={"id":"web/usecases-components-commands-operations","title":"Commands and Operations in Components","description":"Geocortex Web - Learn how to register and run commands and operations in custom components","source":"@site/docs/web/usecases-components-commands-operations.mdx","permalink":"/docs/web/usecases-components-commands-operations","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-components-commands-operations.mdx","sidebar":"web","previous":{"title":"Custom Component with UI","permalink":"/docs/web/usecases-implement-component-with-ui"},"next":{"title":"App Config for a Component","permalink":"/docs/web/usecases-implement-component-participate-app-config"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Running Commands and Operations',id:'running-commands-and-operations',children:[{value:'Example: Display a Confirmation Dialog to a User',id:'example-display-a-confirmation-dialog-to-a-user',children:[]}]},{value:'Implementing Commands and Operations',id:'implementing-commands-and-operations',children:[{value:'Example: Component that Implements a Command',id:'example-component-that-implements-a-command',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`When writing custom components you may want to take advantage of Geocortex Web's large `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-commands-operations"}),`built-in suite of command and operations`),` or your own `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-command-operation"}),`custom commands and operations`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`By the end of this article, you'll have the knowledge to build a custom component that can run commands and operations, as well as register implementations for them.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-with-ui"}),`implementing a custom component`),` to learn the basics of implementing components.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`If you want to implement a command and operation in a component, it's suggested you check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-command-operation#implement-the-custom-command-and-operation"}),`custom commands and operations`),` first.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"running-commands-and-operations"},`Running Commands and Operations`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`You can run command and operations `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-ui-context"}),`through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`UIContext`),` of the component`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"example-display-a-confirmation-dialog-to-a-user"},`Example: Display a Confirmation Dialog to a User`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The following example executes the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ui.confirm`),` operation through the UIContext. Calling a command or operation is as simple as retrieving it by name, providing the appropriate generic type for the command or operation, and then calling `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`execute`),` with the appropriate arguments.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`In order to pass arguments to a command or operation, you have to use the correct type for the generic `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`command`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`operation`),` function call with the argument and output type for the command or operation. For example, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ui.confirm`),` takes in a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ConfirmOperationArgs`),` and returns a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`boolean`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{defaultValue:"component",values:[{label:'Component',value:'component'},{label:'UI',value:'ui'}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"component",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-tsx","metastring":"title=\"src/components/CustomComponent/CustomComponent.tsx\"","title":"\"src/components/CustomComponent/CustomComponent.tsx\""}),`import React, { useContext } from "react";
+/* harmony import */ var _snippets_framework_components_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(28);
+const frontMatter={title:'Commands and Operations in Components',description:'Geocortex Web - Learn how to register and run commands and operations in custom components'};const metadata={"id":"web/usecases-components-commands-operations","title":"Commands and Operations in Components","description":"Geocortex Web - Learn how to register and run commands and operations in custom components","source":"@site/docs/web/usecases-components-commands-operations.mdx","permalink":"/docs/web/usecases-components-commands-operations","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/usecases-components-commands-operations.mdx","sidebar":"web","previous":{"title":"Custom Component with UI","permalink":"/docs/web/usecases-implement-component-with-ui"},"next":{"title":"App Config for a Component","permalink":"/docs/web/usecases-implement-component-participate-app-config"}};/* @jsx mdx */const rightToc=[{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Running Commands and Operations',id:'running-commands-and-operations',children:[{value:'Example: Display a Confirmation Dialog to a User',id:'example-display-a-confirmation-dialog-to-a-user',children:[]}]},{value:'Implementing Commands and Operations',id:'implementing-commands-and-operations',children:[{value:'Example: Component that Implements a Command',id:'example-component-that-implements-a-command',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`When writing custom components you may want to take advantage of Geocortex Web's large `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-commands-operations-events"}),`built-in suite of command and operations`),` or your own `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-command-operation"}),`custom commands and operations`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`By the end of this article, you'll have the knowledge to build a custom component that can run commands and operations, as well as register implementations for them.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-component-with-ui"}),`implementing a custom component`),` to learn the basics of implementing components.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`If you want to implement a command and operation in a component, it's suggested you check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-command-operation#implement-the-custom-command-and-operation"}),`custom commands and operations`),` first.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"running-commands-and-operations"},`Running Commands and Operations`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`You can run command and operations `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/sdk-ui-context"}),`through the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`UIContext`),` of the component`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"example-display-a-confirmation-dialog-to-a-user"},`Example: Display a Confirmation Dialog to a User`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The following example executes the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ui.confirm`),` operation through the UIContext. Calling a command or operation is as simple as retrieving it by name, providing the appropriate generic type for the command or operation, and then calling `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`execute`),` with the appropriate arguments.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`In order to pass arguments to a command or operation, you have to use the correct type for the generic `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`command`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`operation`),` function call with the argument and output type for the command or operation. For example, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ui.confirm`),` takes in a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`ConfirmOperationArgs`),` and returns a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`boolean`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_Tabs__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{defaultValue:"component",values:[{label:'Component',value:'component'},{label:'UI',value:'ui'}],mdxType:"Tabs"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_theme_TabItem__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"],{value:"component",mdxType:"TabItem"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-tsx","metastring":"title=\"src/components/CustomComponent/CustomComponent.tsx\"","title":"\"src/components/CustomComponent/CustomComponent.tsx\""}),`import React, { useContext } from "react";
 import { LayoutElement } from "@geocortex/web/components";
 import { UIContext } from "@geocortex/web/ui";
 import Button from "@geocortex/web/ui/button/Button";
@@ -27152,7 +27228,7 @@ export default class CustomModel extends ComponentModelBase {
 `)));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 257 */
+/* 258 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27167,10 +27243,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3);
-/* harmony import */ var _snippets_host_esri_api_version_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(60);
-/* harmony import */ var _snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(29);
-/* harmony import */ var _snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(35);
-/* harmony import */ var _snippets_prereqs_server_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(74);
+/* harmony import */ var _snippets_host_esri_api_version_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(63);
+/* harmony import */ var _snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(30);
+/* harmony import */ var _snippets_prereqs_mobile_mdx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(37);
+/* harmony import */ var _snippets_prereqs_server_mdx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(76);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(7);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(4);
 const frontMatter={title:'Implement a Custom Activity for Web Applications',sidebar_label:'Implement a Custom Activity',description:'Geocortex Workflow - Implement a custom activity for web applications'};const metadata={"id":"workflow/usecases-web-implement-custom-activity","title":"Implement a Custom Activity for Web Applications","description":"Geocortex Workflow - Implement a custom activity for web applications","source":"@site/docs/workflow/usecases-web-implement-custom-activity.mdx","permalink":"/docs/workflow/usecases-web-implement-custom-activity","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/usecases-web-implement-custom-activity.mdx","sidebar_label":"Implement a Custom Activity","sidebar":"workflow","previous":{"title":"Concepts","permalink":"/docs/workflow/concepts-key-concepts"},"next":{"title":"Access App Properties in an Activity","permalink":"/docs/workflow/usecases-web-access-app-properties"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Prerequisites',id:'prerequisites',children:[]},{value:'Set up Activity Skeleton',id:'set-up-activity-skeleton',children:[]},{value:'Implement the Activity',id:'implement-the-activity',children:[{value:'Example: Logarithm of a Number',id:'example-logarithm-of-a-number',children:[]}]},{value:'Test and Deploy the Activity',id:'test-and-deploy-the-activity',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Implementing a custom `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#activities"}),`activity`),` allows you to build a reusable, completely custom behavior to augment the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0"}),`existing activities`),` that come with Geocortex Workflow.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article applies to any web application that `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#geocortex-workflow-hosts"}),`uses the JavaScript Workflow runtime`),`, such as Geocortex Web, Geocortex Viewer for HTML5, and Web AppBuilder for ArcGIS.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"prerequisites"},`Prerequisites`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_prereqs_web_mdx__WEBPACK_IMPORTED_MODULE_6__["default"],{mdxType:"WebPrereqs"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"set-up-activity-skeleton"},`Set up Activity Skeleton`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`To create a new activity:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Open the Workflow activity SDK in Visual Studio Code`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Run `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`npm run activity`),` in the terminal.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`When prompted enter the name of the activity you would like to create and press `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`Enter`),`. For example, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"li"},`CustomActivity`),`.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`It's convention to use PascalCase for activity names.
@@ -27241,7 +27317,7 @@ export class CalculateLog {
 `)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"test-and-deploy-the-activity"},`Test and Deploy the Activity`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`See the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-web-getting-started#building"}),`SDK documentation`),` for details on building and deploying your custom activities.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Now you know how to build a basic Workflow activity for web applications. Next, you can learn how to access app properties in an activity, build custom form elements, use the ArcGIS API for JavaScript in your activities and more.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"],{title:"Implement a Custom Form Element",description:"Implement a custom form element for applications like Geocortex Web",link:"usecases-web-implement-custom-form-elements",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"],{title:"Access Application Properties in Activities",description:"Access application properties like the map in custom activities for Web Applications",link:"usecases-web-implement-custom-form-elements",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"],{title:"Use the ArcGIS API for JavaScript in an activity.",description:"Use the ArcGIS API for JavaScript in an activity or form element",link:"sdk-web-integrating-the-arcgis-api",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_10__[/* default */ "a"],{title:"Reference other Third Party Libraries",description:"Reference other third party libraries in your activities and form elements",link:"usecases-web-reference-third-party-library",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
-/* 258 */
+/* 259 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27257,22 +27333,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
 const frontMatter={title:'Components and Services',description:'Geocortex Mobile - Learn about Components and Services'};const metadata={"id":"mobile/concepts-components-services","title":"Components and Services","description":"Geocortex Mobile - Learn about Components and Services","source":"@site/docs/mobile/concepts-components-services.mdx","permalink":"/docs/mobile/concepts-components-services","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/concepts-components-services.mdx","sidebar":"mobile","previous":{"title":"Commands and Operations","permalink":"/docs/mobile/concepts-commands-operations"},"next":{"title":"Events","permalink":"/docs/mobile/concepts-events"}};/* @jsx mdx */const rightToc=[{value:'Components',id:'components',children:[]},{value:'Services',id:'services',children:[]},{value:'Creation and Initialization',id:'creation-and-initialization',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Components`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`services`),` are the two basic building blocks of Geocortex Mobile. Components power the UI experience of Geocortex Mobile, and services provide the shared infrastructure and core logic that power app behavior.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"components"},`Components`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`In Geocortex Mobile, components are entities which implement UI/UX experiences and the associated logic. An example of a component is an I Want to Menu (IWTM). IWTMs participate in layout, implement custom behavior (display a list when clicked), and participate in app config.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Components are only `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`created`),` if they participate in the layout - if no component definition exists in the layout, none will be created. Components are `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`initialized`),` when they are activated.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"services"},`Services`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`In Geocortex Mobile, services are entities which provide a shared service or behavior to other components. Two key differences between components are services are...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Services do not participate in layout, and do not power UI (except indirectly).`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Services are created `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"li"},`and`),` initialized on startup, before any components are created.`,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ul",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ul"},`This means any service is always available to any component.`)))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`An example of a service would be a "SettingsService", which provides global settings that other components can consume.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Services are not intended to directly interact with each other. Instead, services should `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/usecases-implement-command-operation"}),`implement operations`),` which can be called by other services to indirectly interact.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"creation-and-initialization"},`Creation and Initialization`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This is the order of operations for component and service creation and initialization on app startup.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Create all services.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Initialize all services.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Create all components consumed by the layout.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},`Activate the necessary components, depending on the layout and user interaction. Components are initialized during activation.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Component",description:"Learn how to implement a custom component using the Geocortex Mobile SDK",link:"usecases-implement-component-with-ui",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Service",description:"Learn how to implement a custom service using the Geocortex Mobile SDK",link:"usecases-implement-service",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
-
-/***/ }),
-/* 259 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "frontMatter", function() { return frontMatter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "metadata", function() { return metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightToc", function() { return rightToc; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MDXContent; });
-/* harmony import */ var _home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-const frontMatter={title:'Commands and Operations',description:'Geocortex Mobile - Commands and Operations API Reference'};const metadata={"id":"mobile/api-commands-operations","title":"Commands and Operations","description":"Geocortex Mobile - Commands and Operations API Reference","source":"@site/docs/mobile/api-commands-operations.mdx","permalink":"/docs/mobile/api-commands-operations","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/api-commands-operations.mdx","sidebar":"mobile","previous":{"title":"Overview","permalink":"/docs/mobile/api-overview"},"next":{"title":"Events","permalink":"/docs/mobile/api-events"}};/* @jsx mdx */const rightToc=[];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h1",{"id":"coming-soon"},`Coming Soon...`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This documentation is under active development.`));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 260 */
@@ -27319,7 +27379,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7);
-/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(40);
+/* harmony import */ var _snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(42);
 const frontMatter={title:'Overview',description:'Geocortex Mobile - Overview'};const metadata={"id":"mobile/overview","title":"Overview","description":"Geocortex Mobile - Overview","source":"@site/docs/mobile/overview.mdx","permalink":"/docs/mobile/overview","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/mobile/overview.mdx","sidebar":"mobile","next":{"title":"Key Concepts","permalink":"/docs/mobile/concepts-key-concepts"}};/* @jsx mdx */const rightToc=[{value:'Start with the Concepts',id:'start-with-the-concepts',children:[]},{value:'Explore the Use Cases',id:'explore-the-use-cases',children:[]},{value:'Take your Application Further with the SDK',id:'take-your-application-further-with-the-sdk',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Mobile is a framework for configuring and building mobile offline-capable custom apps on Esri's platform. Geocortex Mobile is part of the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://www.geocortex.com/products/"}),`Geocortex suite of products`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`You can use the Geocortex Mobile framework to build mobile, offline-capable apps that can run on Android, iOS, or Windows platforms. Geocortex Mobile apps make it possible to pan and zoom the map, search for features, review attributes, add and edit features, add attachments, and track your movements in real time. Integration with `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/overview"}),`Geocortex Workflow`),` ensures that you can build apps for many business processes. Geocortex Mobile apps can be used in the field to collect data, including photos and documents that can be attached to the map, perform inspections, or add and edit ArcGIS features.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Mobile was designed to be highly configurable out of the box. Geocortex Mobile consists of the Geocortex Mobile Viewer which provides the runtime for mobile applications, and the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://apps.geocortex.com/mobileviewer/designer/"}),`Geocortex Mobile Designer`),`, which provides a powerful interface to configure and deploy Geocortex Mobile Applications.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_designer_callout_mdx__WEBPACK_IMPORTED_MODULE_5__["default"],{mdxType:"DesignerCallout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"start-with-the-concepts"},`Start with the Concepts`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The core element of Geocortex Mobile is an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Application`),`. Applications are composed of three main pieces:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("ol",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-layout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`Layout XML`)),` that represents the visual layout of the application.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-app-config"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`App Config JSON`)),` that configures the application.`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("li",{parentName:"ol"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"li"},`The Geocortex Mobile code which renders the layout and powers functionality.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-key-concepts"}),`Explore the concepts`),` to learn more about how you can use the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-layout"}),`layout`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-app-config"}),`app config`),` to create custom behavior and appearance. You can also learn about the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/concepts-components-services"}),`components and services`),` that are key to extending Geocortex Mobile with custom code.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"explore-the-use-cases"},`Explore the Use Cases`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Explore how the app config and layout can be used to change the look and feel as well as modify and extend the built-in behavior of a Geocortex Mobile Application.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Change or Extend Built-in Behavior",description:"Change the default behavior of map clicks, map initialization, and more",link:"usecases-change-default-behavior",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Add a new Layout for Tablet Devices",description:"Add a layout designed for tablet devices",link:"usecases-add-medium-layout",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Customize the Look and Feel",description:"Change the appearance of your application with themes and configuration",link:"usecases-look-and-feel",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Take Custom Behavior even Further with Workflow",description:"Use Geocortex Workflow to configure custom behavior for button presses, application startup, map clicks and more",link:"usecases-change-default-map-click-behavior",mdxType:"UseCaseCard"})),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"take-your-application-further-with-the-sdk"},`Take your Application Further with the SDK`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Use the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/mobile/sdk-quick-start"}),`Geocortex Mobile SDK`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/sdk-overview"}),`Geocortex Workflow SDK`),` to build completely custom UI and behavior.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Implement a Custom Form Element with Geocortex Workflow",description:"Extend Geocortex Workflow forms with custom UI and functionality",link:"../workflow/usecases-mobile-implement-custom-form-elements",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Create a Custom Activity with Geocortex Workflow",description:"Define custom behavior in Geocortex Workflow that can be leveraged in Geocortex Mobile",link:"../workflow/usecases-mobile-implement-custom-activity",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Extend Geocortex Mobile's Functionality with Custom Commands and Operations",description:"Add commands and operations to Geocortex Mobile's infrastructure that implement custom behavior",link:"usecases-implement-command-operation",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Create UI Elements with Custom Components",description:"Create fully custom UI components that can be used in Geocortex Mobile apps",link:"usecases-implement-component-with-ui",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{title:"Extend Geocortex Mobile's Capabilities with Custom Services",description:"Create background services which can provide utility functions, do background work, and more",link:"usecases-implement-service",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
@@ -27336,7 +27396,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(0);
-/* harmony import */ var _snippets_logarithm_activity_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(42);
+/* harmony import */ var _snippets_logarithm_activity_mdx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(44);
 const frontMatter={title:'Registering .NET Activities with Geocortex Workflow Designer',description:'Geocortex Workflow - Registering .NET workflow activities with Geocortex Workflow Designer'};const metadata={"id":"workflow/sdk-net-register-activities","title":"Registering .NET Activities with Geocortex Workflow Designer","description":"Geocortex Workflow - Registering .NET workflow activities with Geocortex Workflow Designer","source":"@site/docs/workflow/sdk-net-register-activities.mdx","permalink":"/docs/workflow/sdk-net-register-activities","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/workflow/sdk-net-register-activities.mdx","sidebar":"workflow","previous":{"title":"Geocortex Workflow Server","permalink":"/docs/workflow/sdk-net-getting-started-server"},"next":{"title":"Integrating the ArcGIS Runtime SDK for .NET","permalink":"/docs/workflow/sdk-net-integrating-the-arcgis-api"}};/* @jsx mdx */const rightToc=[{value:'Scope',id:'scope',children:[]},{value:'Implement a TypeScript Activity Pack with Stub Activities',id:'implement-a-typescript-activity-pack-with-stub-activities',children:[{value:'Create a new Activity Pack',id:'create-a-new-activity-pack',children:[]},{value:'Stub out the Activity Metadata',id:'stub-out-the-activity-metadata',children:[]}]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Workflow `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#activities"}),`activities`),` can be implemented in either TypeScript or C#, depending on the target platform. For `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-web-implement-custom-activity"}),`custom activities implemented in TypeScript`),`, the registration of the workflow activity implementation is done alongside the Geocortex Workflow Designer activity definition when the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/concepts-key-concepts#activity-packs"}),`activity pack`),` is registered. However, with .NET activities implemented for Geocortex Mobile or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0"}),`Geocortex Workflow Server`),`, the implementation is defined on the host platform (.NET), while the Geocortex Workflow Designer activity definition must be defined in an activity pack (TypeScript).`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`note`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`If no Geocortex Workflow Designer activity definition is provided for a custom activity implemented for Geocortex Mobile or Geocortex Workflow Server, the activity will not show up in Geocortex Workflow Designer and must be run using `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"a"},`RunActivity`)),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"scope"},`Scope`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This article covers how to create an activity pack to register Geocortex Workflow Designer activity definitions for custom activities implemented in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-mobile-implement-custom-activity"}),`Geocortex Mobile`),` or `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-server-implement-custom-activity"}),`Geocortex Workflow Server`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"implement-a-typescript-activity-pack-with-stub-activities"},`Implement a TypeScript Activity Pack with Stub Activities`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The idea behind creating activity definitions for Geocortex Workflow Designer is that every activity implemented in .NET has a corresponding stub activity with the metadata, but no execution body, in a TypeScript activity pack.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Let's take the Geocortex Mobile `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-mobile-implement-custom-activity#example-logarithm-of-a-number"}),`custom logarithm activity`),` for example.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_snippets_logarithm_activity_mdx__WEBPACK_IMPORTED_MODULE_3__["default"],{mdxType:"LogarithmActivityMobileSnippet"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`This activity will need a TypeScript stub that defines its input and output types and descriptions, specifies the runtime environments it supports, and an activity description.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"create-a-new-activity-pack"},`Create a new Activity Pack`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Follow the instructions in `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-web-implement-custom-activity"}),`Implement a Custom Activity for Web Applications`),` up to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/workflow/usecases-web-implement-custom-activity#implement-the-activity"}),`Implement the Activity`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h3",{"id":"stub-out-the-activity-metadata"},`Stub out the Activity Metadata`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Stub out the appropriate metadata and type information for the .NET activity you are stubbing out. The execute body is left empty, as the implementation is defined in .NET using the Geocortex Mobile SDK or Geocortex Workflow for Server. In the case of the Logarithm activity, the stub might look like this.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-important alert alert--info"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"})))),`important`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`The static `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`action`),` property of the original activity definition has been changed to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`your:unique:namespace::CalculateLog`),` to match the action name in the .NET implementation. If these two action names are not the same, the .NET workflow runtime will `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`not`),` be able to find the correct activity.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{"className":"language-ts"}),`export interface CalculateLogInputs {
     // @description The base of the logarithm. Defaults to the natural log.
     base?: number;
@@ -27382,11 +27442,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _docusaurus_useBaseUrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _theme_Tabs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
 /* harmony import */ var _theme_TabItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3);
-/* harmony import */ var _src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(47);
+/* harmony import */ var _src_components_DemoVideo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(50);
 /* harmony import */ var _src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4);
 /* harmony import */ var _src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(7);
-/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(41);
-const frontMatter={title:'Commands and Operations',description:'Geocortex Web - Learn about commands and operations'};const metadata={"id":"web/concepts-commands-operations","title":"Commands and Operations","description":"Geocortex Web - Learn about commands and operations","source":"@site/docs/web/concepts-commands-operations.mdx","permalink":"/docs/web/concepts-commands-operations","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/concepts-commands-operations.mdx","sidebar":"web","previous":{"title":"App Config","permalink":"/docs/web/concepts-app-config"},"next":{"title":"Components and Services","permalink":"/docs/web/concepts-components-services"}};/* @jsx mdx */const rightToc=[{value:'Passing Arguments',id:'passing-arguments',children:[]},{value:'Passing Named Arguments',id:'passing-named-arguments',children:[]},{value:'Example: Configured Map and I Want to Menu',id:'example-configured-map-and-i-want-to-menu',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Before learning about commands and operations...`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-key-concepts"}),`Key Concepts`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Commands and operations`),` are runnable, independent units of work within Geocortex Web. Using the Geocortex Web SDK, it's possible to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-command-operation"}),`define custom commands and operations`),` for use throughout the application. Commands are units of work which may take an input but do not produce an output, and operations differ because they produce output. Commands and Operations are grouped by namespace, for example:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{}),`auth.sign-in
+/* harmony import */ var _snippets_follow_along_mdx__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(43);
+const frontMatter={title:'Commands and Operations',description:'Geocortex Web - Learn about commands and operations'};const metadata={"id":"web/concepts-commands-operations","title":"Commands and Operations","description":"Geocortex Web - Learn about commands and operations","source":"@site/docs/web/concepts-commands-operations.mdx","permalink":"/docs/web/concepts-commands-operations","editUrl":"https://github.com/geocortex/dev-center/edit/master/docs/web/concepts-commands-operations.mdx","sidebar":"web","previous":{"title":"App Config","permalink":"/docs/web/concepts-app-config"},"next":{"title":"Components and Services","permalink":"/docs/web/concepts-components-services"}};/* @jsx mdx */const rightToc=[{value:'Passing Arguments',id:'passing-arguments',children:[]},{value:'Passing Named Arguments',id:'passing-named-arguments',children:[]},{value:'Example: Configured Map and I Want to Menu',id:'example-configured-map-and-i-want-to-menu',children:[]},{value:'Next Steps',id:'next-steps',children:[]}];const makeShortcode=name=>function MDXDefaultShortcode(props){console.warn("Component "+name+" was not imported, exported, or provided by MDXProvider as global scope");return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",props);};const layoutProps={rightToc};const MDXLayout="wrapper";function MDXContent({components,...props}){return Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(MDXLayout,Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({},layoutProps,props,{components:components,mdxType:"MDXLayout"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-note alert alert--secondary"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"14","height":"16","viewBox":"0 0 14 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"})))),`Before learning about commands and operations...`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-key-concepts"}),`Key Concepts`),`.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"p"},`Commands and operations`),` are runnable, independent units of work within Geocortex Web. Using the Geocortex Web SDK, it's possible to `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-implement-command-operation"}),`define custom commands and operations`),` for use throughout the application. Commands are units of work which may take an input but do not produce an output, and operations differ because they produce output.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The full list of existing commands and operations available in Geocortex Web can be `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-commands-operations-events"}),`found in the API documentation`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Commands and Operations are grouped by namespace, for example:`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("pre",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("code",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"pre"},{}),`auth.sign-in
 auth.sign-out
 edit.add-feature
 edit.delete-features
@@ -27487,7 +27547,7 @@ edit.delete-features
   "geometry": "Esri.Point(<map-click-location>)",
   ... <other props>
 }
-`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` receives this argument, and since it is an operation, produces an output. Looking at the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-commands-operations"}),`Commands and Operations Documentation`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` has output of type `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Features`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`highlights.add-focus`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`results.display`),` both take a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Features`),` type input, so the output of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` will work nicely. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`highlights.add-focus`),` is immediately after `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),`, so it receives the output of identify. Since `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`highlights.add-focus`),` is a command, it does not produce any output. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`results.display`),` will receive the output of the last operation, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),`. In this way, you can pass the output of an operation to multiple commands.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-change-default-behavior"}),`Change Default Behavior`),` for more ways to override default behavior like a Map's on click event.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The second command/operation in this application is a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`map.zoom-to-initial-viewpoint`),` command on the I Want To Menu. This command takes `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Maps`),` type argument. The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`argument`),` property in the app config supplies an array of maps by referencing the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`default`),` map with an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-advanced-app-config#item-uris"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`Item Uri`)),`. Item URIs are a way of referencing other items within the app config.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web has a large array of built-in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Commands and Operations Schema",description:"Check out the available commands and operations",link:"api-commands-operations",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Configure Commands and Operations",description:"Change built-in behavior or add new behavior using app config and layout",link:"usecases-change-default-behavior",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Build your own Commands and Operations",description:"Use the SDK to implement custom commands and operations",link:"usecases-implement-command-operation",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Learn about Events built into Geocortex Web",description:"Learn about the global event infrastructure in Geocortex Web",link:"concepts-events",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
+`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` receives this argument, and since it is an operation, produces an output. Looking at the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/api-commands-operations-events"}),`Commands and Operations Documentation`),`, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` has output of type `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Features`),`.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`highlights.add-focus`),` and `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`results.display`),` both take a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Features`),` type input, so the output of `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),` will work nicely. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`highlights.add-focus`),` is immediately after `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),`, so it receives the output of identify. Since `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`highlights.add-focus`),` is a command, it does not produce any output. `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`results.display`),` will receive the output of the last operation, `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`tasks.identify`),`. In this way, you can pass the output of an operation to multiple commands.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",{"className":"admonition admonition-tip alert alert--success"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-heading"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h5",{parentName:"div"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("span",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"h5"},{"className":"admonition-icon"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("svg",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"span"},{"xmlns":"http://www.w3.org/2000/svg","width":"12","height":"16","viewBox":"0 0 12 16"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("path",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"svg"},{"fillRule":"evenodd","d":"M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"})))),`tip`)),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("div",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"div"},{"className":"admonition-content"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",{parentName:"div"},`Check out `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/usecases-change-default-behavior"}),`Change Default Behavior`),` for more ways to override default behavior like a Map's on click event.`))),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`The second command/operation in this application is a `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`map.zoom-to-initial-viewpoint`),` command on the I Want To Menu. This command takes `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`Maps`),` type argument. The `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`argument`),` property in the app config supplies an array of maps by referencing the `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("inlineCode",{parentName:"p"},`default`),` map with an `,Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("a",Object(_home_runner_work_dev_center_dev_center_node_modules_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])({parentName:"p"},{"href":"/docs/web/concepts-advanced-app-config#item-uris"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("strong",{parentName:"a"},`Item Uri`)),`. Item URIs are a way of referencing other items within the app config.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("h2",{"id":"next-steps"},`Next Steps`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])("p",null,`Geocortex Web has a large array of built-in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.`),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseContainer__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"],{mdxType:"UseCaseContainer"},Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Commands and Operations Schema",description:"Check out the available commands and operations",link:"api-commands-operations",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Configure Commands and Operations",description:"Change built-in behavior or add new behavior using app config and layout",link:"usecases-change-default-behavior",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Build your own Commands and Operations",description:"Use the SDK to implement custom commands and operations",link:"usecases-implement-command-operation",mdxType:"UseCaseCard"}),Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_2__[/* mdx */ "b"])(_src_components_UseCaseCard__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"],{title:"Learn about Events built into Geocortex Web",description:"Learn about the global event infrastructure in Geocortex Web",link:"concepts-events",mdxType:"UseCaseCard"})));};MDXContent.isMDXComponent=true;
 
 /***/ }),
 /* 264 */
@@ -27512,9 +27572,9 @@ const frontMatter={title:'Integrating the ArcGIS Runtime SDK for .NET',descripti
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(63);
+/* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(45);
 /* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _generated_docusaurus_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(66);
+/* harmony import */ var _generated_docusaurus_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(68);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -27542,10 +27602,10 @@ var esm = __webpack_require__(0);
 var useDocusaurusContext = __webpack_require__(12);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/renderRoutes.js
-var renderRoutes = __webpack_require__(94);
+var renderRoutes = __webpack_require__(96);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Layout/index.js + 11 modules
-var Layout = __webpack_require__(67);
+var Layout = __webpack_require__(69);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/extends.js
 var esm_extends = __webpack_require__(1);
@@ -27555,19 +27615,19 @@ var classnames = __webpack_require__(9);
 var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useLockBodyScroll.js
-var useLockBodyScroll = __webpack_require__(97);
+var useLockBodyScroll = __webpack_require__(99);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useLogo.js
-var useLogo = __webpack_require__(98);
+var useLogo = __webpack_require__(100);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Link.js
 var Link = __webpack_require__(17);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/isInternalUrl.js
-var isInternalUrl = __webpack_require__(30);
+var isInternalUrl = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/DocSidebar/styles.module.css
-var styles_module = __webpack_require__(49);
+var styles_module = __webpack_require__(52);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/DocSidebar/index.js
@@ -27584,7 +27644,7 @@ if(item.collapsed!==prevCollapsedProp){setPreviousCollapsedProp(item.collapsed);
 function mutateSidebarCollapsingState(item,path){const{items,href,type}=item;switch(type){case'category':{const anyChildItemsActive=items.map(childItem=>mutateSidebarCollapsingState(childItem,path)).filter(val=>val).length>0;// eslint-disable-next-line no-param-reassign
 item.collapsed=!anyChildItemsActive;return anyChildItemsActive;}case'link':default:return href===path;}}function DocSidebar(props){const[showResponsiveSidebar,setShowResponsiveSidebar]=Object(react["useState"])(false);const{siteConfig:{themeConfig:{navbar:{title,hideOnScroll=false}={}}}={},isClient}=Object(useDocusaurusContext["a" /* default */])();const{logoLink,logoLinkProps,logoImageUrl,logoAlt}=Object(useLogo["a" /* default */])();const{docsSidebars,path,sidebar:currentSidebar,sidebarCollapsible}=props;Object(useLockBodyScroll["a" /* default */])(showResponsiveSidebar);if(!currentSidebar){return null;}const sidebarData=docsSidebars[currentSidebar];if(!sidebarData){throw new Error(`Cannot find the sidebar "${currentSidebar}" in the sidebar config!`);}if(sidebarCollapsible){sidebarData.forEach(sidebarItem=>mutateSidebarCollapsingState(sidebarItem,path));}return/*#__PURE__*/react_default.a.createElement("div",{className:styles_module_default.a.sidebar},hideOnScroll&&/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],Object(esm_extends["a" /* default */])({className:styles_module_default.a.sidebarLogo,to:logoLink},logoLinkProps),logoImageUrl!=null&&/*#__PURE__*/react_default.a.createElement("img",{key:isClient,src:logoImageUrl,alt:logoAlt}),title!=null&&/*#__PURE__*/react_default.a.createElement("strong",null,title)),/*#__PURE__*/react_default.a.createElement("div",{className:classnames_default()('menu','menu--responsive',styles_module_default.a.menu,{'menu--show':showResponsiveSidebar})},/*#__PURE__*/react_default.a.createElement("button",{"aria-label":showResponsiveSidebar?'Close Menu':'Open Menu',"aria-haspopup":"true",className:"button button--secondary button--sm menu__button",type:"button",onClick:()=>{setShowResponsiveSidebar(!showResponsiveSidebar);}},showResponsiveSidebar?/*#__PURE__*/react_default.a.createElement("span",{className:classnames_default()(styles_module_default.a.sidebarMenuIcon,styles_module_default.a.sidebarMenuCloseIcon)},"\xD7"):/*#__PURE__*/react_default.a.createElement("svg",{"aria-label":"Menu",className:styles_module_default.a.sidebarMenuIcon,xmlns:"http://www.w3.org/2000/svg",height:MOBILE_TOGGLE_SIZE,width:MOBILE_TOGGLE_SIZE,viewBox:"0 0 32 32",role:"img",focusable:"false"},/*#__PURE__*/react_default.a.createElement("title",null,"Menu"),/*#__PURE__*/react_default.a.createElement("path",{stroke:"currentColor",strokeLinecap:"round",strokeMiterlimit:"10",strokeWidth:"2",d:"M4 7h22M4 15h22M4 23h22"}))),/*#__PURE__*/react_default.a.createElement("ul",{className:"menu__list"},sidebarData.map(item=>/*#__PURE__*/react_default.a.createElement(DocSidebarItem,{key:item.label,item:item,onItemClick:()=>{setShowResponsiveSidebar(false);},collapsible:sidebarCollapsible})))));}/* harmony default export */ var theme_DocSidebar = (DocSidebar);
 // EXTERNAL MODULE: ./node_modules/prism-react-renderer/prism/index.js
-var prism_react_renderer_prism = __webpack_require__(59);
+var prism_react_renderer_prism = __webpack_require__(62);
 
 // CONCATENATED MODULE: ./node_modules/prism-react-renderer/themes/duotoneDark/index.js
 // Duotone Dark
@@ -27995,14 +28055,14 @@ var dist_clipboard = __webpack_require__(284);
 var clipboard_default = /*#__PURE__*/__webpack_require__.n(dist_clipboard);
 
 // EXTERNAL MODULE: ./node_modules/parse-numeric-range/index.js
-var parse_numeric_range = __webpack_require__(127);
+var parse_numeric_range = __webpack_require__(129);
 var parse_numeric_range_default = /*#__PURE__*/__webpack_require__.n(parse_numeric_range);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/hooks/useThemeContext.js
-var useThemeContext = __webpack_require__(65);
+var useThemeContext = __webpack_require__(67);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/CodeBlock/styles.module.css
-var CodeBlock_styles_module = __webpack_require__(43);
+var CodeBlock_styles_module = __webpack_require__(46);
 var CodeBlock_styles_module_default = /*#__PURE__*/__webpack_require__.n(CodeBlock_styles_module);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/CodeBlock/index.js
@@ -28031,20 +28091,9 @@ for(let index=0;index<lines.length;){const line=lines[index];// adjust for 0-ind
 const lineNumber=index+1;const match=line.match(directiveRegex);if(match!==null){const directive=match.slice(1).reduce((final,item)=>final||item,undefined);switch(directive){case'highlight-next-line':range+=`${lineNumber},`;break;case'highlight-start':blockStart=lineNumber;break;case'highlight-end':range+=`${blockStart}-${lineNumber-1},`;break;default:break;}lines.splice(index,1);}else{// lines without directives are unchanged
 index+=1;}}highlightLines=parse_numeric_range_default.a.parse(range);code=lines.join('\n');}const handleCopyCode=()=>{window.getSelection().empty();setShowCopied(true);setTimeout(()=>setShowCopied(false),2000);};return/*#__PURE__*/react_default.a.createElement(dist,Object(esm_extends["a" /* default */])({},defaultProps,{key:mounted,theme:prismTheme,code:code,language:language}),({className,style,tokens,getLineProps,getTokenProps})=>/*#__PURE__*/react_default.a.createElement(react_default.a.Fragment,null,codeBlockTitle&&/*#__PURE__*/react_default.a.createElement("div",{style:style,className:CodeBlock_styles_module_default.a.codeBlockTitle},codeBlockTitle),/*#__PURE__*/react_default.a.createElement("div",{className:CodeBlock_styles_module_default.a.codeBlockContent},/*#__PURE__*/react_default.a.createElement("button",{ref:button,type:"button","aria-label":"Copy code to clipboard",className:classnames_default()(CodeBlock_styles_module_default.a.copyButton,{[CodeBlock_styles_module_default.a.copyButtonWithTitle]:codeBlockTitle}),onClick:handleCopyCode},showCopied?'Copied':'Copy'),/*#__PURE__*/react_default.a.createElement("div",{tabIndex:"0",className:classnames_default()(className,CodeBlock_styles_module_default.a.codeBlock,{[CodeBlock_styles_module_default.a.codeBlockWithTitle]:codeBlockTitle})},/*#__PURE__*/react_default.a.createElement("div",{ref:target,className:CodeBlock_styles_module_default.a.codeBlockLines,style:style},tokens.map((line,i)=>{if(line.length===1&&line[0].content===''){line[0].content='\n';// eslint-disable-line no-param-reassign
 }const lineProps=getLineProps({line,key:i});if(highlightLines.includes(i+1)){lineProps.className=`${lineProps.className} docusaurus-highlight-code-line`;}return/*#__PURE__*/react_default.a.createElement("div",Object(esm_extends["a" /* default */])({key:i},lineProps),line.map((token,key)=>/*#__PURE__*/react_default.a.createElement("span",Object(esm_extends["a" /* default */])({key:key},getTokenProps({token,key})))));}))))));});
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Heading/styles.css
-var styles = __webpack_require__(479);
+// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Heading/index.js
+var Heading = __webpack_require__(27);
 
-// EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Heading/styles.module.css
-var Heading_styles_module = __webpack_require__(286);
-var Heading_styles_module_default = /*#__PURE__*/__webpack_require__.n(Heading_styles_module);
-
-// CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Heading/index.js
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ /* eslint-disable jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid */const Heading=Tag=>function TargetComponent({id,...props}){const{siteConfig:{themeConfig:{navbar:{hideOnScroll=false}={}}={}}={}}=Object(useDocusaurusContext["a" /* default */])();if(!id){return/*#__PURE__*/react_default.a.createElement(Tag,props);}return/*#__PURE__*/react_default.a.createElement(Tag,props,/*#__PURE__*/react_default.a.createElement("a",{"aria-hidden":"true",tabIndex:"-1",className:classnames_default()('anchor',{[Heading_styles_module_default.a.enhancedAnchor]:!hideOnScroll}),id:id}),/*#__PURE__*/react_default.a.createElement("a",{"aria-hidden":"true",tabIndex:"-1",className:"hash-link",href:`#${id}`,title:"Direct link to heading"},"#"),props.children);};/* harmony default export */ var theme_Heading = (Heading);
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/MDXComponents/styles.module.css
 var MDXComponents_styles_module = __webpack_require__(287);
 var MDXComponents_styles_module_default = /*#__PURE__*/__webpack_require__.n(MDXComponents_styles_module);
@@ -28056,15 +28105,15 @@ var MDXComponents_styles_module_default = /*#__PURE__*/__webpack_require__.n(MDX
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *//* harmony default export */ var MDXComponents = ({code:props=>{const{children}=props;if(typeof children==='string'){return/*#__PURE__*/react_default.a.createElement(CodeBlock,props);}return children;},a:props=>{if(/\.[^./]+$/.test(props.href)){// eslint-disable-next-line jsx-a11y/anchor-has-content
-return/*#__PURE__*/react_default.a.createElement("a",props);}return/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],props);},pre:props=>/*#__PURE__*/react_default.a.createElement("div",Object(esm_extends["a" /* default */])({className:MDXComponents_styles_module_default.a.mdxCodeBlock},props)),h1:theme_Heading('h1'),h2:theme_Heading('h2'),h3:theme_Heading('h3'),h4:theme_Heading('h4'),h5:theme_Heading('h5'),h6:theme_Heading('h6')});
+return/*#__PURE__*/react_default.a.createElement("a",props);}return/*#__PURE__*/react_default.a.createElement(Link["a" /* default */],props);},pre:props=>/*#__PURE__*/react_default.a.createElement("div",Object(esm_extends["a" /* default */])({className:MDXComponents_styles_module_default.a.mdxCodeBlock},props)),h1:Object(Heading["a" /* default */])('h1'),h2:Object(Heading["a" /* default */])('h2'),h3:Object(Heading["a" /* default */])('h3'),h4:Object(Heading["a" /* default */])('h4'),h5:Object(Heading["a" /* default */])('h5'),h6:Object(Heading["a" /* default */])('h6')});
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/NotFound.js
-var NotFound = __webpack_require__(124);
+var NotFound = __webpack_require__(126);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/router.js
-var router = __webpack_require__(64);
+var router = __webpack_require__(66);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/DocPage/styles.module.css
-var DocPage_styles_module = __webpack_require__(100);
+var DocPage_styles_module = __webpack_require__(102);
 var DocPage_styles_module_default = /*#__PURE__*/__webpack_require__.n(DocPage_styles_module);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/DocPage/index.js
@@ -28089,10 +28138,10 @@ var react = __webpack_require__(2);
 var react_default = /*#__PURE__*/__webpack_require__.n(react);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Head.js
-var Head = __webpack_require__(93);
+var Head = __webpack_require__(95);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/isInternalUrl.js
-var isInternalUrl = __webpack_require__(30);
+var isInternalUrl = __webpack_require__(31);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/useDocusaurusContext.js
 var useDocusaurusContext = __webpack_require__(12);
@@ -28122,7 +28171,7 @@ var classnames = __webpack_require__(9);
 var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/DocItem/styles.module.css
-var styles_module = __webpack_require__(68);
+var styles_module = __webpack_require__(70);
 var styles_module_default = /*#__PURE__*/__webpack_require__.n(styles_module);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/DocItem/index.js
@@ -28156,20 +28205,20 @@ var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
 var useBaseUrl = __webpack_require__(6);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/theme-classic/src/theme/Layout/index.js + 11 modules
-var Layout = __webpack_require__(67);
+var Layout = __webpack_require__(69);
 
 // EXTERNAL MODULE: ./src/pages/index.module.css
 var index_module = __webpack_require__(288);
 var index_module_default = /*#__PURE__*/__webpack_require__.n(index_module);
 
 // EXTERNAL MODULE: ./src/components/ProductContainer/index.module.css
-var ProductContainer_index_module = __webpack_require__(128);
+var ProductContainer_index_module = __webpack_require__(130);
 var ProductContainer_index_module_default = /*#__PURE__*/__webpack_require__.n(ProductContainer_index_module);
 
 // CONCATENATED MODULE: ./src/components/ProductContainer/index.jsx
 function ProductContainer({children}){return/*#__PURE__*/react_default.a.createElement("section",{className:ProductContainer_index_module_default.a.productsContainer},/*#__PURE__*/react_default.a.createElement("div",{className:classnames_default()(ProductContainer_index_module_default.a.products,"row")},children));}
 // EXTERNAL MODULE: ./src/components/ProductCard/index.module.css
-var ProductCard_index_module = __webpack_require__(101);
+var ProductCard_index_module = __webpack_require__(103);
 var ProductCard_index_module_default = /*#__PURE__*/__webpack_require__.n(ProductCard_index_module);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/Link.js
@@ -28461,7 +28510,7 @@ var HTMLParser = __webpack_require__(367).HTMLParser;
 var RelateUrl = __webpack_require__(368);
 var TokenChain = __webpack_require__(382);
 var Terser = __webpack_require__(383);
-var utils = __webpack_require__(150);
+var utils = __webpack_require__(152);
 
 function trimWhitespace(str) {
   return str && str.replace(/^[ \n\r\t\f]+/, '').replace(/[ \n\r\t\f]+$/, '');
@@ -29810,10 +29859,10 @@ exports.minify = function(value, options) {
 module.exports = Object.assign(
   {},
   // Export promiseified graceful-fs:
-  __webpack_require__(155),
+  __webpack_require__(157),
   // Export extra methods:
-  __webpack_require__(156),
-  __webpack_require__(159),
+  __webpack_require__(158),
+  __webpack_require__(161),
   __webpack_require__(400),
   __webpack_require__(402),
   __webpack_require__(408),
@@ -29821,13 +29870,13 @@ module.exports = Object.assign(
   __webpack_require__(412),
   __webpack_require__(414),
   __webpack_require__(416),
-  __webpack_require__(33),
-  __webpack_require__(87)
+  __webpack_require__(35),
+  __webpack_require__(89)
 )
 
 // Export fs.promises as a getter property so that we don't trigger
 // ExperimentalWarning before fs.promises is actually accessed.
-const fs = __webpack_require__(36)
+const fs = __webpack_require__(38)
 if (Object.getOwnPropertyDescriptor(fs, 'promises')) {
   Object.defineProperty(module.exports, 'promises', {
     get () { return fs.promises }
@@ -29839,7 +29888,7 @@ if (Object.getOwnPropertyDescriptor(fs, 'promises')) {
 /* 276 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"/\":{\"component\":\"c4f5d8e4\"},\"/docs/:route\":{\"component\":\"1be78505\",\"docsMetadata\":\"20ac7829\"},\"/docs/mobile/api-commands-operations\":{\"component\":\"17896441\",\"content\":\"f7abda3c\"},\"/docs/mobile/api-components\":{\"component\":\"17896441\",\"content\":\"75f6d0d6\"},\"/docs/mobile/api-events\":{\"component\":\"17896441\",\"content\":\"0111422e\"},\"/docs/mobile/api-overview\":{\"component\":\"17896441\",\"content\":\"4697a878\"},\"/docs/mobile/concepts-advanced-app-config\":{\"component\":\"17896441\",\"content\":\"c8185606\"},\"/docs/mobile/concepts-advanced-layout\":{\"component\":\"17896441\",\"content\":\"f01dec33\"},\"/docs/mobile/concepts-app-config\":{\"component\":\"17896441\",\"content\":\"409253a0\"},\"/docs/mobile/concepts-commands-operations\":{\"component\":\"17896441\",\"content\":\"0899d789\"},\"/docs/mobile/concepts-components-services\":{\"component\":\"17896441\",\"content\":\"f70cdde7\"},\"/docs/mobile/concepts-events\":{\"component\":\"17896441\",\"content\":\"dee42c97\"},\"/docs/mobile/concepts-key-concepts\":{\"component\":\"17896441\",\"content\":\"050f23e3\"},\"/docs/mobile/concepts-layout\":{\"component\":\"17896441\",\"content\":\"ed991ef5\"},\"/docs/mobile/overview\":{\"component\":\"17896441\",\"content\":\"f9d5545e\"},\"/docs/mobile/sdk-dependency-injection\":{\"component\":\"17896441\",\"content\":\"226e15d4\"},\"/docs/mobile/sdk-memory-leaks\":{\"component\":\"17896441\",\"content\":\"ec2a1e0d\"},\"/docs/mobile/sdk-quick-start\":{\"component\":\"17896441\",\"content\":\"ba908733\"},\"/docs/mobile/sdk-samples\":{\"component\":\"17896441\",\"content\":\"ce430d7a\"},\"/docs/mobile/sdk-viewmodel-helper-class\":{\"component\":\"17896441\",\"content\":\"68ec168c\"},\"/docs/mobile/snippets/designer-callout\":{\"component\":\"17896441\",\"content\":\"91ee8259\"},\"/docs/mobile/snippets/doomsday-cookie-clicker-view-model\":{\"component\":\"17896441\",\"content\":\"f557cec5\"},\"/docs/mobile/snippets/follow-along\":{\"component\":\"17896441\",\"content\":\"17676934\"},\"/docs/mobile/snippets/prereqs\":{\"component\":\"17896441\",\"content\":\"99dd369f\"},\"/docs/mobile/usecases-add-medium-layout\":{\"component\":\"17896441\",\"content\":\"0f48690c\"},\"/docs/mobile/usecases-change-default-behavior\":{\"component\":\"17896441\",\"content\":\"b89757bf\"},\"/docs/mobile/usecases-change-default-map-click-behavior\":{\"component\":\"17896441\",\"content\":\"370e0b3f\"},\"/docs/mobile/usecases-implement-command-operation\":{\"component\":\"17896441\",\"content\":\"ac400afb\"},\"/docs/mobile/usecases-implement-component-participate-app-config\":{\"component\":\"17896441\",\"content\":\"7c80c505\"},\"/docs/mobile/usecases-implement-component-with-ui\":{\"component\":\"17896441\",\"content\":\"b787c328\"},\"/docs/mobile/usecases-implement-event\":{\"component\":\"17896441\",\"content\":\"c3122fe7\"},\"/docs/mobile/usecases-implement-service\":{\"component\":\"17896441\",\"content\":\"72f94b9b\"},\"/docs/mobile/usecases-internationalization\":{\"component\":\"17896441\",\"content\":\"e43cbe9b\"},\"/docs/mobile/usecases-look-and-feel\":{\"component\":\"17896441\",\"content\":\"906097b3\"},\"/docs/snippets/app-item\":{\"component\":\"17896441\",\"content\":\"e5698f5b\"},\"/docs/snippets/autofac-mobile\":{\"component\":\"17896441\",\"content\":\"cfa5b9a9\"},\"/docs/web/api-commands-operations\":{\"component\":\"17896441\",\"content\":\"011ed6ff\"},\"/docs/web/api-components\":{\"component\":\"17896441\",\"content\":\"5798a141\"},\"/docs/web/api-events\":{\"component\":\"17896441\",\"content\":\"16510b1a\"},\"/docs/web/api-message-bus\":{\"component\":\"17896441\",\"content\":\"75b4a5a2\"},\"/docs/web/concepts-advanced-app-config\":{\"component\":\"17896441\",\"content\":\"1e7ae3f5\"},\"/docs/web/concepts-advanced-layout\":{\"component\":\"17896441\",\"content\":\"2f2b3bc0\"},\"/docs/web/concepts-app-config\":{\"component\":\"17896441\",\"content\":\"26a64548\"},\"/docs/web/concepts-commands-operations\":{\"component\":\"17896441\",\"content\":\"febae6b0\"},\"/docs/web/concepts-components-services\":{\"component\":\"17896441\",\"content\":\"b7603e3e\"},\"/docs/web/concepts-events\":{\"component\":\"17896441\",\"content\":\"e7fbb860\"},\"/docs/web/concepts-key-concepts\":{\"component\":\"17896441\",\"content\":\"c5fef569\"},\"/docs/web/concepts-layout\":{\"component\":\"17896441\",\"content\":\"a962d706\"},\"/docs/web/overview\":{\"component\":\"17896441\",\"content\":\"a67bc9da\"},\"/docs/web/sdk-component-hooks\":{\"component\":\"17896441\",\"content\":\"13561cf4\"},\"/docs/web/sdk-create-component\":{\"component\":\"17896441\",\"content\":\"8ec1a3ae\"},\"/docs/web/sdk-create-service\":{\"component\":\"17896441\",\"content\":\"d97f9b53\"},\"/docs/web/sdk-deployment\":{\"component\":\"17896441\",\"content\":\"f9b89150\"},\"/docs/web/sdk-overview\":{\"component\":\"17896441\",\"content\":\"abdc00a3\"},\"/docs/web/sdk-reference-third-party-libraries\":{\"component\":\"17896441\",\"content\":\"27531a3f\"},\"/docs/web/sdk-service-injection\":{\"component\":\"17896441\",\"content\":\"852ca0c5\"},\"/docs/web/sdk-ui-context\":{\"component\":\"17896441\",\"content\":\"8f2e743f\"},\"/docs/web/snippets/designer-callout\":{\"component\":\"17896441\",\"content\":\"b5e2b715\"},\"/docs/web/snippets/follow-along\":{\"component\":\"17896441\",\"content\":\"8a33fbc0\"},\"/docs/web/snippets/framework-components\":{\"component\":\"17896441\",\"content\":\"84244b50\"},\"/docs/web/snippets/prereqs-custom-code\":{\"component\":\"17896441\",\"content\":\"e659d45e\"},\"/docs/web/snippets/prereqs-layout-config-editing\":{\"component\":\"17896441\",\"content\":\"fc6de4ba\"},\"/docs/web/usecases-change-default-behavior\":{\"component\":\"17896441\",\"content\":\"03bd8be6\"},\"/docs/web/usecases-change-default-map-click-behavior\":{\"component\":\"17896441\",\"content\":\"981cf5ec\"},\"/docs/web/usecases-component-interactions\":{\"component\":\"17896441\",\"content\":\"282673f1\"},\"/docs/web/usecases-components-commands-operations\":{\"component\":\"17896441\",\"content\":\"f403b3ad\"},\"/docs/web/usecases-display-custom-form\":{\"component\":\"17896441\",\"content\":\"183e812d\"},\"/docs/web/usecases-implement-command-operation\":{\"component\":\"17896441\",\"content\":\"7b5b66d4\"},\"/docs/web/usecases-implement-component-participate-app-config\":{\"component\":\"17896441\",\"content\":\"1171ab7b\"},\"/docs/web/usecases-implement-component-with-ui\":{\"component\":\"17896441\",\"content\":\"1a82d206\"},\"/docs/web/usecases-implement-custom-activity\":{\"component\":\"17896441\",\"content\":\"6eccecf3\"},\"/docs/web/usecases-implement-custom-form-elements\":{\"component\":\"17896441\",\"content\":\"0ef200f8\"},\"/docs/web/usecases-implement-event\":{\"component\":\"17896441\",\"content\":\"36272414\"},\"/docs/web/usecases-implement-service\":{\"component\":\"17896441\",\"content\":\"351d88f4\"},\"/docs/web/usecases-internationalization\":{\"component\":\"17896441\",\"content\":\"ef478666\"},\"/docs/web/usecases-look-and-feel\":{\"component\":\"17896441\",\"content\":\"9a6a707e\"},\"/docs/workflow/api-server-rest\":{\"component\":\"17896441\",\"content\":\"85beb773\"},\"/docs/workflow/concepts-key-concepts\":{\"component\":\"17896441\",\"content\":\"3ec7fd70\"},\"/docs/workflow/overview\":{\"component\":\"17896441\",\"content\":\"ed6d9243\"},\"/docs/workflow/sdk-net-getting-started-mobile\":{\"component\":\"17896441\",\"content\":\"9019e22d\"},\"/docs/workflow/sdk-net-getting-started-server\":{\"component\":\"17896441\",\"content\":\"a57360df\"},\"/docs/workflow/sdk-net-integrating-the-arcgis-api\":{\"component\":\"17896441\",\"content\":\"ff37a7c5\"},\"/docs/workflow/sdk-net-register-activities\":{\"component\":\"17896441\",\"content\":\"fdede3e2\"},\"/docs/workflow/sdk-overview\":{\"component\":\"17896441\",\"content\":\"0c5c4f23\"},\"/docs/workflow/sdk-web-activity-block-tags\":{\"component\":\"17896441\",\"content\":\"3b54c321\"},\"/docs/workflow/sdk-web-getting-started\":{\"component\":\"17896441\",\"content\":\"2956bfe2\"},\"/docs/workflow/sdk-web-integrating-the-arcgis-api\":{\"component\":\"17896441\",\"content\":\"79387e8d\"},\"/docs/workflow/snippets/designer-callout\":{\"component\":\"17896441\",\"content\":\"ce88a68f\"},\"/docs/workflow/snippets/host-esri-api-version\":{\"component\":\"17896441\",\"content\":\"2dc95b96\"},\"/docs/workflow/snippets/logarithm-activity\":{\"component\":\"17896441\",\"content\":\"55c66547\"},\"/docs/workflow/snippets/prereqs-mobile\":{\"component\":\"17896441\",\"content\":\"eb4e678c\"},\"/docs/workflow/snippets/prereqs-server\":{\"component\":\"17896441\",\"content\":\"51fdb279\"},\"/docs/workflow/snippets/prereqs-web\":{\"component\":\"17896441\",\"content\":\"d4973b75\"},\"/docs/workflow/usecases-mobile-access-app-properties\":{\"component\":\"17896441\",\"content\":\"11f075a8\"},\"/docs/workflow/usecases-mobile-implement-custom-activity\":{\"component\":\"17896441\",\"content\":\"6cb3bf61\"},\"/docs/workflow/usecases-mobile-implement-custom-form-elements\":{\"component\":\"17896441\",\"content\":\"c18616c8\"},\"/docs/workflow/usecases-mobile-reference-third-party-library\":{\"component\":\"17896441\",\"content\":\"7369f08e\"},\"/docs/workflow/usecases-server-implement-custom-activity\":{\"component\":\"17896441\",\"content\":\"b1c48121\"},\"/docs/workflow/usecases-server-reference-third-party-library\":{\"component\":\"17896441\",\"content\":\"d3e273cb\"},\"/docs/workflow/usecases-web-access-app-properties\":{\"component\":\"17896441\",\"content\":\"80404431\"},\"/docs/workflow/usecases-web-implement-custom-activity\":{\"component\":\"17896441\",\"content\":\"f5cda891\"},\"/docs/workflow/usecases-web-implement-custom-form-elements\":{\"component\":\"17896441\",\"content\":\"69332e41\"},\"/docs/workflow/usecases-web-reference-third-party-library\":{\"component\":\"17896441\",\"content\":\"caa2d16a\"}}");
+module.exports = JSON.parse("{\"/\":{\"component\":\"c4f5d8e4\"},\"/docs/:route\":{\"component\":\"1be78505\",\"docsMetadata\":\"20ac7829\"},\"/docs/mobile/api-commands-operations-events\":{\"component\":\"17896441\",\"content\":\"8f6e0ec2\"},\"/docs/mobile/api-components\":{\"component\":\"17896441\",\"content\":\"75f6d0d6\"},\"/docs/mobile/api-overview\":{\"component\":\"17896441\",\"content\":\"4697a878\"},\"/docs/mobile/concepts-advanced-app-config\":{\"component\":\"17896441\",\"content\":\"c8185606\"},\"/docs/mobile/concepts-advanced-layout\":{\"component\":\"17896441\",\"content\":\"f01dec33\"},\"/docs/mobile/concepts-app-config\":{\"component\":\"17896441\",\"content\":\"409253a0\"},\"/docs/mobile/concepts-commands-operations\":{\"component\":\"17896441\",\"content\":\"0899d789\"},\"/docs/mobile/concepts-components-services\":{\"component\":\"17896441\",\"content\":\"f70cdde7\"},\"/docs/mobile/concepts-events\":{\"component\":\"17896441\",\"content\":\"dee42c97\"},\"/docs/mobile/concepts-key-concepts\":{\"component\":\"17896441\",\"content\":\"050f23e3\"},\"/docs/mobile/concepts-layout\":{\"component\":\"17896441\",\"content\":\"ed991ef5\"},\"/docs/mobile/overview\":{\"component\":\"17896441\",\"content\":\"f9d5545e\"},\"/docs/mobile/sdk-dependency-injection\":{\"component\":\"17896441\",\"content\":\"226e15d4\"},\"/docs/mobile/sdk-memory-leaks\":{\"component\":\"17896441\",\"content\":\"ec2a1e0d\"},\"/docs/mobile/sdk-quick-start\":{\"component\":\"17896441\",\"content\":\"ba908733\"},\"/docs/mobile/sdk-samples\":{\"component\":\"17896441\",\"content\":\"ce430d7a\"},\"/docs/mobile/sdk-viewmodel-helper-class\":{\"component\":\"17896441\",\"content\":\"68ec168c\"},\"/docs/mobile/snippets/designer-callout\":{\"component\":\"17896441\",\"content\":\"91ee8259\"},\"/docs/mobile/snippets/doomsday-cookie-clicker-view-model\":{\"component\":\"17896441\",\"content\":\"f557cec5\"},\"/docs/mobile/snippets/follow-along\":{\"component\":\"17896441\",\"content\":\"17676934\"},\"/docs/mobile/snippets/prereqs\":{\"component\":\"17896441\",\"content\":\"99dd369f\"},\"/docs/mobile/usecases-add-medium-layout\":{\"component\":\"17896441\",\"content\":\"0f48690c\"},\"/docs/mobile/usecases-change-default-behavior\":{\"component\":\"17896441\",\"content\":\"b89757bf\"},\"/docs/mobile/usecases-change-default-map-click-behavior\":{\"component\":\"17896441\",\"content\":\"370e0b3f\"},\"/docs/mobile/usecases-implement-command-operation\":{\"component\":\"17896441\",\"content\":\"ac400afb\"},\"/docs/mobile/usecases-implement-component-participate-app-config\":{\"component\":\"17896441\",\"content\":\"7c80c505\"},\"/docs/mobile/usecases-implement-component-with-ui\":{\"component\":\"17896441\",\"content\":\"b787c328\"},\"/docs/mobile/usecases-implement-event\":{\"component\":\"17896441\",\"content\":\"c3122fe7\"},\"/docs/mobile/usecases-implement-service\":{\"component\":\"17896441\",\"content\":\"72f94b9b\"},\"/docs/mobile/usecases-internationalization\":{\"component\":\"17896441\",\"content\":\"e43cbe9b\"},\"/docs/mobile/usecases-look-and-feel\":{\"component\":\"17896441\",\"content\":\"906097b3\"},\"/docs/snippets/app-item\":{\"component\":\"17896441\",\"content\":\"e5698f5b\"},\"/docs/snippets/autofac-mobile\":{\"component\":\"17896441\",\"content\":\"cfa5b9a9\"},\"/docs/web/api-commands-operations-events\":{\"component\":\"17896441\",\"content\":\"470932b3\"},\"/docs/web/api-components\":{\"component\":\"17896441\",\"content\":\"5798a141\"},\"/docs/web/api-message-bus\":{\"component\":\"17896441\",\"content\":\"75b4a5a2\"},\"/docs/web/concepts-advanced-app-config\":{\"component\":\"17896441\",\"content\":\"1e7ae3f5\"},\"/docs/web/concepts-advanced-layout\":{\"component\":\"17896441\",\"content\":\"2f2b3bc0\"},\"/docs/web/concepts-app-config\":{\"component\":\"17896441\",\"content\":\"26a64548\"},\"/docs/web/concepts-commands-operations\":{\"component\":\"17896441\",\"content\":\"febae6b0\"},\"/docs/web/concepts-components-services\":{\"component\":\"17896441\",\"content\":\"b7603e3e\"},\"/docs/web/concepts-events\":{\"component\":\"17896441\",\"content\":\"e7fbb860\"},\"/docs/web/concepts-key-concepts\":{\"component\":\"17896441\",\"content\":\"c5fef569\"},\"/docs/web/concepts-layout\":{\"component\":\"17896441\",\"content\":\"a962d706\"},\"/docs/web/overview\":{\"component\":\"17896441\",\"content\":\"a67bc9da\"},\"/docs/web/sdk-component-hooks\":{\"component\":\"17896441\",\"content\":\"13561cf4\"},\"/docs/web/sdk-create-component\":{\"component\":\"17896441\",\"content\":\"8ec1a3ae\"},\"/docs/web/sdk-create-service\":{\"component\":\"17896441\",\"content\":\"d97f9b53\"},\"/docs/web/sdk-deployment\":{\"component\":\"17896441\",\"content\":\"f9b89150\"},\"/docs/web/sdk-overview\":{\"component\":\"17896441\",\"content\":\"abdc00a3\"},\"/docs/web/sdk-reference-third-party-libraries\":{\"component\":\"17896441\",\"content\":\"27531a3f\"},\"/docs/web/sdk-service-injection\":{\"component\":\"17896441\",\"content\":\"852ca0c5\"},\"/docs/web/sdk-ui-context\":{\"component\":\"17896441\",\"content\":\"8f2e743f\"},\"/docs/web/snippets/designer-callout\":{\"component\":\"17896441\",\"content\":\"b5e2b715\"},\"/docs/web/snippets/follow-along\":{\"component\":\"17896441\",\"content\":\"8a33fbc0\"},\"/docs/web/snippets/framework-components\":{\"component\":\"17896441\",\"content\":\"84244b50\"},\"/docs/web/snippets/prereqs-custom-code\":{\"component\":\"17896441\",\"content\":\"e659d45e\"},\"/docs/web/snippets/prereqs-layout-config-editing\":{\"component\":\"17896441\",\"content\":\"fc6de4ba\"},\"/docs/web/usecases-change-default-behavior\":{\"component\":\"17896441\",\"content\":\"03bd8be6\"},\"/docs/web/usecases-change-default-map-click-behavior\":{\"component\":\"17896441\",\"content\":\"981cf5ec\"},\"/docs/web/usecases-component-interactions\":{\"component\":\"17896441\",\"content\":\"282673f1\"},\"/docs/web/usecases-components-commands-operations\":{\"component\":\"17896441\",\"content\":\"f403b3ad\"},\"/docs/web/usecases-display-custom-form\":{\"component\":\"17896441\",\"content\":\"183e812d\"},\"/docs/web/usecases-implement-command-operation\":{\"component\":\"17896441\",\"content\":\"7b5b66d4\"},\"/docs/web/usecases-implement-component-participate-app-config\":{\"component\":\"17896441\",\"content\":\"1171ab7b\"},\"/docs/web/usecases-implement-component-with-ui\":{\"component\":\"17896441\",\"content\":\"1a82d206\"},\"/docs/web/usecases-implement-custom-activity\":{\"component\":\"17896441\",\"content\":\"6eccecf3\"},\"/docs/web/usecases-implement-custom-form-elements\":{\"component\":\"17896441\",\"content\":\"0ef200f8\"},\"/docs/web/usecases-implement-event\":{\"component\":\"17896441\",\"content\":\"36272414\"},\"/docs/web/usecases-implement-service\":{\"component\":\"17896441\",\"content\":\"351d88f4\"},\"/docs/web/usecases-internationalization\":{\"component\":\"17896441\",\"content\":\"ef478666\"},\"/docs/web/usecases-look-and-feel\":{\"component\":\"17896441\",\"content\":\"9a6a707e\"},\"/docs/workflow/api-server-rest\":{\"component\":\"17896441\",\"content\":\"85beb773\"},\"/docs/workflow/concepts-key-concepts\":{\"component\":\"17896441\",\"content\":\"3ec7fd70\"},\"/docs/workflow/overview\":{\"component\":\"17896441\",\"content\":\"ed6d9243\"},\"/docs/workflow/sdk-net-getting-started-mobile\":{\"component\":\"17896441\",\"content\":\"9019e22d\"},\"/docs/workflow/sdk-net-getting-started-server\":{\"component\":\"17896441\",\"content\":\"a57360df\"},\"/docs/workflow/sdk-net-integrating-the-arcgis-api\":{\"component\":\"17896441\",\"content\":\"ff37a7c5\"},\"/docs/workflow/sdk-net-register-activities\":{\"component\":\"17896441\",\"content\":\"fdede3e2\"},\"/docs/workflow/sdk-overview\":{\"component\":\"17896441\",\"content\":\"0c5c4f23\"},\"/docs/workflow/sdk-web-activity-block-tags\":{\"component\":\"17896441\",\"content\":\"3b54c321\"},\"/docs/workflow/sdk-web-getting-started\":{\"component\":\"17896441\",\"content\":\"2956bfe2\"},\"/docs/workflow/sdk-web-integrating-the-arcgis-api\":{\"component\":\"17896441\",\"content\":\"79387e8d\"},\"/docs/workflow/snippets/designer-callout\":{\"component\":\"17896441\",\"content\":\"ce88a68f\"},\"/docs/workflow/snippets/host-esri-api-version\":{\"component\":\"17896441\",\"content\":\"2dc95b96\"},\"/docs/workflow/snippets/logarithm-activity\":{\"component\":\"17896441\",\"content\":\"55c66547\"},\"/docs/workflow/snippets/prereqs-mobile\":{\"component\":\"17896441\",\"content\":\"eb4e678c\"},\"/docs/workflow/snippets/prereqs-server\":{\"component\":\"17896441\",\"content\":\"51fdb279\"},\"/docs/workflow/snippets/prereqs-web\":{\"component\":\"17896441\",\"content\":\"d4973b75\"},\"/docs/workflow/usecases-mobile-access-app-properties\":{\"component\":\"17896441\",\"content\":\"11f075a8\"},\"/docs/workflow/usecases-mobile-implement-custom-activity\":{\"component\":\"17896441\",\"content\":\"6cb3bf61\"},\"/docs/workflow/usecases-mobile-implement-custom-form-elements\":{\"component\":\"17896441\",\"content\":\"c18616c8\"},\"/docs/workflow/usecases-mobile-reference-third-party-library\":{\"component\":\"17896441\",\"content\":\"7369f08e\"},\"/docs/workflow/usecases-server-implement-custom-activity\":{\"component\":\"17896441\",\"content\":\"b1c48121\"},\"/docs/workflow/usecases-server-reference-third-party-library\":{\"component\":\"17896441\",\"content\":\"d3e273cb\"},\"/docs/workflow/usecases-web-access-app-properties\":{\"component\":\"17896441\",\"content\":\"80404431\"},\"/docs/workflow/usecases-web-implement-custom-activity\":{\"component\":\"17896441\",\"content\":\"f5cda891\"},\"/docs/workflow/usecases-web-implement-custom-form-elements\":{\"component\":\"17896441\",\"content\":\"69332e41\"},\"/docs/workflow/usecases-web-reference-third-party-library\":{\"component\":\"17896441\",\"content\":\"caa2d16a\"}}");
 
 /***/ }),
 /* 277 */
@@ -31419,7 +31468,7 @@ module.exports = JSON.parse("{\"_args\":[[\"@docusaurus/core@2.0.0-alpha.50\",\"
  * LICENSE file in the root directory of this source tree.
  */
 
-var l=__webpack_require__(89),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,z=n?Symbol.for("react.memo"):60115,A=n?Symbol.for("react.lazy"):
+var l=__webpack_require__(91),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,z=n?Symbol.for("react.memo"):60115,A=n?Symbol.for("react.lazy"):
 60116,B="function"===typeof Symbol&&Symbol.iterator;function C(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}
 var D={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},E={};function F(a,b,c){this.props=a;this.context=b;this.refs=E;this.updater=c||D}F.prototype.isReactComponent={};F.prototype.setState=function(a,b){if("object"!==typeof a&&"function"!==typeof a&&null!=a)throw Error(C(85));this.updater.enqueueSetState(this,a,b,"setState")};F.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function G(){}G.prototype=F.prototype;function H(a,b,c){this.props=a;this.context=b;this.refs=E;this.updater=c||D}var I=H.prototype=new G;I.constructor=H;l(I,F.prototype);I.isPureReactComponent=!0;var J={current:null},K=Object.prototype.hasOwnProperty,L={key:!0,ref:!0,__self:!0,__source:!0};
@@ -31463,7 +31512,7 @@ if (true) {
  * LICENSE file in the root directory of this source tree.
  */
 
-var k=__webpack_require__(89),m=__webpack_require__(2),aa=__webpack_require__(129);function r(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}
+var k=__webpack_require__(91),m=__webpack_require__(2),aa=__webpack_require__(131);function r(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}
 var u="function"===typeof Symbol&&Symbol.for,ba=u?Symbol.for("react.portal"):60106,v=u?Symbol.for("react.fragment"):60107,ca=u?Symbol.for("react.strict_mode"):60108,da=u?Symbol.for("react.profiler"):60114,w=u?Symbol.for("react.provider"):60109,ea=u?Symbol.for("react.context"):60110,fa=u?Symbol.for("react.concurrent_mode"):60111,ha=u?Symbol.for("react.forward_ref"):60112,B=u?Symbol.for("react.suspense"):60113,ia=u?Symbol.for("react.suspense_list"):60120,ja=u?Symbol.for("react.memo"):60115,ka=u?Symbol.for("react.lazy"):
 60116,la=u?Symbol.for("react.block"):60121,ma=u?Symbol.for("react.fundamental"):60117,na=u?Symbol.for("react.scope"):60119;function oa(a){if(-1===a._status){a._status=0;var b=a._ctor;b=b();a._result=b;b.then(function(c){0===a._status&&(c=c.default,a._status=1,a._result=c)},function(c){0===a._status&&(a._status=2,a._result=c)})}}
 function C(a){if(null==a)return null;if("function"===typeof a)return a.displayName||a.name||null;if("string"===typeof a)return a;switch(a){case v:return"Fragment";case ba:return"Portal";case da:return"Profiler";case ca:return"StrictMode";case B:return"Suspense";case ia:return"SuspenseList"}if("object"===typeof a)switch(a.$$typeof){case ea:return"Context.Consumer";case w:return"Context.Provider";case ha:var b=a.render;b=b.displayName||b.name||"";return a.displayName||(""!==b?"ForwardRef("+b+")":"ForwardRef");
@@ -31611,13 +31660,13 @@ module.exports = ReactPropTypesSecret;
 exports.__esModule = true;
 exports["default"] = exports.defaultOptions = void 0;
 
-var _fs = _interopRequireDefault(__webpack_require__(36));
+var _fs = _interopRequireDefault(__webpack_require__(38));
 
 var _path = _interopRequireDefault(__webpack_require__(11));
 
-var _url = _interopRequireDefault(__webpack_require__(32));
+var _url = _interopRequireDefault(__webpack_require__(34));
 
-var _utils = __webpack_require__(130);
+var _utils = __webpack_require__(132);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -31917,7 +31966,7 @@ exports["default"] = _default;
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _crypto = _interopRequireDefault(__webpack_require__(131));
+var _crypto = _interopRequireDefault(__webpack_require__(133));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -32008,7 +32057,7 @@ function hasEntry(target, targetKey, searchFor) {
 exports.__esModule = true;
 exports["default"] = void 0;
 
-var _utils = __webpack_require__(130);
+var _utils = __webpack_require__(132);
 
 function getBundles(manifest, chunks) {
   if (!manifest || !chunks) {
@@ -32064,12 +32113,12 @@ var validator = __webpack_require__(336);
 
 var compatibilityFrom = __webpack_require__(337);
 var fetchFrom = __webpack_require__(338);
-var formatFrom = __webpack_require__(78).formatFrom;
+var formatFrom = __webpack_require__(80).formatFrom;
 var inlineFrom = __webpack_require__(342);
 var inlineRequestFrom = __webpack_require__(343);
 var inlineTimeoutFrom = __webpack_require__(344);
-var OptimizationLevel = __webpack_require__(37).OptimizationLevel;
-var optimizationLevelFrom = __webpack_require__(37).optimizationLevelFrom;
+var OptimizationLevel = __webpack_require__(39).OptimizationLevel;
+var optimizationLevelFrom = __webpack_require__(39).optimizationLevelFrom;
 var rebaseFrom = __webpack_require__(345);
 var rebaseToFrom = __webpack_require__(346);
 
@@ -32243,23 +32292,23 @@ module.exports = level0Optimize;
 var shortenHex = __webpack_require__(306);
 var shortenHsl = __webpack_require__(307);
 var shortenRgb = __webpack_require__(308);
-var sortSelectors = __webpack_require__(104);
-var tidyRules = __webpack_require__(105);
+var sortSelectors = __webpack_require__(106);
+var tidyRules = __webpack_require__(107);
 var tidyBlock = __webpack_require__(310);
 var tidyAtRule = __webpack_require__(311);
 
-var Hack = __webpack_require__(106);
-var removeUnused = __webpack_require__(133);
-var restoreFromOptimizing = __webpack_require__(69);
-var wrapForOptimizing = __webpack_require__(51).all;
+var Hack = __webpack_require__(108);
+var removeUnused = __webpack_require__(135);
+var restoreFromOptimizing = __webpack_require__(71);
+var wrapForOptimizing = __webpack_require__(54).all;
 
-var OptimizationLevel = __webpack_require__(37).OptimizationLevel;
+var OptimizationLevel = __webpack_require__(39).OptimizationLevel;
 
 var Token = __webpack_require__(13);
 var Marker = __webpack_require__(18);
 
-var formatPosition = __webpack_require__(79);
-var split = __webpack_require__(107);
+var formatPosition = __webpack_require__(81);
+var split = __webpack_require__(109);
 
 var serializeRules = __webpack_require__(14).rules;
 
@@ -32268,7 +32317,7 @@ var IgnoreProperty = 'ignore-property';
 var CHARSET_TOKEN = '@charset';
 var CHARSET_REGEXP = new RegExp('^' + CHARSET_TOKEN, 'i');
 
-var DEFAULT_ROUNDING_PRECISION = __webpack_require__(134).DEFAULT;
+var DEFAULT_ROUNDING_PRECISION = __webpack_require__(136).DEFAULT;
 
 var WHOLE_PIXEL_VALUE = /(?:^|\s|\()(-?\d+)px/;
 var TIME_VALUE = /^(\-?[\d\.]+)(m?s)$/;
@@ -33307,9 +33356,9 @@ var removeDuplicates = __webpack_require__(332);
 var removeUnusedAtRules = __webpack_require__(333);
 var restructure = __webpack_require__(334);
 
-var optimizeProperties = __webpack_require__(81);
+var optimizeProperties = __webpack_require__(83);
 
-var OptimizationLevel = __webpack_require__(37).OptimizationLevel;
+var OptimizationLevel = __webpack_require__(39).OptimizationLevel;
 
 var Token = __webpack_require__(13);
 
@@ -33436,14 +33485,14 @@ module.exports = level2Optimize;
 /* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isMergeable = __webpack_require__(80);
+var isMergeable = __webpack_require__(82);
 
-var optimizeProperties = __webpack_require__(81);
+var optimizeProperties = __webpack_require__(83);
 
-var sortSelectors = __webpack_require__(104);
-var tidyRules = __webpack_require__(105);
+var sortSelectors = __webpack_require__(106);
+var tidyRules = __webpack_require__(107);
 
-var OptimizationLevel = __webpack_require__(37).OptimizationLevel;
+var OptimizationLevel = __webpack_require__(39).OptimizationLevel;
 
 var serializeBody = __webpack_require__(14).body;
 var serializeRules = __webpack_require__(14).rules;
@@ -33492,16 +33541,16 @@ module.exports = mergeAdjacent;
 /* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var everyValuesPair = __webpack_require__(135);
-var hasInherit = __webpack_require__(136);
-var populateComponents = __webpack_require__(109);
+var everyValuesPair = __webpack_require__(137);
+var hasInherit = __webpack_require__(138);
+var populateComponents = __webpack_require__(111);
 
-var compactable = __webpack_require__(44);
-var deepClone = __webpack_require__(82).deep;
-var restoreWithComponents = __webpack_require__(110);
+var compactable = __webpack_require__(47);
+var deepClone = __webpack_require__(84).deep;
+var restoreWithComponents = __webpack_require__(112);
 
-var restoreFromOptimizing = __webpack_require__(69);
-var wrapSingle = __webpack_require__(51).single;
+var restoreFromOptimizing = __webpack_require__(71);
+var wrapSingle = __webpack_require__(54).single;
 
 var serializeBody = __webpack_require__(14).body;
 var Token = __webpack_require__(13);
@@ -33943,14 +33992,14 @@ module.exports = mergeIntoShorthands;
 /* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var InvalidPropertyError = __webpack_require__(137);
+var InvalidPropertyError = __webpack_require__(139);
 
-var wrapSingle = __webpack_require__(51).single;
+var wrapSingle = __webpack_require__(54).single;
 
 var Token = __webpack_require__(13);
 var Marker = __webpack_require__(18);
 
-var formatPosition = __webpack_require__(79);
+var formatPosition = __webpack_require__(81);
 
 function _anyIsInherit(values) {
   var i, l;
@@ -34882,7 +34931,7 @@ module.exports = {
 /* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var sameVendorPrefixes = __webpack_require__(138).same;
+var sameVendorPrefixes = __webpack_require__(140).same;
 
 function understandable(validator, value1, value2, _position, isPaired) {
   if (!sameVendorPrefixes(value1, value2)) {
@@ -34903,7 +34952,7 @@ module.exports = understandable;
 /* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shallowClone = __webpack_require__(82).shallow;
+var shallowClone = __webpack_require__(84).shallow;
 
 var Token = __webpack_require__(13);
 var Marker = __webpack_require__(18);
@@ -35212,20 +35261,20 @@ module.exports = {
 /* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var hasInherit = __webpack_require__(136);
-var everyValuesPair = __webpack_require__(135);
+var hasInherit = __webpack_require__(138);
+var everyValuesPair = __webpack_require__(137);
 var findComponentIn = __webpack_require__(320);
 var isComponentOf = __webpack_require__(321);
 var isMergeableShorthand = __webpack_require__(322);
 var overridesNonComponentShorthand = __webpack_require__(323);
-var sameVendorPrefixesIn = __webpack_require__(138).same;
+var sameVendorPrefixesIn = __webpack_require__(140).same;
 
-var compactable = __webpack_require__(44);
-var deepClone = __webpack_require__(82).deep;
-var restoreWithComponents = __webpack_require__(110);
-var shallowClone = __webpack_require__(82).shallow;
+var compactable = __webpack_require__(47);
+var deepClone = __webpack_require__(84).deep;
+var restoreWithComponents = __webpack_require__(112);
+var shallowClone = __webpack_require__(84).shallow;
 
-var restoreFromOptimizing = __webpack_require__(69);
+var restoreFromOptimizing = __webpack_require__(71);
 
 var Token = __webpack_require__(13);
 var Marker = __webpack_require__(18);
@@ -35702,7 +35751,7 @@ module.exports = overrideProperties;
 /* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var compactable = __webpack_require__(44);
+var compactable = __webpack_require__(47);
 
 function findComponentIn(shorthand, longhand) {
   var comparator = nameComparator(longhand);
@@ -35748,7 +35797,7 @@ module.exports = findComponentIn;
 /* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var compactable = __webpack_require__(44);
+var compactable = __webpack_require__(47);
 
 function isComponentOf(property1, property2, shallow) {
   return isDirectComponentOf(property1, property2) ||
@@ -35793,7 +35842,7 @@ module.exports = isMergeableShorthand;
 /* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var compactable = __webpack_require__(44);
+var compactable = __webpack_require__(47);
 
 function overridesNonComponentShorthand(property1, property2) {
   return property1.name in compactable &&
@@ -35808,13 +35857,13 @@ module.exports = overridesNonComponentShorthand;
 /* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var canReorder = __webpack_require__(83).canReorder;
-var canReorderSingle = __webpack_require__(83).canReorderSingle;
-var extractProperties = __webpack_require__(111);
-var rulesOverlap = __webpack_require__(139);
+var canReorder = __webpack_require__(85).canReorder;
+var canReorderSingle = __webpack_require__(85).canReorderSingle;
+var extractProperties = __webpack_require__(113);
+var rulesOverlap = __webpack_require__(141);
 
 var serializeRules = __webpack_require__(14).rules;
-var OptimizationLevel = __webpack_require__(37).OptimizationLevel;
+var OptimizationLevel = __webpack_require__(39).OptimizationLevel;
 var Token = __webpack_require__(13);
 
 function mergeMediaQueries(tokens, context) {
@@ -36040,12 +36089,12 @@ module.exports = specificity;
 /* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isMergeable = __webpack_require__(80);
+var isMergeable = __webpack_require__(82);
 
-var sortSelectors = __webpack_require__(104);
-var tidyRules = __webpack_require__(105);
+var sortSelectors = __webpack_require__(106);
+var tidyRules = __webpack_require__(107);
 
-var OptimizationLevel = __webpack_require__(37).OptimizationLevel;
+var OptimizationLevel = __webpack_require__(39).OptimizationLevel;
 
 var serializeBody = __webpack_require__(14).body;
 var serializeRules = __webpack_require__(14).rules;
@@ -36126,10 +36175,10 @@ module.exports = mergeNonAdjacentByBody;
 /* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var canReorder = __webpack_require__(83).canReorder;
-var extractProperties = __webpack_require__(111);
+var canReorder = __webpack_require__(85).canReorder;
+var extractProperties = __webpack_require__(113);
 
-var optimizeProperties = __webpack_require__(81);
+var optimizeProperties = __webpack_require__(83);
 
 var serializeRules = __webpack_require__(14).rules;
 
@@ -36210,11 +36259,11 @@ module.exports = mergeNonAdjacentBySelector;
 /* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isMergeable = __webpack_require__(80);
+var isMergeable = __webpack_require__(82);
 
-var optimizeProperties = __webpack_require__(81);
+var optimizeProperties = __webpack_require__(83);
 
-var cloneArray = __webpack_require__(140);
+var cloneArray = __webpack_require__(142);
 
 var Token = __webpack_require__(13);
 
@@ -36517,10 +36566,10 @@ module.exports = removeDuplicates;
 /* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var populateComponents = __webpack_require__(109);
+var populateComponents = __webpack_require__(111);
 
-var wrapForOptimizing = __webpack_require__(51).single;
-var restoreFromOptimizing = __webpack_require__(69);
+var wrapForOptimizing = __webpack_require__(54).single;
+var restoreFromOptimizing = __webpack_require__(71);
 
 var Token = __webpack_require__(13);
 
@@ -36772,14 +36821,14 @@ module.exports = removeUnusedAtRules;
 /* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var canReorderSingle = __webpack_require__(83).canReorderSingle;
-var extractProperties = __webpack_require__(111);
-var isMergeable = __webpack_require__(80);
+var canReorderSingle = __webpack_require__(85).canReorderSingle;
+var extractProperties = __webpack_require__(113);
+var isMergeable = __webpack_require__(82);
 var tidyRuleDuplicates = __webpack_require__(335);
 
 var Token = __webpack_require__(13);
 
-var cloneArray = __webpack_require__(140);
+var cloneArray = __webpack_require__(142);
 
 var serializeBody = __webpack_require__(14).body;
 var serializeRules = __webpack_require__(14).rules;
@@ -37931,13 +37980,13 @@ module.exports = fetchFrom;
 /* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var http = __webpack_require__(84);
-var https = __webpack_require__(52);
-var url = __webpack_require__(32);
+var http = __webpack_require__(86);
+var https = __webpack_require__(55);
+var url = __webpack_require__(34);
 
 var isHttpResource = __webpack_require__(340);
 var isHttpsResource = __webpack_require__(341);
-var override = __webpack_require__(50);
+var override = __webpack_require__(53);
 
 var HTTP_PROTOCOL = 'http:';
 
@@ -38058,9 +38107,9 @@ module.exports = inlineOptionsFrom;
 /* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var url = __webpack_require__(32);
+var url = __webpack_require__(34);
 
-var override = __webpack_require__(50);
+var override = __webpack_require__(53);
 
 function inlineRequestFrom(option) {
   return override(
@@ -38123,7 +38172,7 @@ module.exports = rebaseToFrom;
 /* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var SourceMapConsumer = __webpack_require__(141).SourceMapConsumer;
+var SourceMapConsumer = __webpack_require__(143).SourceMapConsumer;
 
 function inputSourceMapTracker() {
   var maps = {};
@@ -38267,7 +38316,7 @@ exports.decode = function (charCode) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var util = __webpack_require__(70);
+var util = __webpack_require__(72);
 
 /**
  * Determine whether mappingB is after mappingA with respect to generated
@@ -38352,10 +38401,10 @@ exports.MappingList = MappingList;
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var util = __webpack_require__(70);
+var util = __webpack_require__(72);
 var binarySearch = __webpack_require__(351);
-var ArraySet = __webpack_require__(144).ArraySet;
-var base64VLQ = __webpack_require__(143);
+var ArraySet = __webpack_require__(146).ArraySet;
+var base64VLQ = __webpack_require__(145);
 var quickSort = __webpack_require__(352).quickSort;
 
 function SourceMapConsumer(aSourceMap, aSourceMapURL) {
@@ -39740,8 +39789,8 @@ exports.quickSort = function (ary, comparator) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var SourceMapGenerator = __webpack_require__(142).SourceMapGenerator;
-var util = __webpack_require__(70);
+var SourceMapGenerator = __webpack_require__(144).SourceMapGenerator;
+var util = __webpack_require__(72);
 
 // Matches a Windows-style `\r\n` newline or a `\n` newline used by all other
 // operating systems these days (capturing the result).
@@ -40152,25 +40201,25 @@ exports.SourceNode = SourceNode;
 /* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var fs = __webpack_require__(36);
+var fs = __webpack_require__(38);
 var path = __webpack_require__(11);
 
 var applySourceMaps = __webpack_require__(355);
-var extractImportUrlAndMedia = __webpack_require__(147);
-var isAllowedResource = __webpack_require__(112);
+var extractImportUrlAndMedia = __webpack_require__(149);
+var isAllowedResource = __webpack_require__(114);
 var loadOriginalSources = __webpack_require__(358);
 var normalizePath = __webpack_require__(359);
 var rebase = __webpack_require__(360);
-var rebaseLocalMap = __webpack_require__(145);
-var rebaseRemoteMap = __webpack_require__(146);
-var restoreImport = __webpack_require__(148);
+var rebaseLocalMap = __webpack_require__(147);
+var rebaseRemoteMap = __webpack_require__(148);
+var restoreImport = __webpack_require__(150);
 
 var tokenize = __webpack_require__(362);
 var Token = __webpack_require__(13);
 var Marker = __webpack_require__(18);
-var hasProtocol = __webpack_require__(85);
-var isImport = __webpack_require__(149);
-var isRemoteResource = __webpack_require__(71);
+var hasProtocol = __webpack_require__(87);
+var isImport = __webpack_require__(151);
+var isRemoteResource = __webpack_require__(73);
 
 var UNKNOWN_URI = 'uri:unknown';
 
@@ -40499,18 +40548,18 @@ module.exports = readSources;
 /* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var fs = __webpack_require__(36);
+var fs = __webpack_require__(38);
 var path = __webpack_require__(11);
 
-var isAllowedResource = __webpack_require__(112);
+var isAllowedResource = __webpack_require__(114);
 var matchDataUri = __webpack_require__(356);
-var rebaseLocalMap = __webpack_require__(145);
-var rebaseRemoteMap = __webpack_require__(146);
+var rebaseLocalMap = __webpack_require__(147);
+var rebaseRemoteMap = __webpack_require__(148);
 
 var Token = __webpack_require__(13);
-var hasProtocol = __webpack_require__(85);
+var hasProtocol = __webpack_require__(87);
 var isDataUriResource = __webpack_require__(357);
-var isRemoteResource = __webpack_require__(71);
+var isRemoteResource = __webpack_require__(73);
 
 var MAP_MARKER_PATTERN = /^\/\*# sourceMappingURL=(\S+) \*\/$/;
 
@@ -40776,13 +40825,13 @@ module.exports = isDataUriResource;
 /* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var fs = __webpack_require__(36);
+var fs = __webpack_require__(38);
 var path = __webpack_require__(11);
 
-var isAllowedResource = __webpack_require__(112);
+var isAllowedResource = __webpack_require__(114);
 
-var hasProtocol = __webpack_require__(85);
-var isRemoteResource = __webpack_require__(71);
+var hasProtocol = __webpack_require__(87);
+var isRemoteResource = __webpack_require__(73);
 
 function loadOriginalSources(context, callback) {
   var loadContext = {
@@ -40922,12 +40971,12 @@ module.exports = normalizePath;
 /* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var extractImportUrlAndMedia = __webpack_require__(147);
-var restoreImport = __webpack_require__(148);
+var extractImportUrlAndMedia = __webpack_require__(149);
+var restoreImport = __webpack_require__(150);
 var rewriteUrl = __webpack_require__(361);
 
 var Token = __webpack_require__(13);
-var isImport = __webpack_require__(149);
+var isImport = __webpack_require__(151);
 
 var SOURCE_MAP_COMMENT_PATTERN = /^\/\*# sourceMappingURL=(\S+) \*\/$/;
 
@@ -41030,7 +41079,7 @@ module.exports = rebase;
 /***/ (function(module, exports, __webpack_require__) {
 
 var path = __webpack_require__(11);
-var url = __webpack_require__(32);
+var url = __webpack_require__(34);
 
 var DOUBLE_QUOTE = '"';
 var SINGLE_QUOTE = '\'';
@@ -41156,7 +41205,7 @@ module.exports = rewriteUrl;
 var Marker = __webpack_require__(18);
 var Token = __webpack_require__(13);
 
-var formatPosition = __webpack_require__(79);
+var formatPosition = __webpack_require__(81);
 
 var Level = {
   BLOCK: 'block',
@@ -41730,7 +41779,7 @@ module.exports = tokenize;
 /* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var all = __webpack_require__(108).all;
+var all = __webpack_require__(110).all;
 
 function store(serializeContext, token) {
   var value = typeof token == 'string' ?
@@ -41786,10 +41835,10 @@ module.exports = serializeStyles;
 /* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var SourceMapGenerator = __webpack_require__(141).SourceMapGenerator;
-var all = __webpack_require__(108).all;
+var SourceMapGenerator = __webpack_require__(143).SourceMapGenerator;
+var all = __webpack_require__(110).all;
 
-var isRemoteResource = __webpack_require__(71);
+var isRemoteResource = __webpack_require__(73);
 
 var isWindows = process.platform == 'win32';
 
@@ -42295,7 +42344,7 @@ module.exports = function(module) {
 
 
 
-var createMapFromString = __webpack_require__(150).createMapFromString;
+var createMapFromString = __webpack_require__(152).createMapFromString;
 
 function makeMap(values) {
   return createMapFromString(values, true);
@@ -42839,10 +42888,10 @@ exports.HTMLtoDOM = function(html, doc) {
 "use strict";
 
 
-var constants  = __webpack_require__(151);
+var constants  = __webpack_require__(153);
 var formatUrl  = __webpack_require__(369);
 var getOptions = __webpack_require__(370);
-var objUtils   = __webpack_require__(113);
+var objUtils   = __webpack_require__(115);
 var parseUrl   = __webpack_require__(371);
 var relateUrl  = __webpack_require__(378);
 
@@ -42940,7 +42989,7 @@ module.exports = RelateUrl;
 "use strict";
 
 
-var constants = __webpack_require__(151);
+var constants = __webpack_require__(153);
 
 
 
@@ -43121,7 +43170,7 @@ module.exports = formatUrl;
 "use strict";
 
 
-var objUtils = __webpack_require__(113);
+var objUtils = __webpack_require__(115);
 
 
 
@@ -43191,7 +43240,7 @@ var parsePath  = __webpack_require__(374);
 var parsePort  = __webpack_require__(375);
 var parseQuery = __webpack_require__(376);
 var parseUrlString = __webpack_require__(377);
-var pathUtils      = __webpack_require__(114);
+var pathUtils      = __webpack_require__(116);
 
 
 
@@ -43516,7 +43565,7 @@ module.exports = parseQuery;
 "use strict";
 
 
-var _parseUrl = __webpack_require__(32).parse;
+var _parseUrl = __webpack_require__(34).parse;
 
 
 
@@ -43695,8 +43744,8 @@ module.exports = relateUrl;
 
 
 var findRelation = __webpack_require__(380);
-var objUtils     = __webpack_require__(113);
-var pathUtils    = __webpack_require__(114);
+var objUtils     = __webpack_require__(115);
+var pathUtils    = __webpack_require__(116);
 
 
 
@@ -43876,7 +43925,7 @@ module.exports =
 "use strict";
 
 
-var pathUtils = __webpack_require__(114);
+var pathUtils = __webpack_require__(116);
 
 
 
@@ -44038,7 +44087,7 @@ module.exports = TokenChain;
  * Licensed under the New BSD license. See LICENSE.txt or:
  * http://opensource.org/licenses/BSD-3-Clause
  */
-exports.SourceMapGenerator = __webpack_require__(152).SourceMapGenerator;
+exports.SourceMapGenerator = __webpack_require__(154).SourceMapGenerator;
 exports.SourceMapConsumer = __webpack_require__(387).SourceMapConsumer;
 exports.SourceNode = __webpack_require__(390).SourceNode;
 
@@ -44127,7 +44176,7 @@ exports.decode = function (charCode) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var util = __webpack_require__(72);
+var util = __webpack_require__(74);
 
 /**
  * Determine whether mappingB is after mappingA with respect to generated
@@ -44212,10 +44261,10 @@ exports.MappingList = MappingList;
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var util = __webpack_require__(72);
+var util = __webpack_require__(74);
 var binarySearch = __webpack_require__(388);
-var ArraySet = __webpack_require__(154).ArraySet;
-var base64VLQ = __webpack_require__(153);
+var ArraySet = __webpack_require__(156).ArraySet;
+var base64VLQ = __webpack_require__(155);
 var quickSort = __webpack_require__(389).quickSort;
 
 function SourceMapConsumer(aSourceMap, aSourceMapURL) {
@@ -45600,8 +45649,8 @@ exports.quickSort = function (ary, comparator) {
  * http://opensource.org/licenses/BSD-3-Clause
  */
 
-var SourceMapGenerator = __webpack_require__(152).SourceMapGenerator;
-var util = __webpack_require__(72);
+var SourceMapGenerator = __webpack_require__(154).SourceMapGenerator;
+var util = __webpack_require__(74);
 
 // Matches a Windows-style `\r\n` newline or a `\n` newline used by all other
 // operating systems these days (capturing the result).
@@ -46366,7 +46415,7 @@ module.exports = require("constants");
 /* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stream = __webpack_require__(129).Stream
+var Stream = __webpack_require__(131).Stream
 
 module.exports = legacy
 
@@ -46522,8 +46571,8 @@ function clone (obj) {
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
 const mkdirpSync = __webpack_require__(25).mkdirsSync
-const utimesSync = __webpack_require__(158).utimesMillisSync
-const stat = __webpack_require__(86)
+const utimesSync = __webpack_require__(160).utimesMillisSync
+const stat = __webpack_require__(88)
 
 function copySync (src, dest, opts) {
   if (typeof opts === 'function') {
@@ -46692,7 +46741,7 @@ module.exports = copySync
 
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
-const invalidWin32Path = __webpack_require__(157).invalidWin32Path
+const invalidWin32Path = __webpack_require__(159).invalidWin32Path
 
 const o777 = parseInt('0777', 8)
 
@@ -46762,7 +46811,7 @@ module.exports = mkdirs
 
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
-const invalidWin32Path = __webpack_require__(157).invalidWin32Path
+const invalidWin32Path = __webpack_require__(159).invalidWin32Path
 
 const o777 = parseInt('0777', 8)
 
@@ -46843,9 +46892,9 @@ module.exports = function (size) {
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
 const mkdirp = __webpack_require__(25).mkdirs
-const pathExists = __webpack_require__(33).pathExists
-const utimes = __webpack_require__(158).utimesMillis
-const stat = __webpack_require__(86)
+const pathExists = __webpack_require__(35).pathExists
+const utimes = __webpack_require__(160).utimesMillis
+const stat = __webpack_require__(88)
 
 function copy (src, dest, opts, cb) {
   if (typeof opts === 'function' && !cb) {
@@ -47063,7 +47112,7 @@ const u = __webpack_require__(20).fromCallback
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
 const mkdir = __webpack_require__(25)
-const remove = __webpack_require__(87)
+const remove = __webpack_require__(89)
 
 const emptyDir = u(function emptyDir (dir, callback) {
   callback = callback || function () {}
@@ -47116,7 +47165,7 @@ module.exports = {
 
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
-const assert = __webpack_require__(115)
+const assert = __webpack_require__(117)
 
 const isWindows = (process.platform === 'win32')
 
@@ -47469,7 +47518,7 @@ const u = __webpack_require__(20).fromCallback
 const path = __webpack_require__(11)
 const fs = __webpack_require__(16)
 const mkdir = __webpack_require__(25)
-const pathExists = __webpack_require__(33).pathExists
+const pathExists = __webpack_require__(35).pathExists
 
 function createFile (file, callback) {
   function makeFile () {
@@ -47525,7 +47574,7 @@ const u = __webpack_require__(20).fromCallback
 const path = __webpack_require__(11)
 const fs = __webpack_require__(16)
 const mkdir = __webpack_require__(25)
-const pathExists = __webpack_require__(33).pathExists
+const pathExists = __webpack_require__(35).pathExists
 
 function createLink (srcpath, dstpath, callback) {
   function makeLink (srcpath, dstpath) {
@@ -47604,7 +47653,7 @@ const _symlinkType = __webpack_require__(407)
 const symlinkType = _symlinkType.symlinkType
 const symlinkTypeSync = _symlinkType.symlinkTypeSync
 
-const pathExists = __webpack_require__(33).pathExists
+const pathExists = __webpack_require__(35).pathExists
 
 function createSymlink (srcpath, dstpath, type, callback) {
   callback = (typeof type === 'function') ? type : callback
@@ -47661,7 +47710,7 @@ module.exports = {
 
 const path = __webpack_require__(11)
 const fs = __webpack_require__(16)
-const pathExists = __webpack_require__(33).pathExists
+const pathExists = __webpack_require__(35).pathExists
 
 /**
  * Function that returns two types of paths, one relative to symlink, and one
@@ -47804,7 +47853,7 @@ module.exports = {
 
 
 const u = __webpack_require__(20).fromCallback
-const jsonFile = __webpack_require__(116)
+const jsonFile = __webpack_require__(118)
 
 jsonFile.outputJson = u(__webpack_require__(410))
 jsonFile.outputJsonSync = __webpack_require__(411)
@@ -47827,7 +47876,7 @@ var _fs
 try {
   _fs = __webpack_require__(16)
 } catch (_) {
-  _fs = __webpack_require__(36)
+  _fs = __webpack_require__(38)
 }
 
 function readFile (file, options, callback) {
@@ -47968,8 +48017,8 @@ module.exports = jsonfile
 
 const path = __webpack_require__(11)
 const mkdir = __webpack_require__(25)
-const pathExists = __webpack_require__(33).pathExists
-const jsonFile = __webpack_require__(116)
+const pathExists = __webpack_require__(35).pathExists
+const jsonFile = __webpack_require__(118)
 
 function outputJson (file, data, options, callback) {
   if (typeof options === 'function') {
@@ -48003,7 +48052,7 @@ module.exports = outputJson
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
 const mkdir = __webpack_require__(25)
-const jsonFile = __webpack_require__(116)
+const jsonFile = __webpack_require__(118)
 
 function outputJsonSync (file, data, options) {
   const dir = path.dirname(file)
@@ -48039,10 +48088,10 @@ module.exports = {
 
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
-const copySync = __webpack_require__(156).copySync
-const removeSync = __webpack_require__(87).removeSync
+const copySync = __webpack_require__(158).copySync
+const removeSync = __webpack_require__(89).removeSync
 const mkdirpSync = __webpack_require__(25).mkdirpSync
-const stat = __webpack_require__(86)
+const stat = __webpack_require__(88)
 
 function moveSync (src, dest, opts) {
   opts = opts || {}
@@ -48106,11 +48155,11 @@ module.exports = {
 
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
-const copy = __webpack_require__(159).copy
-const remove = __webpack_require__(87).remove
+const copy = __webpack_require__(161).copy
+const remove = __webpack_require__(89).remove
 const mkdirp = __webpack_require__(25).mkdirp
-const pathExists = __webpack_require__(33).pathExists
-const stat = __webpack_require__(86)
+const pathExists = __webpack_require__(35).pathExists
+const stat = __webpack_require__(88)
 
 function move (src, dest, opts, cb) {
   if (typeof opts === 'function') {
@@ -48180,7 +48229,7 @@ const u = __webpack_require__(20).fromCallback
 const fs = __webpack_require__(16)
 const path = __webpack_require__(11)
 const mkdir = __webpack_require__(25)
-const pathExists = __webpack_require__(33).pathExists
+const pathExists = __webpack_require__(35).pathExists
 
 function outputFile (file, data, encoding, callback) {
   if (typeof encoding === 'function') {
@@ -48288,7 +48337,7 @@ var _DocSearch = __webpack_require__(423);
 
 var _DocSearch2 = _interopRequireDefault(_DocSearch);
 
-var _version = __webpack_require__(193);
+var _version = __webpack_require__(192);
 
 var _version2 = _interopRequireDefault(_version);
 
@@ -48359,11 +48408,11 @@ var _utils = __webpack_require__(473);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _version = __webpack_require__(193);
+var _version = __webpack_require__(192);
 
 var _version2 = _interopRequireDefault(_version);
 
-var _zepto = __webpack_require__(192);
+var _zepto = __webpack_require__(191);
 
 var _zepto2 = _interopRequireDefault(_zepto);
 
@@ -49530,7 +49579,7 @@ var Hogan = {};
 // For browser users, this will be mapped to src/browser/builds/algoliasearchLite.js
 // when used through browserify or webpack (see package.json browser field)
 // This is done to ease universal applications (https://github.com/algolia/algoliasearch-client-js/issues/283)
-module.exports = __webpack_require__(175);
+module.exports = __webpack_require__(174);
 
 
 /***/ }),
@@ -49543,19 +49592,19 @@ module.exports = __webpack_require__(175);
 // This is the Node.JS entry point
 module.exports = algoliasearch;
 
-var debug = __webpack_require__(88)('algoliasearch:nodejs');
-var crypto = __webpack_require__(131);
+var debug = __webpack_require__(90)('algoliasearch:nodejs');
+var crypto = __webpack_require__(133);
 var zlib = __webpack_require__(433);
 
-var inherits = __webpack_require__(54);
+var inherits = __webpack_require__(57);
 var Promise = global.Promise || __webpack_require__(435).Promise;
-var semver = __webpack_require__(177);
+var semver = __webpack_require__(176);
 var isNotSupported = semver.satisfies(process.version, '<0.10');
 var isNode010 = semver.satisfies(process.version, '=0.10');
 var places = __webpack_require__(436);
 
 var AlgoliaSearchServer = __webpack_require__(440);
-var errors = __webpack_require__(73);
+var errors = __webpack_require__(75);
 
 // does not work on node <= 0.8
 if (isNotSupported) {
@@ -49567,7 +49616,7 @@ if (false) {}
 debug('loaded the Node.js client');
 
 function algoliasearch(applicationID, apiKey, opts) {
-  var cloneDeep = __webpack_require__(38);
+  var cloneDeep = __webpack_require__(40);
   var reduce = __webpack_require__(448);
 
   if (!opts) {
@@ -49626,9 +49675,9 @@ function AlgoliaSearchNodeJS(applicationID, apiKey, opts) {
 inherits(AlgoliaSearchNodeJS, AlgoliaSearchServer);
 
 AlgoliaSearchNodeJS.prototype._request = function request(rawUrl, opts) {
-  var http = __webpack_require__(84);
-  var https = __webpack_require__(52);
-  var url = __webpack_require__(32);
+  var http = __webpack_require__(86);
+  var https = __webpack_require__(55);
+  var url = __webpack_require__(34);
 
   var client = this;
 
@@ -49886,7 +49935,7 @@ AlgoliaSearchNodeJS.prototype.getSecuredApiKeyRemainingValidity = function getSe
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(176);
+exports = module.exports = __webpack_require__(175);
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -50234,7 +50283,7 @@ function plural(ms, n, name) {
  */
 
 var tty = __webpack_require__(432);
-var util = __webpack_require__(53);
+var util = __webpack_require__(56);
 
 /**
  * This is the Node.js implementation of `debug()`.
@@ -50242,7 +50291,7 @@ var util = __webpack_require__(53);
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(176);
+exports = module.exports = __webpack_require__(175);
 exports.init = init;
 exports.log = log;
 exports.formatArgs = formatArgs;
@@ -50414,14 +50463,14 @@ function createWritableStdioStream (fd) {
       break;
 
     case 'FILE':
-      var fs = __webpack_require__(36);
+      var fs = __webpack_require__(38);
       stream = new fs.SyncWriteStream(fd, { autoClose: false });
       stream._type = 'fs';
       break;
 
     case 'PIPE':
     case 'TCP':
-      var net = __webpack_require__(117);
+      var net = __webpack_require__(119);
       stream = new net.Socket({
         fd: fd,
         readable: false,
@@ -51710,11 +51759,11 @@ return Promise$1;
 module.exports = createPlacesClient;
 
 var qs3 = __webpack_require__(437);
-var buildSearchMethod = __webpack_require__(178);
+var buildSearchMethod = __webpack_require__(177);
 
 function createPlacesClient(algoliasearch) {
   return function places(appID, apiKey, opts) {
-    var cloneDeep = __webpack_require__(38);
+    var cloneDeep = __webpack_require__(40);
 
     opts = opts && cloneDeep(opts) || {};
     opts.hosts = opts.hosts || [
@@ -51963,7 +52012,7 @@ var objectKeys = Object.keys || function (obj) {
 
 module.exports = AlgoliaSearchServer;
 
-var inherits = __webpack_require__(54);
+var inherits = __webpack_require__(57);
 
 var AlgoliaSearch = __webpack_require__(441);
 
@@ -52044,11 +52093,11 @@ AlgoliaSearchServer.prototype._computeRequestHeaders = function(additionalUA) {
 module.exports = AlgoliaSearch;
 
 var Index = __webpack_require__(442);
-var deprecate = __webpack_require__(118);
-var deprecatedMessage = __webpack_require__(119);
+var deprecate = __webpack_require__(120);
+var deprecatedMessage = __webpack_require__(121);
 var AlgoliaSearchCore = __webpack_require__(445);
-var inherits = __webpack_require__(54);
-var errors = __webpack_require__(73);
+var inherits = __webpack_require__(57);
+var errors = __webpack_require__(75);
 
 function AlgoliaSearch() {
   AlgoliaSearchCore.apply(this, arguments);
@@ -52140,7 +52189,7 @@ AlgoliaSearch.prototype.copyIndex = function(srcIndexName, dstIndexName, scopeOr
  *  content: the server answer that contains the task ID
  */
 AlgoliaSearch.prototype.getLogs = function(offset, length, callback) {
-  var clone = __webpack_require__(38);
+  var clone = __webpack_require__(40);
   var params = {};
   if (typeof offset === 'object') {
     // getLogs(params)
@@ -52814,12 +52863,12 @@ function notImplemented() {
 /* 442 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(54);
-var IndexCore = __webpack_require__(179);
-var deprecate = __webpack_require__(118);
-var deprecatedMessage = __webpack_require__(119);
-var exitPromise = __webpack_require__(184);
-var errors = __webpack_require__(73);
+var inherits = __webpack_require__(57);
+var IndexCore = __webpack_require__(178);
+var deprecate = __webpack_require__(120);
+var deprecatedMessage = __webpack_require__(121);
+var exitPromise = __webpack_require__(183);
+var errors = __webpack_require__(75);
 
 var deprecateForwardToSlaves = deprecate(
   function() {},
@@ -53071,7 +53120,7 @@ Index.prototype.deleteObject = function(objectID, callback) {
 */
 Index.prototype.deleteObjects = function(objectIDs, callback) {
   var isArray = __webpack_require__(21);
-  var map = __webpack_require__(56);
+  var map = __webpack_require__(59);
 
   var usage = 'Usage: index.deleteObjects(arrayOfObjectIDs[, callback])';
 
@@ -53111,8 +53160,8 @@ Index.prototype.deleteObjects = function(objectIDs, callback) {
 * @deprecated see index.deleteBy
 */
 Index.prototype.deleteByQuery = deprecate(function(query, params, callback) {
-  var clone = __webpack_require__(38);
-  var map = __webpack_require__(56);
+  var clone = __webpack_require__(40);
+  var map = __webpack_require__(59);
 
   var indexObj = this;
   var client = indexObj.as;
@@ -53246,7 +53295,7 @@ Index.prototype.browseAll = function(query, queryParameters) {
     query = undefined;
   }
 
-  var merge = __webpack_require__(180);
+  var merge = __webpack_require__(179);
 
   var IndexBrowser = __webpack_require__(444);
 
@@ -54162,7 +54211,7 @@ if (!Object.keys) {
 	// modified from https://github.com/es-shims/es5-shim
 	var has = Object.prototype.hasOwnProperty;
 	var toStr = Object.prototype.toString;
-	var isArgs = __webpack_require__(183); // eslint-disable-line global-require
+	var isArgs = __webpack_require__(182); // eslint-disable-line global-require
 	var isEnumerable = Object.prototype.propertyIsEnumerable;
 	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
 	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
@@ -54290,8 +54339,8 @@ module.exports = keysShim;
 
 module.exports = IndexBrowser;
 
-var inherits = __webpack_require__(54);
-var EventEmitter = __webpack_require__(120).EventEmitter;
+var inherits = __webpack_require__(57);
+var EventEmitter = __webpack_require__(122).EventEmitter;
 
 function IndexBrowser() {
 }
@@ -54331,9 +54380,9 @@ IndexBrowser.prototype._clean = function() {
 
 module.exports = AlgoliaSearchCore;
 
-var errors = __webpack_require__(73);
-var exitPromise = __webpack_require__(184);
-var IndexCore = __webpack_require__(179);
+var errors = __webpack_require__(75);
+var exitPromise = __webpack_require__(183);
+var IndexCore = __webpack_require__(178);
 var store = __webpack_require__(446);
 
 // We will always put the API KEY in the JSON body in case of too long API KEY,
@@ -54369,11 +54418,11 @@ var RESET_APP_DATA_TIMER =
  *           If you provide them, you will less benefit from our HA implementation
  */
 function AlgoliaSearchCore(applicationID, apiKey, opts) {
-  var debug = __webpack_require__(88)('algoliasearch');
+  var debug = __webpack_require__(90)('algoliasearch');
 
-  var clone = __webpack_require__(38);
+  var clone = __webpack_require__(40);
   var isArray = __webpack_require__(21);
-  var map = __webpack_require__(56);
+  var map = __webpack_require__(59);
 
   var usage = 'Usage: algoliasearch(applicationID, apiKey, opts)';
 
@@ -54515,7 +54564,7 @@ AlgoliaSearchCore.prototype.addAlgoliaAgent = function(algoliaAgent) {
 AlgoliaSearchCore.prototype._jsonRequest = function(initialOpts) {
   this._checkAppIdData();
 
-  var requestDebug = __webpack_require__(88)('algoliasearch:' + initialOpts.url);
+  var requestDebug = __webpack_require__(90)('algoliasearch:' + initialOpts.url);
 
 
   var body;
@@ -54898,7 +54947,7 @@ AlgoliaSearchCore.prototype._getSearchParams = function(args, params) {
  * @param [Object] options.headers Extra headers to send
  */
 AlgoliaSearchCore.prototype._computeRequestHeaders = function(options) {
-  var forEach = __webpack_require__(55);
+  var forEach = __webpack_require__(58);
 
   var ua = options.additionalUA ?
     this._ua + '; ' + options.additionalUA :
@@ -54949,7 +54998,7 @@ AlgoliaSearchCore.prototype._computeRequestHeaders = function(options) {
  */
 AlgoliaSearchCore.prototype.search = function(queries, opts, callback) {
   var isArray = __webpack_require__(21);
-  var map = __webpack_require__(56);
+  var map = __webpack_require__(59);
 
   var usage = 'Usage: client.search(arrayOfQueries[, callback])';
 
@@ -55032,7 +55081,7 @@ AlgoliaSearchCore.prototype.search = function(queries, opts, callback) {
 */
 AlgoliaSearchCore.prototype.searchForFacetValues = function(queries) {
   var isArray = __webpack_require__(21);
-  var map = __webpack_require__(56);
+  var map = __webpack_require__(59);
 
   var usage = 'Usage: client.searchForFacetValues([{indexName, params: {facetName, facetQuery, ...params}}, ...queries])'; // eslint-disable-line max-len
 
@@ -55052,8 +55101,8 @@ AlgoliaSearchCore.prototype.searchForFacetValues = function(queries) {
       throw new Error(usage);
     }
 
-    var clone = __webpack_require__(38);
-    var omit = __webpack_require__(181);
+    var clone = __webpack_require__(40);
+    var omit = __webpack_require__(180);
 
     var indexName = query.indexName;
     var params = query.params;
@@ -55183,7 +55232,7 @@ AlgoliaSearchCore.prototype._cacheAppIdData = function(data) {
 };
 
 AlgoliaSearchCore.prototype._partialAppIdDataUpdate = function(newData) {
-  var foreach = __webpack_require__(55);
+  var foreach = __webpack_require__(58);
   var currentData = this._getAppIdData();
   foreach(newData, function(value, key) {
     currentData[key] = value;
@@ -55205,7 +55254,7 @@ AlgoliaSearchCore.prototype._getHostIndexByType = function(hostType) {
 };
 
 AlgoliaSearchCore.prototype._setHostIndexByType = function(hostIndex, hostType) {
-  var clone = __webpack_require__(38);
+  var clone = __webpack_require__(40);
   var newHostIndexes = clone(this._hostIndexes);
   newHostIndexes[hostType] = hostIndex;
   this._partialAppIdDataUpdate({hostIndexes: newHostIndexes});
@@ -55303,7 +55352,7 @@ function removeCredentials(headers) {
 /* 446 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var debug = __webpack_require__(88)('algoliasearch:src/hostIndexState.js');
+var debug = __webpack_require__(90)('algoliasearch:src/hostIndexState.js');
 var localStorageNamespace = 'algoliasearch-client-js';
 
 var store;
@@ -55397,7 +55446,7 @@ function cleanup() {
 
 module.exports = createAnalyticsClient;
 
-var algoliasearch = __webpack_require__(175);
+var algoliasearch = __webpack_require__(174);
 
 function createAnalyticsClient(appId, apiKey, opts) {
   var analytics = {};
@@ -55489,7 +55538,7 @@ function createAnalyticsClient(appId, apiKey, opts) {
 "use strict";
 
 
-var objectKeys = __webpack_require__(182);
+var objectKeys = __webpack_require__(181);
 
 module.exports = function reduce(list, iterator) {
     var keys = objectKeys(list);
@@ -55562,7 +55611,7 @@ function getAgent(protocol) {
 }
 
 function getParsedProxy() {
-  var url = __webpack_require__(32);
+  var url = __webpack_require__(34);
   var proxy = process.env.HTTP_PROXY ||
     process.env.HTTPS_PROXY ||
     '';
@@ -55571,12 +55620,12 @@ function getParsedProxy() {
 }
 
 function getKeepaliveAgent(protocol) {
-  var http = __webpack_require__(84);
-  var https = __webpack_require__(52);
+  var http = __webpack_require__(86);
+  var https = __webpack_require__(55);
 
-  var HttpsAgent = __webpack_require__(185).HttpsAgent;
-  var HttpAgent = __webpack_require__(185);
-  var semver = __webpack_require__(177);
+  var HttpsAgent = __webpack_require__(184).HttpsAgent;
+  var HttpAgent = __webpack_require__(184);
+  var semver = __webpack_require__(176);
 
   var keepAliveAgent;
 
@@ -55671,10 +55720,10 @@ function getProxyingAgent(protocol, parsedProxy) {
 
 
 
-var net = __webpack_require__(117);
-var util = __webpack_require__(53);
-var EventEmitter = __webpack_require__(120).EventEmitter;
-var debug = __webpack_require__(121).debug;
+var net = __webpack_require__(119);
+var util = __webpack_require__(56);
+var EventEmitter = __webpack_require__(122).EventEmitter;
+var debug = __webpack_require__(123).debug;
 
 // New Agent code.
 
@@ -56003,9 +56052,9 @@ exports.globalAgent = new Agent();
  * Module dependencies.
  */
 
-var https = __webpack_require__(52);
-var utils = __webpack_require__(121);
-var HttpAgent = __webpack_require__(186);
+var https = __webpack_require__(55);
+var utils = __webpack_require__(123);
+var HttpAgent = __webpack_require__(185);
 var OriginalHttpsAgent = https.Agent;
 
 var HttpsAgent;
@@ -56091,13 +56140,13 @@ module.exports = HttpsAgent;
 "use strict";
 
 
-var net = __webpack_require__(117)
+var net = __webpack_require__(119)
   , tls = __webpack_require__(454)
-  , http = __webpack_require__(84)
-  , https = __webpack_require__(52)
-  , events = __webpack_require__(120)
-  , assert = __webpack_require__(115)
-  , util = __webpack_require__(53)
+  , http = __webpack_require__(86)
+  , https = __webpack_require__(55)
+  , events = __webpack_require__(122)
+  , assert = __webpack_require__(117)
+  , util = __webpack_require__(56)
   , Buffer = __webpack_require__(455).Buffer
   ;
 
@@ -56433,14 +56482,14 @@ module.exports = __webpack_require__(458);
 
 
 // this will inject Zepto in window, unfortunately no easy commonJS zepto build
-var zepto = __webpack_require__(187);
+var zepto = __webpack_require__(186);
 
 // setup DOM element
-var DOM = __webpack_require__(45);
+var DOM = __webpack_require__(48);
 DOM.element = zepto;
 
 // setup utils functions
-var _ = __webpack_require__(34);
+var _ = __webpack_require__(36);
 _.isArray = zepto.isArray;
 _.isFunction = zepto.isFunction;
 _.isObject = zepto.isPlainObject;
@@ -56458,7 +56507,7 @@ _.Event = zepto.Event;
 
 var typeaheadKey = 'aaAutocomplete';
 var Typeahead = __webpack_require__(459);
-var EventBus = __webpack_require__(188);
+var EventBus = __webpack_require__(187);
 
 function autocomplete(selector, options, datasets, typeaheadObject) {
   datasets = _.isArray(datasets) ? datasets : [].slice.call(arguments, 2);
@@ -56532,13 +56581,13 @@ module.exports = autocomplete;
 
 var attrsKey = 'aaAttrs';
 
-var _ = __webpack_require__(34);
-var DOM = __webpack_require__(45);
-var EventBus = __webpack_require__(188);
+var _ = __webpack_require__(36);
+var DOM = __webpack_require__(48);
+var EventBus = __webpack_require__(187);
 var Input = __webpack_require__(460);
 var Dropdown = __webpack_require__(467);
-var html = __webpack_require__(189);
-var css = __webpack_require__(123);
+var html = __webpack_require__(188);
+var css = __webpack_require__(125);
 
 // constructor
 // -----------
@@ -57203,9 +57252,9 @@ specialKeyCodeMap = {
   40: 'down'
 };
 
-var _ = __webpack_require__(34);
-var DOM = __webpack_require__(45);
-var EventEmitter = __webpack_require__(122);
+var _ = __webpack_require__(36);
+var DOM = __webpack_require__(48);
+var EventEmitter = __webpack_require__(124);
 
 // constructor
 // -----------
@@ -57758,11 +57807,11 @@ exports.install = function (t) {
 "use strict";
 
 
-var _ = __webpack_require__(34);
-var DOM = __webpack_require__(45);
-var EventEmitter = __webpack_require__(122);
+var _ = __webpack_require__(36);
+var DOM = __webpack_require__(48);
+var EventEmitter = __webpack_require__(124);
 var Dataset = __webpack_require__(468);
-var css = __webpack_require__(123);
+var css = __webpack_require__(125);
 
 // constructor
 // -----------
@@ -58163,11 +58212,11 @@ var datasetKey = 'aaDataset';
 var valueKey = 'aaValue';
 var datumKey = 'aaDatum';
 
-var _ = __webpack_require__(34);
-var DOM = __webpack_require__(45);
-var html = __webpack_require__(189);
-var css = __webpack_require__(123);
-var EventEmitter = __webpack_require__(122);
+var _ = __webpack_require__(36);
+var DOM = __webpack_require__(48);
+var html = __webpack_require__(188);
+var css = __webpack_require__(125);
+var EventEmitter = __webpack_require__(124);
 
 // constructor
 // -----------
@@ -58484,9 +58533,9 @@ module.exports = {
 "use strict";
 
 
-var _ = __webpack_require__(34);
-var version = __webpack_require__(190);
-var parseAlgoliaClientVersion = __webpack_require__(191);
+var _ = __webpack_require__(36);
+var version = __webpack_require__(189);
+var parseAlgoliaClientVersion = __webpack_require__(190);
 
 module.exports = function search(index, params) {
   var algoliaVersion = parseAlgoliaClientVersion(index.as._ua);
@@ -58515,9 +58564,9 @@ module.exports = function search(index, params) {
 "use strict";
 
 
-var _ = __webpack_require__(34);
-var version = __webpack_require__(190);
-var parseAlgoliaClientVersion = __webpack_require__(191);
+var _ = __webpack_require__(36);
+var version = __webpack_require__(189);
+var parseAlgoliaClientVersion = __webpack_require__(190);
 
 module.exports = function popularIn(index, params, details, options) {
   var algoliaVersion = parseAlgoliaClientVersion(index.as._ua);
@@ -58639,7 +58688,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _zepto = __webpack_require__(192);
+var _zepto = __webpack_require__(191);
 
 var _zepto2 = _interopRequireDefault(_zepto);
 
@@ -59037,10 +59086,10 @@ function pointerCoord(event) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var prism_react_renderer_prism__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(59);
-/* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(63);
+/* harmony import */ var prism_react_renderer_prism__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(62);
+/* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(45);
 /* harmony import */ var _docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_docusaurus_ExecutionEnvironment__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _generated_docusaurus_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(66);
+/* harmony import */ var _generated_docusaurus_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(68);
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -59476,13 +59525,13 @@ var server = __webpack_require__(270);
 var server_default = /*#__PURE__*/__webpack_require__.n(server);
 
 // EXTERNAL MODULE: ./node_modules/react-helmet/es/Helmet.js
-var Helmet = __webpack_require__(90);
+var Helmet = __webpack_require__(92);
 
 // EXTERNAL MODULE: ./node_modules/react-loadable-ssr-addon/lib/index.js
 var lib = __webpack_require__(273);
 
 // EXTERNAL MODULE: ./node_modules/react-loadable/lib/index.js
-var react_loadable_lib = __webpack_require__(75);
+var react_loadable_lib = __webpack_require__(77);
 var react_loadable_lib_default = /*#__PURE__*/__webpack_require__.n(react_loadable_lib);
 
 // EXTERNAL MODULE: ./node_modules/html-minifier-terser/src/htmlminifier.js
@@ -59513,7 +59562,7 @@ var interopRequireWildcard = __webpack_require__(5);
 var routesChunkNames = __webpack_require__(276);
 
 // CONCATENATED MODULE: ./.docusaurus/registry.js
-/* harmony default export */ var registry = ({'0111422e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(160))),"@site/docs/mobile/api-events.mdx",/*require.resolve*/(160)],'011ed6ff':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(161))),"@site/docs/web/api-commands-operations.mdx",/*require.resolve*/(161)],'03bd8be6':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(162))),"@site/docs/web/usecases-change-default-behavior.mdx",/*require.resolve*/(162)],'050f23e3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(164))),"@site/docs/mobile/concepts-key-concepts.mdx",/*require.resolve*/(164)],'0899d789':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(165))),"@site/docs/mobile/concepts-commands-operations.mdx",/*require.resolve*/(165)],'0c5c4f23':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(166))),"@site/docs/workflow/sdk-overview.mdx",/*require.resolve*/(166)],'0ef200f8':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(167))),"@site/docs/web/usecases-implement-custom-form-elements.mdx",/*require.resolve*/(167)],'0f48690c':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(168))),"@site/docs/mobile/usecases-add-medium-layout.mdx",/*require.resolve*/(168)],'1171ab7b':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(169))),"@site/docs/web/usecases-implement-component-participate-app-config.mdx",/*require.resolve*/(169)],'11f075a8':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(170))),"@site/docs/workflow/usecases-mobile-access-app-properties.mdx",/*require.resolve*/(170)],'13561cf4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(171))),"@site/docs/web/sdk-component-hooks.mdx",/*require.resolve*/(171)],'16510b1a':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(172))),"@site/docs/web/api-events.mdx",/*require.resolve*/(172)],'17676934':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(58))),"@site/docs/mobile/snippets/follow-along.mdx",/*require.resolve*/(58)],'17896441':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(267))),"@theme/DocItem",/*require.resolve*/(267)],'183e812d':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(173))),"@site/docs/web/usecases-display-custom-form.mdx",/*require.resolve*/(173)],'1a82d206':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(174))),"@site/docs/web/usecases-implement-component-with-ui.mdx",/*require.resolve*/(174)],'1be78505':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(266))),"@theme/DocPage",/*require.resolve*/(266)],'1e7ae3f5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(194))),"@site/docs/web/concepts-advanced-app-config.mdx",/*require.resolve*/(194)],'20ac7829':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(195))),"~docs/docs-route-ff2.json",/*require.resolve*/(195)],'226e15d4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(196))),"@site/docs/mobile/sdk-dependency-injection.mdx",/*require.resolve*/(196)],'26a64548':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(197))),"@site/docs/web/concepts-app-config.mdx",/*require.resolve*/(197)],'27531a3f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(198))),"@site/docs/web/sdk-reference-third-party-libraries.mdx",/*require.resolve*/(198)],'282673f1':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(199))),"@site/docs/web/usecases-component-interactions.mdx",/*require.resolve*/(199)],'2956bfe2':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(200))),"@site/docs/workflow/sdk-web-getting-started.mdx",/*require.resolve*/(200)],'2dc95b96':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(60))),"@site/docs/workflow/snippets/host-esri-api-version.mdx",/*require.resolve*/(60)],'2f2b3bc0':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(201))),"@site/docs/web/concepts-advanced-layout.mdx",/*require.resolve*/(201)],'351d88f4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(202))),"@site/docs/web/usecases-implement-service.mdx",/*require.resolve*/(202)],'36272414':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(203))),"@site/docs/web/usecases-implement-event.mdx",/*require.resolve*/(203)],'370e0b3f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(204))),"@site/docs/mobile/usecases-change-default-map-click-behavior.mdx",/*require.resolve*/(204)],'3b54c321':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(205))),"@site/docs/workflow/sdk-web-activity-block-tags.mdx",/*require.resolve*/(205)],'3ec7fd70':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(206))),"@site/docs/workflow/concepts-key-concepts.mdx",/*require.resolve*/(206)],'409253a0':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(207))),"@site/docs/mobile/concepts-app-config.mdx",/*require.resolve*/(207)],'4697a878':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(208))),"@site/docs/mobile/api-overview.mdx",/*require.resolve*/(208)],'51fdb279':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(74))),"@site/docs/workflow/snippets/prereqs-server.mdx",/*require.resolve*/(74)],'55c66547':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(42))),"@site/docs/workflow/snippets/logarithm-activity.mdx",/*require.resolve*/(42)],'5798a141':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(209))),"@site/docs/web/api-components.mdx",/*require.resolve*/(209)],'68ec168c':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(210))),"@site/docs/mobile/sdk-viewmodel-helper-class.mdx",/*require.resolve*/(210)],'69332e41':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(211))),"@site/docs/workflow/usecases-web-implement-custom-form-elements.mdx",/*require.resolve*/(211)],'6cb3bf61':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(212))),"@site/docs/workflow/usecases-mobile-implement-custom-activity.mdx",/*require.resolve*/(212)],'6eccecf3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(213))),"@site/docs/web/usecases-implement-custom-activity.mdx",/*require.resolve*/(213)],'72f94b9b':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(214))),"@site/docs/mobile/usecases-implement-service.mdx",/*require.resolve*/(214)],'7369f08e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(215))),"@site/docs/workflow/usecases-mobile-reference-third-party-library.mdx",/*require.resolve*/(215)],'75b4a5a2':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(216))),"@site/docs/web/api-message-bus.mdx",/*require.resolve*/(216)],'75f6d0d6':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(217))),"@site/docs/mobile/api-components.mdx",/*require.resolve*/(217)],'79387e8d':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(218))),"@site/docs/workflow/sdk-web-integrating-the-arcgis-api.mdx",/*require.resolve*/(218)],'7b5b66d4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(219))),"@site/docs/web/usecases-implement-command-operation.mdx",/*require.resolve*/(219)],'7c80c505':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(220))),"@site/docs/mobile/usecases-implement-component-participate-app-config.mdx",/*require.resolve*/(220)],'80404431':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(221))),"@site/docs/workflow/usecases-web-access-app-properties.mdx",/*require.resolve*/(221)],'84244b50':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(27))),"@site/docs/web/snippets/framework-components.mdx",/*require.resolve*/(27)],'852ca0c5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(222))),"@site/docs/web/sdk-service-injection.mdx",/*require.resolve*/(222)],'85beb773':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(223))),"@site/docs/workflow/api-server-rest.mdx",/*require.resolve*/(223)],'8a33fbc0':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(41))),"@site/docs/web/snippets/follow-along.mdx",/*require.resolve*/(41)],'8ec1a3ae':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(224))),"@site/docs/web/sdk-create-component.mdx",/*require.resolve*/(224)],'8f2e743f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(225))),"@site/docs/web/sdk-ui-context.mdx",/*require.resolve*/(225)],'9019e22d':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(226))),"@site/docs/workflow/sdk-net-getting-started-mobile.mdx",/*require.resolve*/(226)],'906097b3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(227))),"@site/docs/mobile/usecases-look-and-feel.mdx",/*require.resolve*/(227)],'91ee8259':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(40))),"@site/docs/mobile/snippets/designer-callout.mdx",/*require.resolve*/(40)],'981cf5ec':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(228))),"@site/docs/web/usecases-change-default-map-click-behavior.mdx",/*require.resolve*/(228)],'99dd369f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(15))),"@site/docs/mobile/snippets/prereqs.mdx",/*require.resolve*/(15)],'9a6a707e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(229))),"@site/docs/web/usecases-look-and-feel.mdx",/*require.resolve*/(229)],'a57360df':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(230))),"@site/docs/workflow/sdk-net-getting-started-server.mdx",/*require.resolve*/(230)],'a67bc9da':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(231))),"@site/docs/web/overview.mdx",/*require.resolve*/(231)],'a962d706':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(232))),"@site/docs/web/concepts-layout.mdx",/*require.resolve*/(232)],'abdc00a3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(233))),"@site/docs/web/sdk-overview.mdx",/*require.resolve*/(233)],'ac400afb':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(234))),"@site/docs/mobile/usecases-implement-command-operation.mdx",/*require.resolve*/(234)],'b1c48121':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(235))),"@site/docs/workflow/usecases-server-implement-custom-activity.mdx",/*require.resolve*/(235)],'b5e2b715':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(46))),"@site/docs/web/snippets/designer-callout.mdx",/*require.resolve*/(46)],'b7603e3e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(236))),"@site/docs/web/concepts-components-services.mdx",/*require.resolve*/(236)],'b787c328':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(237))),"@site/docs/mobile/usecases-implement-component-with-ui.mdx",/*require.resolve*/(237)],'b89757bf':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(238))),"@site/docs/mobile/usecases-change-default-behavior.mdx",/*require.resolve*/(238)],'ba908733':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(239))),"@site/docs/mobile/sdk-quick-start.mdx",/*require.resolve*/(239)],'c18616c8':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(240))),"@site/docs/workflow/usecases-mobile-implement-custom-form-elements.mdx",/*require.resolve*/(240)],'c3122fe7':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(241))),"@site/docs/mobile/usecases-implement-event.mdx",/*require.resolve*/(241)],'c4f5d8e4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(268))),"@site/src/pages/index.js",/*require.resolve*/(268)],'c5fef569':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(242))),"@site/docs/web/concepts-key-concepts.mdx",/*require.resolve*/(242)],'c8185606':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(243))),"@site/docs/mobile/concepts-advanced-app-config.mdx",/*require.resolve*/(243)],'caa2d16a':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(244))),"@site/docs/workflow/usecases-web-reference-third-party-library.mdx",/*require.resolve*/(244)],'ce430d7a':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(245))),"@site/docs/mobile/sdk-samples.mdx",/*require.resolve*/(245)],'ce88a68f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(61))),"@site/docs/workflow/snippets/designer-callout.mdx",/*require.resolve*/(61)],'cfa5b9a9':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(19))),"@site/docs/snippets/autofac-mobile.mdx",/*require.resolve*/(19)],'d3e273cb':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(246))),"@site/docs/workflow/usecases-server-reference-third-party-library.mdx",/*require.resolve*/(246)],'d4973b75':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(29))),"@site/docs/workflow/snippets/prereqs-web.mdx",/*require.resolve*/(29)],'d97f9b53':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(247))),"@site/docs/web/sdk-create-service.mdx",/*require.resolve*/(247)],'dee42c97':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(248))),"@site/docs/mobile/concepts-events.mdx",/*require.resolve*/(248)],'e43cbe9b':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(249))),"@site/docs/mobile/usecases-internationalization.mdx",/*require.resolve*/(249)],'e5698f5b':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(28))),"@site/docs/snippets/app-item.mdx",/*require.resolve*/(28)],'e659d45e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(22))),"@site/docs/web/snippets/prereqs-custom-code.mdx",/*require.resolve*/(22)],'e7fbb860':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(250))),"@site/docs/web/concepts-events.mdx",/*require.resolve*/(250)],'eb4e678c':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(35))),"@site/docs/workflow/snippets/prereqs-mobile.mdx",/*require.resolve*/(35)],'ec2a1e0d':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(251))),"@site/docs/mobile/sdk-memory-leaks.mdx",/*require.resolve*/(251)],'ed6d9243':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(252))),"@site/docs/workflow/overview.mdx",/*require.resolve*/(252)],'ed991ef5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(253))),"@site/docs/mobile/concepts-layout.mdx",/*require.resolve*/(253)],'ef478666':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(254))),"@site/docs/web/usecases-internationalization.mdx",/*require.resolve*/(254)],'f01dec33':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(255))),"@site/docs/mobile/concepts-advanced-layout.mdx",/*require.resolve*/(255)],'f403b3ad':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(256))),"@site/docs/web/usecases-components-commands-operations.mdx",/*require.resolve*/(256)],'f557cec5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(62))),"@site/docs/mobile/snippets/doomsday-cookie-clicker-view-model.mdx",/*require.resolve*/(62)],'f5cda891':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(257))),"@site/docs/workflow/usecases-web-implement-custom-activity.mdx",/*require.resolve*/(257)],'f70cdde7':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(258))),"@site/docs/mobile/concepts-components-services.mdx",/*require.resolve*/(258)],'f7abda3c':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(259))),"@site/docs/mobile/api-commands-operations.mdx",/*require.resolve*/(259)],'f9b89150':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(260))),"@site/docs/web/sdk-deployment.mdx",/*require.resolve*/(260)],'f9d5545e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(261))),"@site/docs/mobile/overview.mdx",/*require.resolve*/(261)],'fc6de4ba':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(39))),"@site/docs/web/snippets/prereqs-layout-config-editing.mdx",/*require.resolve*/(39)],'fdede3e2':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(262))),"@site/docs/workflow/sdk-net-register-activities.mdx",/*require.resolve*/(262)],'febae6b0':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(263))),"@site/docs/web/concepts-commands-operations.mdx",/*require.resolve*/(263)],'ff37a7c5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(264))),"@site/docs/workflow/sdk-net-integrating-the-arcgis-api.mdx",/*require.resolve*/(264)]});
+/* harmony default export */ var registry = ({'03bd8be6':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(162))),"@site/docs/web/usecases-change-default-behavior.mdx",/*require.resolve*/(162)],'050f23e3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(164))),"@site/docs/mobile/concepts-key-concepts.mdx",/*require.resolve*/(164)],'0899d789':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(165))),"@site/docs/mobile/concepts-commands-operations.mdx",/*require.resolve*/(165)],'0c5c4f23':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(166))),"@site/docs/workflow/sdk-overview.mdx",/*require.resolve*/(166)],'0ef200f8':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(167))),"@site/docs/web/usecases-implement-custom-form-elements.mdx",/*require.resolve*/(167)],'0f48690c':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(168))),"@site/docs/mobile/usecases-add-medium-layout.mdx",/*require.resolve*/(168)],'1171ab7b':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(169))),"@site/docs/web/usecases-implement-component-participate-app-config.mdx",/*require.resolve*/(169)],'11f075a8':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(170))),"@site/docs/workflow/usecases-mobile-access-app-properties.mdx",/*require.resolve*/(170)],'13561cf4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(171))),"@site/docs/web/sdk-component-hooks.mdx",/*require.resolve*/(171)],'17676934':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(61))),"@site/docs/mobile/snippets/follow-along.mdx",/*require.resolve*/(61)],'17896441':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(267))),"@theme/DocItem",/*require.resolve*/(267)],'183e812d':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(172))),"@site/docs/web/usecases-display-custom-form.mdx",/*require.resolve*/(172)],'1a82d206':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(173))),"@site/docs/web/usecases-implement-component-with-ui.mdx",/*require.resolve*/(173)],'1be78505':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(266))),"@theme/DocPage",/*require.resolve*/(266)],'1e7ae3f5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(193))),"@site/docs/web/concepts-advanced-app-config.mdx",/*require.resolve*/(193)],'20ac7829':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(194))),"~docs/docs-route-ff2.json",/*require.resolve*/(194)],'226e15d4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(195))),"@site/docs/mobile/sdk-dependency-injection.mdx",/*require.resolve*/(195)],'26a64548':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(196))),"@site/docs/web/concepts-app-config.mdx",/*require.resolve*/(196)],'27531a3f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(197))),"@site/docs/web/sdk-reference-third-party-libraries.mdx",/*require.resolve*/(197)],'282673f1':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(198))),"@site/docs/web/usecases-component-interactions.mdx",/*require.resolve*/(198)],'2956bfe2':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(199))),"@site/docs/workflow/sdk-web-getting-started.mdx",/*require.resolve*/(199)],'2dc95b96':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(63))),"@site/docs/workflow/snippets/host-esri-api-version.mdx",/*require.resolve*/(63)],'2f2b3bc0':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(200))),"@site/docs/web/concepts-advanced-layout.mdx",/*require.resolve*/(200)],'351d88f4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(201))),"@site/docs/web/usecases-implement-service.mdx",/*require.resolve*/(201)],'36272414':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(202))),"@site/docs/web/usecases-implement-event.mdx",/*require.resolve*/(202)],'370e0b3f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(203))),"@site/docs/mobile/usecases-change-default-map-click-behavior.mdx",/*require.resolve*/(203)],'3b54c321':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(204))),"@site/docs/workflow/sdk-web-activity-block-tags.mdx",/*require.resolve*/(204)],'3ec7fd70':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(205))),"@site/docs/workflow/concepts-key-concepts.mdx",/*require.resolve*/(205)],'409253a0':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(206))),"@site/docs/mobile/concepts-app-config.mdx",/*require.resolve*/(206)],'4697a878':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(207))),"@site/docs/mobile/api-overview.mdx",/*require.resolve*/(207)],'470932b3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(208))),"@site/docs/web/api-commands-operations-events.mdx",/*require.resolve*/(208)],'51fdb279':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(76))),"@site/docs/workflow/snippets/prereqs-server.mdx",/*require.resolve*/(76)],'55c66547':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(44))),"@site/docs/workflow/snippets/logarithm-activity.mdx",/*require.resolve*/(44)],'5798a141':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(209))),"@site/docs/web/api-components.mdx",/*require.resolve*/(209)],'68ec168c':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(210))),"@site/docs/mobile/sdk-viewmodel-helper-class.mdx",/*require.resolve*/(210)],'69332e41':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(211))),"@site/docs/workflow/usecases-web-implement-custom-form-elements.mdx",/*require.resolve*/(211)],'6cb3bf61':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(212))),"@site/docs/workflow/usecases-mobile-implement-custom-activity.mdx",/*require.resolve*/(212)],'6eccecf3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(213))),"@site/docs/web/usecases-implement-custom-activity.mdx",/*require.resolve*/(213)],'72f94b9b':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(214))),"@site/docs/mobile/usecases-implement-service.mdx",/*require.resolve*/(214)],'7369f08e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(215))),"@site/docs/workflow/usecases-mobile-reference-third-party-library.mdx",/*require.resolve*/(215)],'75b4a5a2':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(216))),"@site/docs/web/api-message-bus.mdx",/*require.resolve*/(216)],'75f6d0d6':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(217))),"@site/docs/mobile/api-components.mdx",/*require.resolve*/(217)],'79387e8d':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(218))),"@site/docs/workflow/sdk-web-integrating-the-arcgis-api.mdx",/*require.resolve*/(218)],'7b5b66d4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(219))),"@site/docs/web/usecases-implement-command-operation.mdx",/*require.resolve*/(219)],'7c80c505':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(220))),"@site/docs/mobile/usecases-implement-component-participate-app-config.mdx",/*require.resolve*/(220)],'80404431':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(221))),"@site/docs/workflow/usecases-web-access-app-properties.mdx",/*require.resolve*/(221)],'84244b50':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(28))),"@site/docs/web/snippets/framework-components.mdx",/*require.resolve*/(28)],'852ca0c5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(222))),"@site/docs/web/sdk-service-injection.mdx",/*require.resolve*/(222)],'85beb773':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(223))),"@site/docs/workflow/api-server-rest.mdx",/*require.resolve*/(223)],'8a33fbc0':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(43))),"@site/docs/web/snippets/follow-along.mdx",/*require.resolve*/(43)],'8ec1a3ae':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(224))),"@site/docs/web/sdk-create-component.mdx",/*require.resolve*/(224)],'8f2e743f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(225))),"@site/docs/web/sdk-ui-context.mdx",/*require.resolve*/(225)],'8f6e0ec2':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(226))),"@site/docs/mobile/api-commands-operations-events.mdx",/*require.resolve*/(226)],'9019e22d':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(227))),"@site/docs/workflow/sdk-net-getting-started-mobile.mdx",/*require.resolve*/(227)],'906097b3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(228))),"@site/docs/mobile/usecases-look-and-feel.mdx",/*require.resolve*/(228)],'91ee8259':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(42))),"@site/docs/mobile/snippets/designer-callout.mdx",/*require.resolve*/(42)],'981cf5ec':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(229))),"@site/docs/web/usecases-change-default-map-click-behavior.mdx",/*require.resolve*/(229)],'99dd369f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(15))),"@site/docs/mobile/snippets/prereqs.mdx",/*require.resolve*/(15)],'9a6a707e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(230))),"@site/docs/web/usecases-look-and-feel.mdx",/*require.resolve*/(230)],'a57360df':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(231))),"@site/docs/workflow/sdk-net-getting-started-server.mdx",/*require.resolve*/(231)],'a67bc9da':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(232))),"@site/docs/web/overview.mdx",/*require.resolve*/(232)],'a962d706':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(233))),"@site/docs/web/concepts-layout.mdx",/*require.resolve*/(233)],'abdc00a3':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(234))),"@site/docs/web/sdk-overview.mdx",/*require.resolve*/(234)],'ac400afb':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(235))),"@site/docs/mobile/usecases-implement-command-operation.mdx",/*require.resolve*/(235)],'b1c48121':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(236))),"@site/docs/workflow/usecases-server-implement-custom-activity.mdx",/*require.resolve*/(236)],'b5e2b715':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(49))),"@site/docs/web/snippets/designer-callout.mdx",/*require.resolve*/(49)],'b7603e3e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(237))),"@site/docs/web/concepts-components-services.mdx",/*require.resolve*/(237)],'b787c328':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(238))),"@site/docs/mobile/usecases-implement-component-with-ui.mdx",/*require.resolve*/(238)],'b89757bf':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(239))),"@site/docs/mobile/usecases-change-default-behavior.mdx",/*require.resolve*/(239)],'ba908733':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(240))),"@site/docs/mobile/sdk-quick-start.mdx",/*require.resolve*/(240)],'c18616c8':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(241))),"@site/docs/workflow/usecases-mobile-implement-custom-form-elements.mdx",/*require.resolve*/(241)],'c3122fe7':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(242))),"@site/docs/mobile/usecases-implement-event.mdx",/*require.resolve*/(242)],'c4f5d8e4':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(268))),"@site/src/pages/index.js",/*require.resolve*/(268)],'c5fef569':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(243))),"@site/docs/web/concepts-key-concepts.mdx",/*require.resolve*/(243)],'c8185606':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(244))),"@site/docs/mobile/concepts-advanced-app-config.mdx",/*require.resolve*/(244)],'caa2d16a':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(245))),"@site/docs/workflow/usecases-web-reference-third-party-library.mdx",/*require.resolve*/(245)],'ce430d7a':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(246))),"@site/docs/mobile/sdk-samples.mdx",/*require.resolve*/(246)],'ce88a68f':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(64))),"@site/docs/workflow/snippets/designer-callout.mdx",/*require.resolve*/(64)],'cfa5b9a9':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(19))),"@site/docs/snippets/autofac-mobile.mdx",/*require.resolve*/(19)],'d3e273cb':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(247))),"@site/docs/workflow/usecases-server-reference-third-party-library.mdx",/*require.resolve*/(247)],'d4973b75':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(30))),"@site/docs/workflow/snippets/prereqs-web.mdx",/*require.resolve*/(30)],'d97f9b53':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(248))),"@site/docs/web/sdk-create-service.mdx",/*require.resolve*/(248)],'dee42c97':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(249))),"@site/docs/mobile/concepts-events.mdx",/*require.resolve*/(249)],'e43cbe9b':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(250))),"@site/docs/mobile/usecases-internationalization.mdx",/*require.resolve*/(250)],'e5698f5b':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(29))),"@site/docs/snippets/app-item.mdx",/*require.resolve*/(29)],'e659d45e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(22))),"@site/docs/web/snippets/prereqs-custom-code.mdx",/*require.resolve*/(22)],'e7fbb860':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(251))),"@site/docs/web/concepts-events.mdx",/*require.resolve*/(251)],'eb4e678c':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(37))),"@site/docs/workflow/snippets/prereqs-mobile.mdx",/*require.resolve*/(37)],'ec2a1e0d':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(252))),"@site/docs/mobile/sdk-memory-leaks.mdx",/*require.resolve*/(252)],'ed6d9243':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(253))),"@site/docs/workflow/overview.mdx",/*require.resolve*/(253)],'ed991ef5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(254))),"@site/docs/mobile/concepts-layout.mdx",/*require.resolve*/(254)],'ef478666':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(255))),"@site/docs/web/usecases-internationalization.mdx",/*require.resolve*/(255)],'f01dec33':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(256))),"@site/docs/mobile/concepts-advanced-layout.mdx",/*require.resolve*/(256)],'f403b3ad':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(257))),"@site/docs/web/usecases-components-commands-operations.mdx",/*require.resolve*/(257)],'f557cec5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(65))),"@site/docs/mobile/snippets/doomsday-cookie-clicker-view-model.mdx",/*require.resolve*/(65)],'f5cda891':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(258))),"@site/docs/workflow/usecases-web-implement-custom-activity.mdx",/*require.resolve*/(258)],'f70cdde7':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(259))),"@site/docs/mobile/concepts-components-services.mdx",/*require.resolve*/(259)],'f9b89150':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(260))),"@site/docs/web/sdk-deployment.mdx",/*require.resolve*/(260)],'f9d5545e':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(261))),"@site/docs/mobile/overview.mdx",/*require.resolve*/(261)],'fc6de4ba':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(41))),"@site/docs/web/snippets/prereqs-layout-config-editing.mdx",/*require.resolve*/(41)],'fdede3e2':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(262))),"@site/docs/workflow/sdk-net-register-activities.mdx",/*require.resolve*/(262)],'febae6b0':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(263))),"@site/docs/web/concepts-commands-operations.mdx",/*require.resolve*/(263)],'ff37a7c5':[()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(264))),"@site/docs/workflow/sdk-net-integrating-the-arcgis-api.mdx",/*require.resolve*/(264)]});
 // CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/flat.js
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -59528,7 +59577,7 @@ var routesChunkNames = __webpack_require__(276);
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */function ComponentCreator(path){// 404 page
-if(path==='*'){return react_loadable_lib_default()({loading:Loading,loader:()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(124)))});}const chunkNames=routesChunkNames[path];const optsModules=[];const optsWebpack=[];const optsLoader={};/* Prepare opts data that react-loadable needs
+if(path==='*'){return react_loadable_lib_default()({loading:Loading,loader:()=>Promise.resolve().then(()=>Object(interopRequireWildcard["a" /* default */])(__webpack_require__(126)))});}const chunkNames=routesChunkNames[path];const optsModules=[];const optsWebpack=[];const optsLoader={};/* Prepare opts data that react-loadable needs
   https://github.com/jamiebuilds/react-loadable#declaring-which-modules-are-being-loaded
   Example:
   - optsLoader:
@@ -59541,12 +59590,12 @@ if(path==='*'){return react_loadable_lib_default()({loading:Loading,loader:()=>P
   */const flatChunkNames=client_flat(chunkNames);Object.keys(flatChunkNames).forEach(key=>{const chunkRegistry=registry[flatChunkNames[key]];if(chunkRegistry){/* eslint-disable prefer-destructuring */optsLoader[key]=chunkRegistry[0];optsModules.push(chunkRegistry[1]);optsWebpack.push(chunkRegistry[2]);/* eslint-enable prefer-destructuring */}});return react_loadable_lib_default.a.Map({loading:Loading,loader:optsLoader,modules:optsModules,webpack:()=>optsWebpack,render:(loaded,props)=>{// Clone the original object since we don't want to alter the original.
 const loadedModules=JSON.parse(JSON.stringify(chunkNames));Object.keys(loaded).forEach(key=>{let val=loadedModules;const keyPath=key.split('.');for(let i=0;i<keyPath.length-1;i+=1){val=val[keyPath[i]];}val[keyPath[keyPath.length-1]]=loaded[key].default;const nonDefaultKeys=Object.keys(loaded[key]).filter(k=>k!=='default');if(nonDefaultKeys&&nonDefaultKeys.length){nonDefaultKeys.forEach(nonDefaultKey=>{val[keyPath[keyPath.length-1]][nonDefaultKey]=loaded[key][nonDefaultKey];});}});const Component=loadedModules.component;delete loadedModules.component;return/*#__PURE__*/react_default.a.createElement(Component,Object(esm_extends["a" /* default */])({},loadedModules,props));}});}/* harmony default export */ var exports_ComponentCreator = (ComponentCreator);
 // CONCATENATED MODULE: ./.docusaurus/routes.js
-/* harmony default export */ var _docusaurus_routes = ([{path:'/',component:exports_ComponentCreator('/'),exact:true},{path:'/docs/:route',component:exports_ComponentCreator('/docs/:route'),routes:[{path:'/docs/mobile/api-commands-operations',component:exports_ComponentCreator('/docs/mobile/api-commands-operations'),exact:true},{path:'/docs/mobile/api-components',component:exports_ComponentCreator('/docs/mobile/api-components'),exact:true},{path:'/docs/mobile/api-events',component:exports_ComponentCreator('/docs/mobile/api-events'),exact:true},{path:'/docs/mobile/api-overview',component:exports_ComponentCreator('/docs/mobile/api-overview'),exact:true},{path:'/docs/mobile/concepts-advanced-app-config',component:exports_ComponentCreator('/docs/mobile/concepts-advanced-app-config'),exact:true},{path:'/docs/mobile/concepts-advanced-layout',component:exports_ComponentCreator('/docs/mobile/concepts-advanced-layout'),exact:true},{path:'/docs/mobile/concepts-app-config',component:exports_ComponentCreator('/docs/mobile/concepts-app-config'),exact:true},{path:'/docs/mobile/concepts-commands-operations',component:exports_ComponentCreator('/docs/mobile/concepts-commands-operations'),exact:true},{path:'/docs/mobile/concepts-components-services',component:exports_ComponentCreator('/docs/mobile/concepts-components-services'),exact:true},{path:'/docs/mobile/concepts-events',component:exports_ComponentCreator('/docs/mobile/concepts-events'),exact:true},{path:'/docs/mobile/concepts-key-concepts',component:exports_ComponentCreator('/docs/mobile/concepts-key-concepts'),exact:true},{path:'/docs/mobile/concepts-layout',component:exports_ComponentCreator('/docs/mobile/concepts-layout'),exact:true},{path:'/docs/mobile/overview',component:exports_ComponentCreator('/docs/mobile/overview'),exact:true},{path:'/docs/mobile/sdk-dependency-injection',component:exports_ComponentCreator('/docs/mobile/sdk-dependency-injection'),exact:true},{path:'/docs/mobile/sdk-memory-leaks',component:exports_ComponentCreator('/docs/mobile/sdk-memory-leaks'),exact:true},{path:'/docs/mobile/sdk-quick-start',component:exports_ComponentCreator('/docs/mobile/sdk-quick-start'),exact:true},{path:'/docs/mobile/sdk-samples',component:exports_ComponentCreator('/docs/mobile/sdk-samples'),exact:true},{path:'/docs/mobile/sdk-viewmodel-helper-class',component:exports_ComponentCreator('/docs/mobile/sdk-viewmodel-helper-class'),exact:true},{path:'/docs/mobile/snippets/designer-callout',component:exports_ComponentCreator('/docs/mobile/snippets/designer-callout'),exact:true},{path:'/docs/mobile/snippets/doomsday-cookie-clicker-view-model',component:exports_ComponentCreator('/docs/mobile/snippets/doomsday-cookie-clicker-view-model'),exact:true},{path:'/docs/mobile/snippets/follow-along',component:exports_ComponentCreator('/docs/mobile/snippets/follow-along'),exact:true},{path:'/docs/mobile/snippets/prereqs',component:exports_ComponentCreator('/docs/mobile/snippets/prereqs'),exact:true},{path:'/docs/mobile/usecases-add-medium-layout',component:exports_ComponentCreator('/docs/mobile/usecases-add-medium-layout'),exact:true},{path:'/docs/mobile/usecases-change-default-behavior',component:exports_ComponentCreator('/docs/mobile/usecases-change-default-behavior'),exact:true},{path:'/docs/mobile/usecases-change-default-map-click-behavior',component:exports_ComponentCreator('/docs/mobile/usecases-change-default-map-click-behavior'),exact:true},{path:'/docs/mobile/usecases-implement-command-operation',component:exports_ComponentCreator('/docs/mobile/usecases-implement-command-operation'),exact:true},{path:'/docs/mobile/usecases-implement-component-participate-app-config',component:exports_ComponentCreator('/docs/mobile/usecases-implement-component-participate-app-config'),exact:true},{path:'/docs/mobile/usecases-implement-component-with-ui',component:exports_ComponentCreator('/docs/mobile/usecases-implement-component-with-ui'),exact:true},{path:'/docs/mobile/usecases-implement-event',component:exports_ComponentCreator('/docs/mobile/usecases-implement-event'),exact:true},{path:'/docs/mobile/usecases-implement-service',component:exports_ComponentCreator('/docs/mobile/usecases-implement-service'),exact:true},{path:'/docs/mobile/usecases-internationalization',component:exports_ComponentCreator('/docs/mobile/usecases-internationalization'),exact:true},{path:'/docs/mobile/usecases-look-and-feel',component:exports_ComponentCreator('/docs/mobile/usecases-look-and-feel'),exact:true},{path:'/docs/snippets/app-item',component:exports_ComponentCreator('/docs/snippets/app-item'),exact:true},{path:'/docs/snippets/autofac-mobile',component:exports_ComponentCreator('/docs/snippets/autofac-mobile'),exact:true},{path:'/docs/web/api-commands-operations',component:exports_ComponentCreator('/docs/web/api-commands-operations'),exact:true},{path:'/docs/web/api-components',component:exports_ComponentCreator('/docs/web/api-components'),exact:true},{path:'/docs/web/api-events',component:exports_ComponentCreator('/docs/web/api-events'),exact:true},{path:'/docs/web/api-message-bus',component:exports_ComponentCreator('/docs/web/api-message-bus'),exact:true},{path:'/docs/web/concepts-advanced-app-config',component:exports_ComponentCreator('/docs/web/concepts-advanced-app-config'),exact:true},{path:'/docs/web/concepts-advanced-layout',component:exports_ComponentCreator('/docs/web/concepts-advanced-layout'),exact:true},{path:'/docs/web/concepts-app-config',component:exports_ComponentCreator('/docs/web/concepts-app-config'),exact:true},{path:'/docs/web/concepts-commands-operations',component:exports_ComponentCreator('/docs/web/concepts-commands-operations'),exact:true},{path:'/docs/web/concepts-components-services',component:exports_ComponentCreator('/docs/web/concepts-components-services'),exact:true},{path:'/docs/web/concepts-events',component:exports_ComponentCreator('/docs/web/concepts-events'),exact:true},{path:'/docs/web/concepts-key-concepts',component:exports_ComponentCreator('/docs/web/concepts-key-concepts'),exact:true},{path:'/docs/web/concepts-layout',component:exports_ComponentCreator('/docs/web/concepts-layout'),exact:true},{path:'/docs/web/overview',component:exports_ComponentCreator('/docs/web/overview'),exact:true},{path:'/docs/web/sdk-component-hooks',component:exports_ComponentCreator('/docs/web/sdk-component-hooks'),exact:true},{path:'/docs/web/sdk-create-component',component:exports_ComponentCreator('/docs/web/sdk-create-component'),exact:true},{path:'/docs/web/sdk-create-service',component:exports_ComponentCreator('/docs/web/sdk-create-service'),exact:true},{path:'/docs/web/sdk-deployment',component:exports_ComponentCreator('/docs/web/sdk-deployment'),exact:true},{path:'/docs/web/sdk-overview',component:exports_ComponentCreator('/docs/web/sdk-overview'),exact:true},{path:'/docs/web/sdk-reference-third-party-libraries',component:exports_ComponentCreator('/docs/web/sdk-reference-third-party-libraries'),exact:true},{path:'/docs/web/sdk-service-injection',component:exports_ComponentCreator('/docs/web/sdk-service-injection'),exact:true},{path:'/docs/web/sdk-ui-context',component:exports_ComponentCreator('/docs/web/sdk-ui-context'),exact:true},{path:'/docs/web/snippets/designer-callout',component:exports_ComponentCreator('/docs/web/snippets/designer-callout'),exact:true},{path:'/docs/web/snippets/follow-along',component:exports_ComponentCreator('/docs/web/snippets/follow-along'),exact:true},{path:'/docs/web/snippets/framework-components',component:exports_ComponentCreator('/docs/web/snippets/framework-components'),exact:true},{path:'/docs/web/snippets/prereqs-custom-code',component:exports_ComponentCreator('/docs/web/snippets/prereqs-custom-code'),exact:true},{path:'/docs/web/snippets/prereqs-layout-config-editing',component:exports_ComponentCreator('/docs/web/snippets/prereqs-layout-config-editing'),exact:true},{path:'/docs/web/usecases-change-default-behavior',component:exports_ComponentCreator('/docs/web/usecases-change-default-behavior'),exact:true},{path:'/docs/web/usecases-change-default-map-click-behavior',component:exports_ComponentCreator('/docs/web/usecases-change-default-map-click-behavior'),exact:true},{path:'/docs/web/usecases-component-interactions',component:exports_ComponentCreator('/docs/web/usecases-component-interactions'),exact:true},{path:'/docs/web/usecases-components-commands-operations',component:exports_ComponentCreator('/docs/web/usecases-components-commands-operations'),exact:true},{path:'/docs/web/usecases-display-custom-form',component:exports_ComponentCreator('/docs/web/usecases-display-custom-form'),exact:true},{path:'/docs/web/usecases-implement-command-operation',component:exports_ComponentCreator('/docs/web/usecases-implement-command-operation'),exact:true},{path:'/docs/web/usecases-implement-component-participate-app-config',component:exports_ComponentCreator('/docs/web/usecases-implement-component-participate-app-config'),exact:true},{path:'/docs/web/usecases-implement-component-with-ui',component:exports_ComponentCreator('/docs/web/usecases-implement-component-with-ui'),exact:true},{path:'/docs/web/usecases-implement-custom-activity',component:exports_ComponentCreator('/docs/web/usecases-implement-custom-activity'),exact:true},{path:'/docs/web/usecases-implement-custom-form-elements',component:exports_ComponentCreator('/docs/web/usecases-implement-custom-form-elements'),exact:true},{path:'/docs/web/usecases-implement-event',component:exports_ComponentCreator('/docs/web/usecases-implement-event'),exact:true},{path:'/docs/web/usecases-implement-service',component:exports_ComponentCreator('/docs/web/usecases-implement-service'),exact:true},{path:'/docs/web/usecases-internationalization',component:exports_ComponentCreator('/docs/web/usecases-internationalization'),exact:true},{path:'/docs/web/usecases-look-and-feel',component:exports_ComponentCreator('/docs/web/usecases-look-and-feel'),exact:true},{path:'/docs/workflow/api-server-rest',component:exports_ComponentCreator('/docs/workflow/api-server-rest'),exact:true},{path:'/docs/workflow/concepts-key-concepts',component:exports_ComponentCreator('/docs/workflow/concepts-key-concepts'),exact:true},{path:'/docs/workflow/overview',component:exports_ComponentCreator('/docs/workflow/overview'),exact:true},{path:'/docs/workflow/sdk-net-getting-started-mobile',component:exports_ComponentCreator('/docs/workflow/sdk-net-getting-started-mobile'),exact:true},{path:'/docs/workflow/sdk-net-getting-started-server',component:exports_ComponentCreator('/docs/workflow/sdk-net-getting-started-server'),exact:true},{path:'/docs/workflow/sdk-net-integrating-the-arcgis-api',component:exports_ComponentCreator('/docs/workflow/sdk-net-integrating-the-arcgis-api'),exact:true},{path:'/docs/workflow/sdk-net-register-activities',component:exports_ComponentCreator('/docs/workflow/sdk-net-register-activities'),exact:true},{path:'/docs/workflow/sdk-overview',component:exports_ComponentCreator('/docs/workflow/sdk-overview'),exact:true},{path:'/docs/workflow/sdk-web-activity-block-tags',component:exports_ComponentCreator('/docs/workflow/sdk-web-activity-block-tags'),exact:true},{path:'/docs/workflow/sdk-web-getting-started',component:exports_ComponentCreator('/docs/workflow/sdk-web-getting-started'),exact:true},{path:'/docs/workflow/sdk-web-integrating-the-arcgis-api',component:exports_ComponentCreator('/docs/workflow/sdk-web-integrating-the-arcgis-api'),exact:true},{path:'/docs/workflow/snippets/designer-callout',component:exports_ComponentCreator('/docs/workflow/snippets/designer-callout'),exact:true},{path:'/docs/workflow/snippets/host-esri-api-version',component:exports_ComponentCreator('/docs/workflow/snippets/host-esri-api-version'),exact:true},{path:'/docs/workflow/snippets/logarithm-activity',component:exports_ComponentCreator('/docs/workflow/snippets/logarithm-activity'),exact:true},{path:'/docs/workflow/snippets/prereqs-mobile',component:exports_ComponentCreator('/docs/workflow/snippets/prereqs-mobile'),exact:true},{path:'/docs/workflow/snippets/prereqs-server',component:exports_ComponentCreator('/docs/workflow/snippets/prereqs-server'),exact:true},{path:'/docs/workflow/snippets/prereqs-web',component:exports_ComponentCreator('/docs/workflow/snippets/prereqs-web'),exact:true},{path:'/docs/workflow/usecases-mobile-access-app-properties',component:exports_ComponentCreator('/docs/workflow/usecases-mobile-access-app-properties'),exact:true},{path:'/docs/workflow/usecases-mobile-implement-custom-activity',component:exports_ComponentCreator('/docs/workflow/usecases-mobile-implement-custom-activity'),exact:true},{path:'/docs/workflow/usecases-mobile-implement-custom-form-elements',component:exports_ComponentCreator('/docs/workflow/usecases-mobile-implement-custom-form-elements'),exact:true},{path:'/docs/workflow/usecases-mobile-reference-third-party-library',component:exports_ComponentCreator('/docs/workflow/usecases-mobile-reference-third-party-library'),exact:true},{path:'/docs/workflow/usecases-server-implement-custom-activity',component:exports_ComponentCreator('/docs/workflow/usecases-server-implement-custom-activity'),exact:true},{path:'/docs/workflow/usecases-server-reference-third-party-library',component:exports_ComponentCreator('/docs/workflow/usecases-server-reference-third-party-library'),exact:true},{path:'/docs/workflow/usecases-web-access-app-properties',component:exports_ComponentCreator('/docs/workflow/usecases-web-access-app-properties'),exact:true},{path:'/docs/workflow/usecases-web-implement-custom-activity',component:exports_ComponentCreator('/docs/workflow/usecases-web-implement-custom-activity'),exact:true},{path:'/docs/workflow/usecases-web-implement-custom-form-elements',component:exports_ComponentCreator('/docs/workflow/usecases-web-implement-custom-form-elements'),exact:true},{path:'/docs/workflow/usecases-web-reference-third-party-library',component:exports_ComponentCreator('/docs/workflow/usecases-web-reference-third-party-library'),exact:true}]},{path:'*',component:exports_ComponentCreator('*')}]);
+/* harmony default export */ var _docusaurus_routes = ([{path:'/',component:exports_ComponentCreator('/'),exact:true},{path:'/docs/:route',component:exports_ComponentCreator('/docs/:route'),routes:[{path:'/docs/mobile/api-commands-operations-events',component:exports_ComponentCreator('/docs/mobile/api-commands-operations-events'),exact:true},{path:'/docs/mobile/api-components',component:exports_ComponentCreator('/docs/mobile/api-components'),exact:true},{path:'/docs/mobile/api-overview',component:exports_ComponentCreator('/docs/mobile/api-overview'),exact:true},{path:'/docs/mobile/concepts-advanced-app-config',component:exports_ComponentCreator('/docs/mobile/concepts-advanced-app-config'),exact:true},{path:'/docs/mobile/concepts-advanced-layout',component:exports_ComponentCreator('/docs/mobile/concepts-advanced-layout'),exact:true},{path:'/docs/mobile/concepts-app-config',component:exports_ComponentCreator('/docs/mobile/concepts-app-config'),exact:true},{path:'/docs/mobile/concepts-commands-operations',component:exports_ComponentCreator('/docs/mobile/concepts-commands-operations'),exact:true},{path:'/docs/mobile/concepts-components-services',component:exports_ComponentCreator('/docs/mobile/concepts-components-services'),exact:true},{path:'/docs/mobile/concepts-events',component:exports_ComponentCreator('/docs/mobile/concepts-events'),exact:true},{path:'/docs/mobile/concepts-key-concepts',component:exports_ComponentCreator('/docs/mobile/concepts-key-concepts'),exact:true},{path:'/docs/mobile/concepts-layout',component:exports_ComponentCreator('/docs/mobile/concepts-layout'),exact:true},{path:'/docs/mobile/overview',component:exports_ComponentCreator('/docs/mobile/overview'),exact:true},{path:'/docs/mobile/sdk-dependency-injection',component:exports_ComponentCreator('/docs/mobile/sdk-dependency-injection'),exact:true},{path:'/docs/mobile/sdk-memory-leaks',component:exports_ComponentCreator('/docs/mobile/sdk-memory-leaks'),exact:true},{path:'/docs/mobile/sdk-quick-start',component:exports_ComponentCreator('/docs/mobile/sdk-quick-start'),exact:true},{path:'/docs/mobile/sdk-samples',component:exports_ComponentCreator('/docs/mobile/sdk-samples'),exact:true},{path:'/docs/mobile/sdk-viewmodel-helper-class',component:exports_ComponentCreator('/docs/mobile/sdk-viewmodel-helper-class'),exact:true},{path:'/docs/mobile/snippets/designer-callout',component:exports_ComponentCreator('/docs/mobile/snippets/designer-callout'),exact:true},{path:'/docs/mobile/snippets/doomsday-cookie-clicker-view-model',component:exports_ComponentCreator('/docs/mobile/snippets/doomsday-cookie-clicker-view-model'),exact:true},{path:'/docs/mobile/snippets/follow-along',component:exports_ComponentCreator('/docs/mobile/snippets/follow-along'),exact:true},{path:'/docs/mobile/snippets/prereqs',component:exports_ComponentCreator('/docs/mobile/snippets/prereqs'),exact:true},{path:'/docs/mobile/usecases-add-medium-layout',component:exports_ComponentCreator('/docs/mobile/usecases-add-medium-layout'),exact:true},{path:'/docs/mobile/usecases-change-default-behavior',component:exports_ComponentCreator('/docs/mobile/usecases-change-default-behavior'),exact:true},{path:'/docs/mobile/usecases-change-default-map-click-behavior',component:exports_ComponentCreator('/docs/mobile/usecases-change-default-map-click-behavior'),exact:true},{path:'/docs/mobile/usecases-implement-command-operation',component:exports_ComponentCreator('/docs/mobile/usecases-implement-command-operation'),exact:true},{path:'/docs/mobile/usecases-implement-component-participate-app-config',component:exports_ComponentCreator('/docs/mobile/usecases-implement-component-participate-app-config'),exact:true},{path:'/docs/mobile/usecases-implement-component-with-ui',component:exports_ComponentCreator('/docs/mobile/usecases-implement-component-with-ui'),exact:true},{path:'/docs/mobile/usecases-implement-event',component:exports_ComponentCreator('/docs/mobile/usecases-implement-event'),exact:true},{path:'/docs/mobile/usecases-implement-service',component:exports_ComponentCreator('/docs/mobile/usecases-implement-service'),exact:true},{path:'/docs/mobile/usecases-internationalization',component:exports_ComponentCreator('/docs/mobile/usecases-internationalization'),exact:true},{path:'/docs/mobile/usecases-look-and-feel',component:exports_ComponentCreator('/docs/mobile/usecases-look-and-feel'),exact:true},{path:'/docs/snippets/app-item',component:exports_ComponentCreator('/docs/snippets/app-item'),exact:true},{path:'/docs/snippets/autofac-mobile',component:exports_ComponentCreator('/docs/snippets/autofac-mobile'),exact:true},{path:'/docs/web/api-commands-operations-events',component:exports_ComponentCreator('/docs/web/api-commands-operations-events'),exact:true},{path:'/docs/web/api-components',component:exports_ComponentCreator('/docs/web/api-components'),exact:true},{path:'/docs/web/api-message-bus',component:exports_ComponentCreator('/docs/web/api-message-bus'),exact:true},{path:'/docs/web/concepts-advanced-app-config',component:exports_ComponentCreator('/docs/web/concepts-advanced-app-config'),exact:true},{path:'/docs/web/concepts-advanced-layout',component:exports_ComponentCreator('/docs/web/concepts-advanced-layout'),exact:true},{path:'/docs/web/concepts-app-config',component:exports_ComponentCreator('/docs/web/concepts-app-config'),exact:true},{path:'/docs/web/concepts-commands-operations',component:exports_ComponentCreator('/docs/web/concepts-commands-operations'),exact:true},{path:'/docs/web/concepts-components-services',component:exports_ComponentCreator('/docs/web/concepts-components-services'),exact:true},{path:'/docs/web/concepts-events',component:exports_ComponentCreator('/docs/web/concepts-events'),exact:true},{path:'/docs/web/concepts-key-concepts',component:exports_ComponentCreator('/docs/web/concepts-key-concepts'),exact:true},{path:'/docs/web/concepts-layout',component:exports_ComponentCreator('/docs/web/concepts-layout'),exact:true},{path:'/docs/web/overview',component:exports_ComponentCreator('/docs/web/overview'),exact:true},{path:'/docs/web/sdk-component-hooks',component:exports_ComponentCreator('/docs/web/sdk-component-hooks'),exact:true},{path:'/docs/web/sdk-create-component',component:exports_ComponentCreator('/docs/web/sdk-create-component'),exact:true},{path:'/docs/web/sdk-create-service',component:exports_ComponentCreator('/docs/web/sdk-create-service'),exact:true},{path:'/docs/web/sdk-deployment',component:exports_ComponentCreator('/docs/web/sdk-deployment'),exact:true},{path:'/docs/web/sdk-overview',component:exports_ComponentCreator('/docs/web/sdk-overview'),exact:true},{path:'/docs/web/sdk-reference-third-party-libraries',component:exports_ComponentCreator('/docs/web/sdk-reference-third-party-libraries'),exact:true},{path:'/docs/web/sdk-service-injection',component:exports_ComponentCreator('/docs/web/sdk-service-injection'),exact:true},{path:'/docs/web/sdk-ui-context',component:exports_ComponentCreator('/docs/web/sdk-ui-context'),exact:true},{path:'/docs/web/snippets/designer-callout',component:exports_ComponentCreator('/docs/web/snippets/designer-callout'),exact:true},{path:'/docs/web/snippets/follow-along',component:exports_ComponentCreator('/docs/web/snippets/follow-along'),exact:true},{path:'/docs/web/snippets/framework-components',component:exports_ComponentCreator('/docs/web/snippets/framework-components'),exact:true},{path:'/docs/web/snippets/prereqs-custom-code',component:exports_ComponentCreator('/docs/web/snippets/prereqs-custom-code'),exact:true},{path:'/docs/web/snippets/prereqs-layout-config-editing',component:exports_ComponentCreator('/docs/web/snippets/prereqs-layout-config-editing'),exact:true},{path:'/docs/web/usecases-change-default-behavior',component:exports_ComponentCreator('/docs/web/usecases-change-default-behavior'),exact:true},{path:'/docs/web/usecases-change-default-map-click-behavior',component:exports_ComponentCreator('/docs/web/usecases-change-default-map-click-behavior'),exact:true},{path:'/docs/web/usecases-component-interactions',component:exports_ComponentCreator('/docs/web/usecases-component-interactions'),exact:true},{path:'/docs/web/usecases-components-commands-operations',component:exports_ComponentCreator('/docs/web/usecases-components-commands-operations'),exact:true},{path:'/docs/web/usecases-display-custom-form',component:exports_ComponentCreator('/docs/web/usecases-display-custom-form'),exact:true},{path:'/docs/web/usecases-implement-command-operation',component:exports_ComponentCreator('/docs/web/usecases-implement-command-operation'),exact:true},{path:'/docs/web/usecases-implement-component-participate-app-config',component:exports_ComponentCreator('/docs/web/usecases-implement-component-participate-app-config'),exact:true},{path:'/docs/web/usecases-implement-component-with-ui',component:exports_ComponentCreator('/docs/web/usecases-implement-component-with-ui'),exact:true},{path:'/docs/web/usecases-implement-custom-activity',component:exports_ComponentCreator('/docs/web/usecases-implement-custom-activity'),exact:true},{path:'/docs/web/usecases-implement-custom-form-elements',component:exports_ComponentCreator('/docs/web/usecases-implement-custom-form-elements'),exact:true},{path:'/docs/web/usecases-implement-event',component:exports_ComponentCreator('/docs/web/usecases-implement-event'),exact:true},{path:'/docs/web/usecases-implement-service',component:exports_ComponentCreator('/docs/web/usecases-implement-service'),exact:true},{path:'/docs/web/usecases-internationalization',component:exports_ComponentCreator('/docs/web/usecases-internationalization'),exact:true},{path:'/docs/web/usecases-look-and-feel',component:exports_ComponentCreator('/docs/web/usecases-look-and-feel'),exact:true},{path:'/docs/workflow/api-server-rest',component:exports_ComponentCreator('/docs/workflow/api-server-rest'),exact:true},{path:'/docs/workflow/concepts-key-concepts',component:exports_ComponentCreator('/docs/workflow/concepts-key-concepts'),exact:true},{path:'/docs/workflow/overview',component:exports_ComponentCreator('/docs/workflow/overview'),exact:true},{path:'/docs/workflow/sdk-net-getting-started-mobile',component:exports_ComponentCreator('/docs/workflow/sdk-net-getting-started-mobile'),exact:true},{path:'/docs/workflow/sdk-net-getting-started-server',component:exports_ComponentCreator('/docs/workflow/sdk-net-getting-started-server'),exact:true},{path:'/docs/workflow/sdk-net-integrating-the-arcgis-api',component:exports_ComponentCreator('/docs/workflow/sdk-net-integrating-the-arcgis-api'),exact:true},{path:'/docs/workflow/sdk-net-register-activities',component:exports_ComponentCreator('/docs/workflow/sdk-net-register-activities'),exact:true},{path:'/docs/workflow/sdk-overview',component:exports_ComponentCreator('/docs/workflow/sdk-overview'),exact:true},{path:'/docs/workflow/sdk-web-activity-block-tags',component:exports_ComponentCreator('/docs/workflow/sdk-web-activity-block-tags'),exact:true},{path:'/docs/workflow/sdk-web-getting-started',component:exports_ComponentCreator('/docs/workflow/sdk-web-getting-started'),exact:true},{path:'/docs/workflow/sdk-web-integrating-the-arcgis-api',component:exports_ComponentCreator('/docs/workflow/sdk-web-integrating-the-arcgis-api'),exact:true},{path:'/docs/workflow/snippets/designer-callout',component:exports_ComponentCreator('/docs/workflow/snippets/designer-callout'),exact:true},{path:'/docs/workflow/snippets/host-esri-api-version',component:exports_ComponentCreator('/docs/workflow/snippets/host-esri-api-version'),exact:true},{path:'/docs/workflow/snippets/logarithm-activity',component:exports_ComponentCreator('/docs/workflow/snippets/logarithm-activity'),exact:true},{path:'/docs/workflow/snippets/prereqs-mobile',component:exports_ComponentCreator('/docs/workflow/snippets/prereqs-mobile'),exact:true},{path:'/docs/workflow/snippets/prereqs-server',component:exports_ComponentCreator('/docs/workflow/snippets/prereqs-server'),exact:true},{path:'/docs/workflow/snippets/prereqs-web',component:exports_ComponentCreator('/docs/workflow/snippets/prereqs-web'),exact:true},{path:'/docs/workflow/usecases-mobile-access-app-properties',component:exports_ComponentCreator('/docs/workflow/usecases-mobile-access-app-properties'),exact:true},{path:'/docs/workflow/usecases-mobile-implement-custom-activity',component:exports_ComponentCreator('/docs/workflow/usecases-mobile-implement-custom-activity'),exact:true},{path:'/docs/workflow/usecases-mobile-implement-custom-form-elements',component:exports_ComponentCreator('/docs/workflow/usecases-mobile-implement-custom-form-elements'),exact:true},{path:'/docs/workflow/usecases-mobile-reference-third-party-library',component:exports_ComponentCreator('/docs/workflow/usecases-mobile-reference-third-party-library'),exact:true},{path:'/docs/workflow/usecases-server-implement-custom-activity',component:exports_ComponentCreator('/docs/workflow/usecases-server-implement-custom-activity'),exact:true},{path:'/docs/workflow/usecases-server-reference-third-party-library',component:exports_ComponentCreator('/docs/workflow/usecases-server-reference-third-party-library'),exact:true},{path:'/docs/workflow/usecases-web-access-app-properties',component:exports_ComponentCreator('/docs/workflow/usecases-web-access-app-properties'),exact:true},{path:'/docs/workflow/usecases-web-implement-custom-activity',component:exports_ComponentCreator('/docs/workflow/usecases-web-implement-custom-activity'),exact:true},{path:'/docs/workflow/usecases-web-implement-custom-form-elements',component:exports_ComponentCreator('/docs/workflow/usecases-web-implement-custom-form-elements'),exact:true},{path:'/docs/workflow/usecases-web-reference-third-party-library',component:exports_ComponentCreator('/docs/workflow/usecases-web-reference-third-party-library'),exact:true}]},{path:'*',component:exports_ComponentCreator('*')}]);
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/package.json
 var core_package = __webpack_require__(289);
 
 // EXTERNAL MODULE: ./node_modules/react-router-config/esm/react-router-config.js
-var react_router_config = __webpack_require__(95);
+var react_router_config = __webpack_require__(97);
 
 // CONCATENATED MODULE: ./node_modules/@docusaurus/core/lib/client/preload.js
 /**
@@ -59563,16 +59612,16 @@ var react_router_config = __webpack_require__(95);
  * @returns {Promise} Promise object represents whether pathname has been preloaded
  */function preload(routes,pathname){const matches=Object(react_router_config["a" /* matchRoutes */])(routes,pathname);return Promise.all(matches.map(match=>{const{component}=match.route;if(component&&component.preload){return component.preload();}return undefined;}));}
 // EXTERNAL MODULE: ./.docusaurus/docusaurus.config.js
-var docusaurus_config = __webpack_require__(66);
+var docusaurus_config = __webpack_require__(68);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/renderRoutes.js
-var renderRoutes = __webpack_require__(94);
+var renderRoutes = __webpack_require__(96);
 
 // EXTERNAL MODULE: ./node_modules/@docusaurus/core/lib/client/exports/context.js
-var exports_context = __webpack_require__(92);
+var exports_context = __webpack_require__(94);
 
 // EXTERNAL MODULE: ./node_modules/nprogress/nprogress.js
-var nprogress = __webpack_require__(102);
+var nprogress = __webpack_require__(104);
 var nprogress_default = /*#__PURE__*/__webpack_require__.n(nprogress);
 
 // CONCATENATED MODULE: ./.docusaurus/client-modules.js
