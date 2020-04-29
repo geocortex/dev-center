@@ -8,6 +8,8 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 **Events** are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any [component or service](concepts-components-services.mdx), and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.
 
+The full list of existing events available in Geocortex Web can be [found in the API documentation](api-commands-operations-events.mdx#events).
+
 Events in Geocortex Web are grouped by categories, such as `ui` or `viewer`.
 
 ```
@@ -17,7 +19,7 @@ viewer.layout-changed
 auth.sign-in-failed
 ```
 
-Events can publish custom arguments with information about the change they are communicating. The full list of existing events available in Geocortex Web can be [found in the API](api-events.mdx).
+Events can publish custom arguments with information about the change they are communicating.
 
 ## Usage
 
@@ -34,7 +36,7 @@ Events are internal to Geocortex Web, so they can only be consumed by custom cod
     <UseCaseCard
         title="Events API"
         description="Check out the full list of Events available in Geocortex Web"
-        link="api-events"
+        link="api-commands-operations-events#events"
     />
     <UseCaseCard
         title="Implementing Custom Events"

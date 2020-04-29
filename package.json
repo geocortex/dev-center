@@ -5,9 +5,10 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "lint": "npm run lint:links && npm run lint:spelling && npm run prettier -- --check",
-    "lint:spelling": "cspell \"{docs,src}/**\"",
+    "lint": "npm run lint:links && npm run lint:spelling && npm run lint:style",
     "lint:links": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
+    "lint:spelling": "cspell \"{docs,src}/**\"",
+    "lint:style": "npm run prettier -- --check",
     "prettier": "prettier \"**/*.{css,js,jsx,ts,tsx,md,mdx,json}\"",
     "prettier:write": "npm run prettier -- --write",
     "swizzle": "docusaurus swizzle",
@@ -16,6 +17,7 @@
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.50",
     "@docusaurus/preset-classic": "2.0.0-alpha.50",
+    "@types/react": "^16.9.34",
     "classnames": "^2.2.6",
     "cspell": "^4.0.57",
     "husky": "^4.2.3",

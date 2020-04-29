@@ -20,10 +20,10 @@ module.exports = {
                 "web/concepts-events",
                 {
                     type: "category",
-                    label: "Advanced Topics",
+                    label: "Advanced Concepts",
                     items: [
                         "web/concepts-advanced-layout",
-                        "web/concepts-advanced-config",
+                        "web/concepts-advanced-app-config",
                     ],
                 },
             ],
@@ -92,14 +92,14 @@ module.exports = {
             items: [
                 "web/api-layout",
                 "web/api-message-bus",
-                "web/api-commands-operations",
-                "web/api-events",
+                "web/api-commands-operations-events",
                 "web/api-components",
             ],
         },
     ],
     workflow: [
         "workflow/overview",
+        "workflow/concepts-key-concepts",
         {
             type: "category",
             label: "Use Cases",
@@ -134,7 +134,6 @@ module.exports = {
                 },
             ],
         },
-        "workflow/concepts-key-concepts",
         {
             type: "category",
             label: "Geocortex Workflow SDK",
@@ -169,6 +168,26 @@ module.exports = {
     ],
     mobile: [
         "mobile/overview",
+        {
+            type: "category",
+            label: "Concepts",
+            items: [
+                "mobile/concepts-key-concepts",
+                "mobile/concepts-layout",
+                "mobile/concepts-app-config",
+                "mobile/concepts-commands-operations",
+                "mobile/concepts-components-services",
+                "mobile/concepts-events",
+                {
+                    type: "category",
+                    label: "Advanced Concepts",
+                    items: [
+                        "mobile/concepts-advanced-layout",
+                        "mobile/concepts-advanced-app-config",
+                    ],
+                },
+            ],
+        },
         {
             type: "category",
             label: "Use Cases",
@@ -208,26 +227,6 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Concepts",
-            items: [
-                "mobile/concepts-key-concepts",
-                "mobile/concepts-layout",
-                "mobile/concepts-app-config",
-                "mobile/concepts-commands-operations",
-                "mobile/concepts-components-services",
-                "mobile/concepts-events",
-                {
-                    type: "category",
-                    label: "Advanced Topics",
-                    items: [
-                        "mobile/concepts-advanced-layout",
-                        "mobile/concepts-advanced-config",
-                    ],
-                },
-            ],
-        },
-        {
-            type: "category",
             label: "Geocortex Mobile SDK",
             items: [
                 {
@@ -260,9 +259,7 @@ module.exports = {
             items: [
                 "mobile/api-overview",
                 "mobile/api-layout",
-                "mobile/api-components",
-                "mobile/api-commands-operations",
-                "mobile/api-events",
+                "mobile/api-commands-operations-events",
                 "mobile/api-mobile-ui-elements",
             ],
         },

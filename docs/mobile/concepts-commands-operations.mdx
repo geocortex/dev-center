@@ -23,6 +23,10 @@ edit.add-feature
 edit.delete-features
 ```
 
+:::tip
+The full list of existing commands and operations available in Geocortex Mobile can be [found in the API documentation](api-commands-operations-events.mdx).
+:::
+
 [Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Mobile. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](usecases-implement-command-operation.mdx) can be registered with [Custom Services](usecases-implement-service.mdx) or [Custom Components](usecases-implement-component-with-ui.mdx) in this manner.
 
 ## Passing Arguments
@@ -55,7 +59,7 @@ You can pass arguments to a command or operation by providing the `arguments` pr
 
 <!-- TODO-API change autocomplete linting note to API definitions -->
 
-Each command has typed arguments that will [autocomplete in the app.json](concepts-advanced-config.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
+Each command has typed arguments that will [autocomplete in the app.json](concepts-advanced-app-config.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
 
 ### Implicit Arguments
 
@@ -208,7 +212,7 @@ This example demonstrates two different types of argument passing behavior. The 
 
 <!-- TODO - tasks.identify operation direct link -->
 
-`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output with the shape:
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations-events.mdx), `tasks.identify` has output with the shape:
 
 ```json
 {
@@ -226,7 +230,7 @@ Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for mo
 
 <!-- TODO-API - direct link to MapExtensionArgs -->
 
-The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item Uri**. Item URIs are a way of referencing other items within the app config. See [Item URIs](concepts-advanced-config.mdx#item-uris-and-resource-uris) for more details.
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item Uri**. Item URIs are a way of referencing other items within the app config. See [Item URIs](concepts-advanced-app-config.mdx#item-uris-and-resource-uris) for more details.
 
 ## Relevant SDK Samples
 
