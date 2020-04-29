@@ -1,3 +1,33 @@
 ---
 title: Key Concepts
 ---
+
+In Geocortex Web, services represent a shared application-wide concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](usecases-implement-command-operation.mdx#implement-the-custom-command-and-operation), but services can also be directly [injected](sdk-service-injection.mdx) into other services and component models.
+
+<!-- TODO-API: Add a link out to the services API
+:::tip
+Geocortex Web has many [built-in services](api-services.mdx).
+:::
+-->
+
+Services are created at startup if they are registered with the `loadOnStartup` option, otherwise, they will be created when one of their commands and operations is run or they are directly injected into another service or component model.
+
+Services can be optionally configured by creating an associated model. This model can consume app config, and be shared between multiple services.
+
+```ts
+import { ServiceBase } from "@geocortex/web/services";
+
+export default class ExampleService extends ServiceBase {
+
+    someSharedGlobalState: Map<string,string>;
+
+    protected _someCommand(args: any) {
+        ...
+    }
+
+    protected async _someOperation(){
+        ...
+        return result;
+    }
+}
+```

@@ -16,14 +16,7 @@ module.exports = {
                 "web/concepts-layout",
                 "web/concepts-app-config",
                 "web/concepts-commands-operations",
-                {
-                    type: "category",
-                    label: "Advanced Concepts",
-                    items: [
-                        "web/concepts-advanced-layout",
-                        "web/concepts-advanced-config",
-                    ],
-                },
+                "web/concepts-advanced-config",
             ],
         },
         {
@@ -49,18 +42,20 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
-                "web/concepts-components-services",
+                "web/sdk-framework-overview",
                 {
                     type: "category",
                     label: "Components",
                     items: [
                         "web/sdk-components-overview",
                         "web/sdk-create-component",
+                        "web/sdk-component-reference",
                         "web/sdk-component-hooks",
-                        "web/usecases-internationalization",
                         "web/sdk-ui-context",
                         "web/usecases-components-commands-operations",
                         "web/usecases-component-interactions",
+                        "web/sdk-component-styling",
+                        "web/usecases-internationalization",
                     ],
                 },
                 {
@@ -69,6 +64,7 @@ module.exports = {
                     items: [
                         "web/sdk-services-overview",
                         "web/sdk-create-service",
+                        "web/sdk-service-reference",
                         "web/sdk-service-injection",
                     ],
                 },
@@ -90,6 +86,7 @@ module.exports = {
             items: [
                 "web/usecases-implement-command-operation",
                 "web/usecases-implement-component-with-ui",
+                "web/usecases-import-map-model",
                 "web/usecases-implement-component-participate-app-config",
                 "web/usecases-implement-service",
             ],
@@ -98,7 +95,15 @@ module.exports = {
             type: "category",
             label: "API",
             items: [
-                "web/api-layout",
+                {
+                    type: "category",
+                    label: "Layout",
+                    items: [
+                        "web/api-layout-core-components",
+                        "web/sdk-component-models",
+                        "web/api-layout",
+                    ],
+                },
                 "web/api-message-bus",
                 "web/api-commands-operations",
                 "web/api-events",

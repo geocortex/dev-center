@@ -171,7 +171,10 @@ This React component displays a list of "news items" relevant to your GIS applic
 
 ```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React, { useState } from "react";
-import { LayoutElement } from "@geocortex/web/components";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
 import List from "@geocortex/web/ui/list";
 import ListItem from "@geocortex/web/ui/list-item";
 import TitleBar from "@geocortex/web/ui/title-bar";

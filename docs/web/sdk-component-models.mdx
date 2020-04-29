@@ -1,7 +1,81 @@
 ---
-title: Advanced Layout
-description: Geocortex Web - Learn about Geocortex Web's advanced layout configuration options
+title: Component Models
 ---
+
+Components often observe and modify the state of other components.
+Consider the following example:
+
+```xml
+<map>
+    <scalebar slot="bottom-left"/>
+</map>
+```
+
+The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map model to display its values.
+
+Components express this data dependency in the form of models that are marked as "imported" or "exported". If we know that the scale bar "imports" a particular type of model, and that the map "exports" the same type of model, we can resolve those dependencies simply by plugging exported models into the components that import them.
+
+```ts
+@exportModel
+export class MapModel implements ComponentModel {
+    // ... map stuff ...
+}
+
+export class ScaleBarModel implements ComponentModel {
+    @importModel("map-extension")
+    map: MapExtension | undefined;
+
+    // ... scale bar stuff ...
+}
+```
+
+When the system places the scale bar into the layout, it will attempt to satisfy any model imports declared by the component. By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in the basic example above.
+
+:::note
+Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
+:::
+
+However, in the following example with two scale bars, how does each scale bar know which map model it corresponds to? Both are placed outside of a `<map>` component, and there are two possible map models to bind to.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <stack>
+      <split grow="1">
+        <map id="map-a" grow="1" margin="3"/>
+        <map id="map-b" grow="1" margin="3"/>
+      </split>
+      <split grow="1" valign="center" >
+          <scalebar id="a" grow="1" margin="3"/>
+          <scalebar id="b" grow="1" margin="3"/>
+      </split>
+    </stack>
+</layout>
+```
+
+We can explicitly bind each scale bar to the appropriate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split>
+        <panel width="23" active="true">
+            <stack>
+                <split>
+                    <text text="Map A Scale Bar"></text>
+                    <scalebar id="a" models="#map-a"/>
+                </split>
+                <split>
+                    <text text="Map B Scale Bar"></text>
+                    <scalebar id="b" models="#map-b"/>
+                </split>
+            </stack>
+        </panel>
+        <map id="map-a"/>
+        <map id="map-b"/>
+    </split>
+</layout>
+```
 
 ## Nested Model Imports
 
@@ -75,18 +149,5 @@ To simplify this binding, we can take advantage of the default behavior of searc
         </panel>
         <map id="map" />
     </split>
-</layout>
-```
-
-## Component Defaults
-
-Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, many components have default values they can supply for initialization instead of relying on configuration. This means that if you omit the `config` property for certain components, the component will attempt to create itself with its default values. An example of defining these default values can be seen in the `_getSerializableProperties` method of the model created for [this use case](usecases-implement-component-participate-app-config.mdx#participating-in-the-configuration-lifecycle). Its also the mechanism that powers the default map displayed by this layout.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <map>
-        <zoom padding="0.5" slot="top-left"/>
-    </map>
 </layout>
 ```

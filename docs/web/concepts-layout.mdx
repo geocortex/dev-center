@@ -57,68 +57,7 @@ Slots control how one element fits into another. But how do we control how sibli
 
 The basic `stack` and `split` components form building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
 
-Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes.
-
-Stacks and splits are used to partition the viewer into rectangular sectors, each filled with whichever components you desire.
-
-The best way to think of stacks is that every item within them is being ordered top to bottom:
-
-```xml
-<stack>
-    <text text="item1"/>
-    <text text="item2"/>
-    <text text="item3"/>
-</stack>
-```
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-1.png")} />
-
-The best way to think of splits is that every item within them is being ordered left to right:
-
-```xml
-<split>
-    <text text="item1"/>
-    <text text="item2"/>
-    <text text="item3"/>
-</split>
-```
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-2.png")} />
-
-When creating complex layouts with embedded stacks and splits, it's good to picture building it from the inside out:
-
-```xml
-<stack>
-    <split>
-        <text text="item1"/>
-        <stack>
-            <text text="item2"/>
-            <text text="item3"/>
-        </stack>
-    </split>
-    <split>
-        <text text="item4"/>
-        <text text="item5"/>
-        <text text="item6"/>
-    </split>
-</stack>
-```
-
-We start by building the first inner-most stack:
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-4.png")} />
-
-Then slot that into the split one level up:
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-5.png")} />
-
-We then build the next split:
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-6.png")} />
-
-And finally slot those two splits into the outer-most stack:
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-3.png")} />
+For a deeper dive into stacks and splits, [check out the API reference](TODO-stack-splits-link).
 
 ## Spacing
 
@@ -129,39 +68,12 @@ See [presentation attributes](api-layout.mdx#presentation-attributes) for detail
 Another core concept that Geocortex Web uses to organize elements in a layout is **panels**.
 Panels are a container component that enable hierarchal navigation between different components.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <split resizable="true">
-        <panel width="26">
-            <stack>
-                <search/>
-                <results-list/>
-            </stack>
-            <feature-details/>
-        </panel>
-        <map/>
-    </split>
-</layout>
-```
-
-When you first open the panel, the first component in the panel is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
-When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of each other, with the first component being the bottommost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
-
-### Activation
-
--   If the target component exists in the panel, then deactivate components above it until the target component is active
-    -   Else, the target component must be deactivated, so activate it and place it above the existing component.
-
-### Deactivation
-
--   If the component is the topmost element (it is active), then deactivate it.
-    -   Else, the component is already inactive
+For a deeper dive into Panels, [check out the API reference](TODO-panels-link).
 
 <!-- TODO-API - direct link to tabs and expanders -->
 
 :::tip
-These are just a few examples of the building blocks available to help you organize the layout of your Application. You can also use tabs, expanders, and much more. See the [Component Reference](api-components.mdx) for a full listing.
+These are just a few examples of the building blocks available to help you organize the layout of your Application. Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes. You can also use tabs, expanders, and much more. See the [Component Reference](api-layout-core-components.mdx) for a full listing.
 :::
 
 ## Models
@@ -177,69 +89,7 @@ Consider the following example:
 
 The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map model to display its values.
 
-Components express this data dependency in the form of models that are marked as "imported" or "exported". If we know that the scale bar "imports" a particular type of model, and that the map "exports" the same type of model, we can resolve those dependencies simply by plugging exported models into the components that import them.
-
-```ts
-@exportModel
-export class MapComponent {
-    // ... map stuff ...
-}
-
-export class ScaleBarComponent {
-    @importModel("map-extension")
-    map: MapExtension | undefined;
-
-    // ... scale bar stuff ...
-}
-```
-
-When the system places the scale bar into the layout, it will attempt to satisfy any model imports declared by the component. By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in the basic example above.
-
-:::note
-Learn more about how [models are automatically matched](concepts-advanced-layout.mdx#nested-model-imports).
-:::
-
-However, in the following example with two scale bars, how does each scale bar know which map model it corresponds to? Both are placed outside of a `<map>` component, and there are two possible map models to bind to.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <stack>
-      <split grow="1">
-        <map id="map-a" grow="1" margin="3"/>
-        <map id="map-b" grow="1" margin="3"/>
-      </split>
-      <split grow="1" valign="center" >
-          <scalebar id="a" grow="1" margin="3"/>
-          <scalebar id="b" grow="1" margin="3"/>
-      </split>
-    </stack>
-</layout>
-```
-
-We can explicitly bind each scale bar to the appropriate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <split>
-        <panel width="23" active="true">
-            <stack>
-                <split>
-                    <text text="Map A Scale Bar"></text>
-                    <scalebar id="a" models="#map-a"/>
-                </split>
-                <split>
-                    <text text="Map B Scale Bar"></text>
-                    <scalebar id="b" models="#map-b"/>
-                </split>
-            </stack>
-        </panel>
-        <map id="map-a"/>
-        <map id="map-b"/>
-    </split>
-</layout>
-```
+For a deeper dive into Models, [check out the Component SDK reference](TODO-component-sdk-link).
 
 ## Namespaces
 

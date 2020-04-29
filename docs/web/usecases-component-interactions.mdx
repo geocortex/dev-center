@@ -9,139 +9,58 @@ import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 
-Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do in Geocortex Web. Components can interact with other components and services, both built-in and custom, which can allow complex application interactions to occur.
-
-By the end of this article, you'll have the knowledge to build a custom component that can interact with other components and services.
-
-## Prerequisites
-
-Check out [implementing a custom component](usecases-implement-component-with-ui.mdx) to learn the basics of implementing components.
-
-## Overview
-
 <!-- TODO-API direct link to map model -->
 
-Components have multiple ways of interacting with other components and services. When possible, interaction through [commands and operations](usecases-components-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling. When you need stronger coupling and direct access to the API, then model imports or service injection can be used. A good example of this is needing direct access to the [ArcGIS Map](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html), which can be exposed by importing the map model.
+Components have multiple ways of interacting with other components and services. When possible, interaction through [commands and operations](usecases-components-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling. When you need stronger coupling and direct access to the API, then **model imports** or **service injection** can be used. A good example of this is needing direct access to the [ArcGIS Map](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html), which can be exposed by importing the map model.
 
-## Interacting with other Components through Models
+## Interacting with Components through Models
 
 <!-- TODO-API link to map model and scalebar/compass components once available -->
 
 Components can interact with each other through their [respective models](concepts-layout.mdx#models). A model can either declare that it is exported, like the map model, or that it imports a model. Components like the `<scalebar>` or `<compass>` import the map model, and this is what allows them to respond to changes in the maps state.
 
-### Example: Component that Adds a Graphics Layer to the Map
+```ts
+@exportModel
+export class MapModel implements ComponentModel {
+    // ... map stuff ...
+}
 
-The following component has a model which imports the map model as a dependency, and then uses that model to add a graphics layer to the [ArcGIS Map object](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html).
+export class ScaleBarModel implements ComponentModel {
+    @importModel("map-extension")
+    map: MapExtension | undefined;
 
-:::note
-The property decorated by `@importModel` is completely managed by Geocortex Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.
-:::
-
-<Tabs
-  defaultValue="component"
-  values={[
-    { label: 'Component', value: 'component', },
-    { label: 'Model', value: 'model', },
-    { label: 'Layout', value: 'layout', },
-    { label: 'UI', value: 'ui', },
-  ]
-}>
-<TabItem value="component">
-
-```tsx title="src/components/CustomComponent/CustomComponent.tsx"
-import React from "react";
-import {
-    LayoutElement,
-    LayoutElementProperties,
-} from "@geocortex/web/components";
-import Button from "@geocortex/web/ui/button/Button";
-import { CustomModel } from ".";
-
-export default function CustomComponent(
-    props: LayoutElementProperties<CustomModel>
-) {
-    return (
-        <LayoutElement {...props}>
-            <Button onClick={() => props.model.addGraphic()}>
-                Add a Graphic to the Map
-            </Button>
-        </LayoutElement>
-    );
+    // ... scale bar stuff ...
 }
 ```
 
-</TabItem>
-<TabItem value="model">
+### Importing Models
 
-```ts title="src/components/CustomComponent/CustomModel.ts"
+Custom components can also import models and interact with them. The import must be done in the [model](TODO-model-link) of the component. This tight coupling can allow deeper access to other components models, but also negates the advantages of the abstraction of commands and operations.
+
+```ts
 import {
     ComponentModelBase,
     serializable,
     importModel,
 } from "@geocortex/web/models";
 import { MapExtension } from "@geocortex/api/mapping/MapExtension";
-import Graphic from "esri/Graphic";
-import GraphicsLayer from "esri/layers/GraphicsLayer";
-import { Polygon } from "esri/geometry";
-import { SimpleFillSymbol } from "esri/symbols";
 
 @serializable
-export default class CustomModel extends ComponentModelBase {
+export default class ExampleComponentModel extends ComponentModelBase {
     @importModel("map-extension")
-    mapExtension: MapExtension | undefined;
+    mapModel: MapExtension | undefined;
 
-    // based on https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=intro-graphics
-    triangleGraphic = new GraphicsLayer({
-        graphics: [
-            new Graphic({
-                symbol: new SimpleFillSymbol({ color: "orange" }),
-                geometry: new Polygon({
-                    rings: [
-                        [
-                            [-64.78, 32.3],
-                            [-66.07, 18.45],
-                            [-80.21, 25.78],
-                            [-64.78, 32.3],
-                        ],
-                    ],
-                }),
-            }),
-        ],
-    });
-
-    addGraphic() {
-        if (this.mapExtension) {
-            const esriMap = this.mapExtension.map;
-            esriMap.add(this.triangleGraphic);
+    logMapViewMode() {
+        if (this.mapModel.viewMode === "map") {
+            console.log("Map is 2d");
         } else {
-            console.error(
-                "Could not add graphic to map, as no map model was imported into the 'CustomModel'."
-            );
-            return;
+            console.log("Map is 3d");
         }
     }
 }
 ```
 
-</TabItem>
-<TabItem value="layout">
-
-```xml title="app/layout.xml"
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map>
-        <custom:custom-component slot="top-center"/>
-    </map>
-</layout>
-```
-
-</TabItem>
-<TabItem value="ui">
-<img src={useBaseUrl("img/web-add-graphics-layer-component.png")}/>
-</TabItem>
-</Tabs>
-
-### Example: Component That Exports Its Model
+### Exporting Models
 
 You can mark a model as exported by adding the `@exportModel` decorator to the model class. The following example shows a model that is exported, and then imported by another model and used.
 

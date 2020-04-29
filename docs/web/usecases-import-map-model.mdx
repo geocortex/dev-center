@@ -1,0 +1,121 @@
+---
+title: Import the MapModel into a Component
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+TODO - restructure this into a use case
+
+### Example: Component that Adds a Graphics Layer to the Map
+
+The following component has a model which imports the map model as a dependency, and then uses that model to add a graphics layer to the [ArcGIS Map object](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html).
+
+:::note
+The property decorated by `@importModel` is completely managed by Geocortex Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.
+:::
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'Model', value: 'model', },
+    { label: 'Layout', value: 'layout', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx title="src/components/CustomComponent/CustomComponent.tsx"
+import React from "react";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import Button from "@geocortex/web/ui/button/Button";
+import { CustomModel } from ".";
+
+export default function CustomComponent(
+    props: LayoutElementProperties<CustomModel>
+) {
+    return (
+        <LayoutElement {...props}>
+            <Button onClick={() => props.model.addGraphic()}>
+                Add a Graphic to the Map
+            </Button>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/CustomComponent/CustomModel.ts"
+import {
+    ComponentModelBase,
+    serializable,
+    importModel,
+} from "@geocortex/web/models";
+import { MapExtension } from "@geocortex/api/mapping/MapExtension";
+import Graphic from "esri/Graphic";
+import GraphicsLayer from "esri/layers/GraphicsLayer";
+import { Polygon } from "esri/geometry";
+import { SimpleFillSymbol } from "esri/symbols";
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    @importModel("map-extension")
+    mapExtension: MapExtension | undefined;
+
+    // based on https://developers.arcgis.com/javascript/latest/sample-code/sandbox/index.html?sample=intro-graphics
+    triangleGraphic = new GraphicsLayer({
+        graphics: [
+            new Graphic({
+                symbol: new SimpleFillSymbol({ color: "orange" }),
+                geometry: new Polygon({
+                    rings: [
+                        [
+                            [-64.78, 32.3],
+                            [-66.07, 18.45],
+                            [-80.21, 25.78],
+                            [-64.78, 32.3],
+                        ],
+                    ],
+                }),
+            }),
+        ],
+    });
+
+    addGraphic() {
+        if (this.mapExtension) {
+            const esriMap = this.mapExtension.map;
+            esriMap.add(this.triangleGraphic);
+        } else {
+            console.error(
+                "Could not add graphic to map, as no map model was imported into the 'CustomModel'."
+            );
+            return;
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <map>
+        <custom:custom-component slot="top-center"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-add-graphics-layer-component.png")}/>
+</TabItem>
+</Tabs>

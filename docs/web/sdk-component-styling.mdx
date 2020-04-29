@@ -1,0 +1,78 @@
+---
+title: Component Styling
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Geocortex Web Components support fully custom styling using CSS. However, by using Geocortex Framework UI Elements, you can take advantage of styled, well tested, UI components that already participate in the [application theme](TODO-link-to-theme).
+
+:::tip
+If manual CSS styling is required, you can still participate in the application theme by [using the theme colours defined in the `BrandingService`](TODO-link-theme-colors-api).
+:::
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: "Component", value: "component" },
+    { label: "CSS", value: "css" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="component">
+
+```tsx
+import React from "react";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import List from "@geocortex/web/ui/list";
+import ListItem from "@geocortex/web/ui/list-item";
+import TitleBar from "@geocortex/web/ui/title-bar";
+import Button from "@geocortex/web/ui/button";
+import classNames from "classnames";
+import ExampleComponentModel from "./ExampleComponentModel";
+import "./ExampleComponent.css";
+
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    return (
+        <LayoutElement {...props}>
+            <List dense={true}>
+                <TitleBar>Some Title</TitleBar>
+                <ListItem>
+                    <Button>Item 1</Button>
+                </ListItem>
+                <ListItem>
+                    <Button>Item 2</Button>
+                </ListItem>
+                <ListItem>
+                    <Button>Item 2</Button>
+                </ListItem>
+                <div className={classNames("red")}>
+                    {" "}
+                    I have a red background
+                </div>
+            </List>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="css">
+
+```css
+.red {
+    background-color: red;
+    color: white;
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/sdk-component-reference-styling.png")}/>
+</TabItem>
+</Tabs>
