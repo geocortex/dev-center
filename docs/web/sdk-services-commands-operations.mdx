@@ -1,0 +1,76 @@
+---
+title: Commands and Operations in Services
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
+
+When writing custom services you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations.mdx) or your own [custom commands and operations](usecases-implement-command-operation.mdx).
+
+## Running Commands and Operations
+
+Services can run commands and operations through the `messages` property.
+
+```ts
+export default class ExampleService extends ServiceBase {
+    protected async someMethod(): Promise<void> {
+        // highlight-next-line
+        commands.ui.setTheme.execute("dark");
+    }
+}
+```
+
+## Implementing Commands and Operations
+
+Services can also register an implementation for any command or operation. The following service registers an implementation for a custom command that takes a `string` argument.
+
+```tsx
+export default class ExampleService extends ServiceBase {
+    private _handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+
+        this._handles.push(
+            this.messages
+                .command<string>("custom.my-command")
+                .register((arg: string) => {
+                    console.log(
+                        `Executing 'custom.my-command' with argument '${arg}'`
+                    );
+                    return;
+                })
+        );
+    }
+
+    destroy(): void {
+        // Clean up event handlers.
+        this._handles.forEach((h) => h.remove());
+    }
+}
+```
+
+## Running Custom Commands
+
+You can run the custom commands or operations you define from another component, model, or service by locating them by id and providing the appropriate type arguments.
+
+```ts
+export default class ExampleService extends ServiceBase {
+    async runCustomCommandsAndOperations(){
+         // highlight-start
+        await this.messages.command<string>("custom.my-command").execute("some arg");
+        // highlight-end
+
+        // highlight-start
+        const result = await this.messages.operation<InputArgType, OutputArgType>("custom.my-operation").execute({
+            some: "arg",
+        });
+        // highlight-end
+        ...
+    }
+    ...
+}
+```

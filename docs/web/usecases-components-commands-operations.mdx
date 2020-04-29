@@ -57,7 +57,7 @@ export default function CustomComponent(props) {
 
 ## Implementing Commands and Operations
 
-Components can also register an implementation for any command. This allows the creation of commands which can affect the UI. When registering a command implementation for a component, you have to register the implementation in the [component's model](concepts-components-services.mdx#component-models-and-configuration). The following component model registers an implementation for a custom command that takes a `string` argument.
+Components can also register an implementation for any command or operation. This allows the creation of commands which can affect the UI. When registering a command implementation for a component, you have to register the implementation in the [component's model](concepts-components-services.mdx#component-models-and-configuration). The following component model registers an implementation for a custom command that takes a `string` argument.
 
 ```tsx
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
@@ -99,9 +99,7 @@ You can run the custom commands or operations you define from another component,
 export default class ExampleComponentModel extends ComponentModelBase {
     async runCustomCommandsAndOperations(){
          // highlight-start
-        await command<string>("custom.my-command").execute({
-            some: "arg",
-        });
+        await command<string>("custom.my-command").execute("some arg");
         // highlight-end
 
         // highlight-start

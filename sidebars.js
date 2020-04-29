@@ -65,6 +65,7 @@ module.exports = {
                         "web/sdk-services-overview",
                         "web/sdk-create-service",
                         "web/sdk-service-reference",
+                        "web/sdk-services-commands-operations",
                         "web/sdk-service-injection",
                     ],
                 },
