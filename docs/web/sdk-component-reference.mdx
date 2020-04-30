@@ -166,8 +166,8 @@ export default function (registry: LibraryRegistry) {
 }
 ```
 
-It's best practice to treat the components model as the source of the core business data backing the component, and let it manage data concerns and application interactions. This way, the React Component can simply manage presentation concerns regarding the models data.
-.
+It's best practice to use the model to define configurable or persistent state, and use the [component hooks](TODO-link-component-hooks) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
+
 For example, the following component delegates the management of the list item content to it's model. The component does not have to concern itself with whether those list items come from config, dynamic application events, or other sources.
 
 :::tip
@@ -202,6 +202,10 @@ The following model defines a simple configurable property `items`.
 
 -   The shape of this property in the app config JSON file is defined by the `items` property in the `ExampleComponentModelProperties` interface.
 -   The shape of this property in the model is defined by the `items` property in the `ExampleComponentModel` class.
+
+:::tip
+Marking properties in the `ComponentModelProperties` interface as optional allows them to be left out of config and populated with default values. It's best practice to make properties optional and provide a default value if possible.
+:::
 
 The `ExampleComponentModel` class consumes the configuration by extending the `ComponentModelBase<ExampleComponentProperties>` interface, using the `@serializable` class decorator and then defining serialization logic in an override of the `_getSerializableProperties()` method.
 

@@ -7,6 +7,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 
 Geocortex Web has a powerful [app configuration](concepts-app-config.mdx) model which can be used to easily change the behavior of an application without modifying custom code. Using app config to power a components behavior increases its reusability and customizability.
 
@@ -14,69 +15,20 @@ By the end of this article, you'll have the knowledge to build a component that 
 
 ## Prerequisites
 
-Learn how to [implement a custom component](usecases-implement-component-participate-app-config.mdx).
+<PrereqsCustomCodeSnippet />
 
-## Component Models
+## Starting Point
 
-Each component has an associated model. The model is the backing data source for a component, and usually has properties that are initialized from configuration. It is best practice to treat the model for a component as the state, and single source of truth, for data values that the component consumes.
+We are going to add configuration to a custom component that displays news items. This component currently is following bad practices and does not treat the model as the source of truth for it's data. We are going to move the `newsItems` list to a configurable property on the model, and add a new configurable property, `hideOnStartup`.
 
-By configuring built-in [layout elements](concepts-layout.mdx) such as the `<map>`, you've already used models. In this example, the `<map>` component is linked to the `map-extension` model in the configuration.
-
-<Tabs
-  defaultValue="layout"
-  values={[
-    { label: "Layout", value: "layout" },
-    { label: "App Config", value: "config" },
-  ]}>
-<TabItem value="layout">
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <map config="my-map-config" />
-</layout>
-```
-
-</TabItem>
-<TabItem value="config">
-
-```json
-{
-    "schemaVersion": "1.0",
-    "items": [
-        {
-            "$type": "map-extension",
-            "id": "my-map-config",
-            "onInitialized": [
-                {
-                    "name": "ui.alert",
-                    "arguments": {
-                        "message": "Hello World"
-                    }
-                }
-            ]
-        }
-    ]
-}
-```
-
-</TabItem>
-</Tabs>
-
-## Example: Model for the News Feed Component
-
-We are going to add configuration to the [news feed component](usecases-implement-component-with-ui.mdx#example-rss-feed-of-news-updates) we created earlier. The `hidden` state property and `newsItems` property on the existing component can be moved into configuration consumed by the component model.
-
-### Starting Point
-
-We will start this example from the News Feed component and model built in the [previous example](usecases-implement-component-with-ui.mdx#example-rss-feed-of-news-updates).
+TODO - tip on linking components to layout, (in the component reference)
 
 <FrameworkComponentsSnippet />
 
 <Tabs
   defaultValue="component"
   values={[
-    { label: 'Component without Config', value: 'component', },
+    { label: 'Component', value: 'component', },
     { label: 'Empty Model', value: 'model', },
   ]
 }>
@@ -142,13 +94,9 @@ export default NewsFeedModel;
 </TabItem>
 </Tabs>
 
-### Defining Model Properties
+## Define the Configurable Properties
 
-First, we need to create a `NewsFeedModelProperties` interface which we use to inform the `NewsFeedModel` about which properties it should populate from configuration. Each property in the `NewsFeedModelProperties` class should have a corresponding property in the `NewsFeedModel` class. The `NewsFeedModel` should also be marked as `@serializable`.
-
-:::note
-Marking properties in the `ComponentModelProperties` interface as optional allows them to be left out of config and populated with default values. It's best practice to make properties optional and provide a default value if possible.
-:::
+First, we need to create a `NewsFeedModelProperties` interface which we use to inform the `NewsFeedModel` about which properties it should populate from configuration.
 
 ```ts
 import {
@@ -161,7 +109,7 @@ import Collection from "esri/core/Collection";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: Collection<string>;
-    hidden?: boolean;
+    hideOnStartup?: boolean;
 }
 
 @serializable
@@ -174,19 +122,15 @@ export default class NewsFeedModel extends ComponentModelBase<
     newsItems: Collection<string> = new Collection<string>();
 
     /**
-     * Whether or not the news ticker is hidden
+     * Whether or not the news ticker is initially hidden
      */
-    hidden: boolean;
+    hideOnStartup: boolean;
 }
 ```
 
-### Participating in the Configuration Lifecycle
+## Participate in the Configuration
 
-Next, we have to inform Geocortex Web about these configurable properties and provide default values. We do this by implementing the `_getSerializableProperties` method. This allows the framework to serialize and deserialize [app items](concepts-app-config.mdx#anatomy-of-an-app-config) into instances of our custom model.
-
-:::note
-Simple serialization and deserialization logic is used to convert between the `newsItems` configuration property, which is a `string[]`, and the `newsItems` model property, which is an observable [ArcGIS API Collection](https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Collection.html).
-:::
+Next, we have to inform Geocortex Web about how to serialize and deserialize these properties between the app config and the model, as well as provide default values. We do this by implementing the `_getSerializableProperties` method.
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import {
@@ -200,7 +144,7 @@ import { toEsriApiCardinality } from "@geocortex/api/data/_Relationship";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: string[];
-    hidden?: boolean;
+    hideOnStartup?: boolean;
 }
 
 @serializable
@@ -215,7 +159,7 @@ export default class NewsFeedModel extends ComponentModelBase<
     /**
      * Whether or not the news ticker is hidden
      */
-    hidden: boolean;
+    hideOnStartup: boolean;
 
     // highlight-start
     protected _getSerializableProperties(): PropertyDefs<
@@ -234,7 +178,7 @@ export default class NewsFeedModel extends ComponentModelBase<
                     );
                 },
             },
-            hidden: {
+            hideOnStartup: {
                 serializeModes: ["initial"],
                 default: false,
             },
@@ -244,9 +188,9 @@ export default class NewsFeedModel extends ComponentModelBase<
 }
 ```
 
-### Consuming the Configuration in the Component
+## Consume the Configuration in the Component
 
-Finally, we need to update the `NewsFeed` to treat the model as its single source of truth for data. First, we update the props passed into the component to include the relevant model.
+Finally, we need to update the `NewsFeed` component to treat the model as its single source of truth for data. First, we update the props passed into the component to include the relevant model.
 
 ```ts
 export interface NewsFeedProps extends LayoutElementProperties<NewsFeedModel> {}
@@ -258,38 +202,29 @@ export default function NewsFeed(props: NewsFeedProps) {
 
 The model will initially populated with values from configuration or defaults. The component can use `props.model` values to set the initial state, but we also want to update the model and re-render on model changes. Since the data state is contained within the model, we can't use the `useState` React pattern.
 
-To respond to model changes, we can do the following, upon user interaction that affects state,
+To respond to model changes, we can do the following.
+
+Upon user interaction that affects state,
 
 1. The component updates the model values.
 1. The component listens for changes on the model values and re-renders with the `useWatchAndRerender` function.
+
+:::note
+This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](sdk-component-hooks.mdx) provided.
+:::
 
 ```tsx
 export default function NewsFeed(props: NewsFeedProps) {
     const { model } = props;
 
-    useWatchAndRerender(model, "hidden");
+    useWatchAndRerender(model, "newsItems");
     ...
-    return (
-        ...
-        <Button onClick={() => (model.hidden = false)}>Show News</Button>
-        ...
-    )
 }
 ```
 
-In this way, the model is treated as the component state. Below is a full example of the model pulling values from the app config, and the component binding to the data on the model and listening for changes.
+## Complete Example
 
-:::tip
-It's best practice to use the model to define configurable or persistent state, and use the [observable property pattern](https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#properties) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
-:::
-
-### Complete Example
-
-Following is a complete example where news items are configured in the `app.json`, populated into the `NewsFeedModel` and finally consumed and presented by the `NewsFeed`.
-
-:::note
-This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](sdk-component-hooks.mdx) provided.
-:::
+Following is a complete example where news items are configured in the `app.json`, populated into the `NewsFeedModel` and finally consumed and presented by the `NewsFeed` component.
 
 <Tabs
   defaultValue="component"
@@ -307,7 +242,7 @@ This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hoo
 <TabItem value="component">
 
 ```tsx title="src/components/NewsFeed/NewsFeed.tsx"
-import React from "react";
+import React, { useState } from "react";
 import {
     LayoutElement,
     LayoutElementProperties,
@@ -325,6 +260,7 @@ export interface NewsFeedProps extends LayoutElementProperties<NewsFeedModel> {}
 
 export default function NewsFeed(props: NewsFeedProps) {
     const { model } = props;
+    const { hidden, setHidden } = useState(model.hideOnStartup);
 
     /**
      * The use watch function handles observing a property on the model,
@@ -332,7 +268,6 @@ export default function NewsFeed(props: NewsFeedProps) {
      * This helper function allows you to use the model as your component state.
      */
     // highlight-start
-    useWatchAndRerender(model, "hidden");
     useWatchAndRerender(model, "newsItems");
     // highlight-end
 
@@ -378,7 +313,7 @@ import Collection from "esri/core/Collection";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: string[];
-    hidden?: boolean;
+    hideOnStartup?: boolean;
 }
 
 @serializable
@@ -393,7 +328,7 @@ export default class NewsFeedModel extends ComponentModelBase<
     /**
      * Whether or not the news ticker is hidden
      */
-    hidden: boolean;
+    hideOnStartup: boolean;
 
     protected _getSerializableProperties(): PropertyDefs<
         NewsFeedModelProperties
@@ -411,7 +346,7 @@ export default class NewsFeedModel extends ComponentModelBase<
                     );
                 },
             },
-            hidden: {
+            hideOnStartup: {
                 serializeModes: ["initial"],
                 default: false,
             },
@@ -458,7 +393,8 @@ export default class NewsFeedModel extends ComponentModelBase<
                 "New fire hydrant installed at Main and 5th.",
                 "Pipe burst at 4th and Broadview",
                 "Fire hydrant reported as needs maintenance by citizen."
-            ]
+            ],
+            "hideOnStartup": true
         }
         // highlight-end
     ]
