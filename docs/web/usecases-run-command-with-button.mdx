@@ -1,0 +1,125 @@
+---
+title: Run Command With Button
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
+
+This article will guide you through how to add a button to the layout and configure it to run and action through the app config.
+
+## Prerequisites
+
+<PrereqsLayoutConfigSnippet />
+
+## Add a Button to the Layout
+
+Let's create a a layout with two components; a map, and a button positioned on the map.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
+  <map>
+    <button slot="top-center"/>
+  </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-basic-button-on-map.png")}/>
+</TabItem>
+</Tabs>
+
+## Link the Button to a Command in App Config
+
+Link the button to the layout to a `menu-item` in app config, and configure it to run a basic command, `zoom-in`.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
+  <map>
+    <button config="button-config" slot="top-center"/>
+  </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "button-config",
+            "iconId": "zoom-in",
+            "title": "Zoom In",
+            "action": "map.zoom-in",
+            "$type": "menu-item"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-basic-button-with-command.png")}/>
+</TabItem>
+</Tabs>
+
+## Pass Arguments to the Command
+
+If the command you want to run takes arguments, you can pass them through the app config.
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "button-config",
+            "iconId": "info",
+            "title": "Alert",
+            "action": {
+                "name": "ui.alert",
+                "arguments": {
+                    "message": "Message from config."
+                }
+            },
+            "$type": "menu-item"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-basic-button-alert.png")}/>
+</TabItem>
+</Tabs>

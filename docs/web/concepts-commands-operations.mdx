@@ -24,7 +24,70 @@ edit.add-feature
 edit.delete-features
 ```
 
-TODO - flesh out
+:::tip
+Checkout the [full list of built in commands and operations](TODO-link-commands-operations)
+:::
+
+Commands and operations are used to power much of Geocortex Web's built in behavior and interactions. They can be run through [configuration](TODO-link-to-basic-run-command-use-case), or through [custom services](TODO-link) or [components](TODO-link). They power everything from basic components like the IWTM, to advanced functionality like the results list.
+
+By using commands and operations, you can deeply customize Geocortex Web's behavior with only configuration.
+
+```json
+{
+    "items": [
+        ...
+        {
+            "id": "iwtm-config-1",
+            "items": [
+                {
+                    "id": "return-to-initial-view",
+                    "iconId": "zoom-initial",
+                    "title": "Return to Initial View",
+                    // highlight-next-line
+                    "action": "map.zoom-to-initial-viewpoint",
+                    "$type": "menu-item"
+                },
+            ],
+            "$type": "menu"
+        },
+        {
+            "id": "results-list-config",
+            "featureActions":     {
+                "id": "results-context",
+                "items": [
+                    {
+                        "id": "zoom",
+                        "iconId": "zoom-feature",
+                        "title": "Zoom to Feature",
+                        // highlight-next-line
+                        "action": "map.zoom-to-features",
+                        "$type": "menu-item"
+                    },
+                    {
+                        "id": "remove-feature",
+                        "iconId": "trash",
+                        "title": "Remove Feature",
+                        // highlight-next-line
+                        "action": "results.remove",
+                        "$type": "menu-item"
+                    },
+                ],
+                "$type": "menu"
+            },
+            "onFeatureClick": [
+                // highlight-next-line
+                "results.display-details"
+            ],
+            "$type": "results"
+        },
+        ...
+    ]
+}
+```
+
+## Workflow
+
+Geocortex Workflow can allow for the creation of completely customized behavior without writing custom code. Geocortex Web has a special command, `workflow.run`, which allows you to run workflows anywhere you would run a command or operation. Using workflow, you can take custom behavior in Geocortex Web further without having to write custom code.
 
 ## Next Steps
 

@@ -23,6 +23,7 @@ module.exports = {
             type: "category",
             label: "Use Cases",
             items: [
+                "web/usecases-run-command-with-button",
                 "web/usecases-change-default-behavior",
                 "web/usecases-look-and-feel",
                 {
@@ -43,6 +44,7 @@ module.exports = {
             items: [
                 "web/sdk-overview",
                 "web/sdk-framework-overview",
+                "web/sdk-commands-operations",
                 {
                     type: "category",
                     label: "Components",
@@ -74,7 +76,8 @@ module.exports = {
                     label: "Events",
                     items: [
                         "web/concepts-events",
-                        "web/usecases-implement-event",
+                        "web/sdk-events-create",
+                        "web/sdk-events-reference",
                     ],
                 },
                 "web/sdk-deployment",
