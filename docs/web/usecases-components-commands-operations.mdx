@@ -59,8 +59,14 @@ export default function CustomComponent(props) {
 
 Components can also register an implementation for any command or operation. This allows the creation of commands which can affect the UI. When registering a command implementation for a component, you have to register the implementation in the [component's model](concepts-components-services.mdx#component-models-and-configuration). The following component model registers an implementation for a custom command that takes a `string` argument.
 
+:::note
+It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
+:::
+
 ```tsx
-import { ComponentModelBase, serializable } from "@geocortex/web/models";
+export interface CustomCommandArg {
+    someProp: string;
+}
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
@@ -71,10 +77,10 @@ export default class CustomModel extends ComponentModelBase {
 
         this._handles.push(
             this.messages
-                .command<string>("custom.my-command")
-                .register((arg: string) => {
+                .command<CustomCommandArg>("custom.my-command")
+                .register((arg: CustomCommandArg) => {
                     console.log(
-                        `Executing 'custom.my-command' with argument '${arg}'`
+                        `Executing 'custom.my-command' with argument '${arg.someProp}'`
                     );
                     return;
                 })
@@ -99,7 +105,7 @@ You can run the custom commands or operations you define from another component,
 export default class ExampleComponentModel extends ComponentModelBase {
     async runCustomCommandsAndOperations(){
          // highlight-start
-        await command<string>("custom.my-command").execute("some arg");
+        await command<CustomCommandArg>("custom.my-command").execute({ someProp: "some arg" });
         // highlight-end
 
         // highlight-start

@@ -31,10 +31,6 @@ Create a new folder structure with the following files. These files define a new
 -   `src/components/CustomComponent/CustomModel.ts`
 -   `src/components/CustomComponent/index.ts`
 
-:::note
-In Geocortex Web, components are simply [React Components](https://reactjs.org/docs/components-and-props.html) that return a root `LayoutElement`.
-:::
-
 <Tabs
   defaultValue="component"
   values={[
@@ -148,8 +144,6 @@ If you run the [development server](sdk-overview.mdx#getting-started) you should
 ## Build out your Component's UI
 
 Now that we have a working component, you can build out the UI experience just as you would with any other React Component.
-
-### Example: RSS Feed of News Updates
 
 This React component displays a list of "news items" relevant to your GIS application in a hovering component at the top of the map. In a real application, these news items would be populated by an RSS feed or another news source.
 
@@ -290,54 +284,5 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 <TabItem value="ui">
 <img src={useBaseUrl("img/web-news-feed.png")}/>
-</TabItem>
-</Tabs>
-
-### Example: Component that Uses Built-in Icons
-
-<!-- TODO-API link to Geocortex Icons Library -->
-
-The following example demonstrates a component that uses Geocortex UI Framework components and an icon from the Geocortex Icons library.
-
-<Tabs
-  defaultValue="component"
-  values={[
-    { label: 'Component', value: 'component', },
-    { label: 'UI', value: 'ui', },
-  ]
-}>
-<TabItem value="component">
-
-```tsx title="src/components/
-import React from "react";
-import { LayoutElement } from "@geocortex/web/components";
-import DynamicIcon from "@geocortex/web/ui/icon/DynamicIcon";
-import IconButton from "@geocortex/web/ui/icon-button";
-import MenuItem from "@geocortex/web/ui/menu-item";
-import MenuItemSecondaryAction from "@geocortex/web/ui/menu-list-item-secondary-action";
-import ListItemText from "@geocortex/web/ui/list-item-text";
-
-export default function ComponentWithIcon(props) {
-    return (
-        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
-            <MenuItem>
-                <ListItemText
-                    primary={"Icon Example"}
-                    secondary={"cloud-download icon"}
-                />
-                <MenuItemSecondaryAction>
-                    <IconButton title="IconExample">
-                        <DynamicIcon src="cloud-download" size="large" />
-                    </IconButton>
-                </MenuItemSecondaryAction>
-            </MenuItem>
-        </LayoutElement>
-    );
-}
-```
-
-</TabItem>
-<TabItem value="ui">
-<img src={useBaseUrl("img/web-component-with-icon.png")}/>
 </TabItem>
 </Tabs>

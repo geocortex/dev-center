@@ -1,5 +1,6 @@
 ---
 title: Component Styling
+hide_table_of_contents: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -74,5 +75,56 @@ export default function ExampleComponent(
 </TabItem>
 <TabItem value="ui">
 <img src={useBaseUrl("img/sdk-component-reference-styling.png")}/>
+</TabItem>
+</Tabs>
+
+## Component that Uses Built-in Icons
+
+<!-- TODO-API link to Geocortex Icons Library -->
+
+The following example demonstrates a component that uses Geocortex UI Framework components and an icon from the Geocortex Icons library.
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx title="src/components/
+import React from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import DynamicIcon from "@geocortex/web/ui/icon/DynamicIcon";
+import IconButton from "@geocortex/web/ui/icon-button";
+import MenuItem from "@geocortex/web/ui/menu-item";
+import MenuItemSecondaryAction from "@geocortex/web/ui/menu-list-item-secondary-action";
+import ListItemText from "@geocortex/web/ui/list-item-text";
+
+export default function ComponentWithIcon(props) {
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <MenuItem>
+                <ListItemText
+                    primary={"Icon Example"}
+                    secondary={"cloud-download icon"}
+                />
+                <MenuItemSecondaryAction>
+                    // highlight-start
+                    <IconButton title="IconExample">
+                        <DynamicIcon src="cloud-download" size="large" />
+                    </IconButton>
+                    // highlight-end
+                </MenuItemSecondaryAction>
+            </MenuItem>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-component-with-icon.png")}/>
 </TabItem>
 </Tabs>

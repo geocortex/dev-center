@@ -27,7 +27,15 @@ export default class ExampleService extends ServiceBase {
 
 Services can also register an implementation for any command or operation. The following service registers an implementation for a custom command that takes a `string` argument.
 
+:::note
+It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
+:::
+
 ```tsx
+export interface CustomCommandArg {
+    someProp: string;
+}
+
 export default class ExampleService extends ServiceBase {
     private _handles: IHandle[] = [];
 
@@ -36,10 +44,10 @@ export default class ExampleService extends ServiceBase {
 
         this._handles.push(
             this.messages
-                .command<string>("custom.my-command")
-                .register((arg: string) => {
+                .command<CustomCommandArg>("custom.my-command")
+                .register((arg: CustomCommandArg) => {
                     console.log(
-                        `Executing 'custom.my-command' with argument '${arg}'`
+                        `Executing 'custom.my-command' with argument '${arg.someProp}'`
                     );
                     return;
                 })
@@ -61,7 +69,7 @@ You can run the custom commands or operations you define from another component,
 export default class ExampleService extends ServiceBase {
     async runCustomCommandsAndOperations(){
          // highlight-start
-        await this.messages.command<string>("custom.my-command").execute("some arg");
+        await this.messages.command<CustomCommandArg>("custom.my-command").execute({ someProp: "some arg" );
         // highlight-end
 
         // highlight-start
