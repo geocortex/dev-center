@@ -27,15 +27,16 @@ It's convention that commands and operations in Geocortex Mobile are registered 
 
 <AutofacSnippet />
 
-```csharp
+```csharp title="App1/App1/services/AlertService.cs"
 using App1.Services.AlertService;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Services;
-using System.Threading.Tasks;
 
-[assembly: Service(typeof(Service), PropertiesAutowired = true)]
+// highlight-next-line
+[assembly: Service(typeof(AlertService), PropertiesAutowired = true)]
 namespace App1.Services.AlertService
 {
+    // highlight-next-line
     class AlertService : ServiceBase
     {
     }
@@ -49,15 +50,17 @@ The two key components of this snippet are the `[assembly: Service(...)]` tag an
 3. Create a class `Services/AlertOperations` under the platform agnostic project.
 4. In the file, add a new class `AlertOperations` and register it with Autofac.
 
-```csharp
+```csharp title="App1/App1/services/AlertOperations.cs"
 using App1.Services.AlertOperations;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
 using Geocortex.Mobile.Infrastructure.Messaging;
 
+// highlight-next-line
 [assembly: Export(typeof(AlertOperations), SingleInstance = true)]
 namespace App1.Services.AlertOperations
 {
+    // highlight-next-line
     class AlertOperations : OperationsBase
     {
         public AlertOperations(IOperationRegistry operationRegistry)
@@ -103,6 +106,7 @@ For this example, let's define a operation with some input and no output.
 ```csharp
 class AlertOperations : OperationsBase
 {
+    // highlight-next-line
     public IVoidOperation<string> DisplayCustomAlert => GetVoidOperation<string>("custom-alert.display");
 
     public AlertOperations(IOperationRegistry operationRegistry)
@@ -192,12 +196,11 @@ Although it is best practice to define an operations class that extends `Operati
 This pattern can be useful for registering dynamically generated commands or implementations.
 :::
 
-```csharp
+```csharp title="App1/App1/services/AlertService"
 using App1.Services;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
 using Geocortex.Mobile.Composition.Services;
-using System.Threading.Tasks;
 
 [assembly: Service(typeof(CustomService))]
 namespace App1.Services

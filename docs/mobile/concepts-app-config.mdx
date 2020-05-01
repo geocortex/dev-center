@@ -40,8 +40,8 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 <Tabs
   defaultValue="layout"
   values={[
-    { label: "layout", value: "layout" },
-    { label: "app config", value: "config" },
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
   ]}>
 <TabItem value="layout">
 
@@ -85,8 +85,8 @@ The same config can be used for multiple items in a layout. For example, this al
 <Tabs
   defaultValue="layout"
   values={[
-    { label: "layout", value: "layout" },
-    { label: "app config", value: "config" },
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
     { label: "User Interface", value: "ui" },
   ]}>
 <TabItem value="layout">
@@ -145,7 +145,7 @@ The same config can be used for multiple items in a layout. For example, this al
 
 </TabItem>
 <TabItem value="ui">
-  <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
+  <img src={useBaseUrl("img/mobile-app-config-linking.png")}/>
 </TabItem>
 </Tabs>
 
@@ -156,8 +156,8 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 <Tabs
   defaultValue="layout"
   values={[
-    { label: "layout", value: "layout" },
-    { label: "app config", value: "config" },
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
     { label: "User Interface", value: "ui" },
   ]}>
 <TabItem value="layout">
@@ -240,7 +240,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 
 </TabItem>
 <TabItem value="ui">
-  <img src={useBaseUrl("img/layout-id-targeting.png")}/>
+  <img src={useBaseUrl("img/mobile-config-id-targeting.png")}/>
 </TabItem>
 </Tabs>
 
@@ -257,21 +257,21 @@ In the following example, the app structures a menu with one button, and the lay
 <Tabs
   defaultValue="app"
   values={[
-    { label: 'app.json', value: 'app', },
-    { label: 'layout.xml', value: 'layout', },
+    { label: 'App Config', value: 'app', },
+    { label: 'Layout', value: 'layout', },
     { label: 'User Interface', value: 'ui', }
   ]
 }>
-  <TabItem value="app">
+<TabItem value="app">
 
-```json
+```json title="App1/App1/app.json"
 {
     "schemaVersion": "1.0",
     "items": [
         {
             "$type": "layout",
             "id": "desktop-layout",
-            "url": "resource://layout.xml",
+            "url": "resource://layout-large.xml",
             "tags": ["mobile", "large"]
         },
         {
@@ -296,10 +296,10 @@ In the following example, the app structures a menu with one button, and the lay
 }
 ```
 
-  </TabItem>
-  <TabItem value="layout">
+</TabItem>
+<TabItem value="layout">
 
-```xml
+```xml title="App1/App1/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
     xmlns="https://geocortex.com/layout/v1"
@@ -319,17 +319,17 @@ In the following example, the app structures a menu with one button, and the lay
 </layout>
 ```
 
-  </TabItem>
-  <TabItem value="ui">
-    <img src={useBaseUrl("img/iwtm-config-example.png")} />
-  </TabItem>
+</TabItem>
+<TabItem value="ui">
+  <img src={useBaseUrl("img/mobile-iwtm-config.png")} />
+</TabItem>
 </Tabs>
 
 The `<iwtm>` Component in the layout is bound to the IWTM configuration by the attribute `config="iwtm"`, where `iwtm` corresponds to the ID of the IWTM configuration. All components can be bound to config in this manner, and multiple components can be bound to the same configuration.
 
 Each app item has a different `$type` and different configurable properties associated with it. The example application has two items in the app config:
 
-1. A layout `$type` item which serves as a default layout and references the layout.xml
+1. A layout `$type` item which serves as a default layout and references a `layout-*.xml` file
 2. A menu `$type` item which provides config for the I Want To Menu in the layout
 
 :::important
@@ -355,7 +355,7 @@ This example demonstrated a simple application which has a single menu, but the 
     <UseCaseCard
         title="Advanced App Config Topics"
         description="Learn more about what you can accomplish with app config."
-        link="concepts-advanced-config"
+        link="concepts-advanced-app-config"
     />
     <UseCaseCard
         title="Explore Mobile's built-in components"

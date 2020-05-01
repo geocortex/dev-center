@@ -21,7 +21,7 @@ import { ServiceBase } from "@geocortex/web/services";
 export default class ExampleService extends ServiceBase {}
 ```
 
-If you want your service to be able to serialize and deserialize configuration specific to the service from app.json, you can extend from `ConfigurableServiceBase` instead:
+If you want your service to be able to serialize and deserialize configuration specific to the service from `app.json`, you can extend from `ConfigurableServiceBase` instead:
 
 ```ts title="src/services/ExampleService.ts"
 import { ServiceModelProperties } from "@geocortex/web/models";

@@ -16,7 +16,7 @@ module.exports = {
                 "web/concepts-layout",
                 "web/concepts-app-config",
                 "web/concepts-commands-operations",
-                "web/concepts-advanced-config",
+                "web/concepts-advanced-app-config",
             ],
         },
         {
@@ -110,8 +110,7 @@ module.exports = {
                     ],
                 },
                 "web/api-message-bus",
-                "web/api-commands-operations",
-                "web/api-events",
+                "web/api-commands-operations-events",
                 "web/api-components",
             ],
         },
@@ -202,7 +201,7 @@ module.exports = {
                     label: "Advanced Concepts",
                     items: [
                         "mobile/concepts-advanced-layout",
-                        "mobile/concepts-advanced-config",
+                        "mobile/concepts-advanced-app-config",
                     ],
                 },
             ],
@@ -278,9 +277,7 @@ module.exports = {
             items: [
                 "mobile/api-overview",
                 "mobile/api-layout",
-                "mobile/api-components",
-                "mobile/api-commands-operations",
-                "mobile/api-events",
+                "mobile/api-commands-operations-events",
                 "mobile/api-mobile-ui-elements",
             ],
         },
