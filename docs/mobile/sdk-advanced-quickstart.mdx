@@ -1,0 +1,53 @@
+---
+title: Advanced
+description: Geocortex Web - Learn more about the Geocortex Mobile SDK Quickstart Project
+---
+
+## Development Patterns
+
+For the most part, the Geocortex Mobile project follows the development practices outlined in [Enterprise Application Patterns using Xamarin.Forms](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/).
+
+One major deviation from usual Xamarin Development patterns is that [Autofac](https://autofac.org/) is used as the Dependency Injection framework.
+
+### Geocortex Mobile SDK Packages
+
+The Geocortex Mobile SDK is composed of Geocortex packages:
+
+-   `Geocortex Icons`
+    -   This package provides configurable vector icons for use in Geocortex Mobile apps.
+-   `Geocortex Mobile`
+    -   This package is the heart of the Mobile SDK, and powers the interface and interactions of a Mobile Xamarin Application.
+    -   This package includes the Geocortex.API namespace, an API for working with foundational Geocortex models, configuration, Esri's ArcGIS types, etc.
+-   `Geocortex Workflow`
+    -   Geocortex Mobile heavily relies on [Geocortex Workflow](../workflow/overview.mdx) to power it's functionality.
+    -   Geocortex Workflow is itself composed of many packages (Image Activities, Forms, GIS, Runtime).
+-   `Geocortex Viewer Framework`
+    -   This package provides the definitions of [layout](concepts-layout.mdx) and [app config](concepts-app-config.mdx) that are central to every Mobile app.
+
+## Entry Points
+
+Each platform has platform specific setup and an entry point, after which they all bootstrap the application through the platform agnostic project. In the platform agnostic project, the `OnStart` method of `App.cs` calls the Geocortex Mobile SDK Bootstrapper, and loads and displays the application with the given `app.json` configuration.
+
+#### Android
+
+The `OnCreate` method of the `MainActivity.cs` file in the Android specific project handles Android specific setup.
+
+#### iOS
+
+The `FinishedLaunching` method of the `AppDelegate.cs` in the iOS specific project handles iOS specific setup.
+
+#### Universal Windows
+
+The constructors of the `App.xaml.cs` and `MainPage.xaml.cs` files in the UWP specific project handles Windows specific setup.
+
+## Error Handling
+
+In each of the platform specific setups, there is a call to the `HandleExceptions` method. This method tells Geocortex Mobile to handle exceptions and display an Error. If you need to have control over global error handling, you can remove the call to `HandleExceptions` and implement your own global exception handling for the Xamarin Application. [This Stack Overflow post](https://stackoverflow.com/questions/39503390/global-exception-handling-in-xamarin-cross-platform) is a good starting point for implementing global error handling.
+
+## Referencing Third Party Libraries
+
+The Geocortex Mobile Quickstart is simply a [.NET Xamarin Forms project](https://docs.microsoft.com/en-us/xamarin/get-started/Quickstarts/deepdive?pivots=windows) so you can add dependencies to it like any other .NET project.
+
+:::caution
+The Geocortex Mobile SDK relies on exact versions of [ArcGIS Runtime](https://developers.arcgis.com/arcgis-runtime/) and [Xamarin Forms](https://dotnet.microsoft.com/apps/xamarin/xamarin-forms) NuGet packages.
+:::

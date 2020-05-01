@@ -68,7 +68,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Getting Started with the SDK",
+            label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
                 "web/sdk-create-component",
@@ -90,6 +90,7 @@ module.exports = {
             type: "category",
             label: "API",
             items: [
+                "web/api-layout",
                 "web/api-message-bus",
                 "web/api-commands-operations-events",
                 "web/api-components",
@@ -135,7 +136,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Getting Started with the SDK",
+            label: "Geocortex Workflow SDK",
             items: [
                 "workflow/sdk-overview",
                 {
@@ -205,24 +206,9 @@ module.exports = {
                     type: "category",
                     label: "Workflow",
                     items: [
-                        {
-                            type: "link",
-                            label: "Display a Custom Form",
-                            href:
-                                "https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/create-your-first-app.htm#Integrat",
-                        },
-                        {
-                            type: "link",
-                            label: "Implement Custom Workflow Form Elements",
-                            href:
-                                "../workflow/usecases-mobile-implement-custom-form-elements",
-                        },
-                        {
-                            type: "link",
-                            label: "Implement Custom Workflow Activity",
-                            href:
-                                "../workflow/usecases-mobile-implement-custom-activity",
-                        },
+                        "mobile/usecases-display-custom-form",
+                        "mobile/usecases-implement-custom-form-elements",
+                        "mobile/usecases-implement-custom-activity",
                         "mobile/usecases-change-default-map-click-behavior",
                     ],
                 },
@@ -241,9 +227,20 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Getting Started with the SDK",
+            label: "Geocortex Mobile SDK",
             items: [
-                "mobile/sdk-quick-start",
+                {
+                    type: "category",
+                    label: "Quickstart",
+                    items: [
+                        "mobile/sdk-getting-started",
+                        "mobile/sdk-edit-layout-app-config",
+                        "mobile/sdk-create-component",
+                        "mobile/sdk-create-service",
+                        "mobile/sdk-deployment",
+                        "mobile/sdk-advanced-quickstart",
+                    ],
+                },
                 "mobile/sdk-samples",
                 {
                     type: "category",
@@ -261,7 +258,9 @@ module.exports = {
             label: "API",
             items: [
                 "mobile/api-overview",
+                "mobile/api-layout",
                 "mobile/api-commands-operations-events",
+                "mobile/api-mobile-ui-elements",
             ],
         },
     ],

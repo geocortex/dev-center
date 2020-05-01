@@ -1,0 +1,188 @@
+---
+title: Edit the Layout and App Config
+description: Geocortex Mobile - Edit the layout and app config in the SDK Quickstart
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+:::important
+This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
+:::
+
+Many changes to Geocortex Mobile will require editing the layout and app config for your custom application. The app config (`app.json`) and layout files (`layout-*.xml`) are contained in the shared platform agnostic project. Each platform specific project links to these files as an asset or a reference, so editing the files in the platform agnostic project will change them for all platforms. Check out [layout](concepts-layout.mdx) and [app config](concepts-app-config.mdx) to learn more about configuring Geocortex Mobile with these files.
+
+## Prerequisites
+
+<QuickstartPrereqsSnippet />
+
+## Simple Layout with a Map
+
+Replace the layout in the `layout-large.xml` file and the app config in the `app.json` file with the content below.
+Set `App1.UWP` as your startup project. Build and run Geocortex Mobile and ensure only a plain map appears.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'config', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    // highlight-next-line
+	<map id="map1"></map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "desktop-layout",
+            "$type": "layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["medium", "large"]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-sdk-basic-layout-config.png")}/>
+</TabItem>
+</Tabs>
+
+## Add Buttons
+
+We can now add some buttons and populate them with some simple [commands](concepts-commands-operations.mdx).
+
+-   Add two `<button>` [components](concepts-components-services.mdx#components) to your layout.
+-   Link the buttons to commands defined in the app config.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'config', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<map id="map1" >
+        // highlight-start
+		<button id="rotate-button" config="rotate-button" style="map-widget" show-title="true" margin="0.3" slot="top-right"/>
+		<button id="refresh-button" config="refresh-button" style="map-widget" show-title="true" margin="0.3" slot="top-left"/>
+        // highlight-end
+	</map>
+</layout>
+
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "desktop-layout",
+            "$type": "layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["medium", "large"]
+        },
+        // highlight-start
+        {
+            "id": "rotate-button",
+            "iconId": "arrow-bottom-right",
+            "title": "Rotate Map Right",
+            "action": {
+                "name": "map.rotate-by",
+                "arguments": {
+                    "rotation": "40"
+                }
+            },
+            "$type": "menu-item"
+        },
+        {
+            "id": "refresh-button",
+            "iconId": "refresh",
+            "title": "Refresh App",
+            "action": "app.refresh",
+            "$type": "menu-item"
+        }
+        // highlight-end
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-sdk-layout-config-buttons.png")}/>
+</TabItem>
+</Tabs>
+
+You've now accomplished the basics of building a Geocortex Mobile Application using layout and app config. By using components in the layout to compose the visual structure of your application, and app config to describe behavior, you can create highly customized interfaces with custom behavior.
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Various Layout Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout)
+
+-   [Various Configuration Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration)
+
+-   [A complete Geocortex Mobile App](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/App/GeocortexMobileViewer)
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Create a Custom Component"
+        description="Learn how to create a custom component with the SDK"
+        link="sdk-create-component"
+    />
+    <UseCaseCard
+        title="Deploy your Custom Layout and App Config"
+        description="Deploy your custom layout and app config to a Geocortex Mobile Application"
+        link="sdk-deployment#deploying-app-config-and-layout"
+    />
+    <UseCaseCard
+        title="Learn More About Layout and App Config"
+        description="Check out the concepts to learn more about the layout and app config"
+        link="concepts-key-concepts"
+    />
+    <UseCaseCard
+        title="Explore the Use Cases"
+        description="Check out the the various tutorials on configuring and extending Geocortex Mobile"
+        link="overview#start-with-your-use-case"
+    />
+</UseCaseContainer>

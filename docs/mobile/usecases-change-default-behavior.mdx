@@ -3,11 +3,22 @@ title: Change Default Application Behavior
 description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change default application behavior
 ---
 
-import PrereqsSnippet from "./snippets/prereqs.mdx";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
+import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
-Many of the behaviors of Geocortex Mobile's built in [components](concepts-components-services.mdx) are configurable through the [app config](concepts-app-config.mdx). If you browse the `app.json` that is included with the [Quickstart](sdk-quick-start.mdx), you'll see properties like `action` or `onClick` that take an array of [commands and operations](concepts-commands-operations.mdx).
+Many of the behaviors of Geocortex Mobile's built-in [components](concepts-components-services.mdx) are configurable through the [app config](concepts-app-config.mdx).
+
+## Prerequisites
+
+<QuickstartPrereqsSnippet />
+
+<TweakConfigLayoutSnippet />
+
+## Configuring Behaviors
+
+If you browse the `app.json` that is included with the [Quickstart](sdk-edit-layout-app-config.mdx), you'll see properties like `action` or `onClick` that take an array of [commands and operations](concepts-commands-operations.mdx).
 
 ```json
 {
@@ -18,13 +29,15 @@ Many of the behaviors of Geocortex Mobile's built in [components](concepts-compo
         {
             "$type": "map-extension",
             "id": "map1",
+            // highlight-next-line
             "onClick": [ "tasks.identify", "highlights.pulse", "results.display" ]
         },
         ...
         {
             "$type": "menu-item",
-            "id": "addPointAtCenterAction",
+            "id": "add-point-at-center-action",
             "title": "Add Measurement Point at Center",
+            // highlight-start
             "action": [
                 {
                     "name": "sketching.add-point-at-center",
@@ -33,6 +46,7 @@ Many of the behaviors of Geocortex Mobile's built in [components](concepts-compo
                     }
                 }
             ]
+            // highlight-end
         },
         ...
     ]
@@ -40,10 +54,6 @@ Many of the behaviors of Geocortex Mobile's built in [components](concepts-compo
 ```
 
 All behaviors defined in this manner are configurable. Commands or operations can be added or removed from the chain to modify its behavior. Further, it's possible to configure a `workflow.run` command that [executes custom behavior](usecases-change-default-map-click-behavior.mdx), or a [custom command and operation](usecases-implement-command-operation.mdx).
-
-## Prerequisites
-
-<PrereqsSnippet />
 
 ## Example
 
@@ -53,9 +63,18 @@ This is modified configuration for the `map1` Map Extension in the Quickstart. T
 {
     "$type": "map-extension",
     "id": "map1",
+    // highlight-next-line
     "onClick": [ "tasks.identify", "results.display", "map.zoom-to-features" ]
 },
 ```
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Configuring basic commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/Commands)
+
+-   [Configuring map and feature commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands)
 
 ## Next Steps
 

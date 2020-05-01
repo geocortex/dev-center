@@ -3,20 +3,23 @@ title: Customize the Look and Feel
 description: Geocortex Mobile - Learn how to customize the look and feel of your Geocortex Mobile application
 ---
 
-import PrereqsSnippet from "./snippets/prereqs.mdx";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
+import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
 
 Geocortex Mobile's appearance is defined by two concepts: theme and [layout](concepts-layout.mdx).
 
-The theme controls the color scheme of the app. The color scheme for different themes is defined in branding component of the the [app config](concepts-app-config.mdx). This example is built around [editing the app JSON of the Quickstart](sdk-quick-start.mdx#editing-the-layout-and-app-config) project.
+The theme controls the color scheme of the app. The color scheme for different themes is defined in branding component of the the [app config](concepts-app-config.mdx). This example is built around [editing the app JSON of the Quickstart](sdk-edit-layout-app-config.mdx) project.
 
 ## Prerequisites
 
-<PrereqsSnippet />
+<QuickstartPrereqsSnippet />
+
+<TweakConfigLayoutSnippet />
 
 ## Theming with the Branding Component
 
 This example shows two pre-defined themes that are included with Mobile, light and dark. Custom themes can be added to Mobile's included themes, and selected by changing `activeTheme` property of the branding component.
-The branding component can be found and edited in the [`app.json`](sdk-quick-start.mdx#editing-the-layout-and-app-config).
+The branding component can be found and edited in the [App Config](sdk-edit-layout-app-config.mdx).
 
 :::note
 Color properties can be excluded from a theme; The application will choose a default color instead.
@@ -206,9 +209,21 @@ Color properties can be excluded from a theme; The application will choose a def
 }
 ```
 
-### Changing the Visual Layout of an Application
+## Using Theme Colors in Custom Components
 
-An app's layout defines how elements are visually organized in a Geocortex Mobile Application. [This article](concepts-layout.mdx) will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Mobile. Further styling within the layout can be done using [presentation attributes](concepts-advanced-layout.mdx#presentation-attributes).
+When creating custom components, you may need to style your component. If you use the [Geocortex Mobile UI Elements](api-mobile-ui-elements.mdx) to style your XAML elements, your element will be themed automatically. If you need to use plain XAML elements, the various theming colors can be used in XAML styling.
+
+```xml
+<Style x:Key="InnerDetailsFrameStyle" TargetType="Frame">
+  ...
+  <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryBackgroundColor}"></Setter>
+  ...
+</Style>
+```
+
+## Changing the Visual Layout of an Application
+
+An app's layout defines how elements are visually organized in a Geocortex Mobile Application. [This article](concepts-layout.mdx) will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Mobile. Further styling within the layout can be done using [presentation attributes](api-layout.mdx#presentation-attributes).
 
 ## Changing or Adding Icons
 
@@ -217,3 +232,15 @@ An app's layout defines how elements are visually organized in a Geocortex Mobil
 <!-- ### Example
 
 TODO: Icons - specific example with the Quickstart? -->
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Changing the theme through configuration](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/Theme)
+
+-   [Styling buttons](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout/ButtonStyles)
+
+-   [Layout properties](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout/LayoutProperties)
+
+-   [Geocortex Mobile UI Elements](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/GeocortexMobileElements)

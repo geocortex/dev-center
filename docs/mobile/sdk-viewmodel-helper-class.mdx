@@ -3,12 +3,43 @@ title: View Model Helper Class
 description: Geocortex Mobile - Learn about the base class for ViewModels in mobile, NotifyPropertyBase
 ---
 
-import DoomsdayCookieClickerViewModel from "./snippets/doomsday-cookie-clicker-view-model.mdx";
-
 As per [.NET and Xamarin Forms guidelines](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm#a-simple-viewmodel), ViewModels usually implement the `INotifyPropertyChanged` interface to inform the view of changes to the data model. This involves a lot of boilerplate, so Geocortex Mobile has a class, `NotifyPropertyBase`, which handles the boilerplate and simplifies your code.
 
-The ViewModel of the [Doomsday Cookie Clicker](usecases-implement-component-with-ui.mdx#example-doomsday-cookie-clicker) is a good example of this pattern.
+The ViewModel of the [progress bar custom component](usecases-implement-component-with-ui.mdx#example-progress-bar) is a good example of this pattern.
 
-<DoomsdayCookieClickerViewModel />
+```csharp
+using App1.Components;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Views;
+
+[assembly: ViewModel(typeof(ProgressBarComponentViewModel))]
+namespace App1.Components
+{
+    public class ProgressBarComponentViewModel : NotifyPropertyBase
+    {
+        private double _progress = 0;
+
+        private bool _workComplete = false;
+
+        public double Progress
+        {
+            get => _progress;
+            set => SetProperty(ref _progress, value);
+        }
+
+        public bool WorkComplete
+        {
+            get => _workComplete;
+            set
+            {
+                SetProperty(ref _workComplete, value);
+                OnPropertyChanged(nameof(WorkNotComplete));
+            }
+        }
+
+        public bool WorkNotComplete => !WorkComplete;
+    }
+}
+```
 
 `NotifyPropertyBase` implements `INotifyPropertyChanged` for you and provides a helper function, `SetProperty`. This helper function will ensure that `OnPropertyChanged` is called if the value has changed and that the underlying field is set.

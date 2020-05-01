@@ -8,8 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import DemoVideo from "../../src/components/DemoVideo";
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
-import PrereqsSnippet from "./snippets/prereqs.mdx";
-import DoomsdayCookieClickerViewModel from "./snippets/doomsday-cookie-clicker-view-model.mdx";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 
 :::tip
 Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
@@ -19,46 +18,48 @@ Implementing a custom component in Mobile gives you the highest degree of flexib
 
 ## Prerequisites
 
-<PrereqsSnippet />
+<QuickstartPrereqsSnippet />
 
 ## Create a Component Skeleton
 
-Create a new file `Components/HarmlessComponent.cs` under the platform agnostic project.
-In the file, add a new component class `HarmlessComponent` and register it with **Autofac**.
+Create a new file `components/CustomComponent.cs` under the platform agnostic project.
+In the file, add a new component class `CustomComponent` and register it with **Autofac**.
 
 <AutofacSnippet />
 
-```csharp
+```csharp title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
 using Geocortex.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
-[assembly: Component(typeof(HarmlessComponent), "harmless-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+// highlight-next-line
+[assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components
 {
-    class HarmlessComponent : ComponentBase
+    // highlight-next-line
+    class CustomComponent : ComponentBase
     {
         protected override VisualElement Create(XNode node)
         {
-            return new Label(){ "My Custom Component" };
+            return new Label(){ Text = "My Custom Component" };
         }
     }
 }
 ```
 
 :::info
-The two key components of this snippet are the `[assembly: Component(...)]` tag and the class extension `HarmlessComponent : ComponentBase`. These two pieces register the component with Geocortex Mobile and cause it to be initialized on startup.
+The two key components of this snippet are the `[assembly: Component(...)]` tag and the class extension `CustomComponent : ComponentBase`. These two pieces register the component with Geocortex Mobile and cause it to be initialized on startup.
 :::
 
 :::note
-It's convention for the name of the component in the [`layout`](concepts-layout.mdx) to be lower case and kebab case, i.e. `harmless-component`.
+It's convention for the name of the component in the [`layout`](concepts-layout.mdx) to be lower case and kebab case, i.e. `custom-component`.
 :::
 
 ## Add the Component to your Layout
 
-First, the [layout](concepts-layout.mdx) needs to be told where to find your component. In order to find your component, you have to tell the layout what namespace it belongs too. In the assembly attribute of the `HarmlessComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this [xml namespace](concepts-layout.mdx#namespaces) as an attribute on the layout. In this example, it's added with the alias `custom`.
+First, the [layout](concepts-layout.mdx) needs to be told where to find your component. In order to find your component, you have to tell the layout what namespace it belongs too. In the assembly attribute of the `CustomComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this [xml namespace](concepts-layout.mdx#namespaces) as an attribute on the layout. In this example, it's added with the alias `custom`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -67,6 +68,7 @@ First, the [layout](concepts-layout.mdx) needs to be told where to find your com
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    // highlight-next-line
     xmlns:custom="https://your.org/layout/app1">
   ...
 </layout>
@@ -77,7 +79,7 @@ Now that the `custom` namespace has been added, the component can be added to th
 <Tabs
   defaultValue="layout"
   values={[
-    { label: 'layout.xml', value: 'layout', },
+    { label: 'Layout', value: 'layout', },
     { label: 'User Interface', value: 'ui', }
   ]
 }>
@@ -90,8 +92,10 @@ Now that the `custom` namespace has been added, the component can be added to th
     ...
     <!--Taskbar / custom component-->
     <panel>
-        <custom:harmless-component icon="warning"/>
+        // highlight-next-line
+        <custom:custom-component icon="warning"/>
     </panel>
+    <map slot="main"/>
   </gxm:taskbar>
   ...
 </layout>
@@ -99,7 +103,7 @@ Now that the `custom` namespace has been added, the component can be added to th
 
 </TabItem>
 <TabItem value="ui">
-    <img src={useBaseUrl("img/custom-component-with-ui-first-pass.png")} alt="Custom Component with Text Block"/>
+    <img src={useBaseUrl("img/mobile-custom-component-simple.png")} alt="Custom Component with Text Block"/>
 </TabItem>
 </Tabs>
 
@@ -108,33 +112,35 @@ Now that the `custom` namespace has been added, the component can be added to th
 [XAML is a markup language created by Microsoft](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/), and one of the recommended patterns for defining UI in Xamarin Forms. We can modify our component to reference a [XAML view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/views).
 
 1. Right click on the `Components` folder and select "Add" > "New Item" > "Content View"
-2. Rename the files and classes within to `HarmlessComponentView.xaml` and `HarmlessComponentView.xaml.cs`
-3. Modify the `HarmlessComponent` to return this new view for its content.
+2. Rename the files and classes within to `CustomComponentView.xaml` and `CustomComponentView.xaml.cs`
+3. Modify the `CustomComponent` to return this new view for its content.
 
 <Tabs defaultValue="component"
   values={[
-    { label: 'HarmlessComponent.cs', value: 'component', },
-    { label: 'HarmlessComponentView.xaml', value: 'view', },
-    { label: 'HarmlessComponentView.xaml.cs', value: 'code-behind', }
+    { label: 'Component', value: 'component', },
+    { label: 'View', value: 'view', },
+    { label: 'Code Behind', value: 'code-behind', },
+    { label: 'UI', value: 'ui', }
   ]
 }>
 <TabItem value="component">
 
-```csharp
+```csharp title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
 using Geocortex.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
-[assembly: Component(typeof(HarmlessComponent), "harmless-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+[assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components
 {
-    class HarmlessComponent : ComponentBase
+    class CustomComponent : ComponentBase
     {
         protected override VisualElement Create(XNode node)
         {
-            return new HarmlessComponentView();
+            // highlight-next-line
+            return new CustomComponentView();
         }
     }
 }
@@ -144,14 +150,14 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
-```xml
+```xml title="App1/App1/components/CustomComponentView.xaml"
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="App1.Components.HarmlessComponentView">
+             x:Class="App1.Components.CustomComponentView">
   <ContentView.Content>
       <StackLayout>
           <Label Text="Hello Xamarin.Forms!" />
@@ -163,23 +169,19 @@ namespace App1.Components
 </TabItem>
 <TabItem value="code-behind">
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+```csharp title="App1/App1/components/CustomComponentView.xaml.cs"
+using App1.Components;
+using Geocortex.Mobile.Composition;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: View(typeof(HarmlessComponentView))]
+[assembly: View(typeof(CustomComponentView))]
 namespace App1.Components
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HarmlessComponentView : ContentView
+    public partial class CustomComponentView : ContentView
     {
-        public HarmlessComponentView()
+        public CustomComponentView()
         {
             InitializeComponent();
         }
@@ -187,6 +189,9 @@ namespace App1.Components
 }
 ```
 
+</TabItem>
+<TabItem value="ui">
+    <img src={useBaseUrl("img/mobile-custom-component-xamarin-view.png")} alt="Custom Component with Text Block"/>
 </TabItem>
 </Tabs>
 
@@ -201,12 +206,12 @@ Learn about how to extend this component to [participate in app config](usecases
 From here, you can implement your own business logic and interfaces, create custom [Commands and Operations](usecases-implement-command-operation.mdx) that are powered by and/or interact with your component, and much more. The [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml.
 
 :::info
-Mobile comes with built-in [Enhanced Components]https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/GeocortexMobileElements) that can ease development and styling of custom UI.
+Geocortex Mobile comes with built-in [Enhanced Components](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/GeocortexMobileElements) that can ease development and styling of custom UI.
 :::
 
-### Example: Doomsday Cookie Clicker
+### Example: Progress Bar
 
-Here's an example of the `HarmlessComponent` modified and extended to be not so harmless. It uses a [MVVM pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm) to power the user interface, as is best practice recommended by Xamarin.
+Here's an example of a component with a progress bar that is advanced on a button click. It uses a [MVVM pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm) to power the user interface, as is best practice recommended by Xamarin.
 
 <Tabs defaultValue="component"
   values={[
@@ -219,23 +224,29 @@ Here's an example of the `HarmlessComponent` modified and extended to be not so 
 }>
 <TabItem value="component">
 
-```csharp
+```csharp title="App1/App1/components/ProgressBarComponent.cs"
 using App1;
 using App1.Components;
 using Geocortex.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
-[assembly: Component(typeof(HarmlessComponent), "harmless-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+[assembly: Component(typeof(ProgressBarComponent), "progress-bar-component", XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components
 {
-    class HarmlessComponent : ComponentBase
+    class ProgressBarComponent : ComponentBase
     {
+        private View _view;
+
+        // The view is injected as a dependency
+        // highlight-next-line
+        public ProgressBarComponent(ProgressBarComponentView view)
+        {
+            _view = view;
+        }
         protected override VisualElement Create(XNode node)
         {
-            return new HarmlessComponentView(new HarmlessComponentViewModel())
-            {
-            };
+            return _view;
         }
     }
 }
@@ -244,78 +255,75 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
-```xml
+```xml title="App1/App1/components/ProgressBarComponentView.xaml
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:App1.Components"
              mc:Ignorable="d"
-             x:Class="App1.Components.HarmlessComponentView">
-  <ContentView.Resources>
-    <ResourceDictionary>
-      <local:BooleanNegationConverter x:Key="BoolNegate" />
-    </ResourceDictionary>
-  </ContentView.Resources>
-  <ContentView.Content>
+             x:Class="App1.Components.ProgressBarComponentView">
+    <ContentView.Content>
         <StackLayout Margin="20">
-            <StackLayout Spacing="20" IsVisible="{Binding IsDoomsday, Converter={StaticResource BoolNegate}}">
-                <Label Text="Don't you dare click the button"></Label>
-                <Button Text="I said don't click me." Clicked="Button_Clicked" IsEnabled="{Binding IsDoomsday, Converter={StaticResource BoolNegate}}"></Button>
+            <StackLayout Spacing="20" IsVisible="{Binding WorkNotComplete}">
+                <Label Text="Click the button to advance the progress bar."></Label>
+                <Button Text="Do some work." Clicked="DoWork_Clicked"></Button>
                 <ProgressBar ProgressColor="Red" Progress="{Binding Progress}" />
             </StackLayout>
-            <StackLayout Spacing="20" IsVisible="{Binding IsDoomsday}">
-                <Label  FontSize="Large" TextColor="Red" Text="BOOM"></Label>
-                <Label  Text="Look what you did, now the world is ended and I didn't even get to finish my ice cream."></Label>
+            <StackLayout Spacing="20" IsVisible="{Binding WorkComplete}">
+                <Label  Text="Work Complete"></Label>
+                <Button Text="Reset" Clicked="Reset_Clicked"></Button>
             </StackLayout>
         </StackLayout>
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>
 ```
 
 </TabItem>
 <TabItem value="code-behind">
 
-```csharp
+```csharp title="App1/App1/components/ProgressBarComponentView.xaml.cs"
 using App1.Components;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Infrastructure.Messaging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: View(typeof(HarmlessComponentView))]
+// Here, the view is registered with Autofac so it can be injected.
+// highlight-next-line
+[assembly: View(typeof(ProgressBarComponentView))]
 namespace App1.Components
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HarmlessComponentView : ContentView
+    public partial class ProgressBarComponentView : ContentView
     {
         private UIOperations _uiOperations;
-        public HarmlessComponentViewModel ViewModel => BindingContext as HarmlessComponentViewModel;
-        public HarmlessComponentView(HarmlessComponentViewModel viewModel, UIOperations uiOperations)
+        public ProgressBarComponentViewModel ViewModel => BindingContext as ProgressBarComponentViewModel;
+        public ProgressBarComponentView(ProgressBarComponentViewModel viewModel, UIOperations uiOperations)
         {
             _uiOperations = uiOperations;
             BindingContext = viewModel;
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void DoWork_Clicked(object sender, EventArgs e)
         {
-            if (!ViewModel.IsDoomsday)
+            if (!ViewModel.WorkComplete)
             {
                 ViewModel.Progress += 0.2;
                 if (ViewModel.Progress >= 1.0)
                 {
-                    ViewModel.IsDoomsday = true;
-                    _uiOperations.Alert.Execute(new UIAlertArgs() { Title = "Oh No....", Message = "What have you done....", ButtonText = "Accept your fate." });
+                    ViewModel.WorkComplete = true;
+                    _uiOperations.Alert.Execute(new UIAlertArgs() { Title = "Success", Message = "Work Complete", ButtonText = "Ok" });
                 }
             }
+        }
+
+        private void Reset_Clicked(object sender, EventArgs e)
+        {
+            ViewModel.Progress = 0;
+            ViewModel.WorkComplete = false;
         }
     }
 }
@@ -324,7 +332,42 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view-model">
 
-<DoomsdayCookieClickerViewModel />
+```csharp title="App1/App1/components/ProgressBarComponentViewModel.cs"
+using App1.Components;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Views;
+
+// Here, the view model is registered with autofac so it can be injected
+// highlight-next-line
+[assembly: ViewModel(typeof(ProgressBarComponentViewModel))]
+namespace App1.Components
+{
+    public class ProgressBarComponentViewModel : NotifyPropertyBase
+    {
+        private double _progress = 0;
+
+        private bool _workComplete = false;
+
+        public double Progress
+        {
+            get => _progress;
+            set => SetProperty(ref _progress, value);
+        }
+
+        public bool WorkComplete
+        {
+            get => _workComplete;
+            set
+            {
+                SetProperty(ref _workComplete, value);
+                OnPropertyChanged(nameof(WorkNotComplete));
+            }
+        }
+
+        public bool WorkNotComplete => !WorkComplete;
+    }
+}
+```
 
 </TabItem>
 <TabItem value="ui">
@@ -337,3 +380,11 @@ This example refactored the original example to use [Autofac dependency injectio
 :::note
 Learn more of this ViewModel's use of the Geocortex Mobile helper class [`NotifyPropertyBase`](sdk-viewmodel-helper-class.mdx).
 :::
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Custom Component](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Component)
+
+-   [Custom Component with XAML](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent)

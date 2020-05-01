@@ -3,13 +3,13 @@ title: Internationalization
 description: Geocortex Mobile - Internationalization
 ---
 
-import PrereqsSnippet from "./snippets/prereqs.mdx";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 
 Geocortex Mobile, being a Xamarin Forms Application, comes with built-in [support for full internationalization](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/localization/text?pivots=windows) of existing and new language strings.
 
 ## Prerequisites
 
-<PrereqsSnippet />
+<QuickstartPrereqsSnippet />
 
 ## Specifying a Default Language
 
@@ -17,13 +17,15 @@ Xamarin forms describes how to [specify a default language for your app](https:/
 
 ## Adding New Cultures for Existing Language Strings
 
-The [Quickstart](sdk-quick-start.mdx) project comes with multiple AppResources files in the root of the platform agnostic project to provide an example of adding a culture to your application.
+The [Quickstart](sdk-getting-started.mdx) project comes with multiple `AppResources` files in the [root of the platform agnostic project](https://github.com/geocortex/vertigis-mobile-quickstart/tree/master/App1/App1) to provide an example of adding a culture to your application.
 
 ## Providing Language Strings for a Component
 
-<!-- TODO: Validate link when available -->
+The [SDK Samples](sdk-samples.mdx) project includes a [internationalization example](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Internationalization) which demonstrates how to configure resource files on a component level.
 
-The [SDK Samples](sdk-samples.mdx) project includes a [internationalization example](https://github.com/mobile-sdk-samples/samples/internationalization) which demonstrates how to configure resource files on a component level.
+:::note
+By convention, all language string keys take the format `language-kebab-cased-description`.
+:::
 
 ## Language Strings and App Config
 
@@ -39,7 +41,9 @@ All language strings used for properties in the [app config](concepts-app-config
             "$type": "menu-item",
             "id": "zoom-to-extent",
             "iconId": "zoom-extent",
+            // highlight-next-line
             "title": "language-zoom-extent-title",
+            // highlight-next-line
             "description": "language-zoom-extent-description",
             "action": "map.zoom-to-layer-extent"
         },
@@ -47,3 +51,9 @@ All language strings used for properties in the [app config](concepts-app-config
     ]
 }
 ```
+
+## Relevant SDK Sample
+
+Check out the relevant Geocortex Mobile SDK Sample:
+
+-   [Internationalization](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Internationalization)
