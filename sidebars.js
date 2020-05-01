@@ -30,6 +30,7 @@ module.exports = {
                     type: "category",
                     label: "Configuring Workflows",
                     items: [
+                        "web/usecases-run-workflow-app-config",
                         "web/usecases-display-custom-form",
                         "web/usecases-implement-custom-form-elements",
                         "web/usecases-implement-custom-activity",

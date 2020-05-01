@@ -18,7 +18,7 @@ A layout consists of declarative XML that defines an applications visual structu
 
 Take this example of a layout with a map and a zoom widget.
 
-```xml title="layout.xml"
+```xml title="app/layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map>
@@ -45,7 +45,7 @@ The position of a component within its parent is controlled by what slot it is p
 
 For example, this configuration will place the zoom widget in the top right of the map.
 
-```xml title="layout.xml"
+```xml title="app/layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map>
@@ -200,7 +200,7 @@ The Geocortex Mobile SDK [Quickstart](sdk-getting-started.mdx) includes a large 
 
 In order for the correct layout to be loaded for the correct form factor, the layout needs to be loaded by the app config.
 
-```json {6-7,12-13} title="app.json"
+```json {6-7,12-13} title="app/app.json"
 {
     "schemaVersion": "1.0",
     "items": [

@@ -1,43 +1,81 @@
 ---
-title: Change Default Application Behavior (needs overhaul)
+title: Change the Default Behavior of Components
 description: Geocortex Web - Learn how to configure Geocortex Web to change default application behavior
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 
 Many of the behaviors of Geocortex Web's built-in [components](concepts-components-services.mdx) are configurable through the [app config](concepts-app-config.mdx).
 
+:::tip
+Many behaviors which are configurable through the app config are more easily configurable by using the [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/). App config should be used if you need to modify a property not available in the app config, or use a custom command as part of a chain of behavior.
+:::
+
 ## Prerequisites
 
-<PrereqsLayoutConfigSnippet />
+<PrereqsLayoutConfigSnippet />{" "}
 
-## Custom Behavior of Built-in Components
+## Change the Behavior of the Bookmarks Component
 
-The following example overrides the default behavior for a map click by modifying the `onClick` property in the app config for the map component.
+The following example demonstrates changing the `onClick` property of the bookmarks model. The default value of this property is the singular command, `map.zoom-to-viewpoint`. This property is not available to edit through the Geocortex Web Designer, but can be edited through the use of app config.
+
+First, let's create a basic map with a bookmarks component using the layout and app config. Start up the application and add a few bookmarks.
 
 <Tabs
-  defaultValue="config"
+  defaultValue="layout"
   values={[
-    { label: "App Config", value: "config" },
-    { label: "Layout", value: "layout" },
-  ]}>
-<TabItem value="config">
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'app', },
+  ]
+}>
+<TabItem value="app">
 
-```json
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": []
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace" xmlns:web="https://geocortex.com/layout/web/v1">
+    <map>
+        <web:bookmarks/>
+    </map>
+</layout>
+```
+
+</TabItem>
+</Tabs>
+
+Next, add a [app item](TODO-link-to-app-item) to the configuration for the bookmarks component.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'app', },
+  ]
+}>
+<TabItem value="app">
+
+```json title="app/app.json"
 {
     "schemaVersion": "1.0",
     "items": [
-        ...
         {
-            "$type": "map-extension",
-            "id": "map-1",
-            "onClick": [ "tasks.identify", "highlights.pulse", "results.display" ]
-        },
-        ...
+            "id": "bookmarks-config",
+            "$type": "bookmarks"
+        }
     ]
 }
 ```
@@ -45,63 +83,70 @@ The following example overrides the default behavior for a map click by modifyin
 </TabItem>
 <TabItem value="layout">
 
-```xml
+```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1">
-    <map config="map-1"/>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace" xmlns:web="https://geocortex.com/layout/web/v1">
+    <map>
+        <web:bookmarks config="bookmarks-config"/>
+    </map>
 </layout>
 ```
 
 </TabItem>
 </Tabs>
 
-The `onClick` property for the `<map>` has been configured to run a series of [commands and operations](concepts-commands-operations.mdx). These commands and operations will be executed on a map click instead of the default map click behavior.
+Finally, modify the `onClick` property of the bookmarks app item to be a custom action.
 
-## Using Workflows to Customize Behavior
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'app', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="layout">
 
-<!-- TODO-API link to workflow.run command -->
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace" xmlns:web="https://geocortex.com/layout/web/v1">
+    <map>
+        <web:bookmarks config="bookmarks-config"/>
+    </map>
+</layout>
+```
 
-By using the `workflow.run` command, you can even execute a [workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/geocortex-workflow.htm#Introduction_to_Geocortex_Workflow%3FTocPath%3D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520Introduction%2520to%2520Geocortex%2520Workflow%7C_____0) with completely configurable behavior.
+</TabItem>
+<TabItem value="app">
 
-:::tip
-For a more in depth example, check out the use case on [overriding default map click behavior with a workflow](usecases-change-default-map-click-behavior.mdx).
-:::
-
-```json
+```json title="app/app.json"
 {
     "schemaVersion": "1.0",
     "items": [
-        ...
         {
-            "$type": "workflow",
-            "id": "custom-click-workflow",
-            "title": "Custom Map Click Workflow",
-            "commandArgumentInput": "context",
-            "target": "#taskbar",
-            "portalItem": "<your-workflow-id-here>"
-        },
-        {
-            "$type": "map-extension",
-            "id": "map-1",
+            "id": "bookmarks-config",
+            "$type": "bookmarks",
             "onClick": [
+                "map.zoom-to-viewpoint",
                 {
-                    "name": "workflow.run",
+                    "name": "ui.alert",
                     "arguments": {
-                        "id": "custom-click-workflow"
+                        "message": "Message from config."
                     }
                 }
             ]
-        },
-        ...
+        }
     ]
 }
 ```
 
-## Discovering Configurable Properties
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-customize-bookmarks-component.png")}/>
+</TabItem>
+</Tabs>
 
-You can view the configurable properties for a given component in the API documentation. For example, [here's the documentation](api-components.mdx#map) for the `<map>` component with the `onClick` property.
-
-By using commands and operations to customize default behavior and using [layout principles](concepts-layout.mdx) to modify the UI, you can customize a Geocortex Web Application without having to write custom code.
+Congratulations! You just changed the default behavior for a built in component using config. All components can be configured through the app config JSON in this manner.
 
 ## Next Steps
 

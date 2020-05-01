@@ -80,7 +80,7 @@ You can add a file name to the code block when appropriate. We only recommend ad
 
 For example this is a complete sample (it would actually run):
 
-    ```xml title="layout.xml"
+    ```xml title="app/layout.xml"
     <?xml version="1.0" encoding="utf-8" ?>
     <layout xmlns="https://geocortex.com/layout/v1">
         <map>
@@ -103,7 +103,7 @@ While this is not complete, and therefore doesn't have a filename:
 
 You can bring emphasis to certain lines of code by specifying line ranges after the language meta string (leave a space after the language).
 
-    ```json {6-7} title="app.json"
+    ```json {6-7} title="app/app.json"
     {
         "schemaVersion": "1.0",
         "items": [
