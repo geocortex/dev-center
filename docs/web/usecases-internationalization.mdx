@@ -1,34 +1,28 @@
 ---
-title: Internationalization
-description: Geocortex Web - Internationalization
+title: Translate a Component's Text
 ---
 
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import TranslationCallout from "./snippets/translation-callout.mdx";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 
-:::tip
-Geocortex Web comes with built-in [support for internationalization](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/internationalization.htm). Existing language strings for an application can be customized for any language in the Geocortex Web Designer. To provide a complete translation in an entirely new locale for Geocortex Web, please [contact us](https://www.geocortex.com/contact/).
-:::
+<TranslationCallout />
+
+Custom components often provide user facing UI with some degree of text. You may want to define their text as language strings for multiple reasons.
+
+1. It allows the text be to translated or changed without a corresponding change in the component code.
+2. It allows the language strings to be shared across different components.
+3. It consolidates the language strings and makes them easier to locate.
+
+This article will cover creating a german and english translation for a custom component using language strings.
 
 ## Prerequisites
 
 <PrereqsCustomCodeSnippet />
 
-## Providing Language Strings for a Component
-
-When developing [custom components](concepts-components-services.mdx#components), user facing language strings are sometimes introduced. If these strings need to be translated, you can register new language resource files with the appropriate translations.
-
-:::warning
-If you define a language string that Geocortex Web has already defined, it will override the existing language string with your custom string.
-:::
-
-## Example: Custom Component that Displays a Translatable String
-
-This example will use a simple custom component that displays a string with an English and German translation.
-
-### Create a Boilerplate Component
+## Create a Boilerplate Component
 
 First, we will start off with a component that uses a plain hard-coded text string in English.
 
@@ -132,9 +126,9 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 </Tabs>
 
-### Creating the Language Resources
+## Creating the Language Resources
 
-Next, we are going to create the language resources for English and German. Language resources are plain JSON files with language keys and values.
+Next, we are going to create the [language resources](TODO-link-language-resources) for English and German.
 
 <Tabs
   defaultValue="english"
@@ -166,9 +160,9 @@ Next, we are going to create the language resources for English and German. Lang
 </TabItem>
 </Tabs>
 
-### Register the Language Resources
+## Register the Language Resources
 
-Next we need to register the language resources with Geocortex Web. Geocortex Web uses two letter language codes to identify locales. See the [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for a full list of possible locales.
+Next we need to [register the language resources](TODO-register-language-resources) with Geocortex Web.
 
 ```ts title="src/index.ts"
 import { ComponentType } from "react";
@@ -206,7 +200,7 @@ export default function (registry: LibraryRegistry) {
 }
 ```
 
-### Use the Language Strings
+## Use the Language Strings
 
 <!-- TODO-API link to Geocortex UI Components -->
 
@@ -262,25 +256,3 @@ export default function TranslatableText(props) {
 <img src={useBaseUrl("img/web-translate-german.png")}/>
 </TabItem>
 </Tabs>
-
-## Language Strings and App Config
-
-All language strings used for properties in the [app config](concepts-app-config.mdx), like "title" or "description", are automatically translated by the application.
-
-```json
-{
-    "schemaVersion": "1.0",
-    "items": [
-        ...
-        {
-            "$type": "menu-item",
-            "id": "zoom-to-extent",
-            "iconId": "zoom-extent",
-            "title": "language-zoom-extent-title",
-            "description": "language-zoom-extent-description",
-            "action": "map.zoom-to-layer-extent"
-        },
-        ...
-    ]
-}
-```

@@ -120,3 +120,27 @@ The same config can be used for multiple items in a layout. For example, this al
 </Tabs>
 
 In addition, multiple components can use the same configuration type. For example, components like the `<iwtm>`, `<button>` and `<toolbar>` all use the `menu-item` type in some manner for their configuration. Custom components can also adopt existing item types as their [models](concepts-components-services.mdx#component-models-and-configuration).
+
+## Internationalization
+
+All language strings used for properties in the [app config](concepts-app-config.mdx), like "title" or "description", are automatically translated by the application.
+
+Learn more about how to [use and create language resources](TODO-some-internationlization-link).
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "menu-item",
+            "id": "zoom-to-extent",
+            "iconId": "zoom-extent",
+            "title": "language-zoom-extent-title",
+            "description": "language-zoom-extent-description",
+            "action": "map.zoom-to-layer-extent"
+        },
+        ...
+    ]
+}
+```
