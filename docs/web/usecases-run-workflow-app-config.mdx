@@ -97,25 +97,26 @@ Next, add a [app item](TODO-link-to-app-item) to the configuration for the map c
 The next step is going to be replacing the `ui.display-notification` command with a `workflow.run-*` command. First, we need to create a workflow to use for the command.
 
 1. Open up [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
-   :::tip
 
-    <p>
-        Optionally, you can{" "}
-        <a
-            href={useBaseUrl("workflows/web-run-workflow-app-config.json")}
-            download="run-workflow-app-config.json"
-        >
-            download this example workflow
-        </a>{" "}
-        that displays an alert and then{" "}
-        <a
-            href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
-            target="_blank"
-        >
-            import it into workflow designer.
-        </a>
-    </p>
-    :::
+:::tip
+
+<p>
+    Optionally, you can{" "}
+    <a
+        href={useBaseUrl("workflows/web-run-workflow-app-config.json")}
+        download="run-workflow-app-config.json"
+    >
+        download this example workflow
+    </a>{" "}
+    that displays an alert and then{" "}
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        import it into workflow designer.
+    </a>
+</p>
+:::
 
 2. Add an "Alert" activity as a test.
 3. Copy the ID of the the workflow from the URL
