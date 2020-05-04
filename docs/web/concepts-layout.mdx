@@ -23,15 +23,15 @@ A layout consists of declarative XML that defines an applications visual structu
 </layout>
 ```
 
-The first thing it does is declare a `<map>` component that uses the default map configuration.
-Next, a zoom widget is embedded within the map. This does two things:
+The examples above first declares a `<map>` component that uses the default map configuration.
+Next, a `<zoom>` component is added **within** the map component. This does two things:
 
 1. Visually places the element inside the map
 2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
 
 <FollowAlongSnippet />
 
-The basic example shown above will place a zoom widget inside a map. But what if you want the zoom widget to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
+The basic example shown above will place a zoom widget somewhere inside a map. But what if you want the zoom widget to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
 
 ## Slotting
 
@@ -51,7 +51,7 @@ For example, this configuration will place the zoom widget in the top right of t
 
 If a slot configuration is not given, the component will slot itself into a default position. Each component defines its own slots - not every slot will work for every component.
 
-Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
+Slots control how one element fits into another, but how do we control how sibling elements position themselves? The answer is stacks and splits.
 
 ## Stacks and Splits
 
@@ -78,7 +78,7 @@ These are just a few examples of the building blocks available to help you organ
 
 ## Models
 
-Components often observe and modify the state of other components.
+Components often observe and modify or react to the state of other components.
 Consider the following example:
 
 ```xml
@@ -87,7 +87,11 @@ Consider the following example:
 </map>
 ```
 
-The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map model to display its values.
+The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map to display its values.
+
+Each component has a corresponding **model** which is responsible for the data underlying the component. For example, the model for the map component contains the ArcGIS API Map object, and other information about the current state of the map.
+
+Components can react to changes or mutate values on other components through these models. For example, if the scale of the map changes when it is zoomed, then the scalebar will react to the change in the map model and update it's displayed values.
 
 For a deeper dive into Models, [check out the Component SDK reference](TODO-component-sdk-link).
 

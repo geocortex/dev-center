@@ -1,13 +1,29 @@
 ---
-title: Injecting Services
+title: Directly Referencing Services
 description: Geocortex Web - Injecting services into component models and other services.
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 Geocortex Web uses dependency injection as a way to obtain a reference to Geocortex Web [services](concepts-components-services.mdx#services) in your application. Services can be referenced from within a [component model](concepts-components-services.mdx#component-models-and-configuration) or another service.
 
-The easiest way to obtain a reference to a service is by using the `@inject` decorator from within your component model or service. For example to inject the `RegionService` from within a component model:
+:::note
+If a [custom command or operation](TODO-link-custom-command) can accomplish the behavior you need without a direct service reference, this is preferred to decrease the degree of coupling.
+:::
 
-```ts title="ExampleComponentModel.ts"
+The easiest way to obtain a reference to a service is by using the `@inject` decorator from within your component model or service. The following example demonstrates injecting the `RegionService` from a custom component model and a custom service.
+
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "Custom Component Model", value: "model" },
+    { label: "Custom Service", value: "service" },
+  ]}>
+<TabItem value="model">
+
+```ts
 import { ComponentModelBase } from "@geocortex/web/models";
 import { RegionService } from "@geocortex/web/region";
 // highlight-next-line
@@ -16,19 +32,50 @@ import { FrameworkServiceType, inject } from "@geocortex/web/services";
 export default class ExampleComponentModel extends ComponentModelBase {
     // NOTE: This property isn't populated until the model is `initialized`.
     // It is not available in the constructor of this model.
-    // highlight-next-line
+    // highlight-start
     @inject(FrameworkServiceType.REGION)
-    // highlight-next-line
     regionService: RegionService | undefined;
+    // highlight-end
 
     private _distance = "100";
 
     get distance(): string {
-        return this.regionService?.measurementSystem === "metric"
+        return this.regionService &&
+            this.regionService.measurementSystem === "metric"
             ? `${this._distance} m`
             : `${this._distance} ft`;
     }
 }
 ```
 
-Note that the `@inject` decorator will automatically inject a reference to the service only when used from within a component model or service. The property that the `@inject` decorator is bound to **will be populated during the initialization process of the given component model or service** that the decorator was used in. The property value will be `undefined` until the component model or service is initialized.
+</TabItem>
+<TabItem value="service">
+
+```ts
+import { ServiceBase } from "@geocortex/web/services";
+import { RegionService } from "@geocortex/web/region";
+import { FrameworkServiceType, inject } from "@geocortex/web/services";
+
+export default class CustomDataService extends ServiceBase {
+    // NOTE: This property isn't populated until the service is `initialized`.
+    // It is not available in the constructor of this service.
+    // highlight-start
+    @inject(FrameworkServiceType.REGION)
+    regionService: RegionService | undefined;
+    // highlight-end
+
+    private _distance = "100";
+
+    get distance(): string {
+        return this.regionService &&
+            this.regionService.measurementSystem === "metric"
+            ? `${this._distance} m`
+            : `${this._distance} ft`;
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Note that the `@inject` decorator will automatically inject a reference to the service only when used from within a component model or service. The property that the `@inject` decorator is bound to **will be populated during the [initialization process](TODO-initialization-link) of the given component model or service** that the decorator was used in. The property value will be `undefined` until the component model or service is initialized.

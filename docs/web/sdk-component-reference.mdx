@@ -203,21 +203,7 @@ The following model defines a simple configurable property `items`.
 -   The shape of this property in the app config JSON file is defined by the `items` property in the `ExampleComponentModelProperties` interface.
 -   The shape of this property in the model is defined by the `items` property in the `ExampleComponentModel` class.
 
-:::tip
-Marking properties in the `ComponentModelProperties` interface as optional allows them to be left out of config and populated with default values. It's best practice to make properties optional and provide a default value if possible.
-:::
-
-The `ExampleComponentModel` class consumes the configuration by extending the `ComponentModelBase<ExampleComponentProperties>` interface, using the `@serializable` class decorator and then defining serialization logic in an override of the `_getSerializableProperties()` method.
-
-The `_getSerializableProperties()` method has a few purposes.
-
-1. Provide serialization logic from an model property to an object that can be serialized in a JSON file.
-2. Provide deserialization logic from a JSON object to a model property.
-3. Provide a default value for the JSON object if one is not given in the app config.
-
-:::important
-It's key that the existing properties also get serialized through a call to `super._getSerializableProperties()`.
-:::
+The `ExampleComponentModel` class consumes the configuration by extending the `ComponentModelBase<ExampleComponentProperties>` interface, using the `@serializable` class decorator and then defining serialization logic in an override of the `_getSerializableProperties()` method. You can learn more about configuration serialization in [this article](TODO-property-serialization-article).
 
 ```ts
 interface ExampleComponentModelProperties extends ComponentModelProperties {
@@ -246,34 +232,6 @@ export default class ExampleComponentModel extends ComponentModelBase<
                     this.items.removeAll();
                     this.items.addMany(items);
                 },
-            },
-        };
-    }
-}
-```
-
-Simpler properties such as `boolean` values or `string` values can have their serialization logic omitted.
-
-```ts
-interface ExampleComponentModelProperties extends ComponentModelProperties {
-    stringVal?: string;
-}
-
-@serializable
-export default class ExampleComponentModel extends ComponentModelBase<
-    ExampleComponentModelProperties
-> {
-    stringVal: string;
-
-    protected _getSerializableProperties(): PropertyDefs<
-        ExampleComponentModelProperties
-    > {
-        const props = super._getSerializableProperties();
-        return {
-            ...props,
-            stringVal: {
-                serializeModes: ["initial"],
-                default: "Simple String Value",
             },
         };
     }

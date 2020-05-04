@@ -1,0 +1,279 @@
+---
+title: Serializable Properties
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Geocortex Web uses static, plain, app config JSON files to represent settings and properties for various components and services in an application. At some point, each of the values in the JSON file must be serialized and populate a JavaScript Object. Component models and custom services can both consume configuration; therefore, they must also define the logic for moving from configuration to runtime values.
+
+## Defining a Serializable Class
+
+In order for a component to participate in configuration, it must be marked as serializable with the `@serializable` decorator.
+
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "Custom Component Model", value: "model" },
+    { label: "Custom Service", value: "service" },
+  ]}>
+<TabItem value="model">
+
+```ts
+...
+// highlight-next-line
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase<
+    ExampleComponentModelProperties
+> {
+    items: Collection<string> = new Collection<string>();
+    ...
+}
+```
+
+</TabItem>
+<TabItem value="service">
+
+```ts
+...
+// highlight-next-line
+@serializable
+export default class CustomServiceWithConfig extends ConfigurableServiceBase<
+    CustomServiceProperties
+> {
+   items: Collection<string> = new Collection<string>();
+
+```
+
+</TabItem>
+</Tabs>
+
+<!-- TODO - get Eric to Review this -->
+
+Every serializable class extends a generically typed base class, like `ComponentModelBase` or `ConfigurableServiceBase`. The type passed into the base class is an interface consisting of primitive, serializable types, like `number`, `string`, `array`, `boolean`, etc. Each property on the interface will correspond exactly to a property in the app config JSON.
+
+:::tip
+Marking properties in the `ComponentModelProperties` interface as optional allows them to be left out of config and populated with default values. It's best practice to make properties optional and provide a default value if possible.
+:::
+
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "Custom Component Model", value: "model" },
+    { label: "Custom Service", value: "service" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="model">
+
+```ts
+...
+// highlight-start
+interface ExampleComponentModelProperties extends ComponentModelProperties {
+    items?: string[];
+}
+// highlight-end
+
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase<
+    ExampleComponentModelProperties
+> {
+    items: Collection<string> = new Collection<string>();
+    ...
+}
+```
+
+</TabItem>
+<TabItem value="service">
+
+```ts
+...
+// highlight-start
+interface CustomServiceProperties extends ComponentModelProperties {
+    items?: string[];
+}
+// highlight-end
+
+@serializable
+export default class CustomServiceWithConfig extends ConfigurableServiceBase<
+    CustomServiceProperties
+> {
+   items: Collection<string> = new Collection<string>();
+
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "custom-service",
+            "id": "custom-service-config",
+            "title": "Custom Service Config",
+            // highlight-next-line
+            "items": ["some", "string", "values"]
+        },
+        {
+            "$type": "example-component-model",
+            "id": "example-component-model-config",
+            "title": "Example Component Model Config",
+            // highlight-next-line
+            "items": ["more", "string", "values"]
+        }
+        ...
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Populating the Class with Configuration Values.
+
+The class is responsible for turning the `ComponentModelProperties` interface, which will be populated with primitive values from the app config JSON, into complex properties on the class object itself. This work is done through the `_getSerializableProperties` method.
+
+The `_getSerializableProperties()` method has a few purposes.
+
+1. Provide deserialization logic from the `ComponentModelProperties` interface to class properties.
+2. Provide serialization logic from an class property to the `ComponentModelProperties` interface, which can be serialized in a JSON file.
+3. Provide a default value for the JSON object if one is not given in the app config.
+
+:::important
+It's key that the existing properties also get serialized through a call to `super._getSerializableProperties()`.
+:::
+
+In the following example, the serialization logic for the `ExampleComponentModelProperties` string array property `items` is defined. The corresponding class property is an [ArcGIS API for JavaScript Collection](https://developers.arcgis.com/javascript/latest/api-reference/esri-core-Collection.html). Therefore, the `deserialize` method takes each item from the string array, and adds it to to collection. The `serialize` method does the opposite, turning the collection into a plain string array. A default value for the `string[]` is also provided.
+
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "Custom Component Model", value: "model" },
+    { label: "Custom Service", value: "service" },
+  ]}>
+<TabItem value="model">
+
+```ts
+...
+interface ExampleComponentModelProperties extends ComponentModelProperties {
+    items?: string[];
+}
+
+
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase<
+    ExampleComponentModelProperties
+> {
+    items: Collection<string> = new Collection<string>();
+
+    ...
+
+    protected _getSerializableProperties(): PropertyDefs<
+        ExampleComponentModelProperties
+    > {
+        // highlight-next-line
+        const props = super._getSerializableProperties();
+        return {
+            ...props,
+            items: {
+
+                serializeModes: ["initial"],
+                default: ["Some Default Value"],
+                serialize: () => this.items.toArray(),
+                deserialize: (items: string[]) => {
+                    this.items.removeAll();
+                    this.items.addMany(items); s
+                },
+            },
+        };
+    }
+}
+```
+
+</TabItem>
+<TabItem value="service">
+
+```ts
+...
+interface CustomServiceProperties extends ComponentModelProperties {
+    items?: string[];
+}
+
+@serializable
+export default class CustomServiceWithConfig extends ConfigurableServiceBase<
+    CustomServiceProperties
+> {
+    items: Collection<string> = new Collection<string>();
+
+    ...
+
+    protected _getSerializableProperties(): PropertyDefs<
+        ExampleComponentModelProperties
+    > {
+        // highlight-next-line
+        const props = super._getSerializableProperties();
+        return {
+            ...props,
+            items: {
+
+                serializeModes: ["initial"],
+                default: ["Some Default Value"],
+                serialize: () => this.items.toArray(),
+                deserialize: (items: string[]) => {
+                    this.items.removeAll();
+                    this.items.addMany(items); s
+                },
+            },
+        };
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+Simpler properties such as `boolean` values or `string` values can have their serialization logic omitted.
+
+```ts
+...
+interface ExampleComponentModelProperties extends ComponentModelProperties {
+    stringVal?: string;
+}
+
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase<
+    ExampleComponentModelProperties
+> {
+    stringVal: string;
+
+    protected _getSerializableProperties(): PropertyDefs<
+        ExampleComponentModelProperties
+    > {
+        const props = super._getSerializableProperties();
+        return {
+            ...props,
+            stringVal: {
+                serializeModes: ["initial"],
+                default: "Simple String Value",
+            },
+        };
+    }
+}
+```
+
+## Serialization Modes
+
+Every property has a number of serialization modes it can use to persist the values.
+
+```ts
+export declare type SerializeMode = "initial" | "all" | "preferences";
+```
+
+`initial` will serialize to the app config JSON only if it is different from the default.
+
+`all` will serialize all values to the app config JSON every time.
+
+`preferences` will serialize the value to storage which will persist between application loads, but only apply to a single user.
