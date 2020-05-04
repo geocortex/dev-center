@@ -2,6 +2,10 @@
 title: Component Reference
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 The following is an example of a custom component that has been created using the Geocortex Web SDK. In general, Geocortex Web components are functional React components extended with a few new behaviors and patterns.
 
 ```tsx
@@ -69,8 +73,8 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         // The name used to identify the component in the layout
         name: "example",
-        // The namespace used to identify the component in the layout, e.g. <custom:example/>
-        namespace: LAYOUT_NAMESPACE,
+        // The namespace used to identify the component in the layout.
+        namespace: "custom.abc123"
         // The class corresponding to the React Functional Component
         getComponentType: () => ExampleComponent as ComponentType,
         // The model type this component is bound to.
@@ -79,7 +83,9 @@ export default function (registry: LibraryRegistry) {
     });
 ```
 
-Once registered in this manner, a component can be used in a layout by referring it by name and [namespace](TODO-namespace-api-layout-link).
+## Components and Layout
+
+Once a component has been registered, it can be used in a layout by referring it by name and namespace.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -141,7 +147,7 @@ export default function ExampleComponent(
 }
 ```
 
-### Models
+## Models
 
 Every component is bound to specific [**item type**](TODO-item-type-link), and each item type is bound to a specific model.
 In this snippet, the `ExampleComponent` is bound to the `example-model` item type. The `ExampleComponentModel` is registered as the `example-model` item type, meaning that an `ExampleComponentModel` will be injected into the props of each `ExampleComponent`.
@@ -174,6 +180,14 @@ For example, the following component delegates the management of the list item c
 This example uses the `useWatchAndRerender` [component hook](sdk-component-hooks.mdx) in order to dynamically update the component when the model changes.
 :::
 
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: "Component", value: "component" },
+    { label: "Model", value: "model" },
+  ]}>
+<TabItem value="component">
+
 ```tsx
 export default function ExampleComponent(
     props: LayoutElementProperties<ExampleComponentModel>
@@ -194,7 +208,19 @@ export default function ExampleComponent(
 }
 ```
 
-## Models and Configuration
+</TabItem>
+<TabItem value="model">
+
+```ts
+export default class ExampleComponentModel extends ComponentModelBase {
+    items: Collection<string> = new Collection<string>();
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Configuration
 
 Geocortex Web provides a suite of flexible, highly configurable components, and this flexibility is powered in a large part by the relationship between [app config](concepts-app-config.mdx), models, and components. Each model has the potential to consume static app config, which it can deserialize and transform before providing the data to it's associated component for rendering.
 
@@ -234,6 +260,47 @@ export default class ExampleComponentModel extends ComponentModelBase<
                 },
             },
         };
+    }
+}
+```
+
+### Component Defaults
+
+Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config) in the layout, which links a component model to configuration in the app config JSON. However, many component models have default values they can supply for initialization instead of relying on configuration. This means that if you omit the `config` property for certain components, the component model will attempt to create itself with its default values. An example of defining these default values can be seen in the `_getSerializableProperties` above. Its also the mechanism that powers the default map displayed by this layout.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map/>
+</layout>
+```
+
+### Initialization and Teardown
+
+Component models have an initialization and teardown method which can be used to perform asynchronous startup logic and free resources when a component is removed from the layout.
+
+:::important
+Always call `super._onInitialize()` when overriding the `_onInitialize` method.
+:::
+
+```ts
+export default class ExampleComponentModel extends ComponentModelBase {
+    items: Collection<string> = new Collection<string>();
+
+    protected async _onInitialize(): Promise<void> {
+        // highlight-next-line
+        super._onInitialize();
+
+        this.items.add("1");
+        this.items.add("2");
+        this.items.add("3");
+        this.items.add("4");
+        // ...other initialization logic
+    }
+
+    destroy(): void {
+        this.items.destroy();
+        // ...free up resources
     }
 }
 ```

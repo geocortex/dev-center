@@ -108,8 +108,8 @@ module.exports = {
                     type: "category",
                     label: "Layout",
                     items: [
-                        "web/api-layout-core-components",
                         "web/sdk-component-models",
+                        "web/api-layout-core-components",
                         "web/api-layout",
                     ],
                 },
