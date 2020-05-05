@@ -4,6 +4,8 @@ title: Translate a Component's Text
 
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import TranslationCallout from "./snippets/translation-callout.mdx";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -256,3 +258,13 @@ export default function TranslatableText(props) {
 <img src={useBaseUrl("img/web-translate-german.png")}/>
 </TabItem>
 </Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Check out the Language String Reference"
+        description="Learn more about creating and registering language strings"
+        link="sdk-language-strings"
+    />
+</UseCaseContainer>

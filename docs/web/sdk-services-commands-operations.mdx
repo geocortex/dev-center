@@ -3,6 +3,8 @@ title: Commands and Operations in Services
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
@@ -82,3 +84,18 @@ export default class ExampleService extends ServiceBase {
     ...
 }
 ```
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn about Service Interactions"
+        description="Learn about how services can directly interact through dependency injection"
+        link="sdk-service-injection"
+    />
+    <UseCaseCard
+        title="Build a Custom Command with a Custom Service"
+        description="Follow a step by step guide to building a custom command with a custom service"
+        link="usecases-implement-command-operation"
+    />
+</UseCaseContainer>

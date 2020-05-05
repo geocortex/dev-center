@@ -3,6 +3,8 @@ title: Service Reference
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
@@ -207,3 +209,28 @@ All other services are created and initialized (i.e. the `_onInitialize` method 
 -   If a different component or service injects the service, then the service will be created and initialized to fulfill that dependency.
 
 Services are destroyed (i.e. the `destroy` method is invoked) when the application is destroyed.
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn how to use Commands and Operations with Services"
+        description="Learn how to run and implement commands and operations with custom services"
+        link="sdk-services-commands-operations"
+    />
+    <UseCaseCard
+        title="Learn about Service Interactions"
+        description="Learn about how services can directly interact through dependency injection"
+        link="sdk-service-injection"
+    />
+    <UseCaseCard
+        title="Build a Custom Command with a Custom Service"
+        description="Follow a step by step guide to building a custom command with a custom service"
+        link="usecases-implement-command-operation"
+    />
+    <UseCaseCard
+        title="Build a Service that Manages Dynamic Data"
+        description="Built a service that manages a dynamic data source and exposes it to components"
+        link="usecases-service-dynamic-data"
+    />
+</UseCaseContainer>

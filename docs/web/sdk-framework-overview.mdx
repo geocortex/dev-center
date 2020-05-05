@@ -6,17 +6,19 @@ description: Geocortex Web - Learn about Components and Services
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
+## Extension Points
+
 The Geocortex Web SDK Framework allows you to extend the functionality of a Geocortex Web application with custom development. There are three main extension points in the framework:
 
-#### Components
+### Components
 
 Components power the UI experience of Geocortex Web. Components are composed of a React Component and a backing data model. Layout files are composed of a nested hierarchy of components which are instantiated at runtime.
 
-#### Services
+### Services
 
 Services provide the shared infrastructure and core logic that power app behavior. Services do not have an associated UI, and there is only one instance of a service per application.
 
-#### Commands and Operations
+### Commands and Operations
 
 Commands and operations provide a framework for executing app wide behavior. Services and components can both run and implement commands and operations, allowing for interaction and consistent behavior without tight coupling.
 

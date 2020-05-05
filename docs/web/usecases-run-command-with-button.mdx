@@ -5,6 +5,8 @@ title: Run Command With Button
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 
 This article will guide you through how to add a button to the layout and configure it to run and action through the app config.
@@ -127,3 +129,18 @@ If the command you want to run takes arguments, you can pass them through the ap
 <img src={useBaseUrl("img/web-basic-button-alert.png")}/>
 </TabItem>
 </Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations Reference"
+        description="Check out the available commands and operations"
+        link="api-commands-operations-events"
+    />
+    <UseCaseCard
+        title="Change Default Behavior with Commands and Operations"
+        description="Change built-in behavior or add new behavior using app config and layout"
+        link="usecases-change-default-behavior"
+    />
+</UseCaseContainer>

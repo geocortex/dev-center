@@ -3,6 +3,8 @@ title: Serializable Properties
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
@@ -277,3 +279,18 @@ export declare type SerializeMode = "initial" | "all" | "preferences";
 `all` will serialize all values to the app config JSON every time.
 
 `preferences` will serialize the value to storage which will persist between application loads, but only apply to a single user.
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Check out the Component Reference for Configuration"
+        description="Learn more about how components interact with configuration"
+        link="sdk-component-reference#configuration"
+    />
+    <UseCaseCard
+        title="Check out the Service Reference for Configuration"
+        description="Learn more about how services interact with configuration"
+        link="sdk-service-reference#models-and-configuration"
+    />
+</UseCaseContainer>

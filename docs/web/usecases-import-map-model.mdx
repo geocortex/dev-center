@@ -3,6 +3,8 @@ title: Import the MapModel into a Component
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
@@ -203,3 +205,18 @@ export default class CustomModel extends ComponentModelBase {
 <img src={useBaseUrl("img/web-add-graphics-layer-component.png")}/>
 </TabItem>
 </Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn more about Component Interactions"
+        description="Learn more about how components interact with each other through models and services"
+        link="sdk-component-interactions"
+    />
+    <UseCaseCard
+        title="Learn how Components are Bound to Models in the Layout"
+        description="Learn how layout structure can be used to bind components to their required models"
+        link="api-component-models"
+    />
+</UseCaseContainer>

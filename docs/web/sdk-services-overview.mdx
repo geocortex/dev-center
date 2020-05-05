@@ -1,6 +1,10 @@
 ---
 title: Key Concepts
+hide_table_of_contents: true
 ---
+
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 In Geocortex Web, services represent a shared application-wide concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](usecases-implement-command-operation.mdx#implement-the-custom-command-and-operation), but services can also be directly [injected](sdk-service-injection.mdx) into other services and component models.
 
@@ -31,3 +35,18 @@ export default class ExampleService extends ServiceBase {
     }
 }
 ```
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Create a Service"
+        description="Learn how to create a basic service"
+        link="sdk-create-service"
+    />
+    <UseCaseCard
+        title="Check out the Service Reference"
+        description="Take a deep dive into services in the Geocortex Web SDK"
+        link="sdk-service-reference"
+    />
+</UseCaseContainer>

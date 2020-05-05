@@ -6,6 +6,8 @@ description: Geocortex Web - Internationalization
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import TranslationCallout from "./snippets/translation-callout.mdx";
 
@@ -41,3 +43,18 @@ export default function ComponentWithLanguageStrings(props) {
     );
 }
 ```
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn how to Define Language Strings"
+        description="Learn how to define and register language resources"
+        link="sdk-language-strings"
+    />
+    <UseCaseCard
+        title="Learn how to use Language Strings in App Config"
+        description="Learn how to use built-in or custom language strings in the app config"
+        link="concepts-advanced-app-config#internationalization"
+    />
+</UseCaseContainer>

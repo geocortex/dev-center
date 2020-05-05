@@ -4,6 +4,8 @@ description: Geocortex Web - Implement a custom Service
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 import Tabs from "@theme/Tabs";
@@ -329,3 +331,23 @@ export default function (registry: LibraryRegistry) {
 <img src={useBaseUrl("img/web-implement-service-example.png")}/>
 </TabItem>
 </Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Check out the Component Reference"
+        description="Take a deep dive into components in the Geocortex Web SDK"
+        link="sdk-component-reference"
+    />
+    <UseCaseCard
+        title="Check out the Service Reference"
+        description="Take a deep dive into services in the Geocortex Web SDK"
+        link="sdk-service-reference"
+    />
+    <UseCaseCard
+        title="Learn more about Referencing Services in Components"
+        description="Learn the dependency injection pattern for referencing services"
+        link="sdk-service-injection"
+    />
+</UseCaseContainer>
