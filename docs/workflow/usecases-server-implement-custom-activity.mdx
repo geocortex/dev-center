@@ -26,7 +26,7 @@ Follow the instructions to [set up a new Geocortex Workflow Server extension pro
 1. Create a new file `CustomActivity` in the project.
 2. Add a new skeleton workflow activity that implements `IActivityHandler`.
 
-```csharp
+```csharp title="App1/App1/CustomActivity.cs"
 using Geocortex.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -54,7 +54,7 @@ Use a unique prefix on the `Action` property to avoid it conflicting with someon
 1. Create a new file, `Properties\AssemblyInfo.cs`
 1. Add the custom Geocortex Workflow attribute to `AssemblyInfo.cs`:
 
-```csharp
+```csharp title="App1/App1/Properties/AssemblyInfo.cs"
 [assembly: Geocortex.Workflow.Runtime.WorkflowActivities]`
 ```
 
