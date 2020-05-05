@@ -2,7 +2,13 @@
 
 You might want to make yourself familiar with [Docusaurus v2](https://v2.docusaurus.io/) to make significant changes to the website. If you only want to make content changes you will find the page source within the `docs` folder.
 
-## Setup
+## Cloning the repository
+
+If you are a member of our organization and have push permissions to this repository, you can simply clone this repository, create a branch, and begin making changes. Otherwise you can follow this guide to forking a repository: https://help.github.com/en/github/getting-started-with-github/fork-a-repo.
+
+Once you're happy with your changes and have committed them to a branch, you can submit a pull request in this project where a maintainer can review and merge your changes.
+
+## Project setup
 
 ### Prerequisites
 
