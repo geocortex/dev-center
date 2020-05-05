@@ -42,7 +42,7 @@ You can add many activities to the same project.
     1. Register the activity in `src/index.ts`.
 1. Open the newly created `src/activities/CustomActivity.ts` file.
 
-```ts
+```ts title="src/activities/CustomActivity.ts"
 /** An interface that defines the inputs of the activity. */
 export interface CustomActivityInputs {
     // @description The first input to the activity.
@@ -90,7 +90,7 @@ The `npm run activity` script creates a custom activity with some dummy inputs a
 
 The follow activity will calculate the log of a number with a given (optional) base.
 
-```ts
+```ts title="src/activities/CustomActivity.cs"
 export interface CalculateLogInputs {
     // @description The base of the logarithm. Defaults to the natural log.
     base?: number;
