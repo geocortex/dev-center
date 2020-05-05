@@ -23980,9 +23980,8 @@ export type ActionHistory = {
 
 export default class CustomService extends ServiceBase {
     history: ActionHistory = {
-            thing1: [],
-            thing2: [],
-        };
+        thing1: [],
+        thing2: [],
     };
 
     protected _doAction(args: DoActionArgs) {
