@@ -6,7 +6,7 @@ You might want to make yourself familiar with [Docusaurus v2](https://v2.docusau
 
 If you are a member of our organization and have push permissions to this repository, you can simply clone this repository, create a branch, and begin making changes. Otherwise you can follow this guide to forking a repository: https://help.github.com/en/github/getting-started-with-github/fork-a-repo.
 
-Once you've happy with your changes and have committed them to a branch, you can submit a pull request in this project where a maintainer can review and merge your changes.
+Once you're happy with your changes and have committed them to a branch, you can submit a pull request in this project where a maintainer can review and merge your changes.
 
 ## Project setup
 
