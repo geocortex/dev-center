@@ -26,6 +26,10 @@ The `schemaVersion` property is a required property that informs Geocortex Web w
 
 <AppItemSnippet />
 
+### Custom App Items
+
+Custom App items in Geocortex Web are most commonly defined by creating a configurable [component model](usecases-implement-component-participate-app-config.mdx#component-models) or a [configurable service](concepts-components-services.mdx#configuration). Registering the model or service with Geocortex Web defines a new app item type which can be used in the app config.
+
 ## Item URIs
 
 **Item URIs** are a commonly used pattern in the `app.json` to uniquely identify and reference app items. They take the format
@@ -51,10 +55,6 @@ These item URIs can be used by app items to include other app items as property 
     "featureActions": "item://menu/feature-actions"
 }
 ```
-
-## Custom App Items
-
-Custom App items in Geocortex Web are most commonly defined by creating a configurable [component models](usecases-implement-component-participate-app-config.mdx#component-models) or [configurable services](concepts-components-services.mdx#configuration). Registering the model or service with Geocortex Web defines a new app item type which can be used in the app config.
 
 ## Reusing Config
 

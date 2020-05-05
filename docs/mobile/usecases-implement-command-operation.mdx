@@ -4,12 +4,12 @@ description: Geocortex Mobile - Learn how to implement a custom command or opera
 ---
 
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
-import PrereqsSnippet from "./snippets/prereqs.mdx";
+import PrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
 :::tip
-Geocortex Mobile has many built in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors. If these Commands and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-map-click-behavior.mdx) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+Geocortex Mobile has many built-in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors. If these Commands and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-map-click-behavior.mdx) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
 This article will walk you through implementing a custom command in Geocortex Mobile that displays an alert.
@@ -20,28 +20,25 @@ This article will walk you through implementing a custom command in Geocortex Mo
 
 ## Create the Backing Service
 
-Every Command or Operation in Geocortex Mobile needs to be registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
+It's convention that commands and operations in Geocortex Mobile are registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
 2. In the file, add a new service class `AlertService` and register it with **Autofac**.
 
 <AutofacSnippet />
 
-```csharp
+```csharp title="App1/App1/services/AlertService.cs"
 using App1.Services.AlertService;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Services;
-using System.Threading.Tasks;
 
-[assembly: Service(typeof(Service), PropertiesAutowired = true)]
+// highlight-next-line
+[assembly: Service(typeof(AlertService), PropertiesAutowired = true)]
 namespace App1.Services.AlertService
 {
+    // highlight-next-line
     class AlertService : ServiceBase
     {
-        protected override Task DoInitialize()
-        {
-            return Task.CompletedTask;
-        }
     }
 }
 ```
@@ -53,15 +50,17 @@ The two key components of this snippet are the `[assembly: Service(...)]` tag an
 3. Create a class `Services/AlertOperations` under the platform agnostic project.
 4. In the file, add a new class `AlertOperations` and register it with Autofac.
 
-```csharp
+```csharp title="App1/App1/services/AlertOperations.cs"
 using App1.Services.AlertOperations;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
 using Geocortex.Mobile.Infrastructure.Messaging;
 
+// highlight-next-line
 [assembly: Export(typeof(AlertOperations), SingleInstance = true)]
 namespace App1.Services.AlertOperations
 {
+    // highlight-next-line
     class AlertOperations : OperationsBase
     {
         public AlertOperations(IOperationRegistry operationRegistry)
@@ -107,6 +106,7 @@ For this example, let's define a operation with some input and no output.
 ```csharp
 class AlertOperations : OperationsBase
 {
+    // highlight-next-line
     public IVoidOperation<string> DisplayCustomAlert => GetVoidOperation<string>("custom-alert.display");
 
     public AlertOperations(IOperationRegistry operationRegistry)
@@ -120,38 +120,42 @@ class AlertOperations : OperationsBase
 
 Next, we need to register an implementation for our operation in the `AlertService`.
 
-1. Add a public property `AlertOperations` to the Service.
+1. Add a public constructor that takes an `AlertOperations` to the Service.
 
 ```csharp
     [assembly: Service(typeof(Service), PropertiesAutowired = true)]
     class AlertService : ServiceBase
     {
-        public AlertOperations AlertOperations { get; set; }
-        ...
+        // highlight-next-line
+        public AlertService(AlertOperations alertOperations)
+        {
+        }
     }
 ```
 
 :::note
-We never have to explicitly set this property because of some [Autofac autowiring magic](https://autofaccn.readthedocs.io/en/latest/register/prop-method-injection.html) in the assembly attribute.
+We never have to explicitly pass this property because Autofac will automatically inject it.
 :::
 
 2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
 
 ```csharp
-class AlertService : ServiceBase
+[assembly: Service(typeof(AlertService))]
+namespace App1.Services
 {
-    public AlertOperations AlertOperations { get; set; }
-
-    protected override Task DoInitialize()
+    class AlertService : ServiceBase
     {
-        this.AlertOperations.DisplayCustomAlert.RegisterExecute(
-            (args) =>
-            {
-                Application.Current.MainPage.DisplayAlert("Custom Alert", args, "OK");
-                return Task.FromResult((object)null);
-            }, this);
-
-        return Task.CompletedTask;
+        public AlertService(AlertOperations alertOperations)
+        {
+            // highlight-start
+            alertOperations.DisplayCustomAlert.RegisterExecute(
+                (args) =>
+                {
+                    Application.Current.MainPage.DisplayAlert("Custom Alert", args, "OK");
+                    return Task.FromResult((object)null);
+                }, this);
+            // highlight-end
+        }
     }
 }
 ```
@@ -183,6 +187,48 @@ Congratulations! You just created your first custom operation. You can easily te
     ]
 }
 ```
+
+## Register Implementation Without an Operations Class
+
+Although it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can [inject](sdk-dependency-injection.mdx) the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class.
+
+:::tip
+This pattern can be useful for registering dynamically generated commands or implementations.
+:::
+
+```csharp title="App1/App1/services/AlertService"
+using App1.Services;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Messaging;
+using Geocortex.Mobile.Composition.Services;
+
+[assembly: Service(typeof(CustomService))]
+namespace App1.Services
+{
+    public class CustomService : ServiceBase
+    {
+        public CustomService(IOperationRegistry operationRegistry)
+            : base()
+        {
+            // highlight-start
+            operationRegistry.VoidOperation<string>("custom.alert").RegisterExecute((string customMessage) =>
+            {
+                return Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Custom Alert", customMessage, "Cancel");
+            }, this);
+            // highlight-end
+
+        }
+    }
+}
+```
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Custom Operation](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Operation)
+
+-   [Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service)
 
 ## Next Steps
 

@@ -16,7 +16,7 @@ Add a third party library via a nuget package, and use it in your custom activit
 
 ## Build and Copy the Project Output
 
-Build the project to output the user and referenced assemblies. Follow the instructions to [Deploy the Activity](usecases-server-implement-custom-activity.mdx#deploy-the-activity). Ensure that you locate and copy the third party assemblies. If you don't see them in the build output folder, review the instructions and ensure you have followed all the steps.
+Build the project to output the user and referenced assemblies. Follow the instructions to [Deploy the Activity](usecases-server-implement-custom-activity.mdx#deploy-the-activity). Ensure that you locate and copy the third party assemblies. If you don't see them in the build output folder, [review the instructions](sdk-net-getting-started-server.mdx#setting-up-a-geocortex-workflow-server-extension-project) and ensure you have followed all the steps.
 
 :::important
 An important step not to miss is adding the `CopyLocalLockFileAssemblies` attribute to the `.csproj` file if you created a .NET Standard class library. Without this attribute, your nuget package reference assemblies will not be output to the build folder.

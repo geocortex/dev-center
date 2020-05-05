@@ -4,7 +4,7 @@ description: Geocortex Mobile - Implement a custom Service
 ---
 
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
-import PrereqsSnippet from "./snippets/prereqs.mdx";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
@@ -13,24 +13,26 @@ Implementing a custom service in Geocortex Mobile allows you to implement logic 
 
 ## Prerequisites
 
-<PrereqsSnippet />
+<QuickstartPrereqsSnippet />
 
 ## Create a New Service
 
-Create a new file `Components/CustomService.cs` under the platform agnostic project.
+Create a new file `services/CustomService.cs` under the platform agnostic project.
 In the file, add a new component class `CustomService` and register it with **Autofac**.
 
 <AutofacSnippet />
 
-```csharp
+```csharp title="App1/App1/services/CustomService.cs"
 using App1.Services;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Services;
 using System.Threading.Tasks;
 
+// highlight-next-line
 [assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
 namespace App1.Services
 {
+    // highlight-next-line
     class CustomService : ServiceBase
     {
         public CustomService()
@@ -69,7 +71,7 @@ All services should dispose of long held memory or other resources by implementi
 }>
 <TabItem value="service">
 
-```csharp
+```csharp title="App1/App1/services/CustomService.cs"
 using App1.Operations;
 using App1.Services;
 using Geocortex.Mobile.Composition;
@@ -118,6 +120,7 @@ namespace App1.Services
             :base()
         {
             // on creation logic here
+            // highlight-next-line
             customOperations.FetchCustomData.RegisterExecute(FetchData, this);
             dataUpdater = new Thread(new ThreadStart(_dataUpdater));
         }
@@ -144,17 +147,19 @@ namespace App1.Services
 </TabItem>
 <TabItem value="operations">
 
-```csharp
+```csharp title="App1/App1/services/CustomOperations.cs"
 using App1.Operations;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
 using Geocortex.Mobile.Infrastructure.Messaging;
 
+// highlight-next-line
 [assembly: Export(typeof(CustomOperations), SingleInstance = true)]
 namespace App1.Operations
 {
     class CustomOperations : OperationsBase
     {
+        // highlight-next-line
         public IOperation<int> FetchCustomData=> GetOperation<int>("custom-data.fetch");
 
         public CustomOperations(IOperationRegistry operationRegistry)
@@ -168,3 +173,11 @@ namespace App1.Operations
 
 </TabItem>
 </Tabs>
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service)
+
+-   [Basemap Toggle that uses a Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BasemapToggle)

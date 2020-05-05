@@ -203,6 +203,8 @@ namespace App1.Workflow
 
         public async Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
+            var calloutText = (string)inputs["calloutText"];
+
             var mapProvider = MapProviderFactory();
             await mapProvider.Load();
             var map = mapProvider.Map;
@@ -212,7 +214,7 @@ namespace App1.Workflow
             {
                 var currentEnvelope = (Envelope)mapView.GetCurrentViewpoint(Esri.ArcGISRuntime.Mapping.ViewpointType.BoundingGeometry).TargetGeometry;
 
-                mapView.ShowCalloutAt(currentEnvelope.GetCenter(), new CalloutDefinition("Hey!", "Listen!"));
+                mapView.ShowCalloutAt(currentEnvelope.GetCenter(), new CalloutDefinition("Hey!", $"Listen! {calloutText}"));
             });
 
 

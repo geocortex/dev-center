@@ -15,12 +15,12 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.50",
-    "@docusaurus/preset-classic": "2.0.0-alpha.50",
+    "@docusaurus/core": "2.0.0-alpha.54",
+    "@docusaurus/preset-classic": "2.0.0-alpha.54",
     "@types/react": "^16.9.34",
     "classnames": "^2.2.6",
     "cspell": "^4.0.57",
-    "husky": "^4.2.3",
+    "husky": "3.1.0",
     "prettier": "^2.0.2",
     "pretty-quick": "^2.0.1",
     "react": "^16.13.1",

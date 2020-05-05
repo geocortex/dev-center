@@ -99,6 +99,8 @@ export default function CustomComponent(props) {
 
 Events are created as needed, so implementing new events is as easy as using them.
 
+When the subscriber calls the `this.messages.events("my.custom-event")` function, this creates the event if it has not already been created. It can then be immediately subscribed to. When the publisher calls `this.messages.events("my-custom-event")`, it will reference the same event that the subscriber created.
+
 :::note
 Event names in Geocortex Web generally take the format `<category>.<name>`, with multiple words `kebab-cased`.
 :::
