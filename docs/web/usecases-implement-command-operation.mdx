@@ -11,7 +11,7 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 :::tip
-Geocortex Web has many built-in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-behavior.mdx#using-workflows-to-customize-behavior) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+Geocortex Web has many built-in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors with. If these Command and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-run-workflow-app-config.mdx) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
 This article will walk you through implementing a custom command in Geocortex Web that can record actions and a custom operation that returns a list of executed actions.
@@ -55,7 +55,7 @@ export { default } from "./CustomService";
 </Tabs>
 
 :::tip
-Learn more about [implementing custom services](usecases-service-dynamic-data.mdx)
+Learn more about [implementing custom services](sdk-create-service.mdx)
 :::
 
 ## Register the Service with the Web SDK
@@ -143,7 +143,7 @@ export default function (registry: LibraryRegistry) {
 
 ## Test the Custom Command and Operation
 
-You can test your custom command and operation by adding entries to the I Want to Menu in the [app config](concepts-app-config.mdx) that run your commands and operation. For more information on customizing your app with commands and operations, see [Change Default behavior](usecases-change-default-behavior.mdx).
+You can test your custom command and operation by adding entries to the I Want to Menu in the [app config](concepts-app-config.mdx) that run your commands and operation. For more information on customizing your app with commands and operations, see [Change Default behavior](sdk-commands-operations.mdx).
 
 The following app config and layout adds three entries to an I Want To Menu that run the custom commands and operations implemented in this article. The operation `custom-service.get-action-history` has been slightly changed to return an argument that is compatible with the inputs of `ui.alert`.
 

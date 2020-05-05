@@ -12,7 +12,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 When extending Geocortex Web, you may find yourself creating multiple [components](concepts-components-services.mdx#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](concepts-components-services.mdx#services).
-Implementing a custom service in Geocortex Web allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](usecases-implement-command-operation.mdx).
+Implementing a custom service in Geocortex Web allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](sdk-commands-operations.mdx#custom-commands-and-operations).
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ export default class CustomDataService extends ServiceBase {
 ## Consume the Data in the Component
 
 Now that we have the news feed data being populated by a service, we need to consume that data in the news feed component.
-Following the best practices for implementing components, the news item data should be [managed by the news feed model](usecases-implement-component-participate-app-config.mdx#component-models). Component Models can [inject services](sdk-service-injection.mdx) as properties, and doing so allows us to directly access the dynamically updated `newsItems` property on the service.
+Following the best practices for implementing components, the news item data should be managed by the news feed model. Component Models can [inject services](sdk-service-injection.mdx) as properties, and doing so allows us to directly access the dynamically updated `newsItems` property on the service.
 
 ```ts title="src/components/NewsFeed//NewsFeedModel.ts"
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
@@ -155,7 +155,7 @@ export default class NewsFeedModel extends ComponentModelBase {
 
 ## Complete Example
 
-Finally, we can bring it all together, and add the news item component and styling to the application. The news feed component watches for changes on the news feed model's `newsItems` property, which is in turn linked to the custom service's `newsItems` property. In this way, we've built a service which exposes shared data to components. Multiple news feed components could be created, and they would all rely on a single copy of the news items. For more information on how the news feed component was built, see the article on [custom components](usecases-implement-component-with-ui.mdx) and [linking app config to custom components](usecases-implement-component-participate-app-config.mdx#example-model-for-the-news-feed-component).
+Finally, we can bring it all together, and add the news item component and styling to the application. The news feed component watches for changes on the news feed model's `newsItems` property, which is in turn linked to the custom service's `newsItems` property. In this way, we've built a service which exposes shared data to components. Multiple news feed components could be created, and they would all rely on a single copy of the news items. For more information on how the news feed component was built, see the article on [custom components](usecases-implement-component-with-ui.mdx) and [linking app config to custom components](usecases-implement-component-participate-app-config.mdx).
 
 <FrameworkComponentsSnippet />
 
