@@ -114,6 +114,14 @@ Next, we are going to add an app item to configure the Branding Service, which [
 
 The branding service can be configured with a list of themes. Each of these themes can be based on one of the two existing themes, `light` or `dark`. Let's configure our branding service with a new `dark` theme with an accent color `purple`.
 
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
 ```json title="app/app.json"
 {
     "schemaVersion": "1.0",
@@ -150,3 +158,67 @@ The branding service can be configured with a list of themes. Each of these them
     ]
 }
 ```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-customize-theme-purple.png")}/>
+</TabItem>
+</Tabs>
+
+## Customize the Theme
+
+You can customize the theme by changing any of the [built-in color keys](api-theme.mdx) used for themes.
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "geometry.add-pixel-tolerance",
+                "tasks.identify",
+                "results.display-details"
+            ],
+            "webMap": "https://www.arcgis.com/home/item.html?id=0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "results",
+            "id": "results-list-config",
+            "onFeatureClick": ["results.display-details"]
+        },
+        {
+            "$type": "branding",
+            "id": "branding",
+            "activeTheme": "custom-theme",
+            "themes": [
+                {
+                    "id": "custom-theme",
+                    "accentColor": "purple",
+                    "template": "dark",
+                    // highlight-start
+                    "colors": {
+                        "secondaryBackground": [249, 77, 0, 255]
+                    }
+                    // highlight-end
+                }
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-customize-theme-secondary-background.png")}/>
+</TabItem>
+</Tabs>
