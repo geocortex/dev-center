@@ -233,13 +233,13 @@ Let's first look at the command chain defined on the `onClick` property of a map
 
 <!-- TODO-API tasks.identify operation direct link -->
 
-`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations.mdx), `tasks.identify` has output of type `Features`.
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations-events.mdx), `tasks.identify` has output of type `Features`.
 
 `highlights.add-focus` and `results.display` both take a `Features` type input, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `results.display` will receive the output of the last operation, `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
 <!-- TODO-API MapExtensionArgs direct link -->
 
-The second behavior in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes `Maps` type argument. The `argument` property in the app config supplies an array of maps by referencing the `default` map with an [**Item Uri**](concepts-advanced-config.mdx#item-uris). Item URIs are a way of referencing other items within the app config.
+The second behavior in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes `Maps` type argument. The `argument` property in the app config supplies an array of maps by referencing the `default` map with an [**Item Uri**](concepts-advanced-app-config.mdx#item-uris). Item URIs are a way of referencing other items within the app config.
 
 ## Using Commands and Operations in Custom Components and Services
 
@@ -260,7 +260,7 @@ The [built-in commands and operations](api-commands-operations-events.mdx), as w
 
 ## Custom Commands and Operations
 
-[Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Web. Once a command or operation has been registered, it can be used from anywhere in the application. Custom Commands and Operations are registered with custom services or custom components in this manner.
+[Components](sdk-components-overview.mdx) or [services](sdk-services-overview.mdx) are usually responsible for registering a command or operation implementation with Geocortex Web. Once a command or operation has been registered, it can be used from anywhere in the application. Custom Commands and Operations are registered with custom services or custom components in this manner.
 
 ## Next Steps
 
