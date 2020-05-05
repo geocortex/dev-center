@@ -19,7 +19,7 @@ Geocortex Web's appearance is built around two concepts: theme and [layout](conc
 
 Two predefined themes are included with Geocortex Web, `light` and `dark`. You can select a predefined theme and accent color with [Geocortex Web Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4).
 
-The branding [service](concepts-components-services.mdx#services) is responsible for the theming of the application. To select a theme and accent color from within the config, you can configure the branding service in the [app config](concepts-app-config.mdx).
+The branding [service](concepts-components-services.mdx#services) is responsible for the theming of the application. To select a theme and accent color from within the config, you can configure the branding service in the [app config](concepts-app-config.mdx). The `template` property is used to specify the base theme to seed colors from.
 
 <Tabs
   defaultValue="config"
@@ -40,7 +40,9 @@ The branding [service](concepts-components-services.mdx#services) is responsible
             "activeTheme": "custom-vampire",
             "themes": [{
                 "id": "custom-vampire",
+                // highlight-next-line
                 "accentColor": "red",
+                // highlight-next-line
                 "template": "dark"
             }]
         },
