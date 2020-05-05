@@ -140,7 +140,9 @@ export default function ExampleComponent(
 
 ## Creating Custom Events
 
-Creating custom events is as simple as referencing the custom event by name and publishing or subscribing to it. This is because the logic of creating an event is abstracted away; if an event is referenced in a publish or subscribe call that doesn't exist yet, it will be automatically created,
+Creating custom events is as simple as referencing the custom event by name and publishing or subscribing to it. This is because the logic of creating an event is abstracted away; if an event is referenced in a publish or subscribe call that doesn't exist yet, it will be automatically created.
+
+When the service calls the `this.messages.events("my.custom-event")`, this creates the event if it has not already been created. It can then be immediately subscribed to. Likewise, if the event has not been created, it will be when `this.messages.event<string>("my-custom-event").publish(...)` is called.
 
 ```ts
 export default class CustomService extends ServiceBase {
