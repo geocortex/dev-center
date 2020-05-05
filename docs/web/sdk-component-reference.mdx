@@ -98,9 +98,7 @@ Once a component has been registered, it can be used in a layout by referring it
 
 ## Component Anatomy
 
-<!-- TODO - link to react docs -->
-
-At it's core, each custom component is a react component that takes in props and renders a DOM element. However, custom components can implement a couple patterns which are specific to Geocortex Web.
+At it's core, each custom component is a React component that takes in props and renders a DOM element. However, custom components can implement a couple patterns which are specific to Geocortex Web.
 
 ### Rendering
 
@@ -121,7 +119,7 @@ Custom components take in a special type of props, `LayoutElementProperties`. Th
 
 -   The model associated with the component,
 -   The id of the component in the layout
--   The width and height, along with other [presentation attributes](TODO-link-presentation-attributes) in the layout
+-   The width and height, along with other [presentation attributes](api-layout-attribute-reference.mdx#presentation-attributes) in the layout
 
 The `LayoutElementProperties` interface takes in `ComponentModelBase` type class corresponding to the model associated with the component. This will give the `props.model` property the correct type.
 
@@ -151,7 +149,7 @@ export default function ExampleComponent(
 
 ## Models
 
-Every component is bound to specific [**item type**](TODO-item-type-link), and each item type is bound to a specific model.
+Every component is bound to specific [**item type**](concepts-app-config.mdx#anatomy-of-an-app-config), and each item type is bound to a specific model.
 In this snippet, the `ExampleComponent` is bound to the `example-model` item type. The `ExampleComponentModel` is registered as the `example-model` item type, meaning that an `ExampleComponentModel` will be injected into the props of each `ExampleComponent`.
 
 ```ts
@@ -174,7 +172,7 @@ export default function (registry: LibraryRegistry) {
 }
 ```
 
-It's best practice to use the model to define configurable or persistent state, and use the [component hooks](TODO-link-component-hooks) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
+It's best practice to use the model to define configurable or persistent state, and use the [component hooks](sdk-component-hooks.mdx) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
 
 For example, the following component delegates the management of the list item content to it's model. The component does not have to concern itself with whether those list items come from config, dynamic application events, or other sources.
 
@@ -231,7 +229,7 @@ The following model defines a simple configurable property `items`.
 -   The shape of this property in the app config JSON file is defined by the `items` property in the `ExampleComponentModelProperties` interface.
 -   The shape of this property in the model is defined by the `items` property in the `ExampleComponentModel` class.
 
-The `ExampleComponentModel` class consumes the configuration by extending the `ComponentModelBase<ExampleComponentProperties>` interface, using the `@serializable` class decorator and then defining serialization logic in an override of the `_getSerializableProperties()` method. You can learn more about configuration serialization in [this article](TODO-property-serialization-article).
+The `ExampleComponentModel` class consumes the configuration by extending the `ComponentModelBase<ExampleComponentProperties>` interface, using the `@serializable` class decorator and then defining serialization logic in an override of the `_getSerializableProperties()` method. You can learn more about configuration serialization in [this article](sdk-serializable-properties.mdx).
 
 ```ts
 interface ExampleComponentModelProperties extends ComponentModelProperties {
@@ -309,7 +307,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 ## Component Lifecycle
 
-When a Geocortex Web Application boots up, the set of components which are initially active in the layout are created and initialized. [Components like the `Panel`](TODO-panel-link) will only activate it's first child. All other components will only be created when they are activated in the layout.
+When a Geocortex Web Application boots up, the set of components which are initially active in the layout are created and initialized. [Components like the `Panel`](api-layout-core-components.mdx#panels) will only activate it's first child. All other components will only be created when they are activated in the layout.
 
 :::tip
 The `UIService` contains methods like `getActiveChildComponentIds()` which can be used to examine and manage the active state of components and their children.
@@ -317,7 +315,7 @@ The `UIService` contains methods like `getActiveChildComponentIds()` which can b
 
 ### Activation and Deactivation
 
-Custom code can listen and react to a components activation or deactivation by subscribing to the `ui.activated` or `ui.deactivated` event. The [`ui.*` events](TODO-link-api-events-ui-section) contain various events relating to the component lifecycle.
+Custom code can listen and react to a components activation or deactivation by subscribing to the `ui.activated` or `ui.deactivated` event. The [`ui.*` events](api-commands-operations-events.mdx#event-ui.added) contain various events relating to the component lifecycle.
 
 ```ts
 @serializable

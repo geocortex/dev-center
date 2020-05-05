@@ -28,7 +28,7 @@ In general, these three elements interact to form a Geocortex Web Application.
 
 -   Services are used to implement app wide behavior, such as theming or authentication, and then expose that logic through commands and operations, such as `ui.set-theme` (implemented by the `BrandingService`) or `auth.sign` (implemented by the `AuthenticationService`).
 -   Components run commands and operations to interact with global concerns, but can also implement a command or operation if they are responsible for a global concern, or need to facilitate interaction with another component or service.
--   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [model injection](TODO-model-injection-link) or [service injection](TODO-service-injection-link)
+-   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [model injection](sdk-component-interactions.mdx#importing-models) or [service injection](sdk-service-injection.mdx)
 
 ## Framework Entry Point
 

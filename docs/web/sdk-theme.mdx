@@ -1,0 +1,217 @@
+---
+title: Application Theme
+description: Geocortex Web - Learn about theming your Geocortex Web Application
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
+
+Geocortex Web's appearance is built around two concepts: theme and [layout](concepts-layout.mdx). The theme controls the color scheme of the app, while the layout controls the organization of content.
+
+The branding [service](concepts-components-services.mdx#services) is responsible for the theming of the application. To select a theme and customize colors, you can configure the branding service in the [app config](concepts-app-config.mdx).
+
+## Seeding a New Theme from an Existing Theme
+
+Two predefined themes are included with Geocortex Web, `light` and `dark`. You can select a predefined theme and accent color with [Geocortex Web Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4).
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "branding",
+            "id": "branding",
+            "activeTheme": "custom-vampire",
+            "themes": [{
+                "id": "custom-vampire",
+                "accentColor": "red",
+                "template": "dark"
+            }]
+        },
+        ...
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src={useBaseUrl("img/web-vampire-theme.png")}/>
+</TabItem>
+</Tabs>
+
+## Customizing Theme Colors
+
+Every color in a theme can be fully customized by editing the `colors` property of the the branding service configuration.
+
+:::tip
+Colors can be specified with their common name, a hex value, or a rgba value. A full list of all the color keys available in a theme [can be found here](api-theme.mdx).
+:::
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "branding",
+            "id": "branding",
+            "activeTheme": "custom-vampire",
+            "themes": [{
+                "id": "custom-vampire",
+                "accentColor": "red",
+                "template": "dark",
+                "colors": {
+                    "emphasizedButtonBackground": "purple",
+                    "primaryAccentLarge": "#00b7eb",
+                    "secondaryBackground": [249, 77, 0, 255]
+                }
+            }]
+        },
+        ...
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src={useBaseUrl("img/web-vampire-theme-customized.png")}/>
+</TabItem>
+</Tabs>
+
+## Using Theme Colors In Custom Components
+
+<!-- TODO-API - Link to Geocortex Framework UI -->
+
+When creating custom components, you may need to style your component. If you use Geocortex UI Elements, these elements already participate in the theme, so your element will be themed automatically. However, you can also use the various theming colors in custom css, through the `var(...)` css function.
+
+:::tip
+A full list of all the color keys available in a theme [can be found here](api-theme.mdx).
+:::
+
+```css
+.my-element {
+    background-color: var(--primaryBackground);
+}
+```
+
+<!-- ## Adding Icons
+
+### Coming Soon...
+
+This documentation is under active development. -->
+
+<!-- You can add new icons to Geocortex Web for use with buttons in the layout, custom components, and more.
+
+## Example: Button with Custom Icon
+
+This example will walk you through adding a custom icon to your application and using it with a button defined in the [layout](concepts-layout.mdx) and [app config](concepts-app-config.mdx). First, we need to get an icon to use. This [CC BY licensed icon](https://thenounproject.com/search/?q=action&creator=203375&i=3114038) representing a directors clapperboard is going to be used for this example.
+
+<p>
+    Here's{" "}
+    <a href={useBaseUrl("img/action.svg")} download>
+        a download link
+    </a>{" "}
+    for the svg representation of it.
+</p>
+
+
+Create a new folder `app/icons/action`, and add the svg file and an attribution.txt file crediting the creator of the icon.
+
+#### Register the Icon
+
+Next, we have to register the icon with Geocortex Web. To do this, we make a call to `registerIcon` in `src/index.ts`. The url provided is a path relative to the `app` folder.
+
+:::note
+You can provide raster icon files with the type `raster`, but it is best practice to use `svg`.
+:::
+
+```ts
+import { LibraryRegistry } from "@geocortex/web/config";
+
+export default function (registry: LibraryRegistry) {
+    registry.registerIcon({
+        id: "action",
+        type: "svg",
+        url: "icons/action/action.svg",
+    });
+}
+```
+
+#### Use the Icon in an Application
+
+Now that the icon is registered, we can use it in our application by referencing it with the id `action`. For example, we can create a button in the I Want To Menu with that icon by editing the layout and app config.
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "Layout", value: "layout" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map>
+        <iwtm config="iwtm-config" slot="top-left"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "menu-item",
+            "id": "button-with-custom-icon",
+            "title": "Action!",
+            "isEnabled": true,
+            // highlight-next-line
+            "iconId": "action",
+            "action": {
+                "name": "ui.display-notification",
+                "arguments": {
+                    "message": "CUT"
+                }
+            }
+        },
+        {
+            "$type": "menu",
+            "id": "iwtm-config",
+            "items": ["item://menu-item/button-with-custom-icon"],
+            "title": "I Want to Direct a Movie"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-custom-icon.png")}/>
+</TabItem>
+</Tabs> -->

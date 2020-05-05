@@ -37,7 +37,7 @@ export class ScaleBarModel implements ComponentModel {
 
 ### Importing Models
 
-Custom components can also import models and interact with them. The import must be done in the [model](TODO-model-link) of the component. This tight coupling can allow deeper access to other components models, but also negates the advantages of the abstraction of commands and operations.
+Custom components can also import models and interact with them. The import must be done in the [model](sdk-component-reference.mdx#models) of the component. This tight coupling can allow deeper access to other components models, but also negates the advantages of the abstraction of commands and operations.
 
 :::note
 The property decorated by `@importModel` is completely managed by Geocortex Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.

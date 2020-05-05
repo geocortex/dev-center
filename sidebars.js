@@ -25,7 +25,7 @@ module.exports = {
             items: [
                 "web/usecases-run-command-with-button",
                 "web/usecases-change-default-behavior",
-                "web/usecases-look-and-feel",
+                "web/usecases-customize-application-theme",
                 {
                     type: "category",
                     label: "Configuring Workflows",
@@ -83,6 +83,7 @@ module.exports = {
                     ],
                 },
                 "web/sdk-serializable-properties",
+                "web/sdk-theme",
                 "web/sdk-language-strings",
                 "web/sdk-deployment",
                 "web/sdk-reference-third-party-libraries",
@@ -113,6 +114,7 @@ module.exports = {
                         "web/api-layout-attribute-reference",
                     ],
                 },
+                "web/api-theme",
                 "web/api-commands-operations-events",
                 "web/api-components",
             ],

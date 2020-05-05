@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
-Commands and operations play a large role in the infrastructure and behavior of Geocortex Web. They also are a powerful core part of the Geocortex Web SDK, as they enable the creation of custom behavior, through [existing commands and operations](TODO-link-commands-ops-reference), [workflow](TODO-link-workflow-command), or custom commands and operations. Commands and operations can be used through the app config to customize built in components, or they can be executed in custom components and services.
+Commands and operations play a large role in the infrastructure and behavior of Geocortex Web. They also are a powerful core part of the Geocortex Web SDK, as they enable easily configurable behavior. [Existing commands and operations](api-commands-operations-events.mdx) combined with [workflow](usecases-run-workflow-app-config.mdx) can enable powerful custom behavior without custom code. Commands and operations can be used through the app config to customize built in components, or they can be executed in custom components and services.
 
 ## Key Concepts
 
@@ -63,7 +63,7 @@ Command chains are arrays of commands and operations which are executed sequenti
 Commands and operations can be configured with an `arguments` property that passes values to the function at execution time.
 
 :::tip
-You can find out what arguments a command or operation takes in the [commands and operations API reference](TODO-link-commands-ops-reference).
+You can find out what arguments a command or operation takes in the [commands and operations API reference](api-commands-operations-events.mdx).
 :::
 
 ```json
@@ -242,18 +242,18 @@ The second behavior in this application is a `map.zoom-to-initial-viewpoint` com
 
 ## Using Commands and Operations in Custom Components and Services
 
-The [built-in commands and operations](TODO-link-to-API), as well as custom commands and operations, can be used from any custom component or service.
+The [built-in commands and operations](api-commands-operations-events.mdx), as well as custom commands and operations, can be used from any custom component or service.
 
 <UseCaseContainer>
     <UseCaseCard
         title="Run Commands or Operations from a Custom Service"
         description="Learn how to run a command or operation from a custom service"
-        link="TODO-link"
+        link="sdk-services-commands-operations#running-custom-commands"
     />
     <UseCaseCard
         title="Run Commands or Operations from a Custom Component"
         description="Learn how to run a command or operation from a custom component"
-        link="TODO-link"
+        link="sdk-components-commands-operations#running-custom-commands"
     />
 </UseCaseContainer>
 

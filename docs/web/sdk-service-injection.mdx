@@ -10,7 +10,7 @@ import TabItem from "@theme/TabItem";
 Geocortex Web uses dependency injection as a way to obtain a reference to Geocortex Web [services](concepts-components-services.mdx#services) in your application. Services can be referenced from within a [component model](concepts-components-services.mdx#component-models-and-configuration) or another service.
 
 :::note
-If a [custom command or operation](TODO-link-custom-command) can accomplish the behavior you need without a direct service reference, this is preferred to decrease the degree of coupling.
+If a [custom command or operation](sdk-services-commands-operations.mdx#implementing-commands-and-operations) can accomplish the behavior you need without a direct service reference, this is preferred to decrease the degree of coupling.
 :::
 
 The easiest way to obtain a reference to a service is by using the `@inject` decorator from within your component model or service. The following example demonstrates injecting the `RegionService` from a custom component model and a custom service.
@@ -78,4 +78,4 @@ export default class CustomDataService extends ServiceBase {
 </TabItem>
 </Tabs>
 
-Note that the `@inject` decorator will automatically inject a reference to the service only when used from within a component model or service. The property that the `@inject` decorator is bound to **will be populated during the [initialization process](TODO-initialization-link) of the given component model or service** that the decorator was used in. The property value will be `undefined` until the component model or service is initialized.
+Note that the `@inject` decorator will automatically inject a reference to the service only when used from within a component model or service. The property that the `@inject` decorator is bound to **will be populated during the [initialization process](sdk-component-reference.mdx#initialization-and-teardown) of the given component model or service** that the decorator was used in. The property value will be `undefined` until the component model or service is initialized.

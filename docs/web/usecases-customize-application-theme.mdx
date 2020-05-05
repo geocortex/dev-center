@@ -1,0 +1,151 @@
+---
+title: Customize the Theme
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
+
+Geocortex Web's appearance is built around two concepts: theme and [layout](concepts-layout.mdx). The theme controls the color scheme of the app, while the layout controls the organization of content.
+
+:::tip
+The theme can be partially configured by using the [Geocortex Web Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4).
+:::
+
+## Prerequisites
+
+<PrereqsLayoutConfigSnippet />
+
+## Create a Basic App
+
+Let's create a basic application with layout and config that we can theme.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "geometry.add-pixel-tolerance",
+                "tasks.identify",
+                "results.display-details"
+            ],
+            "webMap": "https://www.arcgis.com/home/item.html?id=0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "results",
+            "id": "results-list-config",
+            "onFeatureClick": ["results.display-details"]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1">
+  <split resizable="true">
+    <panel show-close-button="false" width="26">
+      <layer-list models="#map-primary"/>
+      <results-list active="false" config="results-list-config"/>
+      <feature-details active="true" />
+    </panel>
+    <stack>
+      <map id="map-primary" config="default"/>
+    </stack>
+  </split>
+</layout>
+```
+
+</TabItem>
+</Tabs>
+
+## Add Configuration for the Branding Service
+
+Next, we are going to add an app item to configure the Branding Service, which [manages application theming](sdk-theme.mdx).
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "geometry.add-pixel-tolerance",
+                "tasks.identify",
+                "results.display-details"
+            ],
+            "webMap": "https://www.arcgis.com/home/item.html?id=0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "results",
+            "id": "results-list-config",
+            "onFeatureClick": ["results.display-details"]
+        },
+        // highlight-start
+        {
+            "$type": "branding",
+            "id": "branding"
+        }
+        // highlight-end
+    ]
+}
+```
+
+## Add a New Theme
+
+The branding service can be configured with a list of themes. Each of these themes can be based on one of the two existing themes, `light` or `dark`. Let's configure our branding service with a new `dark` theme with an accent color `purple`.
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "geometry.add-pixel-tolerance",
+                "tasks.identify",
+                "results.display-details"
+            ],
+            "webMap": "https://www.arcgis.com/home/item.html?id=0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "results",
+            "id": "results-list-config",
+            "onFeatureClick": ["results.display-details"]
+        },
+        {
+            "$type": "branding",
+            "id": "branding",
+            // highlight-start
+            "activeTheme": "custom-theme",
+            "themes": [
+                {
+                    "id": "custom-theme",
+                    "accentColor": "purple",
+                    "template": "dark"
+                }
+            ]
+            // highlight-end
+        }
+    ]
+}
+```
