@@ -95,11 +95,11 @@ Once a component has been registered, it can be used in a layout by referring it
 
 ## Component Anatomy
 
-At it's core, each custom component is a React component that takes in props and renders a DOM element. However, custom components can implement a couple patterns which are specific to Geocortex Web.
+At its core, each custom component is a React component that takes in props and renders a DOM element. However, custom components can implement a couple of patterns which are specific to Geocortex Web.
 
 ### Rendering
 
-Geocortex Web custom components return a DOM element, like any other react component, but with one restriction. The root DOM element must be a `<LayoutElement/>` node with all the layout attributes passed as props.
+Geocortex Web custom components return a DOM element, like any other React component, but with one restriction. The root DOM element must be a `<LayoutElement/>` node with all the layout attributes passed as props.
 
 ```tsx
 export default function ExampleComponent(
@@ -115,7 +115,7 @@ export default function ExampleComponent(
 Custom components take in a special type of props, `LayoutElementProperties`. These props include the React props but also include props specific to the Framework, such as;
 
 -   The model associated with the component,
--   The id of the component in the layout
+-   The ID of the component in the layout
 -   The width and height, along with other [presentation attributes](api-layout-attribute-reference.mdx#presentation-attributes) in the layout
 
 The `LayoutElementProperties` interface takes in `ComponentModelBase` type class corresponding to the model associated with the component. This will give the `props.model` property the correct type.
@@ -175,7 +175,7 @@ export default function (registry: LibraryRegistry) {
 
 It's best practice to use the model to define configurable or persistent state, and use the [component hooks](sdk-component-hooks.mdx) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
 
-For example, the following component delegates the management of the list item content to it's model. The component does not have to concern itself with whether those list items come from config, dynamic application events, or other sources.
+For example, the following component delegates the management of the list item content to its model. The component does not have to concern itself with whether those list items come from config, dynamic application events, or other sources.
 
 :::tip
 This example uses the `useWatchAndRerender` [component hook](sdk-component-hooks.mdx) in order to dynamically update the component when the model changes.
@@ -225,7 +225,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 ### Configuration
 
-Geocortex Web provides a suite of flexible, highly configurable components, and this flexibility is powered in a large part by the relationship between app config, models, and components. Each model has the potential to consume static app config, which it can deserialize and transform before providing the data to it's associated component for rendering.
+Geocortex Web provides a suite of flexible, highly configurable components, and this flexibility is powered in a large part by the relationship between app config, models, and components. Each model has the potential to consume static app config, which it can deserialize and transform before providing the data to its associated component for rendering.
 
 The following model defines a simple configurable property `items`.
 
@@ -318,7 +318,7 @@ The `UIService` contains methods like `getActiveChildComponentIds()` which can b
 
 ### Activation and Deactivation
 
-Custom code can listen and react to a components activation or deactivation by subscribing to the `ui.activated` or `ui.deactivated` event. The [`ui.*` events](api-commands-operations-events.mdx) contain various events relating to the component lifecycle.
+Custom code can listen and react to a components activation or deactivation by subscribing to the `ui.activated` or `ui.deactivated` event. The [`ui.*` events](api-commands-operations-events.mdx#events) contain various events relating to the component lifecycle.
 
 ```ts
 @serializable

@@ -15,7 +15,7 @@ Commands and operations play a large role in the infrastructure and behavior of 
 ## Key Concepts
 
 -   Commands and operations act as global functions which can be executed from any component or service.
--   Built in components have properties in the app config which take an command or operation as values, allowing their internal a behavior to be configured.
+-   Built in components have properties in the app config which take a command or operation as values, allowing their internal a behavior to be configured.
 -   Commands run behavior but do not produce output, while operations run behavior and produce an output.
 -   Commands and operations can be run sequentially in what's called a "command chain" to enable complex actions.
 
@@ -141,7 +141,7 @@ In this way, you can run multiple commands in a row that receive a feature as in
 ["map.zoom-to-features", "highlights.pulse"]
 ```
 
-The `action` command chain of `save-features-to-csv` demonstrates how an operation can pass its output to the next command or operation in the list. In this case, it's passing the csv content to `system.download-file`.
+The `action` command chain of `save-features-to-csv` demonstrates how an operation can pass its output to the next command or operation in the list. In this case, it's passing the CSV content to `system.download-file`.
 
 ```json
 // `system.download-file` will receive the output of `results.convert-to-csv`
@@ -239,7 +239,7 @@ Let's first look at the command chain defined on the `onClick` property of a map
 
 <!-- TODO-API MapExtensionArgs direct link -->
 
-The second behavior in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes `Maps` type argument. The `argument` property in the app config supplies an array of maps by referencing the `default` map with an [**Item Uri**](concepts-advanced-app-config.mdx#item-uris). Item URIs are a way of referencing other items within the app config.
+The second behavior in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes `Maps` type argument. The `argument` property in the app config supplies an array of maps by referencing the `default` map with an [**Item URI**](concepts-advanced-app-config.mdx#item-uris). Item URIs are a way of referencing other items within the app config.
 
 ## Using Commands and Operations in Custom Components and Services
 
