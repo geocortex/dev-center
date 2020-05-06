@@ -33,10 +33,6 @@ export default function ExampleComponent(
 
     useWatchAndRerender(model, "items");
 
-    var x = model.items.map((item, idx) => (
-        <ListItem key={idx} title={item}></ListItem>
-    ));
-
     return (
         <LayoutElement {...props}>
             <List>

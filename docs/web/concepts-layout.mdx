@@ -91,6 +91,8 @@ The scale bar component displays information about a particular map. More specif
 
 Each component has a corresponding **model** which is responsible for the data underlying the component. For example, the model for the map component contains the ArcGIS API Map object, and other information about the current state of the map.
 
+The scalebar satisfies its dependency on the map by [importing the map model](sdk-component-interactions.mdx#interacting-with-components-through-models).
+
 Components can react to changes or mutate values on other components through these models. For example, if the scale of the map changes when it is zoomed, then the scalebar will react to the change in the map model and update it's displayed values.
 
 For more information on models, [check out the component SDK reference](sdk-component-reference.mdx#models) and this deeper dive into [model binding in the layout](api-component-models.mdx).

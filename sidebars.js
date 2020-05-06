@@ -23,7 +23,7 @@ module.exports = {
             type: "category",
             label: "Use Cases",
             items: [
-                "web/usecases-run-command-with-button",
+                "web/usecases-configure-button-click",
                 "web/usecases-change-default-behavior",
                 "web/usecases-customize-application-theme",
                 {
@@ -44,7 +44,6 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
-                "web/sdk-framework-overview",
                 "web/sdk-commands-operations",
                 {
                     type: "category",

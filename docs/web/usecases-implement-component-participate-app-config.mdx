@@ -358,9 +358,11 @@ export default function NewsFeed(props: NewsFeedProps) {
                     // highlight-end
                 </DialogActions>
                 {!model.hidden &&
-                    model.newsItems.map((news, idx) => (
-                        <ListItem key={idx}>{news}</ListItem>
-                    ))}
+                    model.newsItems
+                        .map((news, idx) => (
+                            <ListItem key={idx}>{news}</ListItem>
+                        ))
+                        .toArray()}
             </List>
         </LayoutElement>
     );

@@ -19,7 +19,13 @@ Components have multiple ways of interacting with other components and services.
 
 <!-- TODO-API link to map model and scalebar/compass components once available -->
 
-Components can interact with each other through their [respective models](concepts-layout.mdx#models). A model can either declare that it is exported, like the map model, or that it imports a model. Components like the `<scalebar>` or `<compass>` import the map model, and this is what allows them to respond to changes in the maps state.
+Components can interact with each other through their [respective models](sdk-component-reference.mdx#models). A model can either declare that it is exported, like the map model, or that it imports a model.
+
+-   Declaring a model as exported exposes it to other components for importing.
+
+-   Using the `@importModel` decorator will tell the component to attempt to retrieve a reference to the given model type, according to the [model binding rules](api-component-models.mdx)
+
+Components like the `<scalebar>` or `<compass>` import the map model, and this allows them to respond to changes in the maps state **through** the map model.
 
 ```ts
 @exportModel
@@ -37,7 +43,7 @@ export class ScaleBarModel implements ComponentModel {
 
 ### Importing Models
 
-Custom components can also import models and interact with them. The import must be done in the [model](sdk-component-reference.mdx#models) of the component. This tight coupling can allow deeper access to other components models, but also negates the advantages of the abstraction of commands and operations.
+Custom components can also import models and interact with them. The import must be done in the model of the component. This tight coupling can allow deeper access to other components models, but also negates the advantages of the abstraction of commands and operations.
 
 :::note
 The property decorated by `@importModel` is completely managed by Geocortex Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.

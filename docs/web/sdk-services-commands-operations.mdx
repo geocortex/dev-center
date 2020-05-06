@@ -21,7 +21,29 @@ Services can run commands and operations through the `messages` property.
 export default class ExampleService extends ServiceBase {
     protected async someMethod(): Promise<void> {
         // highlight-next-line
+        const { commands, command, operations, operation } = this.messages;
+
+        // Execute a named, built-in, command
         commands.ui.setTheme.execute("dark");
+
+        // Execute a custom command by it's string ID. If you are executing
+        // a custom command with arguments, you must provide the correct generic typings.
+        command<string>("my-custom.command-that-takes-a-string").execute(
+            "some arg"
+        );
+
+        // Execute a named, built-in, operation
+        const opResult = await operations.ui.confirm.execute({
+            message: "hey",
+        });
+
+        // Execute a custom operation by it's string ID.
+        // You must provide the correct generic typings <input, output>.
+        const customOpResult = await operation<string, boolean>(
+            "my-custom.operation-that-returns-a-bool"
+        ).execute("some arg");
+
+        return;
     }
 }
 ```
