@@ -17,6 +17,14 @@ module.exports = {
                 "web/concepts-app-config",
                 "web/concepts-commands-operations",
                 "web/concepts-advanced-app-config",
+                {
+                    type: "category",
+                    label: "Advanced Layout",
+                    items: [
+                        "web/concepts-layout-core-components",
+                        "web/concepts-advanced-model-binding",
+                    ],
+                },
             ],
         },
         {
@@ -104,15 +112,7 @@ module.exports = {
             type: "category",
             label: "API",
             items: [
-                {
-                    type: "category",
-                    label: "Layout",
-                    items: [
-                        "web/api-component-models",
-                        "web/api-layout-core-components",
-                        "web/api-layout-attribute-reference",
-                    ],
-                },
+                "web/api-layout-attribute-reference",
                 "web/api-theme",
                 "web/api-commands-operations-events",
                 "web/api-components",

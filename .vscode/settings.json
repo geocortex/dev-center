@@ -5,5 +5,6 @@
     "files.exclude": {
         "**/.docusaurus": true,
         "build": true
-    }
+    },
+    "rewrap.wrappingColumn": 30
 }

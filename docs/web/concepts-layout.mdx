@@ -27,7 +27,7 @@ The example above first declares a `<map>` component that uses the default map c
 Next, a `<zoom>` component is added **within** the map component. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [the map it is placed in](api-component-models.mdx)
+2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-model-binding.mdx)
 
 <FollowAlongSnippet />
 
@@ -57,7 +57,7 @@ Slots control how one element fits into another, but how do we control how sibli
 
 The basic `stack` and `split` components form building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
 
-For a deeper dive into stacks and splits, [check out the API reference](api-layout-core-components.mdx#stacks-and-splits).
+For a deeper dive into stacks and splits, [check out the API reference](concepts-layout-core-components.mdx#stacks-and-splits).
 
 ## Spacing
 
@@ -68,12 +68,12 @@ See [presentation attributes](api-layout-attribute-reference.mdx#presentation-at
 Another core concept that Geocortex Web uses to organize elements in a layout is **panels**.
 Panels are a container component that enable hierarchal navigation between different components.
 
-For a deeper dive into Panels, [check out the API reference](api-layout-core-components.mdx#panels).
+For a deeper dive into Panels, [check out the API reference](concepts-layout-core-components.mdx#panels).
 
 <!-- TODO-API - direct link to tabs and expanders -->
 
 :::tip
-These are just a few examples of the building blocks available to help you organize the layout of your Application. Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes. You can also use tabs, expanders, and much more. See the [Component Reference](api-layout-core-components.mdx) for a full listing.
+These are just a few examples of the building blocks available to help you organize the layout of your Application. Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes. You can also use tabs, expanders, and much more. See the [Component Reference](concepts-layout-core-components.mdx) for a full listing.
 :::
 
 ## Models
@@ -95,7 +95,7 @@ The scalebar satisfies its dependency on the map by [importing the map model](sd
 
 Components can react to changes or mutate values on other components through these models. For example, if the scale of the map changes when it is zoomed, then the scalebar will react to the change in the map model and update its displayed values.
 
-For more information on models, [check out the component SDK reference](sdk-component-reference.mdx#models) and this deeper dive into [model binding in the layout](api-component-models.mdx).
+For more information on models, [check out the component SDK reference](sdk-component-reference.mdx#models) and this deeper dive into [model binding in the layout](concepts-advanced-model-binding.mdx).
 
 ## Namespaces
 
@@ -135,12 +135,12 @@ In our examples so far, xml elements like `<text>` or `<stack>` have been used. 
     <UseCaseCard
         title="Component Models"
         description="Take a deeper dive into the relationship between components and models in the layout"
-        link="api-component-models"
+        link="concepts-advanced-model-binding"
     />
     <UseCaseCard
         title="Core Component Reference"
         description="Learn more about core layout components like stacks and splits"
-        link="api-layout-core-components"
+        link="concepts-layout-core-components"
     />
     <UseCaseCard
         title="Component Attribute Reference"

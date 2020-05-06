@@ -1,5 +1,5 @@
 ---
-title: Core Components
+title: Core Layout Components
 description: Geocortex Web - Learn about the core layout components
 ---
 
@@ -99,7 +99,7 @@ Panels are a container component that enable hierarchal navigation between diffe
 </layout>
 ```
 
-For a deeper dive into Panels, [check out the api reference](api-layout-core-components.mdx#panels).
+For a deeper dive into Panels, [check out the api reference](concepts-layout-core-components.mdx#panels).
 
 When you first open the panel, the first component in the panel is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
 When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component overtop of the existing visible component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of each other, with the first component being the bottommost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
