@@ -35,7 +35,7 @@ Services provide the shared infrastructure and core logic that power app behavio
 
 ### Commands and Operations
 
-Commands and operations provide a framework for executing app wide behavior. Services and components can both run and implement commands and operations, allowing for interaction and consistent behavior without tight coupling.
+Commands and operations provide a framework for executing application wide behavior. Services and components can both run and implement commands and operations, allowing for interaction and consistent behavior without tight coupling. Commands and operations can also be run [in the app config](usecases-run-command-with-button.mdx) and by [Workflows](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm). This can allow you to [customize the behavior of built-in components](usecases-change-default-behavior.mdx).
 
 ## Application Interactions
 
@@ -43,8 +43,8 @@ Commands and operations provide a framework for executing app wide behavior. Ser
 
 Components, services, and commands and operations interact to form a Geocortex Web Application.
 
--   Services are used to implement app wide behavior, such as theming or authentication, and then expose that logic through commands and operations, such as `ui.set-theme` (implemented by the `BrandingService`) or `auth.sign` (implemented by the `AuthenticationService`).
--   Components run commands and operations to interact with global concerns, but can also implement a command or operation if they are responsible for a global concern, or need to facilitate interaction with another component or service.
+-   Services are used to implement application wide behavior, such as theming or authentication, and then expose that logic through commands and operations, such as `ui.set-theme` (implemented by the `BrandingService`) or `auth.sign` (implemented by the `AuthenticationService`).
+-   Components can run commands and operations to interact with services or other components. Components can also implement commands and operations to allow themselves to be affected by other services and components.
 -   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [model injection](sdk-component-interactions.mdx#importing-models) or [service injection](sdk-service-injection.mdx).
 
 ## Requirements
@@ -71,7 +71,7 @@ The created project contains a few important directories:
 
 ### Library Entry Point
 
-The Geocortex Web SDK compiles custom components, services, and commands and operations into a library. The library is defined by the registration function exported from `src/index.ts`.
+The Geocortex Web SDK compiles custom components, services, and commands and operations into a library. The library is defined by the registration function exported from `src/index.ts`. This registration code informs Geocortex Web about the components, services, and commands and operations in your library so that they can be referenced in the app config and layout.
 
 ```ts title="src/index.ts"
 export default function (registry: LibraryRegistry) {
@@ -134,10 +134,5 @@ You may need to rename the downloaded layout file to `layout.xml`.
         title="Deploy your Application"
         description="Learn how to deploy your custom library, layout and app config"
         link="sdk-deployment"
-    />
-    <UseCaseCard
-        title="Learn more about the Geocortex Web SDK Framework"
-        description="Learn more about the Geocortex Web SDK framework and the various extension points"
-        link="sdk-framework-overview"
     />
 </UseCaseContainer>

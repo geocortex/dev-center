@@ -164,7 +164,7 @@ export default function (registry: LibraryRegistry) {
 
 ## Service Lifecycle
 
-On application load, all services that are configured to automatically load on startup are created and initialized **in parallel**, along with core framework services like the message bus.
+On application load, all services that are configured to automatically load on startup are created and initialized **in parallel**, along with core services like the message bus.
 
 All other services are created and initialized (i.e. the `_onInitialize` method is called) when they are first invoked. This can happen in multiple ways.
 

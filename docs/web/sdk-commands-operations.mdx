@@ -15,9 +15,10 @@ Commands and operations play a large role in the infrastructure and behavior of 
 ## Key Concepts
 
 -   Commands and operations act as global functions which can be executed from any component or service.
--   Built in components have properties in the app config which take a command or operation as values, allowing their internal a behavior to be configured.
--   Commands run behavior but do not produce output, while operations run behavior and produce an output.
--   Commands and operations can be run sequentially in what's called a "command chain" to enable complex actions.
+-   Commands such as `map.zoom-to-viewpoint` execute behavior that can have effects on the application.
+-   Operations such as `results.convert-to-csv` produce outputs which can be passed to commands.
+-   Commands and operations can be run sequentially in what's called a "command chain" to enable complex behavior.
+-   Built in components have properties in the app config which take a command or operation as values, allowing their internal behavior to be configured.
 
 ## Command and Operations in App Config
 
