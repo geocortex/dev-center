@@ -34,7 +34,7 @@ export default function(registry: LibraryRegistry) {
 
 ## Service Anatomy
 
-All services have access to initialization and cleanup methods, as well as the global message bus that allows for the registration and execution of commands and operations.
+All services have access to initialization and cleanup methods, as well as the `messages` property that allows for the registration and execution of commands and operations.
 
 ### Initialization and Cleanup
 
@@ -98,7 +98,9 @@ export default class ExampleService extends ServiceBase {
 
         // Execute a custom command by it's string ID. If you are executing
         // a custom command with arguments, you must provide the correct generic typings.
-        command<string>("my-custom.command").execute("some arg");
+        command<string>("my-custom.command-that-takes-a-string").execute(
+            "some arg"
+        );
 
         // Execute a named, built-in, operation
         const opResult = await operations.ui.confirm.execute({
@@ -106,9 +108,9 @@ export default class ExampleService extends ServiceBase {
         });
 
         // Execute a custom operation by it's string ID.
-        // You must provide the correct generic typings.
+        // You must provide the correct generic typings <input, output>.
         const customOpResult = await operation<string, boolean>(
-            "my-custom.operation"
+            "my-custom.operation-that-returns-a-bool"
         ).execute("some arg");
 
         return;
@@ -118,7 +120,7 @@ export default class ExampleService extends ServiceBase {
 
 ## Models and Configuration
 
-Like components, services can be configured through the [app config](concepts-app-config.mdx). A service can participate in the config by extending the `ConfigurableServiceBase` class. For more information on the relationship between services and configurable, check out [this article](sdk-serializable-properties.mdx). The following example demonstrates a service with one configurable property, `name`.
+Like components, services can be configured through the [app config](concepts-app-config.mdx). A service can participate in the config by extending the `ConfigurableServiceBase` class. For more information on the relationship between services and configuration, check out [this article](sdk-serializable-properties.mdx). The following example demonstrates a service with one configurable property, `name`.
 
 :::note
 The service is linked to the config through the `itemType` and `id` properties.

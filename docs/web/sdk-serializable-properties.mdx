@@ -9,7 +9,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-Geocortex Web uses static, plain, app config JSON files to represent settings and properties for various components and services in an application. At some point, each of the values in the JSON file must be serialized and populate a JavaScript Object. Component models and custom services can both consume configuration; therefore, they must also define the logic for moving from configuration to runtime values.
+Geocortex Web uses static, plain, app config JSON files to represent settings and properties for various components and services in an application. At some point, each of the values in the JSON file must be serialized and populate a JavaScript object. Component models and custom services can both consume configuration; therefore, they must also define the logic for translating configuration to runtime values.
 
 ## Defining a Serializable Class
 
@@ -238,7 +238,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 </TabItem>
 </Tabs>
 
-Simpler properties such as `boolean` values or `string` values can have their serialization logic omitted.
+Already serializable properties such as `boolean` values or `string` values can have their serialization logic omitted.
 
 ```ts
 ...

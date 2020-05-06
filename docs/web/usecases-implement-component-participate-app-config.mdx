@@ -23,8 +23,6 @@ By the end of this article, you'll have the knowledge to build a component that 
 
 We are going to add configuration to a custom component that displays news items. This component currently is following bad practices and does not treat the model as the source of truth for it's data. We are going to move the `newsItems` list to a configurable property on the model, and add a new configurable property, `hideOnStartup`.
 
-TODO - Just Add Layout Config and Index
-
 <FrameworkComponentsSnippet />
 
 <Tabs
@@ -32,6 +30,11 @@ TODO - Just Add Layout Config and Index
   values={[
     { label: 'Component', value: 'component', },
     { label: 'Empty Model', value: 'model', },
+    { label: 'CSS', value: 'css', },    
+    { label: 'Component Index', value: 'index', },    
+    { label: 'Registration', value: 'registration', },
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'config', },
   ]
 }>
 <TabItem value="component">
@@ -94,6 +97,69 @@ export default NewsFeedModel;
 ```
 
 </TabItem>
+<TabItem value="css">
+
+```css title="src/components/NewsFeed/NewsFeed.css"
+.news-item-list {
+    max-height: 200px;
+    overflow: scroll;
+}
+```
+
+</TabItem>
+<TabItem value="index">
+
+```ts title="src/components/NewsFeed/index.ts"
+export { default } from "./NewsFeed";
+export { default as NewsFeedModel } from "./NewsFeedModel";
+```
+
+</TabItem>
+<TabItem value="registration">
+
+```ts title="src/index.ts"
+import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
+import { ComponentType } from "react";
+import { LibraryRegistry } from "@geocortex/web/config";
+
+export default function (registry: LibraryRegistry) {
+    registry.registerComponent({
+        name: "news-feed",
+        namespace: "your.custom.namespace",
+        getComponentType: () => NewsFeed as ComponentType,
+        itemType: "news-feed-model",
+        title: "News Feed",
+    });
+    registry.registerModel({
+        getModelType: () => NewsFeedModel,
+        itemType: "news-feed-model",
+    });
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <map>
+        <custom:news-feed slot="top-center"/>
+    </map>
+</layout>
+```
+
+</TabItem>  
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": []
+}
+```
+
+</TabItem>
 </Tabs>
 
 ## Define the Configurable Properties
@@ -132,7 +198,7 @@ export default class NewsFeedModel extends ComponentModelBase<
 
 ## Participate in the Configuration
 
-Next, we have to inform Geocortex Web about how to serialize and deserialize these properties between the app config and the model, as well as provide default values. We do this by implementing the `_getSerializableProperties` method.
+Next, we have to inform Geocortex Web about how to serialize and deserialize these properties between the app config and the model, as well as provide default values. We do this by [implementing the `_getSerializableProperties` method](sdk-serializable-properties.mdx).
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import {
@@ -212,7 +278,7 @@ Upon user interaction that affects state,
 1. The component listens for changes on the model values and re-renders with the `useWatchAndRerender` function.
 
 :::note
-This example uses the `useWatchAndRerender` function from `@geocortex/web/ui/hooks` to treat the model as an observable state object. Learn more about the [helper React Hook functions](sdk-component-hooks.mdx) provided.
+Learn more about the [helper React Hook functions](sdk-component-hooks.mdx) like `useWatchAndRerender`.
 :::
 
 ```tsx

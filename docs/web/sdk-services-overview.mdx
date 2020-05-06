@@ -7,7 +7,7 @@ hide_table_of_contents: true
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
-In Geocortex Web, services represent a shared application-wide concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](sdk-services-commands-operations.mdx#implementing-commands-and-operations), but services can also be directly [injected](sdk-service-injection.mdx) into other services and component models.
+In Geocortex Web, services represent a shared application-wide concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](sdk-services-commands-operations.mdx#implementing-commands-and-operations), but services can also be [directly injected](sdk-service-injection.mdx) into other services and component models.
 
 <!-- TODO-API: Add a link out to the services API
 :::tip
@@ -15,9 +15,9 @@ Geocortex Web has many [built-in services](api-services.mdx).
 :::
 -->
 
-Services are created at startup if they are registered with the `loadOnStartup` option, otherwise, they will be created when one of their commands and operations is run or they are directly injected into another service or component model.
+Services are created at startup if they are [registered](sdk-service-reference.mdx#service-registration) with the `loadOnStartup` option, otherwise, they will be created when one of their commands and operations is run or they are directly injected into another service or component model.
 
-Services can be optionally configured by creating an associated model. This model can consume app config, and be shared between multiple services.
+Services can be optionally configured by [extending the `ConfigurableServiceBase` class](sdk-service-reference.mdx#models-and-configuration).
 
 ```ts
 import { ServiceBase } from "@geocortex/web/services";
