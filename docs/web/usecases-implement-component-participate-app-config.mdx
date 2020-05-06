@@ -21,7 +21,7 @@ By the end of this article, you'll have the knowledge to build a component that 
 
 ## Starting Point
 
-We are going to add configuration to a custom component that displays news items. This component currently is following bad practices and does not treat the model as the source of truth for it's data. We are going to move the `newsItems` list to a configurable property on the model, and add a new configurable property, `hideOnStartup`.
+We are going to add configuration to a custom component that displays news items. This component currently is following bad practices and does not treat the model as the source of truth for its data. We are going to move the `newsItems` list to a configurable property on the model, and add a new configurable property, `hideOnStartup`.
 
 <FrameworkComponentsSnippet />
 
@@ -30,8 +30,8 @@ We are going to add configuration to a custom component that displays news items
   values={[
     { label: 'Component', value: 'component', },
     { label: 'Empty Model', value: 'model', },
-    { label: 'CSS', value: 'css', },    
-    { label: 'Component Index', value: 'index', },    
+    { label: 'CSS', value: 'css', },
+    { label: 'Component Index', value: 'index', },
     { label: 'Registration', value: 'registration', },
     { label: 'Layout', value: 'layout', },
     { label: 'App Config', value: 'config', },
@@ -149,7 +149,7 @@ export default function (registry: LibraryRegistry) {
 </layout>
 ```
 
-</TabItem>  
+</TabItem>
 <TabItem value="config">
 
 ```json title="app/app.json"
