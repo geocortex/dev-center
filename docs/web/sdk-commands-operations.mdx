@@ -138,14 +138,15 @@ Since these commands and operations are running from the [context](https://docs.
 In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `action` command chain of `zoom-to-features` in the example.
 
 ```json
-// Both of these commands will receive the Features argument passed into the command chain
+// Both of these commands will receive the Features argument passed into the
+// command chain.
 ["map.zoom-to-features", "highlights.pulse"]
 ```
 
 The `action` command chain of `save-features-to-csv` demonstrates how an operation can pass its output to the next command or operation in the list. In this case, it's passing the CSV content to `system.download-file`.
 
 ```json
-// `system.download-file` will receive the output of `results.convert-to-csv`
+// `system.download-file` will receive the output of `results.convert-to-csv`.
 ["results.convert-to-csv", "system.download-file"]
 ```
 

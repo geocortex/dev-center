@@ -313,7 +313,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 When a Geocortex Web Application boots up, the set of components which are initially active in the layout are created and initialized. [Components like the `Panel`](concepts-layout-core-components.mdx#panels) will only activate their first child. All initially inactive components will only be created when they are activated in the layout.
 
 :::tip
-The `UIService` contains methods like `getActiveChildComponentIds()` which can be used to examine and manage the active state of components and their children.
+The `UIService` contains implements the commands `ui.activate` and `ui.deactivate` and exposes methods like `getActiveChildComponentIds()` which can be used to examine and manipulate the activation state of components.
 :::
 
 ### Activation and Deactivation

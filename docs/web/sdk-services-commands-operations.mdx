@@ -23,7 +23,7 @@ export default class ExampleService extends ServiceBase {
         // highlight-next-line
         const { commands, command, operations, operation } = this.messages;
 
-        // Execute a named, built-in, command
+        // Execute a named, built-in, command.
         commands.ui.setTheme.execute("dark");
 
         // Execute a custom command by it's string ID. If you are executing
@@ -32,7 +32,7 @@ export default class ExampleService extends ServiceBase {
             "some arg"
         );
 
-        // Execute a named, built-in, operation
+        // Execute a named, built-in, operation.
         const opResult = await operations.ui.confirm.execute({
             message: "hey",
         });

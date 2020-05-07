@@ -16,7 +16,7 @@ Events are accessed in services through the `messages` property.
 ```ts
 export default class CustomService extends ServiceBase {
     customIdentify() {
-        // ... run a custom identify here
+        // ... run a custom identify here.
         this.messages.events.tasks.identified.publish(someFeatures);
     }
 }
@@ -29,7 +29,7 @@ Events are accessed in component models through the `messages` property.
 ```ts
 export default class ExampleComponentModel extends ComponentModelBase {
     customIdentify() {
-        // ... run a custom identify here
+        // ... run a custom identify here.
         this.messages.events.tasks.identified.publish(someFeatures);
     }
 }
@@ -46,7 +46,7 @@ export default function ExampleComponent(
     const { events } = useContext(UIContext);
 
     const customIdentify = () => {
-        // ... run a custom identify here
+        // ... run a custom identify here.
         this.messages.events.tasks.identified.publish(someFeatures);
     };
 

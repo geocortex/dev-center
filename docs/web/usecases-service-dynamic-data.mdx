@@ -92,11 +92,12 @@ export default class CustomDataService extends ServiceBase {
     newsItems: Collection<string> = new Collection<string>();
 
     private async _fetchRecentNews() {
-        // REST request for a news item would go here
+        // REST request for a news item would go here.
         return newsItems[this._curIndex++ % newsItems.length];
     }
 
-    // in a real application, you would want to subscribe to a data source and not use polling.
+    // In a real application, you would want to subscribe to a
+    // data source and not use polling.
     private _startPollingForNewItems() {
         const fetchNewsLoop = async () => {
             const newNews = await this._fetchRecentNews();
@@ -190,7 +191,7 @@ export default class CustomDataService extends ServiceBase {
     newsItems: Collection<string> = new Collection<string>();
 
     private async _fetchRecentNews() {
-        // REST request for a news item would go here
+        // REST request for a news item would go here.
         return newsItems[this._curIndex++ % newsItems.length];
     }
 
