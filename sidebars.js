@@ -212,37 +212,20 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Use Cases",
+            label: "Basic Tutorials",
             items: [
+                "mobile/usecases-change-default-behavior",
+                "mobile/usecases-look-and-feel",
+                "mobile/usecases-add-medium-layout",
+                "mobile/usecases-internationalization",
                 {
                     type: "category",
-                    label: "Basics",
-                    items: [
-                        "mobile/usecases-change-default-behavior",
-                        "mobile/usecases-look-and-feel",
-                        "mobile/usecases-add-medium-layout",
-                        "mobile/usecases-internationalization",
-                    ],
-                },
-                {
-                    type: "category",
-                    label: "Workflow",
+                    label: "Configuring Workflow",
                     items: [
                         "mobile/usecases-display-custom-form",
                         "mobile/usecases-implement-custom-form-elements",
                         "mobile/usecases-implement-custom-activity",
                         "mobile/usecases-change-default-map-click-behavior",
-                    ],
-                },
-                {
-                    type: "category",
-                    label: "Advanced",
-                    items: [
-                        "mobile/usecases-implement-command-operation",
-                        "mobile/usecases-implement-component-with-ui",
-                        "mobile/usecases-implement-component-participate-app-config",
-                        "mobile/usecases-implement-service",
-                        "mobile/usecases-implement-event",
                     ],
                 },
             ],
@@ -251,28 +234,50 @@ module.exports = {
             type: "category",
             label: "Geocortex Mobile SDK",
             items: [
+                "mobile/sdk-overview",
+                "mobile/sdk-getting-started",
+                "mobile/sdk-edit-layout-app-config",
                 {
                     type: "category",
-                    label: "Quickstart",
+                    label: "Components",
                     items: [
-                        "mobile/sdk-getting-started",
-                        "mobile/sdk-edit-layout-app-config",
+                        "mobile/sdk-components-overview",
                         "mobile/sdk-create-component",
-                        "mobile/sdk-create-service",
-                        "mobile/sdk-deployment",
-                        "mobile/sdk-advanced-quickstart",
+                        "mobile/sdk-component-reference",
+                        "mobile/sdk-viewmodel-helper-class",
                     ],
                 },
+                {
+                    type: "category",
+                    label: "Services",
+                    items: [
+                        "mobile/sdk-services-overview",
+                        "mobile/sdk-create-service",
+                        "mobile/sdk-service-reference",
+                    ],
+                },
+                "mobile/sdk-advanced-quickstart",
+                "mobile/sdk-deployment",
                 "mobile/sdk-samples",
                 {
                     type: "category",
                     label: "Common Patterns",
                     items: [
                         "mobile/sdk-dependency-injection",
-                        "mobile/sdk-viewmodel-helper-class",
                         "mobile/sdk-memory-leaks",
                     ],
                 },
+            ],
+        },
+        {
+            type: "category",
+            label: "SDK Tutorials",
+            items: [
+                "mobile/usecases-implement-command-operation",
+                "mobile/usecases-implement-component-with-ui",
+                "mobile/usecases-implement-component-participate-app-config",
+                "mobile/usecases-implement-service",
+                "mobile/usecases-implement-event",
             ],
         },
         {
