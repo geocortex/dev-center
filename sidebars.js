@@ -84,7 +84,7 @@ module.exports = {
                     type: "category",
                     label: "Events",
                     items: [
-                        "web/concepts-events",
+                        "web/sdk-events-overview",
                         "web/sdk-events-subscribe",
                         "web/sdk-events-reference",
                     ],
