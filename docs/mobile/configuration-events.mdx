@@ -6,7 +6,7 @@ description: Geocortex Mobile - Learn about event concepts
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
-**Events** are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any [component, service](concepts-components-services.mdx) or [view](usecases-implement-component-with-ui.mdx#use-xaml-to-define-your-ui) registered with Mobile, and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.
+**Events** are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any [component, service](configuration-components-services.mdx) or [view](tutorial-implement-component-with-ui.mdx#use-xaml-to-define-your-ui) registered with Mobile, and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.
 
 Events in Geocortex Mobile are grouped by categories, such as `app` or `geolocation`.
 
@@ -21,13 +21,13 @@ Events can publish custom arguments with information about the change they are c
 
 ## Usage
 
-Events are internal to the Geocortex Mobile SDK, so they can only be consumed by custom code. Any [Custom Component](usecases-implement-component-with-ui.mdx) or [Custom Service](usecases-implement-service.mdx) can publish or subscribe to built-in or custom events.
+Events are internal to the Geocortex Mobile SDK, so they can only be consumed by custom code. Any [Custom Component](tutorial-implement-component-with-ui.mdx) or [Custom Service](tutorial-implement-service.mdx) can publish or subscribe to built-in or custom events.
 
 <UseCaseContainer>
     <UseCaseCard
         title="Implementing Custom Events"
         description="Learn how to implement a custom Event."
-        link="usecases-implement-event"
+        link="tutorial-implement-event"
     />
     <UseCaseCard
         title="Events API"

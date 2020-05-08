@@ -9,7 +9,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
 :::tip
-Geocortex Mobile has many built-in [Commands and Operations](concepts-commands-operations.mdx) which can be chained together to build custom behaviors. If these Commands and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](usecases-change-default-map-click-behavior.mdx) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+Geocortex Mobile has many built-in [Commands and Operations](configuration-commands-operations.mdx) which can be chained together to build custom behaviors. If these Commands and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](tutorial-change-default-map-click-behavior.mdx) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
 :::
 
 This article will walk you through implementing a custom command in Geocortex Mobile that displays an alert.
@@ -20,7 +20,7 @@ This article will walk you through implementing a custom command in Geocortex Mo
 
 ## Create the Backing Service
 
-It's convention that commands and operations in Geocortex Mobile are registered and implemented by a [service or component](concepts-components-services.mdx), so the first thing we will do is create a service.
+It's convention that commands and operations in Geocortex Mobile are registered and implemented by a [service or component](configuration-components-services.mdx), so the first thing we will do is create a service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
 2. In the file, add a new service class `AlertService` and register it with **Autofac**.
@@ -164,7 +164,7 @@ namespace App1.Services
 Multiple implementations can be registered for a Command or Operation.
 :::
 
-Congratulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](usecases-change-default-behavior.mdx).
+Congratulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](tutorial-change-default-behavior.mdx).
 
 ```json
 {
@@ -238,16 +238,16 @@ Commands and operations are the logical building blocks of executing custom beha
     <UseCaseCard
         title="Commands and Operations"
         description="Learn more about commands and operations"
-        link="concepts-commands-operations"
+        link="configuration-commands-operations"
     />
     <UseCaseCard
         title="Implement a Custom Component with UI"
         description="Learn how to implement a custom component using the Geocortex Mobile SDK"
-        link="usecases-implement-component-with-ui"
+        link="tutorial-implement-component-with-ui"
     />
     <UseCaseCard
         title="Implement a Custom Service"
         description="Learn how to implement a custom service using the Geocortex Mobile SDK"
-        link="usecases-implement-service"
+        link="tutorial-implement-service"
     />
 </UseCaseContainer>

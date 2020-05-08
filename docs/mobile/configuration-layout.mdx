@@ -11,7 +11,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import FollowAlongSnippet from "./snippets/follow-along.mdx";
 
 :::note Before learning about layout...
-Check out the [Key Concepts](concepts-key-concepts.mdx).
+Check out the [Key Concepts](key-concepts.mdx).
 :::
 
 A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
@@ -31,7 +31,7 @@ The first thing it does is declare a `<map>` component that uses the default map
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
+2. Tells the zoom widget to act upon [the map it is placed in](configuration-advanced-layout.mdx#nested-model-imports)
 
 <FollowAlongSnippet />
 
@@ -56,7 +56,7 @@ For example, this configuration will place the zoom widget in the top right of t
 If a slot configuration is not given, the component will slot itself into a default position. Each component defines its own slots - not every slot will work for every component.
 
 :::tip
-The [Quickstart](sdk-getting-started.mdx) comes with a schema for the `layout-*.xml` files which can [autocomplete slot values for a component](concepts-advanced-layout.mdx#autocomplete-properties)
+The [Quickstart](sdk-getting-started.mdx) comes with a schema for the `layout-*.xml` files which can [autocomplete slot values for a component](configuration-advanced-layout.mdx#autocomplete-properties)
 :::
 
 Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
@@ -224,7 +224,7 @@ In order for the correct layout to be loaded for the correct form factor, the la
 This app config will load a large layout for a desktop device, and a medium layout for a tablet device.
 
 :::important
-The [Quickstart](sdk-getting-started.mdx) does not ship with a medium layout configured. See [Add Medium Layout](usecases-add-medium-layout.mdx) for instructions on how to do this.
+The [Quickstart](sdk-getting-started.mdx) does not ship with a medium layout configured. See [Add Medium Layout](tutorial-add-medium-layout.mdx) for instructions on how to do this.
 :::
 
 ### Fallback Layouts
@@ -253,7 +253,7 @@ Geocortex Mobile has a specific namespace `https://geocortex.com/layout/mobile/v
 </layout>
 ```
 
-When adding custom components, you will need to [add their custom namespace](usecases-implement-component-with-ui.mdx#add-the-component-to-your-layout) to your xml definition.
+When adding custom components, you will need to [add their custom namespace](tutorial-implement-component-with-ui.mdx#add-the-component-to-your-layout) to your xml definition.
 
 ## Relevant SDK Samples
 
@@ -269,11 +269,11 @@ In our examples so far, xml elements like `<text>` or `<stack>` have been used. 
     <UseCaseCard
         title="App Config"
         description="Learn about app configuration and its interaction with layout."
-        link="concepts-app-config"
+        link="configuration-app-config"
     />
     <UseCaseCard
         title="Advanced Layout Topics"
         description="Learn more about what you can accomplish with layouts."
-        link="concepts-advanced-layout"
+        link="configuration-advanced-layout"
     />
 </UseCaseContainer>

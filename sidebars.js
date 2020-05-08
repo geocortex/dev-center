@@ -190,44 +190,44 @@ module.exports = {
     ],
     mobile: [
         "mobile/overview",
+        "mobile/key-concepts",
         {
             type: "category",
-            label: "Concepts",
+            label: "Configuration",
             items: [
-                "mobile/concepts-key-concepts",
-                "mobile/concepts-layout",
-                "mobile/concepts-app-config",
-                "mobile/concepts-commands-operations",
-                "mobile/concepts-components-services",
-                "mobile/concepts-events",
+                "mobile/configuration-layout",
+                "mobile/configuration-app-config",
+                "mobile/configuration-commands-operations",
+                "mobile/configuration-components-services",
+                "mobile/configuration-events",
                 {
                     type: "category",
-                    label: "Advanced Concepts",
+                    label: "Advanced Configuration",
                     items: [
-                        "mobile/concepts-advanced-layout",
-                        "mobile/concepts-advanced-app-config",
+                        "mobile/configuration-advanced-layout",
+                        "mobile/configuration-advanced-app-config",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Tutorials",
+                    items: [
+                        "mobile/tutorial-change-default-behavior",
+                        "mobile/tutorial-look-and-feel",
+                        "mobile/tutorial-add-medium-layout",
+                        "mobile/tutorial-internationalization",
                     ],
                 },
             ],
         },
         {
             type: "category",
-            label: "Basic Tutorials",
+            label: "Workflow",
             items: [
-                "mobile/usecases-change-default-behavior",
-                "mobile/usecases-look-and-feel",
-                "mobile/usecases-add-medium-layout",
-                "mobile/usecases-internationalization",
-                {
-                    type: "category",
-                    label: "Configuring Workflow",
-                    items: [
-                        "mobile/usecases-display-custom-form",
-                        "mobile/usecases-implement-custom-form-elements",
-                        "mobile/usecases-implement-custom-activity",
-                        "mobile/usecases-change-default-map-click-behavior",
-                    ],
-                },
+                "mobile/tutorial-display-custom-form",
+                "mobile/tutorial-implement-custom-form-elements",
+                "mobile/tutorial-implement-custom-activity",
+                "mobile/tutorial-change-default-map-click-behavior",
             ],
         },
         {
@@ -267,17 +267,17 @@ module.exports = {
                         "mobile/sdk-memory-leaks",
                     ],
                 },
-            ],
-        },
-        {
-            type: "category",
-            label: "SDK Tutorials",
-            items: [
-                "mobile/usecases-implement-command-operation",
-                "mobile/usecases-implement-component-with-ui",
-                "mobile/usecases-implement-component-participate-app-config",
-                "mobile/usecases-implement-service",
-                "mobile/usecases-implement-event",
+                {
+                    type: "category",
+                    label: "Tutorials",
+                    items: [
+                        "mobile/tutorial-implement-command-operation",
+                        "mobile/tutorial-implement-component-with-ui",
+                        "mobile/tutorial-implement-component-participate-app-config",
+                        "mobile/tutorial-implement-service",
+                        "mobile/tutorial-implement-event",
+                    ],
+                },
             ],
         },
         {

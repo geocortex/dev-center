@@ -14,7 +14,7 @@ import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
 :::
 
-Implementing a custom component in Mobile gives you the highest degree of flexibility with what you can do. [Components](concepts-components-services.mdx) can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](concepts-commands-operations.mdx) or [Workflow](usecases-change-default-map-click-behavior.mdx) first.
+Implementing a custom component in Mobile gives you the highest degree of flexibility with what you can do. [Components](configuration-components-services.mdx) can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-change-default-map-click-behavior.mdx) first.
 
 By the end of this article, you'll have the knowledge to build a component that displays a progress bar that is advanced by a button.
 
@@ -58,12 +58,12 @@ The two key components of this snippet are the `[assembly: Component(...)]` tag 
 :::
 
 :::note
-It's convention for the name of the component in the [`layout`](concepts-layout.mdx) to be lower case and kebab case, i.e. `custom-component`.
+It's convention for the name of the component in the [`layout`](configuration-layout.mdx) to be lower case and kebab case, i.e. `custom-component`.
 :::
 
 ## Add the Component to your Layout
 
-First, the [layout](concepts-layout.mdx) needs to be told where to find your component. In order to find your component, you have to tell the layout what namespace it belongs too. In the assembly attribute of the `CustomComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this [xml namespace](concepts-layout.mdx#namespaces) as an attribute on the layout. In this example, it's added with the alias `custom`.
+First, the [layout](configuration-layout.mdx) needs to be told where to find your component. In order to find your component, you have to tell the layout what namespace it belongs too. In the assembly attribute of the `CustomComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this [xml namespace](configuration-layout.mdx#namespaces) as an attribute on the layout. In this example, it's added with the alias `custom`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,7 +78,7 @@ First, the [layout](concepts-layout.mdx) needs to be told where to find your com
 </layout>
 ```
 
-Now that the `custom` namespace has been added, the component can be added to the layout. For this example, it was added into a [Panel](concepts-layout.mdx#panels) that lives in the taskbar.
+Now that the `custom` namespace has been added, the component can be added to the layout. For this example, it was added into a [Panel](configuration-layout.mdx#panels) that lives in the taskbar.
 
 <Tabs
   defaultValue="layout"
@@ -202,12 +202,12 @@ namespace App1.Components
 Congratulations! You've built a working component with UI that is exposed in Mobile.
 
 :::tip
-Learn about how to extend this component to [participate in app config](usecases-implement-component-participate-app-config.mdx).
+Learn about how to extend this component to [participate in app config](tutorial-implement-component-participate-app-config.mdx).
 :::
 
 ## Extend your Component with Custom Code
 
-From here, you can implement your own business logic and interfaces, create custom [Commands and Operations](usecases-implement-command-operation.mdx) that are powered by and/or interact with your component, and much more. The [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml.
+From here, you can implement your own business logic and interfaces, create custom [Commands and Operations](tutorial-implement-command-operation.mdx) that are powered by and/or interact with your component, and much more. The [Xamarin Forms Documentation](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) has excellent guides to implementing user interfaces in Xaml.
 
 :::info
 Geocortex Mobile comes with built-in [Enhanced Components](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/GeocortexMobileElements) that can ease development and styling of custom UI.

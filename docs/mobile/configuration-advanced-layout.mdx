@@ -94,7 +94,7 @@ This layout has components such as `<search/>` or `<gxm:add-feature/>` which req
 
 ## Component Defaults
 
-Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, many components have default values they can supply for initialization instead of relying on configuration. This means that if you omit the `config` property for certain components, the component will attempt to create itself with its default values. An example of defining default values can be seen in the `CreateDefault` method of the configuration created for [this use case](usecases-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition). It's also the mechanism that powers the default map for this layout.
+Most components support the [`config` attribute](configuration-app-config.mdx#linking-layout-to-app-config), which links a component to configuration in the `app.json`. However, many components have default values they can supply for initialization instead of relying on configuration. This means that if you omit the `config` property for certain components, the component will attempt to create itself with its default values. An example of defining default values can be seen in the `CreateDefault` method of the configuration created for [this use case](tutorial-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition). It's also the mechanism that powers the default map for this layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

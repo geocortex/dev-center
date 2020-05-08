@@ -12,10 +12,10 @@ import AppItemSnippet from "../snippets/app-item.mdx";
 import FollowAlongSnippet from "./snippets/follow-along.mdx";
 
 :::note Before learning about app config...
-Check out the [Key Concepts](concepts-key-concepts.mdx).
+Check out the [Key Concepts](key-concepts.mdx).
 :::
 
-While [layouts](concepts-layout.mdx) depict the visual structure of how components are going to appear in the viewer, **app config** is used to define the functional structure within a given component.
+While [layouts](configuration-layout.mdx) depict the visual structure of how components are going to appear in the viewer, **app config** is used to define the functional structure within a given component.
 
 -   Think of the app config as the structural materials for building a house (wood, bricks, etc.) and the layout as the blueprints for the house.
 
@@ -34,7 +34,7 @@ Every component within the viewer that requires functional, compositional conten
 Every component in the layout can be linked to app config with the `config` attribute. The `config` attribute is used to identify the item in the app config that has configuration for the component.
 
 :::note
-If you do not provide a `config` attribute for a component, Geocortex Mobile will attempt to [infer a default value](concepts-advanced-layout.mdx#component-defaults).
+If you do not provide a `config` attribute for a component, Geocortex Mobile will attempt to [infer a default value](configuration-advanced-layout.mdx#component-defaults).
 :::
 
 <Tabs
@@ -151,7 +151,7 @@ The same config can be used for multiple items in a layout. For example, this al
 
 ## Targeting Components by ID
 
-Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The ID can be used by [commands](concepts-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
+Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The ID can be used by [commands](configuration-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
 
 <Tabs
   defaultValue="layout"
@@ -245,7 +245,7 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 </Tabs>
 
 :::note
-This example uses [commands and operations](concepts-commands-operations.mdx) to power its behavior.
+This example uses [commands and operations](configuration-commands-operations.mdx) to power its behavior.
 :::
 
 ## Example: Basic App Config with IWTM
@@ -350,12 +350,12 @@ This example demonstrated a simple application which has a single menu, but the 
     <UseCaseCard
         title="Commands and Operations"
         description="Learn about Commands and Operations and how to configure them."
-        link="concepts-commands-operations"
+        link="configuration-commands-operations"
     />
     <UseCaseCard
         title="Advanced App Config Topics"
         description="Learn more about what you can accomplish with app config."
-        link="concepts-advanced-app-config"
+        link="configuration-advanced-app-config"
     />
     <UseCaseCard
         title="Explore Mobile's built-in components"

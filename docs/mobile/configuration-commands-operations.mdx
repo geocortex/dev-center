@@ -11,10 +11,10 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 :::note Before learning about commands and operations...
-Check out the [Key Concepts](concepts-key-concepts.mdx).
+Check out the [Key Concepts](key-concepts.mdx).
 :::
 
-**Commands and operations** are runnable, independent units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](usecases-implement-command-operation.mdx) for use throughout the application. In Geocortex Mobile, commands and operations are compatible extensions of the [ICommand interface](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/commanding) with strongly typed arguments and return values. Operations are implementations of `ICommand` that have been extended to have an `ExecuteAsync` method, which allows the operation to run asynchronously and return a value. Commands and Operations are registered with the globally available service `IOperationRegistry`, in which they can be looked up by their `name`. Commands and Operations are grouped by namespaces, such as `auth` or `edit`.
+**Commands and operations** are runnable, independent units of work within Geocortex Mobile. Using the Geocortex Mobile SDK, it's possible to [define custom commands and operations](tutorial-implement-command-operation.mdx) for use throughout the application. In Geocortex Mobile, commands and operations are compatible extensions of the [ICommand interface](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/commanding) with strongly typed arguments and return values. Operations are implementations of `ICommand` that have been extended to have an `ExecuteAsync` method, which allows the operation to run asynchronously and return a value. Commands and Operations are registered with the globally available service `IOperationRegistry`, in which they can be looked up by their `name`. Commands and Operations are grouped by namespaces, such as `auth` or `edit`.
 
 ```
 auth.sign-in
@@ -27,7 +27,7 @@ edit.delete-features
 The full list of existing commands and operations available in Geocortex Mobile can be [found in the API documentation](api-commands-operations-events.mdx).
 :::
 
-[Components or Services](concepts-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Mobile. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](usecases-implement-command-operation.mdx) can be registered with [Custom Services](usecases-implement-service.mdx) or [Custom Components](usecases-implement-component-with-ui.mdx) in this manner.
+[Components or Services](configuration-components-services.mdx) are usually responsible for registering a command or operation implementation with Geocortex Mobile. Once a command or operation has been registered, it can be used from anywhere in the application. [Custom Commands and Operations](tutorial-implement-command-operation.mdx) can be registered with [Custom Services](tutorial-implement-service.mdx) or [Custom Components](tutorial-implement-component-with-ui.mdx) in this manner.
 
 ## Passing Arguments
 
@@ -59,7 +59,7 @@ You can pass arguments to a command or operation by providing the `arguments` pr
 
 <!-- TODO-API change autocomplete linting note to API definitions -->
 
-Each command has typed arguments that will [autocomplete in the app.json](concepts-advanced-app-config.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
+Each command has typed arguments that will [autocomplete in the app.json](configuration-advanced-app-config.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
 
 ### Implicit Arguments
 
@@ -225,12 +225,12 @@ This example demonstrates two different types of argument passing behavior. The 
 `highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation, `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
 
 :::tip
-Check out [Change Default Behavior](usecases-change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.
+Check out [Change Default Behavior](tutorial-change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.
 :::
 
 <!-- TODO-API - direct link to MapExtensionArgs -->
 
-The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item URI**. Item URIs are a way of referencing other items within the app config. See [Item URIs](concepts-advanced-app-config.mdx#item-uris-and-resource-uris) for more details.
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item URI**. Item URIs are a way of referencing other items within the app config. See [Item URIs](configuration-advanced-app-config.mdx#item-uris-and-resource-uris) for more details.
 
 ## Relevant SDK Samples
 
@@ -263,16 +263,16 @@ Geocortex Mobile has a large array of built-in command and operations that you c
     <UseCaseCard
         title="Configure Commands and Operations"
         description="Change built-in behavior or add new behavior using app config and layout"
-        link="usecases-change-default-behavior"
+        link="tutorial-change-default-behavior"
     />
     <UseCaseCard
         title="Build your own Commands and Operations"
         description="Use the SDK to implement custom commands and operations"
-        link="usecases-implement-command-operation"
+        link="tutorial-implement-command-operation"
     />
     <UseCaseCard
         title="Learn about Events built into Geocortex Mobile"
         description="Learn about the global event infrastructure in Geocortex Mobile"
-        link="concepts-events"
+        link="configuration-events"
     />
 </UseCaseContainer>
