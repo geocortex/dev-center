@@ -119,6 +119,61 @@ Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xam
 [assembly: ViewModel(typeof(CustomViewModel))]
 ```
 
+## Managing Sub-Dependencies
+
+TODO - article on how to pass dependencies down
+
+```cs
+using Geocortex.Mobile.Samples;
+using Geocortex.Mobile.Samples.Samples.Custom.Component;
+using Geocortex.Mobile.Composition.Layout;
+using System.Xml.Linq;
+using Xamarin.Forms;
+
+[assembly: Component(typeof(CustomComponent), "component", XmlNamespace = XmlNamespaces.SamplesNamespace)]
+namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+{
+    internal class CustomComponent : ComponentBase
+    {
+        private RelatedClass _relatedClass;
+
+        public CustomComponent(RelatedClass relatedClass)
+        {
+            _relatedClass = relatedClass;
+        }
+
+        protected override VisualElement Create(XNode node)
+        {
+            return new Label()
+            {
+                Text = "Hello, World!",
+                HorizontalTextAlignment = TextAlignment.Center
+            };
+        }
+    }
+}
+```
+
+```cs
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Infrastructure.Messaging;
+using Geocortex.Mobile.Samples.Samples.Custom.Component;
+
+[assembly: Export(typeof(RelatedClass))]
+namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+{
+    internal class RelatedClass
+    {
+        private MapOperations _mapOperations;
+
+        public RelatedClass(MapOperations mapOperations)
+        {
+            _mapOperations = mapOperations;
+        }
+    }
+}
+```
+
 ## Relevant SDK Sample
 
 Check out the relevant Geocortex Mobile SDK Sample:

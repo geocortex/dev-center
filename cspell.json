@@ -1,6 +1,7 @@
 {
     "words": [
         "anonymize",
+        "appitem",
         "arcgis",
         "autofac",
         "autowired",
@@ -58,6 +59,7 @@
         "theming",
         "typeof",
         "uicontext",
+        "unmanaged",
         "unmount",
         "unshift",
         "usecases",
