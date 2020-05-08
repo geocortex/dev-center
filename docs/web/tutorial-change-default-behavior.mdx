@@ -10,10 +10,10 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 
-Many of the behaviors of Geocortex Web's built-in [components](sdk-components-overview.mdx) are configurable through the [app config](concepts-app-config.mdx).
+Many of the behaviors of Geocortex Web's built-in [components](sdk-components-overview.mdx) are configurable through the [app config](configuration-app-config.mdx).
 
 :::tip
-Many behaviors which are configurable through the app config are more easily configurable by using the [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/). App config should be used if you need to modify a property not available in the app config, or use a custom command as part of a [command chain](sdk-commands-operations.mdx#command-and-operations-in-app-config).
+Many behaviors which are configurable through the app config are more easily configurable by using the [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/). App config should be used if you need to modify a property not available in the app config, or use a custom command as part of a [command chain](configuration-commands-operations.mdx#configuring-commands-and-operations).
 :::
 
 ## Prerequisites
@@ -57,7 +57,7 @@ First, let's create a basic map with a bookmarks component using the layout and 
 </TabItem>
 </Tabs>
 
-Next, add a [app item](concepts-app-config.mdx#anatomy-of-an-app-config) to the configuration for the bookmarks component.
+Next, add a [app item](configuration-app-config.mdx#anatomy-of-an-app-config) to the configuration for the bookmarks component.
 
 <Tabs
   defaultValue="layout"
@@ -161,16 +161,16 @@ Geocortex Web comes with many built-in commands and operations to help you accom
     <UseCaseCard
         title="Run a Workflow using a Command and App Config"
         description="Configure a workflow to run on map initialization using app config"
-        link="usecases-run-workflow-app-config"
+        link="tutorial-run-workflow-app-config"
     />
     <UseCaseCard
         title="Change Geocortex Web's Default Map Click Behavior"
         description="Learn how to Geocortex Workflow to override Geocortex Web's default map click behavior"
-        link="usecases-change-default-map-click-behavior"
+        link="tutorial-change-default-map-click-behavior"
     />
     <UseCaseCard
         title="Implement Custom Command/Operation"
         description="Implement a custom Command/Operation with the Geocortex Web SDK"
-        link="usecases-implement-command-operation"
+        link="tutorial-implement-command-operation"
     />
 </UseCaseContainer>

@@ -1,5 +1,6 @@
 ---
 title: Layout
+sidebar_label: Getting Started
 description: Geocortex Web - Learn about layout concepts
 ---
 
@@ -9,7 +10,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import FollowAlongSnippet from "./snippets/follow-along.mdx";
 
 :::note Before learning about layout...
-Check out the [Key Concepts](concepts-key-concepts.mdx).
+Check out the [Key Concepts](key-concepts.mdx).
 :::
 
 A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
@@ -27,7 +28,7 @@ The example above first declares a `<map>` component that uses the default map c
 Next, a `<zoom>` component is added **within** the map component. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-model-binding.mdx)
+2. Tells the zoom widget to act upon [the map it is placed in](configuration-advanced-model-binding.mdx)
 
 <FollowAlongSnippet />
 
@@ -57,23 +58,23 @@ Slots control how one element fits into another, but how do we control how sibli
 
 The basic `stack` and `split` components form building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
 
-For a deeper dive into stacks and splits, [check out the API reference](concepts-layout-core-components.mdx#stacks-and-splits).
+For a deeper dive into stacks and splits, [check out the API reference](configuration-layout-reference.mdx#stacks-and-splits).
 
 ## Spacing
 
-See [presentation attributes](api-layout-attribute-reference.mdx#presentation-attributes) for details on margin, padding, content organization and alignment in your layout.
+See [presentation attributes](configuration-layout-reference.mdx#presentation-attributes) for details on margin, padding, content organization and alignment in your layout.
 
 ## Panels
 
 Another core concept that Geocortex Web uses to organize elements in a layout is **panels**.
 Panels are a container component that enable hierarchal navigation between different components.
 
-For a deeper dive into Panels, [check out the API reference](concepts-layout-core-components.mdx#panels).
+For a deeper dive into Panels, [check out the API reference](configuration-layout-reference.mdx#panels).
 
 <!-- TODO-API - direct link to tabs and expanders -->
 
 :::tip
-These are just a few examples of the building blocks available to help you organize the layout of your Application. Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes. You can also use tabs, expanders, and much more. See the [Component Reference](concepts-layout-core-components.mdx) for a full listing.
+These are just a few examples of the building blocks available to help you organize the layout of your Application. Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes. You can also use tabs, expanders, and much more. See the [Component Reference](configuration-layout-reference.mdx#core-layout-components) for a full listing.
 :::
 
 ## Models
@@ -95,7 +96,7 @@ The scalebar satisfies its dependency on the map by [importing the map model](sd
 
 Components can react to changes or mutate values on other components through these models. For example, if the scale of the map changes when it is zoomed, then the scalebar will react to the change in the map model and update its displayed values.
 
-For more information on models, [check out the component SDK reference](sdk-component-reference.mdx#models) and this deeper dive into [model binding in the layout](concepts-advanced-model-binding.mdx).
+For more information on models, [check out the component SDK reference](sdk-component-reference.mdx#models) and this deeper dive into [model binding in the layout](configuration-advanced-model-binding.mdx).
 
 ## Namespaces
 
@@ -130,21 +131,21 @@ In our examples so far, xml elements like `<text>` or `<stack>` have been used. 
     <UseCaseCard
         title="App Config"
         description="Learn about app configuration and its interaction with layout"
-        link="concepts-app-config"
+        link="configuration-app-config"
     />
     <UseCaseCard
         title="Component Models"
         description="Take a deeper dive into the relationship between components and models in the layout"
-        link="concepts-advanced-model-binding"
+        link="configuration-advanced-model-binding"
     />
     <UseCaseCard
         title="Core Component Reference"
         description="Learn more about core layout components like stacks and splits"
-        link="concepts-layout-core-components"
+        link="configuration-layout-reference#core-layout-components"
     />
     <UseCaseCard
         title="Component Attribute Reference"
         description="See the full list of attributes available to all components"
-        link="api-layout-attribute-reference"
+        link="configuration-layout-reference"
     />
 </UseCaseContainer>

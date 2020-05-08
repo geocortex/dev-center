@@ -116,7 +116,7 @@ Custom components take in a special type of props, `LayoutElementProperties`. Th
 
 -   The model associated with the component,
 -   The ID of the component in the layout
--   The width and height, along with other [presentation attributes](api-layout-attribute-reference.mdx#presentation-attributes) in the layout
+-   The width and height, along with other [presentation attributes](configuration-layout-reference.mdx#presentation-attributes) in the layout
 
 The `LayoutElementProperties` interface takes in `ComponentModelBase` type class corresponding to the model associated with the component. This will give the `props.model` property the correct type.
 
@@ -150,7 +150,7 @@ export default function ExampleComponent(
 
 ## Models
 
-Every component is bound to specific [**item type**](concepts-app-config.mdx#anatomy-of-an-app-config), and each item type is bound to a specific model.
+Every component is bound to specific [**item type**](configuration-app-config.mdx#anatomy-of-an-app-config), and each item type is bound to a specific model.
 In this snippet, the `ExampleComponent` is bound to the `example-model` item type. The `ExampleComponentModel` is registered as the `example-model` item type, meaning that an `ExampleComponentModel` will be injected into the props of each `ExampleComponent`.
 
 ```ts
@@ -269,7 +269,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
 
 ### Component Defaults
 
-Most components support the [`config` attribute](concepts-app-config.mdx#linking-layout-to-app-config) in the layout, which links a component model to configuration in the app config JSON. However, many component models have default values they can supply for initialization instead of relying on configuration. This means that if you omit the `config` property for certain components, the component model will attempt to create itself with its default values. An example of defining these default values can be seen in [this example](sdk-serializable-properties.mdx#populating-the-class-with-configuration-values). It's also the mechanism that powers the default map displayed by this layout.
+Most components support the [`config` attribute](configuration-app-config.mdx#linking-layout-to-app-config) in the layout, which links a component model to configuration in the app config JSON. However, many component models have default values they can supply for initialization instead of relying on configuration. This means that if you omit the `config` property for certain components, the component model will attempt to create itself with its default values. An example of defining these default values can be seen in [this example](sdk-serializable-properties.mdx#populating-the-class-with-configuration-values). It's also the mechanism that powers the default map displayed by this layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -310,7 +310,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 ## Component Lifecycle
 
-When a Geocortex Web Application boots up, the set of components which are initially active in the layout are created and initialized. [Components like the `Panel`](concepts-layout-core-components.mdx#panels) will only activate their first child. All initially inactive components will only be created when they are activated in the layout.
+When a Geocortex Web Application boots up, the set of components which are initially active in the layout are created and initialized. [Components like the `Panel`](configuration-layout-reference.mdx#panels) will only activate their first child. All initially inactive components will only be created when they are activated in the layout.
 
 :::tip
 The `UIService` contains implements the commands `ui.activate` and `ui.deactivate` and exposes methods like `getActiveChildComponentIds()` which can be used to examine and manipulate the activation state of components.
@@ -370,11 +370,11 @@ export default class ExampleComponentModel extends ComponentModelBase<
     <UseCaseCard
         title="Create a Component with a Complex UI"
         description="Follow along with a more in depth component example"
-        link="usecases-implement-component-with-ui"
+        link="tutorial-implement-component-with-ui"
     />
     <UseCaseCard
         title="Create a Component that Consumes App Config"
         description="Learn more about writing components that consume configuration values."
-        link="usecases-implement-component-participate-app-config"
+        link="tutorial-implement-component-participate-app-config"
     />
 </UseCaseContainer>

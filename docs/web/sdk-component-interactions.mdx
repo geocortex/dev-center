@@ -23,7 +23,7 @@ Components can interact with each other through their [respective models](sdk-co
 
 -   Declaring a model as exported exposes it to other components for importing.
 
--   Using the `@importModel` decorator will tell the component to attempt to retrieve a reference to the given model type, according to the [model binding rules](concepts-advanced-model-binding.mdx)
+-   Using the `@importModel` decorator will tell the component to attempt to retrieve a reference to the given model type, according to the [model binding rules](configuration-advanced-model-binding.mdx)
 
 Components like the `<scalebar>` or `<compass>` import the map model, and this allows them to respond to changes in the maps state **through** the map model.
 
@@ -188,7 +188,7 @@ Components can interact with built-in Geocortex Web [services](sdk-services-over
     <UseCaseCard
         title="Build a Custom Component that Imports the Map Model"
         description="Follow step by step instructions to import the map model into a custom component"
-        link="usecases-import-map-model"
+        link="tutorial-import-map-model"
     />
     <UseCaseCard
         title="Learn how to Interact with Services"
@@ -198,6 +198,6 @@ Components can interact with built-in Geocortex Web [services](sdk-services-over
     <UseCaseCard
         title="Learn how Components are Bound to Models in the Layout"
         description="Learn how layout structure can be used to bind components to their required models"
-        link="concepts-advanced-model-binding"
+        link="configuration-advanced-model-binding"
     />
 </UseCaseContainer>

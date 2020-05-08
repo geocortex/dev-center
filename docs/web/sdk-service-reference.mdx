@@ -13,7 +13,7 @@ Services act as a repository of accessible behavior and data, and can be used fo
 
 ## Service Registration
 
-All services need to be registered with Geocortex Web. Services can optionally use the `itemType` property to bind to an [item in the app config](concepts-advanced-app-config.mdx#app-items).
+All services need to be registered with Geocortex Web. Services can optionally use the `itemType` property to bind to an [item in the app config](configuration-app-config-reference.mdx#app-items).
 
 ```ts
 export default function(registry: LibraryRegistry) {
@@ -80,7 +80,7 @@ All services have access to the `messages` property on the class instance, which
 
 ## Models and Configuration
 
-Like components, services can be configured through the [app config](concepts-app-config.mdx). A service can participate in the config by extending the `ConfigurableServiceBase` class. For more information on the relationship between services and configuration, check out [this article](sdk-serializable-properties.mdx). The following example demonstrates a service with one configurable property, `name`.
+Like components, services can be configured through the [app config](configuration-app-config.mdx). A service can participate in the config by extending the `ConfigurableServiceBase` class. For more information on the relationship between services and configuration, check out [this article](sdk-serializable-properties.mdx). The following example demonstrates a service with one configurable property, `name`.
 
 :::note
 The service is linked to the config through the `itemType` and `id` properties.
@@ -189,11 +189,11 @@ Services are destroyed (i.e. the `destroy` method is invoked) when the applicati
     <UseCaseCard
         title="Build a Custom Command with a Custom Service"
         description="Follow a step by step guide to building a custom command with a custom service"
-        link="usecases-implement-command-operation"
+        link="tutorial-implement-command-operation"
     />
     <UseCaseCard
         title="Build a Service that Manages Dynamic Data"
         description="Built a service that manages a dynamic data source and exposes it to components"
-        link="usecases-service-dynamic-data"
+        link="tutorial-service-dynamic-data"
     />
 </UseCaseContainer>

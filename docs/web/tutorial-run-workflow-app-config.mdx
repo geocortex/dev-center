@@ -11,7 +11,7 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
-Many components have default behaviors which can be [configured through the app config JSON](usecases-change-default-behavior.mdx). Any configurable property which takes a [command or operation](concepts-commands-operations.mdx) as its value can also be configured with a special command, `workflow.run`. By using the `workflow.run` command, you can even execute a [workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/geocortex-workflow.htm#Introduction_to_Geocortex_Workflow%3FTocPath%3D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520Introduction%2520to%2520Geocortex%2520Workflow%7C_____0) with completely configurable behavior.
+Many components have default behaviors which can be [configured through the app config JSON](tutorial-change-default-behavior.mdx). Any configurable property which takes a [command or operation](configuration-commands-operations.mdx) as its value can also be configured with a special command, `workflow.run`. By using the `workflow.run` command, you can even execute a [workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/geocortex-workflow.htm#Introduction_to_Geocortex_Workflow%3FTocPath%3D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520Introduction%2520to%2520Geocortex%2520Workflow%7C_____0) with completely configurable behavior.
 
 In this article, we can configure a workflow to run when the map is initialized.
 
@@ -54,7 +54,7 @@ First, let's create a basic map using the layout and app config.
 </TabItem>
 </Tabs>
 
-Next, add a [app item](concepts-app-config.mdx#anatomy-of-an-app-config) to the configuration for the map component, and configure the map to run `ui.display-notification` on initialization as a test.
+Next, add a [app item](configuration-app-config.mdx#anatomy-of-an-app-config) to the configuration for the map component, and configure the map to run `ui.display-notification` on initialization as a test.
 
 <Tabs
   defaultValue="config"
@@ -216,7 +216,7 @@ Finally, you can configure the map to run this workflow on initialization.
 You've now successfully customized behavior through the app config with a workflow. From this point, you could develop the workflow further to solve your business case.
 
 :::tip
-For a more in depth example, check out the use case on [overriding default map click behavior with a workflow](usecases-change-default-map-click-behavior.mdx).
+For a more in depth example, check out the use case on [overriding default map click behavior with a workflow](tutorial-change-default-map-click-behavior.mdx).
 :::
 
 ## Next Steps
@@ -230,16 +230,16 @@ For a more in depth example, check out the use case on [overriding default map c
     <UseCaseCard
         title="Implement a Custom Activity"
         description="Learn how to implement a custom activity with the Geocortex Workflow SDK"
-        link="usecases-implement-custom-activity"
+        link="tutorial-implement-custom-activity"
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
         description="Learn how to implement a custom form element with the Geocortex Workflow SDK"
-        link="usecases-implement-custom-form-elements"
+        link="tutorial-implement-custom-form-elements"
     />
     <UseCaseCard
         title="Change Geocortex Web's Default Map Click Behavior"
         description="Learn how to Geocortex Workflow to override Geocortex Web's default map click behavior"
-        link="usecases-change-default-map-click-behavior"
+        link="tutorial-change-default-map-click-behavior"
     />
 </UseCaseContainer>

@@ -8,43 +8,50 @@
 module.exports = {
     web: [
         "web/overview",
+        "web/key-concepts",
         {
             type: "category",
-            label: "Concepts",
+            label: "Configuration",
             items: [
-                "web/concepts-key-concepts",
-                "web/concepts-layout",
-                "web/concepts-app-config",
-                "web/concepts-commands-operations",
-                "web/concepts-advanced-app-config",
                 {
                     type: "category",
-                    label: "Advanced Layout",
+                    label: "Layout",
                     items: [
-                        "web/concepts-layout-core-components",
-                        "web/concepts-advanced-model-binding",
+                        "web/configuration-layout",
+                        "web/configuration-layout-reference",
+                        "web/configuration-advanced-model-binding",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "App Config",
+                    items: [
+                        "web/configuration-app-config",
+                        "web/configuration-app-config-reference",
+                        "web/configuration-theme",
+                    ],
+                },
+                "web/configuration-commands-operations",
+                {
+                    type: "category",
+                    label: "Tutorials",
+                    items: [
+                        "web/tutorial-configure-button-click",
+                        "web/tutorial-change-default-behavior",
+                        "web/tutorial-customize-application-theme",
                     ],
                 },
             ],
         },
         {
             type: "category",
-            label: "Use Cases",
+            label: "Workflow",
             items: [
-                "web/usecases-configure-button-click",
-                "web/usecases-change-default-behavior",
-                "web/usecases-customize-application-theme",
-                {
-                    type: "category",
-                    label: "Configuring Workflows",
-                    items: [
-                        "web/usecases-run-workflow-app-config",
-                        "web/usecases-display-custom-form",
-                        "web/usecases-implement-custom-activity",
-                        "web/usecases-implement-custom-form-elements",
-                        "web/usecases-change-default-map-click-behavior",
-                    ],
-                },
+                "web/tutorial-run-workflow-app-config",
+                "web/tutorial-display-custom-form",
+                "web/tutorial-change-default-map-click-behavior",
+                "web/tutorial-implement-custom-activity",
+                "web/tutorial-implement-custom-form-elements",
             ],
         },
         {
@@ -52,7 +59,6 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
-                "web/sdk-commands-operations",
                 {
                     type: "category",
                     label: "Components",
@@ -85,38 +91,32 @@ module.exports = {
                     label: "Events",
                     items: [
                         "web/sdk-events-overview",
-                        "web/sdk-events-subscribe",
                         "web/sdk-events-reference",
                     ],
                 },
                 "web/sdk-serializable-properties",
-                "web/sdk-theme",
                 "web/sdk-language-strings",
                 "web/sdk-deployment",
                 "web/sdk-reference-third-party-libraries",
-            ],
-        },
-        {
-            type: "category",
-            label: "SDK Use Cases",
-            items: [
-                "web/usecases-implement-command-operation",
-                "web/usecases-implement-component-with-ui",
-                "web/usecases-import-map-model",
-                "web/usecases-implement-component-participate-app-config",
-                "web/usecases-internationalization",
-                "web/usecases-service-dynamic-data",
+                {
+                    type: "category",
+                    label: "Tutorials",
+                    items: [
+                        "web/tutorial-implement-command-operation",
+                        "web/tutorial-implement-component-with-ui",
+                        "web/tutorial-import-map-model",
+                        "web/tutorial-implement-component-participate-app-config",
+                        "web/tutorial-events-subscribe",
+                        "web/tutorial-internationalization",
+                        "web/tutorial-service-dynamic-data",
+                    ],
+                },
             ],
         },
         {
             type: "category",
             label: "API",
-            items: [
-                "web/api-layout-attribute-reference",
-                "web/api-theme",
-                "web/api-commands-operations-events",
-                "web/api-components",
-            ],
+            items: ["web/api-commands-operations-events", "web/api-components"],
         },
     ],
     workflow: [

@@ -10,7 +10,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 
-Geocortex Web's appearance is built around two concepts: theme and [layout](concepts-layout.mdx). The theme controls the color scheme of the app, while the layout controls the organization of content.
+Geocortex Web's appearance is built around two concepts: theme and [layout](configuration-layout.mdx). The theme controls the color scheme of the app, while the layout controls the organization of content.
 
 :::tip
 The theme can be partially configured by using the [Geocortex Web Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4).
@@ -79,7 +79,7 @@ Let's create a basic application with layout and config that we can theme.
 
 ## Add Configuration for the Branding Service
 
-Next, we are going to add an app item to configure the Branding Service, which [manages application theming](sdk-theme.mdx).
+Next, we are going to add an app item to configure the Branding Service, which [manages application theming](configuration-theme.mdx).
 
 ```json title="app/app.json"
 {
@@ -167,7 +167,7 @@ The branding service can be configured with a list of themes. Each of these them
 
 ## Customize the Theme
 
-You can customize the theme by changing any of the [built-in color keys](api-theme.mdx) used for themes.
+You can customize the theme by changing any of the [built-in color keys](configuration-theme.mdx#theme-color-reference) used for themes.
 
 <Tabs
   defaultValue="config"

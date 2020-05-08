@@ -15,7 +15,7 @@ import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
 :::
 
-Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do in Geocortex Web. [Components](sdk-components-overview.mdx) can display custom, dynamic UI, register command and operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Web app, so it's worthwhile to try simpler options like [changing the default behavior](usecases-change-default-behavior.mdx) or [Geocortex Workflow](usecases-run-workflow-app-config.mdx) first.
+Implementing a custom component in Geocortex Web gives you one of the highest degrees of flexibility with what you can do in Geocortex Web. [Components](sdk-components-overview.mdx) can display custom, dynamic UI, register command and operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Web app, so it's worthwhile to try simpler options like [changing the default behavior](tutorial-change-default-behavior.mdx) or [Geocortex Workflow](tutorial-run-workflow-app-config.mdx) first.
 
 By the end of this article, you'll have the knowledge to build a component that displays relevant news items at the top of your map.
 
@@ -86,12 +86,12 @@ export { default as CustomModel } from "./CustomModel";
 
 ## Register the Component with the Web SDK
 
-Every component needs to be registered with the Web SDK in order to be used in the [`layout`](concepts-layout.mdx)
+Every component needs to be registered with the Web SDK in order to be used in the [`layout`](configuration-layout.mdx)
 
 -   Add new calls to `registerComponent` and `registerModel` in `src/index.ts`.
 
 :::note
-One key thing to note about this snippet is the `itemType`. The value of the [item type](concepts-advanced-app-config.mdx#app-items) is what links a component to a model. It's also the string value used for the `$type` property when defining [configuration for a component](sdk-component-reference.mdx#configuration).
+One key thing to note about this snippet is the `itemType`. The value of the [item type](configuration-app-config-reference.mdx#app-items) is what links a component to a model. It's also the string value used for the `$type` property when defining [configuration for a component](sdk-component-reference.mdx#configuration).
 :::
 
 ```ts
@@ -120,7 +120,7 @@ export default function(registry: LibraryRegistry) {
 
 ## Add the Component to your Layout
 
-To allow layout to find your component, you need to add the [custom namespace](concepts-layout.mdx#namespaces) of your component defined in the previous step with an `xmlns` tag to the layout.'
+To allow layout to find your component, you need to add the [custom namespace](configuration-layout.mdx#namespaces) of your component defined in the previous step with an `xmlns` tag to the layout.'
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -302,6 +302,6 @@ export default function (registry: LibraryRegistry) {
     <UseCaseCard
         title="Build a Component that Consumes Configuration"
         description="Build a component that consumes values the from app config"
-        link="usecases-implement-component-participate-app-config"
+        link="tutorial-implement-component-participate-app-config"
     />
 </UseCaseContainer>

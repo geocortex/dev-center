@@ -1,5 +1,6 @@
 ---
 title: App Config
+sidebar_label: Getting Started
 description: Geocortex Web - Learn about Geocortex Web's configuration concepts
 ---
 
@@ -12,10 +13,10 @@ import AppItemSnippet from "../snippets/app-item.mdx";
 import FollowAlongSnippet from "./snippets/follow-along.mdx";
 
 :::note Before learning about app config...
-Check out the [Key Concepts](concepts-key-concepts.mdx).
+Check out the [Key Concepts](key-concepts.mdx).
 :::
 
-While [layouts](concepts-layout.mdx) depict the visual structure of how components are going to appear in the viewer, **app config** is used to define the functional structure within a given component.
+While [layouts](configuration-layout.mdx) depict the visual structure of how components are going to appear in the viewer, **app config** is used to define the functional structure within a given component.
 
 -   Think of the app config as the structural materials for building a house (wood, bricks, etc.) and the layout as the blueprints for the house.
 
@@ -84,10 +85,10 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 
 ## Targeting Components by ID
 
-Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](concepts-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
+Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The id can be used by [commands](configuration-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
 
 :::note
-This example uses [commands and operations](concepts-commands-operations.mdx) to power its behavior.
+This example uses [commands and operations](configuration-commands-operations.mdx) to power its behavior.
 :::
 
 <Tabs
@@ -190,7 +191,7 @@ This example uses [commands and operations](concepts-commands-operations.mdx) to
 
 ## Example: Application with Hidden Side Panel
 
-This example demonstrates a web application with a hidden side panel that pops out when you click a button. It was created entirely with app config and layout. Some [advanced layout concepts](concepts-advanced-model-binding.mdx) and [advanced app config concepts](concepts-advanced-app-config.mdx), such as linking config items through [item URIs](concepts-advanced-app-config.mdx#item-uris), were used.
+This example demonstrates a web application with a hidden side panel that pops out when you click a button. It was created entirely with app config and layout. Some [advanced layout concepts](configuration-advanced-model-binding.mdx) and [advanced app config concepts](configuration-app-config-reference.mdx), such as linking config items through [item URIs](configuration-app-config-reference.mdx#item-uris), were used.
 
 <Tabs
   defaultValue="layout"
@@ -339,17 +340,17 @@ This article demonstrated some simple examples of layouts with buttons that affe
     <UseCaseCard
         title="Commands and Operations"
         description="Learn about commands and operations and how to configure them"
-        link="concepts-commands-operations"
+        link="configuration-commands-operations"
     />
     <UseCaseCard
         title="Create a Custom Theme"
         description="Learn how to create a custom theme using app config"
-        link="usecases-look-and-feel"
+        link="configuration-theme"
     />
     <UseCaseCard
         title="Advanced App Config Topics"
         description="Learn more about what you can accomplish with app config"
-        link="concepts-advanced-app-config"
+        link="configuration-app-config-reference"
     />
     <UseCaseCard
         title="Explore Geocortex Web's built-in components"

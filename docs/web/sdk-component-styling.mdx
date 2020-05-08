@@ -8,11 +8,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-Geocortex Web Components support fully custom styling using CSS. However, by using Geocortex Web UI Elements, you can take advantage of styled, well tested, UI components that already participate in the [application theme](sdk-theme.mdx).
-
-:::tip
-If manual CSS styling is required, you can still participate in the application theme by [using the theme colours defined in the `BrandingService`](sdk-theme.mdx#using-theme-colors-in-custom-components).
-:::
+Geocortex Web Components support fully custom styling using CSS. However, by using Geocortex Web UI Elements, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
 
 <Tabs
   defaultValue="component"
@@ -78,6 +74,18 @@ export default function ExampleComponent(
 <img src={useBaseUrl("img/sdk-component-reference-styling.png")}/>
 </TabItem>
 </Tabs>
+
+However, if you need to manually theme the component, you can use the various theming colors in custom css, through the `var(...)` css function.
+
+:::tip
+A full list of all the color keys available in a theme [can be found here](configuration-theme.mdx#theme-color-reference).
+:::
+
+```css
+.my-element {
+    background-color: var(--primaryBackground);
+}
+```
 
 ## Component that Uses Built-in Icons
 

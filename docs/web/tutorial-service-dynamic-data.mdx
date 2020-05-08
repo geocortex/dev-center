@@ -12,7 +12,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 When extending Geocortex Web, you may find yourself creating multiple [components](sdk-components-overview.mdx) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a [custom service](sdk-create-service.mdx).
-Implementing a custom service in Geocortex Web allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](sdk-commands-operations.mdx#custom-commands-and-operations).
+Implementing a custom service in Geocortex Web allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](sdk-services-commands-operations.mdx#implementing-commands-and-operations).
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ export default class NewsFeedModel extends ComponentModelBase {
 
 ## Complete Example
 
-Finally, we can bring it all together, and add the news item component and styling to the application. The news feed component watches for changes on the news feed model's `newsItems` property, which is in turn linked to the custom service's `newsItems` property. In this way, we've built a service which exposes shared data to components. Multiple news feed components could be created, and they would all rely on a single copy of the news items. For more information on how the news feed component was built, see the article on [custom components](usecases-implement-component-with-ui.mdx) and [linking app config to custom components](usecases-implement-component-participate-app-config.mdx).
+Finally, we can bring it all together, and add the news item component and styling to the application. The news feed component watches for changes on the news feed model's `newsItems` property, which is in turn linked to the custom service's `newsItems` property. In this way, we've built a service which exposes shared data to components. Multiple news feed components could be created, and they would all rely on a single copy of the news items. For more information on how the news feed component was built, see the article on [custom components](tutorial-implement-component-with-ui.mdx) and [linking app config to custom components](tutorial-implement-component-participate-app-config.mdx).
 
 <FrameworkComponentsSnippet />
 

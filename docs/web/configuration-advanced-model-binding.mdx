@@ -1,6 +1,6 @@
 ---
 title: Advanced Model Binding
-description: Geocortex Web - Learn about how components bind to models in the layout
+description: Geocortex Web - Learn about advanced model binding with layout
 ---
 
 Components often observe and modify the state of other components.
@@ -31,10 +31,6 @@ export class ScaleBarModel implements ComponentModel {
 ```
 
 When the system places the scale bar into the layout, it will attempt to satisfy any model imports declared by the component. By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in the basic example above.
-
-:::note
-Learn more about how [models are automatically matched](concepts-advanced-model-binding.mdx).
-:::
 
 However, in the following example with two scale bars, how does each scale bar know which map model it corresponds to? Both are placed outside of a `<map>` component, and there are two possible map models to bind to.
 
@@ -78,7 +74,7 @@ We can explicitly bind each scale bar to the appropriate map with the `models` a
 </layout>
 ```
 
-## Nested Model Imports
+### Nested Model Imports
 
 In previous layout examples, layouts were shown where components related to a map, such as zoom buttons, were nested within a map. It was assumed that the component would bind to the map it was placed in, but why?
 
@@ -121,7 +117,7 @@ Take this more complicated layout for example.
 
 This layout has a `<search>` component which requires the context of a specific map to function. However, this component is **not** nested within the `<map/>` component in the app. Therefore, it will start a breadth first search from the root of the layout to discover a map model and import it.
 
-## The `models` Attribute
+### The `models` Attribute
 
 Sometimes, you can have multiple components that need to bind to the same model.
 
