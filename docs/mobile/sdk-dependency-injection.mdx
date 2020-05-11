@@ -55,6 +55,10 @@ namespace App1.Services
 }
 ```
 
+:::tip
+Autofac has a number of ways to inject dependencies, including factory functions which can dynamically spin up instances of a class or lazy wrappers for dependencies. For details, check out [the Autofac documentation.](https://autofaccn.readthedocs.io/en/latest/resolve/relationships.html)
+:::
+
 ## Components and Services
 
 Components and services in Geocortex Mobile are almost always initialized by Autofac. This means that they can inject any class that has been registered with Autofac in their constructor, allowing classes used for behavior like [commands and operations](configuration-commands-operations.mdx) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with Autofac to be correctly initialized, and it is best practice to use dependency injection to initialize instances of any other custom classes, services or components that the root level component depends on.

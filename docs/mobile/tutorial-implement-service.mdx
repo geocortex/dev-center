@@ -18,9 +18,7 @@ Implementing a custom service in Geocortex Mobile allows you to implement logic 
 ## Create a New Service
 
 Create a new file `services/CustomService.cs` under the platform agnostic project.
-In the file, add a new component class `CustomService` and register it with **Autofac**.
-
-<AutofacSnippet />
+In the file, add a new component class `CustomService` and register it with [**Autofac**](TODO-link).
 
 ```csharp title="App1/App1/services/CustomService.cs"
 using App1.Services;
@@ -48,10 +46,6 @@ namespace App1.Services
     }
 }
 ```
-
-:::info
-The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `CustomService : ServiceBase`. These two pieces register the service with Geocortex Mobile and cause it to be initialized on startup.
-:::
 
 Congratulations! You've created your first working service. This service is available to be injected with Autofac into any custom component. For inspiration with what you can do with services, check out the example below.
 

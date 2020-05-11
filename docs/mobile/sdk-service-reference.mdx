@@ -1,0 +1,129 @@
+---
+title: Service Reference
+description: Geocortex Mobile - Service Reference
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import AutofacSnippet from "../snippets/autofac-mobile.mdx";
+
+Services act as a repository of accessible behavior and data, and can be used for a variety of purposes, from implementing commands and operations, to managing shared data, to interfacing with the REST API of an external service.
+
+## Service Registration
+
+All services need to be registered with Geocortex Mobile. A service is created by extending the `ServiceBase` class and registering the service class with Autofac through an assembly attribute.
+
+<AutofacSnippet />
+
+```csharp
+// highlight-next-line
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    // highlight-next-line
+    class CustomService : ServiceBase
+    {
+        ...
+    }
+}
+```
+
+## Service Lifecycle
+
+On application load, all services that have been registered with wih Geocortex Mobile are first created and then initialized.
+
+Services are destroyed (i.e. the `destroy` method is invoked) when the application is destroyed, e.g. when killing the application or switching applications in Geocortex Go.
+
+## Initialization and Teardown
+
+Services have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when the application is destroyed
+
+:::important
+Always call `base.Dispose(disposing)` when overriding the `Dispose` method.
+:::
+
+To learn more about memory management in Geocortex Mobile, check out [this article](TODO-mem-management), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
+
+```csharp
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        private bool disposed = false;
+
+        public CustomService()
+            : base()
+        {
+            // On creation logic here
+
+        }
+        protected override async Task DoInitialize()
+        {
+            // Async on initialization logic here
+            return;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                // Clean up managed resources.
+                // ...
+            }
+
+            // Clean up unmanaged resources.
+            // ...
+
+            // highlight-next-line
+            base.Dispose(disposing);
+
+            disposed = true;
+        }
+
+
+    }
+}
+```
+
+## Dependency Injection
+
+Services interact with the larger application by injecting their dependencies. Services can inject commands and operations, other services, and any other class registered with Autofac.
+
+The following example injects the UI operations and the dialog controller into a custom service.
+
+```csharp
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        private UIOperations _uiOperations;
+        private IDialogController _dialogController;
+
+        public CustomService(UIOperations uiOperations, IDialogController dialogController)
+            : base()
+        {
+            _uiOperations = uiOperations;
+            _dialogController = dialogController;
+        }
+        ...
+    }
+}
+```
+
+## Configuration
+
+Like components, services can be configured through the [app config](configuration-app-config.mdx). Services can participate in the app config by creating and injecting the appropriate [**item type**](configuration-app-config.mdx#anatomy-of-an-app-config).
+
+Each item type in the application is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model.
+
+A service can consume configuration by injecting the `AppItem` class as a dependency in it's constructor.
