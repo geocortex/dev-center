@@ -195,25 +195,34 @@ module.exports = {
             type: "category",
             label: "Configuration",
             items: [
-                "mobile/configuration-layout",
-                "mobile/configuration-app-config",
+                {
+                    type: "category",
+                    label: "Layout",
+                    items: [
+                        "mobile/configuration-layout",
+                        "mobile/configuration-layout-reference",
+                        "mobile/configuration-advanced-model-binding",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "App Config",
+                    items: [
+                        "mobile/configuration-app-config",
+                        "mobile/configuration-app-config-reference",
+                        "mobile/configuration-theme",
+                    ],
+                },
                 "mobile/configuration-commands-operations",
                 "mobile/configuration-components-services",
                 "mobile/configuration-events",
                 {
                     type: "category",
-                    label: "Advanced Configuration",
-                    items: [
-                        "mobile/configuration-advanced-layout",
-                        "mobile/configuration-advanced-app-config",
-                    ],
-                },
-                {
-                    type: "category",
                     label: "Tutorials",
                     items: [
+                        "mobile/tutorial-configure-button-click",
                         "mobile/tutorial-change-default-behavior",
-                        "mobile/tutorial-look-and-feel",
+                        "mobile/tutorial-customize-application-theme",
                         "mobile/tutorial-add-medium-layout",
                         "mobile/tutorial-internationalization",
                     ],
@@ -285,7 +294,6 @@ module.exports = {
             label: "API",
             items: [
                 "mobile/api-overview",
-                "mobile/api-layout",
                 "mobile/api-commands-operations-events",
                 "mobile/api-mobile-ui-elements",
             ],

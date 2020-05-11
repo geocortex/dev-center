@@ -1,5 +1,5 @@
 ---
-title: App Config
+title: Getting Started
 description: Geocortex Mobile - Learn about Geocortex Mobile's configuration concepts
 ---
 
@@ -77,75 +77,6 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 }
 ```
 
-</TabItem>
-</Tabs>
-
-The same config can be used for multiple items in a layout. For example, this allows you to reuse the same button in multiple locations in the App.
-
-<Tabs
-  defaultValue="layout"
-  values={[
-    { label: "Layout", value: "layout" },
-    { label: "App Config", value: "config" },
-    { label: "User Interface", value: "ui" },
-  ]}>
-<TabItem value="layout">
-
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-<layout xmlns="https://geocortex.com/layout/v1"
-        xmlns:gxm="https://geocortex.com/layout/mobile/v1">
-  <gxm:taskbar orientation="vertical">
-    <panel grow="1">
-        <stack margin="0.5">
-            // highlight-next-line
-          <button icon="info" config="do-something" slot="top-center-visible" margin="0.5">Do Something 2</button>
-        </stack>
-    </panel>
-    <map slot="main">
-      // highlight-next-line
-      <button icon="info" config="do-something" slot="top-center-visible" margin="0.5">Do Something 1</button>
-    </map>
-  </gxm:taskbar>
-</layout>
-```
-
-</TabItem>
-<TabItem value="config">
-
-```json
-{
-    "schemaVersion": "1.0",
-    "items": [
-        {
-            "$type": "layout",
-            "id": "desktop-layout",
-            "url": "resource://layout-large.xml",
-            "tags": ["mobile", "large"]
-        },
-        {
-            "$type": "menu-item",
-            // highlight-next-line
-            "id": "do-something",
-            "title": "ui.alert",
-            "isEnabled": true,
-            "iconId": "info",
-            "action": {
-                "name": "ui.alert",
-                "arguments": {
-                    "title": "Something?",
-                    "message": "Fine, I did it",
-                    "buttonText": "OK"
-                }
-            }
-        }
-    ]
-}
-```
-
-</TabItem>
-<TabItem value="ui">
-  <img src={useBaseUrl("img/mobile-app-config-linking.png")}/>
 </TabItem>
 </Tabs>
 
