@@ -65,68 +65,7 @@ Slots control how one element fits into another. But how do we control how sibli
 
 The basic `stack` and `split` components are building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
 
-Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes.
-
-Stacks and splits are used to partition the viewer into rectangular sectors, each filled with whichever components you desire.
-
-The best way to think of stacks is that every item within them is being ordered top to bottom:
-
-```xml
-<stack>
-    <text text="item1"/>
-    <text text="item2"/>
-    <text text="item3"/>
-</stack>
-```
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-1.png")} />
-
-The best way to think of splits is that every item within them is being ordered left to right:
-
-```xml
-<split>
-    <text text="item1"/>
-    <text text="item2"/>
-    <text text="item3"/>
-</split>
-```
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-2.png")} />
-
-When creating complex layouts with embedded stacks and splits, it's good to picture building it from the inside out:
-
-```xml
-<stack>
-    <split>
-        <text text="item1"/>
-        <stack>
-            <text text="item2"/>
-            <text text="item3"/>
-        </stack>
-    </split>
-    <split>
-        <text text="item4"/>
-        <text text="item5"/>
-        <text text="item6"/>
-    </split>
-</stack>
-```
-
-We start by building the first inner-most stack:
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-4.png")} />
-
-Then slot that into the split one level up:
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-5.png")} />
-
-We then build the next split:
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-6.png")} />
-
-And finally slot those two splits into the outer-most stack:
-
-<img className="stackSplitImage" src={useBaseUrl("img/stack-split-3.png")} />
+For a deeper dive into stacks and splits, [check out the API reference](configuration-layout-reference.mdx#stacks-and-splits).
 
 ## Spacing
 
@@ -135,57 +74,14 @@ See [presentation attributes](api-layout.mdx#presentation-attributes) for detail
 ## Panels
 
 Another core concept that Geocortex Mobile uses to organize elements in a layout is **panels**.
-Panels are a container component that enable hierarchical navigation between different components.
+Panels are a container component that enable hierarchal navigation between different components.
 
-<Tabs
-  defaultValue="layout"
-  values={[
-    { label: 'Layout', value: 'layout', },
-    { label: 'Stack', value: 'stack', },
-    { label: 'Feature Details', value: 'feature-details', },
-  ]
-}>
-<TabItem value="layout">
+For a deeper dive into Panels, [check out the API reference](configuration-layout-reference.mdx#panels).
 
-```xml
-<panel>
-    <stack>
-        <search config="search"/>
-        <results-list config="results" active="false" />
-    </stack>
-    <feature-details config="feature-details"/>
-</panel>
-```
-
-</TabItem>
-<TabItem value="stack">
-<img src={useBaseUrl("img/mobile-panel-one.png")}/>
-</TabItem>
-<TabItem value="feature-details">
-<img src={useBaseUrl("img/mobile-panel-two.png")}/>
-</TabItem>
-</Tabs>
-
-This `search-panel` has two root components:
-
--   A stack containing a `<search>` and a `<results-list>`
--   A `<feature-details>`
-
-When you first open the panel, the first component in the panel that is not explicitly set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
-When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component in the place of the existing component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of each other, with the first component being the bottommost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
-
-### Activation
-
--   If the target component exists in the panel, then deactivate components above it until the target component is active
-    -   Else, the target component must be deactivated, so activate it and place it above the existing component
-
-### Deactivation
-
--   If the component is the topmost element (it is active), then deactivate it.
-    -   Else, the component is already inactive
+<!-- TODO-API - direct link to tabs and expanders -->
 
 :::tip
-The default `layout-large.xml` in the Geocortex Mobile [Quickstart](sdk-getting-started.mdx) has examples of multiple panels that live in the taskbar.
+These are just a few examples of the building blocks available to help you organize the layout of your Application. Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes. You can also use tabs, expanders, and much more. See the [Component Reference](configuration-layout-reference.mdx#core-layout-components) for a full listing.
 :::
 
 ## Device Form factors
@@ -241,7 +137,7 @@ Every component in the xml file has a definition that lives in an xml namespace.
 </layout>
 ```
 
-Geocortex Mobile has a specific namespace `https://geocortex.com/layout/mobile/v1` in which components like `<gxm:taskbar >` live. You can add this namespace to your layout to use these components.
+Geocortex Mobile has a specific namespace `https://geocortex.com/layout/mobile/v1` in which components like `<gxm:taskbar>` live. You can add this namespace to your layout to use these components.
 
 ```xml
 <layout xmlns="https://geocortex.com/layout/v1"

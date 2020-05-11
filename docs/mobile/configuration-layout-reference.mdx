@@ -54,6 +54,137 @@ All attributes are specified as string values, and parsed into their respective 
 **Type**: `boolean`  
 **Description**: Used to mark a component as initially active and visible.
 
+## Core Layout Components
+
+The following is a reference for the main components used for visual organization in the layout.
+
+:::tip
+All of these components are available for use in the [Geocortex Mobile
+Designer](https://apps.geocortex.com/mobileviewer/designer/).
+:::
+
+### Stacks and Splits
+
+Stacks and splits are used to partition the viewer into rectangular sectors, each filled with whichever components you desire.
+
+The best way to think of stacks is that every item within them is being ordered top to bottom:
+
+```xml
+<stack>
+    <text text="item1"/>
+    <text text="item2"/>
+    <text text="item3"/>
+</stack>
+```
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-1.png")} />
+
+The best way to think of splits is that every item within them is being ordered left to right:
+
+```xml
+<split>
+    <text text="item1"/>
+    <text text="item2"/>
+    <text text="item3"/>
+</split>
+```
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-2.png")} />
+
+When creating complex layouts with embedded stacks and splits, it's good to picture building it from the inside out:
+
+```xml
+<stack>
+    <split>
+        <text text="item1"/>
+        <stack>
+            <text text="item2"/>
+            <text text="item3"/>
+        </stack>
+    </split>
+    <split>
+        <text text="item4"/>
+        <text text="item5"/>
+        <text text="item6"/>
+    </split>
+</stack>
+```
+
+We start by building the first inner-most stack:
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-4.png")} />
+
+Then slot that into the split one level up:
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-5.png")} />
+
+We then build the next split:
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-6.png")} />
+
+And finally slot those two splits into the outer-most stack:
+
+<img className="stackSplitImage" src={useBaseUrl("img/stack-split-3.png")} />
+
+### Taskbar
+
+TODO
+
+### Panels
+
+Panels are a container component that enable hierarchical navigation between different components.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'Stack', value: 'stack', },
+    { label: 'Feature Details', value: 'feature-details', },
+  ]
+}>
+<TabItem value="layout">
+
+```xml
+<panel>
+    <stack>
+        <search config="search"/>
+        <results-list config="results" active="false" />
+    </stack>
+    <feature-details config="feature-details"/>
+</panel>
+```
+
+</TabItem>
+<TabItem value="stack">
+<img src={useBaseUrl("img/mobile-panel-one.png")}/>
+</TabItem>
+<TabItem value="feature-details">
+<img src={useBaseUrl("img/mobile-panel-two.png")}/>
+</TabItem>
+</Tabs>
+
+This `search-panel` has two root components:
+
+-   A stack containing a `<search>` and a `<results-list>`
+-   A `<feature-details>`
+
+When you first open the panel, the first component in the panel that is not explicitly set to `active="false"` is activated. In this example, it's the `<stack>` component containing a `<search>` and `<results-list>`.
+When a feature in the results list is opened, the `<feature-details>` component will be activated. At this point, the panel takes over the activation of the component. It will display the new component in the place of the existing component, and provide a back button to navigate to the previous component. The activation and deactivation algorithms for a panel rely on the concept of a stacking order of components laid on top of each other, with the first component being the bottommost, and the last being the topmost. In the example above, the `<stack>` containing `<search>` is the lowest, while the `<feature-details>` is the topmost.
+
+#### Activation
+
+-   If the target component exists in the panel, then deactivate components above it until the target component is active
+    -   Else, the target component must be deactivated, so activate it and place it above the existing component
+
+#### Deactivation
+
+-   If the component is the topmost element (it is active), then deactivate it.
+    -   Else, the component is already inactive
+
+:::tip
+The default `layout-large.xml` in the Geocortex Mobile [Quickstart](sdk-getting-started.mdx) has examples of multiple panels that live in the taskbar.
+:::
+
 ## Presentation Attributes
 
 Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. Some of these presentation attributes are accessible through the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), and the rest be configured through layout.
