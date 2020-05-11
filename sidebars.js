@@ -59,6 +59,7 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
+                "web/sdk-deployment",
                 {
                     type: "category",
                     label: "Components",
@@ -96,7 +97,6 @@ module.exports = {
                 },
                 "web/sdk-serializable-properties",
                 "web/sdk-language-strings",
-                "web/sdk-deployment",
                 "web/sdk-reference-third-party-libraries",
                 {
                     type: "category",
@@ -244,8 +244,10 @@ module.exports = {
             label: "Geocortex Mobile SDK",
             items: [
                 "mobile/sdk-overview",
-                "mobile/sdk-getting-started",
                 "mobile/sdk-edit-layout-app-config",
+                "mobile/sdk-quickstart-reference",
+                "mobile/sdk-samples",
+                "mobile/sdk-deployment",
                 {
                     type: "category",
                     label: "Components",
@@ -265,17 +267,8 @@ module.exports = {
                         "mobile/sdk-service-reference",
                     ],
                 },
-                "mobile/sdk-advanced-quickstart",
-                "mobile/sdk-deployment",
-                "mobile/sdk-samples",
-                {
-                    type: "category",
-                    label: "Common Patterns",
-                    items: [
-                        "mobile/sdk-dependency-injection",
-                        "mobile/sdk-memory-leaks",
-                    ],
-                },
+                "mobile/sdk-dependency-injection",
+                "mobile/sdk-memory-leaks",
                 {
                     type: "category",
                     label: "Tutorials",
@@ -293,7 +286,6 @@ module.exports = {
             type: "category",
             label: "API",
             items: [
-                "mobile/api-overview",
                 "mobile/api-commands-operations-events",
                 "mobile/api-mobile-ui-elements",
             ],
