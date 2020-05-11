@@ -70,7 +70,7 @@ module.exports = {
                         "web/sdk-ui-context",
                         "web/sdk-components-commands-operations",
                         "web/sdk-component-interactions",
-                        "web/sdk-service-injection",
+                        "web/sdk-components-referencing-services",
                         "web/sdk-component-styling",
                         "web/sdk-components-internationalization",
                     ],
@@ -83,7 +83,7 @@ module.exports = {
                         "web/sdk-create-service",
                         "web/sdk-service-reference",
                         "web/sdk-services-commands-operations",
-                        "web/sdk-service-injection",
+                        "web/sdk-services-referencing-services",
                     ],
                 },
                 {
