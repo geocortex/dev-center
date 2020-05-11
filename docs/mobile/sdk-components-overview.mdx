@@ -1,0 +1,117 @@
+---
+title: Components Overview
+sidebar_label: Overview
+description: Geocortex Mobile - Overview of components
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import TabItem from "@theme/TabItem";
+
+In Geocortex Mobile, components are entities which implement UI/UX experiences and the associated logic. An example of a component is an I Want to Menu (IWTM). IWTMs participate in layout, implement custom behavior (display a list when clicked), and participate in app config.
+
+Components are only **created** if they participate in the layout - if no component definition exists in the layout, none will be created. Components are **initialized** when they are activated. Multiple instances of the same component will be created if specified in the layout.
+
+<!-- TODO-API: Add a link out to the component API
+:::tip
+Geocortex Web has a large [built-in library of components](api-components.mdx).
+:::
+-->
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<map>
+		<iwtm config="iwtm-1" slot="top-left"/>
+		<iwtm config="iwtm-2" slot="top-right"/>
+	</map>
+</layout>
+
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "menu",
+            "id": "iwtm-1",
+            "items": [
+                {
+                    "id": "return-to-initial-view",
+                    "iconId": "zoom-initial",
+                    "title": "Return to Initial View",
+                    "action": "map.zoom-to-initial-viewpoint",
+                    "$type": "menu-item"
+                }
+            ]
+        },
+        {
+            "$type": "menu",
+            "id": "iwtm-2",
+            "items": [
+                {
+                    "id": "display-alert",
+                    "iconId": "pop-out",
+                    "title": "Display Alert",
+                    "$type": "menu-item",
+                    "action": {
+                        "name": "ui.alert",
+                        "arguments": {
+                            "title": "Alert!",
+                            "message": "You have been alerted."
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src={useBaseUrl("img/mobile-sdk-components-simple.png")}/>
+</TabItem>
+</Tabs>
+
+## Component Views and Configuration Models
+
+In order to display in an Application, each component must display a `VisualElement`. This is usually accomplished through a [XAML View](TODO-link-xaml-view-component-reference). Each component can also optionally have an [associated configuration model](TODO-component-reference-configuration-model). This model represents settings from the component from the app config JSON, and the component is responsible for consuming this configuration model and passing the appropriate settings along to the view.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Create a Component"
+        description="Learn how to create a basic component"
+        link="sdk-create-component"
+    />
+    <UseCaseCard
+        title="Check out the Component Reference"
+        description="Take a deep dive into components in the Geocortex Web SDK"
+        link="sdk-component-reference"
+    />
+</UseCaseContainer>

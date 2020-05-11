@@ -34,7 +34,7 @@ Let's create a a layout with two components; a map, and a button positioned on t
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
+<layout xmlns="https://geocortex.com/layout/v1" >
   <map>
     <button slot="top-center"/>
   </map>
@@ -62,8 +62,9 @@ Link the button to the layout to a `menu-item` in app config, and configure it t
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
+<layout xmlns="https://geocortex.com/layout/v1" >
   <map>
+    // highlight-next-line
     <button config="button-config" slot="top-center"/>
   </map>
 </layout>
@@ -77,6 +78,7 @@ Link the button to the layout to a `menu-item` in app config, and configure it t
     "schemaVersion": "1.0",
     "items": [
         {
+            // highlight-next-line
             "id": "button-config",
             "iconId": "zoom-in",
             "title": "Zoom In",
@@ -97,6 +99,10 @@ Link the button to the layout to a `menu-item` in app config, and configure it t
 
 If the command you want to run takes arguments, you can pass them through the app config.
 
+:::tip
+Check out the [commands and operations reference](TODO-commands-and-operations-passing-arguments) for more info on passing arguments.
+:::
+
 <Tabs
   defaultValue="config"
   values={[
@@ -115,9 +121,11 @@ If the command you want to run takes arguments, you can pass them through the ap
             "title": "Alert",
             "action": {
                 "name": "ui.alert",
+                // highlight-start
                 "arguments": {
                     "message": "Message from config."
                 }
+                // highlight-end
             },
             "$type": "menu-item"
         }

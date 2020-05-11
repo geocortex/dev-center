@@ -1,0 +1,36 @@
+---
+title: Services Overview
+sidebar_label: Overview
+description: Geocortex Mobile - Overview of Services
+hide_table_of_contents: true
+---
+
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+
+In Geocortex Mobile, services represent a shared application-wide concern that needs to be accessed by many components or other services. There is only one instance of each service in the application. Interactions with services usually happen through the [commands and operations they implement](sdk-services-commands-operations.mdx#implementing-commands-and-operations), but services can also be [directly injected](sdk-service-injection.mdx) into other services and components
+
+Two key differences between components are services are...
+
+1. Services do not participate in layout, and do not power UI (except indirectly).
+1. Services are created **and** initialized on startup, before any components are created.
+    - This means any service is always available to any component.
+
+An example of a service would be a "SettingsService", which provides global settings that other components can consume.
+
+Services can be optionally [consume configuration through app items](TODO-app-item-custom-service-link).
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Create a Service"
+        description="Learn how to create a basic service"
+        link="sdk-create-service"
+    />
+    <UseCaseCard
+        title="Check out the Service Reference"
+        description="Take a deep dive into services in the Geocortex Web SDK"
+        link="sdk-service-reference"
+    />
+</UseCaseContainer>

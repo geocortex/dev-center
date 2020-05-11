@@ -214,7 +214,6 @@ module.exports = {
                     ],
                 },
                 "mobile/configuration-commands-operations",
-                "mobile/configuration-components-services",
                 "mobile/configuration-events",
                 {
                     type: "category",
