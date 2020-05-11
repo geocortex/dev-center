@@ -1,6 +1,6 @@
 ---
 title: Run a Workflow from App Config
-description: Geocortex Web - Learn how to run a workflow using app config and layout
+description: Geocortex Mobile - Learn how to run a workflow using app config and layout
 ---
 
 import Tabs from "@theme/Tabs";
@@ -11,12 +11,10 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
-Many components have default behaviors which can be [configured through the app config JSON](tutorial-change-default-behavior.mdx). Any configurable property which takes a [command or operation](configuration-commands-operations.mdx) as its value can also be configured with a special command, `workflow.run`. By using the `workflow.run` command, you can even execute a [workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/geocortex-workflow.htm#Introduction_to_Geocortex_Workflow%3FTocPath%3D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520Introduction%2520to%2520Geocortex%2520Workflow%7C_____0) with completely configurable behavior.
-
 In this article, we can configure a workflow to run when the map is initialized.
 
 :::important
-Configuring a workflow to run when the map is initialized can be done through [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/) and this is the preferred method of configurable if Designer can be used. The goal of this article is to demonstrate the pattern of overriding behaviors with workflows.
+Configuring a workflow to run when the map is initialized can be done through [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) and this is the preferred method of configurable if Designer can be used. The goal of this article is to demonstrate the pattern of overriding behaviors with workflows.
 :::
 
 ## Prerequisites
@@ -36,8 +34,16 @@ First, let's create a basic map using the layout and app config.
 
 ```json title="app/app.json"
 {
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
     "schemaVersion": "1.0",
-    "items": []
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        }
+    ]
 }
 ```
 
@@ -45,10 +51,17 @@ First, let's create a basic map using the layout and app config.
 <TabItem value="layout">
 
 ```xml title="app/layout.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map/>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+	xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<gxm:taskbar id="taskbar" orientation="vertical">
+	    <map/>
+    </gxm:taskbar>
 </layout>
+
 ```
 
 </TabItem>
@@ -67,11 +80,19 @@ Next, add a [app item](configuration-app-config.mdx#anatomy-of-an-app-config) to
 
 ```json title="app/app.json"
 {
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
     "schemaVersion": "1.0",
     "items": [
         {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
             "id": "map-config",
             "$type": "map-extension",
+            "webMap": "0ba877a4185448cb832af9a661031e31",
             "onInitialized": [
                 {
                     "name": "ui.display-notification",
@@ -89,10 +110,17 @@ Next, add a [app item](configuration-app-config.mdx#anatomy-of-an-app-config) to
 <TabItem value="layout">
 
 ```xml title="app/layout.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map config="map-config"/>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+	xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<gxm:taskbar id="taskbar" orientation="vertical">
+	    <map config="map-config"/>
+    </gxm:taskbar>
 </layout>
+
 ```
 
 </TabItem>
@@ -129,13 +157,25 @@ The next step is going to be replacing the `ui.display-notification` command wit
 
 4. Add the workflow as an app item to your app config.
 
+:::tip
+The `target` property of the workflow app item determines the container in which the workflow UI, such as a form, will be displayed.
+:::
+
 ```json title="app/app.json"
 {
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
     "schemaVersion": "1.0",
     "items": [
         {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
             "id": "map-config",
             "$type": "map-extension",
+            "webMap": "0ba877a4185448cb832af9a661031e31",
             "onInitialized": [
                 {
                     "name": "ui.display-notification",
@@ -150,6 +190,7 @@ The next step is going to be replacing the `ui.display-notification` command wit
             "$type": "workflow",
             "id": "map-initialized-workflow",
             "title": "Map Initialized Workflow",
+            "target": "#taskbar",
             "commandArgumentInput": "context",
             "portalItem": "<your-workflow-id-here>"
         }
@@ -172,11 +213,19 @@ Finally, you can configure the map to run this workflow on initialization.
 
 ```json title="app/app.json"
 {
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
     "schemaVersion": "1.0",
     "items": [
         {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
             "id": "map-config",
             "$type": "map-extension",
+            "webMap": "0ba877a4185448cb832af9a661031e31",
             "onInitialized": [
                 // highlight-start
                 {
@@ -192,8 +241,9 @@ Finally, you can configure the map to run this workflow on initialization.
             "$type": "workflow",
             "id": "map-initialized-workflow",
             "title": "Map Initialized Workflow",
+            "target": "#taskbar",
             "commandArgumentInput": "context",
-            "portalItem": "<your-workflow-id-here>"
+            "portalItem": "cd6bd434f3a44b479e06446318269e71"
         }
     ]
 }
@@ -203,45 +253,21 @@ Finally, you can configure the map to run this workflow on initialization.
 <TabItem value="layout">
 
 ```xml title="app/layout.xml"
-<?xml version="1.0" encoding="UTF-8"?>
-<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
-    <map config="map-config"/>
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+	xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<gxm:taskbar id="taskbar" orientation="vertical">
+		<map config="map-config" slot="main"/>
+	</gxm:taskbar>
 </layout>
+
 ```
 
 </TabItem>
 <TabItem value="ui">
-  <img src={useBaseUrl("img/web-workflow-app-config-demo.png")}/>
+  <img src={useBaseUrl("img/mobile-workflow-app-config-demo.png")}/>
 </TabItem>
 </Tabs>
-
-You've now successfully customized behavior through the app config with a workflow. From this point, you could develop the workflow further to solve your business case.
-
-:::tip
-For a more in depth example, check out the use case on [overriding default map click behavior with a workflow](tutorial-change-default-map-click-behavior.mdx).
-:::
-
-## Next Steps
-
-<UseCaseContainer>
-    <UseCaseCard
-        title="Build a Custom Form"
-        description="Learn how to build a custom form with Geocortex Workflow"
-        link="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm"
-    />
-    <UseCaseCard
-        title="Implement a Custom Activity"
-        description="Learn how to implement a custom activity with the Geocortex Workflow SDK"
-        link="tutorial-implement-custom-activity"
-    />
-    <UseCaseCard
-        title="Implement a Custom Form Element"
-        description="Learn how to implement a custom form element with the Geocortex Workflow SDK"
-        link="tutorial-implement-custom-form-elements"
-    />
-    <UseCaseCard
-        title="Change Geocortex Web's Default Map Click Behavior"
-        description="Learn how to Geocortex Workflow to override Geocortex Web's default map click behavior"
-        link="tutorial-change-default-map-click-behavior"
-    />
-</UseCaseContainer>

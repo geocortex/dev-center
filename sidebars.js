@@ -232,6 +232,7 @@ module.exports = {
             type: "category",
             label: "Workflow",
             items: [
+                "mobile/tutorial-run-workflow-app-config",
                 "mobile/tutorial-display-custom-form",
                 "mobile/tutorial-implement-custom-form-elements",
                 "mobile/tutorial-implement-custom-activity",
