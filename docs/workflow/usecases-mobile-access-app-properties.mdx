@@ -23,7 +23,7 @@ Accessing Geocortex Mobile functionality in custom workflow activities uses the 
 
 1. Add the class you want to inject to the constructor of the custom activity
 
-```csharp
+```cs
 private UIOperations _uiOperations;
 
 public DisplayGeocortexMobileAlert(UIOperations uiOperations)
@@ -34,7 +34,7 @@ public DisplayGeocortexMobileAlert(UIOperations uiOperations)
 
 2. [Inject the class](../mobile/sdk-dependency-injection.mdx) into the [`IActivityHandlerFactory` for the application](usecases-mobile-implement-custom-activity.mdx#register-the-activity-with-the-iactivityhandlerfactory), and pass it to your custom activity's constructor.
 
-```csharp
+```cs
 public class ActivityLoader : IActivityHandlerFactory
 {
     ...
@@ -59,7 +59,7 @@ This example injects the `UIOperations` class into a custom activity then uses i
   ]}>
 <TabItem value="custom-activity">
 
-```csharp
+```cs
 using Geocortex.Mobile.Infrastructure.Messaging;
 using Geocortex.Workflow.Runtime;
 using System.Collections.Generic;
@@ -91,7 +91,7 @@ namespace App1.Workflow
 </TabItem>
 <TabItem value="activity-loader">
 
-```csharp
+```cs
 using App1.Samples.Workflow.CustomActivity;
 using System;
 using System.Collections.Generic;
@@ -155,14 +155,14 @@ Accessing the map for the application uses the built-in [dependency injection pa
 
 1. Add a new [Autofac factory](https://autofaccn.readthedocs.io/en/latest/resolve/relationships.html#dynamic-instantiation-func-b) property that injects a `MapProviderBase` into your custom activity.
 
-```csharp
+```cs
 [ProviderFactoryAttribute(typeof(MapProviderBase))]
 public Func<MapProviderBase> MapProviderFactory { get; set; }
 ```
 
 2. Instantiate and initialize the Map and MapView in the `execute` body.
 
-```csharp
+```cs
 // Get an instance of the MapProvider
 var mapProvider = MapProviderFactory();
 // Ensure the map has loaded
@@ -181,7 +181,7 @@ This example injects the `Map` and `MapView` into the custom activity then uses 
 Operations related to UI activities have to run in Xamarin's [main thread](https://docs.microsoft.com/en-us/xamarin/essentials/main-thread), else they will throw an error.
 :::
 
-```csharp
+```cs
 using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.UI;
 using Esri.ArcGISRuntime.Xamarin.Forms;

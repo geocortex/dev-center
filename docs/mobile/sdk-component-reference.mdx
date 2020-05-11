@@ -15,7 +15,7 @@ Did you know Geocortex Workflow allows you to [create custom forms](https://docs
 
 Implementing a custom component in Mobile gives you the highest degree of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-change-default-map-click-behavior.mdx) first.
 
-```csharp
+```cs
 [assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components
 {
@@ -37,7 +37,7 @@ locate, and inject components, services and other classes.
 
 Each component class is registered with the [`Component` assembly attribute](sdk-dependency-injection.mdx#component)
 
-```csharp
+```cs
 // highlight-next-line
 [assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
 namespace App1.Components

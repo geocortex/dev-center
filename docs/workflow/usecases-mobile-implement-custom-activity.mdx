@@ -23,7 +23,7 @@ This article applies to building workflow activities that will be run on [Geocor
 1. Create a new file `CustomActivity` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-getting-started.mdx).
 2. Add a new skeleton workflow activity that implements `IActivityHandler`.
 
-```csharp title="App1/App1/CustomActivity.cs"
+```cs title="App1/App1/CustomActivity.cs"
 using Geocortex.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -57,7 +57,7 @@ The `ActivityLoader` registers the activity skeleton we created in its construct
 
 <AutofacSnippet />
 
-```csharp title="App1/App1/ActivityLoader.cs"
+```cs title="App1/App1/ActivityLoader.cs"
 using System;
 using System.Collections.Generic;
 using System.Threading;

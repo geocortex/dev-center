@@ -25,7 +25,7 @@ This article will walk you through implementing a custom event in Geocortex Mobi
 Create a new file `events\CustomEvents` in the platform agnostic project.
 Add a new class `CustomEvents` that implement Mobile's `EventsBase`
 
-```csharp title="App1/App1/events/CustomEvents.cs"
+```cs title="App1/App1/events/CustomEvents.cs"
 using App1.Events;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
@@ -56,7 +56,7 @@ The two key components of this snippet are the `[assembly: Export(typeof(CustomE
 
 Event definitions live in classes that subclass `EventsBase`, like `CustomEvents`.
 
-```csharp
+```cs
 public class CustomEvents : EventsBase
 {
     // highlight-next-line
@@ -73,19 +73,19 @@ Events can either have no arguments, simple arguments, or a complex type argumen
 
 **No Argument**
 
-```csharp
+```cs
 public IEvent IntervalEvent => GetEvent("custom.interval-event");
 ```
 
 **Simple Argument**
 
-```csharp
+```cs
 public IEvent<string> MessageReceivedEvent => GetEvent<string>("chat.message-received");
 ```
 
 **Complex Argument**
 
-```csharp
+```cs
 public IEvent<SecurityCameraArgs> IntruderDetectedEvent => GetEvent<SecurityCameraArgs>("security.intruder-detected");
 ```
 
@@ -211,7 +211,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="code-behind">
 
-```csharp title="App1/App1/components/CustomUIComponentView.xaml.cs"
+```cs title="App1/App1/components/CustomUIComponentView.xaml.cs"
 using App1.Events;
 using App1.Views;
 using Geocortex.Mobile.Composition;
@@ -271,7 +271,7 @@ namespace App1.Views
 </TabItem>
 <TabItem value="service">
 
-```csharp title="App1/App1/events/CustomBackgroundService.cs"
+```cs title="App1/App1/events/CustomBackgroundService.cs"
 using App1.Events;
 using App1.Services;
 using Geocortex.Mobile.Composition;

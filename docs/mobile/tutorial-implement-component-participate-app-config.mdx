@@ -19,7 +19,7 @@ Complete the previous use case, [Implement a Custom Component](tutorial-implemen
 
 Create a new file `CustomComponentConfiguration.cs`. This class defines a new app item type `custom-component-config`. This app item type will be used as configuration for the `CustomComponent`.
 
-```csharp title="App1/App1/components/CustomComponentConfiguration.cs"
+```cs title="App1/App1/components/CustomComponentConfiguration.cs"
 using App1.Configuration;
 using Geocortex.API;
 using Geocortex.Mobile.Infrastructure.App;
@@ -91,7 +91,7 @@ Components that consume configuration should extend `AppItemComponentBase<Config
 }>
 <TabItem value="component">
 
-```csharp title="App1/App1/components/CustomComponent.cs"
+```cs title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
 using App1.Configuration;
@@ -164,7 +164,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="code-behind">
 
-```csharp title="App1/App1/components/CustomComponentView.xaml.cs"
+```cs title="App1/App1/components/CustomComponentView.xaml.cs"
 using App1.Components;
 using Geocortex.Mobile.Composition;
 using Xamarin.Forms;
@@ -187,7 +187,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view-model">
 
-```csharp title="App1/App1/components/CustomComponentViewModel.cs"
+```cs title="App1/App1/components/CustomComponentViewModel.cs"
 using App1.Components;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Views;

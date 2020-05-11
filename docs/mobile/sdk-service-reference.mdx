@@ -18,7 +18,7 @@ All services need to be registered with Geocortex Mobile. A service is created b
 
 <AutofacSnippet />
 
-```csharp
+```cs
 // highlight-next-line
 [assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
 namespace App1.Services
@@ -47,7 +47,7 @@ Always call `base.Dispose(disposing)` when overriding the `Dispose` method.
 
 To learn more about memory management in Geocortex Mobile, check out [this article](TODO-mem-management), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
 
-```csharp
+```cs
 [assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
 namespace App1.Services
 {
@@ -100,7 +100,7 @@ Services interact with the larger application by injecting their dependencies. S
 
 The following example injects the UI operations and the dialog controller into a custom service.
 
-```csharp
+```cs
 [assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
 namespace App1.Services
 {
@@ -120,10 +120,135 @@ namespace App1.Services
 }
 ```
 
-## Configuration
+## Configuration Models
 
 Like components, services can be configured through the [app config](configuration-app-config.mdx). Services can participate in the app config by creating and injecting the appropriate [**item type**](configuration-app-config.mdx#anatomy-of-an-app-config).
 
 Each item type in the application is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model.
 
 A service can consume configuration by injecting the `AppItem` class as a dependency in it's constructor.
+
+<Tabs
+  defaultValue="service"
+  values={[
+    { label: "Service Configuration Model", value: "model" },
+    { label: "Service", value: "service" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="service">
+
+```cs
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        private IAppItem<CustomServiceSettings> _appItem;
+
+        public CustomService(IAppItem<CustomServiceSettings> appItem)
+            : base()
+        {
+            _appItem = appItem;
+        }
+        protected override async Task DoInitialize()
+        {
+            // highlight-start
+            var settings = await _appItem.ResolveAsync();
+            if (settings == null)
+            {
+                return;
+            }
+
+            Logger.Debug($"Value of setting is '{settings.SomeSetting}'");
+            return;
+            // highlight-end
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```cs
+// highlight-next-line
+[assembly: AppItem(CustomServiceSettings.AppItemType, typeof(CustomServiceSettings))]
+namespace App1.Services
+{
+    // highlight-next-line
+    [ServiceAppItem(AppItemType)]
+    public class CustomServiceSettings
+    {
+        // highlight-next-line
+        public const string AppItemType = "custom-service";
+
+        public string SomeSetting { get; set; }
+
+        public CustomServiceSettings()
+        {
+        }
+
+        public CustomServiceSettings(Properties properties)
+        {
+            // highlight-start
+            if (properties is null)
+            {
+                throw new System.ArgumentNullException(nameof(properties));
+            }
+
+            if (properties.TryGetValue("someSetting", out string someSetting))
+            {
+                SomeSetting = someSetting;
+            }
+            // highlight-end
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "schemaVersion": "1.0",
+
+    "items": [
+        ...{
+            "$type": "custom-service",
+            "id": "custom-service",
+            "someSetting": "Some Value"
+        }
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Next Steps
+
+TODO - revamp these if necessary
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn how to use Commands and Operations with Services"
+        description="Learn how to run and implement commands and operations with custom services"
+        link="sdk-services-commands-operations"
+    />
+    <UseCaseCard
+        title="Learn about Service Interactions"
+        description="Learn about how services can directly interact through dependency injection"
+        link="sdk-service-injection"
+    />
+    <UseCaseCard
+        title="Build a Custom Command with a Custom Service"
+        description="Follow a step by step guide to building a custom command with a custom service"
+        link="tutorial-implement-command-operation"
+    />
+    <UseCaseCard
+        title="Build a Service that Manages Dynamic Data"
+        description="Built a service that manages a dynamic data source and exposes it to components"
+        link="tutorial-service-dynamic-data"
+    />
+</UseCaseContainer>

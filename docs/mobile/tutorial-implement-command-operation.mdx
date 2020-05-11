@@ -27,7 +27,7 @@ It's convention that commands and operations in Geocortex Mobile are registered 
 
 <AutofacSnippet />
 
-```csharp title="App1/App1/services/AlertService.cs"
+```cs title="App1/App1/services/AlertService.cs"
 using App1.Services.AlertService;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Services;
@@ -50,7 +50,7 @@ The two key components of this snippet are the `[assembly: Service(...)]` tag an
 3. Create a class `Services/AlertOperations` under the platform agnostic project.
 4. In the file, add a new class `AlertOperations` and register it with Autofac.
 
-```csharp title="App1/App1/services/AlertOperations.cs"
+```cs title="App1/App1/services/AlertOperations.cs"
 using App1.Services.AlertOperations;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
@@ -85,14 +85,14 @@ An Operation is defined in the class that extends `OperationsBase`. In our examp
 
 -   An `IVoidOperation` produces no output, and optionally takes an input.
 
-```csharp
+```cs
 public IVoidOperation NoInputNoOutput => GetVoidOperation("fire.phasers");
 public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Temperature>("tea.earl-grey");
 ```
 
 -   An `IOperation` produces an output, and optionally takes an input.
 
-```csharp
+```cs
 public IOperation<Mischief> NoInputSomeOutput => GetOperation<Mischief>("q.appear");
 public IOperation<Deuterium, WarpSpeed> SomeInputSomeOutput => GetOperation<Deuterium, WarpSpeed>("warp-drive.engage");
 ```
@@ -103,7 +103,7 @@ Operation names in Geocortex Mobile generally take the format `<category>.<name>
 
 For this example, let's define a operation with some input and no output.
 
-```csharp
+```cs
 class AlertOperations : OperationsBase
 {
     // highlight-next-line
@@ -122,7 +122,7 @@ Next, we need to register an implementation for our operation in the `AlertServi
 
 1. Add a public constructor that takes an `AlertOperations` to the Service.
 
-```csharp
+```cs
     [assembly: Service(typeof(Service), PropertiesAutowired = true)]
     class AlertService : ServiceBase
     {
@@ -139,7 +139,7 @@ We never have to explicitly pass this property because Autofac will automaticall
 
 2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
 
-```csharp
+```cs
 [assembly: Service(typeof(AlertService))]
 namespace App1.Services
 {
@@ -196,7 +196,7 @@ Although it is best practice to define an operations class that extends `Operati
 This pattern can be useful for registering dynamically generated commands or implementations.
 :::
 
-```csharp title="App1/App1/services/AlertService"
+```cs title="App1/App1/services/AlertService"
 using App1.Services;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;

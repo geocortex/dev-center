@@ -14,7 +14,7 @@ Geocortex Mobile relies heavily on inversion of control patterns to inject depen
 
 A good example of this pattern is the `AlertOperations` class in the [commands and operation](tutorial-implement-command-operation.mdx) use case.
 
-```csharp
+```cs
 using App1.Services.AlertOperations;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
@@ -39,7 +39,7 @@ namespace App1.Services.AlertOperations
 
 This is an example of a class that injects `AlertOperations`, which will in turn inject an `IOperationRegistry` into itself.
 
-```csharp
+```cs
 [assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
 namespace App1.Services
 {
@@ -71,7 +71,7 @@ There's a number of different Geocortex Mobile specific assembly attributes whic
 
 Used for registering a generic class with Autofac.
 
-```csharp
+```cs
 [assembly: Export(typeof(MyCustomClass))]
 ```
 
@@ -79,7 +79,7 @@ Used for registering a generic class with Autofac.
 
 Used for registering a component that **does not** consume configuration. For a more detailed example, see the use case on [implementing a custom component](tutorial-implement-component-with-ui.mdx#create-a-component-skeleton).
 
-```csharp
+```cs
 [assembly: Component(typeof(MyCustomComponent), "my-custom-component")]
 ```
 
@@ -87,7 +87,7 @@ Used for registering a component that **does not** consume configuration. For a 
 
 Used for registering a component that **does** consume configuration. For a more detailed example, see the use case on [implementing a custom component with configuration](tutorial-implement-component-participate-app-config.mdx#consume-the-configuration-in-the-component).
 
-```csharp
+```cs
 [assembly: AppItemComponent(typeof(MyCustomComponent), "my-custom-component", MyCustomComponentConfiguration.ConfigItemtype)]
 ```
 
@@ -95,7 +95,7 @@ Used for registering a component that **does** consume configuration. For a more
 
 Used for registering a service. For a more detailed example, see the use case on [implementing a custom service](tutorial-implement-service.mdx#create-a-new-service).
 
-```csharp
+```cs
 [assembly: Service(typeof(CustomService))]
 ```
 
@@ -103,7 +103,7 @@ Used for registering a service. For a more detailed example, see the use case on
 
 Used for registering the definition for an [app item](configuration-app-config.mdx#anatomy-of-an-app-config) with Geocortex Mobile. For a more detailed example, see the use case on [implementing a custom component with app configuration](tutorial-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
 
-```csharp
+```cs
 [assembly: AppItem(CustomAppItem.AppItemType, typeof(CustomAppItem))]
 ```
 
@@ -111,7 +111,7 @@ Used for registering the definition for an [app item](configuration-app-config.m
 
 Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#use-xaml-to-define-your-ui).
 
-```csharp
+```cs
 [assembly: View(typeof(CustomView))]
 ```
 
@@ -119,7 +119,7 @@ Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-f
 
 Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#example-progress-bar).
 
-```csharp
+```cs
 [assembly: ViewModel(typeof(CustomViewModel))]
 ```
 

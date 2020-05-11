@@ -32,7 +32,7 @@ Implementing a custom form element in Geocortex Mobile consists of three steps:
 1. Create a new file `CustomFormElement` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-getting-started.mdx).
 2. Add a new skeleton form element that implements `FormComponent`.
 
-```csharp
+```cs
 using Geocortex.Workflow.Forms.Components;
 using Xamarin.Forms;
 
@@ -69,7 +69,7 @@ Only one form element registration activity is needed per app, as it can registe
 Learn more about [implementing custom activities](usecases-mobile-implement-custom-activity.mdx).
 :::
 
-```csharp
+```cs
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Activities.App;
 using System.Collections.Generic;
@@ -95,7 +95,7 @@ namespace App1.Workflow
 
 Register the `RegisterCustomFormElementBase` class in the [`IActivityHandlerFactory` for the application](usecases-mobile-implement-custom-activity.mdx#register-the-activity-with-the-iactivityhandlerfactory).
 
-```csharp
+```cs
 public class ActivityLoader : IActivityHandlerFactory
 {
     public ActivityLoader()
@@ -221,7 +221,7 @@ This example demonstrates a form element that displays an enhanced activity indi
   ]}>
 <TabItem value="custom-form-element">
 
-```csharp
+```cs
 using Geocortex.Mobile.Infrastructure.UI;
 using Geocortex.Workflow.Forms.Components;
 
@@ -257,7 +257,7 @@ namespace App1.Workflow
 </TabItem>
 <TabItem value="form-element-registration">
 
-```csharp
+```cs
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Activities.App;
 using System.Collections.Generic;
@@ -282,7 +282,7 @@ namespace App1.Workflow
 </TabItem>
 <TabItem value="activity-loader">
 
-```csharp
+```cs
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -349,7 +349,7 @@ Built-in Geocortex Workflow Form elements can raise [events](https://docs.geocor
 
 The follow custom form element demonstrates how various form events can be raised.
 
-```csharp
+```cs
 using Geocortex.Workflow.Forms.Components;
 using Xamarin.Forms;
 
@@ -418,7 +418,7 @@ namespace App1.Workflow
 
 A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `this.Element` object to expose that value to the form.
 
-```csharp
+```cs
 class CustomFormElement : FormComponent
 {
     ...

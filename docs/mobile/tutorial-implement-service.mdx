@@ -20,7 +20,7 @@ Implementing a custom service in Geocortex Mobile allows you to implement logic 
 Create a new file `services/CustomService.cs` under the platform agnostic project.
 In the file, add a new component class `CustomService` and register it with [**Autofac**](TODO-link).
 
-```csharp title="App1/App1/services/CustomService.cs"
+```cs title="App1/App1/services/CustomService.cs"
 using App1.Services;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Services;
@@ -65,7 +65,7 @@ All services should dispose of long held memory or other resources by implementi
 }>
 <TabItem value="service">
 
-```csharp title="App1/App1/services/CustomService.cs"
+```cs title="App1/App1/services/CustomService.cs"
 using App1.Operations;
 using App1.Services;
 using Geocortex.Mobile.Composition;
@@ -141,7 +141,7 @@ namespace App1.Services
 </TabItem>
 <TabItem value="operations">
 
-```csharp title="App1/App1/services/CustomOperations.cs"
+```cs title="App1/App1/services/CustomOperations.cs"
 using App1.Operations;
 using Geocortex.Mobile.Composition;
 using Geocortex.Mobile.Composition.Messaging;
