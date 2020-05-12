@@ -165,7 +165,33 @@ You can find out what arguments a command or operation takes in the [commands an
 
 If you do not pass explicit arguments, then implicit arguments will be passed to the command or operation. Implicit arguments come from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) that a command or operation is running in, or from a previous operation in the command chain
 
-For example, let's look at the configuration for the `featureActions` and `onFeatureClick` properties of a `<results-list>` component model.
+For example, let's look at the configuration for the `onFeatureClick` property of a `<results-list>` component model.
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "id": "results-list",
+            "$type": "results",
+            // highlight-next-line
+            "onFeatureClick": "results.display-details"
+        },
+        ...
+    ]
+}
+```
+
+In this example, the context is an item in the results list, so `results.display-details` will receive an argument with a `Features` property, which is the shape of argument it needs.
+
+Arguments are also passed implicitly if you create a command chain, which runs operations one after the other.
+
+## Command Chains
+
+App config properties that accept a command or operation can take a single operation or they can take a **command chain**. Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex chains of behavior.
+
+For example, here's configuration for the various behaviors of a `<results-list>` component.
 
 ```json
 {
