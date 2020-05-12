@@ -214,7 +214,6 @@ module.exports = {
                     ],
                 },
                 "mobile/configuration-commands-operations",
-                "mobile/configuration-events",
                 {
                     type: "category",
                     label: "Tutorials",
@@ -255,6 +254,8 @@ module.exports = {
                         "mobile/sdk-components-overview",
                         "mobile/sdk-create-component",
                         "mobile/sdk-component-reference",
+                        "mobile/sdk-components-commands-operations",
+                        "mobile/sdk-component-interactions",
                         "mobile/sdk-viewmodel-helper-class",
                         "mobile/sdk-component-styling",
                     ],
@@ -266,6 +267,15 @@ module.exports = {
                         "mobile/sdk-services-overview",
                         "mobile/sdk-create-service",
                         "mobile/sdk-service-reference",
+                        "mobile/sdk-services-commands-operations",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Events",
+                    items: [
+                        "mobile/sdk-events-overview",
+                        "mobile/sdk-events-reference",
                     ],
                 },
                 "mobile/sdk-dependency-injection",

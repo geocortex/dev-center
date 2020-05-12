@@ -1,12 +1,17 @@
 ---
-title: Events
-description: Geocortex Mobile - Learn about event concepts
+title: Events Overview
+sidebar_label: Overview
+description: Geocortex Mobile - Overview of events
 ---
 
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 **Events** are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any [component, service](configuration-components-services.mdx) or [view](tutorial-implement-component-with-ui.mdx#use-xaml-to-define-your-ui) registered with Mobile, and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.
+
+Events are internal to Geocortex Mobile, so they can only be consumed by custom code. Custom components and services can access events through [dependency injection](TODO-link).
+
+The full list of existing events available in Geocortex Mobile can be [found in the API documentation](api-commands-operations-events.mdx#events).
 
 Events in Geocortex Mobile are grouped by categories, such as `app` or `geolocation`.
 
@@ -17,21 +22,24 @@ geolocation.position-changed
 geolocation.position-lost
 ```
 
-Events can publish custom arguments with information about the change they are communicating. The full list of existing events available in Geocortex Mobile can be [found in the API](api-commands-operations-events.mdx#events).
+Events can publish custom arguments with information about the change they are communicating.
 
-## Usage
-
-Events are internal to the Geocortex Mobile SDK, so they can only be consumed by custom code. Any [Custom Component](tutorial-implement-component-with-ui.mdx) or [Custom Service](tutorial-implement-service.mdx) can publish or subscribe to built-in or custom events.
+## Next Steps
 
 <UseCaseContainer>
     <UseCaseCard
-        title="Implementing Custom Events"
-        description="Learn how to implement a custom Event."
-        link="tutorial-implement-event"
+        title="Subscribing to Existing Events"
+        description="Learn how to subscribe to an existing event"
+        link="tutorial-events-subscribe"
     />
     <UseCaseCard
         title="Events API"
-        description="Check out the full list of Events available in Geocortex Mobile."
+        description="Check out the full list of Events available in Geocortex Web"
         link="api-commands-operations-events#events"
+    />
+    <UseCaseCard
+        title="Implementing Custom Events"
+        description="Learn how to implement a custom Event."
+        link="sdk-events-reference#creating-custom-events"
     />
 </UseCaseContainer>
