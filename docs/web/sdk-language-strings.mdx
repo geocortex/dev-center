@@ -3,6 +3,8 @@ title: Language Strings
 description: Geocortex Web - Learn about internationalization and language strings in Geocortex Web
 ---
 
+<!-- cSpell:ignore Latn -->
+
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import TranslationCallout from "./snippets/translation-callout.mdx";
 
@@ -38,10 +40,6 @@ By convention, these files are named after the locale they represent. For exampl
 
 All language resource files need to be registered with the SDK before they can be used.
 
-:::note
-Geocortex Web uses two letter language codes to identify locales. See the [ISO 639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for a full list of possible locales.
-:::
-
 ```ts title="src/index.ts"
 ...
 import enJson from "./en.json";
@@ -57,3 +55,15 @@ export default function (registry: LibraryRegistry) {
 ```
 
 Once a set of language strings has been registered, they can be used [in the app config](configuration-app-config-reference.mdx#internationalization) or in [custom components](sdk-components-internationalization.mdx).
+
+## Supported Locales
+
+Geocortex Web has full language tag support as specified in the [WC3 spec](https://www.w3.org/International/questions/qa-choosing-language-tags#regionsubtag). The casing of a language tag determines what is it parsed as.
+
+-   All lowercase tags like `de` are parsed as a language code.
+-   Region codes, like `de-AT` are uppercase.
+-   Script codes like `ru-Latn` are pascal cased.
+
+:::warning
+Regional locales will **not** be used as fallback locales for a language. This means that if a browser is configured in the `de` locale, but language strings are registered with the `de-AT` locale in Geocortex Web, the fallback translation, **not** `de-AT`, will be shown.
+:::
