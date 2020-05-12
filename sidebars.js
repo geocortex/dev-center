@@ -256,6 +256,7 @@ module.exports = {
                         "mobile/sdk-create-component",
                         "mobile/sdk-component-reference",
                         "mobile/sdk-viewmodel-helper-class",
+                        "mobile/sdk-component-styling",
                     ],
                 },
                 {

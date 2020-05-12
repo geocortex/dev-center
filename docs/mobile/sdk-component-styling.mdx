@@ -1,0 +1,13 @@
+TODO - this whole doc
+
+## Using Theme Colors in Custom Components
+
+When creating custom components, you may need to style your component. If you use the [Geocortex Mobile UI Elements](api-mobile-ui-elements.mdx) to style your XAML elements, your element will be themed automatically. If you need to use plain XAML elements, the various theming colors can be used in XAML styling.
+
+```xml
+<Style x:Key="InnerDetailsFrameStyle" TargetType="Frame">
+  ...
+  <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryBackgroundColor}"></Setter>
+  ...
+</Style>
+```

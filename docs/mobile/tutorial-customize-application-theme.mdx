@@ -5,12 +5,18 @@ description: Geocortex Mobile - Learn how to customize the look and feel of your
 
 import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 
-// TODO - revamp this article
+Geocortex Mobile's appearance is built around two concepts: theme and [layout](configuration-layout.mdx). The theme controls the color scheme of the app, while the layout controls the organization of content.
 
-Geocortex Mobile's appearance is defined by two concepts: theme and [layout](configuration-layout.mdx).
-
-The theme controls the color scheme of the app. The color scheme for different themes is defined in branding component of the the [app config](configuration-app-config.mdx). This example is built around [editing the app JSON of the Quickstart](sdk-edit-layout-app-config.mdx) project.
+:::tip
+The theme can be partially configured by using the [Geocortex Web Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4).
+:::
 
 ## Prerequisites
 
@@ -18,222 +24,269 @@ The theme controls the color scheme of the app. The color scheme for different t
 
 <TweakConfigLayoutSnippet />
 
-## Theming with the Branding Component
+## Create a Basic App
 
-This example shows two pre-defined themes that are included with Mobile, light and dark. Custom themes can be added to Mobile's included themes, and selected by changing `activeTheme` property of the branding component.
-The branding component can be found and edited in the [App Config](sdk-edit-layout-app-config.mdx).
+Let's create a basic application with layout and config that we can theme.
 
-:::note
-Color properties can be excluded from a theme; The application will choose a default color instead.
-:::
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="config">
 
-```json
+```json title="app/app.json"
 {
     "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
     "schemaVersion": "1.0",
     "items": [
-      ...
-      {
-        "$type": "branding",
-        "id": "branding",
-        "activeTheme": "light",
-        "themes": [
-          {
-            "id": "dark",
-            "colors": {
-              "emphasizedButtonBackground": [ 26, 114, 196, 255 ],
-              "emphasizedButtonBackgroundDisabled": [ 137, 184, 228, 255 ],
-              "emphasizedButtonBackgroundHover": [ 227, 239, 249, 255 ],
-              "emphasizedButtonBorder": [ 181, 211, 238, 255 ],
-              "emphasizedButtonBorderDisabled": [ 19, 85, 147, 255 ],
-              "emphasizedButtonBorderHover": [ 26, 114, 196, 255 ],
-              "emphasizedButtonForeground": [ 255, 255, 255, 255 ],
-              "emphasizedButtonForegroundDisabled": [ 19, 85, 147, 255 ],
-              "emphasizedButtonForegroundHover": [ 23, 100, 171, 255 ],
-              "emphasizedButtonIcon": [ 255, 255, 255, 255 ],
-              "emphasizedButtonIconDisabled": [ 19, 85, 147, 255 ],
-              "emphasizedButtonIconHover": [ 26, 114, 196, 255 ],
-              "buttonBackground": [ 64, 64, 68, 255 ],
-              "buttonBackgroundDisabled": [ 114, 114, 121, 255 ],
-              "buttonBackgroundHover": [ 255, 255, 255, 255 ],
-              "buttonBorder": [ 196, 196, 201, 255 ],
-              "buttonBorderDisabled": [ 173, 173, 180, 255 ],
-              "buttonBorderHover": [ 26, 114, 196, 255 ],
-              "buttonForeground": [ 255, 255, 255, 255 ],
-              "buttonForegroundDisabled": [ 196, 196, 201, 255 ],
-              "buttonForegroundHover": [ 26, 114, 196, 255 ],
-              "buttonIcon": [ 255, 255, 255, 255 ],
-              "buttonIconDisabled": [ 196, 196, 201, 255 ],
-              "buttonIconHover": [ 26, 114, 196, 255 ],
-              "inputBorder": [ 196, 196, 201, 255 ],
-              "primaryAccent": [ 227, 239, 249, 255 ],
-              "primaryAccentDisabled": [ 130, 130, 138, 255 ],
-              "primaryAccentHover": [ 196, 196, 201, 255 ],
-              "primaryAccentLarge": [ 137, 184, 228, 255 ],
-              "primaryBackground": [ 81, 81, 86, 255 ],
-              "primaryBorder": [ 114, 114, 121, 255 ],
-              "primaryForeground": [ 255, 255, 255, 255 ],
-              "primaryForegroundDisabled": [ 130, 130, 138, 255 ],
-              "secondaryBackground": [ 64, 64, 68, 255 ],
-              "secondaryBorder": [ 97, 97, 103, 255 ],
-              "secondaryForeground": [ 196, 196, 201, 255 ],
-              "tabPrimaryForeground": [ 196, 196, 201, 255 ],
-              "tabSecondaryForeground": [ 255, 255, 255, 255 ],
-              "inlineTableHeaderBackground": [ 64, 64, 68, 255 ],
-              "inlineTableRowBackground": [ 97, 97, 103, 255 ],
-              "inlineTableBorder": [ 130, 130, 138, 255 ],
-              "accentIconBackground": [ 255, 255, 255, 255 ],
-              "accentIconForeground": [ 26, 114, 196, 255 ],
-              "accentIconBackgroundHover": [ 255, 255, 255, 255 ],
-              "accentIconBorder": [ 255, 255, 255, 255 ],
-              "accentIconBorderHover": [ 255, 255, 255, 255 ],
-              "accentIconForegroundHover": [ 26, 114, 196, 255 ],
-              "disabledIconFill": [ 130, 130, 138, 255 ],
-              "alertAmberBackground": [ 191, 83, 0, 255 ],
-              "alertAmberBackgroundHover": [ 255, 255, 255, 255 ],
-              "alertAmberBorder": [ 191, 83, 0, 255 ],
-              "alertAmberBorderHover": [ 191, 83, 0, 255 ],
-              "alertAmberForeground": [ 255, 255, 255, 255 ],
-              "alertAmberForegroundHover": [ 191, 83, 0, 255 ],
-              "alertAmberIcon": [ 255, 255, 255, 255 ],
-              "alertAmberIconHover": [ 191, 83, 0, 255 ],
-              "alertBackgroundDisabled": [ 114, 114, 121, 255 ],
-              "alertBorderDisabled": [ 114, 114, 121, 255 ],
-              "alertForegroundDisabled": [ 196, 196, 201, 255 ],
-              "alertIconDisabled": [ 196, 196, 201, 255 ],
-              "alertGreenBackground": [ 0, 128, 64, 255 ],
-              "alertGreenBackgroundHover": [ 255, 255, 255, 255 ],
-              "alertGreenBorder": [ 0, 128, 64, 255 ],
-              "alertGreenBorderHover": [ 0, 128, 64, 255 ],
-              "alertGreenForeground": [ 255, 255, 255, 255 ],
-              "alertGreenForegroundHover": [ 0, 128, 64, 255 ],
-              "alertGreenIcon": [ 255, 255, 255, 255 ],
-              "alertGreenIconHover": [ 0, 128, 64, 255 ],
-              "alertRedBackground": [ 178, 34, 34, 255 ],
-              "alertRedBackgroundHover": [ 255, 255, 255, 255 ],
-              "alertRedBorder": [ 178, 34, 34, 255 ],
-              "alertRedBorderHover": [ 178, 34, 34, 255 ],
-              "alertRedForeground": [ 255, 255, 255, 255 ],
-              "alertRedForegroundHover": [ 178, 34, 34, 255 ],
-              "alertRedIcon": [ 255, 255, 255, 255 ],
-              "alertRedIconHover": [ 178, 34, 34, 255 ],
-              "itemSelectedBackground": [ 16, 71, 122, 255 ],
-              "itemHoverBackground": [ 26, 114, 196, 255 ]
-            }
-          },
-          {
-            "id": "light",
-            "colors": {
-              "emphasizedButtonBackground": [ 26, 114, 196, 255 ],
-              "emphasizedButtonBackgroundDisabled": [ 181, 211, 238, 255 ],
-              "emphasizedButtonBackgroundHover": [ 227, 239, 249, 255 ],
-              "emphasizedButtonBorder": [ 26, 114, 196, 255 ],
-              "emphasizedButtonBorderDisabled": [ 181, 211, 238, 255 ],
-              "emphasizedButtonBorderHover": [ 26, 114, 196, 255 ],
-              "emphasizedButtonForeground": [ 255, 255, 255, 255 ],
-              "emphasizedButtonForegroundDisabled": [ 19, 85, 147, 255 ],
-              "emphasizedButtonForegroundHover": [ 19, 85, 147, 255 ],
-              "emphasizedButtonIcon": [ 255, 255, 255, 255 ],
-              "emphasizedButtonIconDisabled": [ 19, 85, 147, 255 ],
-              "emphasizedButtonIconHover": [ 26, 114, 196, 255 ],
-              "buttonBackground": [ 255, 255, 255, 255 ],
-              "buttonBackgroundDisabled": [ 219, 219, 222, 255 ],
-              "buttonBackgroundHover": [ 26, 114, 196, 255 ],
-              "buttonBorder": [ 114, 114, 121, 255 ],
-              "buttonBorderDisabled": [ 173, 173, 180, 255 ],
-              "buttonBorderHover": [ 255, 255, 255, 255 ],
-              "buttonForeground": [ 26, 114, 196, 255 ],
-              "buttonForegroundDisabled": [ 151, 151, 159, 255 ],
-              "buttonForegroundHover": [ 255, 255, 255, 255 ],
-              "buttonIcon": [ 26, 114, 196, 255 ],
-              "buttonIconHover": [ 255, 255, 255, 255 ],
-              "buttonIconDisabled": [ 151, 151, 159, 255 ],
-              "inputBorder": [ 114, 114, 121, 255 ],
-              "primaryAccent": [ 26, 114, 196, 255 ],
-              "primaryAccentDisabled": [ 151, 151, 159, 255 ],
-              "primaryAccentHover": [ 114, 114, 121, 255 ],
-              "primaryAccentLarge": [ 26, 114, 196, 255 ],
-              "primaryBackground": [ 255, 255, 255, 255 ],
-              "primaryBorder": [ 219, 219, 222, 255 ],
-              "primaryForeground": [ 64, 64, 68, 255 ],
-              "primaryForegroundDisabled": [ 196, 196, 201, 255 ],
-              "secondaryBackground": [ 242, 242, 243, 255 ],
-              "secondaryBorder": [ 196, 196, 201, 255 ],
-              "secondaryForeground": [ 81, 81, 86, 255 ],
-              "tabPrimaryForeground": [ 26, 114, 196, 255 ],
-              "tabSecondaryForeground": [ 64, 64, 68, 255 ],
-              "inlineTableHeaderBackground": [ 219, 219, 222, 255 ],
-              "inlineTableRowBackground": [ 242, 242, 243, 255 ],
-              "inlineTableBorder": [ 196, 196, 201, 255 ],
-              "accentIconBackground": [ 255, 255, 255, 255 ],
-              "accentIconForeground": [ 26, 114, 196, 255 ],
-              "accentIconBackgroundHover": [ 255, 255, 255, 255 ],
-              "accentIconBorder": [ 114, 114, 121, 255 ],
-              "accentIconBorderHover": [ 114, 114, 121, 255 ],
-              "accentIconForegroundHover": [ 26, 114, 196, 255 ],
-              "disabledIconFill": [ 130, 130, 138, 255 ],
-              "alertAmberBackground": [ 191, 83, 0, 255 ],
-              "alertAmberBackgroundHover": [ 255, 255, 255, 255 ],
-              "alertAmberBorder": [ 191, 83, 0, 255 ],
-              "alertAmberBorderHover": [ 191, 83, 0, 255 ],
-              "alertAmberForeground": [ 255, 255, 255, 255 ],
-              "alertAmberForegroundHover": [ 191, 83, 0, 255 ],
-              "alertAmberIcon": [ 255, 255, 255, 255 ],
-              "alertAmberIconHover": [ 191, 83, 0, 255 ],
-              "alertBackgroundDisabled": [ 219, 219, 222, 255 ],
-              "alertBorderDisabled": [ 219, 219, 222, 255 ],
-              "alertForegroundDisabled": [ 151, 151, 159, 255 ],
-              "alertIconDisabled": [ 151, 151, 159, 255 ],
-              "alertGreenBackground": [ 0, 128, 64, 255 ],
-              "alertGreenBackgroundHover": [ 255, 255, 255, 255 ],
-              "alertGreenBorder": [ 0, 128, 64, 255 ],
-              "alertGreenBorderHover": [ 0, 128, 64, 255 ],
-              "alertGreenForeground": [ 255, 255, 255, 255 ],
-              "alertGreenForegroundHover": [ 0, 128, 64, 255 ],
-              "alertGreenIcon": [ 255, 255, 255, 255 ],
-              "alertGreenIconHover": [ 0, 128, 64, 255 ],
-              "alertRedBackground": [ 178, 34, 34, 255 ],
-              "alertRedBackgroundHover": [ 255, 255, 255, 255 ],
-              "alertRedBorder": [ 178, 34, 34, 255 ],
-              "alertRedBorderHover": [ 178, 34, 34, 255 ],
-              "alertRedForeground": [ 255, 255, 255, 255 ],
-              "alertRedForegroundHover": [ 178, 34, 34, 255 ],
-              "alertRedIcon": [ 255, 255, 255, 255 ],
-              "alertRedIconHover": [ 178, 34, 34, 255 ],
-              "itemSelectedBackground": [ 227, 239, 249, 255 ],
-              "itemHoverBackground": [ 137, 184, 228, 255 ]
-            }
-          }
-        ]
-      },
-      ...
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "tasks.identify",
+                "results.display",
+                "map.zoom-to-features"
+            ],
+            "webMap": "0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus"
+        },
+        {
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
+                }
+            ],
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ]
+        }
     ]
 }
 ```
 
-## Using Theme Colors in Custom Components
+</TabItem>
+<TabItem value="layout">
 
-When creating custom components, you may need to style your component. If you use the [Geocortex Mobile UI Elements](api-mobile-ui-elements.mdx) to style your XAML elements, your element will be themed automatically. If you need to use plain XAML elements, the various theming colors can be used in XAML styling.
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+	xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<gxm:taskbar id="taskbar" orientation="vertical">
+		<map config="default" slot="main"/>
+		<panel>
+			<results-list config="results" />
+			<feature-details config="feature-details"/>
+		</panel>
+	</gxm:taskbar>
+</layout>
 
-```xml
-<Style x:Key="InnerDetailsFrameStyle" TargetType="Frame">
-  ...
-  <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryBackgroundColor}"></Setter>
-  ...
-</Style>
 ```
 
-## Changing the Visual Layout of an Application
+</TabItem>
+</Tabs>
 
-An app's layout defines how elements are visually organized in a Geocortex Mobile Application. [This article](configuration-layout.mdx) will teach you how to configure an app's layout and how to leverage it to customize the appearance of Geocortex Mobile. Further styling within the layout can be done using [presentation attributes](api-layout.mdx#presentation-attributes).
+## Add Configuration for the Branding Service
 
-## Changing or Adding Icons
+Next, we are going to add an app item to configure the Branding Service, which [manages application theming](configuration-theme.mdx).
 
-### Coming Soon...
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        // highlight-start
+        {
+            "$type": "branding",
+            "id": "branding"
+        },
+        // highlight-end
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "tasks.identify",
+                "results.display",
+                "map.zoom-to-features"
+            ],
+            "webMap": "0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus"
+        },
+        {
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
+                }
+            ],
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ]
+        }
+    ]
+}
+```
 
-<!-- ### Example
+## Add a New Theme
 
-TODO: Icons - specific example with the Quickstart? -->
+The branding service can be configured with a list of themes. Let's configure our branding service with a new theme with that has a custom background color.
+
+You can customize the theme by changing any of the [built-in color keys](configuration-theme.mdx#theme-color-reference) used for themes.
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "branding",
+            "id": "branding",
+            // highlight-start
+            "activeTheme": "custom-theme",
+            "themes": [
+                {
+                    "id": "custom-theme",
+                    "colors": {
+                        "primaryBackground": [50, 153, 168, 255]
+                    }
+                }
+            ]
+            // highlight-end
+        },
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "tasks.identify",
+                "results.display",
+                "map.zoom-to-features"
+            ],
+            "webMap": "0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus"
+        },
+        {
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
+                }
+            ],
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-customize-theme-blue.png")}/>
+</TabItem>
+</Tabs>
 
 ## Relevant SDK Samples
 
