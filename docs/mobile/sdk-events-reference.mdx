@@ -3,6 +3,8 @@ title: Events Reference
 description: Geocortex Mobile - Events Reference
 ---
 
+import CleanupHandlesSnippet from "./snippets/cleanup-handles.mdx";
+
 Events can be published, subscribed, or created by an custom service, component model, or component.
 
 ## Publishing Events
@@ -43,9 +45,7 @@ Events can be subscribed to by calling the `.subscribe` method on the event obje
 
 In both components and services, event objects are access by injecting the event reference class.
 
-:::important
-It is vital that the event handles are cleaned up when the object is cleaned up, otherwise dangling references can occur. This can be done by implementing the `IDisposable` and `IDisposableTracker` interface, and then providing `this` as the second argument to a call to subscribe.
-:::
+<CleanupHandlesSnippet />
 
 ```cs
 public class CustomServiceOrComponent : ServiceBase, IDisposable, IDisposableTracker

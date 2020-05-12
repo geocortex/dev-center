@@ -1,0 +1,3 @@
+:::important
+It is vital that subscription handles are cleaned up when the object is cleaned up, otherwise dangling references can occur. This can be done by implementing the `IDisposable` and `IDisposableTracker` interface, and then providing `this` as the second argument to a call to subscribe.
+:::
