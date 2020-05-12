@@ -254,7 +254,6 @@ module.exports = {
                         "mobile/sdk-components-overview",
                         "mobile/sdk-create-component",
                         "mobile/sdk-component-reference",
-                        "mobile/sdk-component-interactions",
                         "mobile/sdk-viewmodel-helper-class",
                         "mobile/sdk-component-styling",
                     ],
@@ -268,7 +267,6 @@ module.exports = {
                         "mobile/sdk-service-reference",
                     ],
                 },
-                "mobile/sdk-commands-operations",
                 {
                     type: "category",
                     label: "Events",
@@ -277,7 +275,9 @@ module.exports = {
                         "mobile/sdk-events-reference",
                     ],
                 },
+                "mobile/sdk-commands-operations",
                 "mobile/sdk-dependency-injection",
+                "mobile/sdk-component-service-interactions",
                 "mobile/sdk-memory-leaks",
                 {
                     type: "category",
