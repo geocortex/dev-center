@@ -3,6 +3,9 @@ title: Dependency Injection
 description: Geocortex Mobile - Learn about dependency injection in Geocortex Mobile
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 :::tip
 If you are new to the concepts of **inversion of control** and **dependency injection**, check out [this article by Martin Fowler](https://martinfowler.com/articles/injection.html).
 :::
@@ -125,7 +128,46 @@ Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xam
 
 ## Managing Sub-Dependencies
 
-TODO - article on how to pass dependencies down
+Sometimes, you may may want to split code associated with a component or service into multiple classes for individual views, utility functions, etc. Each of these classes may have dependencies on global classes registered with Autofac, such as operations, but only the registered component is instantiated by dependency injection, so only the component class can inject these global classes. One solution is to have the component class inject all the dependencies of it's associated classes and pass them to the class constructors, but this pattern introduces unnecessary boilerplate and coupling. Instead, if the component class creates instances of associated classes through dependency injection, then Autofac will automatically resolve any dependencies the associated class has.
+
+In the example below, the `RelatedClass` has a global dependency, `MapOperations`. In order to resolve this dependency, the `CustomComponent` creates an instance of the `RelatedClass` through dependency injection.
+
+:::tip
+Autofac allows for the injection of [factory functions for classes, partially resolved class constructors, and more](https://autofaccn.readthedocs.io/en/latest/resolve/relationships.html#supported-relationship-types).
+:::
+
+<Tabs
+  defaultValue="related"
+  values={[
+    { label: "Related Class", value: "related" },
+    { label: "Component", value: "component" },
+  ]}>
+<TabItem value="related">
+
+```cs
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Infrastructure.Messaging;
+using Geocortex.Mobile.Samples.Samples.Custom.Component;
+
+// highlight-next-line
+[assembly: Export(typeof(RelatedClass))]
+namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+{
+    internal class RelatedClass
+    {
+        private MapOperations _mapOperations;
+
+        // highlight-next-line
+        public RelatedClass(MapOperations mapOperations)
+        {
+            _mapOperations = mapOperations;
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="component">
 
 ```cs
 using Geocortex.Mobile.Samples;
@@ -141,6 +183,7 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.Component
     {
         private RelatedClass _relatedClass;
 
+        // highlight-next-line
         public CustomComponent(RelatedClass relatedClass)
         {
             _relatedClass = relatedClass;
@@ -158,25 +201,8 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.Component
 }
 ```
 
-```cs
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Infrastructure.Messaging;
-using Geocortex.Mobile.Samples.Samples.Custom.Component;
-
-[assembly: Export(typeof(RelatedClass))]
-namespace Geocortex.Mobile.Samples.Samples.Custom.Component
-{
-    internal class RelatedClass
-    {
-        private MapOperations _mapOperations;
-
-        public RelatedClass(MapOperations mapOperations)
-        {
-            _mapOperations = mapOperations;
-        }
-    }
-}
-```
+</TabItem>
+</Tabs>
 
 ## Relevant SDK Sample
 
