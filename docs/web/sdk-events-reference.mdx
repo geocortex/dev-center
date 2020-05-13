@@ -1,0 +1,172 @@
+---
+title: Events Reference
+description: Geocortex Web - Events Reference
+---
+
+Events can be published, subscribed, or created by an custom service, component model, or component.
+
+## Publishing Events
+
+Events can be published by calling the `.publish` method on the event object.
+
+### Services
+
+Events are accessed in services through the `messages` property.
+
+```ts
+export default class CustomService extends ServiceBase {
+    customIdentify() {
+        // ... run a custom identify here.
+        this.messages.events.tasks.identified.publish(someFeatures);
+    }
+}
+```
+
+### Component Models
+
+Events are accessed in component models through the `messages` property.
+
+```ts
+export default class ExampleComponentModel extends ComponentModelBase {
+    customIdentify() {
+        // ... run a custom identify here.
+        this.messages.events.tasks.identified.publish(someFeatures);
+    }
+}
+```
+
+### Components
+
+Events in components are accessed through the [UIContext](sdk-ui-context.mdx#accessing-the-uicontext).
+
+```tsx
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    const { events } = useContext(UIContext);
+
+    const customIdentify = () => {
+        // ... run a custom identify here.
+        this.messages.events.tasks.identified.publish(someFeatures);
+    };
+
+    return (
+        <LayoutElement {...props}>
+            <p>Hello World</p>
+        </LayoutElement>
+    );
+}
+```
+
+## Subscribing to Events
+
+Events can be subscribed to by calling the `.subscribe` method on the event object.
+
+:::important
+It is vital that the event handles are cleaned up when the object is cleaned up, otherwise dangling references can occur.
+:::
+
+### Services
+
+Events are accessed in services through the `messages` property.
+
+```ts
+export default class CustomService extends ServiceBase {
+    handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+        this.handles.push(
+            this.messages.events.ui.activated.subscribe((id: string) => {
+                console.log(`Component '${id}' activated.`);
+            })
+        );
+    }
+
+    destroy(): void {
+        this.handles.forEach((handle) => handle.remove());
+    }
+}
+```
+
+### Component Models
+
+Events are accessed in component models through the `messages` property.
+
+```ts
+export default class ExampleComponentModel extends ComponentModelBase {
+    handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+        this.handles.push(
+            this.messages.events.ui.activated.subscribe((id: string) => {
+                console.log(`Component '${id}' activated.`);
+            })
+        );
+    }
+
+    destroy(): void {
+        this.handles.forEach((handle) => handle.remove());
+    }
+}
+```
+
+### Components
+
+Events in components are accessed through the [UIContext](sdk-ui-context.mdx#accessing-the-uicontext).
+
+:::tip
+If you need to subscribe to events in a component, it's best practice to use the [component hooks](sdk-component-hooks.mdx) instead of a `useEffect`, as the component hooks will automatically clean up the event handle.
+:::
+
+```tsx
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    const { events } = useContext(UIContext);
+
+    useSubscribe(events.ui.activated, (id: string) => {
+        console.log(`Component '${id}' activated.`);
+    });
+
+    return (
+        <LayoutElement {...props}>
+            <p>Hello World</p>
+        </LayoutElement>
+    );
+}
+```
+
+## Creating Custom Events
+
+Creating custom events is as simple as referencing the custom event by name and publishing or subscribing to it. This is because the logic of creating an event is abstracted away; if an event is referenced in a publish or subscribe call that doesn't exist yet, it will be automatically created.
+
+When the service calls the `this.messages.events("my.custom-event")`, this creates the event if it has not already been created. It can then be immediately subscribed to. Likewise, if the event has not been created, it will be when `this.messages.event<string>("my-custom-event").publish(...)` is called.
+
+```ts
+export default class CustomService extends ServiceBase {
+    handles: IHandle[] = [];
+
+    publishCustomEvent() {
+        // highlight-next-line
+        this.messages.event<string>("my-custom-event").publish("some argument");
+    }
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+        this.handles.push(
+            // highlight-next-line
+            this.messages
+                .event<string>("my-custom-event")
+                .subscribe((someArg: string) => {
+                    console.log(`Event published with arg: '${someArg}'`);
+                })
+        );
+    }
+
+    destroy(): void {
+        this.handles.forEach((handle) => handle.remove());
+    }
+}
+```

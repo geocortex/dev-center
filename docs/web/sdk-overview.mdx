@@ -1,6 +1,6 @@
 ---
 title: SDK Overview
-description: Geocortex Web - Learn about getting started with the Geocortex Web SDK
+description: Geocortex Web - Learn how to get started with the Geocortex Web SDK
 ---
 
 import DesignerCallout from "./snippets/designer-callout.mdx";
@@ -19,7 +19,33 @@ If you still think you need to use the Geocortex Web SDK, then let's get started
 
 ## Overview
 
-The Geocortex SDK provides a development toolkit for building custom [components](usecases-implement-component-with-ui.mdx), [services](usecases-implement-service.mdx), and more into a package that can be deployed to Geocortex Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises environment.
+The Geocortex Web SDK provides a development toolkit for building [custom components](sdk-create-component.mdx), [services](sdk-create-service.mdx), and more into a package that can be deployed to Geocortex Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises environment.
+
+## Extension Points
+
+There are three main extension points in the SDK:
+
+### Components
+
+Components power the UI experience of Geocortex Web. Components are composed of a React Component and a backing data model. Layout files are composed of a nested hierarchy of components which are instantiated at runtime.
+
+### Services
+
+Services provide the shared infrastructure and core logic that power app behavior. Services do not have an associated UI, and there is only one instance of a service per application.
+
+### Commands and Operations
+
+Commands and operations provide a framework for executing application wide behavior. Services and components can both run and implement commands and operations, allowing for interaction and consistent behavior without tight coupling. Commands and operations can also be run [in the app config](tutorial-configure-button-click.mdx) and by [Workflows](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm). This can allow you to [customize the behavior of built-in components](tutorial-change-default-behavior.mdx).
+
+## Application Interactions
+
+<!-- TODO-API links to components -->
+
+Components, services, and commands and operations interact to form a Geocortex Web Application.
+
+-   Services are used to implement application wide behavior, such as theming or authentication, and then expose that logic through commands and operations, such as `ui.set-theme` (implemented by the `BrandingService`) or `auth.sign` (implemented by the `AuthenticationService`).
+-   Components can run commands and operations to interact with services or other components. Components can also implement commands and operations to allow themselves to be affected by other services and components.
+-   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [model injection](sdk-component-interactions.mdx#importing-models) or [service injection](sdk-services-injecting-services.mdx).
 
 ## Requirements
 
@@ -41,7 +67,39 @@ The running development server automatically detects changes to your source file
 The created project contains a few important directories:
 
 1. The `src` directory, which contains your custom library code. We've included a sample component to get you started
-1. The `app` directory, which contains a minimal development application [layout and app config](concepts-key-concepts.mdx) to be used for testing your custom code before deployment to production
+1. The `app` directory, which contains a minimal development application [layout and app config](key-concepts.mdx) to be used for testing your custom code before deployment to production
+
+### Library Entry Point
+
+The Geocortex Web SDK compiles custom components, services, and commands and operations into a library. The library is defined by the registration function exported from `src/index.ts`. This registration code informs Geocortex Web about the components, services, and commands and operations in your library so that they can be referenced in the app config and layout.
+
+```ts title="src/index.ts"
+export default function (registry: LibraryRegistry) {
+    registry.registerService({
+        id: "custom-service",
+        getServiceType: () => CustomService,
+    });
+    registry.registerComponent({
+        name: "custom-component",
+        namespace: "your.custom.namespace",
+        getComponentType: () => CustomComponent as ComponentType,
+        itemType: "custom-component-model",
+        title: "Custom Component",
+    });
+    registry.registerModel({
+        getModelType: () => CustomComponentModel,
+        itemType: "custom-component-model",
+    });
+    registry.registerCommand("my.custom-command", {
+        serviceId: "custom-service",
+        executeMethodName: "_doSomething",
+    });
+    registry.registerOperation("my.custom-operation", {
+        serviceId: "custom-service",
+        executeMethodName: "_doAnotherThing",
+    });
+}
+```
 
 ## Development Patterns
 
@@ -64,12 +122,17 @@ You may need to rename the downloaded layout file to `layout.xml`.
 <UseCaseContainer>
     <UseCaseCard
         title="Create a Component"
-        description="Learn how to create a basic component."
+        description="Learn how to create a basic component"
         link="sdk-create-component"
     />
     <UseCaseCard
+        title="Create a Service"
+        description="Learn how to create a basic service"
+        link="sdk-create-service"
+    />
+    <UseCaseCard
         title="Deploy your Application"
-        description="Learn how to deploy your custom library, layout and app config."
+        description="Learn how to deploy your custom library, layout and app config"
         link="sdk-deployment"
     />
 </UseCaseContainer>

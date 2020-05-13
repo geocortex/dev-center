@@ -9,7 +9,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-The [Geocortex Web SDK](sdk-overview.mdx) project template includes an example of a custom [component](concepts-components-services.mdx#components) following our best practices. Creating a new custom component involves a few important steps:
+The [Geocortex Web SDK](sdk-overview.mdx) project template includes an example of a [custom component](sdk-create-component.mdx) following our best practices. Creating a new custom component involves a few important steps:
 
 1. [Create the component source file](#create-the-component)
 1. [Create the component model](#create-the-component-model)
@@ -42,7 +42,7 @@ export default ExampleComponent;
 
 ## Create the Component Model
 
-Next we need to create the [component model](concepts-components-services.mdx#component-models-and-configuration) that will be bound to the component we just created. This model will function as the underlying data source for the component.
+Next we need to create the [component model](sdk-component-reference.mdx#models) that will be bound to the component we just created. This model will function as the underlying data source for the component.
 
 :::tip
 It's best practice to use the model to define configurable or persistent state, and use the React state hooks for UI specific transient state, like an active selection.
@@ -165,9 +165,9 @@ You can now add the component to your `layout.xml` file and run the development 
 
 <UseCaseContainer>
     <UseCaseCard
-        title="Create a Service"
-        description="Learn how to create a basic service"
-        link="sdk-create-service"
+        title="Check out the Component Reference"
+        description="Take a deep dive into components in the Geocortex Web SDK"
+        link="sdk-component-reference"
     />
     <UseCaseCard
         title="Deploy your Component"
@@ -177,11 +177,11 @@ You can now add the component to your `layout.xml` file and run the development 
     <UseCaseCard
         title="Create a Component with a Complex UI"
         description="Follow along with a more in depth component example"
-        link="usecases-implement-component-with-ui"
+        link="tutorial-implement-component-with-ui"
     />
     <UseCaseCard
         title="Create a Component that Consumes App Config"
         description="Learn more about writing components that consume configuration values."
-        link="usecases-implement-component-participate-app-config"
+        link="tutorial-implement-component-participate-app-config"
     />
 </UseCaseContainer>

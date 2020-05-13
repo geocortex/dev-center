@@ -1,0 +1,124 @@
+---
+title: Commands and Operations in Services
+description: Geocortex Web - Learn how to implement and run commands and operations in services
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
+
+When writing custom services you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own [custom commands and operations](tutorial-implement-command-operation.mdx).
+
+## Running Commands and Operations
+
+Services can run commands and operations through the `messages` property.
+
+```ts
+export default class ExampleService extends ServiceBase {
+    protected async someMethod(): Promise<void> {
+        // highlight-next-line
+        const { commands, command, operations, operation } = this.messages;
+
+        // Execute a named, built-in, command.
+        commands.ui.setTheme.execute("dark");
+
+        // Execute a custom command by it's string ID. If you are executing
+        // a custom command with arguments, you must provide the correct generic typings.
+        command<string>("my-custom.command-that-takes-a-string").execute(
+            "some arg"
+        );
+
+        // Execute a named, built-in, operation.
+        const opResult = await operations.ui.confirm.execute({
+            message: "hey",
+        });
+
+        // Execute a custom operation by it's string ID.
+        // You must provide the correct generic typings <input, output>.
+        const customOpResult = await operation<string, boolean>(
+            "my-custom.operation-that-returns-a-bool"
+        ).execute("some arg");
+
+        return;
+    }
+}
+```
+
+## Implementing Commands and Operations
+
+Services can also register an implementation for any command or operation. The following service registers an implementation for a custom command that takes a `string` argument.
+
+:::note
+It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
+:::
+
+```tsx
+export interface CustomCommandArg {
+    someProp: string;
+}
+
+export default class ExampleService extends ServiceBase {
+    private _handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+
+        this._handles.push(
+            this.messages
+                .command<CustomCommandArg>("custom.my-command")
+                .register((arg: CustomCommandArg) => {
+                    console.log(
+                        `Executing 'custom.my-command' with argument '${arg.someProp}'`
+                    );
+                    return;
+                })
+        );
+    }
+
+    destroy(): void {
+        // Clean up event handlers.
+        this._handles.forEach((h) => h.remove());
+    }
+}
+```
+
+## Running Custom Commands
+
+You can run the custom commands or operations you define from another component, model, or service by locating them by ID and providing the appropriate type arguments.
+
+```ts
+export default class ExampleService extends ServiceBase {
+    async runCustomCommandsAndOperations(){
+         // highlight-start
+        await this.messages.command<CustomCommandArg>("custom.my-command").execute({ someProp: "some arg" );
+        // highlight-end
+
+        // highlight-start
+        const result = await this.messages.operation<InputArgType, OutputArgType>("custom.my-operation").execute({
+            some: "arg",
+        });
+        // highlight-end
+        ...
+    }
+    ...
+}
+```
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn about Service Interactions"
+        description="Learn about how services can directly interact through dependency injection"
+        link="sdk-services-injecting-services"
+    />
+    <UseCaseCard
+        title="Build a Custom Command with a Custom Service"
+        description="Follow a step by step guide to building a custom command with a custom service"
+        link="tutorial-implement-command-operation"
+    />
+</UseCaseContainer>

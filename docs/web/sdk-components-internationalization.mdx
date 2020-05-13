@@ -1,0 +1,60 @@
+---
+title: Internationalization
+description: Geocortex Web - Learn how to translate a components user facing text
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import TranslationCallout from "./snippets/translation-callout.mdx";
+
+<TranslationCallout />
+
+## Providing Language Strings for a Component
+
+When developing [custom components](sdk-create-component.mdx), user facing language strings are sometimes introduced. If these strings need to be translated, you can [register new language resource files](sdk-internationalization.mdx) with the appropriate translations.
+
+Language strings can be referenced by key in a custom component and either used with a Geocortex Web layout component, which will automatically translate them, or manually translated with the `translate` function on the [UIContext](sdk-ui-context.mdx).
+
+```tsx
+import React, { useContext } from "react";
+import { LayoutElement } from "@geocortex/web/components";
+// highlight-start
+import { UIContext } from "@geocortex/web/ui";
+import Typography from "@geocortex/web/ui/typography";
+// highlight-end
+
+export default function ComponentWithLanguageStrings(props) {
+    // highlight-next-line
+    const { translate } = useContext(UIContext);
+
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            // highlight-start // This component automatically translates the
+            language string.
+            <Typography variant="h1" text="language-some-component-string" />
+            // Manually translate the language key.
+            <h1>{translate("language-some-component-string")}</h1>
+            // highlight-end
+        </LayoutElement>
+    );
+}
+```
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn how to Define Language Strings"
+        description="Learn how to define and register language resources"
+        link="sdk-language-strings"
+    />
+    <UseCaseCard
+        title="Learn how to use Language Strings in App Config"
+        description="Learn how to use built-in or custom language strings in the app config"
+        link="configuration-app-config-reference#internationalization"
+    />
+</UseCaseContainer>

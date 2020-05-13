@@ -1,0 +1,74 @@
+---
+title: Subscribe to an Existing Event
+description: Geocortex Web - Learn how to create and subscribe to an existing Geocortex Web event
+---
+
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+
+Events can only be created, published, and subscribed to from within a custom service, component model, or component. This article will walk you through subscribing to the `ui.activated` event from within a custom service.
+
+## Prerequisites
+
+<PrereqsCustomCodeSnippet />
+
+## Create the Custom Service
+
+Create a custom service with an `_onInitialized` and `destroy` method.
+
+```ts title="src/services/CustomService.ts"
+import { ServiceBase } from "@geocortex/web/services";
+
+export default class CustomService extends ServiceBase {
+    handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+    }
+
+    destroy(): void {}
+}
+```
+
+## Register the Custom Service
+
+Register the custom service in `src/index.ts` and set it to load on startup.
+
+```ts title="src/index.ts"
+import { LibraryRegistry } from "@geocortex/web/config";
+import CustomService from "./services/CustomService";
+
+export default function (registry: LibraryRegistry) {
+    // highlight-start
+    registry.registerService({
+        id: "custom-service",
+        getServiceType: () => CustomService,
+        loadOnStartup: true,
+    });
+    // highlight-end
+}
+```
+
+## Subscribe to the Event
+
+Subscribe to the `ui.activated` event.
+
+```ts title="src/services/CustomService.ts"
+import { ServiceBase } from "@geocortex/web/services";
+
+export default class CustomService extends ServiceBase {
+    handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+        this.handles.push(
+            this.messages.events.ui.activated.subscribe((id: string) => {
+                console.log(`Component '${id}' activated.`);
+            })
+        );
+    }
+
+    destroy(): void {
+        this.handles.forEach((handle) => handle.remove());
+    }
+}
+```

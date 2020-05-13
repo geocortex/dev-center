@@ -1,0 +1,120 @@
+---
+title: Commands and Operations in Components
+description: Geocortex Web - Learn how to register and run commands and operations in custom components
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
+
+When writing custom components you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own [custom commands and operations](tutorial-implement-command-operation.mdx).
+
+## Running Commands and Operations
+
+Components can run commands and operations in two ways; through the component model, or through the React component.
+
+:::tip
+It is best practice to run commands and operations through the components model, and express the result through a change in the models data rendered by the component.
+:::
+
+### Command and Operations in a Model
+
+Commands and operations can be run through the `messages` property of the model.
+
+```ts
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase {
+    async displayConfirmDialog(){
+        const didConfirm = await this.messages.operations.ui.confirm.execute({
+            title: "Confirm me"
+        })
+        ...
+    }
+    ...
+}
+```
+
+### Command and Operations in a Component
+
+Commands and operations can be run through the [`UIContext` of a component](sdk-ui-context.mdx).
+
+```ts
+export default function CustomComponent(props) {
+    // highlight-next-line
+    const { operations, commands } = useContext(UIContext);
+
+    const displayConfirmDialog = async () => {
+        const result = await operations.ui.confirm.execute({
+            title: "Confirm Me",
+        });
+        ...
+    };
+    ...
+}
+```
+
+## Implementing Commands and Operations
+
+Components can also register an implementation for any command or operation. This allows the creation of commands which can affect the UI. When registering a command implementation for a component, you have to register the implementation in the [component's model](sdk-component-reference.mdx#models). The following component model registers an implementation for a custom command that takes a `string` argument.
+
+:::note
+It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
+:::
+
+```tsx
+export interface CustomCommandArg {
+    someProp: string;
+}
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    private _handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+
+        this._handles.push(
+            this.messages
+                .command<CustomCommandArg>("custom.my-command")
+                .register((arg: CustomCommandArg) => {
+                    console.log(
+                        `Executing 'custom.my-command' with argument '${arg.someProp}'`
+                    );
+                    return;
+                })
+        );
+    }
+
+    destroy(): void {
+        super.destroy();
+
+        // Clean up event handlers.
+        this._handles.forEach((h) => h.remove());
+    }
+}
+```
+
+## Running Custom Commands
+
+You can run the custom commands or operations you define from another component, model, or service by locating them by ID and providing the appropriate type arguments.
+
+```ts
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase {
+    async runCustomCommandsAndOperations(){
+         // highlight-start
+        await command<CustomCommandArg>("custom.my-command").execute({ someProp: "some arg" });
+        // highlight-end
+
+        // highlight-start
+        const result = await operation<InputArgType, OutputArgType>("custom.my-operation").execute({
+            some: "arg",
+        });
+        // highlight-end
+        ...
+    }
+    ...
+}
+```

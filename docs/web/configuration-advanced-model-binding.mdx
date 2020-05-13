@@ -1,0 +1,150 @@
+---
+title: Advanced Model Binding
+description: Geocortex Web - Learn about advanced model binding with layout
+---
+
+Components often observe and modify the state of other components.
+Consider the following example:
+
+```xml
+<map>
+    <scalebar slot="bottom-left"/>
+</map>
+```
+
+The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map model to display its values.
+
+Components express this data dependency in the form of models that are marked as "imported" or "exported". If we know that the scale bar "imports" a particular type of model, and that the map "exports" the same type of model, we can resolve those dependencies simply by plugging exported models into the components that import them.
+
+```ts
+@exportModel
+export class MapModel implements ComponentModel {
+    // ... map stuff ...
+}
+
+export class ScaleBarModel implements ComponentModel {
+    @importModel("map-extension")
+    map: MapExtension | undefined;
+
+    // ... scale bar stuff ...
+}
+```
+
+When the system places the scale bar into the layout, it will attempt to satisfy any model imports declared by the component. By default, this happens by walking up the tree from the location of the component being slotted and simply finding the first ancestor that exports a model with the matching type, like in the basic example above.
+
+However, in the following example with two scale bars, how does each scale bar know which map model it corresponds to? Both are placed outside of a `<map>` component, and there are two possible map models to bind to.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <stack>
+      <split grow="1">
+        <map id="map-a" grow="1" margin="3"/>
+        <map id="map-b" grow="1" margin="3"/>
+      </split>
+      <split grow="1" valign="center" >
+          <scalebar id="a" grow="1" margin="3"/>
+          <scalebar id="b" grow="1" margin="3"/>
+      </split>
+    </stack>
+</layout>
+```
+
+We can explicitly bind each scale bar to the appropriate map with the `models` attribute. The `models` attribute will tell a component to look for an exported model on the component matched by the expression. In this example, the `models` attributes are looking for components with the `id` `map-a` and `map-b` respectively.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split>
+        <panel width="23" active="true">
+            <stack>
+                <split>
+                    <text text="Map A Scale Bar"></text>
+                    <scalebar id="a" models="#map-a"/>
+                </split>
+                <split>
+                    <text text="Map B Scale Bar"></text>
+                    <scalebar id="b" models="#map-b"/>
+                </split>
+            </stack>
+        </panel>
+        <map id="map-a"/>
+        <map id="map-b"/>
+    </split>
+</layout>
+```
+
+### Nested Model Imports
+
+In previous layout examples, layouts were shown where components related to a map, such as zoom buttons, were nested within a map. It was assumed that the component would bind to the map it was placed in, but why?
+
+```xml
+    <map config="map1" slot="main">
+      <stack margin="0.5" slot="bottom-right" halign="end">
+        <zoom margin="0.8"/>
+        <geolocate id="geolocator" margin="0.5" config="geolocate" />
+      </stack>
+    </map>
+```
+
+Certain components, such as `<zoom/>` or `<geolocate/>`, require a `Map Model` to function. To locate a `Map Model`, the layout tree hierarchy will be searched upwards, starting at the requesting component. When a element in the layout is found that provides the required model, (in this case, the `<map/>` component provides a Map Model), the requesting component will import the model. If the correct model is not found on an upwards search, a breadth first search will be performed from the root of the layout tree.
+
+Take this more complicated layout for example.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split resizable="true" width="26">
+        <map id="map-1" config="map-1" slot="main">
+            <iwtm config="iwtm" slot="top-right"/>
+            <stack margin="0.5" slot="bottom-right" halign="end">
+                <zoom margin="0.5"/>
+                <button config="measure-action" icon="measure" style="map-widget" margin="0.5"/>
+                <geolocate margin="0.5" config="geolocate" />
+            </stack>
+        </map>
+
+        <panel>
+            <stack>
+                <search config="search"/>
+                <results-list config="results" active="false" />
+            </stack>
+            <feature-details config="feature-details"/>
+        </panel>
+    </split>
+</layout>
+```
+
+This layout has a `<search>` component which requires the context of a specific map to function. However, this component is **not** nested within the `<map/>` component in the app. Therefore, it will start a breadth first search from the root of the layout to discover a map model and import it.
+
+### The `models` Attribute
+
+Sometimes, you can have multiple components that need to bind to the same model.
+
+```xml
+<split>
+    <panel id="left-panel">
+        <scalebar active="true" models="#map"/>
+        <results-list models="#map"/>
+        <legend models="#map"/>
+    </panel>
+    <map id="map" />
+</split>
+```
+
+To simplify this binding, we can take advantage of the default behavior of searching up the layout tree for the appropriate model and bind the map to the parent panel of the components which need to reference a map model.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <split>
+        // highlight-next-line
+        <panel id="left-panel" models="#map">
+            <scalebar active="true"/>
+            <results-list />
+            <legend />
+        </panel>
+        <map id="map" />
+    </split>
+</layout>
+```

@@ -42,6 +42,10 @@
     color: var(--ifm-color-secondary-darker);
 }
 
+.alert.alert--success a code {
+    --ifm-code-background: var(--ifm-color-success-darkest);
+}
+
 .stackSplitImage {
     max-width: 30em;
     height: auto;

@@ -1,0 +1,271 @@
+---
+title: Translate a Component's Text
+description: Geocortex Web - Learn how to internationalize a custom component
+---
+
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import TranslationCallout from "./snippets/translation-callout.mdx";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+<TranslationCallout />
+
+Custom components often provide user facing UI with some degree of text. You may want to define their text as language strings for multiple reasons.
+
+1. It allows the text be to translated or changed without a corresponding change in the component code.
+2. It allows the language strings to be shared across different components.
+3. It consolidates the language strings and makes them easier to locate.
+
+This article will cover creating a german and english translation for a custom component using language strings.
+
+## Prerequisites
+
+<PrereqsCustomCodeSnippet />
+
+## Create a Boilerplate Component
+
+First, we will start off with a component that uses a plain hard-coded text string in English.
+
+:::tip
+Learn more about how to [build custom components](sdk-create-component.mdx).
+:::
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: "Component", value: "component" },
+    { label: "Model", value: "model" },
+    { label: "Component Index", value: "index" },
+    { label: "Registration", value: "registration" },
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="component">
+
+```tsx title="src/components/TranslatableText/TranslatableText.tsx"
+import React from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import Typography from "@geocortex/web/ui/typography";
+
+export default function TranslatableText(props) {
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <Typography variant="h1">This text will be translated.</Typography>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/TranslatableText/TranslatableTextModel.ts"
+import { ComponentModelBase, serializable } from "@geocortex/web/models";
+
+@serializable
+class TranslatableTextModel extends ComponentModelBase {}
+
+export default TranslatableTextModel;
+```
+
+</TabItem>
+<TabItem value="index">
+
+```ts title="src/components/TranslatableText/index.ts"
+export { default } from "./TranslatableText";
+export { default as TranslatableTextModel } from "./TranslatableTextModel";
+```
+
+</TabItem>
+<TabItem value="registration">
+
+```ts title="src/index.ts"
+import { ComponentType } from "react";
+import { LibraryRegistry } from "@geocortex/web/config";
+import TranslatableText, {
+    TranslatableTextModel,
+} from "./components/TranslatableText";
+
+export default function (registry: LibraryRegistry) {
+    registry.registerComponent({
+        name: "translatable-text",
+        namespace: "your.custom.namespace",
+        getComponentType: () => TranslatableText as ComponentType,
+        itemType: "translatable-text",
+        title: "Translatable Text",
+    });
+    registry.registerModel({
+        getModelType: () => TranslatableTextModel,
+        itemType: "translatable-text",
+    });
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <map>
+        <custom:translatable-text slot="top-center" width="15" height="9" padding="0.5"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="src/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": []
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Creating the Language Resources
+
+Next, we are going to create the [language resources](sdk-internationalization.mdx) for English and German.
+
+<Tabs
+  defaultValue="english"
+  values={[
+    { label: "English", value: "english" },
+    { label: "German", value: "german" },
+  ]}>
+<TabItem value="english">
+
+```json title="src/en.json"
+{
+    "language-translatable-text-content": "I will be translated."
+}
+```
+
+</TabItem>
+<TabItem value="german">
+
+<!-- cspell:disable -->
+
+```json title="src/de.json"
+{
+    "language-translatable-text-content": "Dieser Text wird übersetzt."
+}
+```
+
+<!-- cspell:enable -->
+
+</TabItem>
+</Tabs>
+
+## Register the Language Resources
+
+Next we need to [register the language resources](sdk-internationalization.mdx#registering-language-resources) with Geocortex Web.
+
+```ts title="src/index.ts"
+import { ComponentType } from "react";
+import { LibraryRegistry } from "@geocortex/web/config";
+import TranslatableText, {
+    TranslatableTextModel,
+} from "./components/TranslatableText";
+// highlight-start
+import enJson from "./en.json";
+import deJson from "./de.json";
+// highlight-end
+
+export default function (registry: LibraryRegistry) {
+    registry.registerComponent({
+        name: "translatable-text",
+        namespace: "your.custom.namespace",
+        getComponentType: () => TranslatableText as ComponentType,
+        itemType: "translatable-text",
+        title: "Translatable Text",
+    });
+    registry.registerModel({
+        getModelType: () => TranslatableTextModel,
+        itemType: "translatable-text",
+    });
+    // highlight-start
+    registry.registerLanguageResources({
+        locale: "en",
+        getValues: () => enJson,
+    });
+    registry.registerLanguageResources({
+        locale: "de",
+        getValues: () => deJson,
+    });
+    // highlight-end
+}
+```
+
+## Use the Language Strings
+
+<!-- TODO-API link to Geocortex layout components -->
+
+Now that they have been registered, we can use the strings in our boilerplate component from earlier. Geocortex Web layout components, like `<Typography>`, will automatically detect and translate language keys like `language-translatable-text-content` in props and child content.
+
+If you need to manually translate a language key, you can use the [`useContext` react hook](https://reactjs.org/docs/hooks-reference.html#usecontext) with the [UIContext](sdk-ui-context.mdx) to access the `translate` function. Then you can pass the language key `language-translatable-text-content` you defined in the language resources files to the `translate` function and your text will be translated into whichever locale is most appropriate.
+
+:::tip
+To test out a translation, add the URL parameter `locale=<language>` to your local server.
+
+For example, `http://localhost:3000/?locale=de`
+:::
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: "Component", value: "component" },
+    { label: "English UI", value: "english" },
+    { label: "German UI", value: "german" },
+  ]}>
+<TabItem value="component">
+
+```tsx title="src/components/TranslatableText/TranslatableText.tsx"
+import React, { useContext } from "react";
+import { LayoutElement } from "@geocortex/web/components";
+// highlight-next-line
+import { UIContext } from "@geocortex/web/ui";
+import Typography from "@geocortex/web/ui/typography";
+
+export default function TranslatableText(props) {
+    // highlight-next-line
+    const { translate } = useContext(UIContext);
+
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            // highlight-start
+            <Typography
+                variant="h1"
+                text="language-translatable-text-content"
+            />
+            <h1>{translate("language-translatable-text-content")}</h1>
+            // highlight-end
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="english">
+<img src={useBaseUrl("img/web-translate-english.png")}/>
+</TabItem>
+<TabItem value="german">
+<img src={useBaseUrl("img/web-translate-german.png")}/>
+</TabItem>
+</Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Check out the Language String Reference"
+        description="Learn more about creating and registering language strings"
+        link="sdk-language-strings"
+    />
+</UseCaseContainer>

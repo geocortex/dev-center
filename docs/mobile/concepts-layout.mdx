@@ -18,7 +18,7 @@ A layout consists of declarative XML that defines an applications visual structu
 
 Take this example of a layout with a map and a zoom widget.
 
-```xml title="layout.xml"
+```xml title="app/layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map>
@@ -33,8 +33,6 @@ Next, a zoom widget is embedded within the map. This does two things:
 1. Visually places the element inside the map
 2. Tells the zoom widget to act upon [the map it is placed in](concepts-advanced-layout.mdx#nested-model-imports)
 
-<!-- TODO: Where should the default app layout link be pointing? -->
-
 <FollowAlongSnippet />
 
 The basic example shown above will place a zoom widget inside a map. But what if you want the zoom widget to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
@@ -45,7 +43,7 @@ The position of a component within its parent is controlled by what slot it is p
 
 For example, this configuration will place the zoom widget in the top right of the map.
 
-```xml title="layout.xml"
+```xml title="app/layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
     <map>
@@ -200,7 +198,7 @@ The Geocortex Mobile SDK [Quickstart](sdk-getting-started.mdx) includes a large 
 
 In order for the correct layout to be loaded for the correct form factor, the layout needs to be loaded by the app config.
 
-```json {6-7,12-13} title="app.json"
+```json {6-7,12-13} title="app/app.json"
 {
     "schemaVersion": "1.0",
     "items": [
