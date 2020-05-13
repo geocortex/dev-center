@@ -38,9 +38,14 @@ class CustomComponent : ComponentBase
 
 Services and components can also register an implementation for any command or operation. Commands and operations can either be registered and implemented directly in a service or component, or registered in a class that extends `OperationsBase` for ease of use by other components and services.
 
+:::note
+Multiple implementations can be registered for a Command or Operation.
+:::
+
 ### Direct Registration and Implementation
 
 Commands and operations can be directly registered and implemented in a service or component through the `IOperationRegistry`.
+This pattern can be useful for registering dynamically generated commands or implementations.
 
 <CleanupHandlesSnippet />
 

@@ -1,9 +1,8 @@
 ---
-title: Custom Commands and Operations
-description: Geocortex Mobile - Learn how to implement a custom command or operation
+title: Build a Custom Command
+description: Geocortex Mobile - Learn how to implement a custom command
 ---
 
-import AutofacSnippet from "../snippets/autofac-mobile.mdx";
 import PrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
@@ -23,9 +22,7 @@ This article will walk you through implementing a custom command in Geocortex Mo
 It's convention that commands and operations in Geocortex Mobile are registered and implemented by a [service or component](configuration-components-services.mdx), so the first thing we will do is create a service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
-2. In the file, add a new service class `AlertService` and register it with **Autofac**.
-
-<AutofacSnippet />
+    - In the file, add a new service class `AlertService` and [register it with **Autofac**](sdk-dependency-injection).
 
 ```cs title="App1/App1/services/AlertService.cs"
 using App1.Services.AlertService;
@@ -43,12 +40,8 @@ namespace App1.Services.AlertService
 }
 ```
 
-:::info
-The two key components of this snippet are the `[assembly: Service(...)]` tag and the class extension `AlertService: ServiceBase`. These two pieces register the service with Autofac and Geocortex Mobile and cause it to be initialized on startup.
-:::
-
 3. Create a class `Services/AlertOperations` under the platform agnostic project.
-4. In the file, add a new class `AlertOperations` and register it with Autofac.
+    - In the file, add a new class `AlertOperations` and register it with Autofac.
 
 ```cs title="App1/App1/services/AlertOperations.cs"
 using App1.Services.AlertOperations;
@@ -73,33 +66,13 @@ namespace App1.Services.AlertOperations
 
 ## Implementing the Operation
 
-Creating a new Operation in mobile consists of two pieces:
+Creating a new operation in Geocortex Mobile consists of two pieces:
 
--   Defining the Operation's name, inputs, and outputs
--   Registering an "Execution" function for the operation
+-   Defining the operation's name, inputs, and outputs in the `OperationsBase` class
+-   Registering an execution implementation in the service.
     -   This function will be the actual code that executes when the operation is called.
 
 ### Define the Operation
-
-An Operation is defined in the class that extends `OperationsBase`. In our example, it's `AlertOperations`.
-
--   An `IVoidOperation` produces no output, and optionally takes an input.
-
-```cs
-public IVoidOperation NoInputNoOutput => GetVoidOperation("fire.phasers");
-public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Temperature>("tea.earl-grey");
-```
-
--   An `IOperation` produces an output, and optionally takes an input.
-
-```cs
-public IOperation<Mischief> NoInputSomeOutput => GetOperation<Mischief>("q.appear");
-public IOperation<Deuterium, WarpSpeed> SomeInputSomeOutput => GetOperation<Deuterium, WarpSpeed>("warp-drive.engage");
-```
-
-:::note
-Operation names in Geocortex Mobile generally take the format `<category>.<name>`, with multiple words `kebab-cased`.
-:::
 
 For this example, let's define a operation with some input and no output.
 
@@ -133,10 +106,6 @@ Next, we need to register an implementation for our operation in the `AlertServi
     }
 ```
 
-:::note
-We never have to explicitly pass this property because Autofac will automatically inject it.
-:::
-
 2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
 
 ```cs
@@ -160,10 +129,6 @@ namespace App1.Services
 }
 ```
 
-:::note
-Multiple implementations can be registered for a Command or Operation.
-:::
-
 Congratulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](tutorial-change-default-behavior.mdx).
 
 ```json
@@ -185,40 +150,6 @@ Congratulations! You just created your first custom operation. You can easily te
         },
         ...
     ]
-}
-```
-
-## Register Implementation Without an Operations Class
-
-Although it is best practice to define an operations class that extends `OperationsBase`, you can register a command or operation from anywhere you can [inject](sdk-dependency-injection.mdx) the `IOperationRegistry`. For example, this service registers an new operation `custom.alert` without defining an `OperationsBase` class.
-
-:::tip
-This pattern can be useful for registering dynamically generated commands or implementations.
-:::
-
-```cs title="App1/App1/services/AlertService"
-using App1.Services;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Messaging;
-using Geocortex.Mobile.Composition.Services;
-
-[assembly: Service(typeof(CustomService))]
-namespace App1.Services
-{
-    public class CustomService : ServiceBase
-    {
-        public CustomService(IOperationRegistry operationRegistry)
-            : base()
-        {
-            // highlight-start
-            operationRegistry.VoidOperation<string>("custom.alert").RegisterExecute((string customMessage) =>
-            {
-                return Xamarin.Forms.Application.Current.MainPage.DisplayAlert("Custom Alert", customMessage, "Cancel");
-            }, this);
-            // highlight-end
-
-        }
-    }
 }
 ```
 

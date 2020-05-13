@@ -287,7 +287,6 @@ module.exports = {
                         "mobile/tutorial-implement-component-with-ui",
                         "mobile/tutorial-implement-component-participate-app-config",
                         "mobile/tutorial-implement-service",
-                        "mobile/tutorial-implement-event",
                     ],
                 },
             ],

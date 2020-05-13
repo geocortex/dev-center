@@ -1,5 +1,5 @@
 ---
-title: App Config for a Component
+title: Pull Component Data from App Config
 description: Geocortex Mobile - Learn how to make a component participate in app config.
 ---
 
@@ -8,12 +8,118 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
+import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 
 A component can optionally participate in the [app config](configuration-app-config.mdx). This allows for the component's behavior and initial state to be easily modified without having to deploy custom code. Different instances of the same component type can reference different app config items, allowing for multiple components in the same application with different behavior.
 
 ## Prerequisites
 
-Complete the previous use case, [Implement a Custom Component](tutorial-implement-component-with-ui.mdx) up to [Extend your Component with Custom Code](tutorial-implement-component-with-ui.mdx#extend-your-component-with-custom-code). This article will extend that component to consume custom app config.
+<QuickstartPrereqsSnippet />
+
+## Setup a Basic Component
+
+Copy the following code into your project to setup a basic component without app config.
+
+:::tip
+If you want to learn more about how this component was created, check out the [custom component use case](tutorial-implemenmt-component-with-ui.mdx)
+:::
+
+<Tabs defaultValue="component"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'Component', value: 'component', },
+    { label: 'View', value: 'view', },
+    { label: 'Code Behind', value: 'code-behind', },
+  ]
+}>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    xmlns:custom="https://your.org/layout/app1">
+    <gxm:taskbar>
+        <!--Taskbar / custom component-->
+        <panel>
+            <custom:custom-component icon="info"/>
+        </panel>
+        <map slot="main"/>
+    </gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="component">
+
+```cs title="App1/App1/components/CustomComponent.cs"
+using App1;
+using App1.Components;
+using Geocortex.Mobile.Composition.Layout;
+using System.Xml.Linq;
+using Xamarin.Forms;
+
+[assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    class CustomComponent : ComponentBase
+    {
+        protected override VisualElement Create(XNode node)
+        {
+            return new CustomComponentView();
+        }
+    }
+}
+
+```
+
+</TabItem>
+<TabItem value="view">
+
+```xml title="App1/App1/components/CustomComponentView.xaml"
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.Components.CustomComponentView">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="Hello Xamarin.Forms!" />
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>
+```
+
+</TabItem>
+<TabItem value="code-behind">
+
+```cs title="App1/App1/components/CustomComponentView.xaml.cs"
+using App1.Components;
+using Geocortex.Mobile.Composition;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+[assembly: View(typeof(CustomComponentView))]
+namespace App1.Components
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CustomComponentView : ContentView
+    {
+        public CustomComponentView()
+        {
+            InitializeComponent();
+        }
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Create a Skeleton App Config Definition
 
@@ -71,10 +177,6 @@ namespace App1.Configuration
     }
 }
 ```
-
-:::info
-The two key components of this snippet are the `[assembly: AppItem(...)]` tag and the class extension `CustomComponentConfiguration : VisualAppItem`. These two pieces register the configuration with Geocortex Mobile and Autofac.
-:::
 
 ## Consume the Configuration in the Component
 

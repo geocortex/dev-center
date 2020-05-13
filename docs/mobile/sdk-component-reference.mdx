@@ -37,6 +37,10 @@ locate, and inject components, services and other classes.
 
 Each component class is registered with the [`Component` assembly attribute](sdk-dependency-injection.mdx#component)
 
+:::note
+It's convention for the name of the component in the [`layout`](configuration-layout.mdx) to be lower case and kebab case, i.e. `custom-component`.
+:::
+
 ```cs
 // highlight-next-line
 [assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
@@ -177,7 +181,7 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.Component
 ```
 
 </TabItem>
-<TabItem value="config">
+<TabItem value="model">
 
 ```cs
 // highlight-next-line
@@ -216,7 +220,7 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
 ```
 
 </TabItem>
-<TabItem>
+<TabItem value="config">
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Custom Service
+title: Build a Service that Fetches Dynamic Data
 description: Geocortex Mobile - Implement a custom Service
 ---
 
@@ -8,8 +8,9 @@ import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-When extending Geocortex Mobile, you may find yourself creating multiple [components](configuration-components-services.mdx#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](configuration-components-services.mdx#services).
-Implementing a custom service in Geocortex Mobile allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](tutorial-implement-command-operation.mdx).
+When extending Geocortex Mobile, you may find yourself creating multiple [components](configuration-components-services.mdx#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](configuration-components-services.mdx#services). Implementing a custom service in Geocortex Mobile allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](tutorial-implement-command-operation.mdx).
+
+This article will guide you through creating a custom service that fetches data from a dynamic source and delivers it to components through an operation.
 
 ## Prerequisites
 
@@ -18,7 +19,7 @@ Implementing a custom service in Geocortex Mobile allows you to implement logic 
 ## Create a New Service
 
 Create a new file `services/CustomService.cs` under the platform agnostic project.
-In the file, add a new component class `CustomService` and register it with [**Autofac**](TODO-link).
+In the file, add a new component class `CustomService` and [register it with **Autofac**](sdk-dependency-injection.mdx).
 
 ```cs title="App1/App1/services/CustomService.cs"
 using App1.Services;
@@ -47,23 +48,108 @@ namespace App1.Services
 }
 ```
 
-Congratulations! You've created your first working service. This service is available to be injected with Autofac into any custom component. For inspiration with what you can do with services, check out the example below.
+Next, we can mock a dynamically updating data source that the service consumes. In a real application, this might be a webhook, or an RSS feed, or database.
 
-## Example
-
-This custom service mimics a fetch of new data every five seconds, and implements an operation which allows components to access the data. If you run this custom service, you can see each fetch of data logged at a debug level.
-
-:::important
-All services should dispose of long held memory or other resources by implementing `Dispose`. For more information, see [memory leaks](sdk-memory-leaks.mdx).
+:::note
+It's essential to properly dispose of any managed resources, like the background thread in this example, to prevent [memory leaks](TODO-link).
 :::
 
-<Tabs defaultValue="service"
-  values={[
-    { label: 'Service', value: 'service', },
-    { label: 'Operations', value: 'operations', },
-  ]
-}>
-<TabItem value="service">
+```cs title="App1/App1/services/CustomService.cs"
+using App1.Services;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Logging;
+using Geocortex.Mobile.Composition.Services;
+using System.Threading;
+using System.Threading.Tasks;
+
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        private bool disposed = false;
+        private Thread dataUpdater;
+        private int data = 0;
+        private async void _dataUpdater()
+        {
+            try
+            {
+                while (true)
+                {
+                    // Fetch data from a rest endpoint
+                    await Task.Run(() =>
+                    {
+                        // await data.fetch()
+                        data = data + 1;
+                        Logger.Debug($"Custom Service fetched new data. Current Value: {data}");
+                    });
+                    Thread.Sleep(3000);
+                }
+            }
+            catch (ThreadAbortException)
+            {
+                return;
+            }
+        }
+
+        public CustomService()
+            : base()
+        {
+            dataUpdater = new Thread(new ThreadStart(_dataUpdater));
+        }
+        protected override Task DoInitialize()
+        {
+            dataUpdater.Start();
+            return Task.CompletedTask;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                dataUpdater.Abort();
+            }
+
+            disposed = true;
+            base.Dispose(disposing);
+        }
+    }
+}
+```
+
+To expose this data source to other components and services, we can create a new operation, `custom-data.fetch`.
+
+First, create a new [operations class](TODO-link-to-operations-class) and [define a new operation](TODO-link-defining-operation).
+
+```cs title="App1/App1/services/CustomOperations.cs"
+using App1.Operations;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Messaging;
+using Geocortex.Mobile.Infrastructure.Messaging;
+
+// highlight-next-line
+[assembly: Export(typeof(CustomOperations), SingleInstance = true)]
+namespace App1.Operations
+{
+    class CustomOperations : OperationsBase
+    {
+        // highlight-next-line
+        public IOperation<int> FetchCustomData=> GetOperation<int>("custom-data.fetch");
+
+        public CustomOperations(IOperationRegistry operationRegistry)
+            : base(operationRegistry)
+        {
+        }
+    }
+}
+```
+
+Next, [inject the operation](sdk-dependency-injection.mdx) into your custom service and register an implementation that returns the dynamic data.
 
 ```cs title="App1/App1/services/CustomService.cs"
 using App1.Operations;
@@ -105,10 +191,12 @@ namespace App1.Services
 
         }
 
+        // highlight-start
         private async Task<int> FetchData()
         {
             return data;
         }
+        // highlight-end
 
         public CustomService(CustomOperations customOperations)
             :base()
@@ -138,35 +226,7 @@ namespace App1.Services
 }
 ```
 
-</TabItem>
-<TabItem value="operations">
-
-```cs title="App1/App1/services/CustomOperations.cs"
-using App1.Operations;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Messaging;
-using Geocortex.Mobile.Infrastructure.Messaging;
-
-// highlight-next-line
-[assembly: Export(typeof(CustomOperations), SingleInstance = true)]
-namespace App1.Operations
-{
-    class CustomOperations : OperationsBase
-    {
-        // highlight-next-line
-        public IOperation<int> FetchCustomData=> GetOperation<int>("custom-data.fetch");
-
-        public CustomOperations(IOperationRegistry operationRegistry)
-            : base(operationRegistry)
-        {
-        }
-    }
-}
-
-```
-
-</TabItem>
-</Tabs>
+You've now built a custom service that fetches from a dynamic data source and exposes that data to other components! You could take this farther by creating an event that informs components and services when the data has changed, or returning a reference from the fetch data operation that can be observed for changes.
 
 ## Relevant SDK Samples
 
