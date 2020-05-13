@@ -182,11 +182,6 @@ module.exports = {
                 },
             ],
         },
-        {
-            type: "category",
-            label: "API",
-            items: ["workflow/api-server-rest"],
-        },
     ],
     mobile: [
         "mobile/overview",
