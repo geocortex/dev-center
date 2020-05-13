@@ -222,7 +222,6 @@ module.exports = {
                         "mobile/tutorial-change-default-behavior",
                         "mobile/tutorial-customize-application-theme",
                         "mobile/tutorial-add-medium-layout",
-                        "mobile/tutorial-internationalization",
                     ],
                 },
             ],
@@ -279,6 +278,7 @@ module.exports = {
                 "mobile/sdk-dependency-injection",
                 "mobile/sdk-component-service-interactions",
                 "mobile/sdk-memory-leaks",
+                "mobile/sdk-internationalization",
                 {
                     type: "category",
                     label: "Tutorials",
