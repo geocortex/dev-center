@@ -8,7 +8,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-Geocortex Web Components support fully custom styling using CSS. However, by using Geocortex Web UI Elements, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
+Geocortex Web Components support fully custom styling using CSS. However, by using Geocortex Web layout components, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
 
 <Tabs
   defaultValue="component"
@@ -29,7 +29,6 @@ import List from "@geocortex/web/ui/list";
 import ListItem from "@geocortex/web/ui/list-item";
 import TitleBar from "@geocortex/web/ui/title-bar";
 import Button from "@geocortex/web/ui/button";
-import classNames from "classnames";
 import ExampleComponentModel from "./ExampleComponentModel";
 import "./ExampleComponent.css";
 
@@ -49,10 +48,7 @@ export default function ExampleComponent(
                 <ListItem>
                     <Button>Item 2</Button>
                 </ListItem>
-                <div className={classNames("red")}>
-                    {" "}
-                    I have a red background
-                </div>
+                <div className="red">I have a red background</div>
             </List>
         </LayoutElement>
     );
@@ -91,7 +87,7 @@ A full list of all the color keys available in a theme [can be found here](confi
 
 <!-- TODO-API link to Geocortex Icons Library -->
 
-The following example demonstrates a component that uses Geocortex Web UI components and an icon from the Geocortex Icons library.
+The following example demonstrates a component that uses Geocortex Web layout components and an icon from the Geocortex Icons library.
 
 <Tabs
   defaultValue="component"

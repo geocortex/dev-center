@@ -59,7 +59,6 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
-                "web/sdk-deployment",
                 {
                     type: "category",
                     label: "Components",
@@ -71,11 +70,12 @@ module.exports = {
                         "web/sdk-ui-context",
                         "web/sdk-components-commands-operations",
                         "web/sdk-component-interactions",
-                        "web/sdk-service-injection",
+                        "web/sdk-components-injecting-services",
                         "web/sdk-component-styling",
                         "web/sdk-components-internationalization",
                     ],
                 },
+                "web/configuration-commands-operations",
                 {
                     type: "category",
                     label: "Services",
@@ -84,7 +84,7 @@ module.exports = {
                         "web/sdk-create-service",
                         "web/sdk-service-reference",
                         "web/sdk-services-commands-operations",
-                        "web/sdk-service-injection",
+                        "web/sdk-services-injecting-services",
                     ],
                 },
                 {
@@ -96,7 +96,8 @@ module.exports = {
                     ],
                 },
                 "web/sdk-serializable-properties",
-                "web/sdk-language-strings",
+                "web/sdk-internationalization",
+                "web/sdk-deployment",
                 "web/sdk-reference-third-party-libraries",
                 {
                     type: "category",

@@ -122,7 +122,7 @@ export default class CustomDataService extends ServiceBase {
 ## Consume the Data in the Component
 
 Now that we have the news feed data being populated by a service, we need to consume that data in the news feed component.
-Following the best practices for implementing components, the news item data should be managed by the news feed model. Component Models can [inject services](sdk-service-injection.mdx) as properties, and doing so allows us to directly access the dynamically updated `newsItems` property on the service.
+Following the best practices for implementing components, the news item data should be managed by the news feed model. Component Models can [inject services](sdk-components-injecting-services.mdx) as properties, and doing so allows us to directly access the dynamically updated `newsItems` property on the service.
 
 ```ts title="src/components/NewsFeed//NewsFeedModel.ts"
 import { ComponentModelBase, serializable } from "@geocortex/web/models";
@@ -349,6 +349,6 @@ export default function (registry: LibraryRegistry) {
     <UseCaseCard
         title="Learn more about Referencing Services in Components"
         description="Learn the dependency injection pattern for referencing services"
-        link="sdk-service-injection"
+        link="sdk-components-injecting-services"
     />
 </UseCaseContainer>

@@ -1,0 +1,86 @@
+---
+title: Internationalization
+description: Geocortex Web - Learn about internationalization and language strings in Geocortex Web
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+
+<!-- cSpell:ignore Latn -->
+
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import TranslationCallout from "./snippets/translation-callout.mdx";
+
+<TranslationCallout />
+
+Geocortex Web was designed to be fully internationalizable on all levels of the product, from app config to custom code. A major component of this is language strings. Language strings provide a couple advantages over hardcoding plain text in a component.
+
+1. Language strings can be easily translated or modified without having to change component code.
+2. Language strings can be shared across components.
+3. Language strings consolidate user facing text throughout the application, making it easy to review and find.
+
+It is recommended you use language strings for all user facing text in your application.
+
+## Defining Language Strings
+
+Language strings are defined as properties in a plain JSON file. It's convention to define language strings with the format `language-kebab-cased-key`.
+
+```json title="en.json"
+{
+    "language-some-text-string": "I will be translated."
+}
+```
+
+:::warning
+If you define a language string that Geocortex Web has already defined, it will override the existing language string with your custom string.
+:::
+
+By convention, these files are named after the locale they represent. For example, a file of german language strings would be named `de.json`.
+
+## Registering Language Resources
+
+All language resource files need to be registered with the SDK before they can be used.
+
+```ts title="src/index.ts"
+...
+import enJson from "./en.json";
+
+export default function (registry: LibraryRegistry) {
+    ...
+    registry.registerLanguageResources({
+        locale: "en",
+        getValues: () => enJson,
+    });
+    ...
+}
+```
+
+Once a set of language strings has been registered, they can be used [in the app config](configuration-app-config-reference.mdx#internationalization) or in [custom components](sdk-components-internationalization.mdx).
+
+## Supported Locales
+
+Geocortex Web has full language tag support as specified in the [WC3 spec](https://www.w3.org/International/questions/qa-choosing-language-tags#regionsubtag). The casing of a language tag determines what is it parsed as.
+
+-   All lowercase tags like `de` are parsed as a language code.
+-   Region codes, like `de-AT` are uppercase.
+-   Script codes like `ru-Latn` are pascal cased.
+
+:::warning
+Regional locales will **not** be used as fallback locales for a language. This means that if a browser is configured in the `de` locale, but language strings are registered with the `de-AT` locale in Geocortex Web, the fallback translation, **not** `de-AT`, will be shown.
+:::
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Internationalization in App Config"
+        description="Learn how to use language strings in the app config"
+        link="configuration-app-config-reference#internationalization"
+    />
+    <UseCaseCard
+        title="Internationalize Components"
+        description="Learn how to use language strings for user facing text in components"
+        link="sdk-components-internationalization"
+    />
+</UseCaseContainer>

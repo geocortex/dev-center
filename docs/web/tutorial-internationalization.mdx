@@ -131,7 +131,7 @@ export default function (registry: LibraryRegistry) {
 
 ## Creating the Language Resources
 
-Next, we are going to create the [language resources](sdk-language-strings.mdx) for English and German.
+Next, we are going to create the [language resources](sdk-internationalization.mdx) for English and German.
 
 <Tabs
   defaultValue="english"
@@ -165,7 +165,7 @@ Next, we are going to create the [language resources](sdk-language-strings.mdx) 
 
 ## Register the Language Resources
 
-Next we need to [register the language resources](sdk-language-strings.mdx#registering-language-resources) with Geocortex Web.
+Next we need to [register the language resources](sdk-internationalization.mdx#registering-language-resources) with Geocortex Web.
 
 ```ts title="src/index.ts"
 import { ComponentType } from "react";
@@ -205,9 +205,9 @@ export default function (registry: LibraryRegistry) {
 
 ## Use the Language Strings
 
-<!-- TODO-API link to Geocortex UI Components -->
+<!-- TODO-API link to Geocortex layout components -->
 
-Now that they have been registered, we can use the strings in our boilerplate component from earlier. Geocortex UI Components, like `<Typography>`, will automatically detect and translate language keys like `language-translatable-text-content` in props and child content.
+Now that they have been registered, we can use the strings in our boilerplate component from earlier. Geocortex Web layout components, like `<Typography>`, will automatically detect and translate language keys like `language-translatable-text-content` in props and child content.
 
 If you need to manually translate a language key, you can use the [`useContext` react hook](https://reactjs.org/docs/hooks-reference.html#usecontext) with the [UIContext](sdk-ui-context.mdx) to access the `translate` function. Then you can pass the language key `language-translatable-text-content` you defined in the language resources files to the `translate` function and your text will be translated into whichever locale is most appropriate.
 
