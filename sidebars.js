@@ -75,7 +75,6 @@ module.exports = {
                         "web/sdk-components-internationalization",
                     ],
                 },
-                "web/configuration-commands-operations",
                 {
                     type: "category",
                     label: "Services",
@@ -247,6 +246,7 @@ module.exports = {
                 "mobile/sdk-quickstart-reference",
                 "mobile/sdk-samples",
                 "mobile/sdk-deployment",
+                "mobile/sdk-commands-operations",
                 {
                     type: "category",
                     label: "Components",
@@ -276,7 +276,6 @@ module.exports = {
                         "mobile/sdk-events-reference",
                     ],
                 },
-                "mobile/sdk-commands-operations",
                 "mobile/sdk-dependency-injection",
                 "mobile/sdk-component-service-interactions",
                 "mobile/sdk-memory-leaks",

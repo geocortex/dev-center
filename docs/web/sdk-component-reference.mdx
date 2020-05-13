@@ -234,6 +234,14 @@ The following model defines a simple configurable property `items`.
 
 The `ExampleComponentModel` class consumes the configuration by extending the `ComponentModelBase<ExampleComponentProperties>` interface, using the `@serializable` class decorator, and then defining serialization logic in an override of the `_getSerializableProperties()` method. You can learn more about app config serialization in [this article](sdk-serializable-properties.mdx).
 
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "Model", value: "model" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="model">
+
 ```ts
 interface ExampleComponentModelProperties extends ComponentModelProperties {
     items?: string[];
@@ -266,6 +274,31 @@ export default class ExampleComponentModel extends ComponentModelBase<
     }
 }
 ```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+ {
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "example-component",
+            "id" : "example-component",
+            "items" : [
+                "Item 1",
+                "Item 2",
+                "Item 3"
+            ]
+        },
+        ...
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
 
 ### Component Defaults
 
