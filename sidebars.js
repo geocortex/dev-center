@@ -17,7 +17,7 @@ module.exports = {
                     type: "category",
                     label: "Layout",
                     items: [
-                        "web/configuration-layout",
+                        "web/configuration-layout-getting-started",
                         "web/configuration-layout-reference",
                         "web/configuration-advanced-model-binding",
                     ],
@@ -26,7 +26,7 @@ module.exports = {
                     type: "category",
                     label: "App Config",
                     items: [
-                        "web/configuration-app-config",
+                        "web/configuration-app-config-getting-started",
                         "web/configuration-app-config-reference",
                         "web/configuration-theme",
                     ],
@@ -199,7 +199,7 @@ module.exports = {
                     type: "category",
                     label: "Layout",
                     items: [
-                        "mobile/configuration-layout",
+                        "mobile/configuration-layout-getting-started",
                         "mobile/configuration-layout-reference",
                         "mobile/configuration-advanced-model-binding",
                     ],
@@ -208,7 +208,7 @@ module.exports = {
                     type: "category",
                     label: "App Config",
                     items: [
-                        "mobile/configuration-app-config",
+                        "mobile/configuration-app-config-getting-started",
                         "mobile/configuration-app-config-reference",
                         "mobile/configuration-theme",
                     ],
@@ -287,7 +287,7 @@ module.exports = {
                         "mobile/tutorial-implement-command-operation",
                         "mobile/tutorial-implement-component-with-ui",
                         "mobile/tutorial-implement-component-participate-app-config",
-                        "mobile/tutorial-implement-service",
+                        "mobile/tutorial-implement-service-fetch-dynamic-data",
                     ],
                 },
             ],
