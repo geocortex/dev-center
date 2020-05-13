@@ -95,7 +95,7 @@ module.exports = {
                     ],
                 },
                 "web/sdk-serializable-properties",
-                "web/sdk-language-strings",
+                "web/sdk-internationalization",
                 "web/sdk-deployment",
                 "web/sdk-reference-third-party-libraries",
                 {

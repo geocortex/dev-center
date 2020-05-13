@@ -1,7 +1,11 @@
 ---
-title: Language Strings
+title: Internationalization
 description: Geocortex Web - Learn about internationalization and language strings in Geocortex Web
 ---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 <!-- cSpell:ignore Latn -->
 
@@ -10,9 +14,7 @@ import TranslationCallout from "./snippets/translation-callout.mdx";
 
 <TranslationCallout />
 
-Geocortex Web was designed to be fully translatable on all levels of the product, from app config to custom code.
-
-Language strings provide a couple advantages over hardcoding plain text in a component.
+Geocortex Web was designed to be fully internationalizable on all levels of the product, from app config to custom code. A major component of this is language strings. Language strings provide a couple advantages over hardcoding plain text in a component.
 
 1. Language strings can be easily translated or modified without having to change component code.
 2. Language strings can be shared across components.
@@ -67,3 +69,18 @@ Geocortex Web has full language tag support as specified in the [WC3 spec](https
 :::warning
 Regional locales will **not** be used as fallback locales for a language. This means that if a browser is configured in the `de` locale, but language strings are registered with the `de-AT` locale in Geocortex Web, the fallback translation, **not** `de-AT`, will be shown.
 :::
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Internationalization in App Config"
+        description="Learn how to use language strings in the app config"
+        link="configuration-app-config-reference#internationalization"
+    />
+    <UseCaseCard
+        title="Internationalize Components"
+        description="Learn how to use language strings for user facing text in components"
+        link="sdk-components-internationalization"
+    />
+</UseCaseContainer>
