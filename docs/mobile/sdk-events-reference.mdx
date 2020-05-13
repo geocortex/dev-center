@@ -48,12 +48,8 @@ In both components and services, event objects are access by injecting the event
 <CleanupHandlesSnippet />
 
 ```cs
-public class CustomServiceOrComponent : ServiceBase, IDisposable, IDisposableTracker
+public class CustomServiceOrComponent : ServiceBase
 {
-    private bool disposed = false;
-
-    public new IList<IDisposable> Disposables { get; } = new List<IDisposable>();
-
     public CustomServiceOrComponent(UIEvents uiEvents)
     {
         // highlight-next-line
@@ -63,32 +59,6 @@ public class CustomServiceOrComponent : ServiceBase, IDisposable, IDisposableTra
     private void _onComponentActivated(string id)
     {
         // ... do something on component activation
-    }
-
-
-    protected override void Dispose(bool disposing)
-    {
-        if (disposed)
-        {
-            return;
-        }
-
-        if (disposing)
-        {
-            // highlight-next-line
-            this.DisposeTrackers();
-        }
-
-
-        base.Dispose(disposing);
-
-        disposed = true;
-    }
-
-    public void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
     }
 }
 ```

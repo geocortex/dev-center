@@ -50,10 +50,8 @@ This pattern can be useful for registering dynamically generated commands or imp
 <CleanupHandlesSnippet />
 
 ```cs
-class CustomService : ServiceBase, IDisposable, IDisposableTracker
+class CustomService : ServiceBase
 {
-    private bool disposed = false;
-
     private readonly IOperationRegistry _operationRegistry;
 
     // highlight-start
@@ -67,31 +65,6 @@ class CustomService : ServiceBase, IDisposable, IDisposableTracker
     private async Task<int> _executeStringLen(string arg)
     {
         return arg != null ? arg.Length : 0;
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        if (disposed)
-        {
-            return;
-        }
-
-        if (disposing)
-        {
-            // highlight-next-line
-            this.DisposeTrackers();
-        }
-
-
-        base.Dispose(disposing);
-
-        disposed = true;
-    }
-
-    public void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
     }
     ...
 }
@@ -156,10 +129,8 @@ namespace App1.Operations
 <TabItem value="component">
 
 ```cs
-class CustomComponent : ComponentBase, IDisposable, IDisposableTracker
+class CustomComponent : ComponentBase
 {
-    private bool disposed = false;
-
     public CustomComponent(CustomOperations customOperations)
     {
         // highlight-start
@@ -184,31 +155,6 @@ class CustomComponent : ComponentBase, IDisposable, IDisposableTracker
     private async Task<int> _executeRunCustomOperationWithInput(string arg)
     {
         // ... implementation for run custom operation with input.
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        if (disposed)
-        {
-            return;
-        }
-
-        if (disposing)
-        {
-            // highlight-next-line
-            this.DisposeTrackers();
-        }
-
-
-        base.Dispose(disposing);
-
-        disposed = true;
-    }
-
-    public void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
     }
     ...
 }

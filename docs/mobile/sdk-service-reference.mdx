@@ -42,7 +42,7 @@ Services are destroyed (i.e. the `destroy` method is invoked) when the applicati
 Services have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when the application is destroyed
 
 :::important
-Always call `base.Dispose(disposing)` when overriding the `Dispose` method.
+Always call `base.Dispose(disposing)` when overriding the `Dispose` method. `ServiceBase` already implements `IDisposable` and `IDisposableTracker`, so only override the `Dispose` method if you have created new managed resources which need to be cleaned up.
 :::
 
 To learn more about memory management in Geocortex Mobile, check out [this article](TODO-mem-management), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
