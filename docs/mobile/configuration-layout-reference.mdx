@@ -4,6 +4,8 @@ description: Geocortex Mobile - Layout Reference
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 ## Autocomplete Properties
 
@@ -126,10 +128,6 @@ And finally slot those two splits into the outer-most stack:
 
 <img className="stackSplitImage" src={useBaseUrl("img/stack-split-3.png")} />
 
-### Taskbar
-
-TODO
-
 ### Panels
 
 Panels are a container component that enable hierarchical navigation between different components.
@@ -184,6 +182,93 @@ When a feature in the results list is opened, the `<feature-details>` component 
 :::tip
 The default `layout-large.xml` in the Geocortex Mobile [Quickstart](sdk-getting-started.mdx) has examples of multiple panels that live in the taskbar.
 :::
+
+### Taskbar
+
+The taskbar is a major organizational element in Geocortex Mobile Apps. It provides an expandable menu designed for mobile form factors that hosts panels with dynamic content.
+
+Every taskbar has a `main` slot, which hosts the primary content, usually a map.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "User Interface", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+
+    <!-- Taskbar main content -->
+    <map slot="main"/>
+
+  </gxm:taskbar>
+</layout>
+
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src={useBaseUrl("img/mobile-taskbar-simple.png")}/>
+</TabItem>
+</Tabs>
+
+Items that live in the sidebar can be defined within the taskbar component, and typically consist of Panels containing other contain, like the results list, or a workflow container.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "User Interface", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+
+    <!-- Taskbar main content -->
+    <map config="map1" slot="main"/>
+
+    <!-- Taskbar / search -->
+    <panel>
+      <stack id="search">
+        <search config="search"/>
+        <results-list config="results" active="false" />
+      </stack>
+      <feature-details config="feature-details"/>
+    </panel>
+
+    <!-- Taskbar / layers -->
+    <panel id="layers">
+      <layer-list />
+    </panel>
+
+    <!--Taskbar / workflow-->
+    <panel>
+      <workflow config="workflow" icon="workflow"/>
+    </panel>
+  </gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+  <img src={useBaseUrl("img/mobile-taskbar-complex.png")}/>
+</TabItem>
+</Tabs>
 
 ## Presentation Attributes
 

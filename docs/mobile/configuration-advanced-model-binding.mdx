@@ -3,7 +3,10 @@ title: Advanced Model Binding
 description: Geocortex Mobile - Learn about advanced model binding with layout
 ---
 
-TODO - web has a whole initial models section here - does that even apply to mobile?
+The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map model to display its values.
+
+Components express this data dependency through interactions [through injecting the `MapView`](sdk-component-service-interactions#interacting-with-the-mapview).
+The specific map view that is injected is resolved through a model binding based on the layout hierarchy.
 
 ## Nested Model Imports
 
@@ -13,7 +16,7 @@ In previous layout examples, layouts were shown where components related to a ma
     <map config="map-1" slot="main">
       <stack margin="0.5" slot="bottom-right" halign="end">
         <zoom margin="0.8"/>
-        <geolocate margin="0.5" config="geolocate" />
+        <geolocate margin="0.5" config="geolocate" /  >
       </stack>
     </map>
 ```
