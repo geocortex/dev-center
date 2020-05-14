@@ -45,7 +45,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Workflow",
+            label: "Geocortex Workflow",
             items: [
                 "web/tutorial-run-workflow-app-config",
                 "web/tutorial-display-custom-form",
@@ -228,7 +228,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Workflow",
+            label: "Geocortex Workflow",
             items: [
                 "mobile/tutorial-run-workflow-app-config",
                 "mobile/tutorial-display-custom-form",
