@@ -51,7 +51,7 @@ namespace App1.Services
 Next, we can mock a dynamically updating data source that the service consumes. In a real application, this might be a webhook, or an RSS feed, or database.
 
 :::note
-It's essential to properly dispose of any managed resources, like the background thread in this example, to prevent [memory leaks](TODO-link).
+It's essential to properly dispose of any managed resources, like the background thread in this example, to prevent [memory leaks](sdk-memory-leaks.mdx).
 :::
 
 ```cs title="App1/App1/services/CustomService.cs"
@@ -124,7 +124,7 @@ namespace App1.Services
 
 To expose this data source to other components and services, we can create a new operation, `custom-data.fetch`.
 
-First, create a new [operations class](TODO-link-to-operations-class) and [define a new operation](TODO-link-defining-operation).
+First, create a new [operations class](sdk-commands-operations#registration-with-operationsbase) and define a new operation.
 
 ```cs title="App1/App1/services/CustomOperations.cs"
 using App1.Operations;

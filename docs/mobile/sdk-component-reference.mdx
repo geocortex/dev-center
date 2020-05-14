@@ -95,15 +95,15 @@ namespace App1.Components
 
 #### Component Dependencies
 
-Components are instantiated by [dependency injection](TODO-dependency-injection-link) when the layout is rendered. This means that a component can also list dependencies that have been registered with autofac, such as the [`ILayoutModel<MapView>`](TODO-link) in it's constructor, and have them be passed at runtime. This also means that if a class associated with a component has application dependencies, such as a reference to the `MapOperations` for map interactions, then the component will either need to provide that dependency somehow.
+Components are instantiated by [dependency injection](sdk-dependency-injection.mdx) when the layout is rendered. This means that a component can also list dependencies that have been registered with autofac, such as the [`ILayoutModel<MapView>`](sdk-component-service-interactions.mdx) in it's constructor, and have them be passed at runtime. This also means that if a class associated with a component has application dependencies, such as a reference to the `MapOperations` for map interactions, then the component will either need to provide that dependency somehow.
 
-The preferred way to provide sub-dependencies to classes associated with components is to instantiate those associated classes with dependency injection also. Check out [managing sub-dependencies](TODO-dependency-injection-sub-deps) for an example.
+The preferred way to provide sub-dependencies to classes associated with components is to instantiate those associated classes with dependency injection also. Check out [managing sub-dependencies](sdk-dependency-injection.mdx#managing-sub-dependencies) for an example.
 
 ### XAML View
 
 XAML views and their respective "code-behind" are responsible for the presentation concerns of a component. Check out a [complete example in the SDK samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent).
 
-XAML views can use any [XAML Controls](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-controls) along with built-in [Geocortex Mobile UI Elements and styling](TODO-link).
+XAML views can use any [XAML Controls](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-controls) along with built-in [Geocortex Mobile UI Elements and styling](sdk-component-styling.mdx#using-geocortex-mobile-ui-elements).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -124,7 +124,7 @@ XAML views can use any [XAML Controls](https://docs.microsoft.com/en-us/xamarin/
 
 ### View Model
 
-Component view models are responsible for populating properties with data for the view to bind to. The data for the view model is usually provided by the component class, which can consume app config or other data from the application through [dependency injection](TODO-dependency-injection). View models can use commands and operations to interact with application services and other components.
+Component view models are responsible for populating properties with data for the view to bind to. The data for the view model is usually provided by the component class, which can consume app config or other data from the application through [dependency injection](sdk-dependency-injection.mdx). View models can use commands and operations to interact with application services and other components.
 
 Check out this example of a [component with a view model](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BreadCrumbs).
 
@@ -285,7 +285,7 @@ Components have an initialization method, which can be used to perform asynchron
 Always call `base.Dispose(disposing)` when overriding the `Dispose` method. `ComponentBase` already implements `IDisposable` and `IDisposableTracker`, so only override the `Dispose` method if you have created new managed resources which need to be cleaned up.
 :::
 
-To learn more about memory management in Geocortex Mobile, check out [this article](TODO-mem-management), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
+To learn more about memory management in Geocortex Mobile, check out [this article](sdk-memory-leaks.mdx), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
 
 ```cs
 [assembly: Component(typeof(CustomComponent), "component", XmlNamespace = XmlNamespaces.SamplesNamespace)]
@@ -333,11 +333,39 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.Component
 
 ## Component Lifecycle
 
+When a Geocortex Mobile Application boots up, the set of components which are in the layout are created. Next, any components that are initially active, depending on the layout, will be activated and initialized. [Components like the `Panel`](configuration-layout-reference.mdx#panels) will only activate their first child.
+
 ### Activation and Deactivation
 
-## Next Steps
+Custom code can listen and react to a components activation or deactivation by subscribing to the `ui.activated` or `ui.deactivated` event. The [`ui.*` events](api-commands-operations-events.mdx#events) contain various events relating to the component lifecycle.
 
-TODO - think about these use cases
+:::tip
+The `UIOperations` class contains implements the commands `ui.activate` and `ui.deactivate` which can be used to examine and manipulate the activation state of components.
+:::
+
+```cs
+class CustomComponent : ComponentBase
+{
+    public CustomComponent(UIEvents uiEvents)
+    {
+        uiEvents.ComponentActivated.Subscribe(_onComponentActivated, this);
+        uiEvents.ComponentDeactivated.Subscribe(_onComponentDeactivated, this);
+
+    private async void _onComponentActivated(string id)
+    {
+        // ... react to component activation.
+    }
+
+    private async void _onComponentDeactivated(string id)
+    {
+        // ... react to component deactivation.
+    }
+    ...
+}
+
+```
+
+## Next Steps
 
 <UseCaseContainer>
     <UseCaseCard

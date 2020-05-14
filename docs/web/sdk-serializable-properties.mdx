@@ -52,8 +52,6 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 </TabItem>
 </Tabs>
 
-<!-- TODO - get Eric to Review this -->
-
 Every serializable class extends a generically typed base class, like `ComponentModelBase` or `ConfigurableServiceBase`. The type passed into the base class is an interface consisting of primitive, serializable types, like `number`, `string`, `array`, `boolean`, etc. Each property on the interface will correspond exactly to a property in the app config JSON.
 
 :::tip

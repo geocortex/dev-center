@@ -15,28 +15,31 @@ If you still think you need to use the Geocortex Mobile SDK, then let's get star
 
 ## Overview
 
-The Geocortex Web SDK .... TODO -this description it's tricky
+The Geocortex Mobile SDK provides [various nuget packages](#geocortex-mobile-sdk-packages) for building a custom Geocortex Mobile application. Applications can extend Geocortex Mobile by developing custom components, services, commands and operations, and more using these packages.
 
 ## Extension Points
 
-TODO
+There are three main extension points in the SDK:
+
+### Components
+
+Components power the UI experience of Geocortex Mobile. Components usually consist of a C# class registered with Geocortex Mobile that has an associated XAML view. Layout files are composed of a nested hierarchy of components which are instantiated at runtime.
+
+### Services
+
+Services provide the shared infrastructure and core logic that power app behavior. Services do not have an associated UI, and there is only one instance of a service per application.
+
+### Commands and Operations
+
+Commands and operations provide a framework for executing application wide behavior. Services and components can both run and implement commands and operations, allowing for interaction and consistent behavior without tight coupling. Commands and operations can also be run [in the app config](tutorial-configure-button-click.mdx) and by [Workflows](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm). This can allow you to [customize the behavior of built-in components](tutorial-change-default-behavior.mdx).
 
 ## Application Interactions
 
-TODO
+Components, services, and commands and operations interact to form a Geocortex Web Application.
 
-TODO - should I dump the whole getting started article in here? or leave it separate
-
-TODO - not sure where to dump this / whether it should be kept
-
-## Creation and Initialization
-
-This is the order of operations for component and service creation and initialization on app startup.
-
-1. Create all services.
-2. Initialize all services.
-3. Create all components consumed by the layout.
-4. Activate the necessary components, depending on the layout and user interaction. Components will be initialized shortly after they are activated.
+-   Services are used to implement application wide behavior, such as theming or authentication, and then expose that logic through commands and operations, such as `ui.set-theme` (implemented by the `BrandingService`) or `auth.sign` (implemented by the `AuthenticationService`).
+-   Components can run commands and operations to interact with services or other components. Components can also implement commands and operations to allow themselves to be affected by other services and components.
+-   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [dependency injection](sdk-dependency-injection.mdx).
 
 ## Requirements
 

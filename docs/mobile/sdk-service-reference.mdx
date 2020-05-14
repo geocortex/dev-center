@@ -45,7 +45,7 @@ Services have an initialization method, which can be used to perform asynchronou
 Always call `base.Dispose(disposing)` when overriding the `Dispose` method. `ServiceBase` already implements `IDisposable` and `IDisposableTracker`, so only override the `Dispose` method if you have created new managed resources which need to be cleaned up.
 :::
 
-To learn more about memory management in Geocortex Mobile, check out [this article](TODO-mem-management), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
+To learn more about memory management in Geocortex Mobile, check out [this article](sdk-memory-leaks.mdx), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
 
 ```cs
 [assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
@@ -231,8 +231,6 @@ namespace App1.Services
 </Tabs>
 
 ## Next Steps
-
-TODO - revamp these if necessary
 
 <UseCaseContainer>
     <UseCaseCard
