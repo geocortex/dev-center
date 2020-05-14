@@ -59,6 +59,7 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
+                "web/sdk-deployment",
                 {
                     type: "category",
                     label: "Components",
@@ -96,7 +97,6 @@ module.exports = {
                 },
                 "web/sdk-serializable-properties",
                 "web/sdk-internationalization",
-                "web/sdk-deployment",
                 "web/sdk-reference-third-party-libraries",
                 {
                     type: "category",
@@ -232,9 +232,9 @@ module.exports = {
             items: [
                 "mobile/tutorial-run-workflow-app-config",
                 "mobile/tutorial-display-custom-form",
+                "mobile/tutorial-change-default-map-click-behavior",
                 "mobile/tutorial-implement-custom-form-elements",
                 "mobile/tutorial-implement-custom-activity",
-                "mobile/tutorial-change-default-map-click-behavior",
             ],
         },
         {
@@ -278,8 +278,8 @@ module.exports = {
                 },
                 "mobile/sdk-dependency-injection",
                 "mobile/sdk-component-service-interactions",
-                "mobile/sdk-memory-leaks",
                 "mobile/sdk-internationalization",
+                "mobile/sdk-memory-leaks",
                 {
                     type: "category",
                     label: "Tutorials",
