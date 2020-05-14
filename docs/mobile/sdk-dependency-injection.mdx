@@ -15,7 +15,7 @@ Geocortex Mobile relies heavily on inversion of control patterns to inject depen
 1. The class to be injected must register itself with the autofac container.
 2. The class that requires the dependency must accept a concrete class or abstract interface in its constructor as a placeholder for the injected class.
 
-A good example of this pattern is the `AlertOperations` class in the [commands and operation](tutorial-implement-command-operation.mdx) use case.
+A good example of this pattern is the `AlertOperations` class in the [commands and operation](tutorial-implement-command-operation.mdx) tutorial .
 
 ```cs
 using App1.Services.AlertOperations;
@@ -80,7 +80,7 @@ Used for registering a generic class with Autofac.
 
 ### `Component`
 
-Used for registering a component that **does not** consume configuration. For a more detailed example, see the use case on [implementing a custom component](tutorial-implement-component-with-ui.mdx#create-a-component-skeleton).
+Used for registering a component that **does not** consume configuration. For a more detailed example, see the tutorial on [implementing a custom component](tutorial-implement-component-with-ui.mdx#create-a-component-skeleton).
 
 ```cs
 [assembly: Component(typeof(MyCustomComponent), "my-custom-component")]
@@ -88,7 +88,7 @@ Used for registering a component that **does not** consume configuration. For a 
 
 ### `AppItemComponent`
 
-Used for registering a component that **does** consume configuration. For a more detailed example, see the use case on [implementing a custom component with configuration](tutorial-implement-component-participate-app-config.mdx#consume-the-configuration-in-the-component).
+Used for registering a component that **does** consume configuration. For a more detailed example, see the tutorial on [implementing a custom component with configuration](tutorial-implement-component-participate-app-config.mdx#consume-the-configuration-in-the-component).
 
 ```cs
 [assembly: AppItemComponent(typeof(MyCustomComponent), "my-custom-component", MyCustomComponentConfiguration.ConfigItemtype)]
@@ -104,7 +104,7 @@ Used for registering a service. For a more detailed example, see [create a servi
 
 ### `AppItem`
 
-Used for registering the definition for an [app item](configuration-app-config.mdx#anatomy-of-an-app-config) with Geocortex Mobile. For a more detailed example, see the use case on [implementing a custom component with app configuration](tutorial-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
+Used for registering the definition for an [app item](configuration-app-config.mdx#anatomy-of-an-app-config) with Geocortex Mobile. For a more detailed example, see the tutorial on [implementing a custom component with app configuration](tutorial-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
 
 ```cs
 [assembly: AppItem(CustomAppItem.AppItemType, typeof(CustomAppItem))]
@@ -112,7 +112,7 @@ Used for registering the definition for an [app item](configuration-app-config.m
 
 ### `View`
 
-Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#use-xaml-to-define-your-ui).
+Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the tutorial on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#use-xaml-to-define-your-ui).
 
 ```cs
 [assembly: View(typeof(CustomView))]
@@ -120,7 +120,7 @@ Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-f
 
 ### `ViewModel`
 
-Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the use case on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#example-progress-bar).
+Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the tutorial on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#example-progress-bar).
 
 ```cs
 [assembly: ViewModel(typeof(CustomViewModel))]
