@@ -32,7 +32,7 @@ The first thing it does is declare a `<map>` component that uses the default map
 Next, a zoom widget is embedded within the map. This does two things:
 
 1. Visually places the element inside the map
-2. Tells the zoom widget to act upon [the map it is placed in](configuration-advanced-layout.mdx#nested-model-imports)
+2. Tells the zoom widget to act upon [the map it is placed in](configuration-advanced-model-binding.mdx)
 
 <FollowAlongSnippet />
 
@@ -57,7 +57,7 @@ For example, this configuration will place the zoom widget in the top right of t
 If a slot configuration is not given, the component will slot itself into a default position. Each component defines its own slots - not every slot will work for every component.
 
 :::tip
-The [Quickstart](sdk-getting-started.mdx) comes with a schema for the `layout-*.xml` files which can [autocomplete slot values for a component](configuration-advanced-layout.mdx#autocomplete-properties)
+The [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) comes with a schema for the `layout-*.xml` files which can [autocomplete slot values for a component](configuration-layout-reference.mdx#autocomplete-properties)
 :::
 
 Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
@@ -66,18 +66,18 @@ Slots control how one element fits into another. But how do we control how sibli
 
 The basic `stack` and `split` components are building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
 
-For a deeper dive into stacks and splits, [check out the API reference](configuration-layout-reference.mdx#stacks-and-splits).
+For a deeper dive into stacks and splits, [check out the layout reference](configuration-layout-reference.mdx#stacks-and-splits).
 
 ## Spacing
 
-See [presentation attributes](api-layout.mdx#presentation-attributes) for details on margin, padding, content organization and alignment in your layout.
+See [presentation attributes](configuration-layout-reference.mdx#presentation-attributes) for details on margin, padding, content organization and alignment in your layout.
 
 ## Panels
 
 Another core concept that Geocortex Mobile uses to organize elements in a layout is **panels**.
 Panels are a container component that enable hierarchal navigation between different components.
 
-For a deeper dive into Panels, [check out the API reference](configuration-layout-reference.mdx#panels).
+For a deeper dive into Panels, [check out the layout reference](configuration-layout-reference.mdx#panels).
 
 <!-- TODO-API - direct link to tabs and expanders -->
 
@@ -90,7 +90,7 @@ These are just a few examples of the building blocks available to help you organ
 Geocortex Mobile has built-in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target desktop and laptop devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropriate.
 
 :::tip
-The Geocortex Mobile SDK [Quickstart](sdk-getting-started.mdx) includes a large and small layout.
+The Geocortex Mobile SDK [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) includes a large and small layout.
 :::
 
 In order for the correct layout to be loaded for the correct form factor, the layout needs to be loaded by the app config.
@@ -121,7 +121,7 @@ In order for the correct layout to be loaded for the correct form factor, the la
 This app config will load a large layout for a desktop device, and a medium layout for a tablet device.
 
 :::important
-The [Quickstart](sdk-getting-started.mdx) does not ship with a medium layout configured. See [Add Medium Layout](tutorial-add-medium-layout.mdx) for instructions on how to do this.
+The [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) does not ship with a medium layout configured. See [Add Medium Layout](tutorial-add-medium-layout.mdx) for instructions on how to do this.
 :::
 
 ### Fallback Layouts
@@ -169,8 +169,8 @@ In our examples so far, xml elements like `<text>` or `<stack>` have been used. 
         link="configuration-app-config"
     />
     <UseCaseCard
-        title="Advanced Layout Topics"
+        title="Layout Reference"
         description="Learn more about what you can accomplish with layouts."
-        link="configuration-advanced-layout"
+        link="configuration-layout-reference"
     />
 </UseCaseContainer>

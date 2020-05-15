@@ -126,7 +126,7 @@ namespace App1.Services
 
 ## Configuration Models
 
-Like components, services can be configured through the [app config](configuration-app-config.mdx). Services can participate in the app config by creating and injecting the appropriate [**item type**](configuration-app-config.mdx#anatomy-of-an-app-config).
+Like components, services can be configured through the [app config](configuration-app-config-getting-started.mdx). Services can participate in the app config by creating and injecting the appropriate [**item type**](configuration-app-config-reference.mdx#app-items).
 
 Each item type in the application is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model.
 
@@ -236,7 +236,7 @@ namespace App1.Services
     <UseCaseCard
         title="Learn how to use Commands and Operations with Services"
         description="Learn how to run and implement commands and operations with custom services"
-        link="sdk-services-commands-operations"
+        link="sdk-commands-operations"
     />
     <UseCaseCard
         title="Learn about Service Interactions"

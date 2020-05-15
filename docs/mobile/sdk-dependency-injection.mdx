@@ -10,7 +10,7 @@ import TabItem from "@theme/TabItem";
 If you are new to the concepts of **inversion of control** and **dependency injection**, check out [this article by Martin Fowler](https://martinfowler.com/articles/injection.html).
 :::
 
-Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into its [components and services](configuration-components-services.mdx). Under the hood, Geocortex Mobile uses [Autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
+Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into its components and services. Under the hood, Geocortex Mobile uses [Autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
 
 1. The class to be injected must register itself with the autofac container.
 2. The class that requires the dependency must accept a concrete class or abstract interface in its constructor as a placeholder for the injected class.
@@ -96,7 +96,7 @@ Used for registering a component that **does** consume configuration. For a more
 
 ### `Service`
 
-Used for registering a service. For a more detailed example, see [create a service](sdk-create-service).
+Used for registering a service. For a more detailed example, see [create a service](sdk-create-service.mdx).
 
 ```cs
 [assembly: Service(typeof(CustomService))]
@@ -104,7 +104,7 @@ Used for registering a service. For a more detailed example, see [create a servi
 
 ### `AppItem`
 
-Used for registering the definition for an [app item](configuration-app-config.mdx#anatomy-of-an-app-config) with Geocortex Mobile. For a more detailed example, see the tutorial on [implementing a custom component with app configuration](tutorial-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
+Used for registering the definition for an [app item](configuration-app-config-reference.mdx#app-items) with Geocortex Mobile. For a more detailed example, see the tutorial on [implementing a custom component with app configuration](tutorial-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
 
 ```cs
 [assembly: AppItem(CustomAppItem.AppItemType, typeof(CustomAppItem))]

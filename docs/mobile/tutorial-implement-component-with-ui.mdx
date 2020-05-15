@@ -13,7 +13,7 @@ import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
 :::
 
-Implementing a custom component in Geocortex Mobile gives you the highest degree of flexibility with what you can do. [Components](configuration-components-services.mdx) can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-display-custom-form.mdx) first.
+Implementing a custom component in Geocortex Mobile gives you the highest degree of flexibility with what you can do. [Components](sdk-components-overview.mdx) can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your Geocortex Mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-display-custom-form.mdx) first.
 
 By the end of this article, you'll have the knowledge to build a component that displays a progress bar that is advanced by a button.
 
@@ -26,7 +26,7 @@ By the end of this article, you'll have the knowledge to build a component that 
 ## Create a Component Skeleton
 
 Create a new file `components/CustomComponent.cs` under the platform agnostic project.
-In the file, add a new component class `CustomComponent` and [register it with **Autofac**](sdk-dependency-injection).
+In the file, add a new component class `CustomComponent` and [register it with **Autofac**](sdk-dependency-injection.mdx).
 
 ```cs title="App1/App1/components/CustomComponent.cs"
 using App1;
@@ -52,7 +52,7 @@ namespace App1.Components
 
 ## Add the Component to your Layout
 
-First, the [layout](configuration-layout.mdx) needs to be told where to find your component. In the assembly attribute of the `CustomComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this [xml namespace](configuration-layout.mdx#namespaces) as an attribute on the layout. In this example, it's added with the alias `custom`.
+First, the [layout](configuration-layout-getting-started.mdx) needs to be told where to find your component. In the assembly attribute of the `CustomComponent`, we declared it to be part of the `App1Namespace` which is defined in `XmlNamespaces.cs` We need to add this [xml namespace](configuration-layout-getting-started.mdx#namespaces) as an attribute on the layout. In this example, it's added with the alias `custom`.
 
 ```xml title="App1/App1/layout-large.xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -69,7 +69,7 @@ First, the [layout](configuration-layout.mdx) needs to be told where to find you
 </layout>
 ```
 
-Now that the `custom` namespace has been added, the component can be added to the layout. For this example, it was added into a [Panel](configuration-layout.mdx#panels) that lives in the taskbar.
+Now that the `custom` namespace has been added, the component can be added to the layout. For this example, it was added into a [Panel](configuration-layout-reference.mdx#panels) that lives in the taskbar.
 
 <Tabs
   defaultValue="layout"

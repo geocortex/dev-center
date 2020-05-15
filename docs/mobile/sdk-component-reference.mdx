@@ -38,7 +38,7 @@ locate, and inject components, services and other classes.
 Each component class is registered with the [`Component` assembly attribute](sdk-dependency-injection.mdx#component)
 
 :::note
-It's convention for the name of the component in the [`layout`](configuration-layout.mdx) to be lower case and kebab case, i.e. `custom-component`.
+It's convention for the name of the component in the [`layout`](configuration-layout-reference.mdx) to be lower case and kebab case, i.e. `custom-component`.
 :::
 
 ```cs
@@ -73,7 +73,7 @@ Once a component has been registered, it can be used in a layout by referring it
 
 ## Component Anatomy
 
-Geocortex Mobile is built on top of the [Xamarin Platform](https://docs.microsoft.com/en-us/xamarin/). In general, [XAML Views](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) are used to define reactive component UI. Component Views in Geocortex Mobile are built with the [Model-View-ViewModel (MVVM) pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm). The model for components is usually either [app config](configuration-app-config.mdx) or a service hosting shared application data.
+Geocortex Mobile is built on top of the [Xamarin Platform](https://docs.microsoft.com/en-us/xamarin/). In general, [XAML Views](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) are used to define reactive component UI. Component Views in Geocortex Mobile are built with the [Model-View-ViewModel (MVVM) pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm). The model for components is usually either [app config](configuration-app-config-getting-started.mdx) or a service hosting shared application data.
 
 ### Component Class
 
@@ -130,7 +130,7 @@ Check out this example of a [component with a view model](https://github.com/geo
 
 ## Configuration Models
 
-Every component is bound to specific [**item type**](configuration-app-config.mdx#anatomy-of-an-app-config), and each item type is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model. The component class then consumes this configuration model, and then passes the appropriate values to the view and view model.
+Every component is bound to specific [**item type**](configuration-app-config-reference.mdx#app-items), and each item type is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model. The component class then consumes this configuration model, and then passes the appropriate values to the view and view model.
 
 <Tabs
   defaultValue="model"
@@ -243,7 +243,7 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
 
 ### Component Defaults
 
-Most components support the [`config` attribute](configuration-app-config.mdx#linking-layout-to-app-config) in the layout, which links a component to configuration in the app config JSON. However, many configuration models have default values they can supply for initialization instead of relying on a value to exist in the config. Any `AppItem` class can provide default values through the `CreateDefault` method. This method should return an instance of the AppItem which represents the default values.
+Most components support the [`config` attribute](configuration-app-config-getting-started.mdx#linking-layout-to-app-config) in the layout, which links a component to configuration in the app config JSON. However, many configuration models have default values they can supply for initialization instead of relying on a value to exist in the config. Any `AppItem` class can provide default values through the `CreateDefault` method. This method should return an instance of the AppItem which represents the default values.
 
 ```cs
 [assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
@@ -371,7 +371,7 @@ class CustomComponent : ComponentBase
     <UseCaseCard
         title="Learn how to use Commands and Operations with Components"
         description="Learn how to run and implement commands and operations with custom components"
-        link="sdk-components-commands-operations"
+        link="sdk-commands-operations"
     />
     <UseCaseCard
         title="Learn about Component Interactions"

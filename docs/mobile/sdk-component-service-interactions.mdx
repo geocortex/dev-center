@@ -11,13 +11,13 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 Components and services have multiple ways of interacting with other components and services.
 
--   When possible, interaction through [commands and operations](sdk-components-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling.
+-   When possible, interaction through [commands and operations](sdk-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling.
 -   When you need stronger coupling and direct access to a service, then [dependency injection](sdk-dependency-injection.mdx) can be used to reference services.
 
 If a component or service needs access to the [ArcGIS MapView object](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Xamarin_Forms_MapView.htm) powering the applications map, it can reference it through an `ILayoutModel`.
 
 :::note
-A layout model is resolved according to the [layout hierarchy](configuration-advanced-model-binding).
+A layout model is resolved according to the [layout hierarchy](configuration-advanced-model-binding.mdx).
 :::
 
 ## Interacting with the `MapView`

@@ -19,10 +19,10 @@ This article will walk you through implementing a custom command in Geocortex Mo
 
 ## Create the Backing Service
 
-It's convention that commands and operations in Geocortex Mobile are registered and implemented by a [service or component](configuration-components-services.mdx), so the first thing we will do is create a service.
+It's convention that commands and operations in Geocortex Mobile are registered and implemented by a service or component, so the first thing we will do is create a service.
 
 1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
-    - In the file, add a new service class `AlertService` and [register it with **Autofac**](sdk-dependency-injection).
+    - In the file, add a new service class `AlertService` and [register it with **Autofac**](sdk-dependency-injection.mdx).
 
 ```cs title="App1/App1/services/AlertService.cs"
 using App1.Services.AlertService;

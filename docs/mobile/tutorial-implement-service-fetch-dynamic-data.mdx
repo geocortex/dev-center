@@ -8,7 +8,7 @@ import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-When extending Geocortex Mobile, you may find yourself creating multiple [components](configuration-components-services.mdx#components) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](configuration-components-services.mdx#services). Implementing a custom service in Geocortex Mobile allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](sdk-commands-operations.mdx#implementing-commands-and-operations).
+When extending Geocortex Mobile, you may find yourself creating multiple [components](sdk-components-overview.mdx) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a custom [service](sdk-services-overview.mdx). Implementing a custom service in Geocortex Mobile allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](sdk-commands-operations.mdx#implementing-commands-and-operations).
 
 This article will guide you through creating a custom service that fetches data from a dynamic source and delivers it to components through an operation.
 
@@ -124,7 +124,7 @@ namespace App1.Services
 
 To expose this data source to other components and services, we can create a new operation, `custom-data.fetch`.
 
-First, create a new [operations class](sdk-commands-operations#registration-with-operationsbase) and define a new operation.
+First, create a new [operations class](sdk-commands-operations.mdx#registration-with-operationsbase) and define a new operation.
 
 ```cs title="App1/App1/services/CustomOperations.cs"
 using App1.Operations;

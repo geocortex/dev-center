@@ -86,7 +86,7 @@ export { default as CustomModel } from "./CustomModel";
 
 ## Register the Component with the Web SDK
 
-Every component needs to be registered with the Web SDK in order to be used in the [`layout`](configuration-layout.mdx)
+Every component needs to be registered with the Web SDK in order to be used in the [`layout`](configuration-layout-getting-started.mdx)
 
 -   Add new calls to `registerComponent` and `registerModel` in `src/index.ts`.
 
@@ -120,7 +120,7 @@ export default function(registry: LibraryRegistry) {
 
 ## Add the Component to your Layout
 
-To allow layout to find your component, you need to add the [custom namespace](configuration-layout.mdx#namespaces) of your component defined in the previous step with an `xmlns` tag to the layout.'
+To allow layout to find your component, you need to add the [custom namespace](configuration-layout-getting-started.mdx#namespaces) of your component defined in the previous step with an `xmlns` tag to the layout.'
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>

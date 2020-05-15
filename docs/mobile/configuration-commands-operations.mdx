@@ -30,7 +30,7 @@ edit.delete-features
 The full list of existing commands and operations available in Geocortex Mobile can be [found in the API documentation](api-commands-operations-events.mdx).
 :::
 
-Commands and operations are used to power much of Geocortex Web's built in behavior and interactions. They can be run through configuration, or through [custom services](sdk-services-commands-operations.mdx) or [components](sdk-components-commands-operations.mdx).
+Commands and operations are used to power much of Geocortex Web's built in behavior and interactions. They can be run through configuration, or through [custom services](sdk-commands-operations.mdx) or [components](sdk-commands-operations.mdx).
 
 One thing that makes commands and operations so powerful is that built in components have properties in the app config which take them as values. They power everything from basic components like the IWTM, to advanced functionality like the results list. This allows built-in component's internal behavior to be configured with different commands and operations.
 
@@ -152,7 +152,7 @@ Commands and operations can be configured with an `arguments` property that pass
 
 <!-- TODO-API change autocomplete linting note to API definitions -->
 
-Each command has typed arguments that will [autocomplete in the app.json](configuration-advanced-app-config.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
+Each command has typed arguments that will [autocomplete in the app.json](configuration-app-config-reference.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
 
 :::tip
 You can find out what arguments a command or operation takes in the [commands and operations API reference](api-commands-operations-events.mdx).
@@ -329,7 +329,7 @@ Check out [Change Default Behavior](tutorial-change-default-behavior.mdx) for mo
 
 <!-- TODO-API - direct link to MapExtensionArgs -->
 
-The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item URI**. Item URIs are a way of referencing other items within the app config. See [Item URIs](configuration-advanced-app-config.mdx#item-uris-and-resource-uris) for more details.
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item URI**. Item URIs are a way of referencing other items within the app config. See [Item URIs](configuration-app-config-reference.mdx#item-uris-and-resource-uris) for more details.
 
 ## Relevant SDK Samples
 
@@ -362,6 +362,6 @@ Geocortex Mobile has a large array of built-in command and operations that you c
     <UseCaseCard
         title="Learn about Events built into Geocortex Mobile"
         description="Learn about the global event infrastructure in Geocortex Mobile"
-        link="configuration-events"
+        link="sdk-events-reference"
     />
 </UseCaseContainer>
