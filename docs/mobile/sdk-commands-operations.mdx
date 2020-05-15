@@ -74,14 +74,14 @@ class CustomService : ServiceBase
 
 Commands and operations can also be defined in an `OperationsBase` class, which can then be injected into any service or component that wants to register an implementation.
 
--   An `IVoidOperation` produces no output, and optionally takes an input. This type represents a "command", as it **does not** produce an output.
+-   An `IVoidOperation` produces no output, and optionally takes an input.
 
 ```cs
 public IVoidOperation NoInputNoOutput => GetVoidOperation("fire.phasers");
 public IVoidOperation<Temperature> SomeInputNoOutput => GetVoidOperation<Temperature>("tea.earl-grey");
 ```
 
--   An `IOperation` produces an output, and optionally takes an input. This type represents a "operation", as it **does** produce an output.
+-   An `IOperation` produces an output, and optionally takes an input.
 
 ```cs
 public IOperation<SomeOutput> NoInputSomeOutput => GetOperation<SomeOutput>("custom.operation");

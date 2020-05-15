@@ -13,7 +13,7 @@ import TabItem from "@theme/TabItem";
 Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
 :::
 
-Implementing a custom component in Mobile gives you the highest degree of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-change-default-map-click-behavior.mdx) first.
+Implementing a custom component in Geocortex Mobile gives you the highest degree of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-change-default-map-click-behavior.mdx) first.
 
 ```cs
 [assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
@@ -103,7 +103,7 @@ The preferred way to provide sub-dependencies to classes associated with compone
 
 XAML views and their respective "code-behind" are responsible for the presentation concerns of a component. Check out a [complete example in the SDK samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent).
 
-XAML views can use any [XAML Controls](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-controls) along with built-in [Geocortex Mobile XAML Elements and styling](sdk-component-styling.mdx#using-geocortex-mobile-ui-elements).
+XAML views can use any [XAML Controls](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-controls) along with built-in [Geocortex Mobile XAML Elements and styling](sdk-component-styling.mdx#using-geocortex-mobile-xaml-elements).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -243,7 +243,7 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
 
 ### Component Defaults
 
-Most components support the [`config` attribute](configuration-app-config-getting-started.mdx#linking-layout-to-app-config) in the layout, which links a component to configuration in the app config JSON. However, many configuration models have default values they can supply for initialization instead of relying on a value to exist in the config. Any `AppItem` class can provide default values through the `CreateDefault` method. This method should return an instance of the AppItem which represents the default values.
+Most components support the [`config` attribute](configuration-app-config-getting-started.mdx#linking-layout-to-app-config) in the layout, which links a component to configuration in the app config JSON. However, many configuration models have default values they can supply for initialization instead of relying on a value to exist in the config. Any `AppItem` class can provide default values through the `CreateDefault` method. This method should return an instance of the `AppItem` which represents the default values.
 
 ```cs
 [assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
