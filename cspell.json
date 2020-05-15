@@ -40,6 +40,7 @@
         "latitudegeo",
         "lifecycle",
         "linq",
+        "mapview",
         "mvvm",
         "nameof",
         "netcore",
@@ -70,6 +71,7 @@
         "viewmodel",
         "webhook",
         "webm",
+        "wkid",
         "xcopy"
     ],
     "language": "en-US",
