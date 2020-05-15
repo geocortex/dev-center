@@ -50,17 +50,77 @@ export default class ExampleService extends ServiceBase {
 
 ## Implementing Commands and Operations
 
-Services can also register an implementation for any command or operation. The following service registers an implementation for a custom command that takes a `string` argument.
+Services can also register an implementation for any command or operation. Services can either register a command or operation by a static reference to a function, or by dynamically registering the implementation at runtime.
+
+### Static Registration
+
+Services can register a command or operation using the id of the service, and the name of a method on the service that will be called. The following service registers an implementation for a custom operation that returns a custom command type.
 
 :::note
 It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
 :::
 
-```tsx
+<Tabs
+  defaultValue="service"
+  values={[
+    { label: "Service", value: "service" },
+    { label: "Registration", value: "registration" }
+  ]}>
+<TabItem value="registration">
+
+```ts
+export default function (registry: LibraryRegistry) {
+    ...
+
+    registry.registerService({
+        id: "custom-service",
+        getServiceType: () => CustomService
+    });
+
+    registry.registerOperation("custom.my-operation", {
+        serviceId: "custom-service",
+        // highlight-next-line
+        executeMethodName: "_executeMyOperation",
+    });
+}
+```
+
+</TabItem>
+<TabItem value="service">
+
+```ts
 export interface CustomCommandArg {
     someProp: string;
 }
 
+export default class ExampleService extends ServiceBase {
+    // highlight-next-line
+    protected _executeMyOperation(): Promise<CustomCommandArg> {
+        // ... do work here
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Dynamic Registration
+
+Implementations for commands and operations can also be registered at runtime. This allows for dynamic implementations of commands and operations. The following service registers an implementation for a custom command that takes a `string`.
+
+:::important  
+It's important to cleanup command registration handles to prevent memory issues.
+:::
+
+<Tabs
+  defaultValue="service"
+  values={[
+    { label: "Service", value: "service" },
+    { label: "Registration", value: "registration" }
+  ]}>
+<TabItem value="service">
+
+```tsx
 export default class ExampleService extends ServiceBase {
     private _handles: IHandle[] = [];
 
@@ -69,10 +129,10 @@ export default class ExampleService extends ServiceBase {
 
         this._handles.push(
             this.messages
-                .command<CustomCommandArg>("custom.my-command")
-                .register((arg: CustomCommandArg) => {
+                .command<string>("custom.my-command")
+                .register((arg: string) => {
                     console.log(
-                        `Executing 'custom.my-command' with argument '${arg.someProp}'`
+                        `Executing 'custom.my-command' with argument '${arg}'`
                     );
                     return;
                 })
@@ -85,6 +145,19 @@ export default class ExampleService extends ServiceBase {
     }
 }
 ```
+
+</TabItem>
+<TabItem value="registration">
+
+```ts
+export default function (registry: LibraryRegistry) {
+    ...
+    registry.registerCommand("custom.my-command");
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Running Custom Commands
 
