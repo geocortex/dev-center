@@ -1,0 +1,101 @@
+{
+    "components": [
+        {
+            "id": 2,
+            "steps": [
+                {
+                    "id": 3,
+                    "inputs": {},
+                    "position": "0,0",
+                    "purpose": "start",
+                    "title": "Start",
+                    "transitions": [
+                        {
+                            "id": 17,
+                            "position": "90,60 90,110",
+                            "target": {
+                                "id": 14
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:ui::Alert",
+                    "id": 11,
+                    "inputs": {
+                        "text": {
+                            "accessors": ["$calculateLog1", "$calculateLog2"],
+                            "annotations": [
+                                {
+                                    "count": 14,
+                                    "index": 24,
+                                    "kind": "idref"
+                                },
+                                {
+                                    "count": 14,
+                                    "index": 73,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "\"Log of 25 base 5 is '\" + $calculateLog1.result + \"'\\nNatural Log of 10 is '\" + $calculateLog2.result + \"'\\n\"",
+                            "source": "`Log of 25 base 5 is '${$calculateLog1.result}'\\nNatural Log of 10 is '${$calculateLog2.result}'\\n`"
+                        }
+                    },
+                    "position": "-30,370",
+                    "title": "Alert"
+                },
+                {
+                    "action": "your:unique:namespace::CalculateLog",
+                    "id": 14,
+                    "inputs": {
+                        "base": 5,
+                        "value": 25
+                    },
+                    "name": "calculateLog1",
+                    "position": "-30,110",
+                    "title": "Calculate Log",
+                    "transitions": [
+                        {
+                            "id": 18,
+                            "position": "90,180 90,230",
+                            "target": {
+                                "id": 15
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "your:unique:namespace::CalculateLog",
+                    "id": 15,
+                    "inputs": {
+                        "value": 10
+                    },
+                    "name": "calculateLog2",
+                    "position": "-30,230",
+                    "title": "Calculate Log",
+                    "transitions": [
+                        {
+                            "id": 19,
+                            "position": "90,300 90,370",
+                            "sourceConnector": "bottom",
+                            "target": {
+                                "id": 11
+                            },
+                            "targetConnector": "top"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "references": [
+        {
+            "id": 22,
+            "path": "https://localhost:57999/",
+            "suite": "your:unique:namespace"
+        }
+    ],
+    "start": {
+        "id": 3
+    }
+}
