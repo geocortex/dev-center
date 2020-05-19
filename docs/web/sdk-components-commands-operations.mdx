@@ -125,18 +125,22 @@ You can run the custom commands or operations you define from another component,
 ```ts
 @serializable
 export default class ExampleComponentModel extends ComponentModelBase {
-    async runCustomCommandsAndOperations(){
-         // highlight-start
-        await command<CustomCommandArg>("custom.my-command").execute({ someProp: "some arg" });
+    async runCustomCommandsAndOperations() {
+        // highlight-start
+        await command<CustomCommandArg>("custom.my-command").execute({
+            someProp: "some arg",
+        });
         // highlight-end
 
         // highlight-start
-        const result = await operation<InputArgType, OutputArgType>("custom.my-operation").execute({
+        const result = await operation<InputArgType, OutputArgType>(
+            "custom.my-operation"
+        ).execute({
             some: "arg",
         });
         // highlight-end
-        ...
+        // ...
     }
-    ...
+    // ...
 }
 ```
