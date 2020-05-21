@@ -46,7 +46,7 @@ export default StarRatingElement;
 
 ## Set up a Form Element Registration Activity
 
-1. [Follow these instructions](sdk-web-create-activity.mdx) to create a skeleton activity.
+1. Run the command `npm run activity` and name the activity `RegisterCustomFormElements`.
 1. Modify the activity class declaration to extend the `RegisterCustomFormElementBase` base class.
 1. Remove unnecessary inputs and outputs and register your custom form element in the `execute` method.
 
@@ -186,7 +186,7 @@ export default function StarRatingFormElement(props: CustomFormElementProps) {
 
 ## Expose the Form Elements Value
 
-Finally, we are going to expose the form elements value to the larger workflow. For more information on how to do this, check out the [relevant tutorial](tutorial-web-implement-star-rating-form-element.mdx).
+Finally, we are going to expose the form elements value to the larger workflow. For more information on this, check out the [form element reference](sdk-web-form-reference.mdx#access-properties-of-custom-form-elements).
 
 ```tsx title="src/form-elements/StarRatingElement.tsx"
 import * as React from "react";

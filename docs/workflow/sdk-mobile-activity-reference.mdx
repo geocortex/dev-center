@@ -125,7 +125,7 @@ namespace App1.Workflow
 }
 ```
 
-Next, [inject the activity](../mobile/sdk-dependency-injection.mdx) into the [`IActivityHandlerFactory` for the application](tutorial-mobile-calculate-logarithm-activity.mdx#register-the-activity-with-the-iactivityhandlerfactory).
+Next, [inject the activity](../mobile/sdk-dependency-injection.mdx) into the `IActivityHandlerFactory` for the application.
 
 :::note
 Since the `DisplayGeocortexMobileAlert` activity is injected into the `IActivityHandlerFactory` with Autofac, it's dependency on the `UIOperations` class will be be resolved by Autofac.
@@ -249,7 +249,7 @@ namespace App1.Samples.Workflow.CustomActivity
 
 ## Access the Application Map
 
-The map of the host Geocortex Workflow application can be accessed through [dependency injection ](../mobile/sdk-dependency-injection.mdx). The `MapProviderBase` class which exposes the [Map](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Mapping_Map.htm) and [MapView](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_UI_Controls_MapView.htm) can be injected with the `ProviderFactoryAttribute`.
+The map of the host application can be accessed through [dependency injection ](../mobile/sdk-dependency-injection.mdx). The `MapProviderBase` class which exposes the [Map](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Mapping_Map.htm) and [MapView](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_UI_Controls_MapView.htm) can be injected with the `ProviderFactoryAttribute`.
 
 :::note
 For a complete example, check out the [Show Callout on Map](tutorial-mobile-show-map-callout.mdx) custom activity tutorial.

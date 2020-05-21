@@ -66,10 +66,11 @@ namespace App1.Workflow
 
 1. Create a new file `FormElementRegistrationActivity.cs` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-getting-started.mdx).
 2. Add a new form registration activity that implements `RegisterCustomFormElementBase`.
+3. Register the `LoadingIndicator` form element in the `Execute` method of the activity.
 
 :::tip
 Only one form element registration activity is needed per app, as it can register multiple custom form elements.
-Learn more about [implementing custom activities](tutorial-mobile-calculate-logarithm-activity.mdx).
+Learn more about [implementing custom activities](sdk-mobile-activity-reference.mdx).
 :::
 
 ```cs title="App1/App1/workflow/FormElementRegistrationActivity.cs"
@@ -81,6 +82,7 @@ using System.Threading.Tasks;
 [assembly: Export(typeof(FormElementRegistrationActivity))]
 namespace App1.Workflow
 {
+    // highlight-next-line
     class FormElementRegistrationActivity : RegisterCustomFormElementBase
     {
         public static string Action { get; } = "your:unique:namespace::FormElementRegistrationActivity";
@@ -88,6 +90,7 @@ namespace App1.Workflow
         public override Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
             IDictionary<string, object> result = new Dictionary<string, object>();
+            // highlight-next-line
             Register("LoadingIndicator", typeof(LoadingIndicator), context);
             return Task.FromResult(result);
         }
@@ -126,6 +129,7 @@ namespace App1.Workflow
 
         public ActivityLoader(Func<FormElementRegistrationActivity> formElementRegistrationActivityFactory)
         {
+            // highlight-next-line
             RegisteredActivities[FormElementRegistrationActivity.Action] = formElementRegistrationActivityFactory;
         }
 
@@ -175,6 +179,7 @@ namespace App1.Workflow
         public LoadingIndicator(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base(element, name)
         {
+            // highlight-start
             _view = new EnhancedActivityIndicator()
             {
                 IsRunning = true,
@@ -182,6 +187,7 @@ namespace App1.Workflow
                 WidthRequest = 75,
                 Margin = 10
             };
+            // highlight-end
 
             Add(new GenericComponent(_view));
         }
