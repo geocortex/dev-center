@@ -2,8 +2,6 @@ import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./index.module.css";
 
-// TODO- accomplish more SVG styling in CSS?
-
 function SvgArrow() {
     return (
         <svg
@@ -48,26 +46,24 @@ function IconContainer({ iconUrl, iconLabel, linkUrl }) {
         <a className={styles.iconContainer} href={linkUrl}>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <circle
+                    class={styles.iconCircle}
                     cx={`${circleSize}em`}
                     cy={`${circleSize}em`}
                     r={`${circleSize}em`}
-                    fill="#f0f5f9"
-                    stroke="lightgray"
                 />
-                <image
+                <use
+                    class={styles.icon}
                     x={`${circleSize / 2}em`}
                     y={`${circleSize / 2}em`}
                     width={`${circleSize}em`}
                     height={`${circleSize}em`}
-                    xlinkHref={useBaseUrl(iconUrl)}
-                />
+                    href={`${useBaseUrl(iconUrl)}#icon`}
+                ></use>
             </svg>
             <h2 className={styles.iconLabel}>{iconLabel}</h2>
         </a>
     );
 }
-
-// TODO - move fill styling out of individual SVG files
 
 // TODO - should these be links at all? should they be links to headers? Should they be links to external content or throw you right in?
 
