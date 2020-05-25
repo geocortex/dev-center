@@ -69,6 +69,8 @@ function IconContainer({ iconUrl, iconLabel, linkUrl }) {
 
 // TODO - move fill styling out of individual SVG files
 
+// TODO - should these be links at all? should they be links to headers? Should they be links to external content or throw you right in?
+
 export default function ExtensibilitySpectrum({ product }) {
     return (
         <div className={styles.container}>
