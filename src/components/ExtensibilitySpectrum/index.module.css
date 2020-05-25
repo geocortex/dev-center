@@ -5,7 +5,7 @@
     justify-content: space-between;
 }
 
-.iconContainer img {
+.iconContainer svg {
     height: 5em;
     width: 5em;
     margin: 0.75em;
@@ -51,7 +51,7 @@
 }
 
 @media (max-width: 1320px) and (min-width: 997px) {
-    .iconContainer img {
+    .iconContainer svg {
         height: 3.5em;
         width: 3.5em;
         margin: 0.5em;

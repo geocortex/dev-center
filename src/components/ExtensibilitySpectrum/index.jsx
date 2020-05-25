@@ -38,35 +38,55 @@ function SvgArrow() {
     );
 }
 
+// TODO - centering is slightly off?
+
 function IconContainer({ iconUrl, iconLabel }) {
+    const circleSize = 2.5;
     return (
         <div className={styles.iconContainer} onClick>
-            <img src={useBaseUrl(iconUrl)} />
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle
+                    cx={`${circleSize}em`}
+                    cy={`${circleSize}em`}
+                    r={`${circleSize}em`}
+                    fill="#f0f5f9"
+                    stroke="lightgray"
+                />
+                <image
+                    x={`${circleSize / 2}em`}
+                    y={`${circleSize / 2}em`}
+                    width={`${circleSize}em`}
+                    height={`${circleSize}em`}
+                    xlinkHref={useBaseUrl(iconUrl)}
+                />
+            </svg>
             <h2 className={styles.iconLabel}>{iconLabel}</h2>
         </div>
     );
 }
 
+// TODO - move fill styling out of individual SVG files
+
 export default function ExtensibilitySpectrum({ product }) {
     return (
         <div className={styles.container}>
             <IconContainer
-                iconUrl="img/spectrum-config.png"
+                iconUrl="img/spectrum-config.svg"
                 iconLabel="Application Configuration"
             />
             <SvgArrow />
             <IconContainer
-                iconUrl="img/spectrum-workflow.png"
+                iconUrl="img/spectrum-workflow.svg"
                 iconLabel="Geocortex Workflow"
             />
             <SvgArrow />
             <IconContainer
-                iconUrl="img/spectrum-workflow.png"
+                iconUrl="img/spectrum-workflow.svg"
                 iconLabel="Custom Activities and Form Elements"
             />
             <SvgArrow />
             <IconContainer
-                iconUrl="img/spectrum-code.png"
+                iconUrl="img/spectrum-code.svg"
                 iconLabel="Custom Code"
             />
         </div>
