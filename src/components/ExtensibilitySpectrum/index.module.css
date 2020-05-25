@@ -51,10 +51,12 @@
 }
 
 @media (max-width: 1320px) and (min-width: 997px) {
+    :root {
+        --scale-amount: 0.75;
+    }
+
     .iconContainer svg {
-        height: 3.5em;
-        width: 3.5em;
-        margin: 0.5em;
+        transform: scale(var(--scale-amount));
     }
 
     .iconContainer h2 {
@@ -62,7 +64,7 @@
     }
 
     .svgDashedLine {
-        margin-top: 0em;
-        transform: rotate(-90deg) scale(0.7);
+        margin-top: 0.75em;
+        transform: rotate(-90deg) scale(var(--scale-amount));
     }
 }

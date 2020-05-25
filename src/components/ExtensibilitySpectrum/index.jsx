@@ -2,6 +2,8 @@ import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./index.module.css";
 
+// TODO- accomplish more SVG styling in CSS?
+
 function SvgArrow() {
     return (
         <svg
