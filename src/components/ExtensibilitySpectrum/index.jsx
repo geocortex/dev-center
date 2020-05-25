@@ -2,7 +2,7 @@ import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import styles from "./index.module.css";
 
-function SvgArrow() {
+function SvgLineWithArrow() {
     return (
         <svg
             className={styles.svgDashedLine}
@@ -44,7 +44,7 @@ function IconContainer({ iconUrl, iconLabel, linkUrl }) {
     const circleSize = 2.5;
     return (
         <a className={styles.iconContainer} href={linkUrl}>
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <svg xmlns="http://www.w3.org/2000/svg">
                 <circle
                     class={styles.iconCircle}
                     cx={`${circleSize}em`}
@@ -78,19 +78,19 @@ export default function ExtensibilitySpectrum({
                 iconLabel="Application Configuration"
                 linkUrl={configLink}
             />
-            <SvgArrow />
+            <SvgLineWithArrow />
             <IconContainer
                 iconUrl="img/spectrum-workflow.svg"
                 iconLabel="Geocortex Workflow"
                 linkUrl={workflowLink}
             />
-            <SvgArrow />
+            <SvgLineWithArrow />
             <IconContainer
                 iconUrl="img/spectrum-workflow.svg"
                 iconLabel="Custom Activities and Form Elements"
                 linkUrl={customWorkflowLink}
             />
-            <SvgArrow />
+            <SvgLineWithArrow />
             <IconContainer
                 iconUrl="img/spectrum-code.svg"
                 iconLabel="Custom Code"
