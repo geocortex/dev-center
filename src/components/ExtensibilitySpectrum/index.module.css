@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 .iconContainer img {
@@ -18,6 +19,7 @@
 
 .iconLabel {
     max-width: 10em;
+    min-width: 7em;
     text-align: center;
 }
 
@@ -33,4 +35,34 @@
 }
 
 @media only screen and (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        align-items: start;
+    }
+
+    .iconContainer {
+        justify-content: start;
+    }
+
+    .svgDashedLine {
+        margin-top: 1em;
+        transform: rotate(-90deg);
+    }
+}
+
+@media (max-width: 1320px) and (min-width: 997px) {
+    .iconContainer img {
+        height: 3.5em;
+        width: 3.5em;
+        margin: 0.5em;
+    }
+
+    .iconContainer h2 {
+        font-size: 1em;
+    }
+
+    .svgDashedLine {
+        margin-top: 0em;
+        transform: rotate(-90deg) scale(0.7);
+    }
 }

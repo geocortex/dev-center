@@ -5,9 +5,9 @@ import styles from "./index.module.css";
 function SvgArrow() {
     return (
         <svg
-            width="20"
+            className={styles.svgDashedLine}
+            width="25"
             height="80"
-            viewBox="0 0 20 80"
             xmlns="http://www.w3.org/2000/svg"
         >
             <defs>
@@ -62,7 +62,7 @@ export default function ExtensibilitySpectrum({ product }) {
             <SvgArrow />
             <IconContainer
                 iconUrl="img/spectrum-workflow.png"
-                iconLabel="Custom Workflow Activities and Form Elements"
+                iconLabel="Custom Activities and Form Elements"
             />
             <SvgArrow />
             <IconContainer
