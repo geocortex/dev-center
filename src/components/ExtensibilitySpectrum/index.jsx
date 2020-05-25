@@ -40,10 +40,10 @@ function SvgArrow() {
 
 // TODO - centering is slightly off?
 
-function IconContainer({ iconUrl, iconLabel }) {
+function IconContainer({ iconUrl, iconLabel, linkUrl }) {
     const circleSize = 2.5;
     return (
-        <div className={styles.iconContainer} onClick>
+        <a className={styles.iconContainer} href={linkUrl}>
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <circle
                     cx={`${circleSize}em`}
@@ -61,7 +61,7 @@ function IconContainer({ iconUrl, iconLabel }) {
                 />
             </svg>
             <h2 className={styles.iconLabel}>{iconLabel}</h2>
-        </div>
+        </a>
     );
 }
 
@@ -73,21 +73,25 @@ export default function ExtensibilitySpectrum({ product }) {
             <IconContainer
                 iconUrl="img/spectrum-config.svg"
                 iconLabel="Application Configuration"
+                linkUrl="key-concepts"
             />
             <SvgArrow />
             <IconContainer
                 iconUrl="img/spectrum-workflow.svg"
                 iconLabel="Geocortex Workflow"
+                linkUrl="https://docs.geocortex.com/workflow/latest/help/Default.htm"
             />
             <SvgArrow />
             <IconContainer
                 iconUrl="img/spectrum-workflow.svg"
                 iconLabel="Custom Activities and Form Elements"
+                linkUrl="../workflow/overview"
             />
             <SvgArrow />
             <IconContainer
                 iconUrl="img/spectrum-code.svg"
                 iconLabel="Custom Code"
+                linkUrl="sdk-overview"
             />
         </div>
     );
