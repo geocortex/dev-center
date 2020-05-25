@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconContainer img {
+    height: 5em;
+    width: 5em;
+    margin: 0.75em;
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconLabel {
+    max-width: 10em;
+    text-align: center;
+}
+
+/* TODO variables for colours */
+.line {
+    stroke: #177dbf;
+    stroke-width: 0.4em;
+}
+
+.marker {
+    stroke: #177dbf;
+    fill: #177dbf;
+}
+
+@media only screen and (min-width: 768px) {
+}
