@@ -14,16 +14,16 @@
     stroke: lightgray;
 }
 
-.iconContainer svg {
-    height: 5em;
-    width: 5em;
-    margin: 0.75em;
-}
-
 .iconContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.iconContainer svg {
+    height: 5em;
+    width: 5em;
+    margin: 0.75em;
 }
 
 .iconLabel {
@@ -32,17 +32,19 @@
     text-align: center;
 }
 
-.line {
+.arrowLine {
     stroke: var(--geocortex-blue);
     stroke-width: 0.4em;
 }
 
-.marker {
+.arrowMarker {
     stroke: var(--geocortex-blue);
     fill: var(--geocortex-blue);
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 545px) {
+    /* Move the use cases into a row on larger screens */
+
     .container {
         flex-direction: row;
         align-items: start;
@@ -58,9 +60,16 @@
     }
 }
 
-/* TODO - try not to copy the docusaurus media query? pull it from their css? */
+@media only screen and (max-width: 1320px) and (min-width: 997px),
+    only screen and (max-width: 768px) and (min-width: 545px) {
+    /* 
+        This media query is active in two cases:
+        First, docusaurus shrinks the article container between 997px and 1320px
+        so we also need to shrink the spectrum of extensibility but keep it horizontal.
+        The other case is when the screen is too wide for a vertical spectrum but 
+        too small for a full size horizontal spectrum. We again shrink the horizontal spectrum in this case.
+    */
 
-@media (max-width: 1320px) and (min-width: 997px) {
     :root {
         --extensibility-svg-scale-amount: 0.75;
     }

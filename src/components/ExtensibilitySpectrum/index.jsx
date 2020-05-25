@@ -12,7 +12,7 @@ function SvgLineWithArrow() {
         >
             <defs>
                 <marker
-                    className={styles.marker}
+                    className={styles.arrowMarker}
                     id="arrow"
                     viewBox="0 0 10 10"
                     refX="5"
@@ -25,7 +25,7 @@ function SvgLineWithArrow() {
                 </marker>
             </defs>
             <line
-                className={styles.line}
+                className={styles.arrowLine}
                 strokeDashoffset="-2.5"
                 strokeDasharray="10,5"
                 x1="10"
