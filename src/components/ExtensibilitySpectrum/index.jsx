@@ -65,33 +65,36 @@ function IconContainer({ iconUrl, iconLabel, linkUrl }) {
     );
 }
 
-// TODO - should these be links at all? should they be links to headers? Should they be links to external content or throw you right in?
-
-export default function ExtensibilitySpectrum({ product }) {
+export default function ExtensibilitySpectrum({
+    configLink,
+    workflowLink,
+    customWorkflowLink,
+    customCodeLink,
+}) {
     return (
         <div className={styles.container}>
             <IconContainer
                 iconUrl="img/spectrum-config.svg"
                 iconLabel="Application Configuration"
-                linkUrl="key-concepts"
+                linkUrl={configLink}
             />
             <SvgArrow />
             <IconContainer
                 iconUrl="img/spectrum-workflow.svg"
                 iconLabel="Geocortex Workflow"
-                linkUrl="https://docs.geocortex.com/workflow/latest/help/Default.htm"
+                linkUrl={workflowLink}
             />
             <SvgArrow />
             <IconContainer
                 iconUrl="img/spectrum-workflow.svg"
                 iconLabel="Custom Activities and Form Elements"
-                linkUrl="../workflow/overview"
+                linkUrl={customWorkflowLink}
             />
             <SvgArrow />
             <IconContainer
                 iconUrl="img/spectrum-code.svg"
                 iconLabel="Custom Code"
-                linkUrl="sdk-overview"
+                linkUrl={customCodeLink}
             />
         </div>
     );
