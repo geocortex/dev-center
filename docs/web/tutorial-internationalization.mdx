@@ -30,7 +30,7 @@ This article will cover creating a german and english translation for a custom c
 First, we will start off with a component that uses a plain hard-coded text string in English.
 
 :::tip
-Learn more about how to [build custom components](sdk-create-component.mdx).
+Learn more about how to [build custom components](sdk-components-create.mdx).
 :::
 
 <Tabs
@@ -209,7 +209,7 @@ export default function (registry: LibraryRegistry) {
 
 Now that they have been registered, we can use the strings in our boilerplate component from earlier. Geocortex Web layout components, like `<Typography>`, will automatically detect and translate language keys like `language-translatable-text-content` in props and child content.
 
-If you need to manually translate a language key, you can use the [`useContext` react hook](https://reactjs.org/docs/hooks-reference.html#usecontext) with the [UIContext](sdk-ui-context.mdx) to access the `translate` function. Then you can pass the language key `language-translatable-text-content` you defined in the language resources files to the `translate` function and your text will be translated into whichever locale is most appropriate.
+If you need to manually translate a language key, you can use the [`useContext` react hook](https://reactjs.org/docs/hooks-reference.html#usecontext) with the [UIContext](sdk-components-ui-context.mdx) to access the `translate` function. Then you can pass the language key `language-translatable-text-content` you defined in the language resources files to the `translate` function and your text will be translated into whichever locale is most appropriate.
 
 :::tip
 To test out a translation, add the URL parameter `locale=<language>` to your local server.

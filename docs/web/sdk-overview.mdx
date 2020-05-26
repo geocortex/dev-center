@@ -19,7 +19,7 @@ If you still think you need to use the Geocortex Web SDK, then let's get started
 
 ## Overview
 
-The Geocortex Web SDK provides a development toolkit for building [custom components](sdk-create-component.mdx), [services](sdk-create-service.mdx), and more into a package that can be deployed to Geocortex Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises environment.
+The Geocortex Web SDK provides a development toolkit for building [custom components](sdk-components-create.mdx), [services](sdk-services-create.mdx), and more into a package that can be deployed to Geocortex Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises environment.
 
 ## Extension Points
 
@@ -45,7 +45,7 @@ Components, services, and commands and operations interact to form a Geocortex W
 
 -   Services are used to implement application wide behavior, such as theming or authentication, and then expose that logic through commands and operations, such as `ui.set-theme` (implemented by the `BrandingService`) or `auth.sign` (implemented by the `AuthenticationService`).
 -   Components can run commands and operations to interact with services or other components. Components can also implement commands and operations to allow themselves to be affected by other services and components.
--   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [model injection](sdk-component-interactions.mdx#importing-models) or [service injection](sdk-services-injecting-services.mdx).
+-   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [model injection](sdk-components-interactions.mdx#importing-models) or [service injection](sdk-services-injecting-services.mdx).
 
 ## Requirements
 
@@ -123,12 +123,12 @@ You may need to rename the downloaded layout file to `layout.xml`.
     <UseCaseCard
         title="Create a Component"
         description="Learn how to create a basic component"
-        link="sdk-create-component"
+        link="sdk-components-create"
     />
     <UseCaseCard
         title="Create a Service"
         description="Learn how to create a basic service"
-        link="sdk-create-service"
+        link="sdk-services-create"
     />
     <UseCaseCard
         title="Deploy your Application"

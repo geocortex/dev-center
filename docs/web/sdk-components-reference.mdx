@@ -173,12 +173,12 @@ export default function (registry: LibraryRegistry) {
 }
 ```
 
-It's best practice to use the model to define configurable or persistent state, and use the [component hooks](sdk-component-hooks.mdx) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
+It's best practice to use the model to define configurable or persistent state, and use the [component hooks](sdk-components-hooks.mdx) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
 
 For example, the following component delegates the management of the list item content to its model. The component does not have to concern itself with whether those list items come from config, dynamic application events, or other sources.
 
 :::tip
-This example uses the `useWatchAndRerender` [component hook](sdk-component-hooks.mdx) in order to dynamically update the component when the model changes.
+This example uses the `useWatchAndRerender` [component hook](sdk-components-hooks.mdx) in order to dynamically update the component when the model changes.
 :::
 
 <Tabs
@@ -365,7 +365,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
     <UseCaseCard
         title="Learn about Component Interactions"
         description="Learn about how components can interact with each other through their models"
-        link="sdk-component-interactions"
+        link="sdk-components-interactions"
     />
     <UseCaseCard
         title="Create a Component with a Complex UI"
