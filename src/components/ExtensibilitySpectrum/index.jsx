@@ -6,7 +6,6 @@ function SvgLineWithArrow() {
     return (
         <svg
             className={styles.svgDashedLine}
-            width="25"
             height="80"
             xmlns="http://www.w3.org/2000/svg"
         >
@@ -46,13 +45,13 @@ function IconContainer({ iconUrl, iconLabel, linkUrl }) {
         <a className={styles.iconContainer} href={linkUrl}>
             <svg xmlns="http://www.w3.org/2000/svg">
                 <circle
-                    class={styles.iconCircle}
+                    className={styles.iconCircle}
                     cx={`${circleSize}em`}
                     cy={`${circleSize}em`}
                     r={`${circleSize}em`}
                 />
                 <use
-                    class={styles.icon}
+                    className={styles.icon}
                     x={`${circleSize / 2}em`}
                     y={`${circleSize / 2}em`}
                     width={`${circleSize}em`}
