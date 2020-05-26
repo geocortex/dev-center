@@ -247,10 +247,10 @@ module.exports = {
                     label: "Components",
                     items: [
                         "mobile/sdk-components-overview",
-                        "mobile/sdk-create-component",
-                        "mobile/sdk-component-reference",
-                        "mobile/sdk-viewmodel-helper-class",
-                        "mobile/sdk-component-styling",
+                        "mobile/sdk-components-create",
+                        "mobile/sdk-components-reference",
+                        "mobile/sdk-components-viewmodel-helper-class",
+                        "mobile/sdk-components-styling",
                         "mobile/sdk-components-internationalization",
                     ],
                 },
@@ -259,8 +259,8 @@ module.exports = {
                     label: "Services",
                     items: [
                         "mobile/sdk-services-overview",
-                        "mobile/sdk-create-service",
-                        "mobile/sdk-service-reference",
+                        "mobile/sdk-services-create",
+                        "mobile/sdk-services-reference",
                     ],
                 },
                 {
