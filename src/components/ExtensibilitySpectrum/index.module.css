@@ -1,3 +1,5 @@
+/* Mobile first styling - the Extensibility Spectrum is vertical by default until a certain screen size is reached */
+
 .container {
     display: flex;
     flex-direction: column;
