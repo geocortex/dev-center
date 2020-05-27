@@ -159,7 +159,7 @@ When a feature in the results list is opened, the `<feature-details>` component 
 
 ## Presentation Attributes
 
-Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. Some of these presentation attributes are accessible through the [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/), and the rest be configured through layout.
+Components support a number of presentation attributes to adjust their positioning and styling in the application after slotting. Some of these presentation attributes are accessible through the [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/), and the rest can be configured through layout.
 
 :::note
 All dimensional units are expressed in 'em's, where 1 em is equal to the current font size.
@@ -179,7 +179,7 @@ All dimensional units are expressed in 'em's, where 1 em is equal to the current
 
 **Type**: `number`  
 **Description**: Sets the size of the white space between a component and its content.  
-**Applies to**: This attribute will only apply to components with children, due to technical restrictions.  
+**Applies to**: This attribute will only apply to components with children.  
 **Example**:
 
 ```xml
@@ -189,7 +189,7 @@ All dimensional units are expressed in 'em's, where 1 em is equal to the current
 ### `width`
 
 **Type**: `number`  
-**Default value**: If a width is not set, then the width shall be the natural width of the component (however much space it needs).  
+**Default value**: If a width is not set, then the width shall be the natural width of the component or a dynamic size based on the `grow` and alignment attributes.
 **Description**: Sets the width of a component.
 
 ### `height`
