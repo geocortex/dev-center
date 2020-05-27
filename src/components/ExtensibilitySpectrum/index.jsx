@@ -37,8 +37,6 @@ function SvgLineWithArrow() {
     );
 }
 
-// TODO - centering is slightly off?
-
 function IconContainer({ iconUrl, iconLabel, linkUrl }) {
     const circleRadius = 2.5;
     return (
@@ -51,7 +49,6 @@ function IconContainer({ iconUrl, iconLabel, linkUrl }) {
                     r={`${circleRadius}em`}
                 />
                 <use
-                    className={styles.icon}
                     width={`${circleRadius * 2}em`}
                     height={`${circleRadius * 2}em`}
                     href={`${useBaseUrl(iconUrl)}#icon`}
