@@ -1,0 +1,184 @@
+---
+title: Build a Custom Command
+description: Geocortex Mobile - Learn how to implement a custom command
+---
+
+import PrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+:::tip
+Geocortex Mobile has many built-in [Commands and Operations](configuration-commands-operations.mdx) which can be chained together to build custom behaviors. If these Commands and Operations are not enough to accomplish your goal, you can use [Geocortex Workflow](https://docs.geocortex.com/workflow/) to take custom behavior even further without writing custom code. If Workflow is still not enough to accomplish your needs, then it might be time to implement a Custom Command / Operation.
+:::
+
+This article will walk you through implementing a custom command in Geocortex Mobile that displays an alert.
+
+## Prerequisites
+
+<PrereqsSnippet />
+
+## Create the Backing Service
+
+It's convention that commands and operations in Geocortex Mobile are registered and implemented by a service or component, so the first thing we will do is create a service.
+
+1. Create a new file `Services/AlertService.cs` under the platform agnostic project.
+    - In the file, add a new service class `AlertService` and [register it with **Autofac**](sdk-dependency-injection.mdx).
+
+```cs title="App1/App1/services/AlertService.cs"
+using App1.Services.AlertService;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Services;
+
+// highlight-next-line
+[assembly: Service(typeof(AlertService), PropertiesAutowired = true)]
+namespace App1.Services.AlertService
+{
+    // highlight-next-line
+    class AlertService : ServiceBase
+    {
+    }
+}
+```
+
+3. Create a class `Services/AlertOperations` under the platform agnostic project.
+    - In the file, add a new class `AlertOperations` and register it with Autofac.
+
+```cs title="App1/App1/services/AlertOperations.cs"
+using App1.Services.AlertOperations;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Composition.Messaging;
+using Geocortex.Mobile.Infrastructure.Messaging;
+
+// highlight-next-line
+[assembly: Export(typeof(AlertOperations), SingleInstance = true)]
+namespace App1.Services.AlertOperations
+{
+    // highlight-next-line
+    class AlertOperations : OperationsBase
+    {
+        public AlertOperations(IOperationRegistry operationRegistry)
+            : base(operationRegistry)
+        {
+        }
+    }
+}
+```
+
+## Implementing the Operation
+
+Creating a new operation in Geocortex Mobile consists of two pieces:
+
+-   Defining the operation's name, inputs, and outputs in the `OperationsBase` class
+-   Registering an execution implementation in the service.
+    -   This function will be the actual code that executes when the operation is called.
+
+### Define the Operation
+
+For this example, let's define a operation with some input and no output.
+
+```cs
+class AlertOperations : OperationsBase
+{
+    // highlight-next-line
+    public IVoidOperation<string> DisplayCustomAlert => GetVoidOperation<string>("custom-alert.display");
+
+    public AlertOperations(IOperationRegistry operationRegistry)
+        : base(operationRegistry)
+    {
+    }
+}
+```
+
+### Register an Implementation for the Operation
+
+Next, we need to register an implementation for our operation in the `AlertService`.
+
+1. Add a public constructor that takes an `AlertOperations` to the Service.
+
+```cs
+    [assembly: Service(typeof(Service), PropertiesAutowired = true)]
+    class AlertService : ServiceBase
+    {
+        // highlight-next-line
+        public AlertService(AlertOperations alertOperations)
+        {
+        }
+    }
+```
+
+2. Create an implementation for displaying a custom alert and register it as an execution for the operation.
+
+```cs
+[assembly: Service(typeof(AlertService))]
+namespace App1.Services
+{
+    class AlertService : ServiceBase
+    {
+        public AlertService(AlertOperations alertOperations)
+        {
+            // highlight-start
+            alertOperations.DisplayCustomAlert.RegisterExecute(
+                (args) =>
+                {
+                    Application.Current.MainPage.DisplayAlert("Custom Alert", args, "OK");
+                    return Task.FromResult((object)null);
+                }, this);
+            // highlight-end
+        }
+    }
+}
+```
+
+Congratulations! You just created your first custom operation. You can easily test your new operation by setting it to [run it on map initialization](tutorial-change-default-behavior.mdx).
+
+```json
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "map-extension",
+            "id": "map1",
+            "onClick": [ "tasks.identify", "highlights.pulse", "results.display" ],
+            "onInitialized": [
+                {
+                    "name": "custom-alert.display",
+                    "arguments": "This is a custom operation!"
+                }
+            ]
+        },
+        ...
+    ]
+}
+```
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Custom Operation](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Operation)
+
+-   [Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service)
+
+## Next Steps
+
+Commands and operations are the logical building blocks of executing custom behavior in Geocortex Mobile, but sometimes you need to take things a bit further. Creating custom components can allow you to design completely custom UI for Geocortex Mobile, and creating background services can enable the execution of tasks on an arbitrary schedule.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations"
+        description="Learn more about commands and operations"
+        link="sdk-commands-operations"
+    />
+    <UseCaseCard
+        title="Implement a Custom Component with UI"
+        description="Learn how to implement a custom component using the Geocortex Mobile SDK"
+        link="tutorial-implement-component-with-ui"
+    />
+    <UseCaseCard
+        title="Implement a Custom Service"
+        description="Learn how to implement a custom service using the Geocortex Mobile SDK"
+        link="sdk-services-create"
+    />
+</UseCaseContainer>

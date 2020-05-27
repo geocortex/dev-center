@@ -32,6 +32,17 @@ export default function(registry: LibraryRegistry) {
 }
 ```
 
+## Service Lifecycle
+
+On application load, all services that are configured to automatically load on startup are created and initialized **in parallel**, along with core services like the message bus.
+
+All other services are created and initialized (i.e. the `_onInitialize` method is called) when they are first invoked. This can happen in multiple ways.
+
+-   If a command or operation implemented by the service is executed, then the service will be created and initialized to run that command.
+-   If a different component or service injects the service, then the service will be created and initialized to fulfill that dependency.
+
+Services are destroyed (i.e. the `destroy` method is invoked) when the application is destroyed.
+
 ## Service Anatomy
 
 All services have access to initialization and cleanup methods, as well as the `messages` property that allows for the registration and execution of commands and operations.
@@ -80,7 +91,7 @@ All services have access to the `messages` property on the class instance, which
 
 ## Models and Configuration
 
-Like components, services can be configured through the [app config](configuration-app-config.mdx). A service can participate in the config by extending the `ConfigurableServiceBase` class. For more information on the relationship between services and configuration, check out [this article](sdk-serializable-properties.mdx). The following example demonstrates a service with one configurable property, `name`.
+Like components, services can be configured through the [app config](configuration-app-config-getting-started.mdx). A service can participate in the config by extending the `ConfigurableServiceBase` class. For more information on the relationship between services and configuration, check out [this article](sdk-serializable-properties.mdx). The following example demonstrates a service with one configurable property, `name`.
 
 :::note
 The service is linked to the config through the `itemType` and `id` properties.
@@ -161,17 +172,6 @@ export default function (registry: LibraryRegistry) {
 
 </TabItem>
 </Tabs>
-
-## Service Lifecycle
-
-On application load, all services that are configured to automatically load on startup are created and initialized **in parallel**, along with core services like the message bus.
-
-All other services are created and initialized (i.e. the `_onInitialize` method is called) when they are first invoked. This can happen in multiple ways.
-
--   If a command or operation implemented by the service is executed, then the service will be created and initialized to run that command.
--   If a different component or service injects the service, then the service will be created and initialized to fulfill that dependency.
-
-Services are destroyed (i.e. the `destroy` method is invoked) when the application is destroyed.
 
 ## Next Steps
 
