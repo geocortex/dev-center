@@ -40,22 +40,20 @@ function SvgLineWithArrow() {
 // TODO - centering is slightly off?
 
 function IconContainer({ iconUrl, iconLabel, linkUrl }) {
-    const circleSize = 2.5;
+    const circleRadius = 2.5;
     return (
         <a className={styles.iconContainer} href={linkUrl}>
             <svg xmlns="http://www.w3.org/2000/svg">
                 <circle
                     className={styles.iconCircle}
-                    cx={`${circleSize}em`}
-                    cy={`${circleSize}em`}
-                    r={`${circleSize}em`}
+                    cx={`${circleRadius}em`}
+                    cy={`${circleRadius}em`}
+                    r={`${circleRadius}em`}
                 />
                 <use
                     className={styles.icon}
-                    x={`${circleSize / 2}em`}
-                    y={`${circleSize / 2}em`}
-                    width={`${circleSize}em`}
-                    height={`${circleSize}em`}
+                    width={`${circleRadius * 2}em`}
+                    height={`${circleRadius * 2}em`}
                     href={`${useBaseUrl(iconUrl)}#icon`}
                 ></use>
             </svg>
@@ -85,7 +83,7 @@ export default function ExtensibilitySpectrum({
             />
             <SvgLineWithArrow />
             <IconContainer
-                iconUrl="img/spectrum-workflow.svg"
+                iconUrl="img/spectrum-workflow-custom.svg"
                 iconLabel="Custom Activities and Form Elements"
                 linkUrl={customWorkflowLink}
             />
