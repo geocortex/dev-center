@@ -1,0 +1,266 @@
+---
+title: Change the Default Behavior of Components
+description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change default application behavior
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+Many of the behaviors of Geocortex Mobile's built-in [components](sdk-components-overview.mdx) are configurable through the [app config](configuration-app-config-getting-started.mdx).
+
+:::note
+Many behaviors which are configurable through the app config are more easily configurable by using the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/). App config should be used if you need to modify a property not available in the app config, or use a custom command as part of a [command chain](configuration-commands-operations.mdx#configuring-commands-and-operations).
+:::
+
+## Prerequisites
+
+<PrereqsLayoutConfigSnippet />
+
+## Change the Behavior of the Feature Details Component
+
+The following example demonstrates changing the `onFeatureDelete` property of the `<feature-details>` component. The default value of this property is the command chain,
+
+```json
+[
+    "highlights.remove-focus",
+    "highlights.remove",
+    "edit.delete-features",
+    "results.hide-details",
+    "results.remove"
+]
+```
+
+We are going to extend this behavior to add a notification that says "Feature has been deleted". The `onFeatureDelete` property is not available to edit through the Geocortex Mobile Designer, but can be edited through the use of app config.
+
+First, let's create a basic map with a feature details component using the layout and app config.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: 'Layout', value: 'layout', },
+    { label: 'App Config', value: 'app', },
+  ]
+}>
+<TabItem value="app">
+
+```json title="App1/App1/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "layout",
+            "id": "handheld-layout",
+            "url": "resource://layout-small.xml",
+            "tags": ["mobile", "small"]
+        },
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "webMap": "c6008288a95247428fc55d9aaa72b670",
+            "onClick": [
+                "tasks.identify",
+                "highlights.pulse",
+                "results.display-details"
+            ]
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+
+    <!-- Taskbar main content -->
+	  <map id="default" config="default" slot="main"/>
+
+    <!-- Taskbar / Results -->
+    <panel id="search-panel">
+      <feature-details config="feature-details"/>
+    </panel>
+
+  </gxm:taskbar>
+</layout>
+
+```
+
+</TabItem>
+</Tabs>
+
+Next, configure the `onFeatureDetails` property of the feature details component to replicate the default behavior. You can test this behavior out by deleting a fire hydrant feature from the map.
+
+```json title="App1/App1/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "layout",
+            "id": "handheld-layout",
+            "url": "resource://layout-small.xml",
+            "tags": ["mobile", "small"]
+        },
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "webMap": "c6008288a95247428fc55d9aaa72b670",
+            "onClick": [
+                "tasks.identify",
+                "highlights.pulse",
+                "results.display-details"
+            ]
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus",
+            // highlight-start
+            "onFeatureDelete": [
+                "highlights.remove-focus",
+                "highlights.remove",
+                "edit.delete-features",
+                "results.hide-details",
+                "results.remove"
+            ]
+            // highlight-end
+        }
+    ]
+}
+```
+
+Finally, add a `ui.display-notification` command after the existing command that displays the message "Feature has been deleted".
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: 'App Config', value: 'config', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "layout",
+            "id": "handheld-layout",
+            "url": "resource://layout-small.xml",
+            "tags": ["mobile", "small"]
+        },
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "webMap": "c6008288a95247428fc55d9aaa72b670",
+            "onClick": [
+                "tasks.identify",
+                "highlights.pulse",
+                "results.display-details"
+            ]
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus",
+            "onFeatureDelete": [
+                "highlights.remove-focus",
+                "highlights.remove",
+                "edit.delete-features",
+                "results.hide-details",
+                "results.remove",
+                // highlight-start
+                {
+                    "name": "ui.display-notification",
+                    "arguments": {
+                        "message": "Feature has been deleted."
+                    }
+                }
+                // highlight-end
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-customize-feature-details-component.png")}/>
+</TabItem>
+</Tabs>
+
+Congratulations! You just changed the default behavior for a built in component using config. All components can be configured through the app config JSON in this manner.
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Configuring basic commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/Commands)
+
+-   [Configuring map and feature commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands)
+
+## Next Steps
+
+Geocortex Mobile comes with many built-in commands and operations to help you accomplish your goal. If these are not enough, Geocortex Workflow can help you implement custom behaviors without writing custom code. If you cannot create the behavior you want with Geocortex Workflow, it might be time to look into using the Geocortex Mobile SDK to implement a custom command or operation.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations"
+        description="Learn more about commands and operations"
+        link="configuration-commands-operations"
+    />
+    <UseCaseCard
+        title="Change Geocortex Mobile's Default Map Click Behavior"
+        description="Learn how to Geocortex Workflow to override Geocortex Mobile's default map click behavior"
+        link="tutorial-change-default-map-click-behavior"
+    />
+    <UseCaseCard
+        description="Learn more about Geocortex Workflow"
+        link="../workflow/overview"
+    />
+    <UseCaseCard
+        title="Commands, Operations, and Events API"
+        description="Check out the available commands and operations"
+        link="api-commands-operations-events"
+    />
+</UseCaseContainer>

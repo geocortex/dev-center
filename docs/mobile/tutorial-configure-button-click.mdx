@@ -1,0 +1,197 @@
+---
+title: Configure Button Click Behavior
+description: Geocortex Mobile - Learn how to run an existing command or operation on a button press
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
+
+This article will guide you through how to add a button to the layout and configure it to run and action through the app config.
+
+:::note
+It's actually possible to configure the a button with a command in [Geocortex Mobile Designer](https://apps.geocortex.com/webviewer/designer/). However, the point of this tutorial is to demonstrate the concept of configuring behaviors using the app config.
+:::
+
+## Prerequisites
+
+<PrereqsLayoutConfigSnippet />
+
+## Add a Button to the Layout
+
+Let's create a a layout with two components; a map, and a button positioned on the map.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<map>
+		<button slot="top-left" width="5" height="2" margin="2"/>
+	</map>
+</layout>
+
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["large"]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-basic-button-on-map.png")}/>
+</TabItem>
+</Tabs>
+
+## Link the Button to a Command in App Config
+
+Link the button to the layout to a `menu-item` in app config, and configure it to run a basic command, `zoom-in`.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml title="app/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<map>
+        // highlight-next-line
+		<button slot="top-left" config="button-config" margin="2"/>
+	</map>
+</layout>
+
+
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            // highlight-next-line
+            "id": "button-config",
+            "iconId": "zoom-in",
+            "title": "Zoom In",
+            "action": "map.zoom-in",
+            "$type": "menu-item"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-basic-button-with-command.png")}/>
+</TabItem>
+</Tabs>
+
+## Pass Arguments to the Command
+
+If the command you want to run takes arguments, you can pass them through the app config.
+
+:::tip
+Check out the [commands and operations reference](configuration-commands-operations.mdx#configuring-commands-and-operations) for more info on passing arguments.
+:::
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "id": "button-config",
+            "iconId": "info",
+            "title": "Alert",
+            "action": {
+                "name": "ui.alert",
+                // highlight-start
+                "arguments": {
+                    "message": "Message from config."
+                }
+                // highlight-end
+            },
+            "$type": "menu-item"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-basic-button-alert.png")}/>
+</TabItem>
+</Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands and Operations"
+        description="Learn more about commands and operations"
+        link="configuration-commands-operations"
+    />
+    <UseCaseCard
+        title="Commands, Operations, and Events API"
+        description="Check out the available commands and operations"
+        link="api-commands-operations-events"
+    />
+    <UseCaseCard
+        title="Change Default Behavior with Commands and Operations"
+        description="Change built-in behavior or add new behavior using app config and layout"
+        link="tutorial-change-default-behavior"
+    />
+</UseCaseContainer>

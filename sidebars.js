@@ -17,7 +17,7 @@ module.exports = {
                     type: "category",
                     label: "Layout",
                     items: [
-                        "web/configuration-layout",
+                        "web/configuration-layout-getting-started",
                         "web/configuration-layout-reference",
                         "web/configuration-advanced-model-binding",
                     ],
@@ -26,7 +26,7 @@ module.exports = {
                     type: "category",
                     label: "App Config",
                     items: [
-                        "web/configuration-app-config",
+                        "web/configuration-app-config-getting-started",
                         "web/configuration-app-config-reference",
                         "web/configuration-theme",
                     ],
@@ -45,7 +45,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Workflow",
+            label: "Geocortex Workflow",
             items: [
                 "web/tutorial-run-workflow-app-config",
                 "web/tutorial-display-custom-form",
@@ -59,6 +59,7 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
+                "web/sdk-deployment",
                 {
                     type: "category",
                     label: "Components",
@@ -96,7 +97,6 @@ module.exports = {
                 },
                 "web/sdk-serializable-properties",
                 "web/sdk-internationalization",
-                "web/sdk-deployment",
                 "web/sdk-reference-third-party-libraries",
                 {
                     type: "category",
@@ -185,87 +185,104 @@ module.exports = {
     ],
     mobile: [
         "mobile/overview",
+        "mobile/key-concepts",
         {
             type: "category",
-            label: "Concepts",
+            label: "Configuration",
             items: [
-                "mobile/concepts-key-concepts",
-                "mobile/concepts-layout",
-                "mobile/concepts-app-config",
-                "mobile/concepts-commands-operations",
-                "mobile/concepts-components-services",
-                "mobile/concepts-events",
                 {
                     type: "category",
-                    label: "Advanced Concepts",
+                    label: "Layout",
                     items: [
-                        "mobile/concepts-advanced-layout",
-                        "mobile/concepts-advanced-app-config",
+                        "mobile/configuration-layout-getting-started",
+                        "mobile/configuration-layout-reference",
+                        "mobile/configuration-advanced-model-binding",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "App Config",
+                    items: [
+                        "mobile/configuration-app-config-getting-started",
+                        "mobile/configuration-app-config-reference",
+                        "mobile/configuration-theme",
+                    ],
+                },
+                "mobile/configuration-commands-operations",
+                {
+                    type: "category",
+                    label: "Tutorials",
+                    items: [
+                        "mobile/tutorial-configure-button-click",
+                        "mobile/tutorial-change-default-behavior",
+                        "mobile/tutorial-customize-application-theme",
+                        "mobile/tutorial-add-medium-layout",
                     ],
                 },
             ],
         },
         {
             type: "category",
-            label: "Use Cases",
+            label: "Geocortex Workflow",
             items: [
-                {
-                    type: "category",
-                    label: "Basics",
-                    items: [
-                        "mobile/usecases-change-default-behavior",
-                        "mobile/usecases-look-and-feel",
-                        "mobile/usecases-add-medium-layout",
-                        "mobile/usecases-internationalization",
-                    ],
-                },
-                {
-                    type: "category",
-                    label: "Workflow",
-                    items: [
-                        "mobile/usecases-display-custom-form",
-                        "mobile/usecases-implement-custom-form-elements",
-                        "mobile/usecases-implement-custom-activity",
-                        "mobile/usecases-change-default-map-click-behavior",
-                    ],
-                },
-                {
-                    type: "category",
-                    label: "Advanced",
-                    items: [
-                        "mobile/usecases-implement-command-operation",
-                        "mobile/usecases-implement-component-with-ui",
-                        "mobile/usecases-implement-component-participate-app-config",
-                        "mobile/usecases-implement-service",
-                        "mobile/usecases-implement-event",
-                    ],
-                },
+                "mobile/tutorial-run-workflow-app-config",
+                "mobile/tutorial-display-custom-form",
+                "mobile/tutorial-change-default-map-click-behavior",
+                "mobile/tutorial-implement-custom-form-elements",
+                "mobile/tutorial-implement-custom-activity",
             ],
         },
         {
             type: "category",
             label: "Geocortex Mobile SDK",
             items: [
+                "mobile/sdk-overview",
+                "mobile/sdk-edit-layout-app-config",
+                "mobile/sdk-quickstart-reference",
+                "mobile/sdk-samples",
+                "mobile/sdk-deployment",
+                "mobile/sdk-commands-operations",
                 {
                     type: "category",
-                    label: "Quickstart",
+                    label: "Components",
                     items: [
-                        "mobile/sdk-getting-started",
-                        "mobile/sdk-edit-layout-app-config",
-                        "mobile/sdk-create-component",
-                        "mobile/sdk-create-service",
-                        "mobile/sdk-deployment",
-                        "mobile/sdk-advanced-quickstart",
+                        "mobile/sdk-components-overview",
+                        "mobile/sdk-components-create",
+                        "mobile/sdk-components-reference",
+                        "mobile/sdk-components-viewmodel-helper-class",
+                        "mobile/sdk-components-styling",
+                        "mobile/sdk-components-internationalization",
                     ],
                 },
-                "mobile/sdk-samples",
                 {
                     type: "category",
-                    label: "Common Patterns",
+                    label: "Services",
                     items: [
-                        "mobile/sdk-dependency-injection",
-                        "mobile/sdk-viewmodel-helper-class",
-                        "mobile/sdk-memory-leaks",
+                        "mobile/sdk-services-overview",
+                        "mobile/sdk-services-create",
+                        "mobile/sdk-services-reference",
+                    ],
+                },
+                {
+                    type: "category",
+                    label: "Events",
+                    items: [
+                        "mobile/sdk-events-overview",
+                        "mobile/sdk-events-reference",
+                    ],
+                },
+                "mobile/sdk-dependency-injection",
+                "mobile/sdk-component-service-interactions",
+                "mobile/sdk-internationalization",
+                "mobile/sdk-memory-leaks",
+                {
+                    type: "category",
+                    label: "Tutorials",
+                    items: [
+                        "mobile/tutorial-implement-command-operation",
+                        "mobile/tutorial-implement-component-with-ui",
+                        "mobile/tutorial-implement-component-participate-app-config",
+                        "mobile/tutorial-implement-service-fetch-dynamic-data",
                     ],
                 },
             ],
@@ -273,12 +290,7 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: [
-                "mobile/api-overview",
-                "mobile/api-layout",
-                "mobile/api-commands-operations-events",
-                "mobile/api-mobile-ui-elements",
-            ],
+            items: ["mobile/api-commands-operations-events"],
         },
     ],
 };
