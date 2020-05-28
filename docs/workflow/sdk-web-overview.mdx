@@ -52,10 +52,10 @@ Activity packs must be hosted by a web server that supports SSL and CORS.
 -   The server must support [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and allow CORS requests from the `https://apps.geocortex.com` origin.
 
 :::note
-If you sign in to Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, `https://acme.apps.geocortex.com`.
+If you sign in to Geocortex Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, `https://acme.apps.geocortex.com`.
 :::
 
-Hosting Workflow activity packs in this manner allows Workflow Designer to read the list of custom activities and their metadata from the source files.
+Hosting Workflow activity packs in this manner allows Geocortex Workflow Designer to read the list of custom activities and their metadata from the source files.
 
 #### Development Web Server
 
@@ -82,7 +82,7 @@ As `localhost` is only accessible to your host machine, activity packs hosted in
 
 ### Register the Activity Pack
 
-To make an activity pack available to workflow authors in Workflow Designer you must create a special item in ArcGIS Online or Portal for ArcGIS that references it.
+To make an activity pack available to workflow authors in Geocortex Workflow Designer you must create a special item in ArcGIS Online or Portal for ArcGIS that references it.
 
 1. Sign in to ArcGIS Online or Portal for ArcGIS.
 1. Go to **My Content**.
@@ -101,7 +101,7 @@ The activity pack will **not** be registered unless it includes the tag `geocort
 
 ### Sharing the Activity Pack
 
-As a workflow author, you will see custom activities in Workflow Designer from the activity packs you have registered. You will also see activity packs that have been shared with you via groups you are a member of.
+As a workflow author, you will see custom activities in Geocortex Workflow Designer from the activity packs you have registered. You will also see activity packs that have been shared with you via groups you are a member of.
 
 To share an activity pack with other workflow authors in your organization share the ArcGIS item that represents the activity pack with a group that contains the target users.
 
