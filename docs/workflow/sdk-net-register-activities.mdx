@@ -93,7 +93,8 @@ export class CalculateLog {
     static suite = "your:unique:namespace";
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
-        return null;
+        // The host application must implement this activity
+        throw new ActivityNotImplementedError(RunOperation.action);
     }
 }
 ```
