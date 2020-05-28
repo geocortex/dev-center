@@ -1,0 +1,75 @@
+---
+title: Component Styling
+description: Geocortex Mobile - Learn how to style a custom component
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Geocortex Mobile Components are styled using [XAML styles](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/styles/xaml/). However, by using Geocortex Mobile XAML Elements, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
+
+## Using Geocortex Mobile XAML Elements
+
+Geocortex Mobile XAML Elements, like the `EnhancedButton` or `EnhancedSwitch` can ease the development of custom components with the SDK. Check out the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/GeocortexMobileElements) for an end to end example of their use.
+
+## Using Theme Colors in Custom Components
+
+If you need to use plain XAML elements when building your component, the various [theming colors](configuration-theme.mdx#theme-color-reference) can be used in XAML styling.
+
+```xml
+<Style x:Key="InnerDetailsFrameStyle" TargetType="Frame">
+  ...
+  <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryBackgroundColor}"></Setter>
+  ...
+</Style>
+```
+
+## Using Built-in Icons
+
+The following example demonstrates a component that uses Geocortex Mobile UI components and an icon from the Geocortex Icons library.
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="component">
+
+```cs
+class CustomComponent : ComponentBase
+{
+    public CustomComponent()
+    {
+    }
+
+    protected override VisualElement Create(XNode node)
+    {
+        return new EnhancedButton()
+        {
+            Text = "Pause Icon",
+            // highlight-next-line
+            ImageSource = "playback_pause",
+            Margin = new Thickness(2)
+        };
+    }
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-component-with-icon.png")}/>
+</TabItem>
+</Tabs>
+
+## Relevant SDK Sample
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Styling buttons](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout/ButtonStyles)
+
+-   [Layout properties](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout/LayoutProperties)
+
+-   [Geocortex Mobile XAML Elements](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/GeocortexMobileElements)

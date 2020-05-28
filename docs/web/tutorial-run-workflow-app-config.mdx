@@ -54,7 +54,7 @@ First, let's create a basic map using the layout and app config.
 </TabItem>
 </Tabs>
 
-Next, add a [app item](configuration-app-config.mdx#anatomy-of-an-app-config) to the configuration for the map component, and configure the map to run `ui.display-notification` on initialization as a test.
+Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-an-app-config) to the configuration for the map component, and configure the map to run `ui.display-notification` on initialization as a test.
 
 <Tabs
   defaultValue="config"
@@ -107,7 +107,7 @@ The next step is going to be replacing the `ui.display-notification` command wit
 <p>
     Optionally, you can{" "}
     <a
-        href={useBaseUrl("workflows/web-run-workflow-app-config.json")}
+        href={useBaseUrl("workflows/run-workflow-app-config.json")}
         download="run-workflow-app-config.json"
     >
         download this example workflow
@@ -178,12 +178,14 @@ Finally, you can configure the map to run this workflow on initialization.
             "id": "map-config",
             "$type": "map-extension",
             "onInitialized": [
+                // highlight-start
                 {
                     "name": "workflow.run",
                     "arguments": {
                         "id": "map-initialized-workflow"
                     }
                 }
+                // highlight-end
             ]
         },
         {
@@ -216,7 +218,7 @@ Finally, you can configure the map to run this workflow on initialization.
 You've now successfully customized behavior through the app config with a workflow. From this point, you could develop the workflow further to solve your business case.
 
 :::tip
-For a more in depth example, check out the use case on [overriding default map click behavior with a workflow](tutorial-change-default-map-click-behavior.mdx).
+For a more in depth example, check out the tutorial on [overriding default map click behavior with a workflow](tutorial-change-default-map-click-behavior.mdx).
 :::
 
 ## Next Steps

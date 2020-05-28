@@ -170,3 +170,22 @@ export default class CustomService extends ServiceBase {
     }
 }
 ```
+
+### Event Arguments
+
+Events optionally take a type argument, which represents the object associated with the event consumed by the subscriber. This can be a simple or complex object.
+
+```ts
+this.messages
+    .event<string>("my-custom-event")
+    .publish("Some String Arg")
+
+this.messages
+    .event<string>("my-custom-event")
+    .subscribe((someArg: string) => { ... })
+
+this.messages
+    .event<CustomType>("another-custom-event")
+    .publish(new CustomType("param"))
+
+```

@@ -14,7 +14,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
 :::
 
-Many changes to Geocortex Mobile will require editing the layout and app config for your custom application. The app config (`app.json`) and layout files (`layout-*.xml`) are contained in the shared platform agnostic project. Each platform specific project links to these files as an asset or a reference, so editing the files in the platform agnostic project will change them for all platforms. Check out [layout](concepts-layout.mdx) and [app config](concepts-app-config.mdx) to learn more about configuring Geocortex Mobile with these files.
+Many changes to Geocortex Mobile will require editing the layout and app config for your custom application. The app config (`app.json`) and layout files (`layout-*.xml`) are contained in the shared platform agnostic project. Each platform specific project links to these files as an asset or a reference, so editing the files in the platform agnostic project will change them for all platforms. Check out [layout](configuration-layout-getting-started.mdx) and [app config](configuration-app-config-getting-started.mdx) to learn more about configuring Geocortex Mobile with these files.
 
 ## Prerequisites
 
@@ -73,9 +73,9 @@ Set `App1.UWP` as your startup project. Build and run Geocortex Mobile and ensur
 
 ## Add Buttons
 
-We can now add some buttons and populate them with some simple [commands](concepts-commands-operations.mdx).
+We can now add some buttons and populate them with some simple [commands](configuration-commands-operations.mdx).
 
--   Add two `<button>` [components](concepts-components-services.mdx#components) to your layout.
+-   Add two `<button>` components to your layout.
 -   Link the buttons to commands defined in the app config.
 
 <Tabs
@@ -168,7 +168,7 @@ Check out the relevant Geocortex Mobile SDK Samples:
     <UseCaseCard
         title="Create a Custom Component"
         description="Learn how to create a custom component with the SDK"
-        link="sdk-create-component"
+        link="sdk-components-create"
     />
     <UseCaseCard
         title="Deploy your Custom Layout and App Config"
@@ -178,7 +178,7 @@ Check out the relevant Geocortex Mobile SDK Samples:
     <UseCaseCard
         title="Learn More About Layout and App Config"
         description="Check out the concepts to learn more about the layout and app config"
-        link="concepts-key-concepts"
+        link="key-concepts"
     />
     <UseCaseCard
         title="Explore the Use Cases"
