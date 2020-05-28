@@ -1,0 +1,59 @@
+---
+title: Component and Service Interactions
+description: Geocortex Mobile - Learn how to make custom components and services interact with the larger application
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+
+Components and services have multiple ways of interacting with other components and services.
+
+-   When possible, interaction through [commands and operations](sdk-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling.
+-   When you need stronger coupling and direct access to a service, then [dependency injection](sdk-dependency-injection.mdx) can be used to reference services.
+
+If a component or service needs access to the [ArcGIS MapView object](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Xamarin_Forms_MapView.htm) powering the applications map, it can reference it through an `ILayoutModel`.
+
+## Interacting with the `MapView`
+
+Components or services can interact with the `MapView` by injecting an `ILayoutModel` that takes a `MapView`. The actual `MapView` needs to be resolved once the map component has loaded, so it's best practice to resolve the `ILayoutModel` in the initialization method of the component or service.
+
+:::note
+A layout model is resolved according to the [layout hierarchy](configuration-advanced-model-binding.mdx).
+:::
+
+```cs
+class CustomComponent : ComponentBase
+{
+    private readonly ILayoutModel<MapView> _mapViewResolver;
+
+    private MapView _mapView;
+
+    // highlight-next-line
+    public CustomComponent(ILayoutModel<MapView> mapViewResolver)
+    {
+        _mapViewResolver = mapViewResolver;
+    }
+
+    protected async override Task DoInitializeAsync()
+    {
+        // highlight-next-line
+        _mapView = await _mapViewResolver.ResolveAsync();
+
+        var wkid = _mapView.SpatialReference.Wkid;
+
+        ...
+    }
+    ...
+}
+```
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Basemap Toggle that uses Custom Services and Components](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BasemapToggle)
+
+-   [Breadcrumb Tracker that uses Custom Services and Components](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BreadCrumbs)

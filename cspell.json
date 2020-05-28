@@ -1,6 +1,7 @@
 {
     "words": [
         "anonymize",
+        "appitem",
         "arcgis",
         "autofac",
         "autowired",
@@ -39,6 +40,7 @@
         "latitudegeo",
         "lifecycle",
         "linq",
+        "mapview",
         "mvvm",
         "nameof",
         "netcore",
@@ -59,6 +61,7 @@
         "theming",
         "typeof",
         "uicontext",
+        "unmanaged",
         "unmount",
         "unshift",
         "usecases",
@@ -67,7 +70,9 @@
         "valign",
         "vertigis",
         "viewmodel",
+        "webhook",
         "webm",
+        "wkid",
         "xcopy"
     ],
     "language": "en-US",

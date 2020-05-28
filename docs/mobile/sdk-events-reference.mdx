@@ -1,0 +1,108 @@
+---
+title: Events Reference
+description: Geocortex Mobile - Events Reference
+---
+
+import CleanupHandlesSnippet from "./snippets/cleanup-handles.mdx";
+
+Events can be published, subscribed, or created by an custom service, component model, or component.
+
+## Publishing Events
+
+Events can be published by calling the `.publish` method on the event object.
+
+In both components and services, event objects are accessed by injecting the relevant event reference class.
+
+:::tip
+The `AllEvents` class is a repository of all available events in the Geocortex Mobile SDK
+:::
+
+```cs
+class CustomServiceOrComponent : ServiceBase
+{
+    private AllEvents _events;
+
+    private TaskEvents _taskEvents;
+
+    public CustomServiceOrComponent(AllEvents events, TaskEvents taskEvents)
+        : base()
+    {
+        _events = events;
+        _taskEvents = taskEvents;
+    }
+
+    public void PublishSomeEvent()
+    {
+        _taskEvents.Identified.Publish(someFeatures);
+        // _events.TaskEvents.Identified.Publish(someFeatures);
+    }
+}
+```
+
+## Subscribing to Events
+
+Events can be subscribed to by calling the `.subscribe` method on the event object.
+
+In both components and services, event objects are accessed by injecting the event reference class.
+
+<CleanupHandlesSnippet />
+
+```cs
+public class CustomServiceOrComponent : ServiceBase
+{
+    public CustomServiceOrComponent(UIEvents uiEvents)
+    {
+        // highlight-next-line
+        uiEvents.ComponentActivated.Subscribe(_onComponentActivated, this);
+    }
+
+    private void _onComponentActivated(string id)
+    {
+        // ... do something on component activation
+    }
+}
+```
+
+## Creating Custom Events
+
+Custom events in Geocortex Mobile are created through the `IEventRegistry`. Events can be directly created in any component or service that can inject this class, but it is best practice to define events in a class that extends `EventsBase` and registers with Autofac. This allows your events to be injected and referenced by any component or service across the app.
+
+```cs
+// highlight-next-line
+[assembly: Export(typeof(CustomEvents), SingleInstance = true, AsImplementedInterfaces = false, AsSelf = true, PropertiesAutowired = true)]
+namespace App1.Events
+{
+    public class CustomEvents : EventsBase
+    {
+        // highlight-next-line
+        public IEvent SomeEvent => GetEvent("custom.some-event");
+
+        public CustomEvents(IEventRegistry eventRegistry)
+            : base(eventRegistry)
+        {
+        }
+    }
+}
+```
+
+### Event Arguments
+
+Events optionally take a type argument, which represents the object associated with the event consumed by the subscriber. This can be a simple or complex object.
+
+```cs
+public class CustomEvents : EventsBase
+{
+    // highlight-start
+    public IEvent EventWithNoArg => GetEvent("custom.no-arg");
+
+    public IEvent<string> EventWithSimpleArg => GetEvent<string>("custom.simple-arg");
+
+    public IEvent<YourCustomType> EventWithComplexArg => GetEvent("custom.complex-arg");
+    // highlight-end
+
+    public CustomEvents(IEventRegistry eventRegistry)
+        : base(eventRegistry)
+    {
+    }
+}
+```

@@ -11,10 +11,10 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsLayoutConfigEditingSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
-Geocortex Web comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](configuration-app-config.mdx).
+Geocortex Web comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](configuration-app-config-getting-started.mdx).
 
 :::note
-It's actually possible to configure the Map's `onClick` event in [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this use case is to demonstrate the concept of configuring actions using the app config.
+It's actually possible to configure the Map's `onClick` event in [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this tutorial is to demonstrate the concept of configuring actions using the app config.
 :::
 
 ## What you're Building
@@ -198,7 +198,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
 
 ## Extend the Workflow to Create a Graphic Buffering the Click Geometry
 
-At this point, you can choose to extend the map click behavior with Geocortex Workflow in whatever way is appropriate for your use case. You could execute a different "identify" for external results and add them to the set of results displayed, or zoom the map to a specific orientation and scale, or display a form for the user to fill out with relevant information to that location. For this example, a workflow was created which asks a user for a buffer distance, and creates a graphic showing the buffer around the click location.
+At this point, you can choose to extend the map click behavior with Geocortex Workflow in whatever way is appropriate for your tutorial. You could execute a different "identify" for external results and add them to the set of results displayed, or zoom the map to a specific orientation and scale, or display a form for the user to fill out with relevant information to that location. For this example, a workflow was created which asks a user for a buffer distance, and creates a graphic showing the buffer around the click location.
 
 :::note
 

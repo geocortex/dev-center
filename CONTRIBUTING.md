@@ -78,7 +78,7 @@ To add a code block, use the markdown syntax like follows:
     -   `xml`
     -   `ts`
     -   `tsx`
-    -   `csharp`
+    -   `cs`
 
 #### File names
 
