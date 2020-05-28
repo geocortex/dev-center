@@ -124,7 +124,7 @@ module.exports = {
         "workflow/concepts-key-concepts",
         {
             type: "category",
-            label: "Geocortex Workflow JavaScript SDK",
+            label: "Geocortex Workflow TypeScript SDK",
             items: [
                 "workflow/sdk-web-overview",
                 "workflow/sdk-web-create-activity",

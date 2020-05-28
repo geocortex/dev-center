@@ -4,7 +4,7 @@ sidebar_label: Activity Reference
 description: Geocortex Workflow - Reference for workflow activities for web applications
 ---
 
-In the Geocortex Workflow JavaScript SDK, activities are represented as simple classes with an `execute` method.
+In the Geocortex Workflow TypeScript SDK, activities are represented as simple classes with an `execute` method.
 
 ```ts
 // @displayName MyCustomActivity
@@ -82,12 +82,12 @@ export class CustomActivity {
 
 ## App Activities
 
-The Geocortex Workflow JavaScript SDK has a concept of an `AppActivity`, which is an activity that needs access to it's [host](concepts-key-concepts.mdx#geocortex-workflow-hosts).
+The Geocortex Workflow TypeScript SDK has a concept of an `AppActivity`, which is an activity that needs access to its [host](concepts-key-concepts.mdx#geocortex-workflow-hosts).
 
 Activities that extend the `AppActivity` gain access to the `map`, `app`, or `widget` properties.
 
 :::note
-Depending on the type of host application different resources will be available. For example, Web AppBuilder for ArcGIS is the only platform which has access to the `widget` property.
+Depending on the type of host application, different resources will be available. For example, Web AppBuilder for ArcGIS is the only platform which has access to the `widget` property.
 :::
 
 ```ts
