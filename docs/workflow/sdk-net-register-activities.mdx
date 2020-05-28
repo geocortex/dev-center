@@ -94,7 +94,7 @@ export class CalculateLog {
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         // The host application must implement this activity
-        throw new ActivityNotImplementedError(RunOperation.action);
+        throw new Error("Activity not implemented for this platform.");
     }
 }
 ```
