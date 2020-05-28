@@ -159,14 +159,17 @@ export default function ExtensibilitySpectrum({
             </IconContainer>
             <SvgLineWithArrow />
             <IconContainer
-                iconLabel="Custom Activities and Form Elements"
+                iconLabel="Custom Workflow Activities and Form Elements"
                 linkUrl={customWorkflowLink}
             >
                 <svg viewBox="-12 -11 48 48">{workflowSvg}</svg>
                 <svg viewBox="-200 -190 500 500">{customCodeSvg}</svg>
             </IconContainer>
             <SvgLineWithArrow />
-            <IconContainer iconLabel="Custom Code" linkUrl={customCodeLink}>
+            <IconContainer
+                iconLabel="Custom Components and Services"
+                linkUrl={customCodeLink}
+            >
                 <svg viewBox="-10 -10 300 300">{customCodeSvg}</svg>
             </IconContainer>
         </div>
