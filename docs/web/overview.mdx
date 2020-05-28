@@ -14,6 +14,8 @@ Geocortex Web apps are created, configured and deployed with [Geocortex Web Desi
 
 <DesignerCallout />
 
+## Spectrum of Extensibility
+
 If the Geocortex Web Designer cannot accomplish what you need, you can manually configure and extend Geocortex Web in a number of ways.
 
 The simplest way to customize your application is through configuration. If you need complex custom behavior and UI, Geocortex Workflow may be able to accomplish your goals through an easy to use interface. Geocortex Workflow can be taken even further through custom extensions to its activity and form element library. Finally, Geocortex Web can be extended through its SDK to create completely custom experiences.
@@ -25,23 +27,23 @@ The simplest way to customize your application is through configuration. If you 
     customCodeLink="#custom-code"
 />
 
-## Application Configuration
+### Application Configuration
 
 Every Geocortex Web application has a [**layout**](configuration-layout.mdx), which represents the visual layout of the application, and [**app config**](configuration-app-config.mdx) that configures various behaviors and settings within the application. Layout and app config can be easily edited to customize the appearance and behavior of an an Geocortex Web application without writing custom code.
 
 Before investing in developing workflows or custom code, see if your use case can be solved through the use of layout and configuration. [Explore the concepts](key-concepts.mdx) to learn more about layout and app config.
 
-## Geocortex Workflow
+### Geocortex Workflow
 
 <!-- TODO - does Geocortex Workflow come bundled with Geocortex Web? -->
 
 [**Geocortex Workflow**](https://docs.geocortex.com/workflow/) is a powerful tool that comes bundled with Geocortex Web which can create custom behavior and UI without custom code development. Many behaviors in Geocortex Web can be [replaced by a workflow](tutorial-change-default-map-click-behavior.mdx) that runs entirely custom logic. Geocortex Workflow can even [display complex customized forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm).
 
-## Custom Workflow Activities and Form Elements
+### Custom Workflow Activities and Form Elements
 
 If Geocortex Workflow meets most of your need, but is missing a few crucial elements, the best solution may be to extend Geocortex Workflow with **[custom activities](tutorial-implement-custom-activity.mdx)** and **[form elements](tutorial-implement-custom-form-elements.mdx)**. Extending Geocortex Workflow for Geocortex Web requires some custom development, but is simpler than developing entirely custom logic and UI with the Geocortex Web SDK.
 
-## Custom Code
+### Custom Components and Services
 
 If you need to build entirely custom and new behavior and UI, you should check out the [**Geocortex Web SDK**](sdk-overview.mdx). Using the Geocortex Web SDK, you can develop custom behavior by creating new [commands and operations](tutorial-implement-command-operation.mdx) which can be [used in the app config](configuration-commands-operations.mdx). If you need to create a new UI element, you can build [custom components](sdk-create-component.mdx). With the ability to create [background services](tutorial-service-dynamic-data.mdx), facilitate [component interactions](sdk-component-interactions.mdx), and [participate in the app config](tutorial-implement-component-participate-app-config.mdx), the possibilities for extending Geocortex Web are endless.
 
