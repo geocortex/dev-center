@@ -20,28 +20,28 @@
 <link data-react-helmet="true" rel="shortcut icon" href="/img/favicon.png">
 
 
-<link rel="stylesheet" href="/styles.3a30d964.css">
+<link rel="stylesheet" href="/styles.4e999797.css">
 
 
-<link rel="preload" href="/styles.645767d7.js" as="script">
+<link rel="preload" href="/styles.371eeb2c.js" as="script">
 
-<link rel="preload" href="/runtime~main.e98147b4.js" as="script">
+<link rel="preload" href="/runtime~main.af92e5ae.js" as="script">
 
-<link rel="preload" href="/main.4fb4de8e.js" as="script">
+<link rel="preload" href="/main.cf4c9368.js" as="script">
 
-<link rel="preload" href="/common.cbefc928.js" as="script">
+<link rel="preload" href="/common.e566c5a7.js" as="script">
 
-<link rel="preload" href="/2.7c0adbdd.js" as="script">
+<link rel="preload" href="/2.fbabf283.js" as="script">
 
-<link rel="preload" href="/3.15015deb.js" as="script">
+<link rel="preload" href="/3.82b8cd6e.js" as="script">
 
-<link rel="preload" href="/1be78505.18dbbaee.js" as="script">
+<link rel="preload" href="/1be78505.4f42bdc1.js" as="script">
 
-<link rel="preload" href="/20ac7829.445b7549.js" as="script">
+<link rel="preload" href="/20ac7829.d19b54da.js" as="script">
 
-<link rel="preload" href="/17896441.5f66fc67.js" as="script">
+<link rel="preload" href="/17896441.f7d81481.js" as="script">
 
-<link rel="preload" href="/4eea7515.fb6e1c25.js" as="script">
+<link rel="preload" href="/4eea7515.2b39fd6e.js" as="script">
 
 </head>
 <body>
@@ -51,25 +51,25 @@
 </span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token keyword" style="font-style:italic">export</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">default</span><span class="token plain"> </span><span class="token keyword" style="font-style:italic">function</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token parameter">registry</span><span class="token parameter operator" style="color:rgb(137, 221, 255)">:</span><span class="token parameter"> LibraryRegistry</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token spread operator" style="color:rgb(137, 221, 255)">...</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    registry</span><span class="token punctuation" style="color:rgb(199, 146, 234)">.</span><span class="token method function property-access" style="color:rgb(130, 170, 255)">registerLanguageResources</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        locale</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&quot;en&quot;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        </span><span class="token function-variable function" style="color:rgb(130, 170, 255)">getValues</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"> </span><span class="token arrow operator" style="color:rgb(137, 221, 255)">=&gt;</span><span class="token plain"> enJson</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token spread operator" style="color:rgb(137, 221, 255)">...</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span></div></div></div></div></div><p>Once a set of language strings has been registered, they can be used <a href="/docs/web/configuration-app-config-reference#internationalization">in the app config</a> or in <a href="/docs/web/sdk-components-internationalization">custom components</a>.</p><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="supported-locales"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#supported-locales" title="Direct link to heading">#</a>Supported Locales</h2><p>Geocortex Web has full language tag support as specified in the <a href="https://www.w3.org/International/questions/qa-choosing-language-tags#regionsubtag">WC3 spec</a>. The casing of a language tag determines what is it parsed as.</p><ul><li>All lowercase tags like <code>de</code> are parsed as a language code.</li><li>Region codes, like <code>de-AT</code> are uppercase.</li><li>Script codes like <code>ru-Latn</code> are pascal cased.</li></ul><div class="admonition admonition-warning alert alert--danger"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path></svg></span>warning</h5></div><div class="admonition-content"><p>Regional locales will <strong>not</strong> be used as fallback locales for a language. This means that if a browser is configured in the <code>de</code> locale, but language strings are registered with the <code>de-AT</code> locale in Geocortex Web, the fallback translation, <strong>not</strong> <code>de-AT</code>, will be shown.</p></div></div><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="next-steps"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#next-steps" title="Direct link to heading">#</a>Next Steps</h2><div class="root_2ADs"><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Internationalization in App Config</h3></div><div class="card__body"><p>Learn how to use language strings in the app config</p></div><div class="card__footer"><a class="button button--secondary button--block" to="configuration-app-config-reference#internationalization" href="configuration-app-config-reference#internationalization">Get Started</a></div></div></div><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Internationalize Components</h3></div><div class="card__body"><p>Learn how to use language strings for user facing text in components</p></div><div class="card__footer"><a class="button button--secondary button--block" to="sdk-components-internationalization" href="sdk-components-internationalization">Get Started</a></div></div></div></div></div></article><div class="margin-vert--xl"><div class="row"><div class="col"><a href="https://github.com/geocortex/dev-center/edit/master/docs/web/sdk-internationalization.mdx" target="_blank" rel="noreferrer noopener"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" style="margin-right:0.3em;vertical-align:sub"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div></div></div><div class="margin-vert--lg"><nav class="pagination-nav"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/web/sdk-serializable-properties"><div class="pagination-nav__link--sublabel">Previous</div><div class="pagination-nav__link--label">« Serializable Properties</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/docs/web/sdk-reference-third-party-libraries"><div class="pagination-nav__link--sublabel">Next</div><div class="pagination-nav__link--label">Reference Third Party Libraries »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_TbNY"><ul class="contents contents__left-border"><li><a href="#defining-language-strings" class="contents__link">Defining Language Strings</a></li><li><a href="#registering-language-resources" class="contents__link">Registering Language Resources</a></li><li><a href="#supported-locales" class="contents__link">Supported Locales</a></li><li><a href="#next-steps" class="contents__link">Next Steps</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">About</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" to="https://geocortex.com" href="https://geocortex.com">Geocortex.com</a></li><li class="footer__item"><a class="footer__link-item" to="https://docs.geocortex.com" href="https://docs.geocortex.com">Geocortex Documentation Center</a></li><li class="footer__item"><a class="footer__link-item" to="https://github.com/geocortex/dev-center" href="https://github.com/geocortex/dev-center">GitHub</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Geocortex Apps</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/webviewer/designer/" href="https://apps.geocortex.com/webviewer/designer/">Geocortex Web</a></li><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/mobileviewer/designer/" href="https://apps.geocortex.com/mobileviewer/designer/">Geocortex Mobile</a></li><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/workflow/designer/" href="https://apps.geocortex.com/workflow/designer/">Geocortex Workflow</a></li></ul></div></div><div class="text--center"><div>Copyright © 2020 Latitude Geographics Group Ltd. All rights reserved.</div></div></div></footer>
 </div>
 
-<script src="/styles.645767d7.js"></script>
+<script src="/styles.371eeb2c.js"></script>
 
-<script src="/runtime~main.e98147b4.js"></script>
+<script src="/runtime~main.af92e5ae.js"></script>
 
-<script src="/main.4fb4de8e.js"></script>
+<script src="/main.cf4c9368.js"></script>
 
-<script src="/common.cbefc928.js"></script>
+<script src="/common.e566c5a7.js"></script>
 
-<script src="/2.7c0adbdd.js"></script>
+<script src="/2.fbabf283.js"></script>
 
-<script src="/3.15015deb.js"></script>
+<script src="/3.82b8cd6e.js"></script>
 
-<script src="/1be78505.18dbbaee.js"></script>
+<script src="/1be78505.4f42bdc1.js"></script>
 
-<script src="/20ac7829.445b7549.js"></script>
+<script src="/20ac7829.d19b54da.js"></script>
 
-<script src="/17896441.5f66fc67.js"></script>
+<script src="/17896441.f7d81481.js"></script>
 
-<script src="/4eea7515.fb6e1c25.js"></script>
+<script src="/4eea7515.2b39fd6e.js"></script>
 
 
 </body>
