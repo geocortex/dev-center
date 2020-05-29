@@ -1,0 +1,94 @@
+/* Mobile first styling - the Extensibility Spectrum is vertical by default until a certain screen size is reached */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.iconCircle {
+    fill: #f0f5f9;
+    stroke: lightgray;
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.iconContainer svg {
+    height: 5em;
+    width: 5em;
+    margin: 0.75em;
+}
+
+.iconLabel {
+    max-width: 10em;
+    min-width: 7em;
+    text-align: center;
+}
+
+.arrowLine {
+    stroke-width: 0.4em;
+}
+
+.svgDashedLine {
+    min-width: 20px;
+    width: 20px;
+}
+
+.svgFillBlue {
+    fill: var(--geocortex-blue);
+}
+
+.svgStrokeBlue {
+    stroke: var(--geocortex-blue);
+}
+
+@media only screen and (min-width: 545px) {
+    /* Move the use cases into a row on larger screens */
+
+    .container {
+        flex-direction: row;
+        align-items: start;
+    }
+
+    .iconContainer {
+        justify-content: start;
+    }
+
+    .svgDashedLine {
+        margin-top: 1em;
+        transform: rotate(-90deg);
+    }
+}
+
+@media only screen and (max-width: 1320px) and (min-width: 997px),
+    only screen and (max-width: 768px) and (min-width: 545px) {
+    /* 
+        This media query is active in two cases:
+        First, docusaurus shrinks the article container between 997px and 1320px
+        so we also need to shrink the spectrum of extensibility but keep it horizontal.
+        The other case is when the screen is too wide for a vertical spectrum but 
+        too small for a full size horizontal spectrum. We again shrink the horizontal spectrum in this case.
+    */
+
+    :root {
+        --extensibility-svg-scale-amount: 0.75;
+    }
+
+    .iconContainer svg {
+        transform: scale(var(--extensibility-svg-scale-amount));
+    }
+
+    .iconContainer h2 {
+        font-size: 1em;
+    }
+
+    .svgDashedLine {
+        margin-top: 0.75em;
+        transform: rotate(-90deg) scale(var(--extensibility-svg-scale-amount));
+    }
+}
