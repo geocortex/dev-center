@@ -1,0 +1,147 @@
+---
+title: Workflow Form Element Reference
+sidebar_label: Form Element Reference
+description: Geocortex Workflow - Reference for workflow form elements for web applications
+---
+
+In the Geocortex Workflow .NET SDK, form elements are represented by classes that extend the `FormComponent` class.
+
+```cs
+namespace App1.Workflow
+{
+    class CustomFormElement : FormComponent
+    {
+        public CustomFormElement(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+            : base (element, name)
+        {
+            _view = new Label(){
+                Text = "I'm a custom form element"
+            }
+
+            Add(new GenericComponent(_view));
+        }
+    }
+}
+```
+
+## Registering Form Elements
+
+Form Elements must be registered through a [custom workflow activity that extends `RegisterCustomFormElementBase`](sdk-mobile-activity-reference.mdx#registering-activities).
+
+```cs
+[assembly: Export(typeof(RegisterCustomFormElements))]
+namespace App1.Workflow
+{
+    class RegisterCustomFormElements : RegisterCustomFormElementBase
+    {
+        public const string Action = "CustomFormElement";
+
+        public override Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            Register("CustomFormElement", typeof(CustomFormElement), context);
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>());
+        }
+    }
+}
+```
+
+## Using Form Elements
+
+Custom form elements can be used in a form through the special ["custom" form element](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Elements%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____0). This form element displays custom form elements by referencing them by the `id` they were registered with.
+
+:::important
+Custom form elements will **only** be available to a workflow if the form element registration activity is run beforehand. It's best practice to run the form element registration activity at the start of a workflow.
+:::
+
+## Raising Form Events
+
+Geocortex Workflow form elements can raise [events](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise events, including a custom event type.
+
+Events are raised through the `OnEventRaised` method of the form component. The following custom form elements demonstrates how various form events can be raised.
+
+```cs
+namespace App1.Workflow
+{
+    class CustomFormComponent : FormComponent
+    {
+        private readonly StackLayout _view;
+
+        public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+            : base (element, name)
+        {
+            _view = new StackLayout();
+
+            _view.Children.Add(new EnhancedButton() {
+                Command = new Command(RaiseClickedEvent),
+                Text = "Raise Clicked Event"
+            });
+
+            _view.Children.Add(new EnhancedButton() {
+                Command = new Command(RaiseChangedEvent),
+                Text = "Raise Changed Event"
+            });
+
+            _view.Children.Add(new EnhancedButton() {
+                Command = new Command(RaiseCustomEvent),
+                Text = "Raise Custom Event"
+            });
+
+            Add(new GenericComponent(_view));
+        }
+
+        private void RaiseClickedEvent()
+        {
+            OnEventRaised(new Event()
+            {
+                Type = Event.CLICKED
+            });
+        }
+
+        private void RaiseChangedEvent()
+        {
+            OnEventRaised(new Event()
+            {
+                Type = Event.CHANGED
+            });
+        }
+
+        private void RaiseCustomEvent()
+        {
+            OnEventRaised(new Event()
+            {
+                Type = Event.CUSTOM,
+                Argument = "Custom Argument"
+            });
+        }
+    }
+}
+```
+
+## Access Properties of Custom Form Elements
+
+A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `this.element` object to expose that value to the form.
+
+```cs
+namespace App1.Workflow
+{
+    class CustomFormComponent : FormComponent
+    {
+        private readonly View _view;
+
+        public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+            : base (element, name)
+        {
+            _view = new Label() {
+                Text = "This form element has a static value of 42"
+            };
+
+            // highlight-next-line
+            this.Element.Value = 42;
+
+            Add(new GenericComponent(_view));
+        }
+    }
+}
+```
+
+You can then use the [Get Form Element Property](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/get-form-element-property.htm) activity to access the `value` property, along with [other properties supported by custom form elements](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Element_Properties%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____1).

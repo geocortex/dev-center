@@ -1,0 +1,43 @@
+{
+    "components": [
+        {
+            "id": 2,
+            "steps": [
+                {
+                    "id": 3,
+                    "inputs": {},
+                    "position": "0,0",
+                    "purpose": "start",
+                    "title": "Start",
+                    "transitions": [
+                        {
+                            "id": 5,
+                            "position": "90,60 90,110",
+                            "target": {
+                                "id": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::RunActivity",
+                    "id": 4,
+                    "inputs": {
+                        "action": "your:unique:namespace::PlaceCalloutAtCenter",
+                        "arguments": {
+                            "accessors": [],
+                            "annotations": [],
+                            "code": "{\n    calloutText: \"User Text Here\"\n}",
+                            "source": "{\n calloutText: \"User Text Here\"\n}"
+                        }
+                    },
+                    "position": "-30,110",
+                    "title": "Run Activity"
+                }
+            ]
+        }
+    ],
+    "start": {
+        "id": 3
+    }
+}

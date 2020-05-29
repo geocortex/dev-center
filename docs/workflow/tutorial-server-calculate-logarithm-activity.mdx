@@ -1,0 +1,172 @@
+---
+title: Implement an Activity that Calculates a Logarithm
+description: Geocortex Workflow - Implement a custom activity for Geocortex Workflow Server that calculates the logarithm of a number
+---
+
+import ServerPrereqs from "./snippets/prereqs-server.mdx";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+Implementing a custom [activity](concepts-key-concepts.mdx#activities) allows you to build a reusable, completely custom behavior to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
+
+In this article, you will learn how to create a custom activity that calculates the logarithm of a number with a given base.
+
+## Prerequisites
+
+<ServerPrereqs />
+
+## Set up the Activity Skeleton
+
+1. Create a new file `CalculateLog.cs` in the project.
+2. Add a new skeleton workflow activity that implements `IActivityHandler`.
+
+:::tip
+Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.  
+:::
+
+```cs title="YourProjectName/CalculateLog.cs"
+using Geocortex.Workflow.Runtime;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow
+{
+    public class CalculateLog : IActivityHandler
+    {
+        public static string Action { get; } = "your:unique:namespace::CalculateLog";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>());
+        }
+    }
+}
+```
+
+## Register the Activity with an Assembly Attribute
+
+1. Create a new file, `Properties\AssemblyInfo.cs`
+1. Add the custom Geocortex Workflow attribute to `AssemblyInfo.cs`:
+
+```cs title="YourProjectName/Properties/AssemblyInfo.cs"
+[assembly: Geocortex.Workflow.Runtime.WorkflowActivities]`
+```
+
+This registers the assembly to a namespace that Geocortex Workflow Server can discover.
+
+:::note
+By convention, assembly attributes are typically added to a file called `"Properties\AssemblyInfo.cs"`, but they can be added to any code file.
+:::
+
+## Implement the Custom Activity
+
+We now have a empty activity that Geocortex Workflow Server can use that takes no inputs and produces no outputs. By changing the inputs, outputs, and execute logic, you can create your own custom activity that calculates the logarithm of a number.
+
+First, let's change the execute logic to parse inputs that make sense for a logarithm activity.
+
+```cs title="YourProjectName/CalculateLog.cs"
+using Geocortex.Workflow.Runtime;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow
+{
+    public class CalculateLog : IActivityHandler
+    {
+        public const string Action = "your:unique:namespace::CalculateLog";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            // highlight-start
+            double? logBase = null;
+            if (inputs.ContainsKey("base"))
+            {
+                logBase = inputs["base"] as double?;
+            }
+            var value = (double)inputs["value"];
+            // highlight-end
+
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>());
+        }
+    }
+}
+```
+
+Next, modify the `Execute` method of the activity to calculate the logarithm of a number given an optional base
+
+```cs title="YourProjectName/CalculateLog.cs"
+using Geocortex.Workflow.Runtime;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow
+{
+    public class CalculateLog : IActivityHandler
+    {
+        public const string Action = "your:unique:namespace::CalculateLog";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            double? logBase = null;
+            if (inputs.ContainsKey("base"))
+            {
+                logBase = inputs["base"] as double?;
+            }
+            var value = (double)inputs["value"];
+
+            // highlight-start
+            double logResult;
+            if (logBase != null)
+            {
+                logResult = Math.Log(value, (double)logBase);
+            }
+            else
+            {
+                logResult = Math.Log(value);
+            }
+
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>()
+            {
+                ["result"] = logResult
+            });
+            // highlight-end
+        }
+    }
+}
+```
+
+## Deploy the Activity
+
+Follow the instructions to [deploy Geocortex Workflow Server activities](sdk-server-overview.mdx#deploying-geocortex-workflow-server-activities).
+
+## Test your Activity
+
+[Server workflows](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm) that run on your Geocortex Workflow Server deployment can now run this custom activity.
+
+:::tip
+[Registering .NET activity stubs](sdk-net-register-activities.mdx) provides a user friendly interface for your custom activities in Geocortex Workflow Designer.
+:::
+
+You can run the custom activity by referencing it by action with [the `RunActivity` activity](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm).
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/server-calculate-logarithm-activity.json")}
+        download="calculate-log-activity.json"
+    >
+        download this demo server workflow
+    </a>{" "}
+    that runs the custom activity and
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        {" "}
+        import it into the Geocortex Workflow Designer.{" "}
+    </a>
+</p>
+:::

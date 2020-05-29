@@ -37,7 +37,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 ### Components
 
-Events in components are accessed through the [UIContext](sdk-ui-context.mdx#accessing-the-uicontext).
+Events in components are accessed through the [UIContext](sdk-components-ui-context.mdx#accessing-the-uicontext).
 
 ```tsx
 export default function ExampleComponent(
@@ -114,10 +114,10 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 ### Components
 
-Events in components are accessed through the [UIContext](sdk-ui-context.mdx#accessing-the-uicontext).
+Events in components are accessed through the [UIContext](sdk-components-ui-context.mdx#accessing-the-uicontext).
 
 :::tip
-If you need to subscribe to events in a component, it's best practice to use the [component hooks](sdk-component-hooks.mdx) instead of a `useEffect`, as the component hooks will automatically clean up the event handle.
+If you need to subscribe to events in a component, it's best practice to use the [component hooks](sdk-components-hooks.mdx) instead of a `useEffect`, as the component hooks will automatically clean up the event handle.
 :::
 
 ```tsx

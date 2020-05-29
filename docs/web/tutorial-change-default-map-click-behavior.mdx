@@ -167,7 +167,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
     alt="Map Click Workflow with Alert"
 />
 
-7. Open up your workflow in the Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `geometry.add-pixel-tolerance` and `tasks.identify` are operations, so they need RunOperation activities, and `results.display-details` is a command so it needs a RunCommand Activity. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `geometry.add-pixel-tolerance` and then passing the output of that operation to `tasks.identify`, and finally passing the output of `tasks.identify` to `results.display-details`.
+7. Open up your workflow in the Geocortex Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `geometry.add-pixel-tolerance` and `tasks.identify` are operations, so they need RunOperation activities, and `results.display-details` is a command so it needs a RunCommand Activity. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `geometry.add-pixel-tolerance` and then passing the output of that operation to `tasks.identify`, and finally passing the output of `tasks.identify` to `results.display-details`.
 
 :::note
 
@@ -184,7 +184,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
         href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
-        import it into workflow designer.
+        import it into the Geocortex Workflow Designer.
     </a>
 </p>
 :::
@@ -215,7 +215,7 @@ At this point, you can choose to extend the map click behavior with Geocortex Wo
         href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
-        import it into workflow designer.
+        import it into the Geocortex Workflow Designer.
     </a>
 </p>
 :::

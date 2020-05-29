@@ -1,0 +1,68 @@
+{
+    "components": [
+        {
+            "id": 2,
+            "steps": [
+                {
+                    "id": 3,
+                    "inputs": {},
+                    "position": "0,0",
+                    "purpose": "start",
+                    "title": "Start",
+                    "transitions": [
+                        {
+                            "id": 17,
+                            "position": "90,60 90,110",
+                            "target": {
+                                "id": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::RunActivity",
+                    "id": 16,
+                    "inputs": {
+                        "action": "your:unique:namespace::CustomActivity"
+                    },
+                    "name": "runCustomActivity",
+                    "position": "-30,110",
+                    "title": "Run Activity",
+                    "transitions": [
+                        {
+                            "id": 19,
+                            "position": "90,180 90,230",
+                            "target": {
+                                "id": 18
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:ui::Alert",
+                    "id": 18,
+                    "inputs": {
+                        "text": {
+                            "accessors": ["$runCustomActivity"],
+                            "annotations": [
+                                {
+                                    "count": 18,
+                                    "index": 0,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "$runCustomActivity[\"test\"]",
+                            "source": "$runCustomActivity[\"test\"]"
+                        },
+                        "title": "Output of Custom Activity"
+                    },
+                    "position": "-30,230",
+                    "title": "Alert"
+                }
+            ]
+        }
+    ],
+    "start": {
+        "id": 3
+    }
+}

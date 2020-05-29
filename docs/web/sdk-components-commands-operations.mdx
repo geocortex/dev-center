@@ -39,7 +39,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 ### Command and Operations in a Component
 
-Commands and operations can be run through the [`UIContext` of a component](sdk-ui-context.mdx).
+Commands and operations can be run through the [`UIContext` of a component](sdk-components-ui-context.mdx).
 
 ```ts
 export default function CustomComponent(props) {
@@ -58,7 +58,7 @@ export default function CustomComponent(props) {
 
 ## Implementing Commands and Operations
 
-Components can also register an implementation for any command or operation. This allows the creation of commands which can affect the UI. When registering a command implementation for a component, you have to register the implementation in the [component's model](sdk-component-reference.mdx#models). The command must also be registered in the library entry point. The following component model registers an implementation for a custom command that takes a custom argument type.
+Components can also register an implementation for any command or operation. This allows the creation of commands which can affect the UI. When registering a command implementation for a component, you have to register the implementation in the [component's model](sdk-components-reference.mdx#models). The command must also be registered in the library entry point. The following component model registers an implementation for a custom command that takes a custom argument type.
 
 :::note
 It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.

@@ -1,0 +1,286 @@
+---
+title: Workflow Activity Reference
+sidebar_label: Activity Reference
+description: Geocortex Workflow - Reference for workflow activities for Geocortex Mobile
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+In the Geocortex Workflow .NET SDK, activities are represented as simple classes with an `Execute` method.
+
+:::tip
+Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.  
+:::
+
+```cs
+[assembly: Export(typeof(CustomActivity))]
+namespace App1.Workflow
+{
+    public class CustomActivity : IActivityHandler
+    {
+        public static string Action { get; } = "your:unique:namespace::CustomActivity";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>(){
+                ["result"] = "value"
+            });
+        }
+    }
+}
+```
+
+## Registering Activities
+
+Every Geocortex Mobile application that implements custom workflow activities needs to implement an `IActivityHandlerFactory`. The `IActivityHandlerFactory` is responsible for registering the custom activities with Geocortex Mobile so they can be created by Geocortex Workflow at runtime.
+
+The `ActivityLoader` registers custom activities in its constructor. Only one instance of the loader is required per Geocortex Mobile Application, as it can register multiple activities.
+
+:::info
+Two key components of this snippet are the `[assembly: Export(...)]` tag and the class extension `ActivityLoader : IActivityHandlerFactory`. These two pieces register the `ActivityLoader` with Geocortex Mobile and cause it to be initialized on startup.
+:::
+
+```cs title="App1/App1/ActivityLoader.cs"
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Geocortex.Mobile.Composition;
+using Geocortex.Workflow.Runtime;
+using Geocortex.Workflow.Runtime.Definition;
+using Geocortex.Workflow.Runtime.Execution;
+using App1.Workflow;
+
+[assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
+namespace App1.Workflow
+{
+    public class ActivityLoader : IActivityHandlerFactory
+    {
+        /// <summary>
+        /// Gets a mapping of action names to implementations of <see cref="IActivityHandler"/>s.
+        /// </summary>
+        private Dictionary<string, Func<IActivityHandler>> RegisteredActivities { get; } = new Dictionary<string, Func<IActivityHandler>>();
+
+        public ActivityLoader(Func<CustomActivity> customActivityFactory)
+        {
+            RegisteredActivities[CustomActivity.Action] = customActivityFactory;
+        }
+
+        /// <summary>
+        /// Creates an <see cref="IActivityHandler"/>.
+        /// </summary>
+        /// <param name="action">The name of the action to create.</param>
+        /// <param name="token">The cancellation token.</param>
+        /// <param name="inspector">The <see cref="ProgramInspector"/> for the program.</param>
+        /// <returns>The activity handler for the given action.</returns>
+        public Task<IActivityHandler> Create(string action, CancellationToken token, ProgramInspector inspector = null)
+        {
+            if (action == null || token.IsCancellationRequested)
+            {
+                return Task.FromResult<IActivityHandler>(null);
+            }
+
+            if (RegisteredActivities.TryGetValue(action, out Func<IActivityHandler> handlerType))
+            {
+                return Task.FromResult(handlerType());
+            }
+            else
+            {
+                return Task.FromResult<IActivityHandler>(null);
+            }
+        }
+    }
+}
+```
+
+## Access Geocortex Mobile Functionality
+
+You can access Geocortex Mobile functionality in custom workflow activities by using the built-in [dependency injection pattern](../mobile/sdk-dependency-injection.mdx) to inject shared Geocortex Mobile [services](../mobile/sdk-services-overview.mdx) such as the `UIOperations` service.
+
+First, add the class you want to inject to the constructor of the custom activity.
+
+```cs
+// highlight-next-line
+[assembly: Export(typeof(DisplayGeocortexMobileAlert))]
+namespace App1.Workflow
+{
+    public class DisplayGeocortexMobileAlert : IActivityHandler
+    {
+        private UIOperations _uiOperations;
+
+        public static string Action { get; } = "your:unique:namespace::DisplayGeocortexMobileAlert";
+
+        // highlight-next-line
+        public DisplayGeocortexMobileAlert(UIOperations uiOperations)
+        {
+            _uiOperations = uiOperations;
+        }
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>());
+        }
+    }
+}
+```
+
+Next, [inject the activity](../mobile/sdk-dependency-injection.mdx) into the `IActivityHandlerFactory` for the application.
+
+:::note
+Since the `DisplayGeocortexMobileAlert` activity is injected into the `IActivityHandlerFactory` with Autofac, it's dependency on the `UIOperations` class will be be resolved by Autofac.
+:::
+
+```cs
+public class ActivityLoader : IActivityHandlerFactory
+{
+    ...
+
+    // highlight-next-line
+    public ActivityLoader(Func<DisplayGeocortexMobileAlert> displayGeocortexMobileAlertFactory)
+    {
+        RegisteredActivities[DisplayGeocortexMobileAlert.Action] = displayGeocortexMobileAlertFactory;
+    }
+    ...
+}
+```
+
+Finally, you can implement your activity using the referenced Geocortex Mobile class.
+
+<Tabs
+  defaultValue="custom-activity"
+  values={[
+    { label: "Custom Activity", value: "custom-activity" },
+    { label: "IActivityHandlerFactory", value: "activity-loader" },
+  ]}>
+<TabItem value="custom-activity">
+
+```cs
+using App1.Workflow;
+using Geocortex.Mobile.Composition;
+using Geocortex.Mobile.Infrastructure.Messaging;
+using Geocortex.Workflow.Runtime;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+[assembly: Export(typeof(DisplayGeocortexMobileAlert))]
+namespace App1.Workflow
+{
+    public class DisplayGeocortexMobileAlert : IActivityHandler
+    {
+        private UIOperations _uiOperations;
+
+        public static string Action { get; } = "your:unique:namespace::DisplayGeocortexMobileAlert";
+
+        public DisplayGeocortexMobileAlert(UIOperations uiOperations)
+        {
+            _uiOperations = uiOperations;
+        }
+
+        public async Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            await _uiOperations.Alert.ExecuteAsync(new UIAlertArgs() { Title = "It's dangerous to go alone.", Message = "Take this!", ButtonText = "*take sword*" });
+
+            return new Dictionary<string, object>();
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="activity-loader">
+
+```cs
+using App1.Samples.Workflow.CustomActivity;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Geocortex.Mobile.Composition;
+using Geocortex.Workflow.Runtime;
+using Geocortex.Workflow.Runtime.Definition;
+using Geocortex.Workflow.Runtime.Execution;
+using App1.Workflow;
+
+[assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
+namespace App1.Samples.Workflow.CustomActivity
+{
+    public class ActivityLoader : IActivityHandlerFactory
+    {
+        /// <summary>
+        /// Gets a mapping of action names to implementations of <see cref="IActivityHandler"/>s.
+        /// </summary>
+        private Dictionary<string, Func<IActivityHandler>> RegisteredActivities { get; } = new Dictionary<string, Func<IActivityHandler>>();
+
+        public ActivityLoader(Func<DisplayGeocortexMobileAlert> displayGeocortexMobileAlertFactory)
+        {
+            RegisteredActivities[DisplayGeocortexMobileAlert.Action] = displayGeocortexMobileAlertFactory;
+        }
+
+        /// <summary>
+        /// Creates an <see cref="IActivityHandler"/>.
+        /// </summary>
+        /// <param name="action">The name of the action to create.</param>
+        /// <param name="token">The cancellation token.</param>
+        /// <param name="inspector">The <see cref="ProgramInspector"/> for the program.</param>
+        /// <returns>The activity handler for the given action.</returns>
+        public Task<IActivityHandler> Create(string action, CancellationToken token, ProgramInspector inspector = null)
+        {
+            if (action == null || token.IsCancellationRequested)
+            {
+                return Task.FromResult<IActivityHandler>(null);
+            }
+
+            if (RegisteredActivities.TryGetValue(action, out Func<IActivityHandler> handlerType))
+            {
+                return Task.FromResult(handlerType());
+            }
+            else
+            {
+                return Task.FromResult<IActivityHandler>(null);
+            }
+        }
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Access the Application Map
+
+The map of the host application can be accessed through [dependency injection ](../mobile/sdk-dependency-injection.mdx). The `MapProviderBase` class which exposes the [Map](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Mapping_Map.htm) and [MapView](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_UI_Controls_MapView.htm) can be injected with the `ProviderFactoryAttribute`.
+
+:::note
+For a complete example, check out the [Show Callout on Map](tutorial-mobile-show-map-callout.mdx) custom activity tutorial.
+:::
+
+```cs
+[assembly: Export(typeof(CustomActivity))]
+namespace App1.Workflow
+{
+    public class CustomActivity : IActivityHandler
+    {
+        // highlight-start
+        [ProviderFactoryAttribute(typeof(MapProviderBase))]
+        public Func<MapProviderBase> MapProviderFactory { get; set; }
+        // highlight-end
+
+        public static string Action { get; } = "your:unique:namespace::CustomActivity";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            // highlight-start
+            var mapProvider = MapProviderFactory();
+            await mapProvider.Load();
+            var map = mapProvider.Map;
+            var mapView = (mapProvider as dynamic).View as MapView;
+            // highlight-end
+
+            // ...
+
+            return new Dictionary<string, object>();
+        }
+    }
+}
+```

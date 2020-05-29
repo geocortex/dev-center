@@ -1,0 +1,375 @@
+---
+title: Show a Callout on the Map with an Activity
+description: Geocortex Workflow - Access the map and show a callout through a custom activity.
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
+
+Some activities may need access to the map embedded in the Geocortex Mobile Application. The `MapProviderBase` class can be injected in an activity and used to access the [Map](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Mapping_Map.htm) and [MapView](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_UI_Controls_MapView.htm) for the application.
+
+This article will walk you through accessing the map from an activity and displaying a callout at the map center point.
+
+## Prerequisites
+
+<MobilePrereqs />
+
+## Set up the Activity
+
+First, the basic activity needs to be setup and registered. Below is an example of an activity setup to take text to display in the map callout.
+
+:::tip
+[Learn more about custom activities](sdk-mobile-activity-reference.mdx).
+:::
+
+<Tabs
+  defaultValue="activity"
+  values={[
+    { label: "Activity", value: "activity" },
+    { label: "Registration", value: "registration" }
+  ]}>
+<TabItem value="activity">
+
+```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
+using App1.Workflow;
+using Geocortex.Mobile.Composition;
+using Geocortex.Workflow.GIS;
+using Geocortex.Workflow.Runtime;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+[assembly: Export(typeof(PlaceCalloutAtCenter))]
+namespace App1.Workflow
+{
+    public class PlaceCalloutAtCenter : IActivityHandler
+    {
+        public static string Action { get; } = "your:unique:namespace::PlaceCalloutAtCenter";
+
+        public async Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            // highlight-next-line
+            var calloutText = (string)inputs["calloutText"];
+
+            return new Dictionary<string, object>();
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="registration">
+
+```cs title="App1/App1/workflow/ActivityLoader.cs"
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using App1.Workflow;
+using Geocortex.Mobile.Composition;
+using Geocortex.Workflow.Runtime;
+using Geocortex.Workflow.Runtime.Definition;
+using Geocortex.Workflow.Runtime.Execution;
+
+[assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
+namespace App1.Workflow
+{
+    public class ActivityLoader : IActivityHandlerFactory
+    {
+        /// <summary>
+        /// Gets a mapping of action names to implementations of <see cref="IActivityHandler"/>s.
+        /// </summary>
+        private Dictionary<string, Func<IActivityHandler>> RegisteredActivities { get; } = new Dictionary<string, Func<IActivityHandler>>();
+
+        public ActivityLoader(Func<PlaceCalloutAtCenter> placeCalloutAtCenterFactory)
+        {
+            RegisteredActivities[PlaceCalloutAtCenter.Action] = placeCalloutAtCenterFactory;
+        }
+
+        /// <summary>
+        /// Creates an <see cref="IActivityHandler"/>.
+        /// </summary>
+        /// <param name="action">The name of the action to create.</param>
+        /// <param name="token">The cancellation token.</param>
+        /// <param name="inspector">The <see cref="ProgramInspector"/> for the program.</param>
+        /// <returns>The activity handler for the given action.</returns>
+        public Task<IActivityHandler> Create(string action, CancellationToken token, ProgramInspector inspector = null)
+        {
+            if (action == null || token.IsCancellationRequested)
+            {
+                return Task.FromResult<IActivityHandler>(null);
+            }
+
+            if (RegisteredActivities.TryGetValue(action, out Func<IActivityHandler> handlerType))
+            {
+                return Task.FromResult(handlerType());
+            }
+            else
+            {
+                return Task.FromResult<IActivityHandler>(null);
+            }
+        }
+    }
+}
+
+
+```
+
+</TabItem>
+</Tabs>
+
+## Access the `MapProviderBase`
+
+Accessing the map for the application uses the built-in [dependency injection pattern](../mobile/sdk-dependency-injection.mdx) to inject a `MapProviderBase` class which exposes the [Map](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Mapping_Map.htm) and [MapView](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_UI_Controls_MapView.htm).
+
+To inject the MapProviderBase, add a new [Autofac factory](https://autofaccn.readthedocs.io/en/latest/resolve/relationships.html#dynamic-instantiation-func-b) property that injects a `MapProviderBase` into your custom activity.
+
+```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
+using App1.Workflow;
+using Geocortex.Mobile.Composition;
+using Geocortex.Workflow.GIS;
+using Geocortex.Workflow.Runtime;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+[assembly: Export(typeof(PlaceCalloutAtCenter))]
+namespace App1.Workflow
+{
+    public class PlaceCalloutAtCenter : IActivityHandler
+    {
+        public static string Action { get; } = "your:unique:namespace::PlaceCalloutAtCenter";
+
+        // highlight-start
+        [ProviderFactoryAttribute(typeof(MapProviderBase))]
+        public Func<MapProviderBase> MapProviderFactory { get; set; }
+        // highlight-end
+
+        public async Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            var calloutText = (string)inputs["calloutText"];
+
+            return new Dictionary<string, object>();
+        }
+    }
+}
+```
+
+## Load the `MapView`
+
+Next, we need to load the `MapView` from the `MapProviderFactory`.
+
+```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
+using App1.Workflow;
+using Esri.ArcGISRuntime.Mapping;
+using Esri.ArcGISRuntime.Xamarin.Forms;
+using Geocortex.Mobile.Composition;
+using Geocortex.Workflow.GIS;
+using Geocortex.Workflow.Runtime;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+[assembly: Export(typeof(PlaceCalloutAtCenter))]
+namespace App1.Workflow
+{
+    public class PlaceCalloutAtCenter : IActivityHandler
+    {
+        public static string Action { get; } = "your:unique:namespace::PlaceCalloutAtCenter";
+
+        [ProviderFactoryAttribute(typeof(MapProviderBase))]
+        public Func<MapProviderBase> MapProviderFactory { get; set; }
+
+        public async Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            var calloutText = (string)inputs["calloutText"];
+
+            // highlight-start
+            // Get an instance of the MapProvider
+            var mapProvider = MapProviderFactory();
+            // Ensure the map has loaded
+            await mapProvider.Load();
+            // ArcGIS runtime Map
+            Map map = mapProvider.Map;
+            // ArcGIS runtime MapView
+            MapView mapView = mapProvider.GetType().GetProperty("MapView").GetValue(mapProvider, null) as MapView;
+            // highlight-end
+
+            return new Dictionary<string, object>();
+        }
+    }
+}
+```
+
+## Add a Callout at the Map Center
+
+Finally, we can use the `MapView` to get the map center and add a callout with the user's text.
+
+:::tip
+Operations related to UI activities have to run in Xamarin's [main thread](https://docs.microsoft.com/en-us/xamarin/essentials/main-thread), else they will throw an error.
+:::
+
+```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
+using App1.Workflow;
+using Geocortex.Mobile.Composition;
+using Esri.ArcGISRuntime.Geometry;
+using Esri.ArcGISRuntime.UI;
+using Esri.ArcGISRuntime.Mapping;
+using Esri.ArcGISRuntime.Xamarin.Forms;
+using Geocortex.Workflow.GIS;
+using Geocortex.Workflow.Runtime;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+[assembly: Export(typeof(PlaceCalloutAtCenter))]
+namespace App1.Workflow
+{
+    public class PlaceCalloutAtCenter : IActivityHandler
+    {
+        public static string Action { get; } = "your:unique:namespace::PlaceCalloutAtCenter";
+
+        [ProviderFactoryAttribute(typeof(MapProviderBase))]
+        public Func<MapProviderBase> MapProviderFactory { get; set; }
+
+        public async Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            var calloutText = (string)inputs["calloutText"];
+
+            // Get an instance of the MapProvider
+            dynamic mapProvider = MapProviderFactory();
+            // Ensure the map has loaded
+            await mapProvider.Load();
+            // ArcGIS runtime Map
+            Map map = mapProvider.Map;
+            // ArcGIS runtime MapView
+            MapView mapView = mapProvider.GetType().GetProperty("MapView").GetValue(mapProvider, null) as MapView;
+
+            // highlight-start
+            Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+            {
+                var currentEnvelope = (Envelope)mapView.GetCurrentViewpoint(Esri.ArcGISRuntime.Mapping.ViewpointType.BoundingGeometry).TargetGeometry;
+
+                mapView.ShowCalloutAt(currentEnvelope.GetCenter(), new CalloutDefinition("Hey!", $"Listen! {calloutText}"));
+            });
+            // highlight-end
+
+            return new Dictionary<string, object>();
+        }
+    }
+}
+```
+
+## Test your Activity
+
+Now you can [build a workflow for Geocortex Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new activity!
+
+:::tip
+If you want your custom activity to show up with a friendly user interface in Geocortex Workflow Designer, check out [Registering .NET Activities with Geocortex Workflow Designer](sdk-net-register-activities.mdx).
+:::
+
+The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity can be used to execute your activity by the name defined in `PlaceCalloutAtCenter.cs` (for this example, `your:unique:namespace::PlaceCalloutAtCenter`).
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/mobile-show-map-callout.json")}
+        download="show-map-callout.json"
+    >
+        download this demo workflow
+    </a>{" "}
+    that runs the custom activity and
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        {" "}
+        import it into the Geocortex Workflow Designer.{" "}
+    </a>
+</p>
+:::
+
+Next you need to run the workflow you just created in your Geocortex Mobile SDK project.
+
+You can do this by configuring the layout and app config to run a workflow. You will need to copy the ID of the the workflow you created into the app.json
+
+<WorkflowUrlSnippet />
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "Layout", value: "layout" },
+    { label: "UI", value: "ui" }
+  ]}>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["large"]
+        },
+        {
+            "$type": "workflow",
+            "id": "custom-workflow",
+            "title": "Custom Workflow",
+            "target": "#taskbar",
+            // highlight-next-line
+            "portalItem": "<your-workflow-id>"
+        },
+        {
+            "$type": "menu",
+            "id": "iwtm",
+            "items": [
+                {
+                    "title": "Run Custom Workflow",
+                    "isEnabled": true,
+                    "iconId": "workflow",
+                    "action": {
+                        "name": "workflow.run",
+                        "arguments": {
+                            "id": "custom-workflow"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<gxm:taskbar id="taskbar" orientation="vertical">
+		<map slot="main">
+			<stack margin="0.8" slot="top-right" halign="end">
+				<iwtm config="iwtm"/>
+			</stack>
+		</map>
+	</gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/workflow-mobile-show-map-callout.png")}/>
+</TabItem>
+</Tabs>
