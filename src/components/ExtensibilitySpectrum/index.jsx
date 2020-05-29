@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import classNames from "classnames";
 
-const AppConfigSvg = () => {
+function AppConfigSvg() {
     return (
         <>
             <path fill="#fff" d="M68.4 89.2h151v110.2h-151z" />
@@ -32,18 +32,18 @@ const AppConfigSvg = () => {
             </g>
         </>
     );
-};
+}
 
-const WorkflowSvg = () => {
+function WorkflowSvg() {
     return (
         <path
             className={styles.svgFillBlue}
             d="M15 7H9V1h6v6zM7 17H1v6h6v-6zm8 0H9v6h6v-6zm8 0h-6v6h6v-6zm-10-6V8h-2v3H3v5h2v-3h6v3h2v-3h6v3h2v-5h-8z"
         />
     );
-};
+}
 
-const CustomCodeSvg = () => {
+function CustomCodeSvg() {
     return (
         <>
             <path fill="#fff" d="M68.4 89.2h151v110.2h-151z" />
@@ -72,7 +72,7 @@ const CustomCodeSvg = () => {
             </g>
         </>
     );
-};
+}
 
 function SvgLineWithArrow() {
     return (
