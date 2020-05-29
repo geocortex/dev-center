@@ -1,0 +1,70 @@
+{
+    "components": [
+        {
+            "id": 2,
+            "steps": [
+                {
+                    "id": 3,
+                    "inputs": {},
+                    "position": "0,0",
+                    "purpose": "start",
+                    "title": "Start",
+                    "transitions": [
+                        {
+                            "id": 5,
+                            "inputs": {},
+                            "position": "90,60 90,110",
+                            "target": {
+                                "id": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::RunActivity",
+                    "id": 4,
+                    "inputs": {
+                        "action": "your:unique:namespace::CustomActivity"
+                    },
+                    "name": "customActivity",
+                    "position": "-30,110",
+                    "title": "Run Activity",
+                    "transitions": [
+                        {
+                            "id": 10,
+                            "inputs": {},
+                            "position": "90,180 90,230",
+                            "target": {
+                                "id": 9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::SetWorkflowOutput",
+                    "id": 9,
+                    "inputs": {
+                        "name": "test",
+                        "value": {
+                            "accessors": ["$customActivity"],
+                            "annotations": [
+                                {
+                                    "count": 15,
+                                    "index": 0,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "$customActivity[\"test\"]",
+                            "source": "$customActivity[\"test\"]"
+                        }
+                    },
+                    "position": "-30,230",
+                    "title": "Set Workflow Output"
+                }
+            ]
+        }
+    ],
+    "start": {
+        "id": 3
+    }
+}
