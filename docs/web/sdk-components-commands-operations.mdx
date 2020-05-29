@@ -8,6 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
+import CanExecuteSnippet from "./snippets/can-execute.mdx";
 
 When writing custom components you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own custom commands and operations.
 
@@ -120,40 +121,7 @@ export default function (registry: LibraryRegistry) {
 
 ### `canExecute` Hook
 
-Commands can optionally register a hook function which indicates whether it is possible to execute the command. This `canExecute` callback is passed as the second argument to the `register` function.
-
-```tsx
-this.messages.command<number>("custom.my-command").register(
-    (arg: number) => {
-        // ...
-        return;
-    },
-    // highlight-start
-    (arg: number) => {
-        return arg < 5;
-    }
-);
-// highlight-end
-```
-
-If the `canExecute` hook returns true, the command will be executed. If the function returns false, the command will not be executed.
-Some components, like the I Want To Menu, use the `canExecute` hook to disable buttons when appropriate. This is accomplished through the `canExecuteChanged` event. This event can be published or subscribed to in order to react to changing command execution conditions.
-
-```tsx
-this.messages
-    .command("custom.command-with-can-execute")
-    .canExecuteChanged.publish();
-
-this.messages
-    .command("custom.command-with-can-execute")
-    .canExecuteChanged.subscribe(() => {
-        // .. react to can execute status changing
-    });
-```
-
-:::tip
-For a full example of a command with a dynamic execution status, [checkout the `canExecute` tutorial](tutorial-can-execute.mdx).
-:::
+<CanExecuteSnippet />
 
 ## Running Custom Commands
 
