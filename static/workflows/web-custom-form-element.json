@@ -102,6 +102,13 @@
             "id": 7
         }
     ],
+    "references": [
+        {
+            "id": 22,
+            "path": "https://localhost:57999/",
+            "suite": "your:unique:namespace"
+        }
+    ],
     "start": {
         "id": 3
     }

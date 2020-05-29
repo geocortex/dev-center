@@ -3,31 +3,63 @@ title: Registering .NET Activities with Geocortex Workflow Designer
 description: Geocortex Workflow - Registering .NET workflow activities with Geocortex Workflow Designer
 ---
 
-import LogarithmActivityMobileSnippet from "./snippets/logarithm-activity.mdx";
-
-Geocortex Workflow [activities](concepts-key-concepts.mdx#activities) can be implemented in either TypeScript or C#, depending on the target platform. For [custom activities implemented in TypeScript](usecases-web-implement-custom-activity.mdx), the registration of the workflow activity implementation is done alongside the Geocortex Workflow Designer activity definition when the [activity pack](concepts-key-concepts.mdx#activity-packs) is registered. However, with .NET activities implemented for Geocortex Mobile or [Geocortex Workflow Server](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0), the implementation is defined on the host platform (.NET), while the Geocortex Workflow Designer activity definition must be defined in an activity pack (TypeScript).
+Geocortex Workflow [activities](concepts-key-concepts.mdx#activities) can be implemented in either TypeScript or C#, depending on the target platform. For [custom activities implemented in TypeScript](tutorial-web-calculate-logarithm-activity.mdx), the registration of the workflow activity implementation is done alongside the Geocortex Workflow Designer activity definition when the [activity pack](concepts-key-concepts.mdx#activity-packs) is registered. However, with .NET activities implemented for Geocortex Mobile or [Geocortex Workflow Server](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm%3FTocPath%3DServer%2520Workflows%7C_____0), the implementation is defined on the host platform (.NET), while the Geocortex Workflow Designer activity definition must be defined in an activity pack (TypeScript).
 
 :::note
 If no Geocortex Workflow Designer activity definition is provided for a custom activity implemented for Geocortex Mobile or Geocortex Workflow Server, the activity will not show up in Geocortex Workflow Designer and must be run using [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167).
 :::
 
-## Scope
-
-This article covers how to create an activity pack to register Geocortex Workflow Designer activity definitions for custom activities implemented in [Geocortex Mobile](usecases-mobile-implement-custom-activity.mdx) or [Geocortex Workflow Server](usecases-server-implement-custom-activity.mdx).
+This article covers how to create an activity pack to register Geocortex Workflow Designer activity definitions for custom activities implemented in [Geocortex Mobile](tutorial-mobile-calculate-logarithm-activity.mdx) or [Geocortex Workflow Server](tutorial-server-calculate-logarithm-activity.mdx).
 
 ## Implement a TypeScript Activity Pack with Stub Activities
 
 The idea behind creating activity definitions for Geocortex Workflow Designer is that every activity implemented in .NET has a corresponding stub activity with the metadata, but no execution body, in a TypeScript activity pack.
 
-Let's take the Geocortex Mobile [custom logarithm activity](usecases-mobile-implement-custom-activity.mdx#example-logarithm-of-a-number) for example.
+Let's take the Geocortex Mobile [custom logarithm activity](tutorial-mobile-calculate-logarithm-activity.mdx) for example.
 
-<LogarithmActivityMobileSnippet />
+```cs title="App1/App1/CustomActivity.cs"
+using Geocortex.Workflow.Runtime;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow
+{
+    public class CalculateLog : IActivityHandler
+    {
+        public const string Action = "your:unique:namespace::CalculateLog";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            double? logBase = null;
+            if (inputs.ContainsKey("base")) {
+                var logBase = inputs["base"];
+            }
+            var value = (double)inputs["value"];
+
+            double logResult;
+            if(logBase != null)
+            {
+                logResult = Math.Log(value, (double)logBase);
+            } else
+            {
+                logResult = Math.Log(value);
+            }
+
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>()
+            {
+                ["result"] = logResult
+            });
+        }
+    }
+}
+```
 
 This activity will need a TypeScript stub that defines its input and output types and descriptions, specifies the runtime environments it supports, and an activity description.
 
 ### Create a new Activity Pack
 
-Follow the instructions in [Implement a Custom Activity for Web Applications](usecases-web-implement-custom-activity.mdx) up to [Implement the Activity](usecases-web-implement-custom-activity.mdx#implement-the-activity).
+Follow the instructions in [Implement a Custom Activity for Web Applications](tutorial-web-calculate-logarithm-activity.mdx) up to [Implement the Activity](tutorial-web-calculate-logarithm-activity.mdx#implement-the-activity).
 
 ### Stub out the Activity Metadata
 
@@ -61,9 +93,10 @@ export class CalculateLog {
     static suite = "your:unique:namespace";
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
-        return null;
+        // The host application must implement this activity
+        throw new Error("Activity not implemented for this platform.");
     }
 }
 ```
 
-The activity now has a friendly user interface in Geocortex Workflow Designer, that can be [shared with other workflow authors](sdk-web-getting-started.mdx#sharing-the-activity-pack).
+The activity now has a friendly user interface in Geocortex Workflow Designer, that can be [shared with other workflow authors](sdk-web-overview.mdx#sharing-the-activity-pack).

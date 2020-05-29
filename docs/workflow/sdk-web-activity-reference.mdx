@@ -1,0 +1,116 @@
+---
+title: Workflow Activity Reference
+sidebar_label: Activity Reference
+description: Geocortex Workflow - Reference for workflow activities for web applications
+---
+
+In the Geocortex Workflow TypeScript SDK, activities are represented as simple classes with an `execute` method.
+
+```ts
+// @displayName MyCustomActivity
+// @category Custom Activities
+export class MyCustomActivity {
+    // The unique identifier of the activity.
+    static action =
+        "uuid:5ab188eb-dc0d-42c7-bc3a-57cdcda0adcb::MyCustomActivity";
+
+    // The identifier of the suite of activities that this activity belongs to.
+    static suite = "uuid:5ab188eb-dc0d-42c7-bc3a-57cdcda0adcb";
+
+    // Perform the execution logic of the activity.
+    async execute(
+        inputs: MyCustomActivityInputs
+    ): Promise<MyCustomActivityOutputs> {
+        return { result: "test" };
+    }
+}
+```
+
+## Registering Activities
+
+The recommended method of creating and registering a new activity is through the `npm run activity` script.
+
+1. The script will perform the following operations:
+    1. Create a new activity `.ts` file with the provided name in the `src/activities` folder.
+    1. Populate the activity `.ts` file from an activity template.
+    1. Register the activity in `src/index.ts`.
+
+:::tip
+It's convention to use PascalCase for activity names.
+You can add many activities to the same project.
+:::
+
+## Inputs and Outputs
+
+The `execute` method of an activity class has typed inputs and outputs. These inputs and outputs are decorated with [block tags](sdk-web-activity-block-tags.mdx) to provide display hints in Geocortex Workflow Designer.
+
+```ts title="src/activities/CustomActivity.ts"
+/** An interface that defines the inputs of the activity. */
+export interface CustomActivityInputs {
+    // @description The first input to the activity.
+    // @required
+    input1?: string;
+
+    // @description The second input to the activity.
+    input2?: number;
+}
+
+/** An interface that defines the outputs of the activity. */
+export interface CustomActivityOutputs {
+    /** A result of the activity. */
+    // @description The result of the activity.
+    result: string;
+}
+
+// @category Custom Activities
+// @description A description of the activity.
+export class CustomActivity {
+    static action = "your:unique:namespace::CustomActivity";
+
+    static suite = "your:unique:namespace";
+
+    // Perform the execution logic of the activity.
+    // highlight-start
+    async execute(
+        inputs: CustomActivityInputs
+    ): Promise<CustomActivityOutputs> {
+        return { result: "test" };
+    }
+    // highlight-end
+}
+```
+
+## App Activities
+
+The Geocortex Workflow TypeScript SDK has a concept of an `AppActivity`, which is an activity that needs access to its [host](concepts-key-concepts.mdx#geocortex-workflow-hosts).
+
+Activities that extend the `AppActivity` gain access to the `map`, `app`, or `widget` properties.
+
+:::note
+Depending on the type of host application, different resources will be available. For example, Web AppBuilder for ArcGIS is the only platform which has access to the `widget` property.
+:::
+
+```ts
+// highlight-next-line
+import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
+
+// @supportedApps GWV
+// @category Custom Activities
+// @description An activity which adds a graphics layer to a map.
+// highlight-next-line
+export class CustomAppActivity extends AppActivity {
+    static action = "your:unique:namespace::AddLayerToMap";
+
+    static suite = "your:unique:namespace";
+
+    // Perform the execution logic of the activity.
+    async execute(inputs: object): Promise<void> {
+        // highlight-next-line
+        // This function has access to the this.map, this.app, and this.widget properties.
+        // ...
+        return;
+    }
+}
+```
+
+For a complete example, check out the [Add Layer to Map](tutorial-web-add-layer-to-map.mdx) custom activity tutorial.

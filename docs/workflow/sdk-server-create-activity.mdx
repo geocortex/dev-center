@@ -1,0 +1,89 @@
+---
+title: Create an Activity
+description: Geocortex Workflow - Create a workflow activity for web applications
+---
+
+import ServerPrereqs from "./snippets/prereqs-server.mdx";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+This article will walk you through creating a new workflow activity for Geocortex Workflow Server.
+
+## Prerequisites
+
+<ServerPrereqs />
+
+## Create the Activity
+
+1. Create a new file `CustomActivity.cs` in the root of your Geocortex Workflow Server extension project.
+2. Add a new skeleton workflow activity that implements `IActivityHandler`.
+
+```cs title="App1/App1/CustomActivity.cs"
+using Geocortex.Workflow.Runtime;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace App1.Workflow
+{
+    public class CustomActivity : IActivityHandler
+    {
+        public static string Action { get; } = "your:unique:namespace::CustomActivity";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>(){
+                ["test"] = "value"
+            });
+        }
+    }
+}
+```
+
+## Register the Activity with an Assembly Attribute
+
+1. Create a new file, `Properties\AssemblyInfo.cs`
+1. Add the custom Geocortex Workflow attribute to `AssemblyInfo.cs`:
+
+```cs title="App1/App1/Properties/AssemblyInfo.cs"
+[assembly: Geocortex.Workflow.Runtime.WorkflowActivities]
+```
+
+This registers the assembly to a namespace that Geocortex Workflow Server can discover.
+
+:::note
+By convention, assembly attributes are typically added to a file called `"Properties\AssemblyInfo.cs"`, but they can be added to any code file.
+:::
+
+## Deploy the Activity
+
+Follow the instructions to [deploy Geocortex Workflow Server activities](sdk-server-overview.mdx#deploying-geocortex-workflow-server-activities).
+
+## Use the Activity in a Workflow
+
+[Server workflows](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm) that run on your Geocortex Workflow Server deployment can now run this custom activity.
+
+:::tip
+[Registering stubs for .NET activities](sdk-net-register-activities.mdx) provides a user friendly interface for your custom activities in Geocortex Workflow Designer.
+:::
+
+You can run the custom activity by referencing it by action with [the `RunActivity` activity](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm). The custom activity created in this article takes no inputs but produces an output with the property "test".
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/server-create-activity.json")}
+        download="custom-server-activity.json"
+    >
+        download this demo server workflow
+    </a>{" "}
+    that runs the custom activity and
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        {" "}
+        import it into the Geocortex Workflow Designer.{" "}
+    </a>
+</p>
+:::

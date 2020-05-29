@@ -1,0 +1,146 @@
+---
+title: Add a Layer to a Map with an Activity
+description: Geocortex Workflow - Learn how to use special activity properties to access and mutate the application map
+---
+
+import WebPrereqs from "./snippets/prereqs-web.mdx";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+Some activities may need access to resources like the map, the host application or host widget. The `AppActivity` base class can be used to extend an existing activity to access these resources.
+
+This article will walk you through creating a custom activity that adds a new layer to the map.
+
+<img src={useBaseUrl("img/workflow-web-add-layer.png")} />
+
+## Prerequisites
+
+<WebPrereqs />
+
+## Setup the Activity
+
+1. Open up a terminal shell in the SDK folder.
+1. Run the command `npm run activity` and create a new activity `AddLayerToMap`.
+
+## Modify the Activity to Access App Properties
+
+1. Add an import for the `AppActivity` base class at the top of the `AddLayerToMap.ts` file.  
+   `import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";`
+1. Modify the activity class declaration to extend the `AppActivity` base class.  
+   `export class AddLayerToMap extends AppActivity`
+
+```ts title="src/activities/AddLayerToMap.ts"
+// highlight-next-line
+import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
+
+// @supportedApps GWV
+// @category Custom Activities
+// @description An activity which adds a graphics layer to a map.
+// highlight-next-line
+export class AddLayerToMap extends AppActivity {
+    static action = "your:unique:namespace::AddLayerToMap";
+
+    static suite = "your:unique:namespace";
+
+    // Perform the execution logic of the activity.
+    async execute(inputs: object): Promise<void> {
+        return;
+    }
+}
+```
+
+## Add a New Map Layer with the Activity
+
+Next, we can use the [ArcGIS Runtime SDK for .NET](sdk-web-integrating-the-arcgis-api.mdx) and the `AppActivity` class to create a graphics layer and add it to the host's map through the `this.map` property.
+
+:::note
+This activity assumes that it will be running in Geocortex Web, and so [it uses the 4.x ArcGIS API for Javascript](sdk-web-integrating-the-arcgis-api.mdx#change-the-api-version-used-by-the-activity-sdk).
+:::
+
+```ts title="src/activities/AddLayerToMap.ts"
+import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
+// highlight-start
+import * as Map from "esri/Map";
+import * as Graphic from "esri/Graphic";
+import * as GraphicsLayer from "esri/layers/GraphicsLayer";
+import * as Polyline from "esri/geometry/Polyline";
+import * as LineSymbol from "esri/symbols/LineSymbol";
+// highlight-end
+
+// @supportedApps GWV
+// @category Custom Activities
+// @description An activity which adds a graphics layer to a map.
+export class AddLayerToMap extends AppActivity {
+    static action = "your:unique:namespace::AddLayerToMap";
+
+    static suite = "your:unique:namespace";
+
+    // Perform the execution logic of the activity.
+    async execute(inputs: object): Promise<void> {
+        var polylineGraphic = new Graphic({
+            geometry: new Polyline({
+                paths: [
+                    [
+                        [-111.3, 52.68],
+                        [-98, 49.5],
+                        [-93.94, 29.89],
+                    ],
+                ],
+            }),
+            symbol: new LineSymbol({
+                color: [226, 119, 40],
+                width: 4,
+            }),
+        });
+
+        var graphicsLayer = new GraphicsLayer({
+            graphics: [polylineGraphic],
+        });
+
+        // highlight-next-line
+        (this.map as Map).add(graphicsLayer);
+
+        return;
+    }
+}
+```
+
+## Deploy the Activity
+
+Follow the instructions to [build the activity pack](sdk-web-overview.mdx#building) and [deploy it](sdk-web-overview.mdx#deployment).
+
+## Test the Activity
+
+Once your activity pack is hosted and registered, your custom activity should appear in the activity toolbox in Geocortex Workflow Designer alongside the built-in activities, and can be used in the graphical interface like any other activity.
+
+Now you can build a workflow that uses your new custom activity!
+
+:::note
+
+<p>
+    You can
+    <a
+        href={useBaseUrl("workflows/web-add-layer-activity.json")}
+        download="add-layer-workflow.json"
+    >
+        {" "}
+        download this demo workflow{" "}
+    </a>
+    that uses the custom activity and then
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        {" "}
+        import it into the Geocortex Workflow Designer.{" "}
+    </a>
+    You will have to{" "}
+    <a href="sdk-web-overview#host-the-activity-pack">
+        {" "}
+        deploy the custom activity and form element
+    </a>{" "}
+    for it to function. This workflow assumes you are hosting the activity pack
+    with the dev server on https://localhost:57999/.
+</p>
+:::
+
+<img src={useBaseUrl("img/workflow-web-add-layer.png")} />

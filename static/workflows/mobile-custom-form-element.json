@@ -11,9 +11,29 @@
                     "title": "Start",
                     "transitions": [
                         {
-                            "id": 17,
+                            "id": 5,
                             "position": "90,60 90,110",
-                            "target": { "id": 16 }
+                            "target": {
+                                "id": 4
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::RunActivity",
+                    "id": 4,
+                    "inputs": {
+                        "action": "your:unique:namespace::FormElementRegistrationActivity"
+                    },
+                    "position": "-30,110",
+                    "title": "Run Activity",
+                    "transitions": [
+                        {
+                            "id": 8,
+                            "position": "90,140 90,190",
+                            "target": {
+                                "id": 6
+                            }
                         }
                     ]
                 },
@@ -24,30 +44,14 @@
                         "form": {
                             "accessors": [],
                             "code": "resources.forms[values.id]",
-                            "values": { "id": 7 }
+                            "values": {
+                                "id": 7
+                            }
                         }
                     },
                     "name": "form1",
                     "position": "-30,190",
                     "title": "Display Form"
-                },
-                {
-                    "action": "gcx:wf:core::RunActivity",
-                    "id": 16,
-                    "inputs": {
-                        "action": "your:unique:namespace::FormElementRegistrationActivity"
-                    },
-                    "position": "-30,110",
-                    "title": "Run Activity",
-                    "transitions": [
-                        {
-                            "id": 18,
-                            "position": "90,140 90,190",
-                            "sourceConnector": "bottom",
-                            "target": { "id": 6 },
-                            "targetConnector": "top"
-                        }
-                    ]
                 }
             ]
         }
@@ -57,10 +61,12 @@
             "defaults": {},
             "elements": {
                 "custom1": {
-                    "customType": "CustomFormElement",
+                    "customType": "ActivityIndicator",
                     "enabled": true,
                     "index": 0,
-                    "title": { "markdown": "CustomFormElement" },
+                    "title": {
+                        "markdown": "Custom"
+                    },
                     "type": "Custom"
                 },
                 "footer": {
@@ -69,13 +75,17 @@
                         "0": {
                             "default": true,
                             "index": 0,
-                            "label": { "markdown": "Submit" },
+                            "label": {
+                                "markdown": "Submit"
+                            },
                             "validates": true,
                             "value": "submit"
                         },
                         "1": {
                             "index": 1,
-                            "label": { "markdown": "Cancel" },
+                            "label": {
+                                "markdown": "Cancel"
+                            },
                             "validates": false,
                             "value": "cancel"
                         }
@@ -85,12 +95,16 @@
                 },
                 "header": {
                     "section": "header",
-                    "title": { "markdown": "Form Title" },
+                    "title": {
+                        "markdown": "Form Title"
+                    },
                     "type": "Header"
                 }
             },
             "id": 7
         }
     ],
-    "start": { "id": 3 }
+    "start": {
+        "id": 3
+    }
 }
