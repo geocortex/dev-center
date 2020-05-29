@@ -1,0 +1,124 @@
+---
+title: Workflow Form Element Reference
+sidebar_label: Form Element Reference
+description: Geocortex Workflow - Reference for workflow form elements for web applications
+---
+
+In the Geocortex Workflow TypeScript SDK, form elements are represented by TypeScript React Components.
+
+```tsx
+import * as React from "react";
+import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+
+function CustomFormElement(props: CustomFormElementProps) {
+    return <div>Hello. Is it me you're looking for.</div>;
+}
+
+export default CustomFormElement;
+```
+
+## Registering Form Elements
+
+Form elements must be registered with a [custom activity](sdk-web-activity-reference.mdx#registering-activities) that extends `RegisterCustomFormElementBase`. This custom activity can call `this.register` to register each form element.
+
+:::tip
+Only one form element registration activity is needed per app, as it can register multiple custom form elements.
+Learn more about [implementing custom activities](sdk-web-activity-reference.mdx).
+:::
+
+```ts
+import { RegisterCustomFormElementBase } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+import CustomFormElement from "../form-elements/CustomFormElement";
+
+// @category Custom Activities
+// @description Registers custom form elements for the application
+export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
+    static action = "your:unique:namespace::RegisterCustomFormElements";
+
+    static suite = "your:unique:namespace";
+
+    async execute(): Promise<void> {
+        // highlight-next-line
+        this.register("CustomFormElement", CustomFormElement);
+        return;
+    }
+}
+```
+
+## Using Form Elements
+
+Custom form elements can be used in a form through the special ["custom" form element](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Elements%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____0). This form element displays custom form elements by referencing them by the `id` they were registered with.
+
+## Raising Form Events
+
+Geocortex Workflow form elements can raise [events](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise events, including a `custom` event type.
+
+Events are raises through the `raiseEvent` function on the element `props`. The follow custom form element demonstrates how various form events can be raised.
+
+```tsx
+import * as React from "react";
+import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+
+// A simple React Component that demonstrates raising events.
+export default const CustomFormElement = (props: CustomFormElementProps) => {
+    const raiseClick = event => {
+        // Raise the clicked event.
+        props.raiseEvent("clicked", new Date());
+    };
+
+    const raiseChange = event => {
+        // Raise the changed event.
+        props.raiseEvent("changed", new Date());
+    };
+
+    const raiseCustom = event => {
+        // Raise the custom event with a custom event value.
+        const eventValue = {
+            customEventType: "custom1",
+            data: new Date()
+        };
+        props.raiseEvent("custom", eventValue);
+    };
+
+    return (
+        <div>
+            A simple custom form element
+            <br />
+            <button onClick={raiseClick}>Raise click</button>
+            <button onClick={raiseChange}>Raise change</button>
+            <button onClick={raiseCustom}>Raise custom</button>
+        </div>
+    );
+};
+```
+
+## Access Properties of Custom Form Elements
+
+A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
+
+```ts
+const CustomFormElement = (props: CustomFormElementProps>) => {
+    const handleClick = event => {
+        // highlight-next-line
+        const { element, raiseEvent } = props;
+
+        // Get the value from the button.
+        // Parse as an integer because the value will be a string.
+        const value = parseInt(event.target.value);
+
+        if (element.value !== value) {
+
+            // Update the element's value.
+            // highlight-next-line
+            element.value = value;
+
+            // Raise the changed event
+            raiseEvent("changed", value);
+        }
+    };
+
+    // ...
+}
+```
+
+You can then use the [Get Form Element Property](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/get-form-element-property.htm) activity to access the `value` property, along with [other properties supported by custom form elements](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Element_Properties%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____1).
