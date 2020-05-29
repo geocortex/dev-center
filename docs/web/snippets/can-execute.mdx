@@ -3,7 +3,7 @@ Commands can optionally register a hook function which indicates whether it is p
 ```tsx
 this.messages.command<number>("custom.divide-ten-by-x").register(
     (x: number) => {
-        return 10 / x;
+        this.messages.commands.ui.alert.execute({ message: `10 / ${x} is ${10 / x}` });
     },
     // highlight-start
     (x: number) => {
