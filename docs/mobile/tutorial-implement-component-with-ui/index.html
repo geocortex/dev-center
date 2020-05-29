@@ -23,25 +23,25 @@
 <link rel="stylesheet" href="/styles.3a30d964.css">
 
 
-<link rel="preload" href="/styles.1baa00f7.js" as="script">
+<link rel="preload" href="/styles.3775a9f8.js" as="script">
 
-<link rel="preload" href="/runtime~main.83046a6d.js" as="script">
+<link rel="preload" href="/runtime~main.91b8c549.js" as="script">
 
-<link rel="preload" href="/main.797a1d77.js" as="script">
+<link rel="preload" href="/main.e4d991e2.js" as="script">
 
-<link rel="preload" href="/1.11ba2966.js" as="script">
+<link rel="preload" href="/common.cbefc928.js" as="script">
 
-<link rel="preload" href="/3.3cd9da4d.js" as="script">
+<link rel="preload" href="/2.7c0adbdd.js" as="script">
 
-<link rel="preload" href="/182.e9e31858.js" as="script">
+<link rel="preload" href="/3.15015deb.js" as="script">
 
-<link rel="preload" href="/20ac7829.a5ffb810.js" as="script">
+<link rel="preload" href="/1be78505.18dbbaee.js" as="script">
 
-<link rel="preload" href="/17896441.8239e6a4.js" as="script">
+<link rel="preload" href="/20ac7829.4f126f85.js" as="script">
 
-<link rel="preload" href="/2.b2ffa96a.js" as="script">
+<link rel="preload" href="/17896441.5f66fc67.js" as="script">
 
-<link rel="preload" href="/c68e373c.bc44116c.js" as="script">
+<link rel="preload" href="/c68e373c.4d2fbea6.js" as="script">
 
 </head>
 <body>
@@ -56,25 +56,25 @@ In the file, add a new component class <code>CustomComponent</code> and <a href=
 </span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        // The view is injected as a dependency</span></div><div class="token-line docusaurus-highlight-code-line" style="color:#bfc7d5"><span class="token plain">        public ProgressBarComponent(ProgressBarComponentView view)</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        {</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">            _view = view;</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        }</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        protected override VisualElement Create(XNode node)</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        {</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">            return _view;</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        }</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    }</span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">}</span></div></div></div></div></div></div></div></div><p>This example refactored the original example to use <a href="https://autofaccn.readthedocs.io/en/latest/register/registration.html">Autofac dependency injection</a> to instantiate the View and ViewModel. Setting up your classes so dependencies are handled by Autofac in the constructor allows you to allow inject other Geocortex Mobile classes registered with Autofac, like how the <code>UIOperations</code> class is injected into the view.</p><div class="admonition admonition-note alert alert--secondary"><div class="admonition-heading"><h5><span class="admonition-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</h5></div><div class="admonition-content"><p>Learn more of this ViewModel&#x27;s use of the Geocortex Mobile helper class <a href="/docs/mobile/sdk-components-viewmodel-helper-class"><code>NotifyPropertyBase</code></a>.</p></div></div><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="relevant-sdk-samples"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#relevant-sdk-samples" title="Direct link to heading">#</a>Relevant SDK Samples</h2><p>Check out the relevant Geocortex Mobile SDK Samples:</p><ul><li><p><a href="https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Component">Custom Component</a></p></li><li><p><a href="https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent">Custom Component with XAML</a></p></li></ul><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_ZqCz" id="next-steps"></a><a aria-hidden="true" tabindex="-1" class="hash-link" href="#next-steps" title="Direct link to heading">#</a>Next Steps</h2><div class="root_2ADs"><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Component Reference</h3></div><div class="card__body"><p>Learn more about components in Geocortex Mobile</p></div><div class="card__footer"><a class="button button--secondary button--block" to="sdk-components-reference" href="sdk-components-reference">Get Started</a></div></div></div><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Component and Service Interactions</h3></div><div class="card__body"><p>Learn how components and services interact in Geocortex Mobile</p></div><div class="card__footer"><a class="button button--secondary button--block" to="sdk-component-service-interactions" href="sdk-component-service-interactions">Get Started</a></div></div></div><div class="card-demo root_1HjG"><div class="card"><div class="card__header"><h3>Implement a Custom Service</h3></div><div class="card__body"><p>Learn how to implement a custom service using the Geocortex Mobile SDK</p></div><div class="card__footer"><a class="button button--secondary button--block" to="sdk-services-create" href="sdk-services-create">Get Started</a></div></div></div></div></div></article><div class="margin-vert--xl"><div class="row"><div class="col"><a href="https://github.com/geocortex/dev-center/edit/master/docs/mobile/tutorial-implement-component-with-ui.mdx" target="_blank" rel="noreferrer noopener"><svg fill="currentColor" height="1.2em" width="1.2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 40 40" style="margin-right:0.3em;vertical-align:sub"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div></div></div><div class="margin-vert--lg"><nav class="pagination-nav"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/mobile/tutorial-implement-command-operation"><div class="pagination-nav__link--sublabel">Previous</div><div class="pagination-nav__link--label">« Build a Custom Command</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/docs/mobile/tutorial-implement-component-participate-app-config"><div class="pagination-nav__link--sublabel">Next</div><div class="pagination-nav__link--label">Pull Component Data from App Config »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_TbNY"><ul class="contents contents__left-border"><li><a href="#prerequisites" class="contents__link">Prerequisites</a></li><li><a href="#create-a-component-skeleton" class="contents__link">Create a Component Skeleton</a></li><li><a href="#add-the-component-to-your-layout" class="contents__link">Add the Component to your Layout</a></li><li><a href="#use-xaml-to-define-your-ui" class="contents__link">Use XAML to define your UI</a></li><li><a href="#extend-your-component-with-custom-code" class="contents__link">Extend your Component with Custom Code</a><ul><li><a href="#example-progress-bar" class="contents__link">Example: Progress Bar</a></li></ul></li><li><a href="#relevant-sdk-samples" class="contents__link">Relevant SDK Samples</a></li><li><a href="#next-steps" class="contents__link">Next Steps</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">About</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" to="https://geocortex.com" href="https://geocortex.com">Geocortex.com</a></li><li class="footer__item"><a class="footer__link-item" to="https://docs.geocortex.com" href="https://docs.geocortex.com">Geocortex Documentation Center</a></li><li class="footer__item"><a class="footer__link-item" to="https://github.com/geocortex/dev-center" href="https://github.com/geocortex/dev-center">GitHub</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Geocortex Apps</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/webviewer/designer/" href="https://apps.geocortex.com/webviewer/designer/">Geocortex Web</a></li><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/mobileviewer/designer/" href="https://apps.geocortex.com/mobileviewer/designer/">Geocortex Mobile</a></li><li class="footer__item"><a class="footer__link-item" to="https://apps.geocortex.com/workflow/designer/" href="https://apps.geocortex.com/workflow/designer/">Geocortex Workflow</a></li></ul></div></div><div class="text--center"><div>Copyright © 2020 Latitude Geographics Group Ltd. All rights reserved.</div></div></div></footer>
 </div>
 
-<script src="/styles.1baa00f7.js"></script>
+<script src="/styles.3775a9f8.js"></script>
 
-<script src="/runtime~main.83046a6d.js"></script>
+<script src="/runtime~main.91b8c549.js"></script>
 
-<script src="/main.797a1d77.js"></script>
+<script src="/main.e4d991e2.js"></script>
 
-<script src="/1.11ba2966.js"></script>
+<script src="/common.cbefc928.js"></script>
 
-<script src="/3.3cd9da4d.js"></script>
+<script src="/2.7c0adbdd.js"></script>
 
-<script src="/182.e9e31858.js"></script>
+<script src="/3.15015deb.js"></script>
 
-<script src="/20ac7829.a5ffb810.js"></script>
+<script src="/1be78505.18dbbaee.js"></script>
 
-<script src="/17896441.8239e6a4.js"></script>
+<script src="/20ac7829.4f126f85.js"></script>
 
-<script src="/2.b2ffa96a.js"></script>
+<script src="/17896441.5f66fc67.js"></script>
 
-<script src="/c68e373c.bc44116c.js"></script>
+<script src="/c68e373c.4d2fbea6.js"></script>
 
 
 </body>
