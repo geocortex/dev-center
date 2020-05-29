@@ -1,0 +1,322 @@
+---
+title: Using the canExecute Command Hook
+description: Geocortex Web - Learn how to optionally disable a command with the canExecute hook
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+
+This article will guide you through how to prevent a custom command from executing through the `canExecute` hook.
+
+## Prerequisites
+
+<PrereqsCustomCodeSnippet />
+
+## Create an App with an IWTM and a Custom Component
+
+First lets create an app with an IWTM and a Custom Component that implements a simple command that displays an alert.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+    { label: "Component", value: "component" },
+    { label: "Component Model", value: "model" },
+    { label: "Component Index", value: "index" },
+    { label: "Registration", value: "registration" }
+  ]}>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
+    <map>
+        <iwtm config="iwtm-config" slot="top-left" />
+        <custom:custom-component margin="3" slot="top-center"/>
+    </map>
+</layout>
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "menu",
+            "id": "iwtm-config",
+            "items": [
+                {
+                    "$type": "menu-item",
+                    "id": "command-with-can-execute",
+                    "title": "Command With Can Execute",
+                    "iconId": "info",
+                    "action": "custom.command-with-can-execute"
+                }
+            ],
+            "title": "I Want To Menu"
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="component">
+
+```tsx title="src/components/CustomComponent.tsx"
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import Button from "@geocortex/web/ui/button";
+import React from "react";
+
+import CustomModel from "./CustomModel";
+
+const CustomComponent = (props: LayoutElementProperties<CustomModel>) => {
+    const { model } = props;
+
+    return (
+        <LayoutElement {...props}>
+            <Button>Placeholder</Button>
+        </LayoutElement>
+    );
+};
+
+export default CustomComponent;
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/CustomModel.ts"
+import { ComponentModelBase, serializable } from "@geocortex/web/models";
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    private _handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+
+        this._handles.push(
+            this.messages
+                .command("custom.command-with-can-execute")
+                .register(() => {
+                    this.messages.commands.ui.alert.execute({
+                        message: "Executed `custom.command-with-can-execute`",
+                    });
+                    return;
+                })
+        );
+    }
+
+    destroy(): void {
+        super.destroy();
+
+        // Clean up event handlers.
+        this._handles.forEach((h) => h.remove());
+    }
+}
+```
+
+</TabItem>
+<TabItem value="index">
+
+```ts title="src/components/index.ts"
+export { default } from "./CustomComponent";
+export { default as CustomModel } from "./CustomModel";
+```
+
+</TabItem>
+<TabItem value="registration">
+
+```ts title="src/index.ts"
+import { LibraryRegistry } from "@geocortex/web/config";
+import { ComponentType } from "react";
+
+import CustomComponent, { CustomModel } from "./components/CustomComponent";
+
+const LAYOUT_NAMESPACE = "custom.abc123";
+
+export default function (registry: LibraryRegistry) {
+    registry.registerComponent({
+        name: "custom-component",
+        namespace: LAYOUT_NAMESPACE,
+        getComponentType: () => CustomComponent as ComponentType,
+        itemType: "custom-model",
+        title: "Custom Component",
+    });
+    registry.registerModel({
+        getModelType: () => CustomModel,
+        itemType: "custom-model",
+    });
+
+    registry.registerCommand("custom.command-with-can-execute");
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Add a Button to Toggle the `canExecute` Status
+
+Next, let's add a button to the custom component that will toggle the `canExecute` status of the `custom.command-with-can-execute` command.
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: "Component", value: "component" },
+    { label: "Component Model", value: "model" },
+  ]}>
+<TabItem value="component">
+
+```tsx title="src/components/CustomComponent.tsx"
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import Button from "@geocortex/web/ui/button";
+import React from "react";
+
+import CustomModel from "./CustomModel";
+
+const CustomComponent = (props: LayoutElementProperties<CustomModel>) => {
+    const { model } = props;
+
+    return (
+        <LayoutElement {...props}>
+            // highlight-next-line
+            <Button onClick={() => model.toggleCanExecute()}>
+                Toggle Can Execute
+            </Button>
+        </LayoutElement>
+    );
+};
+
+export default CustomComponent;
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts title="src/components/CustomModel.ts"
+import { ComponentModelBase, serializable } from "@geocortex/web/models";
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    private _handles: IHandle[] = [];
+
+    // highlight-start
+    private _canExecuteValue: boolean = false;
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+
+        this._handles.push(
+            this.messages
+                .command("custom.command-with-can-execute")
+                .register(() => {
+                    this.messages.commands.ui.alert.execute({
+                        message: "Executed `custom.command-with-can-execute`",
+                    });
+                    return;
+                })
+        );
+    }
+
+    // highlight-start
+    toggleCanExecute(): void {
+        this._canExecuteValue = !this._canExecuteValue;
+    }
+    // highlight-end
+
+    destroy(): void {
+        super.destroy();
+
+        // Clean up event handlers.
+        this._handles.forEach((h) => h.remove());
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Implement the `canExecute` Function
+
+Finally, we need to implement the `canExecute` function for the `custom.command-with-can-execute` command.
+
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "Component Model", value: "model" },
+    { label: "UI - Command Disabled", value: "ui-disabled" },
+    { label: "UI - Command Enabled", value: "ui-enabled" },
+  ]}>
+<TabItem value="model">
+
+```ts title="src/components/CustomModel.ts"
+import {
+    ComponentModelBase,
+    serializable,
+} from "@geocortex/web/models";
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    private _handles: IHandle[] = [];
+
+    // highlight-start
+    private _canExecuteValue: boolean = false;
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+
+        this._handles.push(
+            this.messages
+                .command("custom.command-with-can-execute")
+                .register(() => {
+                    this.messages.commands.ui.alert.execute({ message: "Executed `custom.command-with-can-execute`"});
+                    return;
+                },
+                // highlight-start
+                () => {
+                    return this._canExecuteValue;
+                }))
+                // highlight-end
+        );
+    }
+
+    toggleCanExecute(): void {
+        this._canExecuteValue = !this._canExecuteValue;
+        // highlight-start
+        this.messages
+            .command("custom.command-with-can-execute")
+            .canExecuteChanged.publish();
+        // highlight-end
+    }
+
+    destroy(): void {
+        super.destroy();
+
+        // Clean up event handlers.
+        this._handles.forEach((h) => h.remove());
+    }
+}
+```
+
+</TabItem>
+<TabItem value="ui-disabled">
+<img src={useBaseUrl("img/web-command-can-execute-disabled.png")}/>
+</TabItem>
+<TabItem value="ui-enabled">
+<img src={useBaseUrl("img/web-command-can-execute-enabled.png")}/>
+</TabItem>
+</Tabs>

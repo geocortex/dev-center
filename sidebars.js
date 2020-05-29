@@ -108,6 +108,7 @@ module.exports = {
                         "web/tutorial-implement-component-participate-app-config",
                         "web/tutorial-events-subscribe",
                         "web/tutorial-internationalization",
+                        "web/tutorial-command-can-execute",
                         "web/tutorial-service-dynamic-data",
                     ],
                 },
