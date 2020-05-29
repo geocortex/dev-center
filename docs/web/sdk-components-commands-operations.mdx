@@ -118,6 +118,43 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 </Tabs>
 
+### `canExecute` Hook
+
+Commands can optionally register a hook function which indicates whether it is possible to execute the command. This `canExecute` callback is passed as the second argument to the `register` function.
+
+```tsx
+this.messages.command<number>("custom.my-command").register(
+    (arg: number) => {
+        // ...
+        return;
+    },
+    // highlight-start
+    (arg: number) => {
+        return arg < 5;
+    }
+);
+// highlight-end
+```
+
+If the `canExecute` hook returns true, the command will be executed. If the function returns false, the command will not be executed.
+Some components, like the I Want To Menu, use the `canExecute` hook to disable buttons when appropriate. This is accomplished through the `canExecuteChanged` event. This event can be published or subscribed to in order to react to changing command execution conditions.
+
+```tsx
+this.messages
+    .command("custom.command-with-can-execute")
+    .canExecuteChanged.publish();
+
+this.messages
+    .command("custom.command-with-can-execute")
+    .canExecuteChanged.subscribe(() => {
+        // .. react to can execute status changing
+    });
+```
+
+:::tip
+For a full example of a command with a dynamic execution status, [checkout the `canExecute` tutorial](tutorial-can-execute.mdx).
+:::
+
 ## Running Custom Commands
 
 You can run the custom commands or operations you define from another component, model, or service by locating them by ID and providing the appropriate type arguments.
