@@ -92,11 +92,11 @@ The scale bar component displays information about a particular map. More specif
 
 Each component has a corresponding **model** which is responsible for the data underlying the component. For example, the model for the map component contains the ArcGIS API Map object, and other information about the current state of the map.
 
-The scalebar satisfies its dependency on the map by [importing the map model](sdk-component-interactions.mdx#interacting-with-components-through-models).
+The scalebar satisfies its dependency on the map by [importing the map model](sdk-components-interactions.mdx#interacting-with-components-through-models).
 
 Components can react to changes or mutate values on other components through these models. For example, if the scale of the map changes when it is zoomed, then the scalebar will react to the change in the map model and update its displayed values.
 
-For more information on models, [check out the component SDK reference](sdk-component-reference.mdx#models) and this deeper dive into [model binding in the layout](configuration-advanced-model-binding.mdx).
+For more information on models, [check out the component SDK reference](sdk-components-reference.mdx#models) and this deeper dive into [model binding in the layout](configuration-advanced-model-binding.mdx).
 
 ## Namespaces
 
@@ -121,7 +121,7 @@ Geocortex Web has a specific namespace `https://geocortex.com/layout/web/v1` in 
 </layout>
 ```
 
-When adding custom components, you will need to [add their custom namespace](sdk-component-reference.mdx#components-and-layout) to your xml definition.
+When adding custom components, you will need to [add their custom namespace](sdk-components-reference.mdx#components-and-layout) to your xml definition.
 
 ## Next Steps: Components and App Config
 
