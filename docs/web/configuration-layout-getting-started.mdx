@@ -131,21 +131,23 @@ In our examples so far, xml elements like `<text>` or `<stack>` have been used. 
     <UseCaseCard
         title="App Config"
         description="Learn about app configuration and its interaction with layout"
-        link="configuration-app-config"
+        link={useBaseUrl("docs/web/configuration-app-config")}
     />
     <UseCaseCard
         title="Component Models"
         description="Take a deeper dive into the relationship between components and models in the layout"
-        link="configuration-advanced-model-binding"
+        link={useBaseUrl("docs/web/configuration-advanced-model-binding")}
     />
     <UseCaseCard
         title="Core Component Reference"
         description="Learn more about core layout components like stacks and splits"
-        link="configuration-layout-reference#core-layout-components"
+        link={useBaseUrl(
+            "docs/web/configuration-layout-reference#core-layout-components"
+        )}
     />
     <UseCaseCard
         title="Component Attribute Reference"
         description="See the full list of attributes available to all components"
-        link="configuration-layout-reference"
+        link={useBaseUrl("docs/web/configuration-layout-reference")}
     />
 </UseCaseContainer>

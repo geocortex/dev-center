@@ -3,11 +3,11 @@ title: Build a Service that Fetches Dynamic Data
 description: Geocortex Mobile - Implement a custom Service
 ---
 
-import UseCaseContainer from "../../src/components/UseCaseContainer";
-import UseCaseCard from "../../src/components/UseCaseCard";
-
 <!-- cSpell:ignore operationsbase -->
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
 import AutofacSnippet from "../snippets/autofac-mobile.mdx";
 import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import Tabs from "@theme/Tabs";
@@ -247,6 +247,6 @@ Check out the relevant Geocortex Mobile SDK Samples:
     <UseCaseCard
         title="Learn More About Services"
         description="Take a deep dive into services in the Geocortex Mobile SDK"
-        link="sdk-services-reference"
+        link={useBaseUrl("docs/mobile/sdk-services-reference")}
     />
 </UseCaseContainer>

@@ -4,6 +4,7 @@ sidebar_label: Overview
 description: Geocortex Workflow - Overview of the .NET workflow SDK
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
@@ -17,11 +18,11 @@ Workflows for Geocortex Mobile and Geocortex Workflow Server are still authored 
     <UseCaseCard
         title="Create an Activity for Geocortex Mobile"
         description="Create a custom activity in Geocortex Mobile"
-        link="sdk-mobile-create-activity"
+        link={useBaseUrl("docs/workflow/sdk-mobile-create-activity")}
     />
     <UseCaseCard
         title="Create an Activity for Geocortex Workflow Server"
         description="Create a custom activity in Geocortex Workflow Server"
-        link="sdk-server-create-activity"
+        link={useBaseUrl("docs/workflow/sdk-server-create-activity")}
     />
 </UseCaseContainer>

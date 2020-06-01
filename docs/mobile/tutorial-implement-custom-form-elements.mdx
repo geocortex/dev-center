@@ -3,6 +3,7 @@ title: Implement a Custom Form Element
 description: Geocortex Mobile - Learn how to implement a custom form element
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import RelevantWorkflowSamples from "./snippets/relevant-workflow-samples.mdx";
@@ -19,11 +20,13 @@ Geocortex Mobile comes with bundled with [Geocortex Workflow](https://www.geocor
     <UseCaseCard
         title="Geocortex Workflow SDK"
         description="Learn more about the Geocortex Workflow SDK"
-        link="../workflow/overview"
+        link={useBaseUrl("docs/workflow/overview")}
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
         description="Learn how to build a custom workflow form element"
-        link="../workflow/tutorial-mobile-activity-indicator-form-element"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-mobile-activity-indicator-form-element"
+        )}
     />
 </UseCaseContainer>

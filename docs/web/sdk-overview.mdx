@@ -3,6 +3,7 @@ title: SDK Overview
 description: Geocortex Web - Learn how to get started with the Geocortex Web SDK
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DesignerCallout from "./snippets/designer-callout.mdx";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
@@ -123,16 +124,16 @@ You may need to rename the downloaded layout file to `layout.xml`.
     <UseCaseCard
         title="Create a Component"
         description="Learn how to create a basic component"
-        link="sdk-components-create"
+        link={useBaseUrl("docs/web/sdk-components-create")}
     />
     <UseCaseCard
         title="Create a Service"
         description="Learn how to create a basic service"
-        link="sdk-services-create"
+        link={useBaseUrl("docs/web/sdk-services-create")}
     />
     <UseCaseCard
         title="Deploy your Application"
         description="Learn how to deploy your custom library, layout and app config"
-        link="sdk-deployment"
+        link={useBaseUrl("docs/web/sdk-deployment")}
     />
 </UseCaseContainer>
