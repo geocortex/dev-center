@@ -92,7 +92,7 @@ module.exports = {
             anonymizeIP: true,
         },
     },
-    plugins: ["@docusaurus/plugin-google-gtag"],
+    plugins: [require.resolve("@docusaurus/plugin-google-gtag")],
     presets: [
         [
             "@docusaurus/preset-classic",
