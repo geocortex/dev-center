@@ -9,14 +9,13 @@ this.messages.command<number>("custom.divide-ten-by-x").register(
     },
     // highlight-start
     (x: number) => {
-        return x != 0;
+        return x !== 0;
     }
 );
 // highlight-end
 ```
 
-If the `canExecute` hook returns true, the command will be executed. If the function returns false, the command will not be executed.
-Some components, like the I Want To Menu, use the `canExecute` hook to disable buttons when appropriate. This is accomplished through the `canExecuteChanged` event. This event can be published or subscribed to in order to react to changing command execution conditions.
+If the `canExecute` hook for the command implementation returns true, the `execute` hook will be called. If the function returns false, the `execute` hook will not be called. Some components, like the I Want To Menu, use the `canExecute` hook to disable buttons when no implementations of a command can be executed. This is accomplished through the `canExecuteChanged` event. This event can be published or subscribed to in order to react to changing command execution conditions.
 
 ```tsx
 this.messages
@@ -31,5 +30,5 @@ this.messages
 ```
 
 :::tip
-For a full example of a command with a dynamic execution status, [checkout the `canExecute` tutorial](../tutorial-command-can-execute.mdx).
+For a full example of a command with a dynamic execution status, [check out the `canExecute` tutorial](../tutorial-command-can-execute.mdx).
 :::
