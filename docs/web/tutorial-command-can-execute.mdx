@@ -287,9 +287,8 @@ export default class CustomModel extends ComponentModelBase {
                     return;
                 },
                 // highlight-start
-                () => {
-                    return this._canExecuteValue;
-                }))
+                () => this._canExecuteValue
+            ))
                 // highlight-end
         );
     }
