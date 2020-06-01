@@ -3,6 +3,7 @@ title: Overview
 description: Geocortex Mobile - Overview
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import DesignerCallout from "./snippets/designer-callout.mdx";
@@ -53,7 +54,7 @@ If you need to build entirely custom and new behavior and UI, you should check o
     <UseCaseCard
         title="Layout and App Config"
         description="Learn more about the layout and app config"
-        link="key-concepts"
+        link={useBaseUrl("docs/mobile/key-concepts")}
     />
     <UseCaseCard
         title="Running Workflows in Geocortex Mobile"
@@ -63,11 +64,11 @@ If you need to build entirely custom and new behavior and UI, you should check o
     <UseCaseCard
         title="Building Custom Workflow Activities"
         description="Learn how to build custom workflow activities for Geocortex Mobile"
-        link="tutorial-implement-custom-activity"
+        link={useBaseUrl("docs/mobile/tutorial-implement-custom-activity")}
     />
     <UseCaseCard
         title="Geocortex Mobile SDK"
         description="Develop custom commands and operations, components, and services using the Geocortex Mobile SDK"
-        link="sdk-overview"
+        link={useBaseUrl("docs/mobile/sdk-overview")}
     />
 </UseCaseContainer>

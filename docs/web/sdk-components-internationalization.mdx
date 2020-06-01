@@ -50,11 +50,13 @@ export default function ComponentWithLanguageStrings(props) {
     <UseCaseCard
         title="Learn how to Define Language Strings"
         description="Learn how to define and register language resources"
-        link="sdk-internationalization"
+        link={useBaseUrl("docs/web/sdk-internationalization")}
     />
     <UseCaseCard
         title="Learn how to use Language Strings in App Config"
         description="Learn how to use built-in or custom language strings in the app config"
-        link="configuration-app-config-reference#internationalization"
+        link={useBaseUrl(
+            "docs/web/configuration-app-config-reference#internationalization"
+        )}
     />
 </UseCaseContainer>

@@ -297,11 +297,13 @@ export default function (registry: LibraryRegistry) {
     <UseCaseCard
         title="Check out the Component Reference"
         description="Take a deep dive into components in the Geocortex Web SDK"
-        link="sdk-components-reference"
+        link={useBaseUrl("docs/web/sdk-components-reference")}
     />
     <UseCaseCard
         title="Build a Component that Consumes Configuration"
         description="Build a component that consumes values the from app config"
-        link="tutorial-implement-component-participate-app-config"
+        link={useBaseUrl(
+            "docs/web/tutorial-implement-component-participate-app-config"
+        )}
     />
 </UseCaseContainer>

@@ -4,6 +4,7 @@ sidebar_label: SDK Overview
 description: Geocortex Workflow - Overview of extending workflow for web applications
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
@@ -115,21 +116,23 @@ You do not need to share activity packs with the end users of your applications 
     <UseCaseCard
         title="Implement a Custom Activity"
         description="Implement a custom activity for web applications"
-        link="sdk-web-create-activity"
+        link={useBaseUrl("docs/workflow/sdk-web-create-activity")}
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
         description="Implement a custom form element for web applications"
-        link="tutorial-web-implement-star-rating-form-element"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-web-implement-star-rating-form-element"
+        )}
     />
     <UseCaseCard
         title="Reference a Third Party Library"
         description="Reference a third party library in web applications"
-        link="sdk-web-reference-third-party-library"
+        link={useBaseUrl("docs/workflow/sdk-web-reference-third-party-library")}
     />
     <UseCaseCard
         title="Integrate the ArcGIS API for JavaScript into custom activities"
         description="Integrate the ArcGIS API for JavaScript into custom code"
-        link="sdk-web-integrating-the-arcgis-api"
+        link={useBaseUrl("docs/workflow/sdk-web-integrating-the-arcgis-api")}
     />
 </UseCaseContainer>
