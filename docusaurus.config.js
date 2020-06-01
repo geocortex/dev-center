@@ -82,7 +82,7 @@ module.exports = {
                 },
             ],
         },
-        // Image used for og:image meta tag
+        // Image used for og:image meta tag - see https://ogp.me/
         image: "img/og-image.png",
         prism: {
             additionalLanguages: ["csharp"],
