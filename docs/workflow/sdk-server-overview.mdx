@@ -4,6 +4,7 @@ sidebar_label: SDK Overview
 description: Geocortex Workflow - Overview of extending workflow for Geocortex Workflow Server
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
@@ -116,11 +117,15 @@ Check out the tutorials to learn how to build custom activities for Geocortex Wo
     <UseCaseCard
         title="Implement a Custom Activity"
         description="Implement a custom activity for Geocortex Workflow Server"
-        link="tutorial-server-calculate-logarithm-activity"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-server-calculate-logarithm-activity"
+        )}
     />
     <UseCaseCard
         title="Reference a Third Party Library"
         description="Reference a third party library in custom code."
-        link="sdk-server-reference-third-party-library"
+        link={useBaseUrl(
+            "docs/workflow/sdk-server-reference-third-party-library"
+        )}
     />
 </UseCaseContainer>

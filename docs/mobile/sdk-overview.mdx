@@ -3,6 +3,7 @@ title: SDK Overview
 description: Geocortex Mobile - Learn how to get started with the Geocortex Mobile SDK
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DesignerCallout from "./snippets/designer-callout.mdx";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
@@ -137,16 +138,16 @@ One major deviation from usual Xamarin Development patterns is that [Autofac](ht
     <UseCaseCard
         title="Create a Component"
         description="Learn how to create a basic component"
-        link="sdk-components-create"
+        link={useBaseUrl("docs/mobile/sdk-components-create")}
     />
     <UseCaseCard
         title="Create a Service"
         description="Learn how to create a basic service"
-        link="sdk-services-create"
+        link={useBaseUrl("docs/mobile/sdk-services-create")}
     />
     <UseCaseCard
         title="Deploy your Application"
         description="Learn how to deploy your custom library, layout and app config"
-        link="sdk-deployment"
+        link={useBaseUrl("docs/mobile/sdk-deployment")}
     />
 </UseCaseContainer>

@@ -3,12 +3,12 @@ title: Edit the Layout and App Config
 description: Geocortex Mobile - Edit the layout and app config in the SDK Quickstart
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import QuickstartPrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
-import useBaseUrl from "@docusaurus/useBaseUrl";
 
 :::important
 This tutorial assumes you are using windows and can run the Universal Windows Version of Geocortex Mobile.
@@ -168,21 +168,23 @@ Check out the relevant Geocortex Mobile SDK Samples:
     <UseCaseCard
         title="Create a Custom Component"
         description="Learn how to create a custom component with the SDK"
-        link="sdk-components-create"
+        link={useBaseUrl("docs/mobile/sdk-components-create")}
     />
     <UseCaseCard
         title="Deploy your Custom Layout and App Config"
         description="Deploy your custom layout and app config to a Geocortex Mobile Application"
-        link="sdk-deployment#deploying-app-config-and-layout"
+        link={useBaseUrl(
+            "docs/mobile/sdk-deployment#deploying-app-config-and-layout"
+        )}
     />
     <UseCaseCard
         title="Learn More About Layout and App Config"
         description="Check out the concepts to learn more about the layout and app config"
-        link="key-concepts"
+        link={useBaseUrl("docs/mobile/key-concepts")}
     />
     <UseCaseCard
         title="Explore the Tutorials"
         description="Check out the the various tutorials on configuring Geocortex Mobile"
-        link="tutorial-configure-button-click"
+        link={useBaseUrl("docs/mobile/tutorial-configure-button-click")}
     />
 </UseCaseContainer>

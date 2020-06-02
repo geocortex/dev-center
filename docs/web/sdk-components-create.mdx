@@ -3,11 +3,11 @@ title: Create a Component
 description: Geocortex Web - Create a component for Geocortex Web
 ---
 
-import UseCaseCard from "../../src/components/UseCaseCard";
-import UseCaseContainer from "../../src/components/UseCaseContainer";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
-import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 The [Geocortex Web SDK](sdk-overview.mdx) project template includes an example of a [custom component](sdk-components-create.mdx) following our best practices. Creating a new custom component involves a few important steps:
 
@@ -167,21 +167,23 @@ You can now add the component to your `layout.xml` file and run the development 
     <UseCaseCard
         title="Check out the Component Reference"
         description="Take a deep dive into components in the Geocortex Web SDK"
-        link="sdk-components-reference"
+        link={useBaseUrl("docs/web/sdk-components-reference")}
     />
     <UseCaseCard
         title="Deploy your Component"
         description="Learn how to deploy your custom component."
-        link="sdk-deployment"
+        link={useBaseUrl("docs/web/sdk-deployment")}
     />
     <UseCaseCard
         title="Create a Component with a Complex UI"
         description="Follow along with a more in depth component example"
-        link="tutorial-implement-component-with-ui"
+        link={useBaseUrl("docs/web/tutorial-implement-component-with-ui")}
     />
     <UseCaseCard
         title="Create a Component that Consumes App Config"
         description="Learn more about writing components that consume configuration values."
-        link="tutorial-implement-component-participate-app-config"
+        link={useBaseUrl(
+            "docs/web/tutorial-implement-component-participate-app-config"
+        )}
     />
 </UseCaseContainer>

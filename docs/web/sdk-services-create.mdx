@@ -3,6 +3,7 @@ title: Create a Service
 description: Geocortex Web - Create a Service for Geocortex Web
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
@@ -80,11 +81,11 @@ export default function (registry: LibraryRegistry) {
     <UseCaseCard
         title="Deploy your Service"
         description="Learn how to deploy your custom service"
-        link="sdk-deployment"
+        link={useBaseUrl("docs/web/sdk-deployment")}
     />
     <UseCaseCard
         title="Create a Service that Manages Dynamic Data"
         description="Follow along with a more in depth service example"
-        link="tutorial-service-dynamic-data"
+        link={useBaseUrl("docs/web/tutorial-service-dynamic-data")}
     />
 </UseCaseContainer>

@@ -4,6 +4,7 @@ sidebar_label: Overview
 description: Geocortex Web - Overview of events
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
@@ -30,16 +31,18 @@ Events can publish custom arguments with information about the change they are c
     <UseCaseCard
         title="Subscribing to Existing Events"
         description="Learn how to subscribe to an existing event"
-        link="tutorial-events-subscribe"
+        link={useBaseUrl("docs/web/tutorial-events-subscribe")}
     />
     <UseCaseCard
         title="Events API"
         description="Check out the full list of Events available in Geocortex Web"
-        link="api-commands-operations-events#events"
+        link={useBaseUrl("docs/web/api-commands-operations-events#events")}
     />
     <UseCaseCard
         title="Implementing Custom Events"
         description="Learn how to implement a custom Event."
-        link="sdk-events-reference#creating-custom-events"
+        link={useBaseUrl(
+            "docs/web/sdk-events-reference#creating-custom-events"
+        )}
     />
 </UseCaseContainer>

@@ -2,7 +2,7 @@ const title = "Developer Center";
 module.exports = {
     title,
     tagline: "by developers, for developers",
-    url: "https://geocortex.github.io/",
+    url: "https://developers.geocortex.com",
     baseUrl: "/",
     favicon: "img/favicon.png",
     organizationName: "geocortex", // Usually your GitHub org/user name.
@@ -82,6 +82,8 @@ module.exports = {
                 },
             ],
         },
+        // Image used for og:image meta tag - see https://ogp.me/
+        image: "img/og-image.png",
         prism: {
             additionalLanguages: ["csharp"],
         },
@@ -90,7 +92,7 @@ module.exports = {
             anonymizeIP: true,
         },
     },
-    plugins: ["@docusaurus/plugin-google-gtag"],
+    plugins: [require.resolve("@docusaurus/plugin-google-gtag")],
     presets: [
         [
             "@docusaurus/preset-classic",
