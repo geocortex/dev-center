@@ -42,7 +42,7 @@ module.exports = {
         },
         footer: {
             style: "dark",
-            copyright: `Copyright © ${new Date().getFullYear()} Latitude Geographics Group Ltd. All rights reserved.`,
+            copyright: `Copyright © ${new Date().getFullYear()} VertiGIS North America Ltd. All rights reserved.`,
             links: [
                 {
                     title: "About",
