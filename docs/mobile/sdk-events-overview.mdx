@@ -4,6 +4,7 @@ sidebar_label: Overview
 description: Geocortex Mobile - Overview of events
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
@@ -30,11 +31,11 @@ Events can publish custom arguments with information about the change they are c
     <UseCaseCard
         title="Check out the Event Reference"
         description="Take a deep dive into events in the Geocortex Mobile SDK"
-        link="sdk-events-reference"
+        link={useBaseUrl("docs/mobile/sdk-events-reference")}
     />
     <UseCaseCard
         title="Events API"
         description="Check out the full list of Events available in Geocortex Mobile"
-        link="api-commands-operations-events#events"
+        link={useBaseUrl("docs/mobile/api-commands-operations-events#events")}
     />
 </UseCaseContainer>

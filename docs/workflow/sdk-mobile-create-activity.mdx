@@ -3,12 +3,13 @@ title: Create an Activity
 description: Geocortex Workflow - Create a workflow activity for web applications
 ---
 
-import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
+import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
+import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
 This article will walk you through creating a new workflow activity for Geocortex Mobile applications.
 
@@ -225,21 +226,25 @@ You can do this by configuring the layout and app config to run a workflow. You 
     <UseCaseCard
         title="Calculate a Logarithm with a Custom Activity"
         description="Implement a custom activity that calculates the logarithm of a number"
-        link="tutorial-mobile-calculate-logarithm-activity"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-mobile-calculate-logarithm-activity"
+        )}
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
         description="Implement a custom form element for applications like Geocortex Mobile"
-        link="tutorial-mobile-activity-indicator-form-element"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-mobile-activity-indicator-form-element"
+        )}
     />
     <UseCaseCard
         title="Add a Callout to the Map through a Custom Activity"
         description="Access the map in custom activities for Geocortex Mobile"
-        link="tutorial-mobile-show-map-callout"
+        link={useBaseUrl("docs/workflow/tutorial-mobile-show-map-callout")}
     />
     <UseCaseCard
         title="Use the ArcGIS Runtime SDK for .NET in an activity."
         description="Use the ArcGIS Runtime SDK for .NET in an activity or form element"
-        link="sdk-net-integrating-the-arcgis-api"
+        link={useBaseUrl("docs/workflow/sdk-net-integrating-the-arcgis-api")}
     />
 </UseCaseContainer>

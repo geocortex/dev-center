@@ -3,7 +3,6 @@
         "*.mdx": "markdown"
     },
     "files.exclude": {
-        "**/.docusaurus": true,
-        "build": true
+        "**/.docusaurus": true
     }
 }

@@ -3,6 +3,7 @@ title: Concepts
 description: Geocortex Workflow - Learn about key concepts.
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import DesignerCallout from "./snippets/designer-callout.mdx";
@@ -75,16 +76,16 @@ Activity packs must be registered as an ArcGIS item, and this makes them [sharea
     <UseCaseCard
         title="Get Started with the Web Applications SDK"
         description="Build custom activities and form elements with the Web Applications SDK"
-        link="sdk-web-overview"
+        link={useBaseUrl("docs/workflow/sdk-web-overview")}
     />
     <UseCaseCard
         title="Get Started with the Geocortex Mobile SDK"
         description="Build custom activities and form elements with the Geocortex Mobile SDK"
-        link="sdk-mobile-overview"
+        link={useBaseUrl("docs/workflow/sdk-mobile-overview")}
     />
     <UseCaseCard
         title="Get Started with Geocortex Workflow Server"
         description="Build custom activities for a server environment with Geocortex Workflow Server"
-        link="sdk-server-overview"
+        link={useBaseUrl("docs/workflow/sdk-server-overview")}
     />
 </UseCaseContainer>

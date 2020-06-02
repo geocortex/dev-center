@@ -3,6 +3,7 @@ title: Build a Custom Command
 description: Geocortex Mobile - Learn how to implement a custom command
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import PrereqsSnippet from "./snippets/quickstart-prereqs.mdx";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
@@ -169,16 +170,16 @@ Commands and operations are the logical building blocks of executing custom beha
     <UseCaseCard
         title="Commands and Operations"
         description="Learn more about commands and operations"
-        link="sdk-commands-operations"
+        link={useBaseUrl("docs/mobile/sdk-commands-operations")}
     />
     <UseCaseCard
         title="Implement a Custom Component with UI"
         description="Learn how to implement a custom component using the Geocortex Mobile SDK"
-        link="tutorial-implement-component-with-ui"
+        link={useBaseUrl("docs/mobile/tutorial-implement-component-with-ui")}
     />
     <UseCaseCard
         title="Implement a Custom Service"
         description="Learn how to implement a custom service using the Geocortex Mobile SDK"
-        link="sdk-services-create"
+        link={useBaseUrl("docs/mobile/sdk-services-create")}
     />
 </UseCaseContainer>
