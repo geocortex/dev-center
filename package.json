@@ -8,7 +8,7 @@
     "lint": "npm run lint:spelling && npm run lint:style && npm run lint:links",
     "lint:links": "npm run lint:links:md && npm run lint:links:ext",
     "lint:links:md": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
-    "lint:links:ext": "npm run build && linkinator ./build -r --silent --concurrency 10",
+    "lint:links:ext": "linkinator ./build -r --silent --concurrency 10",
     "lint:spelling": "cspell \"{docs,src}/**\"",
     "lint:style": "npm run prettier -- --check",
     "prettier": "prettier \"**/*.{css,js,jsx,ts,tsx,md,mdx,json}\"",
