@@ -3,37 +3,22 @@ title: Deployment
 description: Geocortex Mobile - Deploy a Geocortex Mobile Application
 ---
 
-import TweakConfigLayoutSnippet from "./snippets/tweak-layout-config.mdx";
-
 If you only need to modify the app config and layout of a Geocortex Mobile application, you can use the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) interface. However, if you need to write custom code, you will need to deploy and manage a fully custom application.
 
-### Deploying App Config and Layout
-
-Geocortex Mobile Designer provides a powerful interface for editing the layout and configuration of built-in components, but if you need finer grain control over the app config and layout, you will need to upload your custom layout and app JSON.
-
-1. Type `Ctrl + Shift + E` while focused in the Geocortex Mobile Designer to open up the experimental development editing interface.
-1. Copy and paste the `app.json` and `layout-*.xml` files from your local SDK project into to the Geocortex Mobile Designer Interface.
+### Uploading Custom Code to an App
 
 :::note
-The layout files in the Geocortex Mobile Application may have different names than your local layout files, so you may need to update the `url` to the layout file in your app config to match.
+You can only upload a library to a saved app.
 :::
 
-```json
-{
-  "items": [
-    ...
-    {
-      "id":"desktop-landscape",
-      "title":"Desktop Landscape",
-      "url":"./desktop-landscape.xml",
-      "$type":"layout"
-    }
-    ...
-  ]
-}
-```
+1. Run `npm run build` in the root of your project to create a production build of your library
+    - This creates an optimized production build that is output to the `build` folder of your project. This build is designed for use in production
+1. Open an application in Geocortex Web Designer that you wish to upload your custom code into
+1. Navigate to File -> Upload Library
+1. Click the `Select File` button and select your custom library located in the `build` folder of your project
+1. Click `Upload and Save App`
 
-<TweakConfigLayoutSnippet />
+Mobile Designer is now ready to configure an app using any custom components and services regstered by your library. If your library registers any custom components, they will be available in the [Layout Toobox](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/modify-a-layout.htm#add-a-component)
 
 ### Fully Custom Application with Custom Code
 
