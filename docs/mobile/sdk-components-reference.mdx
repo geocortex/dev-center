@@ -63,7 +63,7 @@ Once a component has been registered, it can be used in a layout by referring it
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerSpec/layout/layout-mobile.xsd"
     // highlight-start
     xmlns:custom="https://your.org/layout/app1">
     <custom:custom-component/>
@@ -272,7 +272,7 @@ This pattern is what allows you to place a map with no config in the layout and 
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerSpec/layout/layout-mobile.xsd">
     <map/> <!-- The map component is populated with values from the MapExtension's `CreateDefault` function. -->
 </layout>
 ```
