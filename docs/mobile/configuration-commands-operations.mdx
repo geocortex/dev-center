@@ -1,0 +1,367 @@
+---
+title: Commands and Operations
+description: Geocortex Mobile - Learn about commands and operations
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import DemoVideo from "../../src/components/DemoVideo";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+
+:::note Before learning about commands and operations...
+Check out the [Key Concepts](key-concepts.mdx).
+:::
+
+**Commands and operations** are runnable, independent units of work within Geocortex Mobile. Commands and operations act as global functions which can be
+executed from any component or service.
+
+In Geocortex Mobile, commands and operations are compatible extensions of the [ICommand interface](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/commanding) with strongly typed arguments and return values. Operations are implementations of `ICommand` that have been extended to have an `ExecuteAsync` method, which allows the operation to run asynchronously and return a value. Commands and Operations are registered with the globally available service `IOperationRegistry`, in which they can be looked up by their `name`. Commands and Operations are grouped by namespaces, such as `auth` or `edit`.
+
+```
+auth.sign-in
+auth.sign-out
+edit.add-feature
+edit.delete-features
+```
+
+:::tip
+The full list of existing commands and operations available in Geocortex Mobile can be [found in the API documentation](api-commands-operations-events.mdx).
+:::
+
+Commands and operations are used to power much of Geocortex Mobile's built in behavior and interactions. They can be run through configuration, or through [custom services](sdk-commands-operations.mdx) or [components](sdk-commands-operations.mdx).
+
+One thing that makes commands and operations so powerful is that built in components have properties in the app config which take them as values. They power everything from basic components like the IWTM, to advanced functionality like the results list. This allows built-in component's internal behavior to be configured with different commands and operations.
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        ...{
+            "$type": "feature-details",
+            "id": "feature-details",
+            // highlight-next-line
+            "onFeatureShow": "highlights.add-focus",
+            // highlight-next-line
+            "onFeatureHide": "highlights.remove-focus"
+        },
+        {
+            "$type": "results",
+            "id": "results",
+            // highlight-start
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
+                }
+            ],
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ]
+            // highlight-end
+        }
+    ]
+}
+```
+
+## Workflow Command
+
+[Geocortex Workflow](https://docs.geocortex.com/workflow/) can allow for the creation of completely customized behavior without writing custom code. Geocortex Mobile has a special command, `workflow.run`, which allows you to run workflows anywhere you would run a command or operation. Using workflow, you can take custom behavior in Geocortex Mobile further without having to write custom code.
+
+Checkout this example of [running a workflow from app config](tutorial-run-workflow-app-config.mdx).
+
+## Configuring Commands and Operations
+
+Commands and operations can be used through the app config to customize built in components.
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "menu-item",
+            "id": "button-config",
+            "iconId": "zoom-in",
+            "title": "Zoom In",
+            // highlight-next-line
+            "action": "map.zoom-in"
+        }
+        ...
+    ]
+}
+```
+
+App config properties like `action` can accept a singular command/operation or a **command chain** .
+
+:::note
+Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations and commands, allowing for complex input dependent behavior.
+:::
+
+```json
+{
+    "$type": "menu-item",
+    "id": "zoom",
+    "title": "Zoom to Features",
+    // highlight-next-line
+    "action": ["map.zoom-to-features", "highlights.pulse"]
+}
+```
+
+### Passing Explicit Arguments
+
+Commands and operations can be configured with an `arguments` property that passes values to the function at execution time.
+
+```json
+{
+    "$type": "menu",
+    "id": "iwtm",
+    "items": [
+        {
+            "title": "Rotate by 45 Degrees",
+            "isEnabled": true,
+            "iconId": "sync",
+            "action": {
+                "name": "map.rotate-by",
+                "arguments": {
+                    "rotation": 45
+                }
+            }
+        }
+    ]
+}
+```
+
+<!-- TODO-API change autocomplete linting note to API definitions -->
+
+Each command has typed arguments that will [autocomplete in the app.json](configuration-app-config-reference.mdx#schema-properties). For example, `map.rotate-by` takes a object of type `MapRotateArgs`, which has the property `Rotation` of type `double`. In the app config, the `Rotation` property can be camelCased instead of PascalCased.
+
+:::tip
+You can find out what arguments a command or operation takes in the [commands and operations API reference](api-commands-operations-events.mdx).
+:::
+
+### Passing Implicit Arguments
+
+If you do not pass explicit arguments, then implicit arguments will be passed to the command or operation. Implicit arguments come from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) that a command or operation is running in, or from a previous operation in the command chain
+
+For example, let's look at the configuration for a `<feature-details>` component. `highlights.add-focus` has been configured as the command that runs `onFeatureShow`, but it is not passed any arguments explicitly. Instead, the command receives arguments from the **context** it is run in.
+
+```json
+{
+    "$type": "feature-details",
+    "id": "feature-details",
+    "onFeatureShow": "highlights.add-focus"
+}
+```
+
+<!-- TODO-API argument shape links -->
+
+In this example, the context is the feature details menu, so `highlights.add-focus` will receive an argument with a `Features` property, which is the shape of argument it needs.
+
+Arguments are also passed implicitly if you create a command chain, which runs operations one after the other.
+
+## Command Chains
+
+App config properties that accept a command or operation can take a single operation or they can take a **command chain**. Command chains are arrays of commands and operations which are executed sequentially. The output of previous operations is passed along the chain to future operations, allowing for complex chains of behavior.
+
+For example, here's configuration for the various behaviors of a `<feature-details>` component.
+
+```json
+{
+    "$type": "feature-details",
+    "id": "feature-details",
+    "onFeatureShow": "highlights.add-focus",
+    "onFeatureDelete": [
+        "highlights.remove-focus",
+        "highlights.remove",
+        "edit.delete-features",
+        "results.hide-details",
+        "results.remove"
+    ]
+}
+```
+
+In this example, when a feature is deleted,
+
+-   The focus and highlights are removed,
+-   The feature is deleted from the layer,
+-   The results details are hidden,
+-   The feature is removed from the results list.
+
+Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next step in line will receive one of two possible inputs.
+
+1. If the previous step was a command (which doesn't produce output), then the original input is passed on to the next step.
+2. If the previous step was an operation (which produces an output), then the output of that operation is passed onto the next step.
+
+In this way, you can run multiple commands in a row that receive a feature as input, as seen in the `onFeatureDelete` command chain in the example.
+
+## Example: Configured Map and I Want To Menu
+
+<Tabs
+  defaultValue="app"
+  values={[
+    { label: 'App Config', value: 'app', },
+    { label: 'Layout', value: 'layout', },
+    { label: 'User Interface', value: 'ui', }
+  ]
+}>
+<TabItem value="app">
+
+```json title="App1/App1/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "map-extension",
+            "id": "demo-map",
+            "onClick": [
+                "tasks.identify",
+                "highlights.add-focus",
+                "highlights.pulse"
+            ]
+        },
+        {
+            "$type": "menu",
+            "id": "iwtm",
+            "items": [
+                {
+                    "title": "Return to Default Map View",
+                    "isEnabled": true,
+                    "iconId": "zoom_initial",
+                    "action": [
+                        {
+                            "name": "map.zoom-to-initial-viewpoint",
+                            "arguments": {
+                                "maps": "item://map-extension/demo-map"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+  xmlns="https://geocortex.com/layout/v1"
+  xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+  <gxm:taskbar id="taskbar" orientation="vertical">
+    <map config="demo-map" slot="main">
+    <stack margin="0.8" slot="top-right" halign="end">
+      <iwtm config="iwtm" />
+    </stack>
+    </map>
+  </gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+  <DemoVideo src={useBaseUrl("video/commands-operations-demo.webm")} />
+</TabItem>
+</Tabs>
+
+This example demonstrates two different types of argument passing behavior. The first action in the app config is a command chain defined on the `onClick` property of a map. This chain consists of three operations and commands:
+
+-   `task.identify`,
+-   `highlights.add-focus`
+-   `highlights.pulse`
+
+`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape:
+
+```json
+{
+  "geometry": "Esri.Point(<map-click-location>)",
+  ... <other props>
+}
+```
+
+<!-- TODO - tasks.identify operation direct link -->
+
+`tasks.identify` receives this argument, and since it is an operation, produces an output. Looking at the [Commands and Operations Documentation](api-commands-operations-events.mdx), `tasks.identify` has output with the shape:
+
+```json
+{
+  "features": [<feature1>, <feature2>, ...],
+  "results": [<Result(feature1)>, <Result(feature2)>, ...],
+  ... <other props>
+}
+```
+
+`highlights.add-focus` and `highlights.pulse` both take an input object with a "features" property, so the output of `tasks.identify` will work nicely. `highlights.add-focus` is immediately after `tasks.identify`, so it receives the output of identify. Since `highlights.add-focus` is a command, it does not produce any output. `highlights.pulse` will receive the output of the last operation, `tasks.identify`. In this way, you can pass the output of an operation to multiple commands.
+
+:::tip
+Check out [Change Default Behavior](tutorial-change-default-behavior.mdx) for more ways to override default behavior like a Map's on click event.
+:::
+
+<!-- TODO-API - direct link to MapExtensionArgs -->
+
+The second command/operation in this application is a `map.zoom-to-initial-viewpoint` command on the I Want To Menu. This command takes a MapExtensionArgs, which is provided as a named argument. The `maps` property in the argument references the `demo-map` in the config through an **Item URI**. Item URIs are a way of referencing other items within the app config. See [Item URIs](configuration-app-config-reference.mdx#item-uris-and-resource-uris) for more details.
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/Commands)
+
+-   [Map and Feature Commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/MapAndFeatureCommands)
+
+## Next Steps
+
+Geocortex Mobile has a large array of built-in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Commands, Operations, and Events API"
+        description="Check out the available commands and operations"
+        link={useBaseUrl("docs/mobile/api-commands-operations-events")}
+    />
+    <UseCaseCard
+        title="Configure Commands and Operations"
+        description="Change built-in behavior or add new behavior using app config and layout"
+        link={useBaseUrl("docs/mobile/tutorial-change-default-behavior")}
+    />
+    <UseCaseCard
+        title="Build your own Commands and Operations"
+        description="Use the SDK to implement custom commands and operations"
+        link={useBaseUrl("docs/mobile/tutorial-implement-command-operation")}
+    />
+    <UseCaseCard
+        title="Learn about Events built into Geocortex Mobile"
+        description="Learn about the global event infrastructure in Geocortex Mobile"
+        link={useBaseUrl("docs/mobile/sdk-events-reference")}
+    />
+</UseCaseContainer>

@@ -1,0 +1,415 @@
+---
+title: Component Reference
+description: Geocortex Web - Reference for custom components in Geocortex Web
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+The following is an example of a custom component that has been created using the Geocortex Web SDK. In general, Geocortex Web components are functional React components extended with a few new behaviors and patterns.
+
+```tsx
+import React, { useState } from "react";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import List from "@geocortex/web/ui/list";
+import ListItem from "@geocortex/web/ui/list-item";
+import TitleBar from "@geocortex/web/ui/title-bar";
+import Button from "@geocortex/web/ui/button";
+import { useWatchAndRerender } from "@geocortex/web/ui/hooks";
+import DialogActions from "@geocortex/web/ui/dialog-actions";
+import ExampleComponentModel from "./ExampleComponentModel";
+
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    const { model } = props;
+    const [hidden, setHidden] = useState(false);
+
+    useWatchAndRerender(model, "items");
+
+    return (
+        <LayoutElement {...props}>
+            <List>
+                <DialogActions key="dialog-actions">
+                    <TitleBar text="Some Title"></TitleBar>
+                    {hidden && (
+                        <Button onClick={() => setHidden(false)}>
+                            Show Component
+                        </Button>
+                    )}
+                    {!hidden && (
+                        <Button onClick={() => setHidden(true)}>
+                            Hide Component
+                        </Button>
+                    )}
+                </DialogActions>
+                {!hidden &&
+                    model.items
+                        .map((item, idx) => (
+                            <ListItem key={idx}>{item}</ListItem>
+                        ))
+                        .toArray()}
+            </List>
+        </LayoutElement>
+    );
+}
+```
+
+## Component Registration
+
+All components need to be registered with the Geocortex Web API in order to be used in a layout.
+
+```ts
+export default function (registry: LibraryRegistry) {
+    // ... other item registrations
+
+    registry.registerComponent({
+        // The name used to identify the component in the layout
+        name: "example",
+        // The namespace used to identify the component in the layout.
+        namespace: "custom.abc123"
+        // The class corresponding to the React Functional Component
+        getComponentType: () => ExampleComponent as ComponentType,
+        // The model type this component is bound to.
+        itemType: "example-model",
+        title: "Example Component",
+    });
+```
+
+## Components and Layout
+
+Once a component has been registered, it can be used in a layout by referring it by name and namespace.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
+    <custom:example/>
+</layout>
+```
+
+## Component Anatomy
+
+At its core, each custom component is a React component that takes in props and renders a DOM element. However, custom components can implement a couple of patterns which are specific to Geocortex Web.
+
+### Rendering
+
+Geocortex Web custom components return a DOM element, like any other React component, but with one restriction. The root DOM element must be a `<LayoutElement/>` node with all the layout attributes passed as props.
+
+```tsx
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    // highlight-next-line
+    return <LayoutElement {...props}></LayoutElement>;
+}
+```
+
+### Props
+
+Custom components take in a special type of props, `LayoutElementProperties`. These props include the React props but also include props specific to the SDK, such as;
+
+-   The model associated with the component,
+-   The ID of the component in the layout
+-   The width and height, along with other [presentation attributes](configuration-layout-reference.mdx#presentation-attributes) in the layout
+
+The `LayoutElementProperties` interface takes in `ComponentModelBase` type class corresponding to the model associated with the component. This will give the `props.model` property the correct type.
+
+```tsx
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    // highlight-next-line
+    const { model, id, width, height, slot, stretch } = props;
+    ...
+}
+```
+
+### State
+
+Geocortex Web uses two patterns to manage state in a component. First, any purely local UI or presentation logic state should be captured using the [React state hook](https://reactjs.org/docs/hooks-state.html) pattern. For data that comes from configuration or other sources, like a service, the components model should be treated as the state.
+
+```tsx
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    // highlight-start
+    // Presentation logic state
+    const [hidden, setHidden] = useState(false);
+    // Business Data / Objects
+    useWatchAndRerender(props.model, "modelProperty")
+    // highlight-end
+    ...
+}
+```
+
+## Models
+
+Every component is bound to specific [**item type**](configuration-app-config-getting-started.mdx#anatomy-of-an-app-config), and each item type is bound to a specific model.
+In this snippet, the `ExampleComponent` is bound to the `example-model` item type. The `ExampleComponentModel` is registered as the `example-model` item type, meaning that an `ExampleComponentModel` will be injected into the props of each `ExampleComponent`.
+
+```ts
+export default function (registry: LibraryRegistry) {
+    // ... other item registrations
+
+    registry.registerComponent({
+        name: "example",
+        namespace: LAYOUT_NAMESPACE,
+        getComponentType: () => ExampleComponent as ComponentType,
+        // highlight-next-line
+        itemType: "example-model",
+        title: "Example Component",
+    });
+    registry.registerModel({
+        getModelType: () => ExampleComponentModel,
+        // highlight-next-line
+        itemType: "example-model",
+    });
+}
+```
+
+It's best practice to use the model to define configurable or persistent state, and use the [component hooks](sdk-components-hooks.mdx) to interact with the model. For UI specific transient state, like an active selection, it is recommended you use the [React state hooks](https://reactjs.org/docs/hooks-state.html).
+
+For example, the following component delegates the management of the list item content to its model. The component does not have to concern itself with whether those list items come from config, dynamic application events, or other sources.
+
+:::tip
+This example uses the `useWatchAndRerender` [component hook](sdk-components-hooks.mdx) in order to dynamically update the component when the model changes.
+:::
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: "Component", value: "component" },
+    { label: "Model", value: "model" },
+  ]}>
+<TabItem value="component">
+
+```tsx
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    const { model } = props;
+
+    useWatchAndRerender(model, "items");
+
+    return (
+        <LayoutElement {...props}>
+            <List>
+                {model.items
+                    .map((item, idx) => <ListItem key={idx}>{item}</ListItem>)
+                    .toArray()}
+            </List>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```ts
+export default class ExampleComponentModel extends ComponentModelBase {
+    items: Collection<string> = new Collection<string>();
+
+    // ... populate the items list somehow
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Configuration
+
+Geocortex Web provides a suite of flexible, highly configurable components, and this flexibility is powered in a large part by the relationship between app config, models, and components. Each model has the potential to consume static app config, which it can deserialize and transform before providing the data to its associated component for rendering.
+
+The following model defines a simple configurable property `items`.
+
+-   The shape of this property in the **app config JSON file** is defined by the `items` property in the `ExampleComponentModelProperties` interface.
+-   The shape of this property in the **model** is defined by the `items` property in the `ExampleComponentModel` class.
+
+The `ExampleComponentModel` class consumes the configuration by extending the `ComponentModelBase<ExampleComponentProperties>` interface, using the `@serializable` class decorator, and then defining serialization logic in an override of the `_getSerializableProperties()` method. You can learn more about app config serialization in [this article](sdk-serializable-properties.mdx).
+
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "Model", value: "model" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="model">
+
+```ts
+interface ExampleComponentModelProperties extends ComponentModelProperties {
+    items?: string[];
+}
+
+// highlight-next-line
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase<
+    ExampleComponentModelProperties
+> {
+    items: Collection<string> = new Collection<string>();
+
+    protected _getSerializableProperties(): PropertyDefs<
+        ExampleComponentModelProperties
+    > {
+        // highlight-next-line
+        const props = super._getSerializableProperties();
+        return {
+            ...props,
+            items: {
+                serializeModes: ["initial"],
+                default: ["Default Value"],
+                serialize: () => this.items.toArray(),
+                deserialize: (items) => {
+                    this.items.removeAll();
+                    this.items.addMany(items);
+                },
+            },
+        };
+    }
+}
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+ {
+    "schemaVersion": "1.0",
+    "items": [
+        ...
+        {
+            "$type": "example-component",
+            "id" : "example-component",
+            "items" : [
+                "Item 1",
+                "Item 2",
+                "Item 3"
+            ]
+        },
+        ...
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Component Defaults
+
+Most components support the [`config` attribute](configuration-app-config-getting-started.mdx#linking-layout-to-app-config) in the layout, which links a component model to configuration in the app config JSON. However, many component models have default values they can supply for initialization instead of relying on configuration. This means that if you omit the `config` property for certain components, the component model will attempt to create itself with its default values. An example of defining these default values can be seen in [this example](sdk-serializable-properties.mdx#populating-the-class-with-configuration-values). It's also the mechanism that powers the default map displayed by this layout.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map/> <!-- The map component is populated with values from the MapModel's `_getSerializableProperties` function. -->
+</layout>
+```
+
+### Initialization and Teardown
+
+Component models have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when a component is removed from the layout.
+
+:::important
+Always call `super._onInitialize()` when overriding the `_onInitialize` method.
+:::
+
+```ts
+export default class ExampleComponentModel extends ComponentModelBase {
+    items: Collection<string> = new Collection<string>();
+
+    protected async _onInitialize(): Promise<void> {
+        // highlight-next-line
+        super._onInitialize();
+
+        this.items.add("1");
+        this.items.add("2");
+        this.items.add("3");
+        this.items.add("4");
+        // ...other initialization logic
+    }
+
+    destroy(): void {
+        this.items.destroy();
+        // ...free up resources
+    }
+}
+```
+
+## Component Lifecycle
+
+When a Geocortex Web Application boots up, the set of components which are initially active in the layout are created and initialized. [Components like the `Panel`](configuration-layout-reference.mdx#panels) will only activate their first child. All initially inactive components will only be created when they are activated in the layout.
+
+### Activation and Deactivation
+
+Custom code can listen and react to a components activation or deactivation by subscribing to the `ui.activated` or `ui.deactivated` event. The [`ui.*` events](api-commands-operations-events.mdx#events) contain various events relating to the component lifecycle.
+
+:::tip
+The `UIService` contains implements the commands `ui.activate` and `ui.deactivate` and exposes methods like `getActiveChildComponentIds()` which can be used to examine and manipulate the activation state of components.
+:::
+
+```ts
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase<
+    ExampleComponentModelProperties
+> {
+    private readonly _handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        super._onInitialize();
+        // highlight-start
+        this._handles.push(
+            this.messages.events.ui.activated.subscribe(() => {
+                // ...on activated logic here
+            })
+        );
+
+        this._handles.push(
+            this.messages.events.ui.deactivated.subscribe(() => {
+                // ...on deactivated logic here
+            })
+        );
+        // highlight-end
+    }
+
+    public destroy() {
+        super.destroy();
+        // highlight-start
+        // Make sure to clean up subscriptions when the model is destroyed.
+        this._handles.forEach((h) => h.remove());
+        // highlight-end
+    }
+}
+```
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn how to use Commands and Operations with Components"
+        description="Learn how to run and implement commands and operations with custom components"
+        link={useBaseUrl("docs/web/sdk-components-commands-operations")}
+    />
+    <UseCaseCard
+        title="Learn about Component Interactions"
+        description="Learn about how components can interact with each other through their models"
+        link={useBaseUrl("docs/web/sdk-components-interactions")}
+    />
+    <UseCaseCard
+        title="Create a Component with a Complex UI"
+        description="Follow along with a more in depth component example"
+        link={useBaseUrl("docs/web/tutorial-implement-component-with-ui")}
+    />
+    <UseCaseCard
+        title="Create a Component that Consumes App Config"
+        description="Learn more about writing components that consume configuration values."
+        link={useBaseUrl(
+            "docs/web/tutorial-implement-component-participate-app-config"
+        )}
+    />
+</UseCaseContainer>

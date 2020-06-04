@@ -1,0 +1,403 @@
+---
+title: Component Reference
+description: Geocortex Mobile - Reference for custom components in Geocortex Mobile
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+:::tip
+Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
+:::
+
+Implementing a custom component in Geocortex Mobile gives you the highest degree of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-change-default-map-click-behavior.mdx) first.
+
+```cs
+[assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    class CustomComponent : ComponentBase
+    {
+        protected override VisualElement Create(XNode node)
+        {
+            return new Label(){ Text = "My Custom Component" };
+        }
+    }
+}
+```
+
+## Component Registration
+
+Geocortex Mobile uses
+[Autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register,
+locate, and inject components, services and other classes.
+
+Each component class is registered with the [`Component` assembly attribute](sdk-dependency-injection.mdx#component)
+
+:::note
+It's convention for the name of the component in the [`layout`](configuration-layout-reference.mdx) to be lower case and kebab case, i.e. `custom-component`.
+:::
+
+```cs
+// highlight-next-line
+[assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    // highlight-next-line
+    class CustomComponent : ComponentBase
+    {
+        ...
+    }
+}
+```
+
+## Components and Layout
+
+Once a component has been registered, it can be used in a layout by referring it by name and namespace.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    // highlight-start
+    xmlns:custom="https://your.org/layout/app1">
+    <custom:custom-component/>
+    // highlight-end
+</layout>
+```
+
+## Component Anatomy
+
+Geocortex Mobile is built on top of the [Xamarin Platform](https://docs.microsoft.com/en-us/xamarin/). In general, [XAML Views](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) are used to define reactive component UI. Component Views in Geocortex Mobile are built with the [Model-View-ViewModel (MVVM) pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm). The model for components is usually either [app config](configuration-app-config-getting-started.mdx) or a service hosting shared application data.
+
+### Component Class
+
+Each instance of a component class directly correlates to a component in the layout. A component class extends `ComponentBase` and renders visual elements. As seen in the example below, components can provide their UI inline, but it is recommended that components render an associated XAML view instead.
+
+```cs
+[assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace App1.Components
+{
+    class CustomComponent : ComponentBase
+    {
+        protected override VisualElement Create(XNode node)
+        {
+            return new Label(){ Text = "My Custom Component" };
+        }
+    }
+}
+```
+
+#### Component Dependencies
+
+Components are instantiated by [dependency injection](sdk-dependency-injection.mdx) when the layout is rendered. This means that a component can also list dependencies that have been registered with autofac, such as the [`ILayoutModel<MapView>`](sdk-component-service-interactions.mdx) in it's constructor, and have them be passed at runtime. This also means that if a class associated with a component has application dependencies, such as a reference to the `MapOperations` for map interactions, then the component will either need to provide that dependency somehow.
+
+The preferred way to provide sub-dependencies to classes associated with components is to instantiate those associated classes with dependency injection also. Check out [managing sub-dependencies](sdk-dependency-injection.mdx#managing-sub-dependencies) for an example.
+
+### XAML View
+
+XAML views and their respective "code-behind" are responsible for the presentation concerns of a component. Check out a [complete example in the SDK samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent).
+
+XAML views can use any [XAML Controls](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-controls) along with built-in [Geocortex Mobile XAML Elements and styling](sdk-components-styling.mdx#using-geocortex-mobile-xaml-elements).
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Geocortex.Mobile.Samples.Samples.Custom.XamlComponent.XamlComponentView">
+    <ContentView.Content>
+        <StackLayout Margin="5">
+            <Label Text="Hello XAML Component!" />
+            <Label Text="This component view is created using a XAML view." />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
+```
+
+### View Model
+
+Component view models are responsible for populating properties with data for the view to bind to. The data for the view model is usually provided by the component class, which can consume app config or other data from the application through [dependency injection](sdk-dependency-injection.mdx). View models can use commands and operations to interact with application services and other components.
+
+Check out this example of a [component with a view model](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BreadCrumbs).
+
+## Configuration Models
+
+Every component is bound to specific [**item type**](configuration-app-config-reference.mdx#app-items), and each item type is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model. The component class then consumes this configuration model, and then passes the appropriate values to the view and view model.
+
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "App Item Model", value: "model" },
+    { label: "Component", value: "component" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="component">
+
+```cs
+// highlight-next-line
+[assembly: AppItemComponent(typeof(CustomComponent), "component-with-config", "my-app-item", XmlNamespace = XmlNamespaces.App1Namespace)]
+namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+{
+    // highlight-next-line
+    internal class CustomComponent : AppItemComponentBase<MyAppItem>
+    {
+        private readonly IAppItem<MyAppItem> _appItemResolver;
+
+        private CustomComponentViewModel _viewModel;
+        private CustomComponentView _view;
+
+        // highlight-next-line
+        public CustomComponent(IAppItem<MyAppItem> itemResolver, Func<CustomComponentViewModel, CustomComponentView> viewFactory, CustomComponentViewModel viewModel)
+            : base(itemResolver)
+        {
+            _appItemResolver = itemResolver;
+
+            _viewModel = viewModel;
+            _view = viewFactory(viewModel);
+        }
+
+        protected override VisualElement Create(XNode node)
+        {
+            return _view;
+        }
+
+        protected override async Task DoInitializeAsync()
+        {
+            // highlight-start
+            var item = await _appItemResolver.ResolveAsync();
+            _viewModel.Text = item.ConfigText;
+            // highlight-end
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```cs
+// highlight-next-line
+[assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
+namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
+{
+    public class MyAppItem : VisualAppItem
+    {
+        // highlight-next-line
+        public const string ConfigItemtype = "my-app-item";
+
+        public string ConfigText { get; private set; }
+
+        public MyAppItem()
+            : this(Guid.NewGuid().ToString())
+        {
+        }
+
+        public MyAppItem(string id)
+            : this(new Properties { ["id"] = id })
+        {
+        }
+
+        public MyAppItem(Properties properties) :
+            base(properties, ConfigItemtype)
+        {
+            // highlight-start
+            if (properties.TryGetValue("text", out var text))
+            {
+                ConfigText = text as string ?? "Default text.";
+            }
+            // highlight-end
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+  "schemaVersion": "1.0",
+
+  "items": [
+    ...
+    {
+      "$type": "my-app-item",
+      "id": "some-unique-id",
+      "title": "My Title"
+    }
+    ...
+  ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+### Component Defaults
+
+Most components support the [`config` attribute](configuration-app-config-getting-started.mdx#linking-layout-to-app-config) in the layout, which links a component to configuration in the app config JSON. However, many configuration models have default values they can supply for initialization instead of relying on a value to exist in the config. Any `AppItem` class can provide default values through the `CreateDefault` method. This method should return an instance of the `AppItem` which represents the default values.
+
+```cs
+[assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
+namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
+{
+    public class MyAppItem : VisualAppItem
+    {
+        public const string ConfigItemtype = "my-app-item";
+
+        ...
+
+        // highlight-start
+        public override object CreateDefault()
+        {
+            return new MyAppItem();
+        }
+        // highlight-end
+    }
+}
+```
+
+This pattern is what allows you to place a map with no config in the layout and have it render a default map.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    <map/> <!-- The map component is populated with values from the MapExtension's `CreateDefault` function. -->
+</layout>
+```
+
+### Initialization and Teardown
+
+Components have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when a component is removed from the layout.
+
+:::important
+Always call `base.Dispose(disposing)` when overriding the `Dispose` method. `ComponentBase` already implements `IDisposable` and `IDisposableTracker`, so only override the `Dispose` method if you have created new managed resources which need to be cleaned up.
+:::
+
+To learn more about memory management in Geocortex Mobile, check out [this article](sdk-memory-leaks.mdx), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
+
+```cs
+[assembly: Component(typeof(CustomComponent), "component", XmlNamespace = XmlNamespaces.SamplesNamespace)]
+namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+{
+    internal class CustomComponent : ComponentBase
+    {
+        private bool disposed = false;
+
+        public CustomComponent()
+        {
+        }
+
+        ...
+
+        protected override async Task DoInitializeAsync()
+        {
+            // Initialization code.
+            // ...
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                // Clean up managed resources.
+                // ...
+            }
+
+            // Clean up unmanaged resources.
+            // ...
+
+            base.Dispose(disposing);
+
+            disposed = true;
+        }
+    }
+}
+```
+
+## Component Lifecycle
+
+When a Geocortex Mobile Application boots up, the set of components which are in the layout are created. Next, any components that are initially active, depending on the layout, will be activated and initialized. [Components like the `Panel`](configuration-layout-reference.mdx#panels) will only activate their first child.
+
+### Activation and Deactivation
+
+Custom code can listen and react to a components activation or deactivation by subscribing to the `ui.activated` or `ui.deactivated` event. The [`ui.*` events](api-commands-operations-events.mdx#events) contain various events relating to the component lifecycle.
+
+:::tip
+The `UIOperations` class contains implements the commands `ui.activate` and `ui.deactivate` which can be used to examine and manipulate the activation state of components.
+:::
+
+```cs
+class CustomComponent : ComponentBase
+{
+    public CustomComponent(UIEvents uiEvents)
+    {
+        uiEvents.ComponentActivated.Subscribe(_onComponentActivated, this);
+        uiEvents.ComponentDeactivated.Subscribe(_onComponentDeactivated, this);
+
+    private async void _onComponentActivated(string id)
+    {
+        // ... react to component activation.
+    }
+
+    private async void _onComponentDeactivated(string id)
+    {
+        // ... react to component deactivation.
+    }
+    ...
+}
+
+```
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Custom Component](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Component)
+
+-   [Component with Configuration](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/ComponentConfiguration)
+
+-   [Component with XAML UI](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent)
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn how to use Commands and Operations with Components"
+        description="Learn how to run and implement commands and operations with custom components"
+        link={useBaseUrl("docs/mobile/sdk-commands-operations")}
+    />
+    <UseCaseCard
+        title="Learn about Component Interactions"
+        description="Learn about how components and services can interact with each other"
+        link={useBaseUrl("docs/mobile/sdk-component-service-interactions")}
+    />
+    <UseCaseCard
+        title="Create a Component with a Complex UI"
+        description="Follow along with a more in depth component example"
+        link={useBaseUrl("docs/mobile/tutorial-implement-component-with-ui")}
+    />
+    <UseCaseCard
+        title="Create a Component that Consumes App Config"
+        description="Learn more about writing components that consume configuration values."
+        link={useBaseUrl(
+            "docs/mobile/tutorial-implement-component-participate-app-config"
+        )}
+    />
+</UseCaseContainer>

@@ -1,0 +1,199 @@
+---
+title: Service Reference
+description: Geocortex Web - Service Reference
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Services act as a repository of accessible behavior and data, and can be used for a variety of purposes, from implementing commands and operations, to managing shared data, to interfacing with the REST API of an external service.
+
+## Service Registration
+
+All services need to be registered with Geocortex Web. Services can optionally use the `itemType` property to bind to an [item in the app config](configuration-app-config-reference.mdx#app-items).
+
+```ts
+export default function(registry: LibraryRegistry) {
+    ...
+    registry.registerService({
+        id: "custom-service",
+        getServiceType: () => CustomService,
+        // Use this setting if you want your service to load an
+        // item from the app config.
+        itemType: "custom-service-model",
+        // Use this setting if you want your service to load on
+        // application startup. Defaults to `false`.
+        loadOnStartup: true,
+    })
+    ...
+}
+```
+
+## Service Lifecycle
+
+On application load, all services that are configured to automatically load on startup are created and initialized **in parallel**, along with core services like the message bus.
+
+All other services are created and initialized (i.e. the `_onInitialize` method is called) when they are first invoked. This can happen in multiple ways.
+
+-   If a command or operation implemented by the service is executed, then the service will be created and initialized to run that command.
+-   If a different component or service injects the service, then the service will be created and initialized to fulfill that dependency.
+
+Services are destroyed (i.e. the `destroy` method is invoked) when the application is destroyed.
+
+## Service Anatomy
+
+All services have access to initialization and cleanup methods, as well as the `messages` property that allows for the registration and execution of commands and operations.
+
+### Initialization and Cleanup
+
+Sometimes, a service is required to perform initialization and cleanup actions, for example, to initialize dynamic data and cleanup dangling references. The `ServiceBase` class has two methods to achieve this:
+
+-   `_onInitialize()`, which can be overridden,
+-   and `destroy()`, which can be implemented to facilitate cleanup.
+
+The following service uses these methods to subscribe to an event and cleanup the event handler afterwards.
+
+:::important
+Always call `super._onInitialize()` before any custom initialization logic.
+:::
+
+```ts
+import { ServiceBase } from "@geocortex/web/services";
+import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
+
+export default class CustomService extends ServiceBase {
+    handles: IHandle[] = [];
+
+    protected async _onInitialize(): Promise<void> {
+        await super._onInitialize();
+        this.handles.push(
+            this.messages.events.map.initialized.subscribe((e: MapEvent) => {
+                console.log(
+                    "Map Initialized, do your map dependent model setup here."
+                );
+            })
+        );
+        return;
+    }
+
+    destroy(): void {
+        this.handles.forEach((h) => h.remove());
+    }
+}
+```
+
+### Message Bus
+
+All services have access to the `messages` property on the class instance, which gives access to all [commands, operations, and events in the application](sdk-services-commands-operations.mdx#running-commands-and-operations).
+
+## Models and Configuration
+
+Like components, services can be configured through the [app config](configuration-app-config-getting-started.mdx). A service can participate in the config by extending the `ConfigurableServiceBase` class. For more information on the relationship between services and configuration, check out [this article](sdk-serializable-properties.mdx). The following example demonstrates a service with one configurable property, `name`.
+
+:::note
+The service is linked to the config through the `itemType` and `id` properties.
+:::
+
+<Tabs
+  defaultValue="service"
+  values={[
+    { label: "Service", value: "service" },
+    { label: "Registration", value: "registration" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="service">
+
+```ts
+export interface CustomServiceProperties extends ServiceModelProperties {
+    name: string;
+}
+
+@serializable
+export default class CustomServiceWithConfig extends ConfigurableServiceBase<
+    CustomServiceProperties
+> {
+    // highlight-next-line
+    id: "my-unique-id";
+
+    name: string;
+
+    async sayHello(): Promise<string> {
+        return `Hello, ${this.name}`;
+    }
+
+    protected _getSerializableProperties(): PropertyDefs<
+        CustomServiceProperties
+    > {
+        return {
+            ...super._getSerializableProperties(),
+            name: {
+                serializeModes: ["initial"],
+                default: "Ian",
+            },
+        };
+    }
+}
+```
+
+</TabItem>
+<TabItem value="registration">
+
+```ts
+export default function (registry: LibraryRegistry) {
+    registry.registerService({
+        id: "custom-service",
+        title: "Custom Service",
+        getServiceType: () => CustomServiceWithConfig,
+        // highlight-next-line
+        itemType: "custom-service-model",
+    });
+}
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "custom-service-model",
+            // highlight-next-line
+            "id": "my-unique-id",
+            "name": "Noah"
+        }
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn how to use Commands and Operations with Services"
+        description="Learn how to run and implement commands and operations with custom services"
+        link={useBaseUrl("docs/web/sdk-services-commands-operations")}
+    />
+    <UseCaseCard
+        title="Learn about Service Interactions"
+        description="Learn about how services can directly interact through dependency injection"
+        link={useBaseUrl("docs/web/sdk-services-injecting-services")}
+    />
+    <UseCaseCard
+        title="Build a Custom Command with a Custom Service"
+        description="Follow a step by step guide to building a custom command with a custom service"
+        link={useBaseUrl("docs/web/tutorial-implement-command-operation")}
+    />
+    <UseCaseCard
+        title="Build a Service that Manages Dynamic Data"
+        description="Built a service that manages a dynamic data source and exposes it to components"
+        link={useBaseUrl("docs/web/tutorial-service-dynamic-data")}
+    />
+</UseCaseContainer>

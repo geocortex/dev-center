@@ -23,7 +23,7 @@ This article will teach you how to inject the Map model into a custom component 
 First, we will create a custom component that has an associated model.
 
 :::tip
-To learn more about registering and using a component in the layout, check out [the component reference](sdk-component-reference.mdx)
+To learn more about registering and using a component in the layout, check out [the component reference](sdk-components-reference.mdx)
 :::
 
 <Tabs
@@ -98,7 +98,7 @@ export default class CustomModel extends ComponentModelBase {
 
 ## Inject the Map Model into the Component
 
-Next, we can inject the Map model, which is the type `MapExtension`, into the component using the [model injection](sdk-component-interactions.mdx#interacting-with-components-through-models) pattern.
+Next, we can inject the Map model, which is the type `MapExtension`, into the component using the [model injection](sdk-components-interactions.mdx#interacting-with-components-through-models) pattern.
 
 ```ts
 
@@ -213,11 +213,11 @@ export default class CustomModel extends ComponentModelBase {
     <UseCaseCard
         title="Learn more about Component Interactions"
         description="Learn more about how components interact with each other through models and services"
-        link="sdk-component-interactions"
+        link={useBaseUrl("docs/web/sdk-components-interactions")}
     />
     <UseCaseCard
         title="Learn how Components are Bound to Models in the Layout"
         description="Learn how layout structure can be used to bind components to their required models"
-        link="configuration-advanced-model-binding"
+        link={useBaseUrl("docs/web/configuration-advanced-model-binding")}
     />
 </UseCaseContainer>

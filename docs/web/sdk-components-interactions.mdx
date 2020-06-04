@@ -1,0 +1,203 @@
+---
+title: Component Interactions
+description: Geocortex Web - Learn how to make custom components interact in with the larger application
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
+
+<!-- TODO-API direct link to map model -->
+
+Components have multiple ways of interacting with other components and services. When possible, interaction through [commands and operations](sdk-components-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling. When you need stronger coupling and direct access to the API, then **model imports** or **service injection** can be used. A good example of this is needing direct access to the [ArcGIS Map](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html), which can be exposed by importing the map model.
+
+## Interacting with Components through Models
+
+<!-- TODO-API link to map model and scalebar/compass components once available -->
+
+Components can interact with each other through their [respective models](sdk-components-reference.mdx#models). A model can either declare that it is exported, like the map model, or that it imports a model.
+
+-   Declaring a model as exported exposes it to other components for importing.
+
+-   Using the `@importModel` decorator will tell the component to attempt to retrieve a reference to the given model type, according to the [model binding rules](configuration-advanced-model-binding.mdx)
+
+Components like the `<scalebar>` or `<compass>` import the map model, and this allows them to respond to changes in the maps state **through** the map model.
+
+```ts
+@exportModel
+export class MapModel implements ComponentModel {
+    // ... map stuff ...
+}
+
+export class ScaleBarModel implements ComponentModel {
+    @importModel("map-extension")
+    map: MapExtension | undefined;
+
+    // ... scale bar stuff ...
+}
+```
+
+### Importing Models
+
+Custom components can also import models and interact with them. The import must be done in the model of the component. This tight coupling can allow deeper access to other components models, but also negates the advantages of the abstraction of commands and operations.
+
+:::note
+The property decorated by `@importModel` is completely managed by Geocortex Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.
+:::
+
+```ts
+import {
+    ComponentModelBase,
+    serializable,
+    importModel,
+} from "@geocortex/web/models";
+import { MapExtension } from "@geocortex/api/mapping/MapExtension";
+
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase {
+    @importModel("map-extension")
+    mapModel: MapExtension | undefined;
+
+    logMapViewMode() {
+        if (this.mapModel.viewMode === "map") {
+            console.log("Map is 2d");
+        } else {
+            console.log("Map is 3d");
+        }
+    }
+}
+```
+
+### Exporting Models
+
+You can mark a model as exported by adding the `@exportModel` decorator to the model class. The following example shows a model that is exported, and then imported by another model and used.
+
+:::note
+Models are imported with the `itemType` name that they are registered with.
+:::
+
+<!-- TODO - live preview for this one but it's not worth a screenshot -->
+
+<Tabs
+  defaultValue="exportedModel"
+  values={[
+    { label: 'Exported Model', value: 'exportedModel', },
+    { label: 'Importing Model', value: 'importingModel', },
+    { label: 'Importing Model Component', value: 'importingModelComponent', },
+    { label: 'Layout', value: 'layout', }
+  ]
+}>
+<TabItem value="exportedModel">
+
+```ts title="src/components/ExportedModel/ExportedModel.ts"
+import {
+    ComponentModelBase,
+    serializable,
+    exportModel,
+} from "@geocortex/web/models";
+
+@exportModel
+@serializable
+export default class ExportedModel extends ComponentModelBase {
+    someCustomModelProperty: string = "Some Text";
+}
+```
+
+</TabItem>
+<TabItem value="importingModel">
+
+```ts title="src/components/CustomComponent/CustomModel.ts"
+import {
+    ComponentModelBase,
+    serializable,
+    importModel,
+} from "@geocortex/web/models";
+import { ExportedModel } from "../ExportedModel";
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    @importModel("exported-model")
+    exportedModel: ExportedModel | undefined;
+
+    getContentText() {
+        if (this.exportedModel) {
+            return this.exportedModel.someCustomModelProperty;
+        } else {
+            console.warn(
+                "Could not import required model 'exported-model' for 'CustomModel'"
+            );
+            return "";
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="importingModelComponent">
+
+```tsx title="src/components/importedModel/ExportedModelComponent.tsx"
+import React from "react";
+import Typography from "@geocortex/web/ui/typography";
+
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import { CustomModel } from ".";
+
+export default function CustomComponent(
+    props: LayoutElementProperties<CustomModel>
+) {
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <Typography variant="h1">
+                {`Text From the imported Model: "${props.model.getContentText()}"`}
+            </Typography>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
+    <stack padding="2">
+        <custom:custom-component />
+        <custom:exported-model-component />
+    </stack>
+</layout>
+```
+
+</TabItem>
+</Tabs>
+
+## Interacting with Application Services with Dependency Injection
+
+Components can interact with built-in Geocortex Web [services](sdk-services-overview.mdx). Through services, they can interact with the map, application context, workflows, and more. Services can only be injected into a components through their [associated models](sdk-components-reference.mdx#models). Learn more about how to [inject a service into a component](sdk-components-injecting-services.mdx).
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Build a Custom Component that Imports the Map Model"
+        description="Follow step by step instructions to import the map model into a custom component"
+        link={useBaseUrl("docs/web/tutorial-import-map-model")}
+    />
+    <UseCaseCard
+        title="Learn how to Interact with Services"
+        description="Learn about how components can interact with built-in or custom services"
+        link={useBaseUrl("docs/web/sdk-components-injecting-services")}
+    />
+    <UseCaseCard
+        title="Learn how Components are Bound to Models in the Layout"
+        description="Learn how layout structure can be used to bind components to their required models"
+        link={useBaseUrl("docs/web/configuration-advanced-model-binding")}
+    />
+</UseCaseContainer>

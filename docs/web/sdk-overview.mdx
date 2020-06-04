@@ -3,6 +3,7 @@ title: SDK Overview
 description: Geocortex Web - Learn how to get started with the Geocortex Web SDK
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import DesignerCallout from "./snippets/designer-callout.mdx";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
@@ -11,7 +12,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 The Geocortex Web SDK is currently in preview. The patterns for development and deployment are still under active development and are subject to change. Deploying your custom code into production is not recommended until the SDK is finalized.
 :::
 
-If the built-in configurability of Geocortex Web does not serve your purposes, then it might be time to dive into the Geocortex Web SDK. Building applications on top of the Geocortex Web SDK requires engaging in the development, testing, and deployment of custom code, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](overview.mdx#explore-the-use-cases).
+If the built-in configurability of Geocortex Web does not serve your purposes, then it might be time to dive into the Geocortex Web SDK. Building applications on top of the Geocortex Web SDK requires engaging in the development, testing, and deployment of custom code, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](overview.mdx).
 
 If you still think you need to use the Geocortex Web SDK, then let's get started!
 
@@ -19,7 +20,7 @@ If you still think you need to use the Geocortex Web SDK, then let's get started
 
 ## Overview
 
-The Geocortex Web SDK provides a development toolkit for building [custom components](sdk-create-component.mdx), [services](sdk-create-service.mdx), and more into a package that can be deployed to Geocortex Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises environment.
+The Geocortex Web SDK provides a development toolkit for building [custom components](sdk-components-create.mdx), [services](sdk-services-create.mdx), and more into a package that can be deployed to Geocortex Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises environment.
 
 ## Extension Points
 
@@ -45,7 +46,7 @@ Components, services, and commands and operations interact to form a Geocortex W
 
 -   Services are used to implement application wide behavior, such as theming or authentication, and then expose that logic through commands and operations, such as `ui.set-theme` (implemented by the `BrandingService`) or `auth.sign` (implemented by the `AuthenticationService`).
 -   Components can run commands and operations to interact with services or other components. Components can also implement commands and operations to allow themselves to be affected by other services and components.
--   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [model injection](sdk-component-interactions.mdx#importing-models) or [service injection](sdk-services-injecting-services.mdx).
+-   Component and service interaction through commands and operations is preferred, but components and services can also be tightly coupled to each other through [model injection](sdk-components-interactions.mdx#importing-models) or [service injection](sdk-services-injecting-services.mdx).
 
 ## Requirements
 
@@ -105,7 +106,7 @@ export default function (registry: LibraryRegistry) {
 
 If you are developing custom code that is mostly independent of app context, we suggest that you use the minimal layout and app config with only the required components.
 
-If you need to develop custom code that requires the context of a custom application built in Geocortex Web Designer, take the following steps to import your SaaS or on premise application into your local Web SDK environment.
+If you need to develop custom code that requires the context of a custom application built in Geocortex Web Designer, take the following steps to import your SaaS or on-premises application into your local Web SDK environment.
 
 1. Open your application in Geocortex Web Designer.
 1. [Download the application configuration](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/download-app-configuration.htm).
@@ -123,16 +124,16 @@ You may need to rename the downloaded layout file to `layout.xml`.
     <UseCaseCard
         title="Create a Component"
         description="Learn how to create a basic component"
-        link="sdk-create-component"
+        link={useBaseUrl("docs/web/sdk-components-create")}
     />
     <UseCaseCard
         title="Create a Service"
         description="Learn how to create a basic service"
-        link="sdk-create-service"
+        link={useBaseUrl("docs/web/sdk-services-create")}
     />
     <UseCaseCard
         title="Deploy your Application"
         description="Learn how to deploy your custom library, layout and app config"
-        link="sdk-deployment"
+        link={useBaseUrl("docs/web/sdk-deployment")}
     />
 </UseCaseContainer>

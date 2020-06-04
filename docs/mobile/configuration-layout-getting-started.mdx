@@ -1,0 +1,178 @@
+---
+title: Layout
+sidebar_label: Getting Started
+description: Geocortex Mobile - Learn about layout concepts
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import FollowAlongSnippet from "./snippets/follow-along.mdx";
+
+:::note Before learning about layout...
+Check out the [Key Concepts](key-concepts.mdx).
+:::
+
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
+
+Take this example of a layout with a map and a zoom widget.
+
+```xml title="app/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map>
+        <zoom margin="0.5"/>
+    </map>
+</layout>
+```
+
+The first thing it does is declare a `<map>` component that uses the default map configuration.
+Next, a zoom widget is embedded within the map. This does two things:
+
+1. Visually places the element inside the map
+2. Tells the zoom widget to act upon [the map it is placed in](configuration-advanced-model-binding.mdx)
+
+<FollowAlongSnippet />
+
+The basic example shown above will place a zoom widget inside a map. But what if you want the zoom widget to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
+
+## Slotting
+
+The position of a component within its parent is controlled by what slot it is placed into.
+
+For example, this configuration will place the zoom widget in the top right of the map.
+
+```xml title="app/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map>
+        // highlight-next-line
+        <zoom padding="0.5" slot="top-right"/>
+    </map>
+</layout>
+```
+
+If a slot configuration is not given, the component will slot itself into a default position. Each component defines its own slots - not every slot will work for every component.
+
+:::tip
+The [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) comes with a schema for the `layout-*.xml` files which can [autocomplete slot values for a component](configuration-layout-reference.mdx#autocomplete-properties)
+:::
+
+Slots control how one element fits into another. But how do we control how sibling elements position themselves? The answer is stacks and splits.
+
+## Stacks and Splits
+
+The basic `stack` and `split` components are building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
+
+For a deeper dive into stacks and splits, [check out the layout reference](configuration-layout-reference.mdx#stacks-and-splits).
+
+## Spacing
+
+See [presentation attributes](configuration-layout-reference.mdx#presentation-attributes) for details on margin, padding, content organization and alignment in your layout.
+
+## Panels
+
+Another core concept that Geocortex Mobile uses to organize elements in a layout is **panels**.
+Panels are a container component that enable hierarchal navigation between different components.
+
+For a deeper dive into Panels, [check out the layout reference](configuration-layout-reference.mdx#panels).
+
+<!-- TODO-API - direct link to tabs and expanders -->
+
+:::tip
+These are just a few examples of the building blocks available to help you organize the layout of your Application. Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes. You can also use tabs, expanders, and much more. See the [Component Reference](configuration-layout-reference.mdx#core-layout-components) for a full listing.
+:::
+
+## Device Form factors
+
+Geocortex Mobile has built-in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target desktop and laptop devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropriate.
+
+:::tip
+The Geocortex Mobile SDK [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) includes a large and small layout.
+:::
+
+In order for the correct layout to be loaded for the correct form factor, the layout needs to be loaded by the app config.
+
+```json {6-7,12-13} title="app/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            // highlight-next-line
+            "tags": [ "mobile", "large" ]
+        },
+        {
+            "$type": "layout",
+            "id": "tablet-layout",
+            "url": "resource://layout-medium.xml",
+            // highlight-next-line
+            "tags": [ "mobile", "medium" ]
+        },
+        ...
+    ]
+}
+```
+
+This app config will load a large layout for a desktop device, and a medium layout for a tablet device.
+
+:::important
+The [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) does not ship with a medium layout configured. See [Add Medium Layout](tutorial-add-medium-layout.mdx) for instructions on how to do this.
+:::
+
+### Fallback Layouts
+
+If a layout that matches the device form factor is not available, then Geocortex Mobile will attempt to load the layout with the most similar form factor. For the example above, if Geocortex Mobile was loaded on a phone device, `layout-medium.xml` would be loaded, as it is the closest form factor to small. If the medium layout was also missing, `layout-large.xml` would be loaded instead, and vice versa.
+
+## Namespaces
+
+Every component in the xml file has a definition that lives in an xml namespace. All the components discussed to this point have lived in the `https://geocortex.com/layout/v1` namespace.
+
+```xml
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map/>
+</layout>
+```
+
+Geocortex Mobile has a specific namespace `https://geocortex.com/layout/mobile/v1` in which components like `<gxm:taskbar>` live. You can add this namespace to your layout to use these components.
+
+```xml
+<layout xmlns="https://geocortex.com/layout/v1"
+        // highlight-next-line
+        xmlns:gxm="https://geocortex.com/layout/mobile/v1">
+    <gxm:taskbar orientation="vertical">
+        <map slot="main"/>
+    </gxm:taskbar>
+</layout>
+```
+
+When adding custom components, you will need to [add their custom namespace](sdk-components-reference.mdx#components-and-layout) to your xml definition.
+
+## Relevant SDK Samples
+
+The Geocortex Mobile SDK Samples project has a variety of layout configuration samples:
+
+-   [Layout Configuration Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout)
+
+## Next Steps: Components and App Config
+
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Mobile. Each component has its own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful, flexible applications with different layouts for different form factors or use cases.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="App Config"
+        description="Learn about app configuration and its interaction with layout"
+        link={useBaseUrl(
+            "docs/mobile/configuration-app-config-getting-started"
+        )}
+    />
+    <UseCaseCard
+        title="Layout Reference"
+        description="Learn more about what you can accomplish with layouts"
+        link={useBaseUrl("docs/mobile/configuration-layout-reference")}
+    />
+</UseCaseContainer>

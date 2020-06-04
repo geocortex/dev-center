@@ -5,6 +5,7 @@ description: Geocortex Web - Overview of Services
 hide_table_of_contents: true
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
@@ -16,9 +17,9 @@ Geocortex Web has many [built-in services](api-services.mdx).
 :::
 -->
 
-Services are created at startup if they are [registered](sdk-service-reference.mdx#service-registration) with the `loadOnStartup` option, otherwise, they will be created when one of their commands and operations is run or they are directly injected into another service or component model.
+Services are created at startup if they are [registered](sdk-services-reference.mdx#service-registration) with the `loadOnStartup` option, otherwise, they will be created when one of their commands and operations is run or they are directly injected into another service or component model.
 
-Services can be optionally configured by [extending the `ConfigurableServiceBase` class](sdk-service-reference.mdx#models-and-configuration).
+Services can be optionally configured by [extending the `ConfigurableServiceBase` class](sdk-services-reference.mdx#models-and-configuration).
 
 ```ts
 import { ServiceBase } from "@geocortex/web/services";
@@ -44,11 +45,11 @@ export default class ExampleService extends ServiceBase {
     <UseCaseCard
         title="Create a Service"
         description="Learn how to create a basic service"
-        link="sdk-create-service"
+        link={useBaseUrl("docs/web/sdk-services-create")}
     />
     <UseCaseCard
         title="Check out the Service Reference"
         description="Take a deep dive into services in the Geocortex Web SDK"
-        link="sdk-service-reference"
+        link={useBaseUrl("docs/web/sdk-services-reference")}
     />
 </UseCaseContainer>

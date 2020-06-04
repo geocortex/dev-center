@@ -1,0 +1,138 @@
+---
+title: Using the TypeScript Workflow SDK with Web Applications
+sidebar_label: SDK Overview
+description: Geocortex Workflow - Overview of extending workflow for web applications
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+
+The Geocortex Workflow for Web Applications SDK consists of a TypeScript project that eases development of Workflow activities and custom form elements. It produces a [Workflow activity pack](concepts-key-concepts.mdx#activity-packs) that can be consumed by [web applications that use Workflow](concepts-key-concepts.mdx#geocortex-workflow-hosts).
+
+## Download
+
+You can download the Workflow Activity SDK for TypeScript [here](https://apps.geocortex.com/workflow/latest/activity-sdk.zip).
+
+## Requirements
+
+-   The latest LTS version of [Node.js](https://nodejs.org/en/).
+    -   Run `node -v` in the terminal to confirm the version.
+-   [npm](https://www.npmjs.com/get-npm) which is included with Node.
+
+## Setup
+
+1. Open the `activity-sdk` folder found in the SDK in your favorite IDE. We recommend using Visual Studio Code for the best experience.
+1. Run `npm install` in the terminal of this folder to install the project's dependencies.
+
+## Building
+
+Run `npm run build` in the terminal to compile the TypeScript project.
+
+-   The `dist` folder will contain the compiled activity pack output.
+
+:::tip
+Check out [Implement Custom Activities for Web Applications](tutorial-web-calculate-logarithm-activity.mdx) to learn how to make activities for your activity pack.
+:::
+
+## Deployment
+
+Deploying Workflow activities consists of two steps:
+
+1. Hosting the Workflow activity pack on a server accessible to the Geocortex Workflow Designer
+2. Making the Workflow activity pack known to Geocortex Workflow Designer and Workflow Applications by registering it as an ArcGIS item.
+
+### Host the Activity Pack
+
+The `dist` folder produced by running `npm run build` can be directly hosted with the web server technology that is most appropriate for your use case, such as [IIS](https://www.iis.net/).
+Activity packs must be hosted by a web server that supports SSL and CORS.
+
+#### Server Requirements
+
+-   The server must have a valid SSL certificate.
+-   The server must support [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and allow CORS requests from the `https://apps.geocortex.com` origin.
+
+:::note
+If you sign in to Geocortex Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, `https://acme.apps.geocortex.com`.
+:::
+
+Hosting Workflow activity packs in this manner allows Geocortex Workflow Designer to read the list of custom activities and their metadata from the source files.
+
+#### Development Web Server
+
+For ease of development, this project includes an [Express](https://www.npmjs.com/package/express) web server that supports SSL and is suitable for most development purposes.
+
+To start the development web server and enable a compile-on-save watch task:
+
+1. Run `npm start` in the terminal to start the build and the development web server.
+    - Note: You can press `CTRL+C` in the terminal to stop the watch and the development web server.
+    - The development web server is only available while the `start` task is running.
+    - The development web server is available at `https://localhost:57999/` by default.
+        - You can change the port by modifying `.build/tsc.js`. Edit the first line:  
+          `var PORT = 57999;`
+    - The development web server serves the content of the `dist` directory.
+    - The SSL certificate of the development web server is not valid. To work around this, do one of the following:
+        - Open `https://localhost:57999/` in a web browser and allow the invalid certificate as an exception.
+        - Trust the `.build/ca.crt` file (add it to your Trusted Root Authority store).
+        - Replace the `.build/localhost.crt` and `.build/localhost.key` files with a known valid certificate.
+    - The development web server supports CORS requests from any origin by default.
+
+:::note
+As `localhost` is only accessible to your host machine, activity packs hosted in this manner will not be accessible when running Geocortex Workflow Designer on a different machine.
+:::
+
+### Register the Activity Pack
+
+To make an activity pack available to workflow authors in Geocortex Workflow Designer you must create a special item in ArcGIS Online or Portal for ArcGIS that references it.
+
+1. Sign in to ArcGIS Online or Portal for ArcGIS.
+1. Go to **My Content**.
+1. Select **Add Item** > **An application**.
+    - Type: `Web Mapping`.
+    - Purpose: `Ready To Use`.
+    - API: `JavaScript`.
+    - URL: The URL to your activity pack.
+        - Use `https://localhost:57999/` for the development server.
+    - Title: Your desired title.
+    - Tags: **Must** include `geocortex-workflow-activity-pack`.
+
+:::important
+The activity pack will **not** be registered unless it includes the tag `geocortex-workflow-activity-pack`.
+:::
+
+### Sharing the Activity Pack
+
+As a workflow author, you will see custom activities in Geocortex Workflow Designer from the activity packs you have registered. You will also see activity packs that have been shared with you via groups you are a member of.
+
+To share an activity pack with other workflow authors in your organization share the ArcGIS item that represents the activity pack with a group that contains the target users.
+
+:::note
+You do not need to share activity packs with the end users of your applications that run workflows containing custom activities.
+:::
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Implement a Custom Activity"
+        description="Implement a custom activity for web applications"
+        link={useBaseUrl("docs/workflow/sdk-web-create-activity")}
+    />
+    <UseCaseCard
+        title="Implement a Custom Form Element"
+        description="Implement a custom form element for web applications"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-web-implement-star-rating-form-element"
+        )}
+    />
+    <UseCaseCard
+        title="Reference a Third Party Library"
+        description="Reference a third party library in web applications"
+        link={useBaseUrl("docs/workflow/sdk-web-reference-third-party-library")}
+    />
+    <UseCaseCard
+        title="Integrate the ArcGIS API for JavaScript into custom activities"
+        description="Integrate the ArcGIS API for JavaScript into custom code"
+        link={useBaseUrl("docs/workflow/sdk-web-integrating-the-arcgis-api")}
+    />
+</UseCaseContainer>

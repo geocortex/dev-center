@@ -6,11 +6,9 @@ description: Geocortex Web - Learn about internationalization and language strin
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
+import TranslationCallout from "./snippets/translation-callout.mdx";
 
 <!-- cSpell:ignore Latn -->
-
-import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
-import TranslationCallout from "./snippets/translation-callout.mdx";
 
 <TranslationCallout />
 
@@ -76,11 +74,13 @@ Regional locales will **not** be used as fallback locales for a language. This m
     <UseCaseCard
         title="Internationalization in App Config"
         description="Learn how to use language strings in the app config"
-        link="configuration-app-config-reference#internationalization"
+        link={useBaseUrl(
+            "docs/web/configuration-app-config-reference#internationalization"
+        )}
     />
     <UseCaseCard
         title="Internationalize Components"
         description="Learn how to use language strings for user facing text in components"
-        link="sdk-components-internationalization"
+        link={useBaseUrl("docs/web/sdk-components-internationalization")}
     />
 </UseCaseContainer>

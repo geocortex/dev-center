@@ -1,0 +1,103 @@
+{
+    "components": [
+        {
+            "id": 2,
+            "steps": [
+                {
+                    "id": 3,
+                    "inputs": {},
+                    "position": "0,0",
+                    "purpose": "start",
+                    "title": "Start",
+                    "transitions": [
+                        {
+                            "id": 8,
+                            "position": "90,60 90,110",
+                            "target": {
+                                "id": 7
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::RunActivity",
+                    "id": 7,
+                    "inputs": {
+                        "action": "your:unique:namespace::CalculateLog",
+                        "arguments": {
+                            "accessors": [],
+                            "annotations": [],
+                            "code": "{\n    base: 5,\n    value: 25\n}",
+                            "source": "{\n    base: 5, \n    value: 25\n}"
+                        }
+                    },
+                    "name": "calcLog25base5",
+                    "position": "-30,110",
+                    "title": "Calculate Log",
+                    "transitions": [
+                        {
+                            "id": 10,
+                            "position": "90,180 90,240",
+                            "target": {
+                                "id": 9
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:core::RunActivity",
+                    "id": 9,
+                    "inputs": {
+                        "action": "your:unique:namespace::CalculateLog",
+                        "arguments": {
+                            "accessors": [],
+                            "annotations": [],
+                            "code": "{\n    value: 10\n}",
+                            "source": "{\n    value: 10\n}"
+                        }
+                    },
+                    "name": "calcLog10",
+                    "position": "-30,240",
+                    "title": "Calculate Log",
+                    "transitions": [
+                        {
+                            "id": 12,
+                            "position": "90,310 90,370",
+                            "target": {
+                                "id": 11
+                            }
+                        }
+                    ]
+                },
+                {
+                    "action": "gcx:wf:ui::Alert",
+                    "id": 11,
+                    "inputs": {
+                        "text": {
+                            "accessors": ["$calcLog25base5", "$calcLog10"],
+                            "annotations": [
+                                {
+                                    "count": 15,
+                                    "index": 24,
+                                    "kind": "idref"
+                                },
+                                {
+                                    "count": 10,
+                                    "index": 74,
+                                    "kind": "idref"
+                                }
+                            ],
+                            "code": "\"Log of 25 base 5 is '\" + $calcLog25base5.result + \"'\\nNatural Log of 10 is '\" + $calcLog10.result + \"'\\n\"",
+                            "source": "`Log of 25 base 5 is '${$calcLog25base5.result}'\\nNatural Log of 10 is '${$calcLog10.result}'\\n`"
+                        }
+                    },
+                    "position": "-30,370",
+                    "title": "Alert"
+                }
+            ]
+        }
+    ],
+    "start": {
+        "id": 3
+    }
+}

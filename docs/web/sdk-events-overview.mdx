@@ -4,12 +4,13 @@ sidebar_label: Overview
 description: Geocortex Web - Overview of events
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
 **Events** are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any [component](sdk-components-overview.mdx) or [service](sdk-services-overview.mdx), and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.
 
-Events are internal to Geocortex Web, so they can only be consumed by custom code. Custom components can access events through [their models](sdk-events-reference.mdx#component-models-1) or through the [UIContext](sdk-ui-context.mdx). Custom services can publish or subscribe to built-in or custom events [through the MessageBus](sdk-events-reference.mdx#services-1).
+Events are internal to Geocortex Web, so they can only be consumed by custom code. Custom components can access events through [their models](sdk-events-reference.mdx#component-models-1) or through the [UIContext](sdk-components-ui-context.mdx). Custom services can publish or subscribe to built-in or custom events [through the MessageBus](sdk-events-reference.mdx#services-1).
 
 The full list of existing events available in Geocortex Web can be [found in the API documentation](api-commands-operations-events.mdx#events).
 
@@ -30,16 +31,18 @@ Events can publish custom arguments with information about the change they are c
     <UseCaseCard
         title="Subscribing to Existing Events"
         description="Learn how to subscribe to an existing event"
-        link="tutorial-events-subscribe"
+        link={useBaseUrl("docs/web/tutorial-events-subscribe")}
     />
     <UseCaseCard
         title="Events API"
         description="Check out the full list of Events available in Geocortex Web"
-        link="api-commands-operations-events#events"
+        link={useBaseUrl("docs/web/api-commands-operations-events#events")}
     />
     <UseCaseCard
         title="Implementing Custom Events"
         description="Learn how to implement a custom Event."
-        link="sdk-events-reference#creating-custom-events"
+        link={useBaseUrl(
+            "docs/web/sdk-events-reference#creating-custom-events"
+        )}
     />
 </UseCaseContainer>

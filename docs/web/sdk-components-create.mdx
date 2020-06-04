@@ -1,0 +1,189 @@
+---
+title: Create a Component
+description: Geocortex Web - Create a component for Geocortex Web
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+
+The [Geocortex Web SDK](sdk-overview.mdx) project template includes an example of a [custom component](sdk-components-create.mdx) following our best practices. Creating a new custom component involves a few important steps:
+
+1. [Create the component source file](#create-the-component)
+1. [Create the component model](#create-the-component-model)
+1. [Register the component and component model in your library registration file](#register-the-component)
+
+## Create the Component
+
+Create the component source file in a new folder within the `src/components` folder. For example to create a new component called `ExampleComponent`, create a new file called `ExampleComponent.tsx` in `src/components/ExampleComponent` with the following content:
+
+```tsx title="src/components/ExampleComponent/ExampleComponent.tsx"
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import React from "react";
+
+// We will create this model in the next step.
+import ExampleComponentModel from "./ExampleComponentModel";
+
+const ExampleComponent = (
+    props: LayoutElementProperties<ExampleComponentModel>
+) => {
+    const { model } = props;
+
+    return <LayoutElement {...props}>{model.exampleValue}</LayoutElement>;
+};
+
+export default ExampleComponent;
+```
+
+## Create the Component Model
+
+Next we need to create the [component model](sdk-components-reference.mdx#models) that will be bound to the component we just created. This model will function as the underlying data source for the component.
+
+:::tip
+It's best practice to use the model to define configurable or persistent state, and use the React state hooks for UI specific transient state, like an active selection.
+:::
+
+Create a new file called `ExampleComponentModel.ts` in `src/components/ExampleComponent`:
+
+```ts title="src/components/ExampleComponent/ExampleComponentModel.ts"
+import {
+    ComponentModelBase,
+    ComponentModelProperties,
+    serializable,
+    PropertyDefs,
+} from "@geocortex/web/models";
+
+interface ExampleComponentModelProperties extends ComponentModelProperties {
+    exampleValue?: string;
+}
+
+// The serializable decorator marks this class as being serializable
+// so it can be serialized to/from the app.json configuration of
+// your app.
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase<
+    ExampleComponentModelProperties
+> {
+    exampleValue: string;
+
+    // This method defines how the model will be serialized and deserialized into
+    // an app item. We override it to include our new property `exampleValue`.
+    protected _getSerializableProperties(): PropertyDefs<
+        ExampleComponentModelProperties
+    > {
+        const props = super._getSerializableProperties();
+        return {
+            ...props,
+            exampleValue: {
+                serializeModes: ["initial"],
+                default: "Default Value",
+            },
+        };
+    }
+}
+```
+
+## Register the Component
+
+Finally we need to register the component and component model with the Geocortex Web component registry so that it is aware of your new component.
+
+To simplify the module imports, we'll make a new file in the `ExampleComponent` folder called `index.ts`. Note that this file is for convenience, and is not required:
+
+```ts title="src/components/ExampleComponent/index.ts"
+export { default } from "./ExampleComponent";
+export { default as ExampleComponentModel } from "./ExampleComponentModel";
+```
+
+Now register your component and component model with the component registry by modifying the `src/index.ts` file:
+
+<!-- TODO: The `as ComponentType` is gross. Fix this. -->
+
+```ts title="src/index.ts"
+import { LibraryRegistry } from "@geocortex/web/config";
+import { ComponentType } from "react";
+
+// highlight-start
+import ExampleComponent, {
+    ExampleComponentModel,
+} from "./components/ExampleComponent";
+// highlight-end
+
+// This namespace is generated when you create your project
+// and will be unique to your library.
+const LAYOUT_NAMESPACE = "custom.abc123";
+
+export default function (registry: LibraryRegistry) {
+    // ... other item registrations
+
+    // highlight-start
+    registry.registerComponent({
+        name: "example",
+        namespace: LAYOUT_NAMESPACE,
+        getComponentType: () => ExampleComponent as ComponentType,
+        itemType: "example-model",
+        title: "Example Component",
+    });
+    registry.registerModel({
+        getModelType: () => ExampleComponentModel,
+        itemType: "example-model",
+    });
+    // highlight-end
+}
+```
+
+## Add the Component to your Layout
+
+You can now add the component to your `layout.xml` file and run the development server to see it in use.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="layout">
+
+```xml title="app/layout.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
+    <custom:example margin="3"/>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-sdk-components-create.png")}/>
+</TabItem>
+</Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Check out the Component Reference"
+        description="Take a deep dive into components in the Geocortex Web SDK"
+        link={useBaseUrl("docs/web/sdk-components-reference")}
+    />
+    <UseCaseCard
+        title="Deploy your Component"
+        description="Learn how to deploy your custom component."
+        link={useBaseUrl("docs/web/sdk-deployment")}
+    />
+    <UseCaseCard
+        title="Create a Component with a Complex UI"
+        description="Follow along with a more in depth component example"
+        link={useBaseUrl("docs/web/tutorial-implement-component-with-ui")}
+    />
+    <UseCaseCard
+        title="Create a Component that Consumes App Config"
+        description="Learn more about writing components that consume configuration values."
+        link={useBaseUrl(
+            "docs/web/tutorial-implement-component-participate-app-config"
+        )}
+    />
+</UseCaseContainer>

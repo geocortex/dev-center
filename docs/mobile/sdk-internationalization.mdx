@@ -1,0 +1,44 @@
+---
+title: Internationalization
+description: Geocortex Mobile - Internationalization reference
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import TranslationCallout from "./snippets/translation-callout.mdx";
+
+<TranslationCallout />
+
+Geocortex Mobile was designed to be fully internationalizable on all levels of the product, from app config to custom code. This internationalization is handled by Xamarin forms.
+
+## Specifying a Default Language
+
+Xamarin forms describes how to [specify a default language for your app](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/localization/text?pivots=windows#specify-the-default-culture).
+
+## Adding New Cultures for Existing Language Strings
+
+The [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) project comes with multiple `AppResources` files in the [root of the platform agnostic project](https://github.com/geocortex/vertigis-mobile-quickstart/tree/master/App1/App1) to provide an example of adding a culture to your application. You can also check out the [Xamarin Documentation on Localization](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/localization/).
+
+## Relevant SDK Sample
+
+Check out the relevant Geocortex Mobile SDK Sample:
+
+-   [Internationalization](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Internationalization)
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Internationalization in App Config"
+        description="Learn how to use language strings in the app config"
+        link={useBaseUrl(
+            "docs/mobile/configuration-app-config-reference#internationalization"
+        )}
+    />
+    <UseCaseCard
+        title="Internationalize Components"
+        description="Learn how to use language strings for user facing text in components"
+        link={useBaseUrl("docs/mobile/sdk-components-internationalization")}
+    />
+</UseCaseContainer>

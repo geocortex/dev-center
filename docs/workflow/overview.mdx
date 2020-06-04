@@ -3,6 +3,7 @@ title: Overview
 description: Geocortex Workflow - Learn about extending Geocortex Workflow
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import DesignerCallout from "./snippets/designer-callout.mdx";
@@ -29,9 +30,9 @@ The Geocortex Workflow Runtime is the engine which runs these generic workflows 
 [Explore the concepts](concepts-key-concepts.mdx) to learn more about activities, forms, the Geocortex Workflow Designer, and the cross-platform nature of Geocortex Workflow.
 :::
 
-## Explore the Use Cases
+## Explore the Tutorials
 
-Check out the various use cases to get started with extending Geocortex Workflow for your target [workflow host](concepts-key-concepts.mdx#geocortex-workflow-hosts).
+Check out the various tutorials to get started with extending Geocortex Workflow for your target [workflow host](concepts-key-concepts.mdx#geocortex-workflow-hosts).
 
 ### Web Applications
 
@@ -41,12 +42,16 @@ Learn how to extend Geocortex Workflow for web platforms like web based platform
     <UseCaseCard
         title="Implement a Custom Activity"
         description="Implement a custom activity for Web Applications"
-        link="usecases-web-implement-custom-activity"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-web-calculate-logarithm-activity"
+        )}
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
         description="Implement a custom form for Web Applications"
-        link="usecases-web-implement-custom-form-elements"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-web-implement-star-rating-form-element"
+        )}
     />
 </UseCaseContainer>
 
@@ -58,12 +63,16 @@ Learn how to extend Geocortex Workflow for the Geocortex Mobile platform.
     <UseCaseCard
         title="Implement a Custom Activity"
         description="Implement a custom activity for Geocortex Mobile applications"
-        link="usecases-mobile-implement-custom-activity"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-mobile-calculate-logarithm-activity"
+        )}
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
         description="Implement a custom form for Geocortex Mobile applications"
-        link="usecases-mobile-implement-custom-form-elements"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-mobile-activity-indicator-form-element"
+        )}
     />
 </UseCaseContainer>
 
@@ -75,11 +84,15 @@ Learn how to extend Geocortex Workflow for the Geocortex Workflow Server platfor
     <UseCaseCard
         title="Implement a Custom Activity"
         description="Implement a custom activity for Geocortex Workflow Server"
-        link="usecases-server-implement-custom-activity"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-server-calculate-logarithm-activity"
+        )}
     />
     <UseCaseCard
         title="Reference a Third Party Library"
         description="Reference a third party library in custom Geocortex Workflow Server activities."
-        link="usecases-server-reference-third-party-library"
+        link={useBaseUrl(
+            "docs/workflow/sdk-server-reference-third-party-library"
+        )}
     />
 </UseCaseContainer>

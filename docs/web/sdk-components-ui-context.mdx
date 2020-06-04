@@ -1,0 +1,34 @@
+---
+title: UIContext
+description: Geocortex Web - Accessing the UIContext in Components
+---
+
+[Custom components](sdk-components-create.mdx) often need to access the application context to run [commands and operations](configuration-commands-operations.mdx), subscribe and publish to [events](sdk-events-overview.mdx), and more. A component has two ways of accessing the application context.
+
+First, every component has a [model](sdk-components-reference.mdx#models) which in turn has a `messages` property that can be used to access commands, operations, and events. All application level interactions should be facilitated by the model.
+
+<!-- TODO: Link to i18n docs for web -->
+
+Optionally, a component can use the `UIContext` to access commands, operations and events, as well as use the `translate` function to take advantage of our internationalization features.
+
+## Accessing the UIContext
+
+The `UIContext` is injected into a component with the [React `useContext` hook](https://reactjs.org/docs/hooks-reference.html#usecontext).
+
+```tsx
+import { UIContext } from "@geocortex/web/ui";
+import { useContext } from "react";
+
+export default function CustomComponent(props) {
+    const { command, event, operation, translate, hostElement } = useContext(
+        UIContext
+    );
+    // ...
+}
+```
+
+Once you have reference to the `UIContext`, you can access its properties and interact with the application context in your custom component.
+
+## hostElement
+
+The UIContext provides access to the DOM through the `hostElement` property. However, this is meant to be a last resort, intended for enabling complex third party libraries. The DOM should only be interacted with through the abstraction of React components whenever possible.

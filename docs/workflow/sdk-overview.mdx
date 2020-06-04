@@ -3,6 +3,7 @@ title: SDK Overview
 description: Geocortex Workflow - Overview of the SDK
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
@@ -12,16 +13,16 @@ Geocortex Workflow is a cross platform product, has a number of different SDKs a
     <UseCaseCard
         title="Web Applications SDK"
         description="Extend Geocortex Workflow for Web Applications"
-        link="getting-started-web"
+        link={useBaseUrl("docs/workflow/getting-started-web")}
     />
     <UseCaseCard
         title="Geocortex Mobile SDK"
         description="Extend Geocortex Workflow in Geocortex Mobile"
-        link="getting-started-mobile"
+        link={useBaseUrl("docs/workflow/getting-started-mobile")}
     />
     <UseCaseCard
         title="Geocortex Workflow Server"
         description="Extend Geocortex Workflow Server"
-        link="getting-started-server"
+        link={useBaseUrl("docs/workflow/getting-started-server")}
     />
 </UseCaseContainer>

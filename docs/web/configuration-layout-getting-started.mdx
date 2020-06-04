@@ -1,0 +1,153 @@
+---
+title: Layout
+sidebar_label: Getting Started
+description: Geocortex Web - Learn about layout concepts
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import FollowAlongSnippet from "./snippets/follow-along.mdx";
+
+:::note Before learning about layout...
+Check out the [Key Concepts](key-concepts.mdx).
+:::
+
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map>
+        <zoom margin="0.5"/>
+    </map>
+</layout>
+```
+
+The example above first declares a `<map>` component that uses the default map configuration.
+Next, a `<zoom>` component is added **within** the map component. This does two things:
+
+1. Visually places the element inside the map
+2. Tells the zoom widget to act upon [the map it is placed in](configuration-advanced-model-binding.mdx)
+
+<FollowAlongSnippet />
+
+The basic example shown above will place a zoom widget somewhere inside a map. But what if you want the zoom widget to be in the top right corner? At the bottom center of the map? How does the map know where to place it?
+
+## Slotting
+
+The position of a component within its parent is controlled by what slot it is placed into.
+
+For example, this configuration will place the zoom widget in the top right of the map.
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map>
+        // highlight-next-line
+        <zoom padding="0.5" slot="top-right"/>
+    </map>
+</layout>
+```
+
+If a slot configuration is not given, the component will slot itself into a default position. Each component defines its own slots - not every slot will work for every component.
+
+Slots control how one element fits into another, but how do we control how sibling elements position themselves? The answer is stacks and splits.
+
+## Stacks and Splits
+
+The basic `stack` and `split` components form building blocks that layout authors can use to vertically or horizontally partition components and blocks of rich text to form simple and complex user interfaces alike.
+
+For a deeper dive into stacks and splits, [check out the API reference](configuration-layout-reference.mdx#stacks-and-splits).
+
+## Spacing
+
+See [presentation attributes](configuration-layout-reference.mdx#presentation-attributes) for details on margin, padding, content organization and alignment in your layout.
+
+## Panels
+
+Another core concept that Geocortex Web uses to organize elements in a layout is **panels**.
+Panels are a container component that enable hierarchal navigation between different components.
+
+For a deeper dive into Panels, [check out the API reference](configuration-layout-reference.mdx#panels).
+
+<!-- TODO-API - direct link to tabs and expanders -->
+
+:::tip
+These are just a few examples of the building blocks available to help you organize the layout of your Application. Leveraging these simple primitives correctly also means responsive apps that work on various screen sizes. You can also use tabs, expanders, and much more. See the [Component Reference](configuration-layout-reference.mdx#core-layout-components) for a full listing.
+:::
+
+## Models
+
+Components often observe, modify or react to the state of other components.
+Consider the following example:
+
+```xml
+<map>
+    <scalebar slot="bottom-left"/>
+</map>
+```
+
+The scale bar component displays information about a particular map. More specifically, it is **dependent** on the data of a map to display its values.
+
+Each component has a corresponding **model** which is responsible for the data underlying the component. For example, the model for the map component contains the ArcGIS API Map object, and other information about the current state of the map.
+
+The scalebar satisfies its dependency on the map by [importing the map model](sdk-components-interactions.mdx#interacting-with-components-through-models).
+
+Components can react to changes or mutate values on other components through these models. For example, if the scale of the map changes when it is zoomed, then the scalebar will react to the change in the map model and update its displayed values.
+
+For more information on models, [check out the component SDK reference](sdk-components-reference.mdx#models) and this deeper dive into [model binding in the layout](configuration-advanced-model-binding.mdx).
+
+## Namespaces
+
+Every component in the xml file has a definition that lives in an xml namespace. All the components discussed to this point have lived in the `https://geocortex.com/layout/v1` namespace.
+
+```xml
+<layout xmlns="https://geocortex.com/layout/v1">
+    <map/>
+</layout>
+```
+
+Geocortex Web has a specific namespace `https://geocortex.com/layout/web/v1` in which components like `<bookmarks>` live. You can add this namespace to your layout to use these components.
+
+```xml
+<layout xmlns="https://geocortex.com/layout/v1"
+        // highlight-next-line
+        xmlns:web="https://geocortex.com/layout/web/v1">
+    <map>
+        <web:bookmarks slot="bottom-right" />
+        <web:scale-input slot="bottom-left" />
+    </map>
+</layout>
+```
+
+When adding custom components, you will need to [add their custom namespace](sdk-components-reference.mdx#components-and-layout) to your xml definition.
+
+## Next Steps: Components and App Config
+
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has its own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful, flexible applications with responsive, declarative layouts.
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="App Config"
+        description="Learn about app configuration and its interaction with layout"
+        link={useBaseUrl("docs/web/configuration-app-config-getting-started")}
+    />
+    <UseCaseCard
+        title="Component Models"
+        description="Take a deeper dive into the relationship between components and models in the layout"
+        link={useBaseUrl("docs/web/configuration-advanced-model-binding")}
+    />
+    <UseCaseCard
+        title="Core Component Reference"
+        description="Learn more about core layout components like stacks and splits"
+        link={useBaseUrl(
+            "docs/web/configuration-layout-reference#core-layout-components"
+        )}
+    />
+    <UseCaseCard
+        title="Component Attribute Reference"
+        description="See the full list of attributes available to all components"
+        link={useBaseUrl("docs/web/configuration-layout-reference")}
+    />
+</UseCaseContainer>

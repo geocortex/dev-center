@@ -11,7 +11,7 @@ import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-When extending Geocortex Web, you may find yourself creating multiple [components](sdk-components-overview.mdx) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a [custom service](sdk-create-service.mdx).
+When extending Geocortex Web, you may find yourself creating multiple [components](sdk-components-overview.mdx) that have a shared concern, like a data source, or a REST endpoint call. Shared concerns like this present a good use case for creating a [custom service](sdk-services-create.mdx).
 Implementing a custom service in Geocortex Web allows you to implement logic and shared resources that are available on startup to any component. Custom Services are also the recommended way of registering implementations for [custom commands and operations](sdk-services-commands-operations.mdx#implementing-commands-and-operations).
 
 ## Prerequisites
@@ -339,16 +339,16 @@ export default function (registry: LibraryRegistry) {
     <UseCaseCard
         title="Check out the Component Reference"
         description="Take a deep dive into components in the Geocortex Web SDK"
-        link="sdk-component-reference"
+        link={useBaseUrl("docs/web/sdk-components-reference")}
     />
     <UseCaseCard
         title="Check out the Service Reference"
         description="Take a deep dive into services in the Geocortex Web SDK"
-        link="sdk-service-reference"
+        link={useBaseUrl("docs/web/sdk-services-reference")}
     />
     <UseCaseCard
         title="Learn more about Referencing Services in Components"
         description="Learn the dependency injection pattern for referencing services"
-        link="sdk-components-injecting-services"
+        link={useBaseUrl("docs/web/sdk-components-injecting-services")}
     />
 </UseCaseContainer>

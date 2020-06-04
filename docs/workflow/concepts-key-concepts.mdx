@@ -3,6 +3,7 @@ title: Concepts
 description: Geocortex Workflow - Learn about key concepts.
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import DesignerCallout from "./snippets/designer-callout.mdx";
@@ -33,7 +34,7 @@ Geocortex Workflow includes a powerful tool for building workflows, Geocortex Wo
 
 When a workflow is run, the workflow definition is read and executed by the **workflow runtime**. The runtime is responsible for locating the activity implementation definitions, and executing them with the inputs defined in the workflow definitions. Each **workflow host** has a different runtime:
 
--   Geocortex Web and Web AppBuilder for ArcGIS use the TypeScript workflow runtime
+-   Geocortex Web and Web AppBuilder for ArcGIS use the JavaScript workflow runtime
 -   Geocortex Mobile and Geocortex Workflow Server use the .NET workflow runtime
 
 :::note Types of Workflows
@@ -67,7 +68,7 @@ An activity pack defines a collection of activities that Geocortex Workflow Desi
 If the activities are targeted for web platforms, the activity pack can also define activity implementations and form elements otherwise, activity implementations and form elements are defined on the target platform.
 :::
 
-Activity packs must be registered as an ArcGIS item, and this makes them [shareable with other workflow authors](sdk-web-getting-started.mdx#sharing-the-activity-pack).
+Activity packs must be registered as an ArcGIS item, and this makes them [shareable with other workflow authors](sdk-web-overview.mdx#sharing-the-activity-pack).
 
 ## Next Steps
 
@@ -75,16 +76,16 @@ Activity packs must be registered as an ArcGIS item, and this makes them [sharea
     <UseCaseCard
         title="Get Started with the Web Applications SDK"
         description="Build custom activities and form elements with the Web Applications SDK"
-        link="getting-started-web"
+        link={useBaseUrl("docs/workflow/sdk-web-overview")}
     />
     <UseCaseCard
         title="Get Started with the Geocortex Mobile SDK"
         description="Build custom activities and form elements with the Geocortex Mobile SDK"
-        link="getting-started-mobile"
+        link={useBaseUrl("docs/workflow/sdk-mobile-overview")}
     />
     <UseCaseCard
         title="Get Started with Geocortex Workflow Server"
         description="Build custom activities for a server environment with Geocortex Workflow Server"
-        link="getting-started-server"
+        link={useBaseUrl("docs/workflow/sdk-server-overview")}
     />
 </UseCaseContainer>

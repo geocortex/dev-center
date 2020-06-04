@@ -52,8 +52,6 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 </TabItem>
 </Tabs>
 
-<!-- TODO - get Eric to Review this -->
-
 Every serializable class extends a generically typed base class, like `ComponentModelBase` or `ConfigurableServiceBase`. The type passed into the base class is an interface consisting of primitive, serializable types, like `number`, `string`, `array`, `boolean`, etc. Each property on the interface will correspond exactly to a property in the app config JSON.
 
 :::tip
@@ -287,11 +285,13 @@ export declare type SerializeMode = "initial" | "all" | "preferences";
     <UseCaseCard
         title="Check out the Component Reference for Configuration"
         description="Learn more about how components interact with configuration"
-        link="sdk-component-reference#configuration"
+        link={useBaseUrl("docs/web/sdk-components-reference#configuration")}
     />
     <UseCaseCard
         title="Check out the Service Reference for Configuration"
         description="Learn more about how services interact with configuration"
-        link="sdk-service-reference#models-and-configuration"
+        link={useBaseUrl(
+            "docs/web/sdk-services-reference#models-and-configuration"
+        )}
     />
 </UseCaseContainer>

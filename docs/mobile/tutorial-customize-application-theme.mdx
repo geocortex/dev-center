@@ -1,0 +1,289 @@
+---
+title: Customize the Theme
+description: Geocortex Mobile - Learn how to customize the look and feel of your Geocortex Mobile application
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
+
+Geocortex Mobile's appearance is built around two concepts: theme and [layout](configuration-layout-getting-started.mdx). The theme controls the color scheme of the app, while the layout controls the organization of content.
+
+:::note
+The theme can be partially configured by using the [Geocortex Mobile Designer](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm#branding-settings%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____4).
+:::
+
+## Prerequisites
+
+<PrereqsLayoutConfigSnippet />
+
+## Create a Basic App
+
+Let's create a basic application with layout and config that we can theme.
+
+<Tabs
+  defaultValue="layout"
+  values={[
+    { label: "Layout", value: "layout" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "tasks.identify",
+                "results.display",
+                "map.zoom-to-features"
+            ],
+            "webMap": "0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus"
+        },
+        {
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
+                }
+            ],
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="app/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+	xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<gxm:taskbar id="taskbar" orientation="vertical">
+		<map config="default" slot="main"/>
+		<panel>
+			<results-list config="results" />
+			<feature-details config="feature-details"/>
+		</panel>
+	</gxm:taskbar>
+</layout>
+
+```
+
+</TabItem>
+</Tabs>
+
+## Add Configuration for the Branding Service
+
+Next, we are going to add an app item to configure the Branding Service, which [manages application theming](configuration-theme.mdx).
+
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        // highlight-start
+        {
+            "$type": "branding",
+            "id": "branding"
+        },
+        // highlight-end
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "tasks.identify",
+                "results.display",
+                "map.zoom-to-features"
+            ],
+            "webMap": "0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus"
+        },
+        {
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
+                }
+            ],
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ]
+        }
+    ]
+}
+```
+
+## Add a New Theme
+
+The branding service can be configured with a list of themes. Let's configure our branding service with a new theme with that has a custom background color.
+
+You can customize the theme by changing any of the [built-in color keys](configuration-theme.mdx#theme-color-reference) used for themes.
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="config">
+
+```json title="app/app.json"
+{
+    "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["mobile", "large"]
+        },
+        {
+            "$type": "branding",
+            "id": "branding",
+            // highlight-start
+            "activeTheme": "custom-theme",
+            "themes": [
+                {
+                    "id": "custom-theme",
+                    "colors": {
+                        "primaryBackground": [50, 153, 168, 255]
+                    }
+                }
+            ]
+            // highlight-end
+        },
+        {
+            "$type": "map-extension",
+            "id": "default",
+            "onClick": [
+                "tasks.identify",
+                "results.display",
+                "map.zoom-to-features"
+            ],
+            "webMap": "0ba877a4185448cb832af9a661031e31"
+        },
+        {
+            "$type": "feature-details",
+            "id": "feature-details",
+            "onFeatureShow": "highlights.add-focus",
+            "onFeatureHide": "highlights.remove-focus"
+        },
+        {
+            "$type": "results",
+            "id": "results",
+            "onFeatureShow": [
+                "highlights.add",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "userSet": true
+                    }
+                }
+            ],
+            "onFeatureRemove": "highlights.remove",
+            "onAllFeaturesRemoved": [
+                "panel.close-host-panel",
+                "search.clear",
+                "results.clear"
+            ],
+            "onFeatureClick": [
+                "results.display-details",
+                {
+                    "name": "panel.snap-host-panel",
+                    "arguments": {
+                        "snapPosition": "middle"
+                    }
+                },
+                "map.zoom-to-features",
+                "highlights.pulse"
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/mobile-customize-theme-blue.png")}/>
+</TabItem>
+</Tabs>
+
+## Relevant SDK Samples
+
+The Geocortex Mobile SDK Samples has an example of [changing the theme through configuration](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/Theme).

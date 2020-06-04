@@ -1,0 +1,268 @@
+---
+title: Service Reference
+description: Geocortex Mobile - Service reference
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import AutofacSnippet from "../snippets/autofac-mobile.mdx";
+
+Services act as a repository of accessible behavior and data, and can be used for a variety of purposes, from implementing commands and operations, to managing shared data, to interfacing with the REST API of an external service.
+
+## Service Registration
+
+All services need to be registered with Geocortex Mobile. A service is created by extending the `ServiceBase` class and registering the service class with Autofac through an assembly attribute.
+
+<AutofacSnippet />
+
+```cs
+// highlight-next-line
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    // highlight-next-line
+    class CustomService : ServiceBase
+    {
+        ...
+    }
+}
+```
+
+## Service Lifecycle
+
+On application load, all services that have been registered with wih Geocortex Mobile are first created and then initialized.
+
+Services are destroyed (i.e. the `destroy` method is invoked) when the application is destroyed, e.g. when killing the application or switching applications in Geocortex Go.
+
+## Initialization and Teardown
+
+Services have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when the application is destroyed
+
+:::important
+Always call `base.Dispose(disposing)` when overriding the `Dispose` method. `ServiceBase` already implements `IDisposable` and `IDisposableTracker`, so only override the `Dispose` method if you have created new managed resources which need to be cleaned up.
+:::
+
+To learn more about memory management in Geocortex Mobile, check out [this article](sdk-memory-leaks.mdx), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
+
+```cs
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        private bool disposed = false;
+
+        public CustomService()
+            : base()
+        {
+            // On creation logic here
+
+        }
+        protected override async Task DoInitialize()
+        {
+            // Async on initialization logic here
+            return;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                // Clean up managed resources.
+                // ...
+            }
+
+            // Clean up unmanaged resources.
+            // ...
+
+            // highlight-next-line
+            base.Dispose(disposing);
+
+            disposed = true;
+        }
+
+
+    }
+}
+```
+
+## Dependency Injection
+
+Services interact with the larger application by injecting their dependencies. Services can inject commands and operations, other services, and any other class registered with Autofac.
+
+The following example injects the UI operations and the dialog controller into a custom service.
+
+:::note
+Services are not intended to directly interact with each other. Instead, services should [implement operations](sdk-commands-operations.mdx#implementing-commands-and-operations) which can be called by other services to indirectly interact.
+:::
+
+```cs
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        private UIOperations _uiOperations;
+        private IDialogController _dialogController;
+
+        public CustomService(UIOperations uiOperations, IDialogController dialogController)
+            : base()
+        {
+            _uiOperations = uiOperations;
+            _dialogController = dialogController;
+        }
+        ...
+    }
+}
+```
+
+## Configuration Models
+
+Like components, services can be configured through the [app config](configuration-app-config-getting-started.mdx). Services can participate in the app config by creating and injecting the appropriate [**item type**](configuration-app-config-reference.mdx#app-items).
+
+Each item type in the application is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model.
+
+A service can consume configuration by injecting the `AppItem` class as a dependency in it's constructor.
+
+<Tabs
+  defaultValue="service"
+  values={[
+    { label: "Service Configuration Model", value: "model" },
+    { label: "Service", value: "service" },
+    { label: "App Config", value: "config" },
+  ]}>
+<TabItem value="service">
+
+```cs
+[assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
+namespace App1.Services
+{
+    class CustomService : ServiceBase
+    {
+        private IAppItem<CustomServiceSettings> _appItem;
+
+        public CustomService(IAppItem<CustomServiceSettings> appItem)
+            : base()
+        {
+            _appItem = appItem;
+        }
+        protected override async Task DoInitialize()
+        {
+            // highlight-start
+            var settings = await _appItem.ResolveAsync();
+            if (settings == null)
+            {
+                return;
+            }
+
+            Logger.Debug($"Value of setting is '{settings.SomeSetting}'");
+            return;
+            // highlight-end
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="model">
+
+```cs
+// highlight-next-line
+[assembly: AppItem(CustomServiceSettings.AppItemType, typeof(CustomServiceSettings))]
+namespace App1.Services
+{
+    // highlight-next-line
+    [ServiceAppItem(AppItemType)]
+    public class CustomServiceSettings
+    {
+        // highlight-next-line
+        public const string AppItemType = "custom-service";
+
+        public string SomeSetting { get; set; }
+
+        public CustomServiceSettings()
+        {
+        }
+
+        public CustomServiceSettings(Properties properties)
+        {
+            // highlight-start
+            if (properties is null)
+            {
+                throw new System.ArgumentNullException(nameof(properties));
+            }
+
+            if (properties.TryGetValue("someSetting", out string someSetting))
+            {
+                SomeSetting = someSetting;
+            }
+            // highlight-end
+        }
+    }
+}
+```
+
+</TabItem>
+<TabItem value="config">
+
+```json
+{
+    "schemaVersion": "1.0",
+
+    "items": [
+        ...{
+            "$type": "custom-service",
+            "id": "custom-service",
+            "someSetting": "Some Value"
+        }
+    ]
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Relevant SDK Samples
+
+Check out the relevant Geocortex Mobile SDK Samples:
+
+-   [Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service)
+
+-   [Basemap Toggle that uses a Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BasemapToggle)
+
+-   [Breadcrumb Tracker that Uses a Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/CustomSamples/BreadCrumbs)
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Learn how to use Commands and Operations with Services"
+        description="Learn how to run and implement commands and operations with custom services"
+        link={useBaseUrl("docs/mobile/sdk-commands-operations")}
+    />
+    <UseCaseCard
+        title="Learn about Service Interactions"
+        description="Learn about how services and components can interact"
+        link={useBaseUrl("docs/mobile/sdk-component-service-interactions")}
+    />
+    <UseCaseCard
+        title="Build a Custom Command with a Custom Service"
+        description="Follow a step by step guide to building a custom command with a custom service"
+        link={useBaseUrl("docs/mobile/tutorial-implement-command-operation")}
+    />
+    <UseCaseCard
+        title="Build a Service that Manages Dynamic Data"
+        description="Built a service that manages a dynamic data source and exposes it to components"
+        link={useBaseUrl(
+            "docs/mobile/tutorial-implement-service-fetch-dynamic-data"
+        )}
+    />
+</UseCaseContainer>

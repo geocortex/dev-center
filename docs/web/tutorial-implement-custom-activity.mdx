@@ -3,6 +3,7 @@ title: Implement a Custom Activity
 description: Geocortex Web - Learn how to implement a custom workflow activity
 ---
 
+import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
@@ -12,11 +13,11 @@ Geocortex Web comes with bundled with [Geocortex Workflow](https://www.geocortex
     <UseCaseCard
         title="Geocortex Workflow SDK"
         description="Learn more about the Geocortex Workflow SDK"
-        link="../workflow/overview"
+        link={useBaseUrl("docs/workflow/overview")}
     />
     <UseCaseCard
         title="Implement a Custom Activity"
         description="Learn how to build a custom workflow activity in the Geocortex Workflow SDK"
-        link="../workflow/usecases-web-implement-custom-activity"
+        link={useBaseUrl("docs/workflow/sdk-web-create-activity")}
     />
 </UseCaseContainer>

@@ -1,0 +1,250 @@
+---
+title: Create an Activity
+description: Geocortex Workflow - Create a workflow activity for web applications
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
+import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
+
+This article will walk you through creating a new workflow activity for Geocortex Mobile applications.
+
+<img src={useBaseUrl("img/workflow-mobile-create-activity.png")} />
+
+## Prerequisites
+
+<MobilePrereqs />
+
+## Create the Activity
+
+1. Create a new file `CustomActivity.cs` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-overview.mdx).
+2. Add a new skeleton workflow activity that implements `IActivityHandler`.
+
+```cs title="App1/App1/CustomActivity.cs"
+using App1.Workflow;
+using Geocortex.Mobile.Composition;
+using Geocortex.Workflow.Runtime;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+[assembly: Export(typeof(CustomActivity))]
+namespace App1.Workflow
+{
+    public class CustomActivity : IActivityHandler
+    {
+        public static string Action { get; } = "your:unique:namespace::CustomActivity";
+
+        public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
+        {
+            return Task.FromResult((IDictionary<string, object>)new Dictionary<string, object>(){
+                ["test"] = "value"
+            });
+        }
+    }
+}
+```
+
+## Register the Activity with the `IActivityHandlerFactory`
+
+1. Create a new file, `ActivityLoader.cs` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-overview.mdx).
+2. Implement the `IActivityHandlerFactory` interface and register the activity skeleton we created in the constructor.
+
+```cs title="App1/App1/ActivityLoader.cs"
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Geocortex.Mobile.Composition;
+using Geocortex.Workflow.Runtime;
+using Geocortex.Workflow.Runtime.Definition;
+using Geocortex.Workflow.Runtime.Execution;
+using App1.Workflow;
+
+[assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
+namespace App1.Workflow
+{
+    public class ActivityLoader : IActivityHandlerFactory
+    {
+        /// <summary>
+        /// Gets a mapping of action names to implementations of <see cref="IActivityHandler"/>s.
+        /// </summary>
+        private Dictionary<string, Func<IActivityHandler>> RegisteredActivities { get; } = new Dictionary<string, Func<IActivityHandler>>();
+
+        public ActivityLoader(Func<CustomActivity> customActivityFactory)
+        {
+            // highlight-next-line
+            RegisteredActivities[CustomActivity.Action] = customActivityFactory;
+        }
+
+        /// <summary>
+        /// Creates an <see cref="IActivityHandler"/>.
+        /// </summary>
+        /// <param name="action">The name of the action to create.</param>
+        /// <param name="token">The cancellation token.</param>
+        /// <param name="inspector">The <see cref="ProgramInspector"/> for the program.</param>
+        /// <returns>The activity handler for the given action.</returns>
+        public Task<IActivityHandler> Create(string action, CancellationToken token, ProgramInspector inspector = null)
+        {
+            if (action == null || token.IsCancellationRequested)
+            {
+                return Task.FromResult<IActivityHandler>(null);
+            }
+
+            if (RegisteredActivities.TryGetValue(action, out Func<IActivityHandler> handlerType))
+            {
+                return Task.FromResult(handlerType());
+            }
+            else
+            {
+                return Task.FromResult<IActivityHandler>(null);
+            }
+        }
+    }
+}
+```
+
+## Use the Activity in a Workflow
+
+Workflows that run in your custom Geocortex Mobile application can now run this custom activity.
+
+:::tip
+[Registering stubs for .NET activities](sdk-net-register-activities.mdx) provides a user friendly interface for your custom activities in Geocortex Workflow Designer.
+:::
+
+The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity can be used to execute your activity by the name defined in `CustomActivity.cs` (for this example, `your:unique:namespace::CustomActivity`).
+
+:::note
+
+<p>
+    You can{" "}
+    <a
+        href={useBaseUrl("workflows/mobile-create-activity.json")}
+        download="custom-activity-workflow.json"
+    >
+        download this demo workflow
+    </a>{" "}
+    that runs the custom activity and
+    <a
+        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        target="_blank"
+    >
+        {" "}
+        import it into the Geocortex Workflow Designer.{" "}
+    </a>
+</p>
+:::
+
+Next you need to run the workflow you just created in your Geocortex Mobile SDK project.
+
+<!-- TODO-after-mobile-restructure add link to running workflow and app config tutorial in mobile -->
+
+You can do this by configuring the layout and app config to run a workflow. You will need to copy the ID of the the workflow you created into the app.json
+
+<WorkflowUrlSnippet />
+
+<Tabs
+  defaultValue="config"
+  values={[
+    { label: "App Config", value: "config" },
+    { label: "Layout", value: "layout" },
+    { label: "UI", value: "ui" }
+  ]}>
+<TabItem value="config">
+
+```json title="App1/App1/app.json"
+{
+    "schemaVersion": "1.0",
+    "items": [
+        {
+            "$type": "layout",
+            "id": "desktop-layout",
+            "url": "resource://layout-large.xml",
+            "tags": ["large"]
+        },
+        {
+            "$type": "workflow",
+            "id": "custom-workflow",
+            "title": "Custom Workflow",
+            "target": "#taskbar",
+            // highlight-next-line
+            "portalItem": "<your-workflow-id>"
+        },
+        {
+            "$type": "menu",
+            "id": "iwtm",
+            "items": [
+                {
+                    "title": "Run Custom Workflow",
+                    "isEnabled": true,
+                    "iconId": "workflow",
+                    "action": {
+                        "name": "workflow.run",
+                        "arguments": {
+                            "id": "custom-workflow"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+</TabItem>
+<TabItem value="layout">
+
+```xml title="App1/App1/layout-large.xml"
+<?xml version="1.0" encoding="utf-8" ?>
+<layout
+    xmlns="https://geocortex.com/layout/v1"
+    xmlns:gxm="https://geocortex.com/layout/mobile/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+	<gxm:taskbar id="taskbar" orientation="vertical">
+		<map slot="main">
+			<stack margin="0.8" slot="top-right" halign="end">
+				<iwtm config="iwtm"/>
+			</stack>
+		</map>
+	</gxm:taskbar>
+</layout>
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/workflow-mobile-create-activity.png")}/>
+</TabItem>
+</Tabs>
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Calculate a Logarithm with a Custom Activity"
+        description="Implement a custom activity that calculates the logarithm of a number"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-mobile-calculate-logarithm-activity"
+        )}
+    />
+    <UseCaseCard
+        title="Implement a Custom Form Element"
+        description="Implement a custom form element for applications like Geocortex Mobile"
+        link={useBaseUrl(
+            "docs/workflow/tutorial-mobile-activity-indicator-form-element"
+        )}
+    />
+    <UseCaseCard
+        title="Add a Callout to the Map through a Custom Activity"
+        description="Access the map in custom activities for Geocortex Mobile"
+        link={useBaseUrl("docs/workflow/tutorial-mobile-show-map-callout")}
+    />
+    <UseCaseCard
+        title="Use the ArcGIS Runtime SDK for .NET in an activity."
+        description="Use the ArcGIS Runtime SDK for .NET in an activity or form element"
+        link={useBaseUrl("docs/workflow/sdk-net-integrating-the-arcgis-api")}
+    />
+</UseCaseContainer>

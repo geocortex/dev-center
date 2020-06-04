@@ -1,0 +1,135 @@
+---
+title: Component Styling
+description: Geocortex Web - Learn how to style a custom component
+hide_table_of_contents: true
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Geocortex Web Components support fully custom styling using CSS. However, by using Geocortex Web layout components, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: "Component", value: "component" },
+    { label: "CSS", value: "css" },
+    { label: "UI", value: "ui" },
+  ]}>
+<TabItem value="component">
+
+```tsx
+import React from "react";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@geocortex/web/components";
+import List from "@geocortex/web/ui/list";
+import ListItem from "@geocortex/web/ui/list-item";
+import TitleBar from "@geocortex/web/ui/title-bar";
+import Button from "@geocortex/web/ui/button";
+import ExampleComponentModel from "./ExampleComponentModel";
+import "./ExampleComponent.css";
+
+export default function ExampleComponent(
+    props: LayoutElementProperties<ExampleComponentModel>
+) {
+    return (
+        <LayoutElement {...props}>
+            <List dense={true}>
+                <TitleBar>Some Title</TitleBar>
+                <ListItem>
+                    <Button>Item 1</Button>
+                </ListItem>
+                <ListItem>
+                    <Button>Item 2</Button>
+                </ListItem>
+                <ListItem>
+                    <Button>Item 2</Button>
+                </ListItem>
+                <div className="red">I have a red background</div>
+            </List>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="css">
+
+```css
+.red {
+    background-color: red;
+    color: white;
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-sdk-components-reference-styling.png")}/>
+</TabItem>
+</Tabs>
+
+However, if you need to manually theme the component, you can use the various theming colors in custom css, through the `var(...)` css function.
+
+:::tip
+A full list of all the color keys available in a theme [can be found here](configuration-theme.mdx#theme-color-reference).
+:::
+
+```css
+.my-element {
+    background-color: var(--primaryBackground);
+}
+```
+
+## Component that Uses Built-in Icons
+
+<!-- TODO-API link to Geocortex Icons Library -->
+
+The following example demonstrates a component that uses Geocortex Web layout components and an icon from the Geocortex Icons library.
+
+<Tabs
+  defaultValue="component"
+  values={[
+    { label: 'Component', value: 'component', },
+    { label: 'UI', value: 'ui', },
+  ]
+}>
+<TabItem value="component">
+
+```tsx
+import React from "react";
+import { LayoutElement } from "@geocortex/web/components";
+import DynamicIcon from "@geocortex/web/ui/icon/DynamicIcon";
+import IconButton from "@geocortex/web/ui/icon-button";
+import MenuItem from "@geocortex/web/ui/menu-item";
+import MenuItemSecondaryAction from "@geocortex/web/ui/menu-list-item-secondary-action";
+import ListItemText from "@geocortex/web/ui/list-item-text";
+
+export default function ComponentWithIcon(props) {
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <MenuItem>
+                <ListItemText
+                    primary={"Icon Example"}
+                    secondary={"cloud-download icon"}
+                />
+                <MenuItemSecondaryAction>
+                    // highlight-start
+                    <IconButton title="IconExample">
+                        <DynamicIcon src="cloud-download" size="large" />
+                    </IconButton>
+                    // highlight-end
+                </MenuItemSecondaryAction>
+            </MenuItem>
+        </LayoutElement>
+    );
+}
+```
+
+</TabItem>
+<TabItem value="ui">
+<img src={useBaseUrl("img/web-component-with-icon.png")}/>
+</TabItem>
+</Tabs>
