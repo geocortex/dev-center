@@ -19,10 +19,10 @@ export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
 // plays nicely with the docusaurus right TOC component.
 const cachedRequests: Record<
     ViewerMessagingProps["product"],
-    Promise<Response> | undefined
+    Record<"action" | "event", Promise<Response> | undefined>
 > = {
-    mobile: undefined,
-    web: undefined,
+    web: { action: undefined, event: undefined },
+    mobile: { action: undefined, event: undefined },
 };
 
 function ViewerMessaging(props: ViewerMessagingProps) {
@@ -32,25 +32,44 @@ function ViewerMessaging(props: ViewerMessagingProps) {
     // Fetch schema
     useEffect(() => {
         let didCancel = false;
+        const schemaType =
+            type === "command" || type === "operation"
+                ? "action"
+                : type === "event"
+                ? "event"
+                : undefined;
 
         (async () => {
-            if (!cachedRequests[product]) {
-                cachedRequests[product] = fetch(
-                    `https://apps-staging.geocortex.com/webviewer/${product}-action.schema.json`
+            if (schemaType && !cachedRequests[product][schemaType]) {
+                cachedRequests[product][schemaType] = fetch(
+                    `https://apps-staging.geocortex.com/webviewer/${product}-${schemaType}.schema.json`
                 );
             }
 
-            const response = await cachedRequests[product]!;
+            const actionResponse = await cachedRequests[product].action!;
+            const eventResponse = await cachedRequests[product].event!;
             if (didCancel) {
                 return;
             }
             // Clone to avoid error when reading json multiple times
-            const responseJson: MessageSchema = await response.clone().json();
+            const actionResponseJson: MessageSchema = await actionResponse
+                .clone()
+                .json();
+            const eventResponseJson: MessageSchema = await eventResponse
+                .clone()
+                .json();
             if (didCancel) {
                 return;
             }
 
-            setMessagingJson(responseJson);
+            const schema = {
+                definitions: {
+                    ...actionResponseJson.definitions,
+                    ...eventResponseJson.definitions,
+                },
+            };
+
+            setMessagingJson(schema);
         })();
 
         return () => {

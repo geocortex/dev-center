@@ -28,7 +28,7 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
     }
 
     if (!definition) {
-        return <code>null</code>;
+        return <code>There are no arguments</code>;
     }
     // This is a single type referencing another definition
     else if (definition.$ref) {
@@ -109,23 +109,24 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
     }
     // This is a union type
     else if (definition.anyOf) {
+        // We already take care of calling out that an argument is optional
+        // if one of the allowed types is "null" so we dont need to
+        // explicitly include "null"
+        const types = definition.anyOf.filter(
+            (def) => !((def.type as string) === "null")
+        );
         return (
             <>
-                <div>Any of:</div>
-                {definition.anyOf
-                    // We already take care of calling out that an argument is optional
-                    // if one of the allowed types is "null" so we dont need to
-                    // explicitly include "null"
-                    .filter((def) => !((def.type as string) === "null"))
-                    .map((option, index) => (
-                        // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
-                        <div key={option.$ref || index}>
-                            <MessagingArgument
-                                definition={option}
-                                schema={schema}
-                            />
-                        </div>
-                    ))}
+                {types.length > 1 && <div>Any of:</div>}
+                {types.map((option, index) => (
+                    // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
+                    <div key={option.$ref || index}>
+                        <MessagingArgument
+                            definition={option}
+                            schema={schema}
+                        />
+                    </div>
+                ))}
             </>
         );
     }
