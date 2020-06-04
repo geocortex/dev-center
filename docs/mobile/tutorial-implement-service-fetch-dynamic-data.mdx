@@ -28,8 +28,8 @@ In the file, add a new component class `CustomService` and [register it with **A
 
 ```cs title="App1/App1/services/CustomService.cs"
 using App1.Services;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Services;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Services;
 using System.Threading.Tasks;
 
 // highlight-next-line
@@ -61,9 +61,9 @@ It's essential to properly dispose of any managed resources, like the background
 
 ```cs title="App1/App1/services/CustomService.cs"
 using App1.Services;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Logging;
-using Geocortex.Mobile.Composition.Services;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Logging;
+using VertiGIS.Mobile.Composition.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -133,9 +133,9 @@ First, create a new [operations class](sdk-commands-operations.mdx#registration-
 
 ```cs title="App1/App1/services/CustomOperations.cs"
 using App1.Operations;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Messaging;
-using Geocortex.Mobile.Infrastructure.Messaging;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Messaging;
+using VertiGIS.Mobile.Infrastructure.Messaging;
 
 // highlight-next-line
 [assembly: Export(typeof(CustomOperations), SingleInstance = true)]
@@ -159,10 +159,10 @@ Next, [inject the operation](sdk-dependency-injection.mdx) into your custom serv
 ```cs title="App1/App1/services/CustomService.cs"
 using App1.Operations;
 using App1.Services;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Logging;
-using Geocortex.Mobile.Composition.Messaging;
-using Geocortex.Mobile.Composition.Services;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Logging;
+using VertiGIS.Mobile.Composition.Messaging;
+using VertiGIS.Mobile.Composition.Services;
 using System.Threading;
 using System.Threading.Tasks;
 

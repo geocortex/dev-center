@@ -144,7 +144,7 @@ Every component is bound to specific [**item type**](configuration-app-config-re
 ```cs
 // highlight-next-line
 [assembly: AppItemComponent(typeof(CustomComponent), "component-with-config", "my-app-item", XmlNamespace = XmlNamespaces.App1Namespace)]
-namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 {
     // highlight-next-line
     internal class CustomComponent : AppItemComponentBase<MyAppItem>
@@ -186,7 +186,7 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.Component
 ```cs
 // highlight-next-line
 [assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
-namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
+namespace VertiGIS.Mobile.Samples.Samples.Custom.ComponentConfiguration
 {
     public class MyAppItem : VisualAppItem
     {
@@ -247,7 +247,7 @@ Most components support the [`config` attribute](configuration-app-config-gettin
 
 ```cs
 [assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
-namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
+namespace VertiGIS.Mobile.Samples.Samples.Custom.ComponentConfiguration
 {
     public class MyAppItem : VisualAppItem
     {
@@ -289,7 +289,7 @@ To learn more about memory management in Geocortex Mobile, check out [this artic
 
 ```cs
 [assembly: Component(typeof(CustomComponent), "component", XmlNamespace = XmlNamespaces.SamplesNamespace)]
-namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 {
     internal class CustomComponent : ComponentBase
     {

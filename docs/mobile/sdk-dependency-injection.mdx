@@ -19,9 +19,9 @@ A good example of this pattern is the `AlertOperations` class in the [commands a
 
 ```cs
 using App1.Services.AlertOperations;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Messaging;
-using Geocortex.Mobile.Infrastructure.Messaging;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Messaging;
+using VertiGIS.Mobile.Infrastructure.Messaging;
 
 [assembly: Export(typeof(AlertOperations), SingleInstance = true)]
 namespace App1.Services.AlertOperations
@@ -145,13 +145,13 @@ Autofac allows for the injection of [factory functions for classes, partially re
 <TabItem value="related">
 
 ```cs
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Infrastructure.Messaging;
-using Geocortex.Mobile.Samples.Samples.Custom.Component;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Infrastructure.Messaging;
+using VertiGIS.Mobile.Samples.Samples.Custom.Component;
 
 // highlight-next-line
 [assembly: Export(typeof(RelatedClass))]
-namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 {
     internal class RelatedClass
     {
@@ -170,14 +170,14 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.Component
 <TabItem value="component">
 
 ```cs
-using Geocortex.Mobile.Samples;
-using Geocortex.Mobile.Samples.Samples.Custom.Component;
-using Geocortex.Mobile.Composition.Layout;
+using VertiGIS.Mobile.Samples;
+using VertiGIS.Mobile.Samples.Samples.Custom.Component;
+using VertiGIS.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
 [assembly: Component(typeof(CustomComponent), "component", XmlNamespace = XmlNamespaces.SamplesNamespace)]
-namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 {
     internal class CustomComponent : ComponentBase
     {

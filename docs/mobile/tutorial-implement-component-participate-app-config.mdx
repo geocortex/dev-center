@@ -58,7 +58,7 @@ If you want to learn more about how this component was created, check out the [c
 ```cs title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
-using Geocortex.Mobile.Composition.Layout;
+using VertiGIS.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
@@ -100,7 +100,7 @@ namespace App1.Components
 
 ```cs title="App1/App1/components/CustomComponentView.xaml.cs"
 using App1.Components;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -127,8 +127,8 @@ Create a new file `CustomComponentConfiguration.cs`. This class defines a new ap
 
 ```cs title="App1/App1/components/CustomComponentConfiguration.cs"
 using App1.Configuration;
-using Geocortex.API;
-using Geocortex.Mobile.Infrastructure.App;
+using VertiGIS.ArcGISExtensions;
+using VertiGIS.Mobile.Infrastructure.App;
 using System;
 
 // highlight-next-line
@@ -197,8 +197,8 @@ Components that consume configuration should extend `AppItemComponentBase<Config
 using App1;
 using App1.Components;
 using App1.Configuration;
-using Geocortex.Mobile.Infrastructure.App;
-using Geocortex.Mobile.Infrastructure.Layout;
+using VertiGIS.Mobile.Infrastructure.App;
+using VertiGIS.Mobile.Infrastructure.Layout;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Xamarin.Forms;
@@ -268,7 +268,7 @@ namespace App1.Components
 
 ```cs title="App1/App1/components/CustomComponentView.xaml.cs"
 using App1.Components;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -291,8 +291,8 @@ namespace App1.Components
 
 ```cs title="App1/App1/components/CustomComponentViewModel.cs"
 using App1.Components;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Views;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Views;
 
 [assembly: ViewModel(typeof(CustomComponentViewModel))]
 namespace App1.Components

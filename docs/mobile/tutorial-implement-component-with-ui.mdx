@@ -33,7 +33,7 @@ In the file, add a new component class `CustomComponent` and [register it with *
 ```cs title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
-using Geocortex.Mobile.Composition.Layout;
+using VertiGIS.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
@@ -128,7 +128,7 @@ Now that the `custom` namespace has been added, the component can be added to th
 ```cs title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
-using Geocortex.Mobile.Composition.Layout;
+using VertiGIS.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
@@ -171,7 +171,7 @@ namespace App1.Components
 
 ```cs title="App1/App1/components/CustomComponentView.xaml.cs"
 using App1.Components;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -227,7 +227,7 @@ Here's an example of a component with a progress bar that is advanced on a butto
 ```cs title="App1/App1/components/ProgressBarComponent.cs"
 using App1;
 using App1.Components;
-using Geocortex.Mobile.Composition.Layout;
+using VertiGIS.Mobile.Composition.Layout;
 using System.Xml.Linq;
 using Xamarin.Forms;
 
@@ -284,8 +284,8 @@ namespace App1.Components
 
 ```cs title="App1/App1/components/ProgressBarComponentView.xaml.cs"
 using App1.Components;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Infrastructure.Messaging;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Infrastructure.Messaging;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -334,8 +334,8 @@ namespace App1.Components
 
 ```cs title="App1/App1/components/ProgressBarComponentViewModel.cs"
 using App1.Components;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Views;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Views;
 
 // Here, the view model is registered with autofac so it can be injected
 // highlight-next-line
