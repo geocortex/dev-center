@@ -1,7 +1,11 @@
 import Heading from "@theme/Heading";
 import React from "react";
 import { MessageSchema } from "./schema";
-import { trimDefinitionsName, getArgumentDefinitionLinkId } from "./utils";
+import {
+    trimDefinitionsName,
+    getArgumentDefinitionLinkId,
+    getReferencedDefinition,
+} from "./utils";
 import MessagingArgument from "./MessagingArgument";
 
 const H3 = Heading("h3");
@@ -15,7 +19,10 @@ export default function MessagingDefinition(props: MessagingDefinitionProps) {
     const { definitionName, schema } = props;
 
     const trimmedName = trimDefinitionsName(definitionName);
-    const definition = schema.definitions[trimmedName];
+    const definition = getReferencedDefinition(definitionName, schema);
+    if (!definition) {
+        return null;
+    }
 
     if (definition.type !== "object") {
         console.warn(

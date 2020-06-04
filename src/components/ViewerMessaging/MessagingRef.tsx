@@ -1,6 +1,10 @@
 import React from "react";
-import { MessageSchema, Definition } from "./schema";
-import { trimDefinitionsName } from "./utils";
+import { MessageSchema } from "./schema";
+import {
+    trimDefinitionsName,
+    getArgumentDefinitionLinkId,
+    getReferencedDefinition,
+} from "./utils";
 
 interface MessagingRefProps {
     isArray?: boolean;
@@ -12,14 +16,13 @@ export default function MessagingRef(props: MessagingRefProps) {
     const { isArray, name, schema } = props;
 
     const trimmedName = trimDefinitionsName(name);
-    const referencedDefinition: Definition | undefined =
-        schema.definitions[trimmedName];
+    const referencedDefinition = getReferencedDefinition(name, schema);
 
     // We'll only render definition tables for object types, everything else can be inlined.
     if (referencedDefinition && referencedDefinition.type === "object") {
         return (
             <code>
-                <a href={`#definition-${trimmedName}`}>
+                <a href={`#${getArgumentDefinitionLinkId(name)}`}>
                     {trimmedName}
                     {isArray && "[]"}
                 </a>

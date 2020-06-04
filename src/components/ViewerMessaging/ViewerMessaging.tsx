@@ -1,7 +1,7 @@
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useEffect, useState } from "react";
 import MessagingContent from "./MessagingContent";
-import { MessageSchema } from "./schema";
+import { MessageSchema, Definition } from "./schema";
 
 interface ViewerMessagingProps {
     product: "mobile" | "web";
@@ -62,10 +62,46 @@ function ViewerMessaging(props: ViewerMessagingProps) {
                 return;
             }
 
+            const actionObject: Definition = {
+                properties: {
+                    name: {
+                        type: "string",
+                    },
+                    arguments: {
+                        type: "object",
+                    },
+                },
+                required: ["name", "arguments"],
+                type: "object",
+            };
+            const actionObjectRef: Definition = {
+                $ref: "#/definitions/viewer-spec.ActionObject",
+            };
+            const actionString: Definition = {
+                type: "string",
+            };
+
+            const actionOverrideDef: Definition = {
+                description: `An action to execute in the viewer; can be an action name, an action object, or a command chain (https://developers.geocortex.com/docs/${product}/configuration-commands-operations/#command-chains). The list of valid action names are the names of the commands and operations listed in this document`,
+                // Basic definition of a command chain
+                anyOf: [
+                    actionString,
+                    actionObjectRef,
+                    {
+                        items: {
+                            anyOf: [actionString, actionObjectRef],
+                        },
+                        type: "array",
+                    },
+                ],
+            };
+
             const schema = {
                 definitions: {
                     ...actionResponseJson.definitions,
                     ...eventResponseJson.definitions,
+                    "viewer-spec.ActionObject": actionObject,
+                    "viewer-spec.Action": actionOverrideDef,
                 },
             };
 

@@ -1,19 +1,11 @@
 import React from "react";
 import { Definition, MessageSchema, PrimitiveType } from "./schema";
 import MessagingRef from "./MessagingRef";
-import { trimDefinitionsName } from "./utils";
+import { getReferencedDefinition } from "./utils";
 
 interface MessagingArgumentProps {
     definition: Definition | string | undefined;
     schema: MessageSchema;
-}
-
-function getReferencedDefinition(
-    name: string,
-    schema: MessageSchema
-): Definition | undefined {
-    const trimmedName = trimDefinitionsName(name);
-    return schema.definitions[trimmedName];
 }
 
 export default function MessagingArgument(props: MessagingArgumentProps) {
@@ -28,16 +20,16 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
     }
 
     if (!definition) {
-        return <code>There are no arguments</code>;
+        return (
+            <div style={{ fontStyle: "italic" }}>There are no arguments</div>
+        );
     }
     // This is a single type referencing another definition
     else if (definition.$ref) {
         const referencedDef = getReferencedDefinition(definition.$ref, schema);
 
         // We only hyperlink to object type definitions, everything else can be inlined.
-        if (referencedDef && referencedDef.type === "object") {
-            return <MessagingRef name={definition.$ref} schema={schema} />;
-        } else if (referencedDef) {
+        if (referencedDef && referencedDef.type !== "object") {
             return (
                 <MessagingArgument definition={referencedDef} schema={schema} />
             );
@@ -97,7 +89,7 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
             return (
                 <>
                     {types.map((type) => (
-                        <div>
+                        <div key={type}>
                             <code>{type}</code>
                         </div>
                     ))}

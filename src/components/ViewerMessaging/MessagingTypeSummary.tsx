@@ -2,7 +2,7 @@ import Heading from "@theme/Heading";
 import React from "react";
 import MessagingArgument from "./MessagingArgument";
 import { MessageSchema, Definition } from "./schema";
-import { getActionOrEventDefinitionLinkId } from "./utils";
+import { getActionOrEventDefinitionLinkId, trimDefinitionsName } from "./utils";
 
 const H3 = Heading("h3");
 
@@ -38,7 +38,7 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
     }
     const names = definitions[definitionName]?.anyOf
         ?.filter(definitionIsRef)
-        .map((def) => def.$ref.replace("#/definitions/", ""));
+        .map((def) => trimDefinitionsName(def.$ref));
 
     if (!names) {
         return null;
