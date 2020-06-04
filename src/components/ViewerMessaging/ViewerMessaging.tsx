@@ -65,9 +65,12 @@ function ViewerMessaging(props: ViewerMessagingProps) {
             const actionObject: Definition = {
                 properties: {
                     name: {
+                        description: "The name of a command or operation.",
                         type: "string",
                     },
                     arguments: {
+                        description:
+                            "The arguments for the command or operation.",
                         type: "object",
                     },
                 },
