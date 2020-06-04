@@ -36,7 +36,7 @@ function ViewerMessaging(props: ViewerMessagingProps) {
         (async () => {
             if (!cachedRequests[product]) {
                 cachedRequests[product] = fetch(
-                    `https://apps.geocortex.com/webviewer/messaging-${product}.schema.json`
+                    `https://apps-staging.geocortex.com/webviewer/${product}-action.schema.json`
                 );
             }
 

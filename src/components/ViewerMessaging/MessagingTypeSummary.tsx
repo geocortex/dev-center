@@ -1,54 +1,60 @@
 import Heading from "@theme/Heading";
 import React from "react";
 import MessagingArgument from "./MessagingArgument";
-import { MessageSchema, MessageDefinition } from "./schema";
+import { MessageSchema, Definition } from "./schema";
 import { getActionOrEventDefinitionLinkId } from "./utils";
 
 const H3 = Heading("h3");
+
+type RefDefinition = Required<Pick<Definition, "$ref">>;
 
 interface MessagingTypeSummaryProps {
     schema: MessageSchema;
     type: "command" | "event" | "operation";
 }
 
-function commandIsOperation(command: MessageDefinition) {
-    return !!command.output;
+function definitionIsRef(def: Definition): def is RefDefinition {
+    return !!def.$ref;
 }
 
-function filterObj<T extends object>(
-    raw: T,
-    predicate: (key: string, raw: T) => boolean
-): T {
-    return Object.keys(raw)
-        .filter((key) => predicate(key, raw))
-        .reduce<T>((obj, key) => {
-            obj[key] = raw[key];
-            return obj;
-        }, {} as T);
+function typeIsOptional(def: Definition | undefined): boolean | undefined {
+    return def?.type?.includes("null") || def?.anyOf?.some(typeIsOptional);
 }
 
 export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
     const { schema, type } = props;
-    let items: MessageSchema["commands"] | MessageSchema["events"];
+    const definitions = schema.definitions as Record<
+        string,
+        Definition | undefined
+    >;
+    let definitionName: string;
 
     if (type === "command") {
-        items = filterObj(
-            schema.commands,
-            (item, raw) => !commandIsOperation(raw[item])
-        );
+        definitionName = "viewer-spec.SingleCommand";
     } else if (type === "operation") {
-        items = filterObj(schema.commands, (item, raw) =>
-            commandIsOperation(raw[item])
-        );
+        definitionName = "viewer-spec.SingleOperation";
     } else {
-        items = schema.events;
+        definitionName = "viewer-spec.Event";
+    }
+    const names = definitions[definitionName]?.anyOf
+        ?.filter(definitionIsRef)
+        .map((def) => def.$ref.replace("#/definitions/", ""));
+
+    if (!names) {
+        return null;
     }
 
     return (
         <>
-            {Object.keys(items).map((key) => {
-                const item = items[key];
+            {names.map((key) => {
+                const item = definitions[key];
                 const linkId = getActionOrEventDefinitionLinkId(key, type);
+                const inputItem = definitions[`${key}:input`];
+                const outputItem = definitions[`${key}:output`];
+
+                if (!item) {
+                    return null;
+                }
 
                 return (
                     <div key={key} className="margin-bottom--lg">
@@ -59,20 +65,24 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
                             </div>
                         )}
                         <div className="margin-bottom--md">
-                            <div>Argument</div>
+                            <div>{`Argument ${
+                                typeIsOptional(inputItem) === true
+                                    ? "(optional)"
+                                    : ""
+                            }`}</div>
                             <div className="margin-left--sm">
                                 <MessagingArgument
-                                    definition={item.input}
+                                    definition={inputItem}
                                     schema={schema}
                                 />
                             </div>
                         </div>
-                        {type === "operation" && item.output && (
+                        {type === "operation" && outputItem && (
                             <>
                                 <div>Result</div>
                                 <div className="margin-left--sm">
                                     <MessagingArgument
-                                        definition={item.output}
+                                        definition={outputItem}
                                         schema={schema}
                                     />
                                 </div>
