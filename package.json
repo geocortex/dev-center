@@ -5,7 +5,7 @@
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "lint": "npm run lint:spelling && npm run lint:style && npm run lint:links",
+    "lint": "npm run lint:spelling && npm run lint:style && npm run lint:links:md",
     "lint:links": "npm run lint:links:md && npm run lint:links:ext",
     "lint:links:md": "remark -f -q -u validate-links \"docs/**/*.mdx\"",
     "lint:links:ext": "linkinator ./build -r --silent --concurrency 10",
