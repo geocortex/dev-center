@@ -23,7 +23,7 @@ Create the component source file in a new folder within the `src/components` fol
 import {
     LayoutElement,
     LayoutElementProperties,
-} from "@geocortex/web/components";
+} from "@vertigis/web/components";
 import React from "react";
 
 // We will create this model in the next step.
@@ -56,7 +56,7 @@ import {
     ComponentModelProperties,
     serializable,
     PropertyDefs,
-} from "@geocortex/web/models";
+} from "@vertigis/web/models";
 
 interface ExampleComponentModelProperties extends ComponentModelProperties {
     exampleValue?: string;
@@ -101,10 +101,8 @@ export { default as ExampleComponentModel } from "./ExampleComponentModel";
 
 Now register your component and component model with the component registry by modifying the `src/index.ts` file:
 
-<!-- TODO: The `as ComponentType` is gross. Fix this. -->
-
 ```ts title="src/index.ts"
-import { LibraryRegistry } from "@geocortex/web/config";
+import { LibraryRegistry } from "@vertigis/web/config";
 import { ComponentType } from "react";
 
 // highlight-start
@@ -124,12 +122,12 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "example",
         namespace: LAYOUT_NAMESPACE,
-        getComponentType: () => ExampleComponent as ComponentType,
+        getComponentType: () => ExampleComponent,
         itemType: "example-model",
         title: "Example Component",
     });
     registry.registerModel({
-        getModelType: () => ExampleComponentModel,
+        getModel: (config) => new ExampleComponentModel(config),
         itemType: "example-model",
     });
     // highlight-end

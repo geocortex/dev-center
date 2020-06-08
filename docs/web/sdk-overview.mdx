@@ -74,17 +74,17 @@ The Geocortex Web SDK compiles custom components, services, and commands and ope
 export default function (registry: LibraryRegistry) {
     registry.registerService({
         id: "custom-service",
-        getServiceType: () => CustomService,
+        getService: (config) => new CustomService(config),
     });
     registry.registerComponent({
         name: "custom-component",
         namespace: "your.custom.namespace",
-        getComponentType: () => CustomComponent as ComponentType,
+        getComponentType: () => CustomComponent,
         itemType: "custom-component-model",
         title: "Custom Component",
     });
     registry.registerModel({
-        getModelType: () => CustomComponentModel,
+        getModel: (config) => new CustomComponentModel(config),
         itemType: "custom-component-model",
     });
     registry.registerCommand("my.custom-command", {

@@ -20,7 +20,7 @@ export default function(registry: LibraryRegistry) {
     ...
     registry.registerService({
         id: "custom-service",
-        getServiceType: () => CustomService,
+        getService: (config) => new CustomService(config),
         // Use this setting if you want your service to load an
         // item from the app config.
         itemType: "custom-service-model",
@@ -61,7 +61,7 @@ Always call `super._onInitialize()` before any custom initialization logic.
 :::
 
 ```ts
-import { ServiceBase } from "@geocortex/web/services";
+import { ServiceBase } from "@vertigis/web/services";
 import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
 
 export default class CustomService extends ServiceBase {
@@ -146,7 +146,7 @@ export default function (registry: LibraryRegistry) {
     registry.registerService({
         id: "custom-service",
         title: "Custom Service",
-        getServiceType: () => CustomServiceWithConfig,
+        getService: (config) => new CustomServiceWithConfig(config),
         // highlight-next-line
         itemType: "custom-service-model",
     });

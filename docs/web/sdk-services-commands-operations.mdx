@@ -71,7 +71,7 @@ export default function (registry: LibraryRegistry) {
 
     registry.registerService({
         id: "custom-service",
-        getServiceType: () => CustomService
+        getService: (config) => new CustomService(config)
     });
 
     registry.registerOperation("custom.my-operation", {
