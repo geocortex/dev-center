@@ -1,7 +1,7 @@
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useEffect, useState } from "react";
 import MessagingContent from "./MessagingContent";
-import { MessageSchema } from "./schema";
+import { MessageSchema, Definition } from "./schema";
 
 interface ViewerMessagingProps {
     product: "mobile" | "web";
@@ -19,10 +19,10 @@ export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
 // plays nicely with the docusaurus right TOC component.
 const cachedRequests: Record<
     ViewerMessagingProps["product"],
-    Promise<Response> | undefined
+    Record<"action" | "event", Promise<Response> | undefined>
 > = {
-    mobile: undefined,
-    web: undefined,
+    web: { action: undefined, event: undefined },
+    mobile: { action: undefined, event: undefined },
 };
 
 function ViewerMessaging(props: ViewerMessagingProps) {
@@ -32,25 +32,83 @@ function ViewerMessaging(props: ViewerMessagingProps) {
     // Fetch schema
     useEffect(() => {
         let didCancel = false;
+        const schemaType =
+            type === "command" || type === "operation"
+                ? "action"
+                : type === "event"
+                ? "event"
+                : undefined;
 
         (async () => {
-            if (!cachedRequests[product]) {
-                cachedRequests[product] = fetch(
-                    `https://apps.geocortex.com/webviewer/messaging-${product}.schema.json`
+            if (schemaType && !cachedRequests[product][schemaType]) {
+                cachedRequests[product][schemaType] = fetch(
+                    `https://apps-staging.geocortex.com/webviewer/${product}-${schemaType}.schema.json`
                 );
             }
 
-            const response = await cachedRequests[product]!;
+            const actionResponse = await cachedRequests[product].action!;
+            const eventResponse = await cachedRequests[product].event!;
             if (didCancel) {
                 return;
             }
             // Clone to avoid error when reading json multiple times
-            const responseJson: MessageSchema = await response.clone().json();
+            const actionResponseJson: MessageSchema = await actionResponse
+                .clone()
+                .json();
+            const eventResponseJson: MessageSchema = await eventResponse
+                .clone()
+                .json();
             if (didCancel) {
                 return;
             }
 
-            setMessagingJson(responseJson);
+            const actionObject: Definition = {
+                properties: {
+                    name: {
+                        description: "The name of a command or operation.",
+                        type: "string",
+                    },
+                    arguments: {
+                        description:
+                            "The arguments for the command or operation.",
+                        type: "object",
+                    },
+                },
+                required: ["name", "arguments"],
+                type: "object",
+            };
+            const actionObjectRef: Definition = {
+                $ref: "#/definitions/viewer-spec.ActionObject",
+            };
+            const actionString: Definition = {
+                type: "string",
+            };
+
+            const actionOverrideDef: Definition = {
+                description: `An action to execute in the viewer; can be an action name, an action object, or a command chain (https://developers.geocortex.com/docs/${product}/configuration-commands-operations/#command-chains). The list of valid action names are the names of the commands and operations listed in this document`,
+                // Basic definition of a command chain
+                anyOf: [
+                    actionString,
+                    actionObjectRef,
+                    {
+                        items: {
+                            anyOf: [actionString, actionObjectRef],
+                        },
+                        type: "array",
+                    },
+                ],
+            };
+
+            const schema = {
+                definitions: {
+                    ...actionResponseJson.definitions,
+                    ...eventResponseJson.definitions,
+                    "viewer-spec.ActionObject": actionObject,
+                    "viewer-spec.Action": actionOverrideDef,
+                },
+            };
+
+            setMessagingJson(schema);
         })();
 
         return () => {
