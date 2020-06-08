@@ -99,28 +99,12 @@ import { ComponentModelBase, serializable } from "@geocortex/web/models";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
-    private _handles: IHandle[] = [];
-
-    protected async _onInitialize(): Promise<void> {
-        await super._onInitialize();
-
-        this._handles.push(
-            this.messages
-                .command("custom.command-with-can-execute")
-                .register(() => {
-                    this.messages.commands.ui.alert.execute({
-                        message: "Executed `custom.command-with-can-execute`",
-                    });
-                    return;
-                })
-        );
-    }
-
-    destroy(): void {
-        super.destroy();
-
-        // Clean up event handlers.
-        this._handles.forEach((h) => h.remove());
+    @command("custom.command-with-can-execute")
+    protected _commandWithCanExecute(): void {
+        this.messages.commands.ui.alert.execute({
+            message: "Executed `custom.command-with-can-execute`",
+        });
+        return;
     }
 }
 ```
@@ -157,7 +141,10 @@ export default function (registry: LibraryRegistry) {
         itemType: "custom-model",
     });
 
-    registry.registerCommand("custom.command-with-can-execute");
+    registry.registerCommand({
+        name: "custom.command-with-can-execute",
+        itemType: "custom-model",
+    });
 }
 ```
 
@@ -210,24 +197,15 @@ import { ComponentModelBase, serializable } from "@geocortex/web/models";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
-    private _handles: IHandle[] = [];
-
-    // highlight-start
+    // highlight-next-line
     private _canExecuteValue: boolean = false;
 
-    protected async _onInitialize(): Promise<void> {
-        await super._onInitialize();
-
-        this._handles.push(
-            this.messages
-                .command("custom.command-with-can-execute")
-                .register(() => {
-                    this.messages.commands.ui.alert.execute({
-                        message: "Executed `custom.command-with-can-execute`",
-                    });
-                    return;
-                })
-        );
+    @command("custom.command-with-can-execute")
+    protected _commandWithCanExecute(): void {
+        this.messages.commands.ui.alert.execute({
+            message: "Executed `custom.command-with-can-execute`",
+        });
+        return;
     }
 
     // highlight-start
@@ -235,13 +213,6 @@ export default class CustomModel extends ComponentModelBase {
         this._canExecuteValue = !this._canExecuteValue;
     }
     // highlight-end
-
-    destroy(): void {
-        super.destroy();
-
-        // Clean up event handlers.
-        this._handles.forEach((h) => h.remove());
-    }
 }
 ```
 
@@ -250,7 +221,7 @@ export default class CustomModel extends ComponentModelBase {
 
 ## Implement the `canExecute` Function
 
-Finally, we need to implement the `canExecute` function for the `custom.command-with-can-execute` command.
+Finally, we need to implement the `canExecute` method for the `custom.command-with-can-execute` command. This method should be decorated with `@canExecute` and return a boolean indicating whether the command can execute.
 
 <Tabs
   defaultValue="model"
@@ -262,34 +233,26 @@ Finally, we need to implement the `canExecute` function for the `custom.command-
 <TabItem value="model">
 
 ```ts title="src/components/CustomModel.ts"
-import {
-    ComponentModelBase,
-    serializable,
-} from "@geocortex/web/models";
+import { ComponentModelBase, serializable } from "@geocortex/web/models";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
-    private _handles: IHandle[] = [];
-
-    // highlight-start
     private _canExecuteValue: boolean = false;
 
-    protected async _onInitialize(): Promise<void> {
-        await super._onInitialize();
-
-        this._handles.push(
-            this.messages
-                .command("custom.command-with-can-execute")
-                .register(() => {
-                    this.messages.commands.ui.alert.execute({ message: "Executed `custom.command-with-can-execute`"});
-                    return;
-                },
-                // highlight-start
-                () => this._canExecuteValue
-            ))
-                // highlight-end
-        );
+    @command("custom.command-with-can-execute")
+    protected _commandWithCanExecute(): void {
+        this.messages.commands.ui.alert.execute({
+            message: "Executed `custom.command-with-can-execute`",
+        });
+        return;
     }
+
+    // highlight-start
+    @canExecute("custom.command-with-can-execute")
+    protected _canExecuteImplementation_(): boolean {
+        return this._canExecuteValue;
+    }
+    // highlight-end
 
     toggleCanExecute(): void {
         this._canExecuteValue = !this._canExecuteValue;
@@ -298,13 +261,6 @@ export default class CustomModel extends ComponentModelBase {
             .command("custom.command-with-can-execute")
             .canExecuteChanged.publish();
         // highlight-end
-    }
-
-    destroy(): void {
-        super.destroy();
-
-        // Clean up event handlers.
-        this._handles.forEach((h) => h.remove());
     }
 }
 ```
