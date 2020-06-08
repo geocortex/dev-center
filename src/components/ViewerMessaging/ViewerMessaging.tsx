@@ -42,7 +42,7 @@ function ViewerMessaging(props: ViewerMessagingProps) {
         (async () => {
             if (schemaType && !cachedRequests[product][schemaType]) {
                 cachedRequests[product][schemaType] = fetch(
-                    `https://apps-staging.geocortex.com/webviewer/${product}-${schemaType}.schema.json`
+                    `https://apps.geocortex.com/webviewer/${product}-${schemaType}.schema.json`
                 );
             }
 
