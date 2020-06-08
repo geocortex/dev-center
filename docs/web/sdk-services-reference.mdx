@@ -51,8 +51,8 @@ All services have access to initialization and cleanup methods, as well as the `
 
 Sometimes, a service is required to perform initialization and cleanup actions, for example, to initialize dynamic data and cleanup dangling references. The `ServiceBase` class has two methods to achieve this:
 
--   `_onInitialize()`, which can be overridden,
--   and `destroy()`, which can be implemented to facilitate cleanup.
+-   `_onInitialize()`, which can be overridden with additional initialization logic,
+-   and `destroy()`, which can be overridden to facilitate cleanup.
 
 The following service uses these methods to subscribe to an event and cleanup the event handler afterwards.
 
@@ -79,7 +79,8 @@ export default class CustomService extends ServiceBase {
         return;
     }
 
-    destroy(): void {
+    protected async destroy(): Promise<void> {
+        await super.destroy();
         this.handles.forEach((h) => h.remove());
     }
 }

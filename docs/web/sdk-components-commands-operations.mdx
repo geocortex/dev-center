@@ -96,8 +96,8 @@ export default class CustomModel extends ComponentModelBase {
         );
     }
 
-    destroy(): void {
-        super.destroy();
+    protected async destroy(): Promise<void> {
+        await super.destroy();
 
         // Clean up event handlers.
         this._handles.forEach((h) => h.remove());

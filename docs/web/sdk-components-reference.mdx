@@ -316,7 +316,7 @@ Most components support the [`config` attribute](configuration-app-config-gettin
 Component models have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when a component is removed from the layout.
 
 :::important
-Always call `super._onInitialize()` when overriding the `_onInitialize` method.
+Always call `super._onInitialize()` when overriding the `_onInitialize` method, and `super.destroy()` when overriding the `destroy` method.
 :::
 
 ```ts
@@ -334,7 +334,9 @@ export default class ExampleComponentModel extends ComponentModelBase {
         // ...other initialization logic
     }
 
-    destroy(): void {
+    protected async destroy(): Promise<void> {
+        await super.destroy();
+
         this.items.destroy();
         // ...free up resources
     }
@@ -377,8 +379,8 @@ export default class ExampleComponentModel extends ComponentModelBase<
         // highlight-end
     }
 
-    public destroy() {
-        super.destroy();
+    protected async destroy(): Promise<void> {
+        await super.destroy();
         // highlight-start
         // Make sure to clean up subscriptions when the model is destroyed.
         this._handles.forEach((h) => h.remove());

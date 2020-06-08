@@ -83,7 +83,8 @@ export default class CustomService extends ServiceBase {
         );
     }
 
-    destroy(): void {
+    protected async destroy(): Promise<void> {
+        await super.destroy();
         this.handles.forEach((handle) => handle.remove());
     }
 }
@@ -106,7 +107,8 @@ export default class ExampleComponentModel extends ComponentModelBase {
         );
     }
 
-    destroy(): void {
+    protected async destroy(): Promise<void> {
+        await super.destroy();
         this.handles.forEach((handle) => handle.remove());
     }
 }
@@ -165,7 +167,8 @@ export default class CustomService extends ServiceBase {
         );
     }
 
-    destroy(): void {
+    protected async destroy(): Promise<void> {
+        await super.destroy();
         this.handles.forEach((handle) => handle.remove());
     }
 }

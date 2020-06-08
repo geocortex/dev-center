@@ -39,7 +39,7 @@ Services are destroyed (i.e. the `destroy` method is invoked) when the applicati
 
 ## Initialization and Teardown
 
-Services have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when the application is destroyed
+Services have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when the application is destroyed.
 
 :::important
 Always call `base.Dispose(disposing)` when overriding the `Dispose` method. `ServiceBase` already implements `IDisposable` and `IDisposableTracker`, so only override the `Dispose` method if you have created new managed resources which need to be cleaned up.
