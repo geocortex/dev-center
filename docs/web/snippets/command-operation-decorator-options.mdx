@@ -1,0 +1,29 @@
+Both the `@command` and `@operation` decorator functions can take an optional second argument specifying parameters that affect the behavior of the command or operation.
+
+The `targetInactive` option applies to commands and operations implemented through a component model. The default value is false. If `targetInactive` is set to true, the command or operation will be executed even if the associated component is not currently active in the layout
+
+```ts
+// highlight-next-line
+@command("custom.my-command", { targetInactive: true })
+protected _myCommand( {
+    console.log(
+        `Executing 'custom.my-command even if the associated
+        component does not exist in the layout.`
+    );
+    return;
+}
+```
+
+The `parallel` option applies to commands only. The default value is false. By default, if a command has multiple implementations, each implementation is executed sequentially in the order it was registered in the library, and multiple component model implementations are executed in layout order. Setting `parallel` to true causes the command implementation to be run in parallel with other implementations marked as `parallel`. If there is a mix of parallel and sequential command implementations, then the parallel implementations will run concurrently after all sequential implementations have finished executing.
+
+```ts
+// highlight-next-line
+@command("custom.my-command", { parallel: true })
+protected _myCommand( {
+    console.log(
+        `This implementation will be executed in parallel
+        with other command implementations marked as parallel.`
+    );
+    return;
+}
+```
