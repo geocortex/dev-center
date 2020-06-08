@@ -51,7 +51,7 @@ export default class ExampleService extends ServiceBase {
 
 ## Implementing Commands and Operations
 
-Services can also register an implementation for a command or operation. A command or operation is registered using the ID of the service and the name of the method on the service that will be called. The following service registers an implementation for an operation that returns a custom type.
+Services can also register an implementation for a command or operation. A command or operation is registered through the `registerOperation` or `registerCommand` registry methods. By decorating a method with `@command` or `@operation`, services can define an implementation for the registered command or operation.
 
 :::note
 It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
@@ -74,10 +74,9 @@ export default function (registry: LibraryRegistry) {
         getService: (config) => new CustomService(config)
     });
 
-    registry.registerOperation("custom.my-operation", {
-        serviceId: "custom-service",
-        // highlight-next-line
-        executeMethodName: "_executeMyOperation",
+    registry.registerOperation({
+        name: "custom.my-operation"
+        serviceId: "custom-service"
     });
 }
 ```
@@ -92,6 +91,7 @@ export interface CustomCommandArg {
 
 export default class ExampleService extends ServiceBase {
     // highlight-next-line
+    @operation("custom.my-operation")
     protected _executeMyOperation(): Promise<CustomCommandArg> {
         // ... do work here
     }

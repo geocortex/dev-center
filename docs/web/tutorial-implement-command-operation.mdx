@@ -75,9 +75,40 @@ export default function(registry: LibraryRegistry) {
 }
 ```
 
+## Register the Command and Operation
+
+Commands and operations are registered in `src/index.ts`. The `serviceId` of the command or operation registration must match the `id` used in the `registerService` call.
+
+```ts title="src/index.ts"
+import { LibraryRegistry } from "@vertigis/web/config";
+import CustomService from "./services/CustomService/CustomService";
+
+export default function (registry: LibraryRegistry) {
+    registry.registerService({
+        // highlight-next-line
+        id: "custom-service",
+        getService: (config) => new CustomService(config),
+    });
+
+    // highlight-start
+    registry.registerCommand({
+        name: "custom-service.do-action",
+        serviceId: "custom-service",
+    });
+    // highlight-end
+
+    // highlight-start
+    registry.registerOperation({
+        name: "custom-service.get-action-history",
+        serviceId: "custom-service",
+    });
+    // highlight-end
+}
+```
+
 ## Implement the Custom Command and Operation
 
-It's now time to implement the command to record an action, and the operation that returns a history of executed actions in the `CustomService`. We can define each command and operation with an appropriately named `protected` method.
+It's now time to implement the command to record an action, and the operation that returns a history of executed actions in the `CustomService`. We can define each command and operation with an appropriately named `protected` method that is decorated with `@command` and `@operation` respectively.
 
 ```ts title="src/services/CustomService/CustomService.ts
 import { ServiceBase } from "@vertigis/web/services";
@@ -99,45 +130,16 @@ export default class CustomService extends ServiceBase {
         thing2: [],
     };
 
+    @command("custom-service.do-action")
     protected _doAction(args: DoActionArgs) {
         console.log(`Executing action of type ${args.type}`);
         this.history[args.type].push(args.value);
     }
 
+    @operation("custom-service.get-action-history")
     protected _getActionHistory(): ActionHistory {
         return this.history;
     }
-}
-```
-
-## Register the Command and Operation
-
-Commands and operations are registered in `src/index.ts`. Use the full name of the method you defined in the service to register the command or operation implementation. The `serviceId` of the command or operation registration must match the `id` used in the `registerService` call.
-
-```ts title="src/index.ts"
-import { LibraryRegistry } from "@vertigis/web/config";
-import CustomService from "./services/CustomService/CustomService";
-
-export default function (registry: LibraryRegistry) {
-    registry.registerService({
-        // highlight-next-line
-        id: "custom-service",
-        getService: (config) => new CustomService(config),
-    });
-
-    // highlight-start
-    registry.registerCommand("custom-service.do-action", {
-        serviceId: "custom-service",
-        executeMethodName: "_doAction",
-    });
-    // highlight-end
-
-    // highlight-start
-    registry.registerOperation("custom-service.get-action-history", {
-        serviceId: "custom-service",
-        executeMethodName: "_getActionHistory",
-    });
-    // highlight-end
 }
 ```
 

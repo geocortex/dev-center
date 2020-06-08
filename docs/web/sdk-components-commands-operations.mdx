@@ -58,7 +58,7 @@ export default function CustomComponent(props) {
 
 ## Implementing Commands and Operations
 
-Components can also register an implementation for any command or operation. This allows the creation of commands which can affect the UI. When registering a command implementation for a component, you have to register the implementation in the [component's model](sdk-components-reference.mdx#models). The command must also be registered in the library entry point. The following component model registers an implementation for a custom command that takes a custom argument type.
+Components can also register an implementation for any command or operation. This allows the creation of commands which can affect the UI. When registering a command implementation for a component, you have to register the implementation in the [component's model](sdk-components-reference.mdx#models). The command must also be registered in the library entry point with the same item type that the model was registered with. The following component model registers an implementation for a custom command that takes a custom argument type.
 
 :::note
 It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
@@ -79,28 +79,12 @@ export interface CustomCommandArg {
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
-    private _handles: IHandle[] = [];
-
-    protected async _onInitialize(): Promise<void> {
-        await super._onInitialize();
-
-        this._handles.push(
-            this.messages
-                .command<CustomCommandArg>("custom.my-command")
-                .register((arg: CustomCommandArg) => {
-                    console.log(
-                        `Executing 'custom.my-command' with argument '${arg.someProp}'`
-                    );
-                    return;
-                })
+    @command("custom.my-command")
+    protected _myCommand(arg: CustomCommandArg) {
+        console.log(
+            `Executing 'custom.my-command' with argument '${arg.someProp}'`
         );
-    }
-
-    protected async destroy(): Promise<void> {
-        await super.destroy();
-
-        // Clean up event handlers.
-        this._handles.forEach((h) => h.remove());
+        return;
     }
 }
 ```
@@ -112,7 +96,17 @@ export default class CustomModel extends ComponentModelBase {
 export default function (registry: LibraryRegistry) {
     ...
 
-    registry.registerCommand("custom.my-command")
+    registry.registerCommand({
+        name: "custom.my-command",
+        // highlight-next-line
+        itemType: "custom-model"
+    });
+
+    registry.registerModel({
+        getModel: (config) => new CustomModel(config),
+        // highlight-next-line
+        itemType: "custom-model",
+    });
 }
 ```
 

@@ -87,13 +87,13 @@ export default function (registry: LibraryRegistry) {
         getModel: (config) => new CustomComponentModel(config),
         itemType: "custom-component-model",
     });
-    registry.registerCommand("my.custom-command", {
+    registry.registerCommand({
+        name: "my.custom-command",
         serviceId: "custom-service",
-        executeMethodName: "_doSomething",
     });
-    registry.registerOperation("my.custom-operation", {
+    registry.registerOperation({
+        name: "my.custom-operation",
         serviceId: "custom-service",
-        executeMethodName: "_doAnotherThing",
     });
 }
 ```
