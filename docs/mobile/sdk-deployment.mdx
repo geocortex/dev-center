@@ -3,23 +3,8 @@ title: Deployment
 description: Geocortex Mobile - Deploy a Geocortex Mobile Application
 ---
 
-If you only need to modify the app config and layout of a Geocortex Mobile application, you can use the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) interface. However, if you need to write custom code, you will need to deploy and manage a fully custom application.
+If you only need to modify the app config and layout of a Geocortex Mobile application, you can use the [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) interface. However, if you need to write custom code, you will need to deploy and manage a custom application.
 
-### Uploading Custom Code to an App
+### Application with Custom Code
 
-:::note
-You can only upload a library to a saved app.
-:::
-
-1. Run `npm run build` in the root of your project to create a production build of your library
-    - This creates an optimized production build that is output to the `build` folder of your project. This build is designed for use in production
-1. Open an application in Geocortex Web Designer that you wish to upload your custom code into
-1. Navigate to File -> Upload Library
-1. Click the `Select File` button and select your custom library located in the `build` folder of your project
-1. Click `Upload and Save App`
-
-Mobile Designer is now ready to configure an app using any custom components and services regstered by your library. If your library registers any custom components, they will be available in the [Layout Toobox](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/modify-a-layout.htm#add-a-component)
-
-### Fully Custom Application with Custom Code
-
-The Quickstart provided is a standard Xamarin forms application, and can be deployed in accordance to [Xamarin's guidelines](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/deploy-test/).
+The Quickstart provided is a standard Xamarin Forms application, and can be deployed in accordance to the [Xamarin Forms deployment guidelines](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/deploy-test/).
