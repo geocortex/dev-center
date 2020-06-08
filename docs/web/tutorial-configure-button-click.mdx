@@ -10,10 +10,10 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 
-This article will guide you through how to add a button to the layout and configure it to run and action through the app config.
+This article will guide you through how to add a button to the layout and configure it to run an action through the app config.
 
 :::note
-It's actually possible to configure the a button with a command in [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/). However, the point of this tutorial is to demonstrate the concept of configuring behaviors using the app config.
+It's possible to configure a button with a command in the [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/). However, this tutorial demonstrates the concept of configuring behaviors using the app config directly.
 :::
 
 ## Prerequisites
@@ -22,7 +22,7 @@ It's actually possible to configure the a button with a command in [Geocortex We
 
 ## Add a Button to the Layout
 
-Let's create a a layout with two components; a map, and a button positioned on the map.
+Let's create a layout with two components; a map, and a button positioned on the map.
 
 <Tabs
   defaultValue="layout"
@@ -49,7 +49,7 @@ Let's create a a layout with two components; a map, and a button positioned on t
 
 ## Link the Button to a Command in App Config
 
-Link the button to the layout to a `menu-item` in app config, and configure it to run a basic command, `zoom-in`.
+Link the button to the layout using a `menu-item` in app config, and configure it to run a basic command, `zoom-in`.
 
 <Tabs
   defaultValue="layout"
