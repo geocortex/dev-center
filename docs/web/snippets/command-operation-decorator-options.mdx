@@ -14,7 +14,11 @@ protected _myCommand() {
 }
 ```
 
-The `parallel` option applies to commands only. The default value is false. By default, if a command has multiple implementations, each implementation is executed sequentially in the order it was registered in the library, and multiple component model implementations are executed in layout order. Setting `parallel` to true causes the command implementation to be run in parallel with other implementations marked as `parallel`. If there is a mix of parallel and sequential command implementations, then the parallel implementations will run concurrently after all sequential implementations have finished executing.
+The `parallel` option applies to commands only. The default value is false. By default, if a command has multiple implementations, each implementation is executed sequentially in the order it was registered in the library, and multiple component model implementations are executed in layout order. Setting `parallel` to true causes the command implementation to be run in parallel with other implementations marked as `parallel`.
+
+:::note
+If there is a mix of parallel and sequential command implementations, then the parallel implementations will run concurrently after all sequential implementations have finished executing.
+:::
 
 ```ts
 // highlight-next-line
