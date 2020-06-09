@@ -164,8 +164,8 @@ Finally, we can bring it all together, and add the news item component and styli
   defaultValue="component"
   values={[
     { label: 'News Feed Component', value: 'component', },
-    { label: 'Css', value: 'css', },
     { label: 'News Feed Model', value: 'model', },
+    { label: 'Css', value: 'css', },
     { label: 'Data Service', value: 'service', },
     { label: 'Registration', value: 'index', },
     { label: 'UI', value: 'ui', },
@@ -305,7 +305,6 @@ export default class NewsFeedModel extends ComponentModelBase {
 import CustomDataService from "./services/CustomDataService";
 import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
 import { LibraryRegistry } from "@vertigis/web/config";
-import { ComponentType } from "react";
 
 export default function (registry: LibraryRegistry) {
     registry.registerService({

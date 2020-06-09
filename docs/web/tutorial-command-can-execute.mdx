@@ -74,8 +74,8 @@ First, let's create an app with an IWTM and a custom component that implements a
 import {
     LayoutElement,
     LayoutElementProperties,
-} from "@geocortex/web/components";
-import Button from "@geocortex/web/ui/button";
+} from "@vertigis/web/components";
+import Button from "@vertigis/web/ui/button";
 import React from "react";
 
 import CustomModel from "./CustomModel";
@@ -95,7 +95,8 @@ export default CustomComponent;
 <TabItem value="model">
 
 ```ts title="src/components/CustomModel.ts"
-import { ComponentModelBase, serializable } from "@geocortex/web/models";
+import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import { command } from "@vertigis/web/messaging";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
@@ -121,8 +122,7 @@ export { default as CustomModel } from "./CustomModel";
 <TabItem value="registration">
 
 ```ts title="src/index.ts"
-import { LibraryRegistry } from "@geocortex/web/config";
-import { ComponentType } from "react";
+import { LibraryRegistry } from "@vertigis/web/config";
 
 import CustomComponent, { CustomModel } from "./components/CustomComponent";
 
@@ -132,12 +132,12 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "custom-component",
         namespace: LAYOUT_NAMESPACE,
-        getComponentType: () => CustomComponent as ComponentType,
+        getComponentType: () => CustomComponent,
         itemType: "custom-model",
         title: "Custom Component",
     });
     registry.registerModel({
-        getModelType: () => CustomModel,
+        getModel: (config) => new CustomModel(config),
         itemType: "custom-model",
     });
 
@@ -167,8 +167,8 @@ Next, let's add a button to the custom component that will toggle the `canExecut
 import {
     LayoutElement,
     LayoutElementProperties,
-} from "@geocortex/web/components";
-import Button from "@geocortex/web/ui/button";
+} from "@vertigis/web/components";
+import Button from "@vertigis/web/ui/button";
 import React from "react";
 
 import CustomModel from "./CustomModel";
@@ -193,7 +193,8 @@ export default CustomComponent;
 <TabItem value="model">
 
 ```ts title="src/components/CustomModel.ts"
-import { ComponentModelBase, serializable } from "@geocortex/web/models";
+import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import { command } from "@vertigis/web/messaging";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
@@ -233,7 +234,8 @@ Finally, we need to implement the `canExecute` method for the `custom.command-wi
 <TabItem value="model">
 
 ```ts title="src/components/CustomModel.ts"
-import { ComponentModelBase, serializable } from "@geocortex/web/models";
+import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import { command, canExecute } from "@vertigis/web/messaging";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {

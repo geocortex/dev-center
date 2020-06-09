@@ -62,7 +62,7 @@ Always call `super._onInitialize()` before any custom initialization logic.
 
 ```ts
 import { ServiceBase } from "@vertigis/web/services";
-import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
+import { MapEvent } from "@vertigis/viewer-spec/messaging/registry/map";
 
 export default class CustomService extends ServiceBase {
     handles: IHandle[] = [];
@@ -79,7 +79,7 @@ export default class CustomService extends ServiceBase {
         return;
     }
 
-    protected async destroy(): Promise<void> {
+    public async destroy(): Promise<void> {
         await super.destroy();
         this.handles.forEach((h) => h.remove());
     }

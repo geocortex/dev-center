@@ -25,7 +25,7 @@ export default class CustomService extends ServiceBase {
         await super._onInitialize();
     }
 
-    protected async destroy(): Promise<void> {
+    public async destroy(): Promise<void> {
         await super.destroy();
     }
 }
@@ -69,7 +69,7 @@ export default class CustomService extends ServiceBase {
         );
     }
 
-    protected async destroy(): Promise<void> {
+    public async destroy(): Promise<void> {
         await super.destroy();
         this.handles.forEach((handle) => handle.remove());
     }

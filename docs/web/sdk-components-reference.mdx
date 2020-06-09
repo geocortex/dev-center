@@ -73,7 +73,7 @@ export default function (registry: LibraryRegistry) {
         // The name used to identify the component in the layout
         name: "example",
         // The namespace used to identify the component in the layout.
-        namespace: "custom.abc123"
+        namespace: "custom.abc123",
         // The class corresponding to the React Functional Component
         getComponentType: () => ExampleComponent,
         // The model type this component is bound to.
@@ -105,8 +105,12 @@ Geocortex Web custom components return a DOM element, like any other React compo
 export default function ExampleComponent(
     props: LayoutElementProperties<ExampleComponentModel>
 ) {
-    // highlight-next-line
-    return <LayoutElement {...props}></LayoutElement>;
+    return (
+        // highlight-next-line
+        <LayoutElement {...props}>
+            <p>Some Content</p>
+        </LayoutElement>
+    );
 }
 ```
 
@@ -334,7 +338,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
         // ...other initialization logic
     }
 
-    protected async destroy(): Promise<void> {
+    public async destroy(): Promise<void> {
         await super.destroy();
 
         this.items.destroy();
@@ -379,7 +383,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
         // highlight-end
     }
 
-    protected async destroy(): Promise<void> {
+    public async destroy(): Promise<void> {
         await super.destroy();
         // highlight-start
         // Make sure to clean up subscriptions when the model is destroyed.

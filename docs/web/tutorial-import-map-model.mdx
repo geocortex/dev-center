@@ -62,16 +62,7 @@ export default function CustomComponent(
 <TabItem value="model">
 
 ```ts title="src/components/CustomComponent/CustomModel.ts"
-import {
-    ComponentModelBase,
-    serializable,
-    importModel,
-} from "@vertigis/web/models";
-import { MapExtension } from "@vertigis/arcgis-extensions/mapping/MapExtension";
-import Graphic from "esri/Graphic";
-import GraphicsLayer from "esri/layers/GraphicsLayer";
-import { Polygon } from "esri/geometry";
-import { SimpleFillSymbol } from "esri/symbols";
+import { ComponentModelBase, serializable } from "@vertigis/web/models";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {

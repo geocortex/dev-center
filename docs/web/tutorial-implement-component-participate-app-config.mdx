@@ -119,7 +119,6 @@ export { default as NewsFeedModel } from "./NewsFeedModel";
 
 ```ts title="src/index.ts"
 import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
-import { ComponentType } from "react";
 import { LibraryRegistry } from "@vertigis/web/config";
 
 export default function (registry: LibraryRegistry) {
@@ -208,7 +207,6 @@ import {
     PropertyDefs,
 } from "@vertigis/web/models";
 import Collection from "esri/core/Collection";
-import { toEsriApiCardinality } from "@geocortex/api/data/_Relationship";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: string[];
@@ -484,8 +482,8 @@ export { default as NewsFeedModel } from "./NewsFeedModel";
 
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
-import { ComponentType } from "react";
 import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
+import { LibraryRegistry } from "@vertigis/web/config";
 
 const LAYOUT_NAMESPACE = "custom.foo";
 

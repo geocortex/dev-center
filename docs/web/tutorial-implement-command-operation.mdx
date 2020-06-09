@@ -112,6 +112,7 @@ It's now time to implement the command to record an action, and the operation th
 
 ```ts title="src/services/CustomService/CustomService.ts
 import { ServiceBase } from "@vertigis/web/services";
+import { command, operation } from "@vertigis/web/messaging";
 
 export type ActionType = "thing1" | "thing2";
 
@@ -226,7 +227,8 @@ The following app config and layout adds three entries to an I Want To Menu that
 
 ```ts title="src/services/CustomService/CustomService.ts"
 import { ServiceBase } from "@vertigis/web/services";
-import { AlertCommandArgs } from "@geocortex/viewer-framework/messaging/registry/ui";
+import { AlertCommandArgs } from "@vertigis/viewer-spec/messaging/registry/ui";
+import { command, operation } from "@vertigis/web/messaging";
 
 export type ActionType = "thing1" | "thing2";
 
@@ -245,12 +247,14 @@ export default class CustomService extends ServiceBase {
         thing2: [],
     };
 
+    @command("custom-service.do-action")
     protected _doAction(args: DoActionArgs) {
         console.log(`Executing action of type ${args.type}`);
         this.history[args.type].push(args.value);
     }
 
     // highlight-start
+    @operation("custom-service.get-action-history")
     protected _getActionHistory(): AlertCommandArgs {
         return { message: JSON.stringify(this.history) };
     }

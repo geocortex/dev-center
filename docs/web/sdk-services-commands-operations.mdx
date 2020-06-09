@@ -76,7 +76,7 @@ export default function (registry: LibraryRegistry) {
     });
 
     registry.registerOperation({
-        name: "custom.my-operation"
+        name: "custom.my-operation",
         serviceId: "custom-service"
     });
 }
@@ -118,7 +118,7 @@ You can run the custom commands or operations you define from another component,
 export default class ExampleService extends ServiceBase {
     async runCustomCommandsAndOperations(){
          // highlight-start
-        await this.messages.command<CustomCommandArg>("custom.my-command").execute({ someProp: "some arg" );
+        await this.messages.command<CustomCommandArg>("custom.my-command").execute({ someProp: "some arg" });
         // highlight-end
 
         // highlight-start

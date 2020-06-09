@@ -5,7 +5,7 @@ The `targetInactive` option applies to commands and operations implemented throu
 ```ts
 // highlight-next-line
 @command("custom.my-command", { targetInactive: true })
-protected _myCommand( {
+protected _myCommand() {
     console.log(
         `Executing 'custom.my-command even if the associated
         component does not exist in the layout.`
@@ -19,7 +19,7 @@ The `parallel` option applies to commands only. The default value is false. By d
 ```ts
 // highlight-next-line
 @command("custom.my-command", { parallel: true })
-protected _myCommand( {
+protected _myCommand() {
     console.log(
         `This implementation will be executed in parallel
         with other command implementations marked as parallel.`
