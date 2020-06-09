@@ -55,7 +55,7 @@ import {
     serializable,
     importModel,
 } from "@vertigis/web/models";
-import { MapExtension } from "@geocortex/api/mapping/MapExtension";
+import { MapExtension } from "@vertigis/arcgis-extensions/mapping/MapExtension";
 
 @serializable
 export default class ExampleComponentModel extends ComponentModelBase {
@@ -141,7 +141,7 @@ export default class CustomModel extends ComponentModelBase {
 
 ```tsx title="src/components/importedModel/ExportedModelComponent.tsx"
 import React from "react";
-import Typography from "@vertigis/web/ui/typography";
+import Typography from "@vertigis/web/ui/Typography";
 
 import {
     LayoutElement,

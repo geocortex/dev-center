@@ -34,7 +34,11 @@ const ExampleComponent = (
 ) => {
     const { model } = props;
 
-    return <LayoutElement {...props}>{model.exampleValue}</LayoutElement>;
+    return (
+        <LayoutElement {...props}>
+            <p>{model.exampleValue}</p>
+        </LayoutElement>
+    );
 };
 
 export default ExampleComponent;
