@@ -77,7 +77,7 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
             return <code>unknown</code>;
         } else if (Array.isArray(definition.type)) {
             // We already take care of calling out that an argument is optional
-            // if one of the allowed types is "null" so we dont need to
+            // if one of the allowed types is "null" so we don't need to
             // explicitly include "null"
             const types = definition.type.filter((type) => type !== "null");
             if (types.length === 0) {
@@ -102,7 +102,7 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
     // This is a union type
     else if (definition.anyOf) {
         // We already take care of calling out that an argument is optional
-        // if one of the allowed types is "null" so we dont need to
+        // if one of the allowed types is "null" so we don't need to
         // explicitly include "null"
         const types = definition.anyOf.filter(
             (def) => !((def.type as string) === "null")
