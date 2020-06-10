@@ -41,7 +41,7 @@ All other services are created and initialized (i.e. the `_onInitialize` method 
 -   If a command or operation implemented by the service is executed, then the service will be created and initialized to run that command.
 -   If a different component or service injects the service, then the service will be created and initialized to fulfill that dependency.
 
-Services are destroyed (i.e. the `destroy` method is invoked) when the application is destroyed.
+Services are destroyed (i.e. the `_onDestroy` method is invoked) when the application is destroyed.
 
 ## Service Anatomy
 
@@ -52,7 +52,7 @@ All services have access to initialization and cleanup methods, as well as the `
 Sometimes, a service is required to perform initialization and cleanup actions, for example, to initialize dynamic data and cleanup dangling references. The `ServiceBase` class has two methods to achieve this:
 
 -   `_onInitialize()`, which can be overridden with additional initialization logic,
--   and `destroy()`, which can be overridden to facilitate cleanup.
+-   and `_onDestroy()`, which can be overridden to facilitate cleanup.
 
 The following service uses these methods to subscribe to an event and cleanup the event handler afterwards.
 
@@ -79,8 +79,8 @@ export default class CustomService extends ServiceBase {
         return;
     }
 
-    public async destroy(): Promise<void> {
-        await super.destroy();
+    protected async _onDestroy(): Promise<void> {
+        await super._onDestroy();
         this.handles.forEach((h) => h.remove());
     }
 }

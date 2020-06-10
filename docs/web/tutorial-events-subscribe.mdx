@@ -13,7 +13,7 @@ Events can only be created, published, and subscribed to from within a custom se
 
 ## Create the Custom Service
 
-Create a custom service with an `_onInitialized` and `destroy` method.
+Create a custom service with an `_onInitialized` and `_onDestroy` method.
 
 ```ts title="src/services/CustomService.ts"
 import { ServiceBase } from "@vertigis/web/services";
@@ -25,8 +25,8 @@ export default class CustomService extends ServiceBase {
         await super._onInitialize();
     }
 
-    public async destroy(): Promise<void> {
-        await super.destroy();
+    public async _onDestroy(): Promise<void> {
+        await super._onDestroy();
     }
 }
 ```
@@ -69,8 +69,8 @@ export default class CustomService extends ServiceBase {
         );
     }
 
-    public async destroy(): Promise<void> {
-        await super.destroy();
+    protected async _onDestroy(): Promise<void> {
+        await super._onDestroy();
         this.handles.forEach((handle) => handle.remove());
     }
 }

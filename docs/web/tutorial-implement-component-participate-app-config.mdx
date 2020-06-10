@@ -42,10 +42,10 @@ We are going to add configuration to a custom component that displays news items
 ```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React, { useState } from "react";
 import { LayoutElement } from "@vertigis/web/components";
-import List from "@vertigis/web/ui/list";
+import List from "@vertigis/web/ui/List";
 import ListItem from "@vertigis/web/ui/ListItem";
 import TitleBar from "@vertigis/web/ui/TitleBar";
-import Button from "@vertigis/web/ui/button";
+import Button from "@vertigis/web/ui/Button";
 import DialogActions from "@vertigis/web/ui/DialogActions";
 import "./NewsFeed.css";
 
@@ -313,11 +313,11 @@ import {
     LayoutElement,
     LayoutElementProperties,
 } from "@vertigis/web/components";
-import { useWatchAndRerender } from "@vertigis/web/ui/hooks";
-import List from "@vertigis/web/ui/list";
+import { useWatchAndRerender } from "@vertigis/web/ui";
+import List from "@vertigis/web/ui/List";
 import ListItem from "@vertigis/web/ui/ListItem";
 import TitleBar from "@vertigis/web/ui/TitleBar";
-import Button from "@vertigis/web/ui/button";
+import Button from "@vertigis/web/ui/Button";
 import DialogActions from "@vertigis/web/ui/DialogActions";
 import "./NewsFeed.css";
 import { NewsFeedModel } from ".";

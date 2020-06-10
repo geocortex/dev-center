@@ -75,7 +75,7 @@ import {
     LayoutElement,
     LayoutElementProperties,
 } from "@vertigis/web/components";
-import Button from "@vertigis/web/ui/button";
+import Button from "@vertigis/web/ui/Button";
 import React from "react";
 
 import CustomModel from "./CustomModel";
@@ -168,7 +168,7 @@ import {
     LayoutElement,
     LayoutElementProperties,
 } from "@vertigis/web/components";
-import Button from "@vertigis/web/ui/button";
+import Button from "@vertigis/web/ui/Button";
 import React from "react";
 
 import CustomModel from "./CustomModel";
@@ -223,6 +223,10 @@ export default class CustomModel extends ComponentModelBase {
 ## Implement the `canExecute` Function
 
 Finally, we need to implement the `canExecute` method for the `custom.command-with-can-execute` command. This method should be decorated with `@canExecute` and return a boolean indicating whether the command can execute.
+
+:::tip
+If the command takes an argument, the `@canExecute` method will also be passed that argument.
+:::
 
 <Tabs
   defaultValue="model"
