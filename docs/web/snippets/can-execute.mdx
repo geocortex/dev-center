@@ -1,4 +1,4 @@
-Commands can optionally implement a hook function which indicates whether it is possible to execute the command. This is accomplished by implementing a "canExecute" method in the same class as the command implementation. This method is decorated with `@canExecute` and returns a boolean indicating whether the command can or cannot run based on the given argument.
+Commands and services can optionally implement a hook function which indicates whether it is possible to execute the command. This is accomplished by implementing a "canExecute" method in the same class as the command implementation. This method is decorated with `@canExecute` and returns a boolean indicating whether the command can or cannot run based on the given argument.
 
 ```tsx
 @command("custom.divide-ten-by-x")
