@@ -1,0 +1,233 @@
+---
+title: Commands and Operations
+description: Geocortex Web - Learn how to register and run commands and operations in custom components and services
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
+import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
+import CanExecuteSnippet from "./snippets/can-execute.mdx";
+
+When writing custom components you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own custom commands and operations.
+
+## Running Commands and Operations
+
+Components can run commands and operations in two ways; through the component model, or through the React component.
+
+:::tip
+It is best practice to run commands and operations through the components model, and express the result through a change in the models data rendered by the component.
+:::
+
+### Command and Operations in a Model
+
+Commands and operations can be run through the `messages` property of the model.
+
+```ts
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase {
+    async displayConfirmDialog(){
+        const didConfirm = await this.messages.operations.ui.confirm.execute({
+            title: "Confirm me"
+        })
+        ...
+    }
+    ...
+}
+```
+
+### Command and Operations in a Component
+
+Commands and operations can be run through the [`UIContext` of a component](sdk-components-ui-context.mdx).
+
+```ts
+export default function CustomComponent(props) {
+    // highlight-next-line
+    const { operations, commands } = useContext(UIContext);
+
+    const displayConfirmDialog = async () => {
+        const result = await operations.ui.confirm.execute({
+            title: "Confirm Me",
+        });
+        ...
+    };
+    ...
+}
+```
+
+### Commands and Operations in a Service
+
+Services can run commands and operations through the `messages` property.
+
+```ts
+export default class ExampleService extends ServiceBase {
+    protected async someMethod(): Promise<void> {
+        // highlight-next-line
+        const { commands, command, operations, operation } = this.messages;
+
+        // Execute a named, built-in, command.
+        commands.ui.setTheme.execute("dark");
+
+        // Execute a custom command by it's string ID. If you are executing
+        // a custom command with arguments, you must provide the correct generic typings.
+        command<string>("my-custom.command-that-takes-a-string").execute(
+            "some arg"
+        );
+
+        // Execute a named, built-in, operation.
+        const opResult = await operations.ui.confirm.execute({
+            message: "hey",
+        });
+
+        // Execute a custom operation by it's string ID.
+        // You must provide the correct generic typings <input, output>.
+        const customOpResult = await operation<string, boolean>(
+            "my-custom.operation-that-returns-a-bool"
+        ).execute("some arg");
+
+        return;
+    }
+}
+```
+
+## Implementing Commands and Operations
+
+Components and services can also implement commands and operations. This allows the creation of commands which can affect the UI. Command and operation implementations are defined in a [component's model](sdk-components-reference.mdx#models) or in a [service](sdk-services-overview.mdx). By decorating a method with `@command` or `@operation`, components and services can define an implementation for a command or operation. The command or operation must also be registered through the `registerOperation` or `registerCommand` methods in the library registry with the same item type that the model was registered with.
+
+The following component model defines an implementation for a custom command that takes a custom argument type, and a custom operation that returns a custom argument type. The same patterns apply when defined within a service.
+
+:::note
+It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
+:::
+
+<Tabs
+  defaultValue="model"
+  values={[
+    { label: "Component Model", value: "model" },
+    { label: "Registration", value: "registration" },
+  ]}>
+<TabItem value="model">
+
+```tsx
+export interface CustomCommandArg {
+    value: string;
+}
+
+@serializable
+export default class CustomModel extends ComponentModelBase {
+    // highlight-next-line
+    @command("custom.my-command")
+    protected _myCommand(arg: CustomCommandArg): void {
+        console.log(
+            `Executing 'custom.my-command' with argument '${arg.value}'`
+        );
+        return;
+    }
+
+    // highlight-next-line
+    @operation("custom.my-operation")
+    protected _myOperation(): number {
+        return 42;
+    }
+}
+```
+
+</TabItem>
+<TabItem value="registration">
+
+```ts
+export default function (registry: LibraryRegistry) {
+    ...
+
+    registry.registerCommand({
+        name: "custom.my-command",
+        // highlight-next-line
+        itemType: "custom-model"
+    });
+
+    registry.registerOperation({
+        name: "custom.my-operation",
+        // highlight-next-line
+        itemType: "custom-model"
+    });
+
+    registry.registerModel({
+        getModel: (config) => new CustomModel(config),
+        // highlight-next-line
+        itemType: "custom-model",
+    });
+}
+```
+
+</TabItem>
+</Tabs>
+
+### `@command` and `@operation` Decorator Options
+
+Both the `@command` and `@operation` decorator functions can take an optional second argument specifying parameters that affect the behavior of the command or operation.
+
+The `targetInactive` option applies to commands and operations implemented through a component model. The default value is false. If `targetInactive` is set to true, the command or operation will be executed even if the associated component is not currently active in the layout
+
+```ts
+// highlight-next-line
+@command("custom.my-command", { targetInactive: true })
+protected _myCommand() {
+    console.log(
+        `Executing 'custom.my-command even if the associated
+        component is not activated in the layout.`
+    );
+    return;
+}
+```
+
+The `parallel` option applies to commands only. The default value is false. By default, if a command has multiple implementations, each implementation is executed sequentially in the order it was registered in the library, and multiple component model implementations are executed in layout order. Setting `parallel` to true causes the command implementation to be run in parallel with other implementations marked as `parallel`.
+
+:::note
+If there is a mix of parallel and sequential command implementations, then the parallel implementations will run concurrently after all sequential implementations have finished executing.
+:::
+
+```ts
+// highlight-next-line
+@command("custom.my-command", { parallel: true })
+protected _myCommand() {
+    console.log(
+        `This implementation will be executed in parallel
+        with other command implementations marked as parallel.`
+    );
+    return;
+}
+```
+
+### `canExecute` Hook
+
+<CanExecuteSnippet />
+
+## Running Custom Commands
+
+You can run the custom commands or operations you define from another component, model, or service by locating them by ID and providing the appropriate type arguments.
+
+```ts
+@serializable
+export default class ExampleComponentModel extends ComponentModelBase {
+    async runCustomCommandsAndOperations() {
+        // highlight-start
+        await this.messages
+            .command<CustomCommandArg>("custom.my-command")
+            .execute({
+                someProp: "some arg",
+            });
+        // highlight-end
+
+        // highlight-start
+        const result = await this.messages
+            .operation<InputArgType, OutputArgType>("custom.my-operation")
+            .execute({
+                some: "arg",
+            });
+        // highlight-end
+        // ...
+    }
+    // ...
+}
+```

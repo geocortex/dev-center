@@ -41,8 +41,8 @@ import React from "react";
 import {
     LayoutElement,
     LayoutElementProperties,
-} from "@geocortex/web/components";
-import Button from "@geocortex/web/ui/button/Button";
+} from "@vertigis/web/components";
+import Button from "@vertigis/web/ui/Button";
 import { CustomModel } from ".";
 
 export default function CustomComponent(
@@ -62,16 +62,7 @@ export default function CustomComponent(
 <TabItem value="model">
 
 ```ts title="src/components/CustomComponent/CustomModel.ts"
-import {
-    ComponentModelBase,
-    serializable,
-    importModel,
-} from "@geocortex/web/models";
-import { MapExtension } from "@geocortex/api/mapping/MapExtension";
-import Graphic from "esri/Graphic";
-import GraphicsLayer from "esri/layers/GraphicsLayer";
-import { Polygon } from "esri/geometry";
-import { SimpleFillSymbol } from "esri/symbols";
+import { ComponentModelBase, serializable } from "@vertigis/web/models";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
@@ -131,8 +122,8 @@ import React from "react";
 import {
     LayoutElement,
     LayoutElementProperties,
-} from "@geocortex/web/components";
-import Button from "@geocortex/web/ui/button/Button";
+} from "@vertigis/web/components";
+import Button from "@vertigis/web/ui/Button";
 import { CustomModel } from ".";
 
 export default function CustomComponent(
@@ -156,8 +147,8 @@ import {
     ComponentModelBase,
     serializable,
     importModel,
-} from "@geocortex/web/models";
-import { MapExtension } from "@geocortex/api/mapping/MapExtension";
+} from "@vertigis/web/models";
+import { MapExtension } from "@vertigis/arcgis-extensions/mapping/MapExtension";
 import Graphic from "esri/Graphic";
 import GraphicsLayer from "esri/layers/GraphicsLayer";
 import { Polygon } from "esri/geometry";

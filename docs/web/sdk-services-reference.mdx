@@ -20,7 +20,7 @@ export default function(registry: LibraryRegistry) {
     ...
     registry.registerService({
         id: "custom-service",
-        getServiceType: () => CustomService,
+        getService: (config) => new CustomService(config),
         // Use this setting if you want your service to load an
         // item from the app config.
         itemType: "custom-service-model",
@@ -41,7 +41,7 @@ All other services are created and initialized (i.e. the `_onInitialize` method 
 -   If a command or operation implemented by the service is executed, then the service will be created and initialized to run that command.
 -   If a different component or service injects the service, then the service will be created and initialized to fulfill that dependency.
 
-Services are destroyed (i.e. the `destroy` method is invoked) when the application is destroyed.
+Services are destroyed (i.e. the `_onDestroy` method is invoked) when the application is destroyed.
 
 ## Service Anatomy
 
@@ -51,8 +51,8 @@ All services have access to initialization and cleanup methods, as well as the `
 
 Sometimes, a service is required to perform initialization and cleanup actions, for example, to initialize dynamic data and cleanup dangling references. The `ServiceBase` class has two methods to achieve this:
 
--   `_onInitialize()`, which can be overridden,
--   and `destroy()`, which can be implemented to facilitate cleanup.
+-   `_onInitialize()`, which can be overridden with additional initialization logic,
+-   and `_onDestroy()`, which can be overridden to facilitate cleanup.
 
 The following service uses these methods to subscribe to an event and cleanup the event handler afterwards.
 
@@ -61,8 +61,8 @@ Always call `super._onInitialize()` before any custom initialization logic.
 :::
 
 ```ts
-import { ServiceBase } from "@geocortex/web/services";
-import { MapEvent } from "@geocortex/viewer-framework/messaging/registry/map";
+import { ServiceBase } from "@vertigis/web/services";
+import { MapEvent } from "@vertigis/viewer-spec/messaging/registry/map";
 
 export default class CustomService extends ServiceBase {
     handles: IHandle[] = [];
@@ -79,7 +79,8 @@ export default class CustomService extends ServiceBase {
         return;
     }
 
-    destroy(): void {
+    protected async _onDestroy(): Promise<void> {
+        await super._onDestroy();
         this.handles.forEach((h) => h.remove());
     }
 }
@@ -146,7 +147,7 @@ export default function (registry: LibraryRegistry) {
     registry.registerService({
         id: "custom-service",
         title: "Custom Service",
-        getServiceType: () => CustomServiceWithConfig,
+        getService: (config) => new CustomServiceWithConfig(config),
         // highlight-next-line
         itemType: "custom-service-model",
     });

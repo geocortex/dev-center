@@ -16,10 +16,10 @@ If a [custom command or operation](sdk-services-commands-operations.mdx#implemen
 The `@inject` decorator can be used to reference a service from within your component model. The following example demonstrates injecting the `RegionService` into a custom component model.
 
 ```ts
-import { ComponentModelBase } from "@geocortex/web/models";
-import { RegionService } from "@geocortex/web/region";
+import { ComponentModelBase } from "@vertigis/web/models";
+import { RegionService } from "@vertigis/web/region";
 // highlight-next-line
-import { FrameworkServiceType, inject } from "@geocortex/web/services";
+import { FrameworkServiceType, inject } from "@vertigis/web/services";
 
 export default class ExampleComponentModel extends ComponentModelBase {
     // NOTE: This property isn't populated until the model is `initialized`.

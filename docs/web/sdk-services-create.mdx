@@ -17,7 +17,7 @@ Creating a new [custom service](sdk-services-create.mdx) involves a few importan
 Create the service source file in a new folder within the `src/services` folder. For example to create a new service called `ExampleService`, create a new file called `ExampleService.ts` in `src/services/ExampleService` with the following content:
 
 ```ts title="src/services/ExampleService.ts"
-import { ServiceBase } from "@geocortex/web/services";
+import { ServiceBase } from "@vertigis/web/services";
 
 export default class ExampleService extends ServiceBase {}
 ```
@@ -25,8 +25,8 @@ export default class ExampleService extends ServiceBase {}
 If you want your service to be able to serialize and deserialize configuration specific to the service from `app.json`, you can extend from `ConfigurableServiceBase` instead:
 
 ```ts title="src/services/ExampleService.ts"
-import { ServiceModelProperties } from "@geocortex/web/models";
-import { ConfigurableServiceBase, serializable } from "@geocortex/web/services";
+import { ServiceModelProperties } from "@vertigis/web/models";
+import { ConfigurableServiceBase, serializable } from "@vertigis/web/services";
 
 interface ExampleModelProperties extends ServiceModelProperties {
     exampleProperty: string;
@@ -55,7 +55,7 @@ export { default } from "./ExampleService";
 Now register your service with the service registry by modifying the `src/index.ts` file:
 
 ```ts title="src/index.ts"
-import { LibraryRegistry } from "@geocortex/web/config";
+import { LibraryRegistry } from "@vertigis/web/config";
 
 // highlight-next-line
 import ExampleService from "./services/ExampleService";
@@ -66,7 +66,7 @@ export default function (registry: LibraryRegistry) {
     // highlight-start
     registry.registerService({
         id: "example",
-        getServiceType: () => ExampleService,
+        getService: (config) => new ExampleService(config),
         // Use this setting if you want your service to load on
         // application startup. Defaults to `false`.
         loadOnStartup: true,

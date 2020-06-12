@@ -13,10 +13,10 @@ Events can only be created, published, and subscribed to from within a custom se
 
 ## Create the Custom Service
 
-Create a custom service with an `_onInitialized` and `destroy` method.
+Create a custom service with an `_onInitialized` and `_onDestroy` method.
 
 ```ts title="src/services/CustomService.ts"
-import { ServiceBase } from "@geocortex/web/services";
+import { ServiceBase } from "@vertigis/web/services";
 
 export default class CustomService extends ServiceBase {
     handles: IHandle[] = [];
@@ -25,7 +25,9 @@ export default class CustomService extends ServiceBase {
         await super._onInitialize();
     }
 
-    destroy(): void {}
+    public async _onDestroy(): Promise<void> {
+        await super._onDestroy();
+    }
 }
 ```
 
@@ -34,14 +36,14 @@ export default class CustomService extends ServiceBase {
 Register the custom service in `src/index.ts` and set it to load on startup.
 
 ```ts title="src/index.ts"
-import { LibraryRegistry } from "@geocortex/web/config";
+import { LibraryRegistry } from "@vertigis/web/config";
 import CustomService from "./services/CustomService";
 
 export default function (registry: LibraryRegistry) {
     // highlight-start
     registry.registerService({
         id: "custom-service",
-        getServiceType: () => CustomService,
+        getService: (config) => new CustomService(config),
         loadOnStartup: true,
     });
     // highlight-end
@@ -53,7 +55,7 @@ export default function (registry: LibraryRegistry) {
 Subscribe to the `ui.activated` event.
 
 ```ts title="src/services/CustomService.ts"
-import { ServiceBase } from "@geocortex/web/services";
+import { ServiceBase } from "@vertigis/web/services";
 
 export default class CustomService extends ServiceBase {
     handles: IHandle[] = [];
@@ -67,7 +69,8 @@ export default class CustomService extends ServiceBase {
         );
     }
 
-    destroy(): void {
+    protected async _onDestroy(): Promise<void> {
+        await super._onDestroy();
         this.handles.forEach((handle) => handle.remove());
     }
 }
