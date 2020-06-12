@@ -95,7 +95,7 @@ module.exports = {
     plugins: [require.resolve("@docusaurus/plugin-google-gtag")],
     presets: [
         [
-            "@docusaurus/preset-classic",
+            require.resolve("@docusaurus/preset-classic"),
             {
                 docs: {
                     editUrl:
