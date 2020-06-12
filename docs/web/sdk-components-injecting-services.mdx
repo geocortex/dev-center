@@ -10,7 +10,7 @@ import TabItem from "@theme/TabItem";
 Geocortex Web uses dependency injection as a way to obtain a reference to Geocortex Web [services](sdk-services-overview.mdx) in your application. Services can be referenced from within a [component model](sdk-components-reference.mdx#models).
 
 :::note
-If a [custom command or operation](sdk-services-commands-operations.mdx#implementing-commands-and-operations) can accomplish the behavior you need without a direct service reference, this is preferred to decrease the degree of coupling.
+If a [custom command or operation](sdk-commands-operations.mdx#implementing-commands-and-operations) can accomplish the behavior you need without a direct service reference, this is preferred to decrease the degree of coupling.
 :::
 
 The `@inject` decorator can be used to reference a service from within your component model. The following example demonstrates injecting the `RegionService` into a custom component model.
