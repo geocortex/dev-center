@@ -16,13 +16,13 @@ import React, { useState } from "react";
 import {
     LayoutElement,
     LayoutElementProperties,
-} from "@geocortex/web/components";
-import List from "@geocortex/web/ui/list";
-import ListItem from "@geocortex/web/ui/list-item";
-import TitleBar from "@geocortex/web/ui/title-bar";
-import Button from "@geocortex/web/ui/button";
-import { useWatchAndRerender } from "@geocortex/web/ui/hooks";
-import DialogActions from "@geocortex/web/ui/dialog-actions";
+} from "@vertigis/web/components";
+import List from "@vertigis/web/ui/List";
+import ListItem from "@vertigis/web/ui/ListItem";
+import TitleBar from "@vertigis/web/ui/TitleBar";
+import Button from "@vertigis/web/ui/Button";
+import { useWatchAndRerender } from "@vertigis/web/ui";
+import DialogActions from "@vertigis/web/ui/DialogActions";
 import ExampleComponentModel from "./ExampleComponentModel";
 
 export default function ExampleComponent(
@@ -73,9 +73,9 @@ export default function (registry: LibraryRegistry) {
         // The name used to identify the component in the layout
         name: "example",
         // The namespace used to identify the component in the layout.
-        namespace: "custom.abc123"
+        namespace: "custom.abc123",
         // The class corresponding to the React Functional Component
-        getComponentType: () => ExampleComponent as ComponentType,
+        getComponentType: () => ExampleComponent,
         // The model type this component is bound to.
         itemType: "example-model",
         title: "Example Component",
@@ -105,8 +105,12 @@ Geocortex Web custom components return a DOM element, like any other React compo
 export default function ExampleComponent(
     props: LayoutElementProperties<ExampleComponentModel>
 ) {
-    // highlight-next-line
-    return <LayoutElement {...props}></LayoutElement>;
+    return (
+        // highlight-next-line
+        <LayoutElement {...props}>
+            <p>Some Content</p>
+        </LayoutElement>
+    );
 }
 ```
 
@@ -160,13 +164,13 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "example",
         namespace: LAYOUT_NAMESPACE,
-        getComponentType: () => ExampleComponent as ComponentType,
+        getComponentType: () => ExampleComponent,
         // highlight-next-line
         itemType: "example-model",
         title: "Example Component",
     });
     registry.registerModel({
-        getModelType: () => ExampleComponentModel,
+        getModel: (config) => new ExampleComponentModel(config),
         // highlight-next-line
         itemType: "example-model",
     });
@@ -316,7 +320,7 @@ Most components support the [`config` attribute](configuration-app-config-gettin
 Component models have an initialization method, which can be used to perform asynchronous startup logic, and a teardown method, which can be used to free resources when a component is removed from the layout.
 
 :::important
-Always call `super._onInitialize()` when overriding the `_onInitialize` method.
+Always call `super._onInitialize()` when overriding the `_onInitialize` method, and `super._onDestroy()` when overriding the `_onDestroy` method.
 :::
 
 ```ts
@@ -334,7 +338,9 @@ export default class ExampleComponentModel extends ComponentModelBase {
         // ...other initialization logic
     }
 
-    destroy(): void {
+    protected async _onDestroy(): Promise<void> {
+        await super._onDestroy();
+
         this.items.destroy();
         // ...free up resources
     }
@@ -377,8 +383,8 @@ export default class ExampleComponentModel extends ComponentModelBase<
         // highlight-end
     }
 
-    public destroy() {
-        super.destroy();
+    protected async _onDestroy(): Promise<void> {
+        await super._onDestroy();
         // highlight-start
         // Make sure to clean up subscriptions when the model is destroyed.
         this._handles.forEach((h) => h.remove());
@@ -393,7 +399,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
     <UseCaseCard
         title="Learn how to use Commands and Operations with Components"
         description="Learn how to run and implement commands and operations with custom components"
-        link={useBaseUrl("docs/web/sdk-components-commands-operations")}
+        link={useBaseUrl("docs/web/sdk-commands-operations")}
     />
     <UseCaseCard
         title="Learn about Component Interactions"

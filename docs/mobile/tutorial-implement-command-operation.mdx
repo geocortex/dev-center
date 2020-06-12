@@ -27,8 +27,8 @@ It's convention that commands and operations in Geocortex Mobile are registered 
 
 ```cs title="App1/App1/services/AlertService.cs"
 using App1.Services.AlertService;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Services;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Services;
 
 // highlight-next-line
 [assembly: Service(typeof(AlertService), PropertiesAutowired = true)]
@@ -46,9 +46,9 @@ namespace App1.Services.AlertService
 
 ```cs title="App1/App1/services/AlertOperations.cs"
 using App1.Services.AlertOperations;
-using Geocortex.Mobile.Composition;
-using Geocortex.Mobile.Composition.Messaging;
-using Geocortex.Mobile.Infrastructure.Messaging;
+using VertiGIS.Mobile.Composition;
+using VertiGIS.Mobile.Composition.Messaging;
+using VertiGIS.Mobile.Infrastructure.Messaging;
 
 // highlight-next-line
 [assembly: Export(typeof(AlertOperations), SingleInstance = true)]

@@ -13,7 +13,7 @@ import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 
 <!-- TODO-API direct link to map model -->
 
-Components have multiple ways of interacting with other components and services. When possible, interaction through [commands and operations](sdk-components-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling. When you need stronger coupling and direct access to the API, then **model imports** or **service injection** can be used. A good example of this is needing direct access to the [ArcGIS Map](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html), which can be exposed by importing the map model.
+Components have multiple ways of interacting with other components and services. When possible, interaction through [commands and operations](sdk-commands-operations.mdx#running-commands-and-operations) should be preferred, as this introduces the loosest coupling. When you need stronger coupling and direct access to the API, then **model imports** or **service injection** can be used. A good example of this is needing direct access to the [ArcGIS Map](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html), which can be exposed by importing the map model.
 
 ## Interacting with Components through Models
 
@@ -54,8 +54,8 @@ import {
     ComponentModelBase,
     serializable,
     importModel,
-} from "@geocortex/web/models";
-import { MapExtension } from "@geocortex/api/mapping/MapExtension";
+} from "@vertigis/web/models";
+import { MapExtension } from "@vertigis/arcgis-extensions/mapping/MapExtension";
 
 @serializable
 export default class ExampleComponentModel extends ComponentModelBase {
@@ -98,7 +98,7 @@ import {
     ComponentModelBase,
     serializable,
     exportModel,
-} from "@geocortex/web/models";
+} from "@vertigis/web/models";
 
 @exportModel
 @serializable
@@ -115,7 +115,7 @@ import {
     ComponentModelBase,
     serializable,
     importModel,
-} from "@geocortex/web/models";
+} from "@vertigis/web/models";
 import { ExportedModel } from "../ExportedModel";
 
 @serializable
@@ -141,12 +141,12 @@ export default class CustomModel extends ComponentModelBase {
 
 ```tsx title="src/components/importedModel/ExportedModelComponent.tsx"
 import React from "react";
-import Typography from "@geocortex/web/ui/typography";
+import Typography from "@vertigis/web/ui/Typography";
 
 import {
     LayoutElement,
     LayoutElementProperties,
-} from "@geocortex/web/components";
+} from "@vertigis/web/components";
 import { CustomModel } from ".";
 
 export default function CustomComponent(

@@ -47,8 +47,8 @@ Learn more about how to [build custom components](sdk-components-create.mdx).
 
 ```tsx title="src/components/TranslatableText/TranslatableText.tsx"
 import React from "react";
-import { LayoutElement } from "@geocortex/web/components";
-import Typography from "@geocortex/web/ui/typography";
+import { LayoutElement } from "@vertigis/web/components";
+import Typography from "@vertigis/web/ui/Typography";
 
 export default function TranslatableText(props) {
     return (
@@ -63,7 +63,7 @@ export default function TranslatableText(props) {
 <TabItem value="model">
 
 ```ts title="src/components/TranslatableText/TranslatableTextModel.ts"
-import { ComponentModelBase, serializable } from "@geocortex/web/models";
+import { ComponentModelBase, serializable } from "@vertigis/web/models";
 
 @serializable
 class TranslatableTextModel extends ComponentModelBase {}
@@ -83,8 +83,7 @@ export { default as TranslatableTextModel } from "./TranslatableTextModel";
 <TabItem value="registration">
 
 ```ts title="src/index.ts"
-import { ComponentType } from "react";
-import { LibraryRegistry } from "@geocortex/web/config";
+import { LibraryRegistry } from "@vertigis/web/config";
 import TranslatableText, {
     TranslatableTextModel,
 } from "./components/TranslatableText";
@@ -93,12 +92,12 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "translatable-text",
         namespace: "your.custom.namespace",
-        getComponentType: () => TranslatableText as ComponentType,
+        getComponentType: () => TranslatableText,
         itemType: "translatable-text",
         title: "Translatable Text",
     });
     registry.registerModel({
-        getModelType: () => TranslatableTextModel,
+        getModel: (config) => new TranslatableTextModel(config),
         itemType: "translatable-text",
     });
 }
@@ -168,8 +167,7 @@ Next, we are going to create the [language resources](sdk-internationalization.m
 Next we need to [register the language resources](sdk-internationalization.mdx#registering-language-resources) with Geocortex Web.
 
 ```ts title="src/index.ts"
-import { ComponentType } from "react";
-import { LibraryRegistry } from "@geocortex/web/config";
+import { LibraryRegistry } from "@vertigis/web/config";
 import TranslatableText, {
     TranslatableTextModel,
 } from "./components/TranslatableText";
@@ -182,12 +180,12 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "translatable-text",
         namespace: "your.custom.namespace",
-        getComponentType: () => TranslatableText as ComponentType,
+        getComponentType: () => TranslatableText,
         itemType: "translatable-text",
         title: "Translatable Text",
     });
     registry.registerModel({
-        getModelType: () => TranslatableTextModel,
+        getModel: (config) => new TranslatableTextModel(config),
         itemType: "translatable-text",
     });
     // highlight-start
@@ -228,10 +226,10 @@ For example, `http://localhost:3000/?locale=de`
 
 ```tsx title="src/components/TranslatableText/TranslatableText.tsx"
 import React, { useContext } from "react";
-import { LayoutElement } from "@geocortex/web/components";
+import { LayoutElement } from "@vertigis/web/components";
 // highlight-next-line
-import { UIContext } from "@geocortex/web/ui";
-import Typography from "@geocortex/web/ui/typography";
+import { UIContext } from "@vertigis/web/ui";
+import Typography from "@vertigis/web/ui/Typography";
 
 export default function TranslatableText(props) {
     // highlight-next-line

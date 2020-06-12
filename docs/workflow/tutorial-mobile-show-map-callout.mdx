@@ -35,7 +35,7 @@ First, the basic activity needs to be setup and registered. Below is an example 
 
 ```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
 using App1.Workflow;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.GIS;
 using Geocortex.Workflow.Runtime;
 using System;
@@ -69,7 +69,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using App1.Workflow;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Definition;
 using Geocortex.Workflow.Runtime.Execution;
@@ -129,7 +129,7 @@ To inject the MapProviderBase, add a new [Autofac factory](https://autofaccn.rea
 
 ```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
 using App1.Workflow;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.GIS;
 using Geocortex.Workflow.Runtime;
 using System;
@@ -166,7 +166,7 @@ Next, we need to load the `MapView` from the `MapProviderFactory`.
 using App1.Workflow;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.Xamarin.Forms;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.GIS;
 using Geocortex.Workflow.Runtime;
 using System;
@@ -214,7 +214,7 @@ Operations related to UI activities have to run in Xamarin's [main thread](https
 
 ```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
 using App1.Workflow;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.UI;
 using Esri.ArcGISRuntime.Mapping;
@@ -357,7 +357,7 @@ You can do this by configuring the layout and app config to run a workflow. You 
     xmlns="https://geocortex.com/layout/v1"
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerSpec/layout/layout-mobile.xsd">
 	<gxm:taskbar id="taskbar" orientation="vertical">
 		<map slot="main">
 			<stack margin="0.8" slot="top-right" halign="end">

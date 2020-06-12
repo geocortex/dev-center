@@ -112,7 +112,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using App1.Workflow;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Definition;
 using Geocortex.Workflow.Runtime.Execution;
@@ -167,7 +167,7 @@ namespace App1.Workflow
 Next we can add the loading indicator to the form element.
 
 ```cs title="App1/App1/workflow/LoadingIndicator.cs"
-using Geocortex.Mobile.Infrastructure.UI;
+using VertiGIS.Mobile.Infrastructure.UI;
 using Geocortex.Workflow.Forms.Components;
 
 namespace App1.Workflow
@@ -285,7 +285,7 @@ You can do this by configuring the layout and app config to run a workflow. You 
     xmlns="https://geocortex.com/layout/v1"
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerSpec/layout/layout-mobile.xsd">
 	<gxm:taskbar id="taskbar" orientation="vertical">
 		<map slot="main">
 			<stack margin="0.8" slot="top-right" halign="end">

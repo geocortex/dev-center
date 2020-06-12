@@ -23,11 +23,11 @@ Geocortex Web components solve this problem by providing a way to update the UI 
 1. The hook that is watching the property value for changes causes the component to re-render with the new property value.
 
 ```tsx
-import { useWatchAndRerender } from "@geocortex/web/ui";
-import Typography from "@geocortex/web/ui/typography";
+import { useWatchAndRerender } from "@vertigis/web/ui";
+import Typography from "@vertigis/web/ui/Typography";
 import React from "react";
-import { LayoutElement } from "@geocortex/web/components";
-import Button from "@geocortex/web/ui/button";
+import { LayoutElement } from "@vertigis/web/components";
+import Button from "@vertigis/web/ui/Button";
 
 export default function CustomComponent(props) {
     const { model } = props;

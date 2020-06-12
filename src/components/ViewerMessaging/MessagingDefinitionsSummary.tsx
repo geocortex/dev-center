@@ -26,13 +26,15 @@ export default function MessagingDefinitionsSummary(
 
     return (
         <div>
-            {Object.keys(filteredDefinitions).map((name) => (
-                <MessagingDefinition
-                    key={name}
-                    definitionName={name}
-                    schema={schema}
-                />
-            ))}
+            {Object.keys(filteredDefinitions)
+                .sort((a, b) => a.localeCompare(b))
+                .map((name) => (
+                    <MessagingDefinition
+                        key={name}
+                        definitionName={name}
+                        schema={schema}
+                    />
+                ))}
         </div>
     );
 }

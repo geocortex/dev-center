@@ -1,25 +1,17 @@
 import React from "react";
 import { Definition, MessageSchema, PrimitiveType } from "./schema";
 import MessagingRef from "./MessagingRef";
-import { trimDefinitionsName } from "./utils";
+import { getReferencedDefinition } from "./utils";
 
 interface MessagingArgumentProps {
-    definition: Definition | string;
+    definition: Definition | string | undefined;
     schema: MessageSchema;
-}
-
-function getReferencedDefinition(
-    name: string,
-    schema: MessageSchema
-): Definition | undefined {
-    const trimmedName = trimDefinitionsName(name);
-    return schema.definitions[trimmedName];
 }
 
 export default function MessagingArgument(props: MessagingArgumentProps) {
     const { schema } = props;
 
-    let definition: Definition | string | undefined = props.definition;
+    let definition = props.definition;
 
     if (typeof definition === "string") {
         const foundDefinition = getReferencedDefinition(name, schema);
@@ -28,16 +20,16 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
     }
 
     if (!definition) {
-        return <code>null</code>;
+        return (
+            <div style={{ fontStyle: "italic" }}>There are no arguments</div>
+        );
     }
     // This is a single type referencing another definition
     else if (definition.$ref) {
         const referencedDef = getReferencedDefinition(definition.$ref, schema);
 
         // We only hyperlink to object type definitions, everything else can be inlined.
-        if (referencedDef && referencedDef.type === "object") {
-            return <MessagingRef name={definition.$ref} schema={schema} />;
-        } else if (referencedDef) {
+        if (referencedDef && referencedDef.type !== "object") {
             return (
                 <MessagingArgument definition={referencedDef} schema={schema} />
             );
@@ -53,11 +45,10 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
                 .join(" | ");
             return <code>{enumType}</code>;
         } else if (definition.type === "array" && definition.items) {
-            if (Array.isArray(definition.items)) {
+            const renderAnyOf = (items: Definition[]) => {
                 return (
                     <>
-                        <div>Any of:</div>
-                        {definition.items.map((option, index) => (
+                        {items.map((option, index) => (
                             // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
                             <div key={option.$ref || index}>
                                 <MessagingArgument
@@ -69,8 +60,14 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
                         ))}
                     </>
                 );
+            };
+            if (Array.isArray(definition.items)) {
+                return renderAnyOf(definition.items);
             }
-            if (definition.items && (definition.items as Definition).$ref) {
+            if (Array.isArray(definition.items.anyOf)) {
+                return renderAnyOf(definition.items.anyOf);
+            }
+            if (definition.items.$ref) {
                 const itemsRef = (definition.items as Definition).$ref!;
                 return <MessagingRef isArray name={itemsRef} schema={schema} />;
             }
@@ -78,16 +75,42 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
         } else if (definition.type === "object") {
             // We don't support rendering object type inline, should only reference by link.
             return <code>unknown</code>;
+        } else if (Array.isArray(definition.type)) {
+            // We already take care of calling out that an argument is optional
+            // if one of the allowed types is "null" so we don't need to
+            // explicitly include "null"
+            const types = definition.type.filter((type) => type !== "null");
+            if (types.length === 0) {
+                return null;
+            }
+            if (types.length === 1) {
+                return <code>{types[0]}</code>;
+            }
+            return (
+                <>
+                    {types.map((type) => (
+                        <div key={type}>
+                            <code>{type}</code>
+                        </div>
+                    ))}
+                </>
+            );
         }
 
         return <code>{definition.type}</code>;
     }
     // This is a union type
     else if (definition.anyOf) {
+        // We already take care of calling out that an argument is optional
+        // if one of the allowed types is "null" so we don't need to
+        // explicitly include "null"
+        const types = definition.anyOf.filter(
+            (def) => !((def.type as string) === "null")
+        );
         return (
             <>
-                <div>Any of:</div>
-                {definition.anyOf.map((option, index) => (
+                {types.length > 1 && <div>Any of:</div>}
+                {types.map((option, index) => (
                     // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
                     <div key={option.$ref || index}>
                         <MessagingArgument

@@ -63,7 +63,7 @@ Once a component has been registered, it can be used in a layout by referring it
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd"
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerSpec/layout/layout-mobile.xsd"
     // highlight-start
     xmlns:custom="https://your.org/layout/app1">
     <custom:custom-component/>
@@ -144,7 +144,7 @@ Every component is bound to specific [**item type**](configuration-app-config-re
 ```cs
 // highlight-next-line
 [assembly: AppItemComponent(typeof(CustomComponent), "component-with-config", "my-app-item", XmlNamespace = XmlNamespaces.App1Namespace)]
-namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 {
     // highlight-next-line
     internal class CustomComponent : AppItemComponentBase<MyAppItem>
@@ -186,7 +186,7 @@ namespace Geocortex.Mobile.Samples.Samples.Custom.Component
 ```cs
 // highlight-next-line
 [assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
-namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
+namespace VertiGIS.Mobile.Samples.Samples.Custom.ComponentConfiguration
 {
     public class MyAppItem : VisualAppItem
     {
@@ -247,7 +247,7 @@ Most components support the [`config` attribute](configuration-app-config-gettin
 
 ```cs
 [assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
-namespace Geocortex.Mobile.Samples.Samples.Custom.ComponentConfiguration
+namespace VertiGIS.Mobile.Samples.Samples.Custom.ComponentConfiguration
 {
     public class MyAppItem : VisualAppItem
     {
@@ -272,7 +272,7 @@ This pattern is what allows you to place a map with no config in the layout and 
 <layout
     xmlns="https://geocortex.com/layout/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerSpec/layout/layout-mobile.xsd">
     <map/> <!-- The map component is populated with values from the MapExtension's `CreateDefault` function. -->
 </layout>
 ```
@@ -289,7 +289,7 @@ To learn more about memory management in Geocortex Mobile, check out [this artic
 
 ```cs
 [assembly: Component(typeof(CustomComponent), "component", XmlNamespace = XmlNamespaces.SamplesNamespace)]
-namespace Geocortex.Mobile.Samples.Samples.Custom.Component
+namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 {
     internal class CustomComponent : ComponentBase
     {

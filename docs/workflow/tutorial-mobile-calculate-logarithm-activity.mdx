@@ -28,7 +28,7 @@ In this article, you will learn how to create a custom activity that calculates 
 
 ```cs title="App1/App1/CalculateLog.cs"
 using App1.Workflow;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -62,7 +62,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.Runtime;
 using Geocortex.Workflow.Runtime.Definition;
 using Geocortex.Workflow.Runtime.Execution;
@@ -118,7 +118,7 @@ First, let's change the execute logic to parse inputs that make sense for a loga
 
 ```cs title="App1/App1/CalculateLog.cs"
 using App1.Workflow;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
@@ -152,7 +152,7 @@ Next, modify the `Execute` method of the activity to calculate the logarithm of 
 
 ```cs title="App1/App1/CalculateLog.cs"
 using App1.Workflow;
-using Geocortex.Mobile.Composition;
+using VertiGIS.Mobile.Composition;
 using Geocortex.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
@@ -291,7 +291,7 @@ You can do this by configuring the layout and app config to run a workflow. You 
     xmlns="https://geocortex.com/layout/v1"
     xmlns:gxm="https://geocortex.com/layout/mobile/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerFramework/layout/layout-mobile.xsd">
+    xsi:schemaLocation="https://geocortex.com/layout/v1 ../../ViewerSpec/layout/layout-mobile.xsd">
 	<gxm:taskbar id="taskbar" orientation="vertical">
 		<map slot="main">
 			<stack margin="0.8" slot="top-right" halign="end">

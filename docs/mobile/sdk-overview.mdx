@@ -49,8 +49,7 @@ Components, services, and commands and operations interact to form a Geocortex M
 ### Windows
 
 -   Windows 10 - To run the app on Windows 10, you must have Fall Creators Update installed on your Windows development PC.
-    -   The SDK targets Windows 10, version 1809 (10.0; Build 17763).
-    -   The minimum supported version is Windows 10 Fall Creators Update (10.0; Build 16299).
+    -   The SDK targets Windows 10, version 1809 (10.0; Build 17763) or later.
 
 ### iOS
 
@@ -115,16 +114,12 @@ The Quickstart is composed of four projects, one for each platform, and a common
 
 The Geocortex Mobile SDK is composed of Geocortex packages:
 
--   `Geocortex Icons`
-    -   This package provides configurable vector icons for use in Geocortex Mobile apps.
--   `Geocortex Mobile`
+-   `Vertigis Mobile`
     -   This package is the heart of the Mobile SDK, and powers the interface and interactions of a Mobile Xamarin Application.
-    -   This package includes the Geocortex.API namespace, an API for working with foundational Geocortex models, configuration, Esri's ArcGIS types, etc.
+    -   This package includes the `VertiGIS.ArcGISExtensions` namespace, an API for working with foundational Geocortex models, configuration, Esri's ArcGIS types, etc.
 -   `Geocortex Workflow`
     -   Geocortex Mobile heavily relies on [Geocortex Workflow](../workflow/overview.mdx) to power its functionality.
     -   Geocortex Workflow is itself composed of many packages (Image Activities, Forms, GIS, Runtime).
--   `Geocortex Viewer Framework`
-    -   This package provides the definitions of [layout](configuration-layout-getting-started.mdx) and [app config](configuration-app-config-getting-started.mdx) that are central to every Mobile app.
 
 ## Development Patterns
 

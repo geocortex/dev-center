@@ -41,12 +41,12 @@ We are going to add configuration to a custom component that displays news items
 
 ```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React, { useState } from "react";
-import { LayoutElement } from "@geocortex/web/components";
-import List from "@geocortex/web/ui/list";
-import ListItem from "@geocortex/web/ui/list-item";
-import TitleBar from "@geocortex/web/ui/title-bar";
-import Button from "@geocortex/web/ui/button";
-import DialogActions from "@geocortex/web/ui/dialog-actions";
+import { LayoutElement } from "@vertigis/web/components";
+import List from "@vertigis/web/ui/List";
+import ListItem from "@vertigis/web/ui/ListItem";
+import TitleBar from "@vertigis/web/ui/TitleBar";
+import Button from "@vertigis/web/ui/Button";
+import DialogActions from "@vertigis/web/ui/DialogActions";
 import "./NewsFeed.css";
 
 export default function NewsFeed(props) {
@@ -88,7 +88,7 @@ export default function NewsFeed(props) {
 <TabItem value="model">
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
-import { ComponentModelBase, serializable } from "@geocortex/web/models";
+import { ComponentModelBase, serializable } from "@vertigis/web/models";
 
 @serializable
 class NewsFeedModel extends ComponentModelBase {}
@@ -119,19 +119,18 @@ export { default as NewsFeedModel } from "./NewsFeedModel";
 
 ```ts title="src/index.ts"
 import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
-import { ComponentType } from "react";
-import { LibraryRegistry } from "@geocortex/web/config";
+import { LibraryRegistry } from "@vertigis/web/config";
 
 export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "news-feed",
         namespace: "your.custom.namespace",
-        getComponentType: () => NewsFeed as ComponentType,
+        getComponentType: () => NewsFeed,
         itemType: "news-feed-model",
         title: "News Feed",
     });
     registry.registerModel({
-        getModelType: () => NewsFeedModel,
+        getModel: (config) => new NewsFeedModel(config),
         itemType: "news-feed-model",
     });
 }
@@ -172,7 +171,7 @@ import {
     serializable,
     ComponentModelProperties,
     PropertyDefs,
-} from "@geocortex/web/models";
+} from "@vertigis/web/models";
 import Collection from "esri/core/Collection";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
@@ -206,9 +205,8 @@ import {
     serializable,
     ComponentModelProperties,
     PropertyDefs,
-} from "@geocortex/web/models";
+} from "@vertigis/web/models";
 import Collection from "esri/core/Collection";
-import { toEsriApiCardinality } from "@geocortex/api/data/_Relationship";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
     newsItems?: string[];
@@ -314,13 +312,13 @@ import React, { useState } from "react";
 import {
     LayoutElement,
     LayoutElementProperties,
-} from "@geocortex/web/components";
-import { useWatchAndRerender } from "@geocortex/web/ui/hooks";
-import List from "@geocortex/web/ui/list";
-import ListItem from "@geocortex/web/ui/list-item";
-import TitleBar from "@geocortex/web/ui/title-bar";
-import Button from "@geocortex/web/ui/button";
-import DialogActions from "@geocortex/web/ui/dialog-actions";
+} from "@vertigis/web/components";
+import { useWatchAndRerender } from "@vertigis/web/ui";
+import List from "@vertigis/web/ui/List";
+import ListItem from "@vertigis/web/ui/ListItem";
+import TitleBar from "@vertigis/web/ui/TitleBar";
+import Button from "@vertigis/web/ui/Button";
+import DialogActions from "@vertigis/web/ui/DialogActions";
 import "./NewsFeed.css";
 import { NewsFeedModel } from ".";
 
@@ -378,7 +376,7 @@ import {
     serializable,
     ComponentModelProperties,
     PropertyDefs,
-} from "@geocortex/web/models";
+} from "@vertigis/web/models";
 import Collection from "esri/core/Collection";
 
 interface NewsFeedModelProperties extends ComponentModelProperties {
@@ -484,8 +482,8 @@ export { default as NewsFeedModel } from "./NewsFeedModel";
 
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
-import { ComponentType } from "react";
 import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
+import { LibraryRegistry } from "@vertigis/web/config";
 
 const LAYOUT_NAMESPACE = "custom.foo";
 
@@ -493,13 +491,13 @@ export default function (registry: LibraryRegistry) {
     registry.registerComponent({
         name: "news-feed",
         namespace: "your.custom.namespace",
-        getComponentType: () => NewsFeed as ComponentType,
+        getComponentType: () => NewsFeed,
         // highlight-next-line
         itemType: "news-feed-model",
         title: "News Feed",
     });
     registry.registerModel({
-        getModelType: () => NewsFeedModel,
+        getModel: (config) => new NewsFeedModel(config),
         // highlight-next-line
         itemType: "news-feed-model",
     });

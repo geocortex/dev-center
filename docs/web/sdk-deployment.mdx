@@ -7,48 +7,25 @@ description: Geocortex Web - Deploy a Geocortex Web Application
 
 The easiest way to deploy your custom library built using the SDK is to upload it to an application using the [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/).
 
-:::warning
-This is a temporary deployment pattern for the preview release. We're actively improving this pattern, and as such it will change during the preview phase.
-:::
-
-### Modifying Layout and App Config using the Geocortex Web Designer
-
-<!-- TODO - update this sentence once information on the designer schema is available -->
-
-Geocortex Web Designer provides a powerful interface for editing the layout and configuration of built-in components, but if you need to add a custom component to your application, you will need to upload custom layout and app JSON.
-
-1. Type `Ctrl + Shift + E` while focused in the Geocortex Web Designer to open up the experimental development editing interface.
-1. Copy and paste the `app.json` and `layout.xml` from your local SDK project to the Geocortex Web Designer Interface.
+### Uploading Custom Code to an App
 
 :::note
-You may need to add an app item for the referenced layout file to the app config in the Designer Interface.
+You can only upload a library to a saved app.
 :::
-
-```json
-{
-  "schemaVersion": "1.0",
-  "items": [
-    ...
-    {
-      "$type":"layout",
-      "id":"desktop-landscape",
-      "title":"Desktop Landscape",
-      "url":"./desktop-landscape.xml"
-    }
-    ...
-  ]
-}
-```
-
-### Uploading Custom Code to an App
 
 1. Run `npm run build` in the root of your project to create a production build of your library
     - This creates an optimized production build that is output to the `build` folder of your project. This build is designed for use in production
-1. Open the application in Geocortex Web Designer (on-premises or [SaaS](https://apps.geocortex.com/webviewer/designer/), depending on your production environment) that you want to upload your custom code to
-1. Type `Ctrl + Shift + E` while focused in the Geocortex Web Designer to open up the experimental development editing interface
-    - This interface is for debugging and development purposes only, and is not intended for general configuration of your application.
-1. Upload the production build of your custom library located in the `build` folder to the `Custom Code` section of the development editing interface
-1. [Copy and paste](#modifying-layout-and-app-config-using-the-geocortex-web-designer) the custom layout and app config.
+1. Open an application in Geocortex Web Designer that you wish to upload your custom code into
+1. Navigate to File -> Upload Library
+1. Follow the instructions to upload your custom library located in the `build` folder of your project
+
+### Upload app config and layout to an App (optional):
+
+1. Create a `.zip` archive of your `app.json` and `layout.xml` files from the `app` folder of your project
+1. Navigate to File -> Upload App
+1. Follow the instructions to upload the `.zip` archive
+
+Your app is now ready to use your library. If your library registers any custom components, they will be available in the [Layout Toolbox](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/modify-a-layout.htm#add-a-component)
 
 ### Deploy the app
 
