@@ -23,15 +23,18 @@ Services can be optionally configured by [extending the `ConfigurableServiceBase
 
 ```ts
 import { ServiceBase } from "@vertigis/web/services";
+import { command, operation } from "@vertigis/web/messaging";
 
 export default class ExampleService extends ServiceBase {
 
     someSharedGlobalState: Map<string,string>;
 
+    @command("example-service.some-command")
     protected _someCommand(args: any) {
         ...
     }
 
+    @operation("example-service.some-operation")
     protected async _someOperation(){
         ...
         return result;

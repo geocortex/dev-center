@@ -8,13 +8,12 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
-import CanExecuteSnippet from "./snippets/can-execute.mdx";
 
 When writing custom components you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own custom commands and operations.
 
 ## Running Commands and Operations
 
-Components can run commands and operations in two ways; through the component model, or through the React component.
+Commands and operations can be run in any custom service or component. Components can run commands and operations in two ways; through the component model, or through the React component.
 
 :::tip
 It is best practice to run commands and operations through the components model, and express the result through a change in the models data rendered by the component.
@@ -93,9 +92,9 @@ export default class ExampleService extends ServiceBase {
 
 ## Implementing Commands and Operations
 
-Components and services can also implement commands and operations. This allows the creation of commands which can affect the UI. Command and operation implementations are defined in a [component's model](sdk-components-reference.mdx#models) or in a [service](sdk-services-overview.mdx). By decorating a method with `@command` or `@operation`, components and services can define an implementation for a command or operation. The command or operation must also be registered through the `registerOperation` or `registerCommand` methods in the library registry with the same item type that the model was registered with.
+Components and services can also implement commands and operations. Command and operation implementations are defined in a [component's model](sdk-components-reference.mdx#models) or in a [service](sdk-services-overview.mdx). By decorating a method with `@command` or `@operation`, components and services can define an implementation for a command or operation. The command or operation must also be registered through the `registerOperation` or `registerCommand` methods in the library registry with the same item type of the model or the ID of the service.
 
-The following component model defines an implementation for a custom command that takes a custom argument type, and a custom operation that returns a custom argument type. The same patterns apply when defined within a service.
+The following example demonstrates a component model defines an implementation for a custom command that takes a custom argument type, and a service that implements a custom operation that returns a number.
 
 :::note
 It's best practice to expose the arguments and return values for commands and operations as public interfaces, as this allows consumers of the command or operation to have the appropriate typing.
@@ -105,6 +104,7 @@ It's best practice to expose the arguments and return values for commands and op
   defaultValue="model"
   values={[
     { label: "Component Model", value: "model" },
+    { label: "Service", value: "service" },
     { label: "Registration", value: "registration" },
   ]}>
 <TabItem value="model">
@@ -116,7 +116,6 @@ export interface CustomCommandArg {
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
-    // highlight-next-line
     @command("custom.my-command")
     protected _myCommand(arg: CustomCommandArg): void {
         console.log(
@@ -124,8 +123,14 @@ export default class CustomModel extends ComponentModelBase {
         );
         return;
     }
+}
+```
 
-    // highlight-next-line
+</TabItem>
+<TabItem value="service">
+
+```ts
+export default class CustomService extends ServiceBase {
     @operation("custom.my-operation")
     protected _myOperation(): number {
         return 42;
@@ -146,16 +151,22 @@ export default function (registry: LibraryRegistry) {
         itemType: "custom-model"
     });
 
-    registry.registerOperation({
-        name: "custom.my-operation",
-        // highlight-next-line
-        itemType: "custom-model"
-    });
-
     registry.registerModel({
         getModel: (config) => new CustomModel(config),
         // highlight-next-line
         itemType: "custom-model",
+    });
+
+    registry.registerOperation({
+        name: "custom.my-operation",
+        // highlight-next-line
+        serviceId: "custom-service"
+    });
+
+    registry.registerService({
+        getService: () => new CustomService(),
+        // highlight-next-line
+        id: "custom-service",
     });
 }
 ```
@@ -201,7 +212,41 @@ protected _myCommand() {
 
 ### `canExecute` Hook
 
-<CanExecuteSnippet />
+Commands and services can optionally implement a hook function which indicates whether it is possible to execute the command. This is accomplished by implementing a "canExecute" method in the same class as the command implementation. This method is decorated with `@canExecute` and returns a boolean indicating whether the command can or cannot run based on the given argument.
+
+```tsx
+@command("custom.divide-ten-by-x")
+protected _divideTenByX(x: number): void {
+    this.messages.commands.ui.alert.execute({
+        message: `10 / ${x} is ${10 / x}`,
+    });
+}
+
+// highlight-start
+@canExecute("custom.divide-ten-by-x")
+protected _canExecuteDivideTenByX(x: number): boolean {
+    return x !== 0;
+}
+// highlight-end
+```
+
+If the `canExecute` hook for the command implementation returns true, the `execute` hook will be called. If the function returns false, the `execute` hook will not be called. Some components, like the I Want To Menu, use the `canExecute` hook to disable buttons when no implementations of a command can be executed. This is accomplished through the `canExecuteChanged` event. This event can be published or subscribed to in order to react to changing command execution conditions.
+
+```tsx
+this.messages
+    .command("custom.command-with-can-execute")
+    .canExecuteChanged.publish();
+
+this.messages
+    .command("custom.command-with-can-execute")
+    .canExecuteChanged.subscribe(() => {
+        // .. react to can execute status changing
+    });
+```
+
+:::tip
+For a full example of a command with a dynamic execution status, [check out the `canExecute` tutorial](../tutorial-command-can-execute.mdx), or [this live SDK sample](https://vertigis-web-samples.netlify.app/commands-and-operations).
+:::
 
 ## Running Custom Commands
 
