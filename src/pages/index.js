@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Layout from "@theme/Layout";
 import styles from "./index.module.css";
@@ -34,7 +34,7 @@ function Home() {
     return (
         <Layout description="Developer documentation and code samples for Geocortex Products.">
             <header
-                className={classNames("hero hero--dark", styles.heroBanner)}
+                className={clsx("hero hero--dark", styles.heroBanner)}
                 // TODO: Find out correct approach to use this in CSS file,
                 // as it wasn't taking baseUrl into account.
                 style={{
