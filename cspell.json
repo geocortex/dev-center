@@ -11,7 +11,7 @@
         "bootstrapper",
         "broadview",
         "callout",
-        "classnames",
+        "clsx",
         "configitemtype",
         "configurability",
         "cors",

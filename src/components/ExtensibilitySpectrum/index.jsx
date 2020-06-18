@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./index.module.css";
-import classNames from "classnames";
+import clsx from "clsx";
 
 function AppConfigSvg() {
     return (
@@ -63,10 +63,7 @@ function CustomCodeSvg() {
             </g>
             <g>
                 <path
-                    className={classNames(
-                        styles.svgFillBlue,
-                        styles.svgStrokeBlue
-                    )}
+                    className={clsx(styles.svgFillBlue, styles.svgStrokeBlue)}
                     d="M125.6 176l-29.2-20.8v-5.1l29.2-22.6v9.2l-21.3 15.7v.2l21.3 14.2v9.2zM154.9 126.1l-16.6 59.2h-5l16.5-59.2h5.1zM192.3 154.9l-29.2 20.8v-9.2l21.4-14.1v-.3l-21.4-15.7v-9.2l29.2 22.5v5.2z"
                 />
             </g>
@@ -83,10 +80,7 @@ function SvgLineWithArrow() {
         >
             <defs>
                 <marker
-                    className={classNames(
-                        styles.svgFillBlue,
-                        styles.svgStrokeBlue
-                    )}
+                    className={clsx(styles.svgFillBlue, styles.svgStrokeBlue)}
                     id="arrow"
                     viewBox="0 0 10 10"
                     refX="5"
@@ -99,7 +93,7 @@ function SvgLineWithArrow() {
                 </marker>
             </defs>
             <line
-                className={classNames(styles.arrowLine, styles.svgStrokeBlue)}
+                className={clsx(styles.arrowLine, styles.svgStrokeBlue)}
                 strokeDashoffset="-2.5"
                 strokeDasharray="10,5"
                 x1="10"
