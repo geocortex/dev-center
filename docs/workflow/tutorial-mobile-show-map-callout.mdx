@@ -196,7 +196,7 @@ namespace App1.Workflow
             // ArcGIS runtime Map
             Map map = mapProvider.Map;
             // ArcGIS runtime MapView
-            MapView mapView = (mapProvider as WorkflowMapProvider).View as MapView;
+            MapView mapView = (MapView)((WorkflowMapProvider)mapProvider).View;
             // highlight-end
 
             return new Dictionary<string, object>();
@@ -248,7 +248,7 @@ namespace App1.Workflow
             // ArcGIS runtime Map
             Map map = mapProvider.Map;
             // ArcGIS runtime MapView
-            MapView mapView = (mapProvider as WorkflowMapProvider).View as MapView;
+            MapView mapView = (MapView)((WorkflowMapProvider)mapProvider).View;
 
             // highlight-start
             Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
