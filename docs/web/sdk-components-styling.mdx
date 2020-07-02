@@ -7,7 +7,11 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-Geocortex Web Components support fully custom styling using CSS. However, by using Geocortex Web layout components, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
+Geocortex Web provides a built-in library of professionally designed UI components, as well as options for custom styling. You can also take advantage of the built-in icons, or add your own.
+
+## Custom Styling
+
+By using Geocortex Web layout components, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
 
 <Tabs
   defaultValue="component"
@@ -86,20 +90,7 @@ A full list of all the color keys available in a theme [can be found here](confi
 
 <!-- TODO-API link to Geocortex Icons Library -->
 
-The following example demonstrates a component that uses Geocortex Web layout components and an icon from the Geocortex Icons library.
-
-:::note
-Icons can be used in two ways - static icons can be imported and used as React Components, while dynamic icons use the `DynamicIcon` class with the `src` property set to the target icon.
-:::
-
-<Tabs
-  defaultValue="component"
-  values={[
-    { label: 'Component', value: 'component', },
-    { label: 'UI', value: 'ui', },
-  ]
-}>
-<TabItem value="component">
+There are two ways to use icons in a component. If the component will always render the same icon, you can use a icon component.
 
 ```tsx
 import React, { FC } from "react";
@@ -107,11 +98,10 @@ import {
     LayoutElement,
     LayoutElementProperties,
 } from "@vertigis/web/components";
-import DynamicIcon from "@vertigis/web/ui/DynamicIcon";
 import IconButton from "@vertigis/web/ui/IconButton";
 import MenuItem from "@vertigis/web/ui/MenuItem";
-import MenuItemSecondaryAction from "@vertigis/web/ui/MenuItemSecondaryAction";
 import ListItemText from "@vertigis/web/ui/ListItemText";
+// highlight-next-line
 import CloudDownload from "@vertigis/web/ui/icons/CloudDownload";
 import ComponentWithIconModel from "./ComponentWithIconModel";
 
@@ -125,18 +115,10 @@ const ComponentWithIcon: FC<LayoutElementProperties<ComponentWithIconModel>> = (
                     primary={"Icon Example"}
                     secondary={"cloud-download icon"}
                 />
-                <MenuItemSecondaryAction>
-                    <IconButton title="IconExample">
-                        // highlight-next-line
-                        <DynamicIcon src="cloud-download" fontSize="large" />
-                    </IconButton>
-                </MenuItemSecondaryAction>
-                <MenuItemSecondaryAction>
-                    <IconButton title="IconExample">
-                        // highlight-next-line
-                        <CloudDownload fontSize="large" />
-                    </IconButton>
-                </MenuItemSecondaryAction>
+                <IconButton title="IconExample">
+                    // highlight-next-line
+                    <CloudDownload fontSize="large" />
+                </IconButton>
             </MenuItem>
         </LayoutElement>
     );
@@ -145,19 +127,47 @@ const ComponentWithIcon: FC<LayoutElementProperties<ComponentWithIconModel>> = (
 export default ComponentWithIcon;
 ```
 
-</TabItem>
-<TabItem value="ui">
-<img src={useBaseUrl("img/web-component-with-icon.png")}/>
-</TabItem>
-</Tabs>
+If the component doesn't know which icon it will need to render, you can use the `DynamicIcon` component instead, which takes in its icon ID as a prop.
+
+```tsx
+import React, { FC } from "react";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@vertigis/web/components";
+// highlight-next-line
+import DynamicIcon from "@vertigis/web/ui/DynamicIcon";
+import ComponentWithIconModel from "./ComponentWithIconModel";
+import MenuItem from "@vertigis/web/ui/MenuItem";
+import IconButton from "@vertigis/web/ui/IconButton";
+import ListItemText from "@vertigis/web/ui/ListItemText";
+
+const ComponentWithIcon: FC<LayoutElementProperties<ComponentWithIconModel>> = (
+    props
+) => {
+    // highlight-next-line
+    const { iconId } = props.model;
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <MenuItem>
+                <ListItemText primary="Custom Arrow Icon" />
+                <IconButton title="Custom Arrow Icon">
+                    // highlight-next-line
+                    <DynamicIcon src={iconId} />
+                </IconButton>
+            </MenuItem>
+        </LayoutElement>
+    );
+};
+
+export default ComponentWithIcon;
+```
 
 ## Adding Icons
 
-Both static icons and dynamic SVG icons can be added through the Geocortex Web SDK. Static icons can only be used as React Components, while dynamic icons can also be used in the app config.
+Icons can be added through the Geocortex Web SDK. Icon components are created with the `createSvgIcon` function. These icon components can then be registered to make them available to app config, layout, and other built-in web components.
 
-### Static Icons
-
-To create a new static SVG icon, create a new `tsx` file that exports the `createSvgIcon` function. This function will create a React Component icon that can be used in Geocortex Web Components.
+To create a new SVG icon, create a new `tsx` file that exports the `createSvgIcon` function. This function will create a React component icon that can be used in Geocortex Web Components.
 
 ```tsx title="src/icons/CustomIcon.tsx"
 import createSvgIcon from "@vertigis/web/ui/icons/utils/createSvgIcon";
@@ -168,14 +178,15 @@ export default createSvgIcon(
 );
 ```
 
-### Dynamic Icons
+You can then register this icon with the library using the `registry.registerIcon(...)` function. This allows it to be used in the app config, layout, and built-in web components like `DynamicIcon`, or `Button`.
 
-To create a new dynamic icon, you simply need to create a static icon and then register it with the Geocortex Web SDK using `registry.registerIcon(...)`. Once it is registered, it can be used with the `DynamicIcon` component or in the app config.
+:::note
+Icon IDs should be chosen to be globally unique - one easy way to ensure this is to preface the icon ID with your company name.
+:::
 
 <Tabs
-  defaultValue="icon"
+  defaultValue="registration"
   values={[
-    { label: 'Icon', value: 'icon', },
     { label: 'Registration', value: 'registration', },
     { label: 'Component With Icon', value: 'component', },
     { label: 'Layout', value: 'layout', },
@@ -183,29 +194,13 @@ To create a new dynamic icon, you simply need to create a static icon and then r
     { label: 'UI', value: 'ui', },
   ]
 }>
-<TabItem value="icon">
-
-```tsx title="src/icons/CustomIcon.svg"
-import createSvgIcon from "@vertigis/web/ui/icons/utils/createSvgIcon";
-import React from "react";
-
-export default createSvgIcon(
-    <path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z" />
-);
-```
-
-</TabItem>
 <TabItem value="registration">
 
 ```ts title="src/index.ts"
-import PointsOfInterest, {
-    PointsOfInterestModel,
-} from "./components/PointsOfInterest";
 import { LibraryRegistry } from "@vertigis/web/config";
-import ComponentWithIcon from "./components/PointsOfInterest/ComponentWithIcon/ComponentWithIcon";
-import ComponentWithIconModel from "./components/PointsOfInterest/ComponentWithIcon/ComponentWithIconModel";
+import ComponentWithIcon from "./components/ComponentWithIcon/ComponentWithIcon";
+import ComponentWithIconModel from "./components/ComponentWithIcon/ComponentWithIconModel";
 import CustomIcon from "./icons/CustomIcon";
-
 const LAYOUT_NAMESPACE = "my.custom.namespace";
 
 export default function (registry: LibraryRegistry): void {
@@ -220,12 +215,10 @@ export default function (registry: LibraryRegistry): void {
         getModel: (config) => new ComponentWithIconModel(config),
         itemType: "component-with-icon-model",
     });
-    // highlight-start
     registry.registerIcon({
-        id: "custom-arrow",
+        id: "my-company-name-arrow",
         getComponentType: () => CustomIcon,
     });
-    // highlight-end
 }
 ```
 
@@ -247,13 +240,15 @@ import ListItemText from "@vertigis/web/ui/ListItemText";
 const ComponentWithIcon: FC<LayoutElementProperties<ComponentWithIconModel>> = (
     props
 ) => {
+    // highlight-next-line
+    const { iconId } = props.model;
     return (
         <LayoutElement {...props} style={{ backgroundColor: "white" }}>
             <MenuItem>
                 <ListItemText primary="Custom Arrow Icon" />
                 <IconButton title="Custom Arrow Icon">
                     // highlight-next-line
-                    <DynamicIcon src="custom-arrow" />
+                    <DynamicIcon src={iconId} />
                 </IconButton>
             </MenuItem>
         </LayoutElement>
@@ -277,17 +272,22 @@ export default ComponentWithIcon;
             "url": "./layout.xml"
         },
         {
+            "$type": "component-with-icon-model",
+            "id": "default",
+            // highlight-next-line
+            "iconId": "my-company-name-arrow"
+        },
+        {
             "$type": "menu",
             "id": "iwtm-config",
             "title": "I Want To Menu",
             "items": [
-                // highlight-start
                 {
                     "$type": "menu-item",
                     "title": "Menu Item With Custom Icon",
-                    "icon": "custom-arrow"
+                    // highlight-next-line
+                    "icon": "my-company-name-arrow"
                 }
-                // highlight-end
             ]
         }
     ]
@@ -301,7 +301,7 @@ export default ComponentWithIcon;
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="my.custom.namespace">
     <map config="map-1">
-        <custom:component-with-icon slot="top-left" width="22" height="5" />
+        <custom:component-with-icon slot="top-left" width="22" height="5" config="default"/>
         <iwtm slot="top-right" config="iwtm-config" />
     </map>
 </layout>
