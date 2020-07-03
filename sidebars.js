@@ -95,6 +95,7 @@ module.exports = {
                 },
                 "web/sdk-commands-operations",
                 "web/sdk-serializable-properties",
+                "web/sdk-adding-icons",
                 "web/sdk-internationalization",
                 "web/sdk-reference-third-party-libraries",
                 {
