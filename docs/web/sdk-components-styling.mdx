@@ -1,14 +1,19 @@
 ---
 title: Component Styling
 description: Geocortex Web - Learn how to style a custom component
-hide_table_of_contents: true
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import UseCaseCard from "../../src/components/UseCaseCard";
+import UseCaseContainer from "../../src/components/UseCaseContainer";
 
-Geocortex Web Components support fully custom styling using CSS. However, by using Geocortex Web layout components, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
+Geocortex Web provides a built-in library of professionally designed UI components, as well as options for custom styling. You can also take advantage of the built-in icons, or add your own.
+
+## Custom Styling
+
+By using Geocortex Web layout components, you can take advantage of styled, well tested, UI components that already participate in the [application theme](configuration-theme.mdx).
 
 <Tabs
   defaultValue="component"
@@ -87,27 +92,24 @@ A full list of all the color keys available in a theme [can be found here](confi
 
 <!-- TODO-API link to Geocortex Icons Library -->
 
-The following example demonstrates a component that uses Geocortex Web layout components and an icon from the Geocortex Icons library.
-
-<Tabs
-  defaultValue="component"
-  values={[
-    { label: 'Component', value: 'component', },
-    { label: 'UI', value: 'ui', },
-  ]
-}>
-<TabItem value="component">
+There are two ways to use icons in a component. If the component will always render the same icon, you can use an icon component.
 
 ```tsx
-import React from "react";
-import { LayoutElement } from "@vertigis/web/components";
-import DynamicIcon from "@vertigis/web/ui/DynamicIcon";
+import React, { FC } from "react";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@vertigis/web/components";
 import IconButton from "@vertigis/web/ui/IconButton";
 import MenuItem from "@vertigis/web/ui/MenuItem";
-import MenuItemSecondaryAction from "@vertigis/web/ui/MenuItemSecondaryAction";
 import ListItemText from "@vertigis/web/ui/ListItemText";
+// highlight-next-line
+import CloudDownload from "@vertigis/web/ui/icons/CloudDownload";
+import ComponentWithIconModel from "./ComponentWithIconModel";
 
-export default function ComponentWithIcon(props) {
+const ComponentWithIcon: FC<LayoutElementProperties<ComponentWithIconModel>> = (
+    props
+) => {
     return (
         <LayoutElement {...props} style={{ backgroundColor: "white" }}>
             <MenuItem>
@@ -115,21 +117,60 @@ export default function ComponentWithIcon(props) {
                     primary={"Icon Example"}
                     secondary={"cloud-download icon"}
                 />
-                <MenuItemSecondaryAction>
-                    // highlight-start
-                    <IconButton title="IconExample">
-                        <DynamicIcon src="cloud-download" size="large" />
-                    </IconButton>
-                    // highlight-end
-                </MenuItemSecondaryAction>
+                <IconButton title="IconExample">
+                    // highlight-next-line
+                    <CloudDownload fontSize="large" />
+                </IconButton>
             </MenuItem>
         </LayoutElement>
     );
-}
+};
+
+export default ComponentWithIcon;
 ```
 
-</TabItem>
-<TabItem value="ui">
-<img src={useBaseUrl("img/web-component-with-icon.png")}/>
-</TabItem>
-</Tabs>
+If the component doesn't know which icon it will need to render, you can use the `DynamicIcon` component instead, which takes in its icon ID as a prop.
+
+```tsx
+import React, { FC } from "react";
+import {
+    LayoutElement,
+    LayoutElementProperties,
+} from "@vertigis/web/components";
+// highlight-next-line
+import DynamicIcon from "@vertigis/web/ui/DynamicIcon";
+import ComponentWithIconModel from "./ComponentWithIconModel";
+import MenuItem from "@vertigis/web/ui/MenuItem";
+import IconButton from "@vertigis/web/ui/IconButton";
+import ListItemText from "@vertigis/web/ui/ListItemText";
+
+const ComponentWithIcon: FC<LayoutElementProperties<ComponentWithIconModel>> = (
+    props
+) => {
+    // highlight-next-line
+    const { icon } = props.model;
+    return (
+        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+            <MenuItem>
+                <ListItemText primary="Custom Arrow Icon" />
+                <IconButton title="Custom Arrow Icon">
+                    // highlight-next-line
+                    <DynamicIcon src={icon} />
+                </IconButton>
+            </MenuItem>
+        </LayoutElement>
+    );
+};
+
+export default ComponentWithIcon;
+```
+
+## Next Steps
+
+<UseCaseContainer>
+    <UseCaseCard
+        title="Add Custom Icons"
+        description="Learn how to add custom icons to a Geocortex Web Application"
+        link="sdk-adding-icons"
+    />
+</UseCaseContainer>
