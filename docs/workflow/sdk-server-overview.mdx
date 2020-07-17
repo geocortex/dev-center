@@ -7,6 +7,7 @@ description: Geocortex Workflow - Overview of extending workflow for Geocortex W
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
+import SdkLimitationsWarning from "./snippets/sdk-net-limitations-warning.mdx";
 
 Geocortex Workflow Server can be extended by augmenting your on-premises installation with additional custom .NET assemblies.
 
@@ -42,8 +43,10 @@ Extending Geocortex Workflow Server requires you to produce a separate assembly 
    By default, this is located in`C:\Program Files\Latitude Geographics\Geocortex Workflow\Deployment\service`
 
 :::important
-.NET Standard projects **must** target .NET Standard 2.0, and .NET Core projects must target .NET Core 2.1, else the assembly will be incompatible with Geocortex Workflow Server
+.NET Standard projects **must** target .NET Standard 2.0, and .NET Core projects must target .NET Core 2.1, or else the assembly will be incompatible with Geocortex Workflow Server.
 :::
+
+<SdkLimitationsWarning />
 
 Next, learn how to implement a [custom activity](tutorial-server-calculate-logarithm-activity.mdx) for Geocortex Workflow Server.
 
