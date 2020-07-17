@@ -84,8 +84,6 @@ export default class ExampleService extends ServiceBase {
         const customOpResult = await operation<string, boolean>(
             "my-custom.operation-that-returns-a-bool"
         ).execute("some arg");
-
-        return;
     }
 }
 ```
@@ -121,7 +119,6 @@ export default class CustomModel extends ComponentModelBase {
         console.log(
             `Executing 'custom.my-command' with argument '${arg.value}'`
         );
-        return;
     }
 }
 ```
@@ -188,7 +185,6 @@ protected _myCommand() {
         `Executing 'custom.my-command even if the associated
         component is not activated in the layout.`
     );
-    return;
 }
 ```
 
@@ -206,7 +202,6 @@ protected _myCommand() {
         `This implementation will be executed in parallel
         with other command implementations marked as parallel.`
     );
-    return;
 }
 ```
 
