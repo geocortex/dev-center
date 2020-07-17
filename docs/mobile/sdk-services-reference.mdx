@@ -128,9 +128,9 @@ namespace App1.Services
 
 Like components, services can be configured through the [app config](configuration-app-config-getting-started.mdx). Services can participate in the app config by creating and injecting the appropriate [**item type**](configuration-app-config-reference.mdx#app-items).
 
-Each item type in the application is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model.
+Each item type in the application is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in its constructor, acting as a configuration model.
 
-A service can consume configuration by injecting the `AppItem` class as a dependency in it's constructor.
+A service can consume configuration by injecting the `AppItem` class as a dependency in its constructor.
 
 <Tabs
   defaultValue="service"
