@@ -38,7 +38,7 @@ All attributes are specified as string values, and parsed into their respective 
 ### `models`
 
 **Type**: `string`  
-**Description**: A css selector string specifying the component with the model that needs to be resolved. See [models](configuration-layout-getting-started.mdx#models) for details.
+**Description**: A css selector string specifying the component with the model that needs to be resolved. See [models](configuration-advanced-model-binding.mdx#the-models-attribute) for details.
 
 ## Core Layout Components
 
@@ -206,7 +206,7 @@ All dimensional units are expressed in 'em's, where 1 em is equal to the current
 ### `grow`
 
 **Type**: `number`  
-**Description**: Sets whether or not a component's width or height will grow over its parents primary axis. Components with a grow of 0 will fill to their natural or requested height. Components with a specified grow will fill up a percentage of the remaining space equal to their grow value divided by the total grow of all sibling components (including the component in question).  
+**Description**: Sets whether or not a component's width or height will grow over its parent's primary axis. Components with a grow of 0 will fill to their natural or requested height. Components with a specified grow will fill up a percentage of the remaining space equal to their grow value divided by the total grow of all sibling components (including the component in question).  
 The default value for a component varies by component. For most components, if no grow value is specified, they will default to a grow value of "0". The following components however will have a default grow value of "1":
 
 -   Map

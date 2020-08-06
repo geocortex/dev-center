@@ -95,7 +95,7 @@ namespace App1.Components
 
 #### Component Dependencies
 
-Components are instantiated by [dependency injection](sdk-dependency-injection.mdx) when the layout is rendered. This means that a component can also list dependencies that have been registered with autofac, such as the [`ILayoutModel<MapView>`](sdk-component-service-interactions.mdx) in it's constructor, and have them be passed at runtime. This also means that if a class associated with a component has application dependencies, such as a reference to the `MapOperations` for map interactions, then the component will either need to provide that dependency somehow.
+Components are instantiated by [dependency injection](sdk-dependency-injection.mdx) when the layout is rendered. This means that a component can also list dependencies that have been registered with autofac, such as the [`ILayoutModel<MapView>`](sdk-component-service-interactions.mdx) in its constructor, and have them be passed at runtime. This also means that if a class associated with a component has application dependencies, such as a reference to the `MapOperations` for map interactions, then the component will either need to provide that dependency somehow.
 
 The preferred way to provide sub-dependencies to classes associated with components is to instantiate those associated classes with dependency injection also. Check out [managing sub-dependencies](sdk-dependency-injection.mdx#managing-sub-dependencies) for an example.
 
@@ -130,7 +130,7 @@ Check out this example of a [component with a view model](https://github.com/geo
 
 ## Configuration Models
 
-Every component is bound to specific [**item type**](configuration-app-config-reference.mdx#app-items), and each item type is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in it's constructor, acting as a configuration model. The component class then consumes this configuration model, and then passes the appropriate values to the view and view model.
+Every component is bound to specific [**item type**](configuration-app-config-reference.mdx#app-items), and each item type is bound to a class [registered as an `AppItem` with autofac](sdk-dependency-injection.mdx#appitem). This class instantiates itself with values from the app config in its constructor, acting as a configuration model. The component class then consumes this configuration model, and then passes the appropriate values to the view and view model.
 
 <Tabs
   defaultValue="model"

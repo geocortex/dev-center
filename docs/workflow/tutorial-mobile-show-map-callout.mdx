@@ -36,7 +36,7 @@ First, the basic activity needs to be setup and registered. Below is an example 
 ```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.GIS;
+using Geocortex.Workflow.GIS.ArcGISRuntime;
 using Geocortex.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
@@ -130,7 +130,7 @@ To inject the MapProviderBase, add a new [Autofac factory](https://autofaccn.rea
 ```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.GIS;
+using Geocortex.Workflow.GIS.ArcGISRuntime;
 using Geocortex.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
@@ -167,7 +167,7 @@ using App1.Workflow;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.Xamarin.Forms;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.GIS;
+using Geocortex.Workflow.GIS.ArcGISRuntime;
 using Geocortex.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
@@ -219,7 +219,7 @@ using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.UI;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.Xamarin.Forms;
-using Geocortex.Workflow.GIS;
+using Geocortex.Workflow.GIS.ArcGISRuntime;
 using Geocortex.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
