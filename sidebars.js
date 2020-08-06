@@ -59,6 +59,7 @@ module.exports = {
             label: "Geocortex Web SDK",
             items: [
                 "web/sdk-overview",
+                "web/sdk-samples",
                 "web/sdk-deployment",
                 {
                     type: "category",
@@ -95,6 +96,7 @@ module.exports = {
                 },
                 "web/sdk-commands-operations",
                 "web/sdk-serializable-properties",
+                "web/sdk-adding-icons",
                 "web/sdk-internationalization",
                 "web/sdk-reference-third-party-libraries",
                 {

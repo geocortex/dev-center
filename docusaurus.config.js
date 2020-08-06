@@ -19,7 +19,7 @@ module.exports = {
                 alt: "Geocortex Logo",
                 src: "img/logo.png",
             },
-            links: [
+            items: [
                 {
                     to: "docs/web/overview",
                     label: "Web",
@@ -92,7 +92,6 @@ module.exports = {
             anonymizeIP: true,
         },
     },
-    plugins: [require.resolve("@docusaurus/plugin-google-gtag")],
     presets: [
         [
             require.resolve("@docusaurus/preset-classic"),

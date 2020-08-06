@@ -63,7 +63,6 @@ export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
 
     async execute(): Promise<void> {
         this.register("StarRatingElement", StarRatingElement);
-        return;
     }
 }
 ```
@@ -298,7 +297,11 @@ Now you can build a workflow that uses your new custom form element! It is essen
         import it into the Geocortex Workflow Designer.{" "}
     </a>
     You will have to{" "}
-    <a href="sdk-web-overview#host-the-activity-pack">
+    <a
+        href={useBaseUrl(
+            "docs/workflow/sdk-web-overview#host-the-activity-pack"
+        )}
+    >
         {" "}
         deploy the custom activity and form element
     </a>{" "}
