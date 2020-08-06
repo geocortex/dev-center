@@ -172,6 +172,7 @@ using Geocortex.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using VertiGIS.Mobile.Infrastructure.Workflow;
 
 [assembly: Export(typeof(PlaceCalloutAtCenter))]
 namespace App1.Workflow
@@ -195,7 +196,7 @@ namespace App1.Workflow
             // ArcGIS runtime Map
             Map map = mapProvider.Map;
             // ArcGIS runtime MapView
-            MapView mapView = mapProvider.GetType().GetProperty("MapView").GetValue(mapProvider, null) as MapView;
+            MapView mapView = (MapView)((WorkflowMapProvider)mapProvider).View;
             // highlight-end
 
             return new Dictionary<string, object>();
@@ -224,6 +225,7 @@ using Geocortex.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using VertiGIS.Mobile.Infrastructure.Workflow;
 
 [assembly: Export(typeof(PlaceCalloutAtCenter))]
 namespace App1.Workflow
@@ -246,7 +248,7 @@ namespace App1.Workflow
             // ArcGIS runtime Map
             Map map = mapProvider.Map;
             // ArcGIS runtime MapView
-            MapView mapView = mapProvider.GetType().GetProperty("MapView").GetValue(mapProvider, null) as MapView;
+            MapView mapView = (MapView)((WorkflowMapProvider)mapProvider).View;
 
             // highlight-start
             Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
