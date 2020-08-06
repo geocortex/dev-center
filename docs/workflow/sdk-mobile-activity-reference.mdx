@@ -274,7 +274,7 @@ namespace App1.Workflow
             var mapProvider = MapProviderFactory();
             await mapProvider.Load();
             var map = mapProvider.Map;
-            var mapView = (mapProvider as dynamic).View as MapView;
+            var mapView = (MapView)((WorkflowMapProvider)mapProvider).View;
             // highlight-end
 
             // ...
