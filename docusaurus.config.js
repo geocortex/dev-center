@@ -38,6 +38,12 @@ module.exports = {
                     position: "left",
                     activeBasePath: "docs/workflow",
                 },
+                {
+                    to: "docs/reporting/overview",
+                    label: "Reporting",
+                    position: "left",
+                    activeBasePath: "docs/reporting",
+                },
             ],
         },
         footer: {

@@ -296,4 +296,13 @@ module.exports = {
             items: ["mobile/api-commands-operations-events"],
         },
     ],
+    reporting: [
+        "reporting/overview",
+        "reporting/key-concepts",
+        {
+            type: "category",
+            label: "Geocortex Reporting SDK",
+            items: ["reporting/sdk-overview"],
+        },
+    ],
 };

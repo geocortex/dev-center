@@ -28,6 +28,13 @@ const products = [
             "Extend your Geocortex and Web AppBuilder for ArcGIS® applications by turning sophisticated business processes into a set of simple, guided end-user interactions.",
         link: "docs/workflow/overview",
     },
+    {
+        title: "Geocortex Reporting",
+        imageUrl: "img/reporting-product-icon.svg",
+        description:
+            "Create sophisticated, professional-looking reports that include spatial and non-spatial data from ArcGIS map services, tables, databases, and other data sources.",
+        link: "docs/reporting/overview",
+    },
 ];
 
 function Home() {
