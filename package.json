@@ -18,8 +18,8 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.62",
-    "@docusaurus/preset-classic": "2.0.0-alpha.62",
+    "@docusaurus/core": "2.0.0-alpha.59",
+    "@docusaurus/preset-classic": "2.0.0-alpha.59",
     "@types/react": "^16.9.43",
     "clsx": "^1.1.1",
     "cspell": "^4.1.0",
