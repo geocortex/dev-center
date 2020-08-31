@@ -38,6 +38,7 @@ Create a new folder structure with the following files. These files define a new
 }>
 <TabItem value="service">
 
+
 ```ts title="src/services/CustomService/CustomService.ts"
 import { ServiceBase } from "@vertigis/web/services";
 
@@ -47,12 +48,14 @@ export default class CustomService extends ServiceBase {}
 </TabItem>
 <TabItem value="index">
 
+
 ```ts title="src/services/CustomService/index.ts"
 export { default } from "./CustomService";
 ```
 
 </TabItem>
 </Tabs>
+
 
 :::tip
 Learn more about [implementing custom services](sdk-services-create.mdx)
@@ -161,6 +164,7 @@ The following app config and layout adds three entries to an I Want To Menu that
 }>
 <TabItem value="config">
 
+
 ```json
 {
     "schemaVersion": "1.0",
@@ -213,6 +217,7 @@ The following app config and layout adds three entries to an I Want To Menu that
 </TabItem>
 <TabItem value="layout">
 
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
@@ -224,6 +229,7 @@ The following app config and layout adds three entries to an I Want To Menu that
 
 </TabItem>
 <TabItem value="service">
+
 
 ```ts title="src/services/CustomService/CustomService.ts"
 import { ServiceBase } from "@vertigis/web/services";
@@ -267,6 +273,7 @@ export default class CustomService extends ServiceBase {
 <img src={useBaseUrl("img/web-commands-operations-example.png")}/>
 </TabItem>
 </Tabs>
+
 
 ## Live Sample
 

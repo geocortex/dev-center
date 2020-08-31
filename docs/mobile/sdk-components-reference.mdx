@@ -141,6 +141,7 @@ Every component is bound to specific [**item type**](configuration-app-config-re
   ]}>
 <TabItem value="component">
 
+
 ```cs
 // highlight-next-line
 [assembly: AppItemComponent(typeof(CustomComponent), "component-with-config", "my-app-item", XmlNamespace = XmlNamespaces.App1Namespace)]
@@ -183,6 +184,7 @@ namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 </TabItem>
 <TabItem value="model">
 
+
 ```cs
 // highlight-next-line
 [assembly: AppItem(MyAppItem.ConfigItemtype, typeof(MyAppItem))]
@@ -222,6 +224,7 @@ namespace VertiGIS.Mobile.Samples.Samples.Custom.ComponentConfiguration
 </TabItem>
 <TabItem value="config">
 
+
 ```json
 {
   "schemaVersion": "1.0",
@@ -240,6 +243,7 @@ namespace VertiGIS.Mobile.Samples.Samples.Custom.ComponentConfiguration
 
 </TabItem>
 </Tabs>
+
 
 ### Component Defaults
 

@@ -45,6 +45,7 @@ Learn more about how to [build custom components](sdk-components-create.mdx).
   ]}>
 <TabItem value="component">
 
+
 ```tsx title="src/components/TranslatableText/TranslatableText.tsx"
 import React from "react";
 import { LayoutElement } from "@vertigis/web/components";
@@ -62,6 +63,7 @@ export default function TranslatableText(props) {
 </TabItem>
 <TabItem value="model">
 
+
 ```ts title="src/components/TranslatableText/TranslatableTextModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
 
@@ -74,6 +76,7 @@ export default TranslatableTextModel;
 </TabItem>
 <TabItem value="index">
 
+
 ```ts title="src/components/TranslatableText/index.ts"
 export { default } from "./TranslatableText";
 export { default as TranslatableTextModel } from "./TranslatableTextModel";
@@ -81,6 +84,7 @@ export { default as TranslatableTextModel } from "./TranslatableTextModel";
 
 </TabItem>
 <TabItem value="registration">
+
 
 ```ts title="src/index.ts"
 import { LibraryRegistry } from "@vertigis/web/config";
@@ -106,6 +110,7 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 <TabItem value="layout">
 
+
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
@@ -118,6 +123,7 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 <TabItem value="config">
 
+
 ```json title="src/app.json"
 {
     "schemaVersion": "1.0",
@@ -127,6 +133,7 @@ export default function (registry: LibraryRegistry) {
 
 </TabItem>
 </Tabs>
+
 
 ## Creating the Language Resources
 
@@ -140,6 +147,7 @@ Next, we are going to create the [language resources](sdk-internationalization.m
   ]}>
 <TabItem value="english">
 
+
 ```json title="src/en.json"
 {
     "language-translatable-text-content": "I will be translated."
@@ -148,6 +156,7 @@ Next, we are going to create the [language resources](sdk-internationalization.m
 
 </TabItem>
 <TabItem value="german">
+
 
 <!-- cspell:disable -->
 
@@ -161,6 +170,7 @@ Next, we are going to create the [language resources](sdk-internationalization.m
 
 </TabItem>
 </Tabs>
+
 
 ## Register the Language Resources
 
@@ -224,6 +234,7 @@ For example, `http://localhost:3000/?locale=de`
   ]}>
 <TabItem value="component">
 
+
 ```tsx title="src/components/TranslatableText/TranslatableText.tsx"
 import React, { useContext } from "react";
 import { LayoutElement } from "@vertigis/web/components";
@@ -257,6 +268,7 @@ export default function TranslatableText(props) {
 <img src={useBaseUrl("img/web-translate-german.png")}/>
 </TabItem>
 </Tabs>
+
 
 ## Live Sample
 

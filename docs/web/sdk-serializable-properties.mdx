@@ -23,6 +23,7 @@ In order for a component to participate in configuration, it must be marked as s
   ]}>
 <TabItem value="model">
 
+
 ```ts
 ...
 // highlight-next-line
@@ -38,6 +39,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
 </TabItem>
 <TabItem value="service">
 
+
 ```ts
 ...
 // highlight-next-line
@@ -51,6 +53,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 
 </TabItem>
 </Tabs>
+
 
 Every serializable class extends a generically typed base class, like `ComponentModelBase` or `ConfigurableServiceBase`. The type passed into the base class is an interface consisting of primitive, serializable types, like `number`, `string`, `array`, `boolean`, etc. Each property on the interface will correspond exactly to a property in the app config JSON.
 
@@ -66,6 +69,7 @@ Marking properties in the `ComponentModelProperties` interface as optional allow
     { label: "App Config", value: "config" },
   ]}>
 <TabItem value="model">
+
 
 ```ts
 ...
@@ -87,6 +91,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
 </TabItem>
 <TabItem value="service">
 
+
 ```ts
 ...
 // highlight-start
@@ -105,6 +110,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 
 </TabItem>
 <TabItem value="config">
+
 
 ```json
 {
@@ -133,6 +139,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 </TabItem>
 </Tabs>
 
+
 ## Populating the Class with Configuration Values.
 
 The class is responsible for turning the `ComponentModelProperties` interface, which will be populated with primitive values from the app config JSON, into complex properties on the class object itself. This work is done through the `_getSerializableProperties` method.
@@ -156,6 +163,7 @@ In the following example, the serialization logic for the `ExampleComponentModel
     { label: "Custom Service", value: "service" },
   ]}>
 <TabItem value="model">
+
 
 ```ts
 ...
@@ -197,6 +205,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
 </TabItem>
 <TabItem value="service">
 
+
 ```ts
 ...
 interface CustomServiceProperties extends ComponentModelProperties {
@@ -235,6 +244,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 
 </TabItem>
 </Tabs>
+
 
 Already serializable properties such as `boolean` values or `string` values can have their serialization logic omitted.
 
