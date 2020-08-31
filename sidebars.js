@@ -123,7 +123,7 @@ module.exports = {
     ],
     workflow: [
         "workflow/overview",
-        "workflow/concepts-key-concepts",
+        "workflow/key-concepts",
         {
             type: "category",
             label: "Geocortex Workflow TypeScript SDK",
