@@ -93,6 +93,7 @@ Models are imported with the `itemType` name that they are registered with.
 }>
 <TabItem value="exportedModel">
 
+
 ```ts title="src/components/ExportedModel/ExportedModel.ts"
 import {
     ComponentModelBase,
@@ -109,6 +110,7 @@ export default class ExportedModel extends ComponentModelBase {
 
 </TabItem>
 <TabItem value="importingModel">
+
 
 ```ts title="src/components/CustomComponent/CustomModel.ts"
 import {
@@ -139,6 +141,7 @@ export default class CustomModel extends ComponentModelBase {
 </TabItem>
 <TabItem value="importingModelComponent">
 
+
 ```tsx title="src/components/importedModel/ExportedModelComponent.tsx"
 import React from "react";
 import Typography from "@vertigis/web/ui/Typography";
@@ -165,6 +168,7 @@ export default function CustomComponent(
 </TabItem>
 <TabItem value="layout">
 
+
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
@@ -177,6 +181,7 @@ export default function CustomComponent(
 
 </TabItem>
 </Tabs>
+
 
 ## Interacting with Application Services with Dependency Injection
 

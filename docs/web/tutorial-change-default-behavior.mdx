@@ -35,6 +35,7 @@ First, let's create a basic map with a bookmarks component using the layout and 
 }>
 <TabItem value="app">
 
+
 ```json title="app/app.json"
 {
     "schemaVersion": "1.0",
@@ -44,6 +45,7 @@ First, let's create a basic map with a bookmarks component using the layout and 
 
 </TabItem>
 <TabItem value="layout">
+
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -57,6 +59,7 @@ First, let's create a basic map with a bookmarks component using the layout and 
 </TabItem>
 </Tabs>
 
+
 Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-an-app-config) to the configuration for the bookmarks component.
 
 <Tabs
@@ -67,6 +70,7 @@ Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-a
   ]
 }>
 <TabItem value="app">
+
 
 ```json title="app/app.json"
 {
@@ -83,6 +87,7 @@ Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-a
 </TabItem>
 <TabItem value="layout">
 
+
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace" xmlns:web="https://geocortex.com/layout/web/v1">
@@ -94,6 +99,7 @@ Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-a
 
 </TabItem>
 </Tabs>
+
 
 Finally, modify the `onClick` property of the bookmarks app item to run the commands `map.zoom-to-viewpoint` and `ui.alert`.
 
@@ -107,6 +113,7 @@ Finally, modify the `onClick` property of the bookmarks app item to run the comm
 }>
 <TabItem value="layout">
 
+
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace" xmlns:web="https://geocortex.com/layout/web/v1">
@@ -118,6 +125,7 @@ Finally, modify the `onClick` property of the bookmarks app item to run the comm
 
 </TabItem>
 <TabItem value="config">
+
 
 ```json title="app/app.json"
 {
@@ -145,6 +153,7 @@ Finally, modify the `onClick` property of the bookmarks app item to run the comm
 <img src={useBaseUrl("img/web-customize-bookmarks-component.png")}/>
 </TabItem>
 </Tabs>
+
 
 Congratulations! You just changed the default behavior for a built in component using config. All components can be configured through the app config JSON in this manner.
 

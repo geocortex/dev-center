@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
-Implementing a custom [form element](concepts-key-concepts.mdx#form-elements) allows you to augment the existing [form elements that come with Geocortex Workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/auto-complete.htm%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7C_____0).
+Implementing a custom [form element](key-concepts.mdx#form-elements) allows you to augment the existing [form elements that come with Geocortex Workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/auto-complete.htm%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7C_____0).
 This article will walk you through creating a form element that displays a loading indicator.
 
 <img
@@ -237,6 +237,7 @@ You can do this by configuring the layout and app config to run a workflow. You 
   ]}>
 <TabItem value="config">
 
+
 ```json title="App1/App1/app.json"
 {
     "schemaVersion": "1.0",
@@ -279,6 +280,7 @@ You can do this by configuring the layout and app config to run a workflow. You 
 </TabItem>
 <TabItem value="layout">
 
+
 ```xml title="App1/App1/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
@@ -301,6 +303,7 @@ You can do this by configuring the layout and app config to run a workflow. You 
 <img src={useBaseUrl("img/workflow-mobile-custom-form-element-loading-indicator.png")}/>
 </TabItem>
 </Tabs>
+
 
 ## Relevant SDK Sample
 

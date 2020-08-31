@@ -47,6 +47,7 @@ First, let's create a basic map with a feature details component using the layou
 }>
 <TabItem value="app">
 
+
 ```json title="App1/App1/app.json"
 {
     "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
@@ -87,6 +88,7 @@ First, let's create a basic map with a feature details component using the layou
 </TabItem>
 <TabItem value="layout">
 
+
 ```xml title="App1/App1/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
@@ -111,6 +113,7 @@ First, let's create a basic map with a feature details component using the layou
 
 </TabItem>
 </Tabs>
+
 
 Next, configure the `onFeatureDetails` property of the feature details component to replicate the default behavior. You can test this behavior out by deleting a fire hydrant feature from the map.
 
@@ -171,6 +174,7 @@ Finally, add a `ui.display-notification` command after the existing command that
 }>
 <TabItem value="config">
 
+
 ```json title="App1/App1/app.json"
 {
     "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
@@ -228,6 +232,7 @@ Finally, add a `ui.display-notification` command after the existing command that
 <img src={useBaseUrl("img/mobile-customize-feature-details-component.png")}/>
 </TabItem>
 </Tabs>
+
 
 Congratulations! You just changed the default behavior for a built in component using config. All components can be configured through the app config JSON in this manner.
 

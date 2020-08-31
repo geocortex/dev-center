@@ -65,6 +65,16 @@ module.exports = {
                             label: "GitHub",
                             to: "https://github.com/geocortex/dev-center",
                         },
+                        {
+                            label: "Legal",
+                            to:
+                                "https://www.geocortex.com/legal/#licensing-terms-of-use",
+                        },
+                        {
+                            label: "Privacy",
+                            to:
+                                "https://www.geocortex.com/legal/#privacy-statement",
+                        },
                     ],
                 },
                 {
