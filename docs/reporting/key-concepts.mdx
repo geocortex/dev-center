@@ -33,18 +33,34 @@ Prior to running a report, you must create a new report template using [Geocorte
 The basic steps for running a report are:
 
 1.  Obtain a run token from the [/auth/token/run](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/auth/post_auth_token_run) endpoint.
-    - Only required if the report is secured or accesses secured content
+    -   Only required if the report is secured or accesses secured content
 2.  Run the report with a request to [/job/run](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/job/post_job_run).
 
-        - The request body requires a template object which consists of an ArcGIS Portal url and itemid. An optional array of parameters may also be passed to the report.
+    -   The request body requires a template object which consists of an ArcGIS Portal url and itemid. An optional array of parameters may also be passed to the report.
 
-    /_ cSpell:disable _/
-    `json { "template": { "itemid": "5a810f3ac13454d6bfd2ac22ed0cc4b7", "portalUrl": "https://arcgis.com" }, "parameters": [...] }`
-    /_ cSpell:enable _/ - Optional: Include an Authorization header with the token acquired in step 1
+    <!-- cspell:disable -->
 
-/_ cSpell:disable _/
-`Authorization: Bearer eyJhbGciOiJIUzI1123sImtpZCI6ImNiMTc2NDQ5Y2ZkMTQwNTJiNGJlODA1YTlhMzVhNzM1IiwiemlwIjoiREVGIn0.RZHLjqpAFEV_5aZyh2LzEARn2IANiC8EbSemKApFgSqhEKHT_95o7mO61j7Jyd5fAJECTL7Ab9ZSDCbAadimLt5JwXDBwAAUMMc-hejpDJzAOntSSkoGMzvuIebHaiQhFGEkjFQlgaIERSyLYqTEEGrwXzoosz5-ZoxWk7e3DLKU1TE-YTLMIa2GsESntBoikvcXECFcVVtyxf1zoO04eTrPY5U4ncbExEDSQmbhuDTWtC3M_OxGj-CaljNrZl2th-f7NTpzIq1sf9VEruJzAr3VHlyGwd73Eq27KMXYPkZi8iF0nh3r8BYEu2uwCz_5pXHfpN1eX5OR2xwJXXGLMoEBKdFm4XMtc9K5jwRqZqHjSjh7rzKLizLPlKnb8Oy-Pxon3k4V-3BRogtpz42QBo-PfDmVjdnW2q5paGYNvw12B8XxLMEkn_ZaWAntnu90V9fy64kq6krz2o31iPTxnKYXLlwb1UpMUr_LRo1jb_3D_bbTh8NnUZS-VnDNw10om1O9ECVNPzS9qitcvlwckao6zv8X_kcu-mmfq8KyxMWvaR8C3wOQQgYmgqypmsBro7GiSgOAH_QvE8cv9v0D.q2hGkkvcU2oWlxRhQH_PU4MxNgvY601Z60Ec1A4asL4`
-/_ cSpell:enable _/
+        ```json
+        {
+            "template": {
+                "itemid": "5a810f3ac13454d6bfd2ac22ed0cc4b7",
+                "portalUrl": "https://arcgis.com"
+            },
+            "parameters": [...]
+        }
+        ```
 
-3. Use the ticket received in response to the run request to watch for completion of the report via a websocket or polling strategy at [/job/artifacts](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/job/get_job_artifacts).
-4. Use the ticket from the run request and the tag from the artifacts request (step 3) to download the completed report from [/job/result](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/job/get_job_result).
+    <!-- cspell:enable -->
+
+    -   Optional: Include an Authorization header with the token acquired in step 1
+
+    <!-- cspell:disable -->
+
+        ```
+        Authorization: Bearer eyJhbGciOiJIUzI1123sImtpZCI6ImNiMTc2NDQ5Y2ZkMTQwNTJiNGJlODA1YTlhMzVhNzM1IiwiemlwIjoiREVGIn0.RZHLjqpAFEV_5aZyh2LzEARn2IANiC8EbSemKApFgSqhEKHT_95o7mO61j7Jyd5fAJECTL7Ab9ZSDCbAadimLt5JwXDBwAAUMMc-hejpDJzAOntSSkoGMzvuIebHaiQhFGEkjFQlgaIERSyLYqTEEGrwXzoosz5-ZoxWk7e3DLKU1TE-YTLMIa2GsESntBoikvcXECFcVVtyxf1zoO04eTrPY5U4ncbExEDSQmbhuDTWtC3M_OxGj-CaljNrZl2th-f7NTpzIq1sf9VEruJzAr3VHlyGwd73Eq27KMXYPkZi8iF0nh3r8BYEu2uwCz_5pXHfpN1eX5OR2xwJXXGLMoEBKdFm4XMtc9K5jwRqZqHjSjh7rzKLizLPlKnb8Oy-Pxon3k4V-3BRogtpz42QBo-PfDmVjdnW2q5paGYNvw12B8XxLMEkn_ZaWAntnu90V9fy64kq6krz2o31iPTxnKYXLlwb1UpMUr_LRo1jb_3D_bbTh8NnUZS-VnDNw10om1O9ECVNPzS9qitcvlwckao6zv8X_kcu-mmfq8KyxMWvaR8C3wOQQgYmgqypmsBro7GiSgOAH_QvE8cv9v0D.q2hGkkvcU2oWlxRhQH_PU4MxNgvY601Z60Ec1A4asL4
+        ```
+
+    <!-- cspell:enable -->
+
+3.  Use the ticket received in response to the run request to watch for completion of the report via a websocket or polling strategy at [/job/artifacts](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/job/get_job_artifacts).
+4.  Use the ticket from the run request and the tag from the artifacts request (step 3) to download the completed report from [/job/result](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/job/get_job_result).
