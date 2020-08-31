@@ -38,6 +38,7 @@ Create a new folder structure with the following files. These files define a new
 }>
 <TabItem value="service">
 
+
 ```ts title="src/services/CustomDataService/CustomDataService.ts"
 import { ServiceBase } from "@vertigis/web/services";
 
@@ -47,12 +48,14 @@ export default class CustomDataService extends ServiceBase {}
 </TabItem>
 <TabItem value="index">
 
+
 ```ts title="src/services/CustomDataService/index.ts"
 export { default } from "./CustomDataService";
 ```
 
 </TabItem>
 </Tabs>
+
 
 Every service needs to be registered with the Web SDK in order to be discovered and initialized.
 
@@ -172,6 +175,7 @@ Finally, we can bring it all together, and add the news item component and styli
 }>
 <TabItem value="service">
 
+
 ```ts title="src/services/CustomDataService/CustomDataService.ts"
 import { ServiceBase } from "@vertigis/web/services";
 import Collection from "esri/core/Collection";
@@ -215,6 +219,7 @@ export default class CustomDataService extends ServiceBase {
 </TabItem>
 <TabItem value="component">
 
+
 ```tsx title="src/component/NewsFeed/NewsFeed.tsx"
 import React from "react";
 import {
@@ -255,6 +260,7 @@ export default function NewsFeed(
 </TabItem>
 <TabItem value="model">
 
+
 ```ts title="src/component/NewsFeed/NewsFeedModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
 import Collection from "esri/core/Collection";
@@ -288,6 +294,7 @@ export default class NewsFeedModel extends ComponentModelBase {
 </TabItem>
 <TabItem value="css">
 
+
 ```css title="src/components/NewsFeed/NewsFeed.css"
 .news-item-list {
     max-height: 15em;
@@ -298,6 +305,7 @@ export default class NewsFeedModel extends ComponentModelBase {
 
 </TabItem>
 <TabItem value="index">
+
 
 ```ts title="src/index.ts"
 import CustomDataService from "./services/CustomDataService";
@@ -329,6 +337,7 @@ export default function (registry: LibraryRegistry) {
 <img src={useBaseUrl("img/web-implement-service-example.png")}/>
 </TabItem>
 </Tabs>
+
 
 ## Next Steps
 
