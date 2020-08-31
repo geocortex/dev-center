@@ -82,6 +82,7 @@ Now that the `custom` namespace has been added, the component can be added to th
 }>
 <TabItem value="layout">
 
+
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
@@ -107,6 +108,7 @@ Now that the `custom` namespace has been added, the component can be added to th
 </TabItem>
 </Tabs>
 
+
 ## Use XAML to define your UI
 
 [XAML is a markup language created by Microsoft](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/), and one of the recommended patterns for defining UI in Xamarin Forms. We can modify our component to reference a [XAML view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/views).
@@ -124,6 +126,7 @@ Now that the `custom` namespace has been added, the component can be added to th
   ]
 }>
 <TabItem value="component">
+
 
 ```cs title="App1/App1/components/CustomComponent.cs"
 using App1;
@@ -150,6 +153,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
+
 ```xml title="App1/App1/components/CustomComponentView.xaml"
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
@@ -168,6 +172,7 @@ namespace App1.Components
 
 </TabItem>
 <TabItem value="code-behind">
+
 
 ```cs title="App1/App1/components/CustomComponentView.xaml.cs"
 using App1.Components;
@@ -194,6 +199,7 @@ namespace App1.Components
     <img src={useBaseUrl("img/mobile-custom-component-xamarin-view.png")} alt="Custom Component with Text Block"/>
 </TabItem>
 </Tabs>
+
 
 Congratulations! You've built a working component with UI that is exposed in Mobile.
 
@@ -223,6 +229,7 @@ Here's an example of a component with a progress bar that is advanced on a butto
   ]
 }>
 <TabItem value="component">
+
 
 ```cs title="App1/App1/components/ProgressBarComponent.cs"
 using App1;
@@ -255,6 +262,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
+
 ```xml title="App1/App1/components/ProgressBarComponentView.xaml
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
@@ -281,6 +289,7 @@ namespace App1.Components
 
 </TabItem>
 <TabItem value="code-behind">
+
 
 ```cs title="App1/App1/components/ProgressBarComponentView.xaml.cs"
 using App1.Components;
@@ -332,6 +341,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view-model">
 
+
 ```cs title="App1/App1/components/ProgressBarComponentViewModel.cs"
 using App1.Components;
 using VertiGIS.Mobile.Composition;
@@ -374,6 +384,7 @@ namespace App1.Components
     <DemoVideo src={useBaseUrl("video/component-with-ui-demo.webm")} />
 </TabItem>
 </Tabs>
+
 
 This example refactored the original example to use [Autofac dependency injection](https://autofaccn.readthedocs.io/en/latest/register/registration.html) to instantiate the View and ViewModel. Setting up your classes so dependencies are handled by Autofac in the constructor allows you to allow inject other Geocortex Mobile classes registered with Autofac, like how the `UIOperations` class is injected into the view.
 

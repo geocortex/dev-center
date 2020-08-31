@@ -34,6 +34,7 @@ If you want to learn more about how this component was created, check out the [c
 }>
 <TabItem value="layout">
 
+
 ```xml title="App1/App1/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
@@ -54,6 +55,7 @@ If you want to learn more about how this component was created, check out the [c
 
 </TabItem>
 <TabItem value="component">
+
 
 ```cs title="App1/App1/components/CustomComponent.cs"
 using App1;
@@ -79,6 +81,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
+
 ```xml title="App1/App1/components/CustomComponentView.xaml"
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
@@ -97,6 +100,7 @@ namespace App1.Components
 
 </TabItem>
 <TabItem value="code-behind">
+
 
 ```cs title="App1/App1/components/CustomComponentView.xaml.cs"
 using App1.Components;
@@ -120,6 +124,7 @@ namespace App1.Components
 
 </TabItem>
 </Tabs>
+
 
 ## Create a Skeleton App Config Definition
 
@@ -193,6 +198,7 @@ Components that consume configuration should extend `AppItemComponentBase<Config
 }>
 <TabItem value="component">
 
+
 ```cs title="App1/App1/components/CustomComponent.cs"
 using App1;
 using App1.Components;
@@ -244,6 +250,7 @@ namespace App1.Components
 </TabItem>
 <TabItem value="view">
 
+
 ```xml title="App1/App1/components/CustomComponentView.xaml"
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
@@ -265,6 +272,7 @@ namespace App1.Components
 
 </TabItem>
 <TabItem value="code-behind">
+
 
 ```cs title="App1/App1/components/CustomComponentView.xaml.cs"
 using App1.Components;
@@ -288,6 +296,7 @@ namespace App1.Components
 
 </TabItem>
 <TabItem value="view-model">
+
 
 ```cs title="App1/App1/components/CustomComponentViewModel.cs"
 using App1.Components;
@@ -320,6 +329,7 @@ namespace App1.Components
 </TabItem>
 </Tabs>
 
+
 ## Define Configuration Values
 
 At this point, the component is hooked up to configuration, and configuration values can be defined and consumed.
@@ -335,6 +345,7 @@ App Config is defined in the [app JSON](sdk-edit-layout-app-config.mdx) and link
   ]
 }>
 <TabItem value="layout">
+
 
 ```xml title="App1/App1/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
@@ -358,6 +369,7 @@ App Config is defined in the [app JSON](sdk-edit-layout-app-config.mdx) and link
 
 </TabItem>
 <TabItem value="json">
+
 
 ```json title="App1/App1/app.json"
 {
@@ -385,6 +397,7 @@ App Config is defined in the [app JSON](sdk-edit-layout-app-config.mdx) and link
 <img src={useBaseUrl("img/mobile-component-with-configuration.png")}/>
 </TabItem>
 </Tabs>
+
 
 ## Relevant SDK Sample
 

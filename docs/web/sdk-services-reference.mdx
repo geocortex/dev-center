@@ -106,6 +106,7 @@ The service is linked to the config through the `itemType` and `id` properties.
   ]}>
 <TabItem value="service">
 
+
 ```ts
 export interface CustomServiceProperties extends ServiceModelProperties {
     name: string;
@@ -141,6 +142,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 </TabItem>
 <TabItem value="registration">
 
+
 ```ts
 export default function (registry: LibraryRegistry) {
     registry.registerService({
@@ -155,6 +157,7 @@ export default function (registry: LibraryRegistry) {
 
 </TabItem>
 <TabItem value="config">
+
 
 ```json
 {
@@ -172,6 +175,7 @@ export default function (registry: LibraryRegistry) {
 
 </TabItem>
 </Tabs>
+
 
 ## Next Steps
 

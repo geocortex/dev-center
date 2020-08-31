@@ -193,6 +193,7 @@ This example uses the `useWatchAndRerender` [component hook](sdk-components-hook
   ]}>
 <TabItem value="component">
 
+
 ```tsx
 export default function ExampleComponent(
     props: LayoutElementProperties<ExampleComponentModel>
@@ -216,6 +217,7 @@ export default function ExampleComponent(
 </TabItem>
 <TabItem value="model">
 
+
 ```ts
 export default class ExampleComponentModel extends ComponentModelBase {
     items: Collection<string> = new Collection<string>();
@@ -226,6 +228,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 </TabItem>
 </Tabs>
+
 
 ### Configuration
 
@@ -245,6 +248,7 @@ The `ExampleComponentModel` class consumes the configuration by extending the `C
     { label: "App Config", value: "config" },
   ]}>
 <TabItem value="model">
+
 
 ```ts
 interface ExampleComponentModelProperties extends ComponentModelProperties {
@@ -282,6 +286,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
 </TabItem>
 <TabItem value="config">
 
+
 ```json
  {
     "schemaVersion": "1.0",
@@ -303,6 +308,7 @@ export default class ExampleComponentModel extends ComponentModelBase<
 
 </TabItem>
 </Tabs>
+
 
 ### Component Defaults
 

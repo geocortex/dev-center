@@ -39,6 +39,7 @@ We are going to add configuration to a custom component that displays news items
 }>
 <TabItem value="component">
 
+
 ```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React, { useState } from "react";
 import { LayoutElement } from "@vertigis/web/components";
@@ -87,6 +88,7 @@ export default function NewsFeed(props) {
 </TabItem>
 <TabItem value="model">
 
+
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
 
@@ -99,6 +101,7 @@ export default NewsFeedModel;
 </TabItem>
 <TabItem value="css">
 
+
 ```css title="src/components/NewsFeed/NewsFeed.css"
 .news-item-list {
     max-height: 200px;
@@ -109,6 +112,7 @@ export default NewsFeedModel;
 </TabItem>
 <TabItem value="index">
 
+
 ```ts title="src/components/NewsFeed/index.ts"
 export { default } from "./NewsFeed";
 export { default as NewsFeedModel } from "./NewsFeedModel";
@@ -116,6 +120,7 @@ export { default as NewsFeedModel } from "./NewsFeedModel";
 
 </TabItem>
 <TabItem value="registration">
+
 
 ```ts title="src/index.ts"
 import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
@@ -139,6 +144,7 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 <TabItem value="layout">
 
+
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
@@ -151,6 +157,7 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 <TabItem value="config">
 
+
 ```json title="app/app.json"
 {
     "schemaVersion": "1.0",
@@ -160,6 +167,7 @@ export default function (registry: LibraryRegistry) {
 
 </TabItem>
 </Tabs>
+
 
 ## Define the Configurable Properties
 
@@ -307,6 +315,7 @@ Following is a complete example where news items are configured in the `app.json
 }>
 <TabItem value="component">
 
+
 ```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React, { useState } from "react";
 import {
@@ -370,6 +379,7 @@ export default function NewsFeed(props: NewsFeedProps) {
 </TabItem>
 <TabItem value="model">
 
+
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import {
     ComponentModelBase,
@@ -426,6 +436,7 @@ export default class NewsFeedModel extends ComponentModelBase<
 </TabItem>
 <TabItem value="css">
 
+
 ```css title="src/components/NewsFeed/NewsFeed.css"
 .news-item-list {
     max-height: 200px;
@@ -435,6 +446,7 @@ export default class NewsFeedModel extends ComponentModelBase<
 
 </TabItem>
 <TabItem value="layout">
+
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -448,6 +460,7 @@ export default class NewsFeedModel extends ComponentModelBase<
 
 </TabItem>
 <TabItem value="config">
+
 
 ```json title="app/app.json"
 {
@@ -472,6 +485,7 @@ export default class NewsFeedModel extends ComponentModelBase<
 </TabItem>
 <TabItem value="newsFeedIndex">
 
+
 ```ts title="src/components/NewsFeed/index.ts"
 export { default } from "./NewsFeed";
 export { default as NewsFeedModel } from "./NewsFeedModel";
@@ -479,6 +493,7 @@ export { default as NewsFeedModel } from "./NewsFeedModel";
 
 </TabItem>
 <TabItem value="index">
+
 
 ```ts title="src/index.ts"
 import Test, { TestModel } from "./components/Test";
@@ -509,6 +524,7 @@ export default function (registry: LibraryRegistry) {
 <img src={useBaseUrl("img/web-component-config-example.png")} />
 </TabItem>
 </Tabs>
+
 
 ## Next Steps
 

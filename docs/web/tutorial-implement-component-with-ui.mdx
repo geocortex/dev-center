@@ -45,6 +45,7 @@ Create a new folder structure with the following files. These files define a new
 }>
 <TabItem value="component">
 
+
 ```tsx title="src/components/CustomComponent/CustomComponent.tsx"
 import React from "react";
 import {
@@ -67,6 +68,7 @@ export default function CustomComponent(
 </TabItem>
 <TabItem value="model">
 
+
 ```ts title="src/components/CustomComponent/CustomModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
 
@@ -79,6 +81,7 @@ export default CustomModel;
 </TabItem>
 <TabItem value="index">
 
+
 ```ts title="src/components/CustomComponent/index.ts"
 export { default } from "./CustomComponent";
 export { default as CustomModel } from "./CustomModel";
@@ -86,6 +89,7 @@ export { default as CustomModel } from "./CustomModel";
 
 </TabItem>
 </Tabs>
+
 
 ## Register the Component with the Web SDK
 
@@ -169,6 +173,7 @@ This React component displays a list of "news items" relevant to your GIS applic
 }>
 <TabItem value="component">
 
+
 ```tsx title="src/components/NewsFeed/NewsFeed.tsx"
 import React, { useState } from "react";
 import {
@@ -222,7 +227,9 @@ export default function NewsFeed(
 
 </TabItem>
 
+
 <TabItem value="model">
+
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
@@ -236,6 +243,7 @@ export default NewsFeedModel;
 </TabItem>
 <TabItem value="css">
 
+
 ```css title="src/components/NewsFeed/NewsFeed.css"
 .news-item-list {
     max-height: 200px;
@@ -245,6 +253,7 @@ export default NewsFeedModel;
 
 </TabItem>
 <TabItem value="layout">
+
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -259,6 +268,7 @@ export default NewsFeedModel;
 </TabItem>
 <TabItem value="newsFeedIndex">
 
+
 ```ts title="src/components/NewsFeed/index.ts"
 export { default } from "./NewsFeed";
 export { default as NewsFeedModel } from "./NewsFeedModel";
@@ -266,6 +276,7 @@ export { default as NewsFeedModel } from "./NewsFeedModel";
 
 </TabItem>
 <TabItem value="index">
+
 
 ```ts title="src/index.ts"
 import NewsFeed, { NewsFeedModel } from "./components/NewsFeed";
@@ -291,6 +302,7 @@ export default function (registry: LibraryRegistry) {
 <img src={useBaseUrl("img/web-news-feed.png")}/>
 </TabItem>
 </Tabs>
+
 
 ## Live Sample
 
