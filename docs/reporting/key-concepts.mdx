@@ -40,15 +40,26 @@ The basic steps for running a report are:
 
     <!-- cspell:disable -->
 
-        ```json
-        {
-            "template": {
-                "itemid": "5a810f3ac13454d6bfd2ac22ed0cc4b7",
-                "portalUrl": "https://arcgis.com"
+    ```json
+    {
+        "template": {
+            "itemid": "5a810f3ac13454d6bfd2ac22ed0cc4b7",
+            "portalUrl": "https://arcgis.com"
+        },
+        "parameters": [
+            {
+                "name": "Title",
+                "containsMultipleValues": false,
+                "value": "This is a title"
             },
-            "parameters": [...]
-        }
-        ```
+            {
+                "name": "featureIds",
+                "containsMultipleValues": true,
+                "values": [1, 2, 3]
+            }
+        ]
+    }
+    ```
 
     <!-- cspell:enable -->
 
@@ -56,9 +67,9 @@ The basic steps for running a report are:
 
     <!-- cspell:disable -->
 
-        ```
-        Authorization: Bearer eyJhbGciOiJIUzI1123sImtpZCI6ImNiMTc2NDQ5Y2ZkMTQwNTJiNGJlODA1YTlhMzVhNzM1IiwiemlwIjoiREVGIn0.RZHLjqpAFEV_5aZyh2LzEARn2IANiC8EbSemKApFgSqhEKHT_95o7mO61j7Jyd5fAJECTL7Ab9ZSDCbAadimLt5JwXDBwAAUMMc-hejpDJzAOntSSkoGMzvuIebHaiQhFGEkjFQlgaIERSyLYqTEEGrwXzoosz5-ZoxWk7e3DLKU1TE-YTLMIa2GsESntBoikvcXECFcVVtyxf1zoO04eTrPY5U4ncbExEDSQmbhuDTWtC3M_OxGj-CaljNrZl2th-f7NTpzIq1sf9VEruJzAr3VHlyGwd73Eq27KMXYPkZi8iF0nh3r8BYEu2uwCz_5pXHfpN1eX5OR2xwJXXGLMoEBKdFm4XMtc9K5jwRqZqHjSjh7rzKLizLPlKnb8Oy-Pxon3k4V-3BRogtpz42QBo-PfDmVjdnW2q5paGYNvw12B8XxLMEkn_ZaWAntnu90V9fy64kq6krz2o31iPTxnKYXLlwb1UpMUr_LRo1jb_3D_bbTh8NnUZS-VnDNw10om1O9ECVNPzS9qitcvlwckao6zv8X_kcu-mmfq8KyxMWvaR8C3wOQQgYmgqypmsBro7GiSgOAH_QvE8cv9v0D.q2hGkkvcU2oWlxRhQH_PU4MxNgvY601Z60Ec1A4asL4
-        ```
+    ```
+    Authorization: Bearer eyJhbGciOiJzI1123sImtpZCI6IiMTc2NDQ5Y2ZkMTQwNTJiNlODA1YTlhMzV...
+    ```
 
     <!-- cspell:enable -->
 
