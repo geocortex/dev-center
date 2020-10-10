@@ -1,0 +1,74 @@
+---
+title: Run a report from JavaScript
+description: Geocortex Reporting - JavaScript
+---
+
+The **Geocortex Reporting Client for JavaScript** package provides an easy to use API for running reports.
+
+## Requirements
+
+-   The latest LTS version of [Node.js](https://nodejs.org/en/)
+    -   You can run `node -v` in your terminal to check the version you have installed
+-   A code editor of your choice. We recommend [Visual Studio Code](https://code.visualstudio.com/)
+
+## Installing the package
+
+This package is published to [npm](https://www.npmjs.com/package/@vertigis/reporting-client/), and can be installed using `npm`:
+
+```sh
+npm install @vertigis/reporting-client
+```
+
+## Generating a report
+
+The package exports a `run` async function that will return a URL to the report upon completion.
+
+```js
+import { run } from "@vertigis/reporting-client";
+
+const url = await run("itemId", options?);
+```
+
+Where:
+
+-   `itemid` is the ArcGIS item ID of the report you want to run. This is always required.
+-   `options?` is an additional optional argument that describes how to run the report and what parameters to supply to it.
+
+## Run a report from ArcGIS Online
+
+```js
+const url = await run("itemId");
+```
+
+## Run a report from ArcGIS Enterprise
+
+To run a report from ArcGIS Enterprise you must provide the `portalUrl` option.
+
+```js
+const url = await run("itemId", {
+    portalUrl: "https://server.domain.com/portal",
+});
+```
+
+## Run a report with parameters
+
+To pass additional parameters a report you provide the `parameters` option which is an object whose keys match the names of parameters that exist in the report.
+
+```js
+const url = await run("itemId", {
+    parameters: {
+        Title: "My Title",
+        FeatureIds: [1, 2, 3],
+    },
+});
+```
+
+## Run a secured report, or a report that accesses secured ArcGIS content
+
+To run a secured report, or a report that accesses secured ArcGIS content you must provide the `token` option that specifies the ArcGIS access token of the user running the report. The token is required to access the report item as well as any secured resources, such as ArcGIS services, that provide data for the report.
+
+```js
+const url = await run("itemId", {
+    token: "eyJhbGciOiJIUzI1Ni...",
+});
+```

@@ -1,0 +1,48 @@
+---
+title: Run a report from an ArcGIS Notebook
+description: Geocortex Reporting - ArcGIS Notebook
+---
+
+You can use the **Geocortex Reporting Client for Python** package to run reports from ArcGIS Notebooks.
+
+## Prerequisites
+
+-   ArcGIS Online or ArcGIS Enterprise 10.7+
+-   An ArcGIS user with permission to create and edit ArcGIS Notebooks
+-   An existing Geocortex Report that accepts a `FeatureIds` parameter
+
+## Author the Notebook
+
+1. Sign into ArcGIS Online or ArcGIS Enterprise as a Notebook Author user
+2. Create a new Notebook
+3. Add a cell with the following script:
+
+```py
+!pip install geocortex-reporting-client
+```
+
+4. Run the cell to install the `geocortex-reporting-client` package
+5. Add a cell with the following script:
+
+```py
+from geocortex.reporting.client import run
+
+report = await run("itemid", FeatureIds=[1, 2, 3])
+print(report)
+```
+
+6. Replace `itemid` with the ArcGIS item ID of your report
+7. Update the array `[1, 2, 3]` to contain the feature IDs of the features you want to generate the report for
+8. Run the cell to generate the report
+
+## ArcGIS Enterprise Support
+
+The same process applies to ArcGIS Enterprise 10.7+ but you must also supply the `portal_url` argument to the `run` method
+
+```py
+report = await run(
+    "itemid",
+    portal_url="https://myportal.server.com/portal",
+    FeatureIds=[1, 2, 3]
+)
+```
