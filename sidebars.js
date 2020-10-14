@@ -302,7 +302,16 @@ module.exports = {
         {
             type: "category",
             label: "Geocortex Reporting SDK",
-            items: ["reporting/sdk-overview"],
+            items: [
+                "reporting/sdk-overview",
+                "reporting/sdk-js-overview",
+                "reporting/sdk-py-overview",
+                {
+                    type: "category",
+                    label: "Tutorials",
+                    items: ["reporting/tutorial-arcgis-notebook"],
+                },
+            ],
         },
     ],
 };
