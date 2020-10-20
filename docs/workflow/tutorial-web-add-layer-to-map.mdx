@@ -37,9 +37,9 @@ import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
 // @description An activity which adds a graphics layer to a map.
 // highlight-next-line
 export class AddLayerToMap extends AppActivity {
-    static action = "your:unique:namespace::AddLayerToMap";
+    static action = "uuid:<uuid>::AddLayerToMap";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     // Perform the execution logic of the activity.
     async execute(inputs: object): Promise<void> {
@@ -70,9 +70,9 @@ import * as LineSymbol from "esri/symbols/LineSymbol";
 // @category Custom Activities
 // @description An activity which adds a graphics layer to a map.
 export class AddLayerToMap extends AppActivity {
-    static action = "your:unique:namespace::AddLayerToMap";
+    static action = "uuid:<uuid>::AddLayerToMap";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     // Perform the execution logic of the activity.
     async execute(inputs: object): Promise<void> {

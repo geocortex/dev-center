@@ -27,7 +27,7 @@ namespace App1.Workflow
 {
     public class CalculateLog : IActivityHandler
     {
-        public const string Action = "your:unique:namespace::CalculateLog";
+        public const string Action = "uuid:<uuid>::CalculateLog";
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
@@ -66,7 +66,7 @@ Follow the instructions in [Implement a Custom Activity for Web Applications](tu
 Stub out the appropriate metadata and type information for the .NET activity you are stubbing out. The execute body is left empty, as the implementation is defined in .NET using the Geocortex Mobile SDK or Geocortex Workflow for Server. In the case of the Logarithm activity, the stub might look like this.
 
 :::important
-The static `action` property of the original activity definition has been changed to `your:unique:namespace::CalculateLog` to match the action name in the .NET implementation. If these two action names are not the same, the .NET workflow runtime will **not** be able to find the correct activity.
+The static `action` property of the original activity definition has been changed to `uuid:<uuid>::CalculateLog` to match the action name in the .NET implementation. If these two action names are not the same, the .NET workflow runtime will **not** be able to find the correct activity.
 :::
 
 ```ts
@@ -88,9 +88,9 @@ export interface CalculateLogOutputs {
 // @category Custom Activities
 // @description An activity that calculates the log of a number with the given base.
 export class CalculateLog {
-    static action = "your:unique:namespace::CalculateLog";
+    static action = "uuid:<uuid>::CalculateLog";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         // The host application must implement this activity

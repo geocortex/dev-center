@@ -56,9 +56,9 @@ import {
 } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
 export class RegisterCustomFormElement extends RegisterCustomFormElementBase {
-    static action = "your:unique:namespace::RegisterCustomFormElement";
+    static action = "uuid:<uuid>::RegisterCustomFormElement";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     async execute(): Promise<void> {
         // highlight-next-line

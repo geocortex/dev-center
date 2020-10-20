@@ -35,9 +35,9 @@ export interface CustomActivityOutputs {
 // @category Custom Activities
 // @description A description of the activity.
 export class CustomActivity {
-    static action = "your:unique:namespace::CustomActivity";
+    static action = "uuid:<uuid>::CustomActivity";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     // Perform the execution logic of the activity.
     async execute(
@@ -67,9 +67,9 @@ import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
 // @description An activity which adds a graphics layer to a map.
 // highlight-next-line
 export class CustomAppActivity extends AppActivity {
-    static action = "your:unique:namespace::AddLayerToMap";
+    static action = "uuid:<uuid>::AddLayerToMap";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     // Perform the execution logic of the activity.
     async execute(inputs: object): Promise<void> {

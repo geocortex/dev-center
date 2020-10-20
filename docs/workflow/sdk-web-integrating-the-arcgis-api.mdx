@@ -44,9 +44,9 @@ export interface ExpandPolygonOutputs {
 // @category Custom Activities
 // @description An activity that calculates the extent a polygon would cover if it was expanded by a given factor.
 export class ExpandPolygon {
-    static action = "your:unique:namespace::ExpandPolygon";
+    static action = "uuid:<uuid>::ExpandPolygon";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         return {
@@ -160,9 +160,9 @@ export interface ExpandPolygonOutputs {
 // @category Custom Activities
 // @description An activity that calculates the extent a polygon would cover if it was expanded by a given factor.
 export class ExpandPolygon {
-    static action = "your:unique:namespace::ExpandPolygon";
+    static action = "uuid:<uuid>::ExpandPolygon";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         const apiVersion = getArcGISApiVersion();

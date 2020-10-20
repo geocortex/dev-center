@@ -63,9 +63,9 @@ export interface CalculateLogOutputs {
 // @category Custom Activities
 // @description Calculates the logarithm of a number with an optional base.
 export class CalculateLog {
-    static action = "your:unique:namespace::CalculateLog";
+    static action = "uuid:<uuid>::CalculateLog";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     // highlight-next-line
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
@@ -94,9 +94,9 @@ export interface CalculateLogOutputs {
 // @category Custom Activities
 // @description An activity that calculates the log of a number with the given base.
 export class CalculateLog {
-    static action = "your:unique:namespace::CalculateLog";
+    static action = "uuid:<uuid>::CalculateLog";
 
-    static suite = "your:unique:namespace";
+    static suite = "uuid:<uuid>";
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         // highlight-start
