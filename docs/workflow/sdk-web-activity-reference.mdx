@@ -4,42 +4,6 @@ sidebar_label: Activity Reference
 description: Geocortex Workflow - Reference for workflow activities for web applications
 ---
 
-In the Geocortex Workflow TypeScript SDK, activities are represented as simple classes with an `execute` method.
-
-```ts
-// @displayName MyCustomActivity
-// @category Custom Activities
-export class MyCustomActivity {
-    // The unique identifier of the activity.
-    static action =
-        "uuid:5ab188eb-dc0d-42c7-bc3a-57cdcda0adcb::MyCustomActivity";
-
-    // The identifier of the suite of activities that this activity belongs to.
-    static suite = "uuid:5ab188eb-dc0d-42c7-bc3a-57cdcda0adcb";
-
-    // Perform the execution logic of the activity.
-    async execute(
-        inputs: MyCustomActivityInputs
-    ): Promise<MyCustomActivityOutputs> {
-        return { result: "test" };
-    }
-}
-```
-
-## Registering Activities
-
-The recommended method of creating and registering a new activity is through the `npm run activity` script.
-
-1. The script will perform the following operations:
-    1. Create a new activity `.ts` file with the provided name in the `src/activities` folder.
-    1. Populate the activity `.ts` file from an activity template.
-    1. Register the activity in `src/index.ts`.
-
-:::tip
-It's convention to use PascalCase for activity names.
-You can add many activities to the same project.
-:::
-
 ## Inputs and Outputs
 
 The `execute` method of an activity class has typed inputs and outputs. These inputs and outputs are decorated with [block tags](sdk-web-activity-block-tags.mdx) to provide display hints in Geocortex Workflow Designer.
@@ -47,18 +11,24 @@ The `execute` method of an activity class has typed inputs and outputs. These in
 ```ts title="src/activities/CustomActivity.ts"
 /** An interface that defines the inputs of the activity. */
 export interface CustomActivityInputs {
+    // highlight-start
     // @description The first input to the activity.
     // @required
+    // highlight-end
     input1?: string;
 
+    // highlight-start
     // @description The second input to the activity.
+    // highlight-end
     input2?: number;
 }
 
 /** An interface that defines the outputs of the activity. */
 export interface CustomActivityOutputs {
     /** A result of the activity. */
+    // highlight-start
     // @description The result of the activity.
+    // highlight-end
     result: string;
 }
 
@@ -70,13 +40,11 @@ export class CustomActivity {
     static suite = "your:unique:namespace";
 
     // Perform the execution logic of the activity.
-    // highlight-start
     async execute(
         inputs: CustomActivityInputs
     ): Promise<CustomActivityOutputs> {
         return { result: "test" };
     }
-    // highlight-end
 }
 ```
 

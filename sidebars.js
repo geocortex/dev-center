@@ -130,6 +130,7 @@ module.exports = {
             items: [
                 "workflow/sdk-web-overview",
                 "workflow/sdk-web-create-activity",
+                "workflow/sdk-web-create-element",
                 "workflow/sdk-web-activity-reference",
                 "workflow/sdk-web-form-reference",
                 "workflow/sdk-web-integrating-the-arcgis-api",
