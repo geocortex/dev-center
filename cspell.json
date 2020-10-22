@@ -43,6 +43,7 @@
         "lifecycle",
         "linq",
         "mapview",
+        "mkcert",
         "mvvm",
         "nameof",
         "netcore",
