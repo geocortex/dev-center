@@ -42,11 +42,42 @@ To get started with the development server, run `npm start` in the terminal to s
 
 -   The activity pack is available at [`https://localhost:5000/main.js`](https://localhost:5000/main.js) by default.
     -   You can change the port by setting the `PORT` environment variable when running `npm start`.
--   The SSL certificate of the development server is a self-signed certificate that web browsers will warn about. To work around this open [`https://localhost:5000/main.js`](https://localhost:5000/main.js) in a web browser and allow the invalid certificate as an exception.
+-   The HTTPS certificate of the development server is a self-signed certificate that web browsers will warn about. To work around this open [`https://localhost:5000/main.js`](https://localhost:5000/main.js) in a web browser and allow the invalid certificate as an exception. For creating a locally-trusted HTTPS certificate see the [Configuring a HTTPS Certificate](#configuring-a-https-certificate) section.
 -   The development server supports CORS requests from any origin by default.
 
 :::note
 As `localhost` is only accessible to your host machine, activity packs hosted in this manner will not be accessible when running Geocortex Workflow Designer on a different machine.
+:::
+
+### Configuring a HTTPS Certificate
+
+You can create a locally-trusted development certificate that is trusted by your system using the [mkcert](https://github.com/FiloSottile/mkcert) utility. Once installed you can run:
+
+```sh
+$ mkcert -install
+Created a new local CA at "/Users/ian/Library/Application Support/mkcert" 💥
+The local CA is now installed in the system trust store! ⚡️
+The local CA is now installed in the Firefox trust store (requires browser restart)! 🦊
+
+$ mkcert localhost 127.0.0.1 ::1
+Using the local CA at "/Users/ian/Library/Application Support/mkcert" ✨
+
+Created a new certificate valid for the following names 📜
+ - "localhost"
+ - "127.0.0.1"
+ - "::1"
+
+The certificate is at "./localhost+2.pem" and the key at "./localhost+2-key.pem" ✅
+```
+
+Once you've created your locally-trusted development certificate you can provide the paths to the `cert` and `key` files:
+
+```sh
+$ npm start -- --cert "./localhost+2.pem" --key "./localhost+2-key.pem"
+```
+
+:::note
+The extra `--` used in the `npm start` script is necessary to forward the arguments to the development server process.
 :::
 
 ## Deployment
@@ -67,11 +98,11 @@ Check out [Implement Custom Activities for Web Applications](tutorial-web-calcul
 ### Host the Activity Pack
 
 The `build` folder produced by running `npm run build` can be directly hosted with the web server technology that is most appropriate for your use case, such as [IIS](https://www.iis.net/).
-Activity packs must be hosted by a web server that supports SSL and CORS.
+Activity packs must be hosted by a web server that supports HTTPS and CORS.
 
 #### Server Requirements
 
--   The server must have a valid SSL certificate.
+-   The server must have a valid HTTPS certificate.
 -   The server must support [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and allow CORS requests from the `https://apps.geocortex.com` origin or the origin of your Geocortex Workflow if running on-premises.
 
 :::note
