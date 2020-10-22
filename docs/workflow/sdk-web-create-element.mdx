@@ -11,7 +11,7 @@ This article will walk you through creating a new workflow form element for web 
 
 ## Prerequisites
 
-[Download and set up](sdk-web-overview.mdx#download) the Geocortex Workflow TypeScript SDK.
+[Set up](sdk-web-overview.mdx#overview) the Geocortex Workflow TypeScript SDK.
 
 ## Create a Form Element
 
@@ -42,11 +42,11 @@ function CustomFormElement(props: CustomFormElementProps) {
 
 ## Registering Form Elements
 
-Form elements must be registered with a [custom activity](sdk-web-activity-reference.mdx#registering-activities) that extends `RegisterCustomFormElementBase`. This custom activity can call `this.register` to register each form element.
+Form elements must be registered with a [custom activity](sdk-web-create-activity.mdx) that extends `RegisterCustomFormElementBase`. This custom activity can call `this.register` to register each form element.
 
 :::tip
 Only one form element registration activity is needed per app, as it can register multiple custom form elements.
-Learn more about [implementing custom activities](sdk-web-activity-reference.mdx).
+Learn more about [implementing custom activities](sdk-web-create-activity.mdx).
 :::
 
 ```ts
