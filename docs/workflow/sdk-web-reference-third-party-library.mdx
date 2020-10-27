@@ -44,16 +44,32 @@ import {
     CustomFormElementProps,
     RegisterCustomFormElementBase,
 } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
-import * as React from "react";
-// highlight-next-line
+import React, { useEffect, useState } from "react";
 import { SketchPicker } from "react-color";
 
 /**
  * A simple React Component that displays a color picker.
  * @param props The props that will be provided by the Workflow runtime.
  */
-// highlight-next-line
-const ColorPicker = (props: CustomFormElementProps) => <SketchPicker />;
+const ColorPicker = (props: CustomFormElementProps) => {
+    const [color, setColor] = useState(props.element.value);
+
+    // Update the form state when the color picker value changes.
+    const handleColorChange = (newColor) => {
+        const newValue = newColor.hex;
+        props.element.value = newValue;
+        props.raiseEvent("changed", newValue);
+        setColor(newValue);
+    };
+
+    // Set local state when the form state changes.
+    useEffect(() => {
+        // Provide a default value if no value exists.
+        setColor(props.element.value ?? "#ff0000");
+    }, [props.element.value]);
+
+    return <SketchPicker color={color} onChange={handleColorChange} />;
+};
 
 // @displayName Register ColorPicker Form Element
 // @category Custom Activities
