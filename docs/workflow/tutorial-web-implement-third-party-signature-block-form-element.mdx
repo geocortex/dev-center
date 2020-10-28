@@ -1,0 +1,131 @@
+---
+title: Implement a Signature Block Custom Form Element using a Third Party Library
+description: Geocortex Workflow - Implement a signature block form element for web applications using a third party library
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import WebPrereqs from "./snippets/prereqs-web.mdx";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Implementing a custom [form element](key-concepts.mdx#form-elements) allows you to augment the existing [form elements that come with Geocortex Workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/auto-complete.htm%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7C_____0).
+
+This article will walk you through creating a form element that uses the [react-signature-pad-wrapper](https://github.com/michaeldzjap/react-signature-pad-wrapper) component to capture a user's signature.
+
+<img src={useBaseUrl("img/workflow-web-custom-signature-block.png")} />
+
+## Prerequisites
+
+<WebPrereqs />
+
+## Overview
+
+Implementing a signature block custom form element for web applications using a third party library consists of the following steps:
+
+1. Adding third party library dependencies to your project.
+1. Creating the custom form element.
+1. Implementing the custom form element using the third party library.
+
+## Adding Dependencies
+
+1. Run `npm install react-signature-pad-wrapper` in the terminal to install the third party [react-signature-pad-wrapper](https://github.com/michaeldzjap/react-signature-pad-wrapper) component.
+1. Run `npm install @types/signature_pad` in the terminal to install type information for the third party component. This is optional, but it provides an improved developer experience.
+
+## Set up Custom Form Element Skeleton
+
+To create a new form element:
+
+1. Open the Workflow activity SDK in Visual Studio Code.
+1. Run `npm run generate` in the terminal.
+1. When prompted, select `Form Element`.
+1. Enter the name of the form element you would like to create and press `Enter`. For example, `SignatureBlock`.
+1. Open the newly created `src/activities/SignatureBlock.tsx` file.
+
+## Implement the Custom Form Element
+
+Modify the skeleton form element implementation in `src/activities/SignatureBlock.tsx` to match the following example.
+
+```tsx title="src/activities/SignatureBlock.tsx"
+import React, { useRef } from "react";
+import SignaturePadWrapper from "react-signature-pad-wrapper";
+import SignaturePad, { SignaturePadOptions } from "signature_pad";
+import {
+    CustomFormElementProps,
+    RegisterCustomFormElementBase,
+} from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+
+/**
+ * A simple React Component that displays a signature input.
+ * @param props The props that will be provided by the Workflow runtime.
+ */
+const SignatureBlock = (props: CustomFormElementProps) => {
+    const signaturePad = useRef<SignaturePad>(null);
+
+    const handleClear = () => {
+        // Clear the signature.
+        signaturePad.current?.clear();
+        // Clear the value of the element and raise the changed event.
+        props.element.value = undefined;
+        props.raiseEvent("changed", undefined);
+    };
+
+    const handleEnd = () => {
+        // Get the signature from the SignaturePad component as a data URL.
+        const dataUrl = signaturePad.current?.toDataURL();
+        // Update the value of the element and raise the changed event.
+        props.element.value = dataUrl;
+        props.raiseEvent("changed", dataUrl);
+    };
+
+    const options: SignaturePadOptions = {
+        onEnd: handleEnd,
+    };
+
+    return (
+        <>
+            <div style={{ border: "1px solid #cccccc" }}>
+                <SignaturePadWrapper
+                    height={150}
+                    options={options}
+                    ref={signaturePad}
+                />
+            </div>
+            <button onClick={handleClear}>↺</button>
+        </>
+    );
+};
+
+// @displayName Register SignatureBlock Form Element
+// @category Custom Activities
+// @description Registers a SignatureBlock form element
+export class RegisterSignatureBlockElement extends RegisterCustomFormElementBase {
+    // The unique identifier of the activity.
+    // This value should not be changed once an activity has been published.
+    static readonly action = "uuid:<uuid>::SignatureBlock";
+
+    // The identifier of the suite of activities that this activity belongs to.
+    // This value should not be changed once an activity has been published.
+    static readonly suite = "uuid:<uuid>";
+
+    // Perform the execution logic of the activity.
+    execute() {
+        this.register("SignatureBlock", SignatureBlock);
+    }
+}
+```
+
+## Deploy the Form Element
+
+Follow the instructions to [build and deploy the activity pack](sdk-web-overview.mdx#deployment).
+
+## Test the Form Element
+
+Once your activity pack is hosted and registered, your `Register SignatureBlock Form Element` custom activity should appear in the activity toolbox in Geocortex Workflow Designer alongside the built-in activities.
+
+To use your custom form element in a workflow:
+
+1. Add your `Register SignatureBlock Form Element` custom activity to your workflow so that it runs **before** any `Display Form` activities that will use the custom form element.
+1. Select the `Display Form` activity that you want to include your form element in.
+1. Add a `Custom` form element to the form.
+1. Set the `Custom Type` property of the `Custom` form element to `SignatureBlock`
+1. Test your workflow.

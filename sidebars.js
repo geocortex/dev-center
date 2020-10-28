@@ -143,6 +143,7 @@ module.exports = {
                         "workflow/tutorial-web-calculate-logarithm-activity",
                         "workflow/tutorial-web-add-layer-to-map",
                         "workflow/tutorial-web-implement-star-rating-form-element",
+                        "workflow/tutorial-web-implement-third-party-signature-block-form-element",
                     ],
                 },
             ],
