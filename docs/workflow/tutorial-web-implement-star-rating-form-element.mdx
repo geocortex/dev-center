@@ -57,10 +57,6 @@ import StarRatingElement from "../form-elements/StarRatingElement";
 // @category Custom Activities
 // @description Registers custom form elements for the application
 export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
-    static action = "uuid:<uuid>::RegisterCustomFormElements";
-
-    static suite = "uuid:<uuid>";
-
     async execute(): Promise<void> {
         this.register("StarRatingElement", StarRatingElement);
     }

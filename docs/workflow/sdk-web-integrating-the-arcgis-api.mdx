@@ -53,6 +53,7 @@ import * as Extent from "esri/geometry/Extent";
 This is a custom activity which imports types from the ArcGIS API for JavaScript to expand a polygon by a given factor and returns the new extent bounds.
 
 ```ts
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
 // highlight-start
 import * as Extent from "esri/geometry/Extent";
 import * as Polygon from "esri/geometry/Polygon";
@@ -77,11 +78,7 @@ export interface ExpandPolygonOutputs {
 
 // @category Custom Activities
 // @description An activity that expands the bounding extent of a polygon by a given factor.
-export class ExpandPolygon {
-    static action = "uuid:<uuid>::ExpandPolygon";
-
-    static suite = "uuid:<uuid>";
-
+export class ExpandPolygon implements IActivityHandler {
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         return {
             // highlight-next-line
@@ -135,6 +132,7 @@ Since the SDK can only reference one version of the `@types/arcgis-js-api` packa
 In this example, the way the Extent of a polygon is retrieved is the difference between the APIs. In 4.x, `extent` is a property, while in 3.x extent is retrieved using the `getExtent()` method. The APIs converge after this, with both supporting the `expand(factor)` method.
 
 ```ts
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
 import * as Extent from "esri/geometry/Extent";
 import * as Polygon from "esri/geometry/Polygon";
 import * as kernel from "esri/kernel";
@@ -173,11 +171,7 @@ export interface ExpandPolygonOutputs {
 
 // @category Custom Activities
 // @description An activity that expands the bounding extent of a polygon by a given factor.
-export class ExpandPolygon {
-    static action = "uuid:<uuid>::ExpandPolygon";
-
-    static suite = "uuid:<uuid>";
-
+export class ExpandPolygon implements IActivityHandler {
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         const apiVersion = getArcGISApiVersion();
         let extent;

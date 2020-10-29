@@ -9,6 +9,8 @@ description: Geocortex Workflow - Reference for workflow activities for web appl
 The `execute` method of an activity class has typed inputs and outputs. These inputs and outputs are decorated with [block tags](sdk-web-activity-block-tags.mdx) to provide display hints in Geocortex Workflow Designer.
 
 ```ts title="src/activities/CustomActivity.ts"
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
+
 /** An interface that defines the inputs of the activity. */
 export interface CustomActivityInputs {
     // highlight-start
@@ -34,11 +36,7 @@ export interface CustomActivityOutputs {
 
 // @category Custom Activities
 // @description A description of the activity.
-export class CustomActivity {
-    static action = "uuid:<uuid>::CustomActivity";
-
-    static suite = "uuid:<uuid>";
-
+export class CustomActivity implements IActivityHandler {
     // Perform the execution logic of the activity.
     async execute(
         inputs: CustomActivityInputs
@@ -67,10 +65,6 @@ import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
 // @description An activity which adds a graphics layer to a map.
 // highlight-next-line
 export class CustomAppActivity extends AppActivity {
-    static action = "uuid:<uuid>::AddLayerToMap";
-
-    static suite = "uuid:<uuid>";
-
     // Perform the execution logic of the activity.
     async execute(inputs: object): Promise<void> {
         // highlight-next-line

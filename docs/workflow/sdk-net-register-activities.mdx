@@ -59,17 +59,19 @@ This activity will need a TypeScript stub that defines its input and output type
 
 ### Create a new Activity Pack
 
-Follow the instructions in [Implement a Custom Activity for Web Applications](tutorial-web-calculate-logarithm-activity.mdx) up to [Implement the Activity](tutorial-web-calculate-logarithm-activity.mdx#implement-the-activity).
+Follow the instructions in [Implement a Custom Activity for Web Applications](tutorial-web-calculate-logarithm-activity.mdx) up to [Implement the Activity](tutorial-web-calculate-logarithm-activity.mdx#implement-the-activity). You will need to update the uuid value in `uuid.js` of your activity pack to match the uuid of your .NET project.
 
 ### Stub out the Activity Metadata
 
 Stub out the appropriate metadata and type information for the .NET activity you are stubbing out. The execute body is left empty, as the implementation is defined in .NET using the Geocortex Mobile SDK or Geocortex Workflow for Server. In the case of the Logarithm activity, the stub might look like this.
 
 :::important
-The static `action` property of the original activity definition has been changed to `uuid:<uuid>::CalculateLog` to match the action name in the .NET implementation. If these two action names are not the same, the .NET workflow runtime will **not** be able to find the correct activity.
+By default the static `action` property will be generated for you when you build the TypeScript activity pack. In the example below we've explicitly declared the static `action` property to match the action name in the .NET implementation. If these two action names are not the same, the .NET workflow runtime will **not** be able to find the correct activity.
 :::
 
 ```ts
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
+
 export interface CalculateLogInputs {
     // @description The base of the logarithm. Defaults to the natural log.
     base?: number;
@@ -87,10 +89,8 @@ export interface CalculateLogOutputs {
 // @supportedApps GMV
 // @category Custom Activities
 // @description An activity that calculates the log of a number with the given base.
-export class CalculateLog {
+export class CalculateLog implements IActivityHandler {
     static action = "uuid:<uuid>::CalculateLog";
-
-    static suite = "uuid:<uuid>";
 
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         // The host application must implement this activity

@@ -22,8 +22,8 @@ This article will walk you through creating a new workflow activity for web appl
     1. Register the activity in `src/index.ts`.
 
 :::tip
-It's convention to use PascalCase for activity names.
-You can add multiple activities and form elements to the same project.
+It's convention to use PascalCase for activity names. You can add multiple activities and form elements to the same project.
+The name of your activity should not be modified after it has been deployed, as it is a unique identifier used by the Workflow runtime.
 :::
 
 In the Geocortex Workflow TypeScript SDK, activities are represented as simple classes with an `execute` method.
@@ -31,14 +31,7 @@ In the Geocortex Workflow TypeScript SDK, activities are represented as simple c
 ```ts
 // @displayName MyCustomActivity
 // @category Custom Activities
-export class MyCustomActivity {
-    // The unique identifier of the activity.
-    static action =
-        "uuid:5ab188eb-dc0d-42c7-bc3a-57cdcda0adcb::MyCustomActivity";
-
-    // The identifier of the suite of activities that this activity belongs to.
-    static suite = "uuid:5ab188eb-dc0d-42c7-bc3a-57cdcda0adcb";
-
+export class MyCustomActivity implements IActivityHandler {
     // Perform the execution logic of the activity.
     async execute(
         inputs: MyCustomActivityInputs

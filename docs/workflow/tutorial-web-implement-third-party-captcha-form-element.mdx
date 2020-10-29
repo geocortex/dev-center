@@ -96,14 +96,6 @@ const Captcha = (props: CustomFormElementProps) => {
 // @category Custom Activities
 // @description Registers a Captcha form element
 export class RegisterCaptchaElement extends RegisterCustomFormElementBase {
-    // The unique identifier of the activity.
-    // This value should not be changed once an activity has been published.
-    static readonly action = "uuid:<uuid>::Captcha";
-
-    // The identifier of the suite of activities that this activity belongs to.
-    // This value should not be changed once an activity has been published.
-    static readonly suite = "uuid:<uuid>";
-
     // Perform the execution logic of the activity.
     execute() {
         this.register("Captcha", Captcha);

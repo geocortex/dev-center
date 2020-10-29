@@ -42,6 +42,8 @@ First, let's change the inputs and outputs to properties that make sense for cal
 :::
 
 ```ts title="src/activities/CustomActivity.ts"
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
+
 // highlight-start
 export interface CalculateLogInputs {
     // @description The base of the logarithm. Defaults to the natural log.
@@ -62,11 +64,7 @@ export interface CalculateLogOutputs {
 
 // @category Custom Activities
 // @description Calculates the logarithm of a number with an optional base.
-export class CalculateLog {
-    static action = "uuid:<uuid>::CalculateLog";
-
-    static suite = "uuid:<uuid>";
-
+export class CalculateLog implements IActivityHandler {
     // highlight-next-line
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         return { result: 0 };
@@ -77,6 +75,8 @@ export class CalculateLog {
 Next, modify the `execute` method of the activity to calculate the logarithm of a number given an optional base
 
 ```ts title="src/activities/CustomActivity.cs"
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
+
 export interface CalculateLogInputs {
     // @description The base of the logarithm. Defaults to the natural log.
     base?: number;
@@ -93,11 +93,7 @@ export interface CalculateLogOutputs {
 
 // @category Custom Activities
 // @description An activity that calculates the log of a number with the given base.
-export class CalculateLog {
-    static action = "uuid:<uuid>::CalculateLog";
-
-    static suite = "uuid:<uuid>";
-
+export class CalculateLog implements IActivityHandler {
     async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
         // highlight-start
         return {

@@ -17,16 +17,13 @@ You can reference third party JavaScript libraries to augment [custom activities
 You can install the dependency in your project using `npm`. For example, `npm install moment`. After your package has been installed you can import and use the library as you normally would. This example demonstrates a custom activity that uses the `moment` library to return the current date and time in a human readable format.
 
 ```ts
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
 // highlight-next-line
 import * as moment from "moment";
 
 // @category Custom Activities
 // @description An activity that returns the current dat and time.
-export class CurrentTime {
-    static action = "uuid:<uuid>::CurrentTime";
-
-    static suite = "uuid:<uuid>";
-
+export class CurrentTime implements IActivityHandler {
     async execute(): Promise<string> {
         // highlight-next-line
         return moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
@@ -75,14 +72,6 @@ const ColorPicker = (props: CustomFormElementProps) => {
 // @category Custom Activities
 // @description Displays a color picker
 export class RegisterColorPickerElement extends RegisterCustomFormElementBase {
-    // The unique identifier of the activity.
-    // This value should not be changed once an activity has been published.
-    static readonly action = "uuid:<uuid>::ColorPicker";
-
-    // The identifier of the suite of activities that this activity belongs to.
-    // This value should not be changed once an activity has been published.
-    static readonly suite = "uuid:<uuid>";
-
     // Perform the execution logic of the activity.
     execute() {
         this.register("ColorPicker", ColorPicker);

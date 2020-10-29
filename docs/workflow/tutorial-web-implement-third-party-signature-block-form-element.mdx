@@ -97,14 +97,6 @@ const SignatureBlock = (props: CustomFormElementProps) => {
 // @category Custom Activities
 // @description Registers a Signature Block form element
 export class RegisterSignatureBlockElement extends RegisterCustomFormElementBase {
-    // The unique identifier of the activity.
-    // This value should not be changed once an activity has been published.
-    static readonly action = "uuid:<uuid>::SignatureBlock";
-
-    // The identifier of the suite of activities that this activity belongs to.
-    // This value should not be changed once an activity has been published.
-    static readonly suite = "uuid:<uuid>";
-
     // Perform the execution logic of the activity.
     execute() {
         this.register("SignatureBlock", SignatureBlock);
