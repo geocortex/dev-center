@@ -145,6 +145,7 @@ module.exports = {
                         "workflow/tutorial-web-implement-star-rating-form-element",
                         "workflow/tutorial-web-implement-third-party-star-rating-form-element",
                         "workflow/tutorial-web-implement-third-party-signature-block-form-element",
+                        "workflow/tutorial-web-implement-third-party-captcha-form-element",
                     ],
                 },
             ],
