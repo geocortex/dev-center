@@ -36,6 +36,40 @@ The created project contains a few important files and directories:
 1. The `src/index.ts` file which exports all of your custom activities and form elements.
 1. `uuid.js` which maintains a globally unique identifier that will be used when you create your custom activities and form elements. This enables you to load and use multiple activity packs in a given workflow. **This identifier should not be modified**.
 
+## Browser Support
+
+By default the Workflow SDK targets modern browsers. If you need to support Internet Explorer 11, you'll need to update a few configuration settings in your project.
+
+### Update TypeScript Configuration
+
+In the `tsconfig.json` of your project you'll need to change the `target` to `es5`:
+
+```json title="tsconfig.json"
+{
+    "extends": "@vertigis/workflow-sdk/config/tsconfig.json",
+    "compilerOptions": {
+        // highlight-next-line
+        "target": "es5"
+    },
+    "include": ["src"]
+}
+```
+
+### Update `browserslist`
+
+In the `package.json` of your project, you'll need to update the `browserslist` to include `ie 11`:
+
+```json title="package.json"
+"browserslist": [
+    "last 2 chrome versions",
+    "last 2 edge versions",
+    "last 2 firefox versions",
+    "last 2 safari versions",
+    // highlight-next-line
+    "ie 11"
+]
+```
+
 ## Development Server
 
 To get started with the development server, run `npm start` in the terminal to start the development server. Before you can use the activity pack in your workflows, you will need to [register the activity pack in your ArcGIS Portal](#register-the-activity-pack).
