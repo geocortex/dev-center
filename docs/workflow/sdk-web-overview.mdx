@@ -1,5 +1,5 @@
 ---
-title: Using the TypeScript Workflow SDK with Web Applications
+title: Geocortex Workflow TypeScript SDK Overview
 sidebar_label: SDK Overview
 description: Geocortex Workflow - Overview of extending workflow for web applications
 ---
@@ -139,6 +139,23 @@ To share an activity pack with other workflow authors in your organization share
 :::note
 You do not need to share the activity pack Portal item with the end users of your applications that run workflows containing custom activities. It only affects the visibility of the activity pack in the Geocortex Workflow Designer.
 :::
+
+## Migrating from the Legacy SDK
+
+If you're migrating from our previous `activity-sdk.zip` there are a few steps you will want to follow to migrate your source code over to the new SDK:
+
+1. Follow the instructions above to [create a new project](#getting-started) and [register the activity pack](#register-the-activity-pack).
+    - Note the updated instructions to register the activity pack. The URL should end in `/activitypack.json`.
+1. Copy the UUID value from `.build/uuid.txt` in your existing project and overwrite the value in `uuid.js` of your new project.
+1. Copy your activity and form element modules into the `src/activities` directory.
+1. Add each activity and form element to the `index.ts` exports. For example if you copied over an activity called `src/activities/Sum.ts`, you would add the following to `src/index.ts`:
+
+    - ```ts
+      export * from "./activities/Sum";
+      ```
+
+1. Check your `main.ts` and `init.ts` logic in your existing project to see if any of it is still relevant. You no longer need to call `mapDependencies()` to use third party libraries as the new SDK will handle this for you.
+1. Test your activity pack to ensure it still behaves as expected.
 
 ## Next Steps
 
