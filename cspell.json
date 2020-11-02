@@ -1,6 +1,7 @@
 {
     "version": "0.1",
     "words": [
+        "activitypack",
         "anonymize",
         "appitem",
         "arcgis",
@@ -11,6 +12,7 @@
         "basemap",
         "bootstrapper",
         "broadview",
+        "browserslist",
         "callout",
         "clsx",
         "configitemtype",
