@@ -4,6 +4,54 @@ sidebar_label: Form Element Reference
 description: Geocortex Workflow - Reference for workflow form elements for web applications
 ---
 
+## Styling Form Elements
+
+A custom form element can be styled using CSS in a few different ways:
+
+### Inline CSS
+
+Inline CSS is the simplest way to style your elements, but doesn't have the same flexibility as a CSS stylesheet.
+
+```tsx
+export default const CustomFormElement = (props: CustomFormElementProps) => {
+    return (
+        <div>
+            // highlight-next-line
+            <button style={{backgroundColor: "blue": color: "white"}}>
+                Click me
+            </button>
+        </div>
+    );
+};
+```
+
+### CSS file
+
+You can separate your element styles into a separate CSS stylesheet alongside your element. It is important that you import your CSS file within your component for the styles to be injected at runtime.
+
+```tsx
+// highlight-next-line
+import "./CustomFormElement.css";
+
+export default const CustomFormElement = (props: CustomFormElementProps) => {
+    return (
+        <div>
+            // highlight-next-line
+            <button className="CustomFormElement-button">
+                Click me
+            </button>
+        </div>
+    );
+};
+```
+
+```css title="CustomFormElement.css"
+.CustomFormElement-button {
+    background-color: blue;
+    color: white;
+}
+```
+
 ## Raising Form Events
 
 Geocortex Workflow form elements can raise [events](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise events, including a `custom` event type.
@@ -11,9 +59,6 @@ Geocortex Workflow form elements can raise [events](https://docs.geocortex.com/w
 Events are raises through the `raiseEvent` function on the element `props`. The follow custom form element demonstrates how various form events can be raised.
 
 ```tsx
-import * as React from "react";
-import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
-
 // A simple React Component that demonstrates raising events.
 export default const CustomFormElement = (props: CustomFormElementProps) => {
     const raiseClick = event => {
