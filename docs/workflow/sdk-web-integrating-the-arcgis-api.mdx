@@ -11,24 +11,58 @@ import WebPrereqs from "./snippets/prereqs-web.mdx";
 
 <WebPrereqs />
 
-Follow the instructions in [Implement a Custom Activity](tutorial-web-calculate-logarithm-activity.mdx) to create a custom workflow activity. You can then import ArcGIS API types with a `require` call.
+## Add ArcGIS API for JavaScript Typings
+
+Type information for the ArcGIS API for JavaScript is provided by the [@types/arcgis-js-api](https://www.npmjs.com/package/@types/arcgis-js-api) package. You need to install the version of this package that matches the version of the ArcGIS API for JavaScript present in the application where your activities and form elements will be used.
+
+1. Open up a terminal shell in the SDK folder.
+1. Run the `npm install @types/arcgis-js-api` command for the desired version of the ArcGIS API for JavaScript.
+
+For applications like [Geocortex Web](https://www.geocortex.com/products/gxw/) that use the 4.x ArcGIS API for JavaScript use:
+
+```sh
+npm install @types/arcgis-js-api@4.17.0
+```
+
+For applications like [Geocortex Viewer for HTML5](https://www.geocortex.com/products/geocortex-essentials/) or [Web AppBuilder for ArcGIS](https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview) (2D) that use the 3.x ArcGIS API for JavaScript use:
+
+```sh
+npm install @types/arcgis-js-api@3.33.0
+```
+
+:::note
+The exact minor and patch version numbers of the `@types/arcgis-js-api` package are often not critical. However, it is important to use the correct major version 3.x vs. 4.x.
+:::
+
+## Create an Activity
+
+Follow the instructions in [Create an Activity](sdk-web-create-activity.mdx) to create a custom workflow activity.
+
+## Use ArcGIS Types
+
+To reference ArcGIS types you add `import` statements at the top of the file containing your custom activity.
+
+For example, to use the `esri/geometry/Extent` type add the following `import` statement:
+
+```ts
+import * as Extent from "esri/geometry/Extent";
+```
 
 ### Example: Custom Activity for Expanding a Polygon
 
 This is a custom activity which imports types from the ArcGIS API for JavaScript to expand a polygon by a given factor and returns the new extent bounds.
 
-:::note
-The `activity-sdk` uses the [ArcGIS API for JavaScript 3.x](https://developers.arcgis.com/javascript/3/) by default. See [Using Alternate ArcGIS API Versions](sdk-web-integrating-the-arcgis-api.mdx#using-alternate-arcgis-api-for-javascript-versions) for details.
-:::
-
 ```ts
-// Import the desired type
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
+// highlight-start
 import * as Extent from "esri/geometry/Extent";
 import * as Polygon from "esri/geometry/Polygon";
+// highlight-end
 
 export interface ExpandPolygonInputs {
-    // @description The polygon to Expand.
+    // @description The polygon to expand.
     // @required
+    // highlight-next-line
     polygon: Polygon;
 
     // @description The factor to expand the polygon extent by.
@@ -38,57 +72,34 @@ export interface ExpandPolygonInputs {
 
 export interface ExpandPolygonOutputs {
     // @description The extent bounds for the expanded polygon.
+    // highlight-next-line
     extent: Extent;
 }
 
 // @category Custom Activities
-// @description An activity that calculates the extent a polygon would cover if it was expanded by a given factor.
-export class ExpandPolygon {
-    static action = "your:unique:namespace::ExpandPolygon";
-
-    static suite = "your:unique:namespace";
-
+// @description An activity that expands the bounding extent of a polygon by a given factor.
+export class ExpandPolygon implements IActivityHandler {
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         return {
+            // highlight-next-line
             extent: inputs.polygon.getExtent().expand(inputs.factor),
         };
     }
 }
 ```
 
-## Using Alternate ArcGIS API for JavaScript Versions
+## Build Activities to work with both 3.x and 4.x ArcGIS API for JavaScript Versions
 
-Geocortex Workflow is designed to be able to be used with the 4.x or 3.x ArcGIS API for JavaScript. Each workflow host uses a specific version:
+Geocortex Workflow is designed to work with both the 3.x and 4.x versions of the ArcGIS API for JavaScript; however, many custom activity implementations only bother to support one or the other.
 
--   [Geocortex Web](https://www.geocortex.com/products/gxw/) - 4.x ArcGIS API
--   [Geocortex Viewer for HTML5](https://www.geocortex.com/products/geocortex-essentials/) - 3.x ArcGIS API
--   [Web AppBuilder for ArcGIS](https://www.esri.com/en-us/arcgis/products/web-appbuilder/overview) - 3.x ArcGIS API for 2D View, 4.x ArcGIS API for scene view.
+If you need to support both ArcGIS API versions, then you may need to account for differences between the APIs in your code. For more details on these differences, see the developer documentation for the [4.x ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) and the [3.x ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/3/) respectively.
 
-If you decide to use the API, you should ensure you are using the right version for your application.
+You can structure your activity to be compatible with differences between API versions by using the `esri/kernel` module to determine the API version that the activity is running in.
 
-### Change the API Version used by the Activity SDK
-
-The ArcGIS API version for the activity SDK can be changed by updating the `@types/arcgis-js-api` version in the `package.json` file and then running `npm install` again.
-
-For example, a `package.json` file in an activity SDK that uses the 4.x ArcGIS API might look like this;
-
-```json
-{
-  ...
-  "devDependencies": {
-    "@types/arcgis-js-api": "4.14.0",
-    ...
-  },
-  ...
-}
-```
-
-### Build Activities to work with both ArcGIS API Versions
-
-If you need to support both ArcGIS API versions, then you may need to account for differences between the APIs. For more details, see the developer documentation for the [4.x JavaScript API](https://developers.arcgis.com/javascript/) and the [3.x JavaScript API](https://developers.arcgis.com/javascript/3/) respectively.
-You can structure your activity to be compatible with differences between versions by using the `esri/kernel` module to determine the API version that the activity is running in.
+The following code provides a convenient utility function to distinguish between 3.x and 4.x versions:
 
 ```ts
+// highlight-next-line
 import * as kernel from "esri/kernel";
 
 enum ArcGisApiVersion {
@@ -98,6 +109,7 @@ enum ArcGisApiVersion {
 }
 
 const getArcGISApiVersion = (): ArcGisApiVersion => {
+    // highlight-next-line
     const prefix = kernel.version.substr(0, 2);
     if (prefix === "4.") {
         return ArcGisApiVersion.v4;
@@ -109,18 +121,18 @@ const getArcGISApiVersion = (): ArcGisApiVersion => {
 };
 ```
 
-### Example: ExpandPolygon Custom Activity that is 4.x and 3.x ArcGIS API Compatible
+### Example: 3.x and 4.x Compatible Custom Activity for Expanding a Polygon
 
-This example builds on the ExpandPolygon activity to make it work with both the 3.x and 4.x versions of the ArcGIS API. The `execute` method of the activity checks the ArcGIS API version and executes the appropriate code for the given API.
+This example builds on the ExpandPolygon activity to make it work with both the 3.x and 4.x versions of the ArcGIS API for JavaScript. The `execute` method of the activity checks the ArcGIS API version and executes the appropriate code for the given API.
 
 :::note
-Since the SDK can only reference one version of the ArcGIS JavaScript API at time, you will have to cast to `any` for the other API version types when necessary to override TypeScript errors.
+Since the SDK can only reference one version of the `@types/arcgis-js-api` package at time, you will have to cast to `any` for the other API version types when necessary to avoid TypeScript errors.
 :::
 
 In this example, the way the Extent of a polygon is retrieved is the difference between the APIs. In 4.x, `extent` is a property, while in 3.x extent is retrieved using the `getExtent()` method. The APIs converge after this, with both supporting the `expand(factor)` method.
 
 ```ts
-// Import the desired type
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
 import * as Extent from "esri/geometry/Extent";
 import * as Polygon from "esri/geometry/Polygon";
 import * as kernel from "esri/kernel";
@@ -158,18 +170,16 @@ export interface ExpandPolygonOutputs {
 }
 
 // @category Custom Activities
-// @description An activity that calculates the extent a polygon would cover if it was expanded by a given factor.
-export class ExpandPolygon {
-    static action = "your:unique:namespace::ExpandPolygon";
-
-    static suite = "your:unique:namespace";
-
+// @description An activity that expands the bounding extent of a polygon by a given factor.
+export class ExpandPolygon implements IActivityHandler {
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         const apiVersion = getArcGISApiVersion();
         let extent;
         if (apiVersion == ArcGisApiVersion.v4) {
+            // highlight-next-line
             extent = (inputs.polygon as any).extent;
         } else if (apiVersion == ArcGisApiVersion.v3) {
+            // highlight-next-line
             extent = inputs.polygon.getExtent();
         } else {
             throw new Error(

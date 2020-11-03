@@ -32,19 +32,12 @@
     "remark-cli": "^8.0.1",
     "remark-validate-links": "^10.0.2"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 edge version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    "last 2 chrome versions",
+    "last 2 edge versions",
+    "last 2 firefox versions",
+    "last 2 safari versions"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"

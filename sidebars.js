@@ -130,6 +130,7 @@ module.exports = {
             items: [
                 "workflow/sdk-web-overview",
                 "workflow/sdk-web-create-activity",
+                "workflow/sdk-web-create-element",
                 "workflow/sdk-web-activity-reference",
                 "workflow/sdk-web-form-reference",
                 "workflow/sdk-web-integrating-the-arcgis-api",
@@ -142,6 +143,9 @@ module.exports = {
                         "workflow/tutorial-web-calculate-logarithm-activity",
                         "workflow/tutorial-web-add-layer-to-map",
                         "workflow/tutorial-web-implement-star-rating-form-element",
+                        "workflow/tutorial-web-implement-third-party-star-rating-form-element",
+                        "workflow/tutorial-web-implement-third-party-signature-block-form-element",
+                        "workflow/tutorial-web-implement-third-party-captcha-form-element",
                     ],
                 },
             ],

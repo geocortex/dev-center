@@ -22,7 +22,7 @@ Custom workflow form elements are built in TypeScript and [React](https://reactj
 
 ## Overview
 
-Implementing a custom form element in Geocortex Mobile consists of three steps:
+Implementing a custom form element for web applications consists of three steps:
 
 1. Creating the custom form element and implementing the UI.
 2. Creating an activity which will register this form component with Geocortex Workflow.
@@ -46,7 +46,7 @@ export default StarRatingElement;
 
 ## Set up a Form Element Registration Activity
 
-1. Run the command `npm run activity` and name the activity `RegisterCustomFormElements`.
+1. Run the command `npm run generate` and name the activity `RegisterCustomFormElements`.
 1. Modify the activity class declaration to extend the `RegisterCustomFormElementBase` base class.
 1. Remove unnecessary inputs and outputs and register your custom form element in the `execute` method.
 
@@ -57,10 +57,6 @@ import StarRatingElement from "../form-elements/StarRatingElement";
 // @category Custom Activities
 // @description Registers custom form elements for the application
 export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
-    static action = "your:unique:namespace::RegisterCustomFormElements";
-
-    static suite = "your:unique:namespace";
-
     async execute(): Promise<void> {
         this.register("StarRatingElement", StarRatingElement);
     }
@@ -271,7 +267,7 @@ export default function StarRatingFormElement(props: CustomFormElementProps) {
 
 ## Deploy the Activity
 
-Follow the instructions to [build the activity pack](sdk-web-overview.mdx#building) and [deploy it](sdk-web-overview.mdx#deployment).
+Follow the instructions to [build and deploy the activity pack](sdk-web-overview.mdx#deployment).
 
 ## Test the Activity
 

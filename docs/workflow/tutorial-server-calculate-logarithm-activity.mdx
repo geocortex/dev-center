@@ -32,7 +32,7 @@ namespace App1.Workflow
 {
     public class CalculateLog : IActivityHandler
     {
-        public static string Action { get; } = "your:unique:namespace::CalculateLog";
+        public static string Action { get; } = "uuid:<uuid>::CalculateLog";
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
@@ -73,7 +73,7 @@ namespace App1.Workflow
 {
     public class CalculateLog : IActivityHandler
     {
-        public const string Action = "your:unique:namespace::CalculateLog";
+        public const string Action = "uuid:<uuid>::CalculateLog";
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
@@ -104,7 +104,7 @@ namespace App1.Workflow
 {
     public class CalculateLog : IActivityHandler
     {
-        public const string Action = "your:unique:namespace::CalculateLog";
+        public const string Action = "uuid:<uuid>::CalculateLog";
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {

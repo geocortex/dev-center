@@ -11,20 +11,39 @@ This article will walk you through creating a new workflow activity for web appl
 
 ## Prerequisites
 
-[Download and set up](sdk-web-overview.mdx#download) the Geocortex Workflow TypeScript SDK.
+[Set up](sdk-web-overview.mdx#overview) the Geocortex Workflow TypeScript SDK.
 
 ## Create an Activity
 
-1. Open up a terminal shell in the SDK folder.
-1. Run the command `npm run activity` and name the activity `MyCustomActivity`.
+1. Open up a terminal shell in the project folder.
+1. Run the command `npm run generate` and follow the instructions to create a new activity named `MyCustomActivity`. This script creates a custom activity skeleton that you can build on with your own custom logic. The script will perform the following operations:
+    1. Create a new activity `.ts` file with the provided name in the `src/activities` folder.
+    1. Populate the activity `.ts` file from an activity template.
+    1. Register the activity in `src/index.ts`.
 
-:::note
-This script creates a custom activity skeleton that you can build on with your own custom logic.
+:::tip
+It's convention to use PascalCase for activity names. You can add multiple activities and form elements to the same project.
+The name of your activity should not be modified after it has been deployed, as it is a unique identifier used by the Workflow runtime.
 :::
+
+In the Geocortex Workflow TypeScript SDK, activities are represented as simple classes with an `execute` method.
+
+```ts
+// @displayName MyCustomActivity
+// @category Custom Activities
+export class MyCustomActivity implements IActivityHandler {
+    // Perform the execution logic of the activity.
+    async execute(
+        inputs: MyCustomActivityInputs
+    ): Promise<MyCustomActivityOutputs> {
+        return { result: "test" };
+    }
+}
+```
 
 ## Deploy the Activity
 
-Follow the instructions to [build the activity pack](sdk-web-overview.mdx#building) and [deploy it](sdk-web-overview.mdx#deployment).
+Follow the instructions to [deploy the activity pack](sdk-web-overview.mdx#deployment).
 
 ## Test the Activity
 
@@ -43,11 +62,9 @@ Now you can [build a workflow](https://docs.geocortex.com/workflow/latest/help/D
         )}
     />
     <UseCaseCard
-        title="Implement a Custom Form Element"
-        description="Implement a custom form element for applications like Geocortex Web"
-        link={useBaseUrl(
-            "docs/workflow/tutorial-web-implement-star-rating-form-element"
-        )}
+        title="Activity Reference"
+        description="Learn more about implementing custom activities"
+        link={useBaseUrl("docs/workflow/sdk-web-activity-reference")}
     />
     <UseCaseCard
         title="Add a Layer to the Map with a Custom Activity"

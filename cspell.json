@@ -1,5 +1,7 @@
 {
+    "version": "0.1",
     "words": [
+        "activitypack",
         "anonymize",
         "appitem",
         "arcgis",
@@ -10,6 +12,7 @@
         "basemap",
         "bootstrapper",
         "broadview",
+        "browserslist",
         "callout",
         "clsx",
         "configitemtype",
@@ -17,8 +20,8 @@
         "cors",
         "customizability",
         "deps",
-        "deserialize",
         "deserialization",
+        "deserialize",
         "docusaurus",
         "else's",
         "esri",
@@ -43,6 +46,7 @@
         "lifecycle",
         "linq",
         "mapview",
+        "mkcert",
         "mvvm",
         "nameof",
         "netcore",
@@ -53,6 +57,7 @@
         "prereqs",
         "quickstart",
         "readonly",
+        "recaptcha",
         "rerender",
         "rgba",
         "scalebar",
@@ -83,6 +88,5 @@
         "**/vscode-extension/**",
         "**/.git/**",
         ".vscode"
-    ],
-    "version": "0.1"
+    ]
 }

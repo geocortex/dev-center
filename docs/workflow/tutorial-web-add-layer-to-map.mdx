@@ -19,7 +19,7 @@ This article will walk you through creating a custom activity that adds a new la
 ## Setup the Activity
 
 1. Open up a terminal shell in the SDK folder.
-1. Run the command `npm run activity` and create a new activity `AddLayerToMap`.
+1. Run the command `npm run generate` and create a new activity `AddLayerToMap`.
 
 ## Modify the Activity to Access App Properties
 
@@ -37,10 +37,6 @@ import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
 // @description An activity which adds a graphics layer to a map.
 // highlight-next-line
 export class AddLayerToMap extends AppActivity {
-    static action = "your:unique:namespace::AddLayerToMap";
-
-    static suite = "your:unique:namespace";
-
     // Perform the execution logic of the activity.
     async execute(inputs: object): Promise<void> {
         return;
@@ -53,7 +49,7 @@ export class AddLayerToMap extends AppActivity {
 Next, we can use the [ArcGIS Runtime SDK for .NET](sdk-web-integrating-the-arcgis-api.mdx) and the `AppActivity` class to create a graphics layer and add it to the host's map through the `this.map` property.
 
 :::note
-This activity assumes that it will be running in Geocortex Web, and so [it uses the 4.x ArcGIS API for Javascript](sdk-web-integrating-the-arcgis-api.mdx#change-the-api-version-used-by-the-activity-sdk).
+This activity assumes that it will be running in Geocortex Web, and so [it uses the 4.x ArcGIS API for Javascript](sdk-web-integrating-the-arcgis-api.mdx#add-arcgis-api-for-javascript-typings).
 :::
 
 ```ts title="src/activities/AddLayerToMap.ts"
@@ -70,10 +66,6 @@ import * as LineSymbol from "esri/symbols/LineSymbol";
 // @category Custom Activities
 // @description An activity which adds a graphics layer to a map.
 export class AddLayerToMap extends AppActivity {
-    static action = "your:unique:namespace::AddLayerToMap";
-
-    static suite = "your:unique:namespace";
-
     // Perform the execution logic of the activity.
     async execute(inputs: object): Promise<void> {
         var polylineGraphic = new Graphic({
@@ -104,7 +96,7 @@ export class AddLayerToMap extends AppActivity {
 
 ## Deploy the Activity
 
-Follow the instructions to [build the activity pack](sdk-web-overview.mdx#building) and [deploy it](sdk-web-overview.mdx#deployment).
+Follow the instructions to [build and deploy the activity pack](sdk-web-overview.mdx#deployment).
 
 ## Test the Activity
 

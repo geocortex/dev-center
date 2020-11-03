@@ -10,6 +10,8 @@ description: Geocortex Workflow - Learn about the typescript activity metadata t
 The following activity demonstrates the basic metadata tags that could exist on a custom activity and its inputs and outputs.
 
 ```ts
+import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
+
 export interface Inputs {
     // `@displayName` The name of the activity input that appears in the properties panel.
     // `@description` The description of the activity input that appears in inline help tooltips.
@@ -27,7 +29,7 @@ export interface Outputs {
 // `@displayName` The name of the activity that appears in the toolbox and properties panel.
 // `@description` The description of the activity that appears in inline help tooltips.
 // `@helpUrl` An absolute URL to additional documentation for this activity.
-export class Activity {
+export class Activity implements IActivityHandler {
     // Perform the execution logic of the activity.
     async execute(inputs: Inputs): Promise<Outputs> {
         return { result: {} };
@@ -75,7 +77,7 @@ The following example declares that an activity will only work on Geocortex Web 
 // @supportedApps WAB, GWV
 // @onlineOnly
 // @clientOnly
-export class DoesNotWorkOnMobile {
+export class DoesNotWorkOnMobile implements IActivityHandler {
     ...
 }
 ```

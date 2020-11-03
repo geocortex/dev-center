@@ -26,7 +26,7 @@ namespace App1.Workflow
 {
     public class CustomActivity : IActivityHandler
     {
-        public static string Action { get; } = "your:unique:namespace::CustomActivity";
+        public static string Action { get; } = "uuid:<uuid>::CustomActivity";
 
         public Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {

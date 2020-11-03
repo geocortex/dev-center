@@ -85,7 +85,7 @@ namespace App1.Workflow
     // highlight-next-line
     class FormElementRegistrationActivity : RegisterCustomFormElementBase
     {
-        public static string Action { get; } = "your:unique:namespace::FormElementRegistrationActivity";
+        public static string Action { get; } = "uuid:<uuid>::FormElementRegistrationActivity";
 
         public override Task<IDictionary<string, object>> Execute(IDictionary<string, object> inputs, IActivityContext context)
         {
