@@ -142,10 +142,12 @@ module.exports = {
                     items: [
                         "workflow/tutorial-web-calculate-logarithm-activity",
                         "workflow/tutorial-web-add-layer-to-map",
+                        "workflow/tutorial-web-qr-code-activity",
                         "workflow/tutorial-web-implement-star-rating-form-element",
                         "workflow/tutorial-web-implement-third-party-star-rating-form-element",
                         "workflow/tutorial-web-implement-third-party-signature-block-form-element",
                         "workflow/tutorial-web-implement-third-party-captcha-form-element",
+                        "workflow/tutorial-web-implement-third-party-qr-code-form-element",
                     ],
                 },
             ],

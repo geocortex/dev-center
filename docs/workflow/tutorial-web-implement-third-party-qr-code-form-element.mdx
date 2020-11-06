@@ -1,0 +1,114 @@
+---
+title: Implement a QR Code Custom Form Element using a Third Party Library
+description: Geocortex Workflow - Implement a QR code form element for web applications using a third party library
+---
+
+<!-- cspell:ignore qrcode -->
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+import WebPrereqs from "./snippets/prereqs-web.mdx";
+
+Implementing a custom [form element](key-concepts.mdx#form-elements) allows you to augment the existing [form elements that come with Geocortex Workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/auto-complete.htm%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7C_____0).
+
+This article will walk you through creating a form element that uses the [qrcode](https://github.com/soldair/node-qrcode) library to generate and display a QR code.
+
+<img src={useBaseUrl("img/workflow-web-custom-qr-code.png")} />
+
+## Prerequisites
+
+<WebPrereqs />
+
+## Overview
+
+Implementing a QR code custom form element for web applications using a third party library consists of the following steps:
+
+1. Adding third party library dependencies to your project.
+1. Creating the custom form element.
+1. Implementing the custom form element using the third party library.
+
+## Adding Dependencies
+
+1. Run `npm install qrcode` in the terminal to install the third party [qrcode](https://github.com/soldair/node-qrcode) library that generates QR codes.
+1. Run `npm install @types/qrcode` in the terminal to install type information for the third party library. This is optional, but it provides an improved developer experience.
+
+## Set up Custom Form Element Skeleton
+
+To create a new form element:
+
+1. Open the Workflow activity SDK in Visual Studio Code.
+1. Run `npm run generate` in the terminal.
+1. When prompted, select `Form Element`.
+1. Enter the name of the form element you would like to create and press `Enter`. For example, `QrCode`.
+1. Open the newly created `src/activities/QrCode.tsx` file.
+
+## Implement the Custom Form Element
+
+Modify the skeleton form element implementation in `src/activities/QrCode.tsx` to match the following example.
+
+```tsx title="src/activities/QrCode.tsx"
+import React, { useEffect, useState } from "react";
+import QRCode from "qrcode";
+import type { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+import { RegisterCustomFormElementBase } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+
+/**
+ * A simple React Component that displays a QR code.
+ * @param props The props that will be provided by the Workflow runtime.
+ */
+const QrCode = (props: CustomFormElementProps) => {
+    const value = props.element.value as string;
+    const [qrCodeUrl, setQrCodeUrl] = useState("");
+
+    // Update the QR code when the value changes
+    useEffect(() => {
+        // Clear the previous QR code
+        setQrCodeUrl("");
+        if (value) {
+            // Asynchronously generate the QR code data URL from the value
+            let didCancel = false;
+            (async () => {
+                const dataUrl = await QRCode.toDataURL(value);
+                if (didCancel) {
+                    return;
+                }
+                setQrCodeUrl(dataUrl);
+            })();
+            return () => {
+                didCancel = true;
+            };
+        }
+    }, [value]);
+
+    // Render the QR code as an image
+    return qrCodeUrl ? <img src={qrCodeUrl} /> : null;
+};
+
+// @displayName Register QrCode Form Element
+// @category Custom Activities
+// @description Registers a QR Code form element.
+export class RegisterQrCodeElement extends RegisterCustomFormElementBase {
+    execute() {
+        this.register("QrCode", QrCode);
+    }
+}
+```
+
+## Deploy the Form Element
+
+Follow the instructions to [build and deploy the activity pack](sdk-web-overview.mdx#deployment).
+
+## Test the Form Element
+
+Once your activity pack is hosted and registered, your `Register QrCode Form Element` custom activity should appear in the activity toolbox in Geocortex Workflow Designer alongside the built-in activities.
+
+To use your custom form element in a workflow:
+
+1. Add your `Register QrCode Form Element` custom activity to your workflow so that it runs **before** any `Display Form` activities that will use the custom form element.
+1. Select the `Display Form` activity that you want to include your form element in.
+1. Add a `Custom` form element to the form.
+1. Set the `Custom Type` property of the `Custom` form element to `QrCode`.
+1. Add a `load` event subworkflow to the form element.
+1. Add a `Set Form Element Property` activity to the subworkflow.
+1. Set the `Property Name` input to `value`.
+1. Set the `Property Value` input to the text that represents the data or URL to encode into the QR code.
+1. Test your workflow.
