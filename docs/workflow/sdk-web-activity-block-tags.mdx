@@ -13,24 +13,28 @@ The following activity demonstrates the basic metadata tags that could exist on 
 import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
 
 export interface Inputs {
-    // `@displayName` The name of the activity input that appears in the properties panel.
-    // `@description` The description of the activity input that appears in inline help tooltips.
-    // `@required`  Whether the activity input should be presented as required.
-    //              Note: Validation of required inputs must be implemented by the `execute(inputs)` method of the activity.
+    /**
+     * @displayName The name of the activity input that appears in the properties panel.
+     * @description The description of the activity input that appears in inline help tooltips.
+     * @required Whether the activity input should be presented as required.
+     */
     input?: any;
 }
 
 export interface Outputs {
-    // `@description` The description of the activity output that appears in inline help tooltips.
+    /**
+     * @description The description of the activity output that appears in inline help tooltips.
+     */
     result: any;
 }
 
-// `@category` The name of the toolbox category the activity will appear in.
-// `@displayName` The name of the activity that appears in the toolbox and properties panel.
-// `@description` The description of the activity that appears in inline help tooltips.
-// `@helpUrl` An absolute URL to additional documentation for this activity.
+/**
+ * @category The name of the toolbox category the activity will appear in.
+ * @displayName The name of the activity that appears in the toolbox and properties panel.
+ * @description The description of the activity that appears in inline help tooltips.
+ * @helpUrl An absolute URL to additional documentation for this activity.
+ */
 export class Activity implements IActivityHandler {
-    // Perform the execution logic of the activity.
     async execute(inputs: Inputs): Promise<Outputs> {
         return { result: {} };
     }
@@ -39,6 +43,10 @@ export class Activity implements IActivityHandler {
 
 :::note
 If `@displayName` is omitted, the identifier name will be capitalized, split up by camelCase, and used as a default display name. For example, `myLongParameterName` becomes "My Long Parameter Name".
+:::
+
+:::note
+The `@required` tag only applies to the validation in Workflow Designer. Runtime validation of required inputs must be implemented by the `execute(inputs)` method of the activity.
 :::
 
 ## Activity Compatibility Tags
@@ -74,9 +82,11 @@ The intention is that you use either `@supportedApps` or `@unsupportedApps`, dep
 The following example declares that an activity will only work on Geocortex Web or Web AppBuilder for ArcGIS in an online and client side environment. The display name will default to "Does Not Work On Mobile".
 
 ```ts
-// @supportedApps WAB, GWV
-// @onlineOnly
-// @clientOnly
+/**
+ * @supportedApps WAB, GWV
+ * @onlineOnly
+ * @clientOnly
+ */
 export class DoesNotWorkOnMobile implements IActivityHandler {
     ...
 }

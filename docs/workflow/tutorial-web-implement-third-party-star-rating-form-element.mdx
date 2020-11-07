@@ -81,11 +81,13 @@ const StarRating = (props: CustomFormElementProps) => {
     );
 };
 
-// @displayName Register StarRating Form Element
-// @category Custom Activities
-// @description Registers a Star Rating form element
+/**
+ * @displayName Register StarRating Form Element
+ * @category Custom Activities
+ * @description Registers a Star Rating form element
+ */
 export class RegisterStarRatingElement extends RegisterCustomFormElementBase {
-    // Perform the execution logic of the activity.
+    /** Perform the execution logic of the activity. */
     execute() {
         this.register("StarRating", StarRating);
     }

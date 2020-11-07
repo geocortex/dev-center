@@ -93,11 +93,13 @@ const SignatureBlock = (props: CustomFormElementProps) => {
     );
 };
 
-// @displayName Register SignatureBlock Form Element
-// @category Custom Activities
-// @description Registers a Signature Block form element
+/**
+ * @displayName Register SignatureBlock Form Element
+ * @category Custom Activities
+ * @description Registers a Signature Block form element
+ */
 export class RegisterSignatureBlockElement extends RegisterCustomFormElementBase {
-    // Perform the execution logic of the activity.
+    /** Perform the execution logic of the activity. */
     execute() {
         this.register("SignatureBlock", SignatureBlock);
     }

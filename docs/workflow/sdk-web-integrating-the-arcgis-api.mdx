@@ -60,24 +60,33 @@ import * as Polygon from "esri/geometry/Polygon";
 // highlight-end
 
 export interface ExpandPolygonInputs {
-    // @description The polygon to expand.
-    // @required
+    /**
+     * @description The polygon to expand.
+     * @required
+     */
     // highlight-next-line
     polygon: Polygon;
 
-    // @description The factor to expand the polygon extent by.
-    // @required
+    /**
+     * @description The factor to expand the polygon extent by.
+     * @required
+     */
     factor: number;
 }
 
 export interface ExpandPolygonOutputs {
-    // @description The extent bounds for the expanded polygon.
+    /**
+     * @description The extent bounds for the expanded polygon.
+     * @required
+     */
     // highlight-next-line
     extent: Extent;
 }
 
-// @category Custom Activities
-// @description An activity that expands the bounding extent of a polygon by a given factor.
+/**
+ * @category Custom Activities
+ * @description An activity that expands the bounding extent of a polygon by a given factor.
+ */
 export class ExpandPolygon implements IActivityHandler {
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         return {
@@ -155,22 +164,30 @@ const getArcGISApiVersion = (): ArcGisApiVersion => {
 };
 
 export interface ExpandPolygonInputs {
-    // @description The polygon to Expand.
-    // @required
+    /**
+     * @description The polygon to Expand.
+     * @required
+     */
     polygon: Polygon;
 
-    // @description The factor to expand the polygon extent by.
-    // @required
+    /**
+     * @description The factor to expand the polygon extent by.
+     * @required
+     */
     factor: number;
 }
 
 export interface ExpandPolygonOutputs {
-    // @description The extent bounds for the expanded polygon.
+    /**
+     * @description The extent bounds for the expanded polygon.
+     */
     extent: Extent;
 }
 
-// @category Custom Activities
-// @description An activity that expands the bounding extent of a polygon by a given factor.
+/**
+ * @category Custom Activities
+ * @description An activity that expands the bounding extent of a polygon by a given factor.
+ */
 export class ExpandPolygon implements IActivityHandler {
     async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
         const apiVersion = getArcGISApiVersion();

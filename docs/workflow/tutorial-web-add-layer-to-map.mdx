@@ -32,12 +32,14 @@ This article will walk you through creating a custom activity that adds a new la
 // highlight-next-line
 import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";
 
-// @supportedApps GWV
-// @category Custom Activities
-// @description An activity which adds a graphics layer to a map.
+/**
+ * @supportedApps GWV
+ * @category Custom Activities
+ * @description An activity which adds a graphics layer to a map.
+ */
 // highlight-next-line
 export class AddLayerToMap extends AppActivity {
-    // Perform the execution logic of the activity.
+    /** Perform the execution logic of the activity. */
     async execute(inputs: object): Promise<void> {
         return;
     }
@@ -62,11 +64,13 @@ import * as Polyline from "esri/geometry/Polyline";
 import * as LineSymbol from "esri/symbols/LineSymbol";
 // highlight-end
 
-// @supportedApps GWV
-// @category Custom Activities
-// @description An activity which adds a graphics layer to a map.
+/**
+ * @supportedApps GWV
+ * @category Custom Activities
+ * @description An activity which adds a graphics layer to a map.
+ */
 export class AddLayerToMap extends AppActivity {
-    // Perform the execution logic of the activity.
+    /** Perform the execution logic of the activity. */
     async execute(inputs: object): Promise<void> {
         var polylineGraphic = new Graphic({
             geometry: new Polyline({

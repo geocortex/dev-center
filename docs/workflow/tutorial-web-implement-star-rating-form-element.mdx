@@ -54,8 +54,10 @@ export default StarRatingElement;
 import { RegisterCustomFormElementBase } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 import StarRatingElement from "../form-elements/StarRatingElement";
 
-// @category Custom Activities
-// @description Registers custom form elements for the application
+/**
+ * @category Custom Activities
+ * @description Registers custom form elements for the application
+ */
 export class RegisterCustomFormElements extends RegisterCustomFormElementBase {
     async execute(): Promise<void> {
         this.register("StarRatingElement", StarRatingElement);

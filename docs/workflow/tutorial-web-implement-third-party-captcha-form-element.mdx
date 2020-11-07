@@ -92,11 +92,13 @@ const Captcha = (props: CustomFormElementProps) => {
     );
 };
 
-// @displayName Register Captcha Form Element
-// @category Custom Activities
-// @description Registers a Captcha form element
+/**
+ * @displayName Register Captcha Form Element
+ * @category Custom Activities
+ * @description Registers a Captcha form element.
+ */
 export class RegisterCaptchaElement extends RegisterCustomFormElementBase {
-    // Perform the execution logic of the activity.
+    /** Perform the execution logic of the activity. */
     execute() {
         this.register("Captcha", Captcha);
     }

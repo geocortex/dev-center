@@ -85,9 +85,11 @@ const QrCode = (props: CustomFormElementProps) => {
     return qrCodeUrl ? <img src={qrCodeUrl} /> : null;
 };
 
-// @displayName Register QrCode Form Element
-// @category Custom Activities
-// @description Registers a QR Code form element.
+/**
+ * @displayName Register QrCode Form Element
+ * @category Custom Activities
+ * @description Registers a QR Code form element.
+ */
 export class RegisterQrCodeElement extends RegisterCustomFormElementBase {
     execute() {
         this.register("QrCode", QrCode);
