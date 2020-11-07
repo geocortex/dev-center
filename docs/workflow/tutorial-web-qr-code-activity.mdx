@@ -50,23 +50,28 @@ import QRCode, { QRCodeToDataURLOptions } from "qrcode";
 
 /** An interface that defines the inputs of the activity. */
 export interface CreateQrCodeImageInputs {
-    // @description The text to encode into the QR code.
-    // @required
+    /**
+     * @description The text to encode into the QR code.
+     * @required
+     */
     text: string;
 }
 
 /** An interface that defines the outputs of the activity. */
 export interface CreateQrCodeImageOutputs {
-    // @description The data URL of the resulting the QR code image.
+    /**
+     * @description The data URL of the resulting the QR code image.
+     */
     result: string;
 }
 
-// @displayName Create QR Code Image
-// @category Custom Activities
-// @defaultName qrCode
-// @description Creates a QR code image as a data URL.
+/**
+ * @displayName Create QR Code Image
+ * @category Custom Activities
+ * @defaultName qrCode
+ * @description Creates a QR code image as a data URL.
+ */
 export class CreateQrCodeImage implements IActivityHandler {
-    // Perform the execution logic of the activity.
     async execute(
         inputs: CreateQrCodeImageInputs
     ): Promise<CreateQrCodeImageOutputs> {
@@ -108,8 +113,10 @@ import QRCode, { QRCodeToDataURLOptions } from "qrcode";
 
 /** An interface that defines the inputs of the activity. */
 export interface CreateQrCodeImageInputs {
-    // @description The text or data to encode into the QR code.
-    // @required
+    /**
+     * @description The text or data to encode into the QR code.
+     * @required
+     */
     text:
         | string
         | {
@@ -117,47 +124,67 @@ export interface CreateQrCodeImageInputs {
               mode: "alphanumeric" | "numeric" | "kanji" | "byte";
           }[];
 
-    // @description The RGBA color of the dark module. The default is #000000ff (black).
+    /**
+     * @description The RGBA color of the dark module. The default is #000000ff (black).
+     */
     darkColor?: string;
 
-    // @description Error correction level. The default is medium.
+    /**
+     * @description Error correction level. The default is medium.
+     */
     errorCorrectionLevel?: "low" | "medium" | "quartile" | "high";
 
-    // @description The RGBA color of the light module. The default is #ffffffff (white).
+    /**
+     * @description The RGBA color of the light module. The default is #ffffffff (white).
+     */
     lightColor?: string;
 
-    // @description The size of the quiet zone around the QR code. The default is 4.
+    /**
+     * @description The size of the quiet zone around the QR code. The default is 4.
+     */
     margin?: number;
 
-    // @description A Number between 0 and 1 indicating image quality if the requested type is image/jpeg or image/webp. The default is 0.92.
+    /**
+     * @description A Number between 0 and 1 indicating image quality if the requested type is image/jpeg or image/webp. The default is 0.92.
+     */
     quality?: number;
 
-    // @description The Scale factor. A value of 1 means 1px per modules (black dots). The default is 4.
+    /**
+     * @description The Scale factor. A value of 1 means 1px per modules (black dots). The default is 4.
+     */
     scale?: number;
 
-    // @description The image format. The default is image/png.
+    /**
+     * @description The image format. The default is image/png.
+     */
     type?: "image/png" | "image/jpeg" | "image/webp";
 
-    // @description The width of the output image. If the width is too small to contain the QR code, this option will be ignored. This input takes precedence over the scale input.
+    /**
+     * @description The width of the output image. If the width is too small to contain the QR code, this option will be ignored. This input takes precedence over the scale input.
+     */
     width?: number;
 
-    // @description The QR Code version. A number between 1 and 40. If not specified, a suitable value will be calculated.
+    /**
+     * @description The QR Code version. A number between 1 and 40. If not specified, a suitable value will be calculated.
+     */
     version?: number;
 }
 
 /** An interface that defines the outputs of the activity. */
 export interface CreateQrCodeImageOutputs {
-    /** The data URL of the resulting the QR code image. */
-    // @description The data URL of the resulting the QR code image.
+    /**
+     * @description The data URL of the resulting the QR code image.
+     */
     result: string;
 }
 
-// @displayName Create QR Code Image
-// @category Custom Activities
-// @defaultName qrCode
-// @description Creates a QR code image as a data URL.
+/**
+ * @displayName Create QR Code Image
+ * @category Custom Activities
+ * @defaultName qrCode
+ * @description Creates a QR code image as a data URL.
+ */
 export class CreateQrCodeImage implements IActivityHandler {
-    // Perform the execution logic of the activity.
     async execute(
         inputs: CreateQrCodeImageInputs
     ): Promise<CreateQrCodeImageOutputs> {
