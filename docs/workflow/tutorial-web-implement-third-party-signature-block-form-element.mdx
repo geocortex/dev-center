@@ -93,11 +93,13 @@ const SignatureBlock = (props: CustomFormElementProps) => {
     );
 };
 
-// @displayName Register SignatureBlock Form Element
-// @category Custom Activities
-// @description Registers a Signature Block form element
+/**
+ * @displayName Register SignatureBlock Form Element
+ * @category Custom Activities
+ * @description Registers a Signature Block form element
+ */
 export class RegisterSignatureBlockElement extends RegisterCustomFormElementBase {
-    // Perform the execution logic of the activity.
+    /** Perform the execution logic of the activity. */
     execute() {
         this.register("SignatureBlock", SignatureBlock);
     }
@@ -117,5 +119,5 @@ To use your custom form element in a workflow:
 1. Add your `Register SignatureBlock Form Element` custom activity to your workflow so that it runs **before** any `Display Form` activities that will use the custom form element.
 1. Select the `Display Form` activity that you want to include your form element in.
 1. Add a `Custom` form element to the form.
-1. Set the `Custom Type` property of the `Custom` form element to `SignatureBlock`
+1. Set the `Custom Type` property of the `Custom` form element to `SignatureBlock`.
 1. Test your workflow.

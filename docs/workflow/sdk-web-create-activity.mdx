@@ -29,10 +29,12 @@ The name of your activity should not be modified after it has been deployed, as 
 In the Geocortex Workflow TypeScript SDK, activities are represented as simple classes with an `execute` method.
 
 ```ts
-// @displayName MyCustomActivity
-// @category Custom Activities
+/**
+ * @displayName MyCustomActivity
+ * @category Custom Activities
+ */
 export class MyCustomActivity implements IActivityHandler {
-    // Perform the execution logic of the activity.
+    /** Perform the execution logic of the activity. */
     async execute(
         inputs: MyCustomActivityInputs
     ): Promise<MyCustomActivityOutputs> {

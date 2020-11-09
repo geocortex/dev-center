@@ -92,11 +92,13 @@ const Captcha = (props: CustomFormElementProps) => {
     );
 };
 
-// @displayName Register Captcha Form Element
-// @category Custom Activities
-// @description Registers a Captcha form element
+/**
+ * @displayName Register Captcha Form Element
+ * @category Custom Activities
+ * @description Registers a Captcha form element.
+ */
 export class RegisterCaptchaElement extends RegisterCustomFormElementBase {
-    // Perform the execution logic of the activity.
+    /** Perform the execution logic of the activity. */
     execute() {
         this.register("Captcha", Captcha);
     }
@@ -133,5 +135,5 @@ To use your custom form element in a workflow:
 1. Add your `Register Captcha Form Element` custom activity to your workflow so that it runs **before** any `Display Form` activities that will use the custom form element.
 1. Select the `Display Form` activity that you want to include your form element in.
 1. Add a `Custom` form element to the form.
-1. Set the `Custom Type` property of the `Custom` form element to `Captcha`
+1. Set the `Custom Type` property of the `Custom` form element to `Captcha`.
 1. Test your workflow.
