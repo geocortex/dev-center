@@ -193,7 +193,6 @@ This example uses the `useWatchAndRerender` [component hook](sdk-components-hook
   ]}>
 <TabItem value="component">
 
-
 ```tsx
 export default function ExampleComponent(
     props: LayoutElementProperties<ExampleComponentModel>
@@ -217,7 +216,6 @@ export default function ExampleComponent(
 </TabItem>
 <TabItem value="model">
 
-
 ```ts
 export default class ExampleComponentModel extends ComponentModelBase {
     items: Collection<string> = new Collection<string>();
@@ -228,7 +226,6 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 </TabItem>
 </Tabs>
-
 
 ### Configuration
 
@@ -249,7 +246,6 @@ The `ExampleComponentModel` class consumes the configuration by extending the `C
   ]}>
 <TabItem value="model">
 
-
 ```ts
 interface ExampleComponentModelProperties extends ComponentModelProperties {
     items?: string[];
@@ -257,14 +253,10 @@ interface ExampleComponentModelProperties extends ComponentModelProperties {
 
 // highlight-next-line
 @serializable
-export default class ExampleComponentModel extends ComponentModelBase<
-    ExampleComponentModelProperties
-> {
+export default class ExampleComponentModel extends ComponentModelBase<ExampleComponentModelProperties> {
     items: Collection<string> = new Collection<string>();
 
-    protected _getSerializableProperties(): PropertyDefs<
-        ExampleComponentModelProperties
-    > {
+    protected _getSerializableProperties(): PropertyDefs<ExampleComponentModelProperties> {
         // highlight-next-line
         const props = super._getSerializableProperties();
         return {
@@ -285,7 +277,6 @@ export default class ExampleComponentModel extends ComponentModelBase<
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json
  {
@@ -308,7 +299,6 @@ export default class ExampleComponentModel extends ComponentModelBase<
 
 </TabItem>
 </Tabs>
-
 
 ### Component Defaults
 
@@ -367,9 +357,7 @@ The `UIService` contains implements the commands `ui.activate` and `ui.deactivat
 
 ```ts
 @serializable
-export default class ExampleComponentModel extends ComponentModelBase<
-    ExampleComponentModelProperties
-> {
+export default class ExampleComponentModel extends ComponentModelBase<ExampleComponentModelProperties> {
     private readonly _handles: IHandle[] = [];
 
     protected async _onInitialize(): Promise<void> {

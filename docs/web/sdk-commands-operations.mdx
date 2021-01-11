@@ -107,7 +107,6 @@ It's best practice to expose the arguments and return values for commands and op
   ]}>
 <TabItem value="model">
 
-
 ```tsx
 export interface CustomCommandArg {
     value: string;
@@ -127,7 +126,6 @@ export default class CustomModel extends ComponentModelBase {
 </TabItem>
 <TabItem value="service">
 
-
 ```ts
 export default class CustomService extends ServiceBase {
     @operation("custom.my-operation")
@@ -139,7 +137,6 @@ export default class CustomService extends ServiceBase {
 
 </TabItem>
 <TabItem value="registration">
-
 
 ```ts
 export default function (registry: LibraryRegistry) {
@@ -173,7 +170,6 @@ export default function (registry: LibraryRegistry) {
 
 </TabItem>
 </Tabs>
-
 
 ### `@command` and `@operation` Decorator Options
 

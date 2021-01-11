@@ -106,16 +106,13 @@ The service is linked to the config through the `itemType` and `id` properties.
   ]}>
 <TabItem value="service">
 
-
 ```ts
 export interface CustomServiceProperties extends ServiceModelProperties {
     name: string;
 }
 
 @serializable
-export default class CustomServiceWithConfig extends ConfigurableServiceBase<
-    CustomServiceProperties
-> {
+export default class CustomServiceWithConfig extends ConfigurableServiceBase<CustomServiceProperties> {
     // highlight-next-line
     id: "my-unique-id";
 
@@ -125,9 +122,7 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
         return `Hello, ${this.name}`;
     }
 
-    protected _getSerializableProperties(): PropertyDefs<
-        CustomServiceProperties
-    > {
+    protected _getSerializableProperties(): PropertyDefs<CustomServiceProperties> {
         return {
             ...super._getSerializableProperties(),
             name: {
@@ -141,7 +136,6 @@ export default class CustomServiceWithConfig extends ConfigurableServiceBase<
 
 </TabItem>
 <TabItem value="registration">
-
 
 ```ts
 export default function (registry: LibraryRegistry) {
@@ -157,7 +151,6 @@ export default function (registry: LibraryRegistry) {
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json
 {
@@ -175,7 +168,6 @@ export default function (registry: LibraryRegistry) {
 
 </TabItem>
 </Tabs>
-
 
 ## Next Steps
 

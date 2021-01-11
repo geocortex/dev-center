@@ -34,7 +34,6 @@ First, let's create a basic map using the layout and app config.
 }>
 <TabItem value="config">
 
-
 ```json title="app/app.json"
 {
     "schemaVersion": "1.0",
@@ -44,7 +43,6 @@ First, let's create a basic map using the layout and app config.
 
 </TabItem>
 <TabItem value="layout">
-
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
@@ -56,7 +54,6 @@ First, let's create a basic map using the layout and app config.
 </TabItem>
 </Tabs>
 
-
 Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-an-app-config) to the configuration for the map component, and configure the map to run `ui.display-notification` on initialization as a test.
 
 <Tabs
@@ -67,7 +64,6 @@ Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-a
   ]
 }>
 <TabItem value="config">
-
 
 ```json title="app/app.json"
 {
@@ -92,7 +88,6 @@ Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-a
 </TabItem>
 <TabItem value="layout">
 
-
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
@@ -102,7 +97,6 @@ Next, add a [app item](configuration-app-config-getting-started.mdx#anatomy-of-a
 
 </TabItem>
 </Tabs>
-
 
 The next step is going to be replacing the `ui.display-notification` command with a `workflow.run-*` command. First, we need to create a workflow to use for the command.
 
@@ -176,7 +170,6 @@ Finally, you can configure the map to run this workflow on initialization.
 }>
 <TabItem value="config">
 
-
 ```json title="app/app.json"
 {
     "schemaVersion": "1.0",
@@ -209,7 +202,6 @@ Finally, you can configure the map to run this workflow on initialization.
 </TabItem>
 <TabItem value="layout">
 
-
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
@@ -222,7 +214,6 @@ Finally, you can configure the map to run this workflow on initialization.
   <img src={useBaseUrl("img/web-workflow-app-config-demo.png")}/>
 </TabItem>
 </Tabs>
-
 
 You've now successfully customized behavior through the app config with a workflow. From this point, you could develop the workflow further to solve your business case.
 

@@ -33,7 +33,6 @@ First, let's create a basic map using the layout and app config.
 }>
 <TabItem value="config">
 
-
 ```json title="app/app.json"
 {
     "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
@@ -52,7 +51,6 @@ First, let's create a basic map using the layout and app config.
 </TabItem>
 <TabItem value="layout">
 
-
 ```xml title="app/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
@@ -70,7 +68,6 @@ First, let's create a basic map using the layout and app config.
 </TabItem>
 </Tabs>
 
-
 Next, add a [app item](configuration-app-config-reference.mdx#app-items) to the configuration for the map component, and configure the map to run `ui.display-notification` on initialization as a test.
 
 <Tabs
@@ -81,7 +78,6 @@ Next, add a [app item](configuration-app-config-reference.mdx#app-items) to the 
   ]
 }>
 <TabItem value="config">
-
 
 ```json title="app/app.json"
 {
@@ -114,7 +110,6 @@ Next, add a [app item](configuration-app-config-reference.mdx#app-items) to the 
 </TabItem>
 <TabItem value="layout">
 
-
 ```xml title="app/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
@@ -131,7 +126,6 @@ Next, add a [app item](configuration-app-config-reference.mdx#app-items) to the 
 
 </TabItem>
 </Tabs>
-
 
 The next step is going to be replacing the `ui.display-notification` command with a `workflow.run-*` command. First, we need to create a workflow to use for the command.
 
@@ -218,7 +212,6 @@ Finally, you can configure the map to run this workflow on initialization.
 }>
 <TabItem value="config">
 
-
 ```json title="app/app.json"
 {
     "$schema": "..\\..\\ViewerFramework\\app-config\\mobile\\mobile-app-config.schema.json",
@@ -260,7 +253,6 @@ Finally, you can configure the map to run this workflow on initialization.
 </TabItem>
 <TabItem value="layout">
 
-
 ```xml title="app/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
@@ -280,7 +272,6 @@ Finally, you can configure the map to run this workflow on initialization.
   <img src={useBaseUrl("img/mobile-workflow-app-config-demo.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Relevant SDK Samples
 

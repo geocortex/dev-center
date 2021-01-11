@@ -32,7 +32,6 @@ First, let's create an app with an IWTM and a custom component that implements a
   ]}>
 <TabItem value="layout">
 
-
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
@@ -45,7 +44,6 @@ First, let's create an app with an IWTM and a custom component that implements a
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json title="app/app.json"
 {
@@ -72,7 +70,6 @@ First, let's create an app with an IWTM and a custom component that implements a
 </TabItem>
 <TabItem value="component">
 
-
 ```tsx title="src/components/CustomComponent.tsx"
 import {
     LayoutElement,
@@ -97,7 +94,6 @@ export default CustomComponent;
 </TabItem>
 <TabItem value="model">
 
-
 ```ts title="src/components/CustomModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
 import { command } from "@vertigis/web/messaging";
@@ -116,7 +112,6 @@ export default class CustomModel extends ComponentModelBase {
 </TabItem>
 <TabItem value="index">
 
-
 ```ts title="src/components/index.ts"
 export { default } from "./CustomComponent";
 export { default as CustomModel } from "./CustomModel";
@@ -124,7 +119,6 @@ export { default as CustomModel } from "./CustomModel";
 
 </TabItem>
 <TabItem value="registration">
-
 
 ```ts title="src/index.ts"
 import { LibraryRegistry } from "@vertigis/web/config";
@@ -156,7 +150,6 @@ export default function (registry: LibraryRegistry) {
 </TabItem>
 </Tabs>
 
-
 ## Add a Button to Toggle the `canExecute` Status
 
 Next, let's add a button to the custom component that will toggle the `canExecute` status of the `custom.command-with-can-execute` command.
@@ -168,7 +161,6 @@ Next, let's add a button to the custom component that will toggle the `canExecut
     { label: "Component Model", value: "model" },
   ]}>
 <TabItem value="component">
-
 
 ```tsx title="src/components/CustomComponent.tsx"
 import {
@@ -199,7 +191,6 @@ export default CustomComponent;
 </TabItem>
 <TabItem value="model">
 
-
 ```ts title="src/components/CustomModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
 import { command } from "@vertigis/web/messaging";
@@ -227,7 +218,6 @@ export default class CustomModel extends ComponentModelBase {
 </TabItem>
 </Tabs>
 
-
 ## Implement the `canExecute` Function
 
 Finally, we need to implement the `canExecute` method for the `custom.command-with-can-execute` command. This method should be decorated with `@canExecute` and return a boolean indicating whether the command can execute.
@@ -244,7 +234,6 @@ If the command takes an argument, the `@canExecute` method will also be passed t
     { label: "UI - Command Enabled", value: "ui-enabled" },
   ]}>
 <TabItem value="model">
-
 
 ```ts title="src/components/CustomModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
@@ -287,7 +276,6 @@ export default class CustomModel extends ComponentModelBase {
 <img src={useBaseUrl("img/web-command-can-execute-enabled.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Live Sample
 
