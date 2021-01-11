@@ -36,7 +36,6 @@ To learn more about registering and using a component in the layout, check out [
 }>
 <TabItem value="component">
 
-
 ```tsx title="src/components/CustomComponent/CustomComponent.tsx"
 import React from "react";
 import {
@@ -62,7 +61,6 @@ export default function CustomComponent(
 </TabItem>
 <TabItem value="model">
 
-
 ```ts title="src/components/CustomComponent/CustomModel.ts"
 import { ComponentModelBase, serializable } from "@vertigis/web/models";
 
@@ -77,7 +75,6 @@ export default class CustomModel extends ComponentModelBase {
 </TabItem>
 <TabItem value="layout">
 
-
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="your.custom.namespace">
@@ -89,7 +86,6 @@ export default class CustomModel extends ComponentModelBase {
 
 </TabItem>
 </Tabs>
-
 
 ## Inject the Map Model into the Component
 
@@ -121,7 +117,6 @@ Finally, we can use the `MapExtension` to add a custom graphics layer to the [Ar
 }>
 <TabItem value="component">
 
-
 ```tsx title="src/components/CustomComponent/CustomComponent.tsx"
 import React from "react";
 import {
@@ -146,7 +141,6 @@ export default function CustomComponent(
 
 </TabItem>
 <TabItem value="model">
-
 
 ```ts title="src/components/CustomComponent/CustomModel.ts"
 import {
@@ -202,7 +196,6 @@ export default class CustomModel extends ComponentModelBase {
 <img src={useBaseUrl("img/web-add-graphics-layer-component.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Live Sample
 

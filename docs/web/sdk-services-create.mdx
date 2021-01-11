@@ -34,9 +34,7 @@ interface ExampleModelProperties extends ServiceModelProperties {
 
 // highlight-start
 @serializable
-export default class ExampleService extends ConfigurableServiceBase<
-    ExampleModelProperties
-> {
+export default class ExampleService extends ConfigurableServiceBase<ExampleModelProperties> {
     // highlight-end
     exampleProperty: string;
 }

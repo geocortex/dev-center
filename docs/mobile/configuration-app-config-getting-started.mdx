@@ -46,7 +46,6 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
   ]}>
 <TabItem value="layout">
 
-
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
@@ -57,7 +56,6 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json
 {
@@ -83,7 +81,6 @@ If you do not provide a `config` attribute for a component, Geocortex Mobile wil
 </TabItem>
 </Tabs>
 
-
 ## Targeting Components by ID
 
 Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The ID can be used by [commands](configuration-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
@@ -96,7 +93,6 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
     { label: "User Interface", value: "ui" },
   ]}>
 <TabItem value="layout">
-
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -122,7 +118,6 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json
 {
@@ -181,7 +176,6 @@ Every component can also have an `id` attribute. The `id` attribute uniquely ide
 </TabItem>
 </Tabs>
 
-
 :::note
 This example uses [commands and operations](configuration-commands-operations.mdx) to power its behavior.
 :::
@@ -201,7 +195,6 @@ In the following example, the app structures a menu with one button, and the lay
   ]
 }>
 <TabItem value="app">
-
 
 ```json title="App1/App1/app.json"
 {
@@ -238,7 +231,6 @@ In the following example, the app structures a menu with one button, and the lay
 </TabItem>
 <TabItem value="layout">
 
-
 ```xml title="App1/App1/layout-large.xml"
 <?xml version="1.0" encoding="utf-8" ?>
 <layout
@@ -264,7 +256,6 @@ In the following example, the app structures a menu with one button, and the lay
   <img src={useBaseUrl("img/mobile-iwtm-config.png")} />
 </TabItem>
 </Tabs>
-
 
 The `<iwtm>` Component in the layout is bound to the IWTM configuration by the attribute `config="iwtm"`, where `iwtm` corresponds to the ID of the IWTM configuration. All components can be bound to config in this manner, and multiple components can be bound to the same configuration.
 

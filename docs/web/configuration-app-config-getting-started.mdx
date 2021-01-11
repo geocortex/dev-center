@@ -47,7 +47,6 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
   ]}>
 <TabItem value="layout">
 
-
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <layout xmlns="https://geocortex.com/layout/v1">
@@ -57,7 +56,6 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json
 {
@@ -85,7 +83,6 @@ If you do not provide a `config` attribute for a component, Geocortex Web will a
 </TabItem>
 </Tabs>
 
-
 ## Targeting Components by ID
 
 Every component can also have an `id` attribute. The `id` attribute uniquely identifies a component within a layout and allows app items to target the component. The ID can be used by [commands](configuration-commands-operations.mdx) like `ui.activate` to target components, or by commands like `run.workflow` to target a host container component to display workflow UI within.
@@ -102,7 +99,6 @@ This example uses [commands and operations](configuration-commands-operations.md
     { label: "UI", value: "ui" },
   ]}>
 <TabItem value="layout">
-
 
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="utf-8" ?>
@@ -125,7 +121,6 @@ This example uses [commands and operations](configuration-commands-operations.md
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json title="app/app.json"
 {
@@ -192,7 +187,6 @@ This example uses [commands and operations](configuration-commands-operations.md
 </TabItem>
 </Tabs>
 
-
 <!-- TODO - live web preview -->
 
 ## Example: Application with Hidden Side Panel
@@ -207,7 +201,6 @@ This example demonstrates a web application with a hidden side panel that pops o
     { label: "UI", value: "ui" },
   ]}>
 <TabItem value="layout">
-
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -240,7 +233,6 @@ This example demonstrates a web application with a hidden side panel that pops o
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json
 {
@@ -339,7 +331,6 @@ This example demonstrates a web application with a hidden side panel that pops o
 <img src={useBaseUrl("img/web-app-config-hidden-side-panel.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Next Steps: Commands and Operations
 

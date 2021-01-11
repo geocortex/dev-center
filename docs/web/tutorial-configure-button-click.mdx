@@ -32,7 +32,6 @@ Let's create a layout with two components; a map, and a button positioned on the
   ]}>
 <TabItem value="layout">
 
-
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" >
@@ -48,7 +47,6 @@ Let's create a layout with two components; a map, and a button positioned on the
 </TabItem>
 </Tabs>
 
-
 ## Link the Button to a Command in App Config
 
 Link the button to the layout using a `menu-item` in app config, and configure it to run a basic command, `zoom-in`.
@@ -62,7 +60,6 @@ Link the button to the layout using a `menu-item` in app config, and configure i
   ]}>
 <TabItem value="layout">
 
-
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" >
@@ -75,7 +72,6 @@ Link the button to the layout using a `menu-item` in app config, and configure i
 
 </TabItem>
 <TabItem value="config">
-
 
 ```json title="app/app.json"
 {
@@ -99,7 +95,6 @@ Link the button to the layout using a `menu-item` in app config, and configure i
 </TabItem>
 </Tabs>
 
-
 ## Pass Arguments to the Command
 
 If the command you want to run takes arguments, you can pass them through the app config.
@@ -115,7 +110,6 @@ Check out the [commands and operations reference](configuration-commands-operati
     { label: "UI", value: "ui" },
   ]}>
 <TabItem value="config">
-
 
 ```json title="app/app.json"
 {
@@ -144,7 +138,6 @@ Check out the [commands and operations reference](configuration-commands-operati
 <img src={useBaseUrl("img/web-basic-button-alert.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Next Steps
 

@@ -41,7 +41,6 @@ Icon IDs should be chosen to be globally unique - one easy way to ensure this is
 }>
 <TabItem value="registration">
 
-
 ```ts title="src/index.ts"
 import { LibraryRegistry } from "@vertigis/web/config";
 import ComponentWithIcon from "./components/ComponentWithIcon/ComponentWithIcon";
@@ -70,7 +69,6 @@ export default function (registry: LibraryRegistry): void {
 
 </TabItem>
 <TabItem value="component">
-
 
 ```tsx title="src/components/ComponentWithIcon/ComponentWithIcon.tsx"
 import React, { FC } from "react";
@@ -108,7 +106,6 @@ export default ComponentWithIcon;
 </TabItem>
 <TabItem value="config">
 
-
 ```json title="app/app.json"
 {
     "schemaVersion": "1.0",
@@ -145,7 +142,6 @@ export default ComponentWithIcon;
 </TabItem>
 <TabItem value="layout">
 
-
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="my.custom.namespace">
@@ -161,7 +157,6 @@ export default ComponentWithIcon;
 <img src={useBaseUrl("img/web-custom-dynamic-icon.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Next Steps
 

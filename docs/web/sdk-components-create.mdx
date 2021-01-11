@@ -70,16 +70,12 @@ interface ExampleComponentModelProperties extends ComponentModelProperties {
 // so it can be serialized to/from the app.json configuration of
 // your app.
 @serializable
-export default class ExampleComponentModel extends ComponentModelBase<
-    ExampleComponentModelProperties
-> {
+export default class ExampleComponentModel extends ComponentModelBase<ExampleComponentModelProperties> {
     exampleValue: string;
 
     // This method defines how the model will be serialized and deserialized into
     // an app item. We override it to include our new property `exampleValue`.
-    protected _getSerializableProperties(): PropertyDefs<
-        ExampleComponentModelProperties
-    > {
+    protected _getSerializableProperties(): PropertyDefs<ExampleComponentModelProperties> {
         const props = super._getSerializableProperties();
         return {
             ...props,
@@ -149,7 +145,6 @@ You can now add the component to your `layout.xml` file and run the development 
   ]}>
 <TabItem value="layout">
 
-
 ```xml title="app/layout.xml"
 <?xml version="1.0" encoding="UTF-8"?>
 <layout xmlns="https://geocortex.com/layout/v1" xmlns:custom="custom.abc123">
@@ -162,7 +157,6 @@ You can now add the component to your `layout.xml` file and run the development 
 <img src={useBaseUrl("img/web-sdk-components-create.png")}/>
 </TabItem>
 </Tabs>
-
 
 ## Next Steps
 
