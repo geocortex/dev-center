@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://developers.geocortex.com/blog</id>
+    <title>Developer Center Blog</title>
+    <updated>2015-10-25T23:29:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://developers.geocortex.com/blog"/>
+    <subtitle>Developer Center Blog</subtitle>
+    <icon>https://developers.geocortex.com/img/favicon.png</icon>
+</feed>
