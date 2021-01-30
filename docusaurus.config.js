@@ -1,6 +1,5 @@
-const title = "Developer Center";
 module.exports = {
-    title,
+    title: "Geocortex Developer Center",
     tagline: "by developers, for developers",
     url: "https://developers.geocortex.com",
     baseUrl: "/",
@@ -14,7 +13,7 @@ module.exports = {
             indexName: "geocortex",
         },
         navbar: {
-            title,
+            title: "Developer Center",
             logo: {
                 alt: "Geocortex Logo",
                 src: "img/logo.png",
@@ -44,39 +43,18 @@ module.exports = {
                     position: "left",
                     activeBasePath: "docs/reporting",
                 },
+                {
+                    to: "blog",
+                    label: "Blog",
+                    position: "left",
+                    activeBasePath: "blog",
+                },
             ],
         },
         footer: {
             style: "dark",
             copyright: `Copyright © ${new Date().getFullYear()} VertiGIS North America Ltd. All rights reserved.`,
             links: [
-                {
-                    title: "About",
-                    items: [
-                        {
-                            label: "Geocortex.com",
-                            to: "https://geocortex.com",
-                        },
-                        {
-                            label: "Geocortex Documentation Center",
-                            to: "https://docs.geocortex.com",
-                        },
-                        {
-                            label: "GitHub",
-                            to: "https://github.com/geocortex/dev-center",
-                        },
-                        {
-                            label: "Legal",
-                            to:
-                                "https://www.geocortex.com/legal/#licensing-terms-of-use",
-                        },
-                        {
-                            label: "Privacy",
-                            to:
-                                "https://www.geocortex.com/legal/#privacy-statement",
-                        },
-                    ],
-                },
                 {
                     title: "Geocortex Apps",
                     items: [
@@ -93,6 +71,59 @@ module.exports = {
                         {
                             label: "Geocortex Workflow",
                             to: "https://apps.geocortex.com/workflow/designer/",
+                        },
+                        {
+                            label: "Geocortex Reporting",
+                            to:
+                                "https://apps.geocortex.com/reporting/designer/",
+                        },
+                        {
+                            label: "Geocortex Printing",
+                            to: "https://apps.geocortex.com/printing/designer/",
+                        },
+                        {
+                            label: "Geocortex Inline",
+                            to: "https://apps.geocortex.com/inline/designer/",
+                        },
+                        {
+                            label: "Geocortex Item Manager",
+                            to: "https://apps.geocortex.com/itemmanager/",
+                        },
+                    ],
+                },
+                {
+                    title: "More",
+                    items: [
+                        {
+                            label: "Blog",
+                            to: "blog",
+                        },
+                        {
+                            label: "GitHub",
+                            to: "https://github.com/geocortex/dev-center",
+                        },
+                        {
+                            label: "Geocortex Documentation Center",
+                            to: "https://docs.geocortex.com",
+                        },
+                        {
+                            label: "Geocortex.com",
+                            to: "https://geocortex.com",
+                        },
+                    ],
+                },
+                {
+                    title: "Legal",
+                    items: [
+                        {
+                            label: "Terms",
+                            to:
+                                "https://www.geocortex.com/legal/#licensing-terms-of-use",
+                        },
+                        {
+                            label: "Privacy",
+                            to:
+                                "https://www.geocortex.com/legal/#privacy-statement",
                         },
                     ],
                 },
