@@ -20,9 +20,13 @@ import { UIContext } from "@vertigis/web/ui";
 import { useContext } from "react";
 
 export default function CustomComponent(props) {
-    const { command, event, operation, translate, hostElement } = useContext(
-        UIContext
-    );
+    const {
+        command,
+        event,
+        operation,
+        translate,
+        hostElement,
+    } = useContext(UIContext);
     // ...
 }
 ```

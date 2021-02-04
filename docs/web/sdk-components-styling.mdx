@@ -107,11 +107,14 @@ import ListItemText from "@vertigis/web/ui/ListItemText";
 import CloudDownload from "@vertigis/web/ui/icons/CloudDownload";
 import ComponentWithIconModel from "./ComponentWithIconModel";
 
-const ComponentWithIcon: FC<LayoutElementProperties<ComponentWithIconModel>> = (
-    props
-) => {
+const ComponentWithIcon: FC<
+    LayoutElementProperties<ComponentWithIconModel>
+> = (props) => {
     return (
-        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+        <LayoutElement
+            {...props}
+            style={{ backgroundColor: "white" }}
+        >
             <MenuItem>
                 <ListItemText
                     primary={"Icon Example"}
@@ -144,13 +147,16 @@ import MenuItem from "@vertigis/web/ui/MenuItem";
 import IconButton from "@vertigis/web/ui/IconButton";
 import ListItemText from "@vertigis/web/ui/ListItemText";
 
-const ComponentWithIcon: FC<LayoutElementProperties<ComponentWithIconModel>> = (
-    props
-) => {
+const ComponentWithIcon: FC<
+    LayoutElementProperties<ComponentWithIconModel>
+> = (props) => {
     // highlight-next-line
     const { icon } = props.model;
     return (
-        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+        <LayoutElement
+            {...props}
+            style={{ backgroundColor: "white" }}
+        >
             <MenuItem>
                 <ListItemText primary="Custom Arrow Icon" />
                 <IconButton title="Custom Arrow Icon">

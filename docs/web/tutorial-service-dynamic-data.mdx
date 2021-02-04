@@ -124,7 +124,10 @@ Now that we have the news feed data being populated by a service, we need to con
 Following the best practices for implementing components, the news item data should be managed by the news feed model. Component Models can [inject services](sdk-components-injecting-services.mdx) as properties, and doing so allows us to directly access the dynamically updated `newsItems` property on the service.
 
 ```ts title="src/components/NewsFeed//NewsFeedModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 import Collection from "esri/core/Collection";
 import CustomDataService from "../../services/CustomDataService";
 import { inject } from "@vertigis/web/services";
@@ -256,7 +259,10 @@ export default function NewsFeed(
 <TabItem value="model">
 
 ```ts title="src/component/NewsFeed/NewsFeedModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 import Collection from "esri/core/Collection";
 import CustomDataService from "../../services/CustomDataService";
 import { inject } from "@vertigis/web/services";
@@ -346,6 +352,8 @@ export default function (registry: LibraryRegistry) {
     <UseCaseCard
         title="Learn more about Referencing Services in Components"
         description="Learn the dependency injection pattern for referencing services"
-        link={useBaseUrl("docs/web/sdk-components-injecting-services")}
+        link={useBaseUrl(
+            "docs/web/sdk-components-injecting-services"
+        )}
     />
 </UseCaseContainer>

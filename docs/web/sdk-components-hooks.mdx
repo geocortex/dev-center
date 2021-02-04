@@ -39,7 +39,9 @@ export default function CustomComponent(props) {
         <LayoutElement {...props}>
             {/* Change the underlying model to trigger a re-render */}
             {model.hidden && (
-                <Button onClick={() => (model.hidden = false)}>Show Me</Button>
+                <Button onClick={() => (model.hidden = false)}>
+                    Show Me
+                </Button>
             )}
             {!model.hidden && (
                 <div>

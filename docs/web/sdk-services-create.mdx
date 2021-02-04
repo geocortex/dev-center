@@ -26,7 +26,10 @@ If you want your service to be able to serialize and deserialize configuration s
 
 ```ts title="src/services/ExampleService.ts"
 import { ServiceModelProperties } from "@vertigis/web/models";
-import { ConfigurableServiceBase, serializable } from "@vertigis/web/services";
+import {
+    ConfigurableServiceBase,
+    serializable,
+} from "@vertigis/web/services";
 
 interface ExampleModelProperties extends ServiceModelProperties {
     exampleProperty: string;

@@ -23,7 +23,9 @@ It's actually possible to configure the Map's `onClick` event in [Geocortex Mobi
 We will modify the default map on click behavior to buffer the click geometry by a user provided distance and create a graphic which visualizes this buffer.
 
 <img
-    src={useBaseUrl("img/mobile-custom-map-click-workflow-finished.png")}
+    src={useBaseUrl(
+        "img/mobile-custom-map-click-workflow-finished.png"
+    )}
     alt="Map Click Workflow with Buffer Behavior"
 />
 
@@ -236,7 +238,9 @@ First, we are going to replace the command chain with a `workflow.run` command t
 <p>
     You can{" "}
     <a
-        href={useBaseUrl("workflows/mobile-map-click-behavior-recreated.json")}
+        href={useBaseUrl(
+            "workflows/mobile-map-click-behavior-recreated.json"
+        )}
         download="map-click-behavior-recreated.json"
     >
         download this workflow
@@ -252,7 +256,9 @@ First, we are going to replace the command chain with a `workflow.run` command t
 :::
 
 <img
-    src={useBaseUrl("img/mobile-custom-map-click-workflow-recreated.png")}
+    src={useBaseUrl(
+        "img/mobile-custom-map-click-workflow-recreated.png"
+    )}
     alt="Map Click Workflow with Original Operations"
 />
 
@@ -267,7 +273,9 @@ At this point, you can choose to extend the map click behavior with Geocortex Wo
 <p>
     You can{" "}
     <a
-        href={useBaseUrl("workflows/web-map-click-behavior-buffer.json")}
+        href={useBaseUrl(
+            "workflows/web-map-click-behavior-buffer.json"
+        )}
         download="map-click-behavior-buffer.json"
     >
         download this buffer geometry workflow
@@ -283,7 +291,9 @@ At this point, you can choose to extend the map click behavior with Geocortex Wo
 :::
 
 <img
-    src={useBaseUrl("img/mobile-custom-map-click-workflow-finished.png")}
+    src={useBaseUrl(
+        "img/mobile-custom-map-click-workflow-finished.png"
+    )}
     alt="Map Click Workflow with Buffer Behavior"
 />
 
@@ -304,7 +314,9 @@ This pattern of configuring behavior with a workflow can be applied to numerous 
     <UseCaseCard
         title="Change Default Behavior"
         description="Learn more about overriding default behaviors"
-        link={useBaseUrl("docs/mobile/tutorial-change-default-behavior")}
+        link={useBaseUrl(
+            "docs/mobile/tutorial-change-default-behavior"
+        )}
     />
     <UseCaseCard
         title="SDK Sample that Demonstrates Overriding Default Behaviors"
@@ -314,6 +326,8 @@ This pattern of configuring behavior with a workflow can be applied to numerous 
     <UseCaseCard
         title="Implement Custom Command or Operation"
         description="Implement a custom command or operation with the Mobile SDK"
-        link={useBaseUrl("docs/mobile/tutorial-implement-command-operation")}
+        link={useBaseUrl(
+            "docs/mobile/tutorial-implement-command-operation"
+        )}
     />
 </UseCaseContainer>

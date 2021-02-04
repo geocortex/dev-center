@@ -70,11 +70,13 @@ export default class CustomService extends ServiceBase {
     protected async _onInitialize(): Promise<void> {
         await super._onInitialize();
         this.handles.push(
-            this.messages.events.map.initialized.subscribe((e: MapEvent) => {
-                console.log(
-                    "Map Initialized, do your map dependent model setup here."
-                );
-            })
+            this.messages.events.map.initialized.subscribe(
+                (e: MapEvent) => {
+                    console.log(
+                        "Map Initialized, do your map dependent model setup here."
+                    );
+                }
+            )
         );
     }
 
@@ -107,7 +109,8 @@ The service is linked to the config through the `itemType` and `id` properties.
 <TabItem value="service">
 
 ```ts
-export interface CustomServiceProperties extends ServiceModelProperties {
+export interface CustomServiceProperties
+    extends ServiceModelProperties {
     name: string;
 }
 
@@ -185,7 +188,9 @@ export default function (registry: LibraryRegistry) {
     <UseCaseCard
         title="Build a Custom Command with a Custom Service"
         description="Follow a step by step guide to building a custom command with a custom service"
-        link={useBaseUrl("docs/web/tutorial-implement-command-operation")}
+        link={useBaseUrl(
+            "docs/web/tutorial-implement-command-operation"
+        )}
     />
     <UseCaseCard
         title="Build a Service that Manages Dynamic Data"

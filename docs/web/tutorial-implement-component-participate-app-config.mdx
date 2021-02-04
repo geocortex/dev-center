@@ -88,7 +88,10 @@ export default function NewsFeed(props) {
 <TabItem value="model">
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 
 @serializable
 class NewsFeedModel extends ComponentModelBase {}
@@ -316,7 +319,8 @@ import DialogActions from "@vertigis/web/ui/DialogActions";
 import "./NewsFeed.css";
 import { NewsFeedModel } from ".";
 
-export interface NewsFeedProps extends LayoutElementProperties<NewsFeedModel> {}
+export interface NewsFeedProps
+    extends LayoutElementProperties<NewsFeedModel> {}
 
 export default function NewsFeed(props: NewsFeedProps) {
     const { model } = props;
@@ -338,7 +342,9 @@ export default function NewsFeed(props: NewsFeedProps) {
                     <TitleBar text="Recent News"></TitleBar>
                     // highlight-start
                     {model.hidden && (
-                        <Button onClick={() => (model.hidden = false)}>
+                        <Button
+                            onClick={() => (model.hidden = false)}
+                        >
                             Show News
                         </Button>
                     )}

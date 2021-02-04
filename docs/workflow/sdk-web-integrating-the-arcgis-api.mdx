@@ -88,7 +88,9 @@ export interface ExpandPolygonOutputs {
  * @description An activity that expands the bounding extent of a polygon by a given factor.
  */
 export class ExpandPolygon implements IActivityHandler {
-    async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
+    async execute(
+        inputs: ExpandPolygonInputs
+    ): Promise<ExpandPolygonOutputs> {
         return {
             // highlight-next-line
             extent: inputs.polygon.getExtent().expand(inputs.factor),
@@ -189,7 +191,9 @@ export interface ExpandPolygonOutputs {
  * @description An activity that expands the bounding extent of a polygon by a given factor.
  */
 export class ExpandPolygon implements IActivityHandler {
-    async execute(inputs: ExpandPolygonInputs): Promise<ExpandPolygonOutputs> {
+    async execute(
+        inputs: ExpandPolygonInputs
+    ): Promise<ExpandPolygonOutputs> {
         const apiVersion = getArcGISApiVersion();
         let extent;
         if (apiVersion == ArcGisApiVersion.v4) {

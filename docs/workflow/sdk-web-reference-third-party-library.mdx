@@ -67,7 +67,9 @@ const ColorPicker = (props: CustomFormElementProps) => {
         setColor(props.element.value ?? "#ff0000");
     }, [props.element.value]);
 
-    return <SketchPicker color={color} onChange={handleColorChange} />;
+    return (
+        <SketchPicker color={color} onChange={handleColorChange} />
+    );
 };
 
 /**

@@ -153,7 +153,10 @@ export default function CustomComponent(
     props: LayoutElementProperties<CustomModel>
 ) {
     return (
-        <LayoutElement {...props} style={{ backgroundColor: "white" }}>
+        <LayoutElement
+            {...props}
+            style={{ backgroundColor: "white" }}
+        >
             <Typography variant="h1">
                 {`Text From the imported Model: "${props.model.getContentText()}"`}
             </Typography>
@@ -193,11 +196,15 @@ Components can interact with built-in Geocortex Web [services](sdk-services-over
     <UseCaseCard
         title="Learn how to Interact with Services"
         description="Learn about how components can interact with built-in or custom services"
-        link={useBaseUrl("docs/web/sdk-components-injecting-services")}
+        link={useBaseUrl(
+            "docs/web/sdk-components-injecting-services"
+        )}
     />
     <UseCaseCard
         title="Learn how Components are Bound to Models in the Layout"
         description="Learn how layout structure can be used to bind components to their required models"
-        link={useBaseUrl("docs/web/configuration-advanced-model-binding")}
+        link={useBaseUrl(
+            "docs/web/configuration-advanced-model-binding"
+        )}
     />
 </UseCaseContainer>

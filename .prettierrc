@@ -3,7 +3,7 @@
     "overrides": [
         {
             "files": "*.{md,mdx}",
-            "options": { "printWidth": 75 }
+            "options": { "printWidth": 70 }
         }
     ]
 }

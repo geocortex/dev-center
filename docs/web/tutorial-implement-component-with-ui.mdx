@@ -68,7 +68,10 @@ export default function CustomComponent(
 <TabItem value="model">
 
 ```ts title="src/components/CustomComponent/CustomModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 
 @serializable
 class CustomModel extends ComponentModelBase {}
@@ -225,7 +228,10 @@ export default function NewsFeed(
 <TabItem value="model">
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 
 @serializable
 class NewsFeedModel extends ComponentModelBase {}
