@@ -142,7 +142,7 @@ function Text(props: CustomFormElementProps) {
 }
 ```
 
-There are a few of gotchas here that are likely not obvious at first glance:
+There are a few gotchas here that are likely not obvious at first glance:
 
 1. We forgot to call `props.raiseEvent("changed", value)`. If the workflow author tried to run a sub-workflow on the change event of your element, it would never run.
 1. The re-rendering of the element wasn't deterministic previously. Even if we updated `props.element.value` _and_ invoked `props.raiseEvent("changed", value)`, there was no guarantee that this element would re-render immediately. In that case the UI wouldn't show the updated value, and would be out-of-sync with the underlying state of the element.
