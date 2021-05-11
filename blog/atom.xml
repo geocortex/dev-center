@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://developers.geocortex.com/blog</id>
-    <title>Developer Center Blog</title>
-    <updated>2015-10-25T23:29:00.000Z</updated>
+    <title>Geocortex Developer Center Blog</title>
+    <updated>2021-03-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://developers.geocortex.com/blog"/>
-    <subtitle>Developer Center Blog</subtitle>
+    <subtitle>Geocortex Developer Center Blog</subtitle>
     <icon>https://developers.geocortex.com/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[New Workflow Form Element API]]></title>
+        <id>New Workflow Form Element API</id>
+        <link href="https://developers.geocortex.com/blog/2021/03/22/new-workflow-element-api"/>
+        <updated>2021-03-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Workflow 5.21 includes a new TypeScript form element API that you can use for building custom form elements using the Geocortex Workflow TypeScript SDK. The existing patterns and APIs you've been using for years to build custom form elements will continue to work, but we encourage you to try the new API when building new form elements.]]></summary>
+    </entry>
 </feed>
