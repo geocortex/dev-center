@@ -77,9 +77,11 @@ export default class CustomService extends ServiceBase {
     protected async _onInitialize(): Promise<void> {
         await super._onInitialize();
         this.handles.push(
-            this.messages.events.ui.activated.subscribe((id: string) => {
-                console.log(`Component '${id}' activated.`);
-            })
+            this.messages.events.ui.activated.subscribe(
+                (id: string) => {
+                    console.log(`Component '${id}' activated.`);
+                }
+            )
         );
     }
 
@@ -101,9 +103,11 @@ export default class ExampleComponentModel extends ComponentModelBase {
     protected async _onInitialize(): Promise<void> {
         await super._onInitialize();
         this.handles.push(
-            this.messages.events.ui.activated.subscribe((id: string) => {
-                console.log(`Component '${id}' activated.`);
-            })
+            this.messages.events.ui.activated.subscribe(
+                (id: string) => {
+                    console.log(`Component '${id}' activated.`);
+                }
+            )
         );
     }
 
@@ -152,7 +156,9 @@ export default class CustomService extends ServiceBase {
 
     publishCustomEvent() {
         // highlight-next-line
-        this.messages.event<string>("my-custom-event").publish("some argument");
+        this.messages
+            .event<string>("my-custom-event")
+            .publish("some argument");
     }
 
     protected async _onInitialize(): Promise<void> {
@@ -162,7 +168,9 @@ export default class CustomService extends ServiceBase {
             this.messages
                 .event<string>("my-custom-event")
                 .subscribe((someArg: string) => {
-                    console.log(`Event published with arg: '${someArg}'`);
+                    console.log(
+                        `Event published with arg: '${someArg}'`
+                    );
                 })
         );
     }

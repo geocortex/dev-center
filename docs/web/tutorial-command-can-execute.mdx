@@ -80,7 +80,9 @@ import React from "react";
 
 import CustomModel from "./CustomModel";
 
-const CustomComponent = (props: LayoutElementProperties<CustomModel>) => {
+const CustomComponent = (
+    props: LayoutElementProperties<CustomModel>
+) => {
     return (
         <LayoutElement {...props}>
             <Button>Placeholder</Button>
@@ -95,7 +97,10 @@ export default CustomComponent;
 <TabItem value="model">
 
 ```ts title="src/components/CustomModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 import { command } from "@vertigis/web/messaging";
 
 @serializable
@@ -123,7 +128,9 @@ export { default as CustomModel } from "./CustomModel";
 ```ts title="src/index.ts"
 import { LibraryRegistry } from "@vertigis/web/config";
 
-import CustomComponent, { CustomModel } from "./components/CustomComponent";
+import CustomComponent, {
+    CustomModel,
+} from "./components/CustomComponent";
 
 const LAYOUT_NAMESPACE = "custom.abc123";
 
@@ -172,7 +179,9 @@ import React from "react";
 
 import CustomModel from "./CustomModel";
 
-const CustomComponent = (props: LayoutElementProperties<CustomModel>) => {
+const CustomComponent = (
+    props: LayoutElementProperties<CustomModel>
+) => {
     const { model } = props;
 
     return (
@@ -192,7 +201,10 @@ export default CustomComponent;
 <TabItem value="model">
 
 ```ts title="src/components/CustomModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 import { command } from "@vertigis/web/messaging";
 
 @serializable
@@ -236,7 +248,10 @@ If the command takes an argument, the `@canExecute` method will also be passed t
 <TabItem value="model">
 
 ```ts title="src/components/CustomModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 import { command, canExecute } from "@vertigis/web/messaging";
 
 @serializable

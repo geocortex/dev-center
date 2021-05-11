@@ -188,7 +188,13 @@ export class CreateQrCodeImage implements IActivityHandler {
     async execute(
         inputs: CreateQrCodeImageInputs
     ): Promise<CreateQrCodeImageOutputs> {
-        const { darkColor, lightColor, quality, text, ...other } = inputs;
+        const {
+            darkColor,
+            lightColor,
+            quality,
+            text,
+            ...other
+        } = inputs;
 
         // Assemble the QR code options from the activity inputs
         const options: QRCodeToDataURLOptions = {

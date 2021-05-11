@@ -284,7 +284,9 @@ This example demonstrates two different types of argument passing behavior.
                     "action": [
                         {
                             "name": "map.zoom-to-initial-viewpoint",
-                            "arguments": ["item://map-extension/default"]
+                            "arguments": [
+                                "item://map-extension/default"
+                            ]
                         }
                     ]
                 }
@@ -358,7 +360,9 @@ Geocortex Web has a large array of built-in command and operations that you can 
     <UseCaseCard
         title="Build your own Commands and Operations"
         description="Use the SDK to implement custom commands and operations"
-        link={useBaseUrl("docs/web/tutorial-implement-command-operation")}
+        link={useBaseUrl(
+            "docs/web/tutorial-implement-command-operation"
+        )}
     />
     <UseCaseCard
         title="Learn about Events built into Geocortex Web"

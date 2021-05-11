@@ -32,7 +32,6 @@ The Geocortex Workflow SDK provides a [development toolkit](https://github.com/g
 
 The created project contains a few important files and directories:
 
-1. The `src/activities` directory, which is where new activities and form elements will be created.
 1. The `src/index.ts` file which exports all of your custom activities and form elements.
 1. `uuid.js` which maintains a globally unique identifier that will be used when you create your custom activities and form elements. This enables you to load and use multiple activity packs in a given workflow. **This identifier should not be modified**.
 
@@ -207,11 +206,15 @@ If you're migrating from our previous `activity-sdk.zip` there are a few steps y
     <UseCaseCard
         title="Reference a Third Party Library"
         description="Reference a third party library in web applications"
-        link={useBaseUrl("docs/workflow/sdk-web-reference-third-party-library")}
+        link={useBaseUrl(
+            "docs/workflow/sdk-web-reference-third-party-library"
+        )}
     />
     <UseCaseCard
         title="Integrate the ArcGIS API for JavaScript into custom activities"
         description="Integrate the ArcGIS API for JavaScript into custom code"
-        link={useBaseUrl("docs/workflow/sdk-web-integrating-the-arcgis-api")}
+        link={useBaseUrl(
+            "docs/workflow/sdk-web-integrating-the-arcgis-api"
+        )}
     />
 </UseCaseContainer>

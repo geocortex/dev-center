@@ -62,7 +62,10 @@ export default function CustomComponent(
 <TabItem value="model">
 
 ```ts title="src/components/CustomComponent/CustomModel.ts"
-import { ComponentModelBase, serializable } from "@vertigis/web/models";
+import {
+    ComponentModelBase,
+    serializable,
+} from "@vertigis/web/models";
 
 @serializable
 export default class CustomModel extends ComponentModelBase {
@@ -212,6 +215,8 @@ Check out a [live SDK sample](https://vertigis-web-samples.netlify.app/embedded-
     <UseCaseCard
         title="Learn how Components are Bound to Models in the Layout"
         description="Learn how layout structure can be used to bind components to their required models"
-        link={useBaseUrl("docs/web/configuration-advanced-model-binding")}
+        link={useBaseUrl(
+            "docs/web/configuration-advanced-model-binding"
+        )}
     />
 </UseCaseContainer>

@@ -100,9 +100,13 @@ export interface CalculateLogOutputs {
 export class CalculateLog implements IActivityHandler {
     static action = "uuid:<uuid>::CalculateLog";
 
-    async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
+    async execute(
+        inputs: CalculateLogInputs
+    ): Promise<CalculateLogOutputs> {
         // The host application must implement this activity
-        throw new Error("Activity not implemented for this platform.");
+        throw new Error(
+            "Activity not implemented for this platform."
+        );
     }
 }
 ```

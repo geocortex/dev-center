@@ -16,7 +16,11 @@ Implementing a custom [activity](key-concepts.mdx#activities) allows you to buil
 
 In this article, you will learn how to create a custom activity that calculates the logarithm of a number with a given base.
 
-<img src={useBaseUrl("img/workflow-web-calculate-logarithm-activity.png")} />
+<img
+    src={useBaseUrl(
+        "img/workflow-web-calculate-logarithm-activity.png"
+    )}
+/>
 
 ## Prerequisites
 
@@ -74,7 +78,9 @@ export interface CalculateLogOutputs {
  */
 export class CalculateLog implements IActivityHandler {
     // highlight-next-line
-    async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
+    async execute(
+        inputs: CalculateLogInputs
+    ): Promise<CalculateLogOutputs> {
         return { result: 0 };
     }
 }
@@ -110,12 +116,16 @@ export interface CalculateLogOutputs {
  * @description An activity that calculates the log of a number with the given base.
  */
 export class CalculateLog implements IActivityHandler {
-    async execute(inputs: CalculateLogInputs): Promise<CalculateLogOutputs> {
+    async execute(
+        inputs: CalculateLogInputs
+    ): Promise<CalculateLogOutputs> {
         // highlight-start
         return {
             result:
                 Math.log(inputs.value) /
-                (inputs.base !== undefined ? Math.log(inputs.base) : 1),
+                (inputs.base !== undefined
+                    ? Math.log(inputs.base)
+                    : 1),
         };
         // highlight-end
     }
@@ -137,7 +147,9 @@ Now you can build a workflow that uses your new custom activity!
 <p>
     You can
     <a
-        href={useBaseUrl("workflows/web-calculate-logarithm-activity.json")}
+        href={useBaseUrl(
+            "workflows/web-calculate-logarithm-activity.json"
+        )}
         download="calculate-logarithm-workflow.json"
     >
         {" "}
@@ -160,12 +172,16 @@ Now you can build a workflow that uses your new custom activity!
         {" "}
         deploy the custom activity and form element
     </a>{" "}
-    for it to function. This workflow assumes you are hosting the activity pack
-    with the dev server on https://localhost:57999/.
+    for it to function. This workflow assumes you are hosting the
+    activity pack with the dev server on https://localhost:57999/.
 </p>
 :::
 
-<img src={useBaseUrl("img/workflow-web-calculate-logarithm-activity.png")} />
+<img
+    src={useBaseUrl(
+        "img/workflow-web-calculate-logarithm-activity.png"
+    )}
+/>
 
 ## Next Steps
 
@@ -182,16 +198,22 @@ Now you know how to build a basic Workflow activity for web applications. Next, 
     <UseCaseCard
         title="Add a Layer to the Map with a Custom Activity"
         description="Access application properties like the map in custom activities for Web Applications"
-        link={useBaseUrl("docs/workflow/tutorial-web-add-layer-to-map")}
+        link={useBaseUrl(
+            "docs/workflow/tutorial-web-add-layer-to-map"
+        )}
     />
     <UseCaseCard
         title="Use the ArcGIS API for JavaScript in an activity."
         description="Use the ArcGIS API for JavaScript in an activity or form element"
-        link={useBaseUrl("docs/workflow/sdk-web-integrating-the-arcgis-api")}
+        link={useBaseUrl(
+            "docs/workflow/sdk-web-integrating-the-arcgis-api"
+        )}
     />
     <UseCaseCard
         title="Reference other Third Party Libraries"
         description="Reference other third party libraries in your activities and form elements"
-        link={useBaseUrl("docs/workflow/sdk-web-reference-third-party-library")}
+        link={useBaseUrl(
+            "docs/workflow/sdk-web-reference-third-party-library"
+        )}
     />
 </UseCaseContainer>

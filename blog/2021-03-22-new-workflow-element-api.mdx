@@ -1,0 +1,405 @@
+---
+title: New Workflow Form Element API
+author: Ian Schmitz
+authorTitle: Software Architect
+authorURL: https://github.com/ianschmitz
+authorImageURL: https://github.com/ianschmitz.png
+tags: [workflow]
+---
+
+import Link from "@docusaurus/Link";
+
+Workflow `5.21` includes a new TypeScript form element API that you can use for building custom form elements using the <Link to="/docs/workflow/sdk-web-overview">Geocortex Workflow TypeScript SDK</Link>. The existing patterns and APIs you've been using for years to build custom form elements will continue to work, but we encourage you to try the new API when building new form elements.
+
+<!--truncate-->
+
+:::note
+To use these new features, you will need the latest version of Geocortex Workflow, as well as the Geocortex Workflow SDK.
+:::
+
+The new form element API provides a number of new features and benefits:
+
+-   [New state management API](#new-state-management-api)
+-   [Simplified element registration](#simplified-element-registration)
+<!-- Both UI (form re-renders) and element state -->
+-   [Improved UI consistency](#improved-ui-consistency)
+
+## New State Management API
+
+We've created a new state management API that improves custom form element development in a number of ways. Let's take a look in-depth at what's changed.
+
+### Improved `props` interface
+
+We now provide an easy way to extend the props interface with additional public properties for your element. We've also flattened the element's properties from `props.element` onto the root of the `props` object and have removed unused properties that were used internally in the product but didn't make sense for most custom form elements:
+
+```diff
+- import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
++ import { FormElementProps } from "@geocortex/workflow/runtime";
+
+
+// The generic type argument provided to `FormElementProps`
+// allows you to specify the type of `value`.
+// This will strongly type `props.value` and `props.setValue()`.
+// You can now add additional properties to your element's
+// props interface. Previously there wasn't a great pattern
+// to declare additional properties for an element.
++ interface DemoElementProps extends FormElementProps<number> {
++    foo: string;
++ }
+
+
+- function DemoElement(props: CustomFormElementProps) {
++ function DemoElement(props: DemoElementProps) {
+    // Get the current `value`. Previously `value` wouldn't be
+    // strongly typed. Here we've typed as `number` as declared
+    // in our interface above.
+-   const currentValue = props.element.value;
++   const currentValue = props.value;
+
+
+    // Get a custom `foo` property used by my element.
++   const currentFoo = props.foo;
+
+
+    // ...
+}
+```
+
+### `setValue()` and `setProperty()`
+
+These new APIs are included in the props interface and help to improve developer experience and ensure form consistency of both the UI presentation, but also the underlying element state.
+
+We've added the `setProperty()` API which is used to update properties of your element, such as additional public properties that you've added to your element by extending the `FormElementProps` interface.
+
+We've also added `setValue()`. `setValue(value)` is equivalent to calling `setProperty("value", value)`. Using the previous API, developers had to remember to raise the `changed` event when updating the `value` property on their element. This was necessary so that workflow authors could run sub-workflows on the `change` event of the element. This is no longer needed as the `setValue()` API will automatically raise the `changed` event for you.
+
+Additionally, the previous patterns didn't guarantee that the form would re-render after updating the properties of your element and could result in some challenging UI and data consistency issues. By using the `setProperty()` and `setValue()` APIs, your form will automatically be re-rendered to ensure that the UI shows the most up-to-date state at all times.
+
+```diff
+// Get the current `value`.
+- const currentValue = props.element.value;
++ const currentValue = props.value;
+
+
+// Update the element's value.
+- props.element.value = value;
+- props.raiseEvent("changed", value);
++ props.setValue(value);
+
+
+// Get a custom `foo` property used by my element.
+- const currentFoo = (props.element as any).foo;
++ const currentFoo = props.foo;
+
+
+// Set the element's `foo` property.
+- (props.element as any).foo = foo;
++ props.setProperty("foo", foo);
+```
+
+## Simplified Element Registration
+
+To register your custom form elements using the previous API, you would need to create a Workflow activity that registers your element:
+
+```ts
+export class RegisterDemoElement extends RegisterCustomFormElementBase {
+    execute(): void {
+        // Where `DemoElement` refers to a React component.
+        this.register("Demo", DemoElement);
+    }
+}
+```
+
+This added some extra boilerplate that we felt was unnecessary. More importantly it required the workflow author to run this element registration activity _prior_ to running the _Display Form_ activity that used the custom element. This was an awkward step that Workflow authors had to remember to do for their forms to render correctly.
+
+When registering your element using the new API and the latest version of the Workflow SDK, it is no longer necessary to run the activity prior to _Display Form_:
+
+```ts
+const DemoElementRegistration: FormElementRegistration<DemoElementProps> = {
+    component: DemoElement,
+    id: "Demo",
+};
+
+export default DemoElementRegistration;
+```
+
+## Improved UI Consistency
+
+The new `setProperty()` and `setValue()` APIs make it much easier to develop Workflow elements using the common patterns developers are familiar with when building React components. Let's look at a simple example of a text input element built using the previous API:
+
+```tsx
+function Text(props: CustomFormElementProps) {
+    return (
+        <input
+            // When the text input changes, update the element's `value`.
+            onChange={(event) =>
+                (props.element.value = event.currentTarget.value)
+            }
+            // Show the element `value `in the text input.
+            value={props.element.value}
+        />
+    );
+}
+```
+
+There are a few gotchas here that are likely not obvious at first glance:
+
+1. We forgot to call `props.raiseEvent("changed", value)`. If the workflow author tried to run a sub-workflow on the change event of your element, it would never run.
+1. The re-rendering of the element wasn't deterministic previously. Even if we updated `props.element.value` _and_ invoked `props.raiseEvent("changed", value)`, there was no guarantee that this element would re-render immediately. In that case the UI wouldn't show the updated value, and would be out-of-sync with the underlying state of the element.
+1. `value` will be `undefined` during the initial render, until the `onChange` fires for the first time. There are ways to work around this such as running a sub-workflow on the `load` event to set the element's value, however this makes development awkward.
+1. Other parts of the system could update the element's `value` to a type that the element doesn't expect. For example, instead of `value` being a `string` like we expect, the workflow author could accidentally set the value to an `object` using the _Set Form Element Property_ activity.
+
+It was possible to overcome these gotchas, but it required additional logic that often wasn't immediately obvious. We've had to overcome these same challenges when writing form elements within Workflow itself.
+
+So how would we build this element using the new APIs and avoid the gotchas described above? Let's take a look:
+
+```tsx
+interface TextProps extends FormElementProps<string> {}
+
+function Text(props: TextProps) {
+    return (
+        <input
+            // 1. `setValue()` automatically raises the `changed`
+            // event for you.
+            onChange={(event) =>
+                props.setValue(event.currentTarget.value)
+            }
+            // 2. The component will be re-rendered immediately by
+            // using `setValue()`, ensuring that your UI and element
+            // state are consistent.
+            value={props.value}
+        />
+    );
+}
+
+const TextElementRegistration: FormElementRegistration<TextProps> = {
+    component: Text,
+    id: "Text",
+    // 3. We can provide a default value, avoiding the initial
+    // `undefined` value.
+    getInitialProperties: () => ({ value: "" }),
+    // 4. We can ensure data consistency by sanitizing changes
+    // to our element's properties.
+    onPropertyChange: ({ properties, property }) => {
+        if (property === "value") {
+            const value = properties[property];
+
+            if (typeof value !== "string") {
+                throw new Error("Unexpected type");
+            }
+        }
+    },
+};
+```
+
+## Summary
+
+So what does all of this mean in practice? Below we'll compare elements built using the new and old APIs.
+
+### Simple Use Case
+
+Here's a simple text input element:
+
+#### Before
+
+For the sake of brevity, we've excluded the additional logic that would be needed to overcome the gotchas [described above](#improved-ui-consistency).
+
+```tsx
+import * as React from "react";
+import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+
+class Text extends React.Component<CustomFormElementProps> {
+    render(props) {
+        return (
+            <input
+                value={props.element.value}
+                onChange={(event) => {
+                    this.props.element.value = value;
+                    this.props.raiseEvent("changed", value);
+                }}
+            />
+        );
+    }
+}
+
+/**
+ * @displayName Text
+ * @category Custom Activities
+ * @description Registers the text input element for use in Display Form.
+ */
+export class RegisterTextElement extends RegisterCustomFormElementBase {
+    execute(): void {
+        this.register("Text", Text);
+    }
+}
+```
+
+#### After
+
+```tsx
+import {
+    FormElementProps,
+    FormElementRegistration,
+} from "@geocortex/workflow/runtime";
+
+interface TextProps extends FormElementProps<string> {}
+
+/**
+ * @displayName Text
+ * @category Custom Activities
+ * @description Displays a text input element.
+ */
+function Text(props: TextProps) {
+    return (
+        <input
+            value={props.value}
+            onChange={(event) =>
+                props.setValue(event.currentTarget.value)
+            }
+        />
+    );
+}
+
+const TextElementRegistration: FormElementRegistration<TextProps> = {
+    component: Text,
+    id: "Text",
+    getInitialProperties: () => ({
+        value: "Hello World",
+    }),
+};
+```
+
+Notice that updating the `value` for the element has been simplified by using the `setValue()` API. We're also now able to provide a default `value` of `"Hello World"` using `getInitialProperties`.
+
+### Advanced Use Case
+
+Here's a more advanced element that displays a range slider with configurable min, max, and step settings:
+
+#### Before
+
+```tsx
+import * as React from "react";
+import {
+    CustomFormElementProps,
+    RegisterCustomFormElementBase,
+} from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+
+class RangeSlider extends React.Component<CustomFormElementProps> {
+    render() {
+        const { element, raiseEvent } = this.props;
+
+        return (
+            <div>
+                <input
+                    max={100}
+                    min={0}
+                    // Even though we're updating the element value, until
+                    // the element is re-rendered the UI won't update.
+                    onChange={(event) => {
+                        const value =
+                            event.currentTarget.valueAsNumber;
+                        element.value = value;
+                        raiseEvent("changed", value);
+                    }}
+                    step={5}
+                    type="range"
+                    // There's no way to guarantee that `value` is always a
+                    // `number`. A workflow could set the `value` to an
+                    // unexpected type such as by using the
+                    // `Set Form Element Property` activity.
+                    value={element.value as number}
+                />
+                {/* 
+                    The element wasn't guaranteed to re-render, 
+                    so this UI may not update immediately.
+                    `element.value` will be `undefined` initially
+                    until set the first time.
+                */}
+                <span>{element.value}</span>
+            </div>
+        );
+    }
+}
+
+/**
+ * @displayName Register RangeSlider Form Element
+ * @description Displays a number range slider.
+ * @param props The props that will be provided by the Workflow runtime.
+ */
+export class RegisterRangeSliderElement extends RegisterCustomFormElementBase {
+    execute(): void {
+        this.register("RangeSlider", RangeSlider);
+    }
+}
+```
+
+#### After
+
+Here's the same element but also including configurable `max`, `min`, and `step` properties.
+
+```tsx
+import * as React from "react";
+import {
+    FormElementProps,
+    FormElementRegistration,
+} from "@geocortex/workflow/runtime";
+
+interface RangeSliderProps extends FormElementProps<number> {
+    max: number;
+    min: number;
+    step: number;
+}
+
+/**
+ * @displayName Range Slider
+ * @description Displays a number range slider.
+ * @param props The props that will be provided by the Workflow runtime.
+ */
+function RangeSlider(props: RangeSliderProps): React.ReactElement {
+    const { max, min, setValue, step, value } = props;
+    return (
+        <div>
+            <input
+                max={max}
+                min={min}
+                onChange={(event) =>
+                    setValue(event.currentTarget.valueAsNumber)
+                }
+                step={step}
+                type="range"
+                value={value}
+            />
+            <span>{value}</span>
+        </div>
+    );
+}
+
+const RangeSliderElementRegistration: FormElementRegistration<RangeSliderProps> = {
+    component: RangeSlider,
+    getInitialProperties: () => ({
+        max: 100,
+        min: 0,
+        step: 5,
+        value: 50,
+    }),
+    id: "RangeSlider",
+    onPropertyChange: ({ properties, property }) => {
+        if (
+            property === "max" ||
+            property === "min" ||
+            property === "step" ||
+            property === "value"
+        ) {
+            const value = properties[property];
+
+            // Ensure we always have the type we expect assigned to the element
+            // properties.
+            if (typeof value !== "number" || Number.isNaN(value)) {
+                throw new Error("Unexpected type");
+            }
+        }
+    },
+};
+
+export default RangeSliderElementRegistration;
+```

@@ -17,7 +17,7 @@ This article will walk you through creating a new workflow form element for web 
 
 1. Open up a terminal shell in the SDK folder.
 1. Run the command `npm run generate` and follow the instructions to create a new form element named `MyCustomElement`. This script creates a custom form element skeleton that you can build on with your own custom logic. The script will perform the following operations:
-    1. Create a new form element `.tsx` file with the provided name in the `src/activities` folder.
+    1. Create a new form element `.tsx` file with the provided name in the `src/elements` folder.
     1. Populate the form element `.tsx` file from a form element template.
     1. Exports the element in `src/index.ts` to make it available for use.
 
@@ -30,37 +30,28 @@ In the Geocortex Workflow TypeScript SDK, form elements are represented by TypeS
 ```tsx
 import * as React from "react";
 import {
-    CustomFormElementProps,
-    RegisterCustomFormElementBase,
-} from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+    FormElementProps,
+    FormElementRegistration,
+} from "@geocortex/workflow/runtime";
 
-function CustomFormElement(props: CustomFormElementProps) {
+interface DemoProps extends FormElementProps {}
+
+function Demo(props: DemoProps) {
     return <div>Hello. I'm a form element!</div>;
 }
 ```
 
 ## Registering Form Elements
 
-Form elements must be registered with a [custom activity](sdk-web-create-activity.mdx) that extends `RegisterCustomFormElementBase`. This custom activity can call `this.register` to register each form element.
-
-:::tip
-Only one form element registration activity is needed per app, as it can register multiple custom form elements.
-Learn more about [implementing custom activities](sdk-web-create-activity.mdx).
-The name of your element registration activity should not be modified after it has been deployed, as it is a unique identifier used by the Workflow runtime.
-:::
+Form elements must be registered by exporting a registration object declaring your new element.
 
 ```ts
-import {
-    CustomFormElementProps,
-    RegisterCustomFormElementBase,
-} from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
+const DemoElementRegistration: FormElementRegistration<DemoProps> = {
+    component: Demo,
+    id: "Demo",
+};
 
-export class RegisterCustomFormElement extends RegisterCustomFormElementBase {
-    async execute(): Promise<void> {
-        // highlight-next-line
-        this.register("CustomFormElement", CustomFormElement);
-    }
-}
+export default DemoElementRegistration;
 ```
 
 ## Using Form Elements
@@ -98,6 +89,8 @@ Now you can [build a workflow](https://docs.geocortex.com/workflow/latest/help/D
     <UseCaseCard
         title="Reference a Third Party Library"
         description="Reference a third party library in web applications"
-        link={useBaseUrl("docs/workflow/sdk-web-reference-third-party-library")}
+        link={useBaseUrl(
+            "docs/workflow/sdk-web-reference-third-party-library"
+        )}
     />
 </UseCaseContainer>

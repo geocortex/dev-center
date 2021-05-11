@@ -76,7 +76,9 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
-export default function StarRatingFormElement(props: CustomFormElementProps) {
+export default function StarRatingFormElement(
+    props: CustomFormElementProps
+) {
     const rating = 5;
 
     // Button style to show only the button content.
@@ -126,7 +128,9 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
-export default function StarRatingFormElement(props: CustomFormElementProps) {
+export default function StarRatingFormElement(
+    props: CustomFormElementProps
+) {
     // highlight-next-line
     let [rating, setRating] = useState(0);
 
@@ -183,14 +187,16 @@ export default function StarRatingFormElement(props: CustomFormElementProps) {
 
 ## Expose the Form Elements Value
 
-Finally, we are going to expose the form elements value to the larger workflow. For more information on this, check out the [form element reference](sdk-web-form-reference.mdx#access-properties-of-custom-form-elements).
+Finally, we are going to expose the form elements value to the larger workflow. For more information on this, check out the [form element reference](sdk-web-form-reference.mdx#properties-of-form-elements).
 
 ```tsx title="src/form-elements/StarRatingElement.tsx"
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { CustomFormElementProps } from "@geocortex/workflow/runtime/app/RegisterCustomFormElementBase";
 
-export default function StarRatingFormElement(props: CustomFormElementProps) {
+export default function StarRatingFormElement(
+    props: CustomFormElementProps
+) {
     // Set the default state of the component.
     let [rating, setRating] = useState(0);
 
@@ -303,9 +309,11 @@ Now you can build a workflow that uses your new custom form element! It is essen
         {" "}
         deploy the custom activity and form element
     </a>{" "}
-    for it to function. This workflow assumes you are hosting the activity pack
-    with the dev server on https://localhost:57999/.
+    for it to function. This workflow assumes you are hosting the
+    activity pack with the dev server on https://localhost:57999/.
 </p>
 :::
 
-<img src={useBaseUrl("img/workflow-web-custom-form-element-basic.png")} />
+<img
+    src={useBaseUrl("img/workflow-web-custom-form-element-basic.png")}
+/>

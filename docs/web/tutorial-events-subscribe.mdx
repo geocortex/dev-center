@@ -63,9 +63,11 @@ export default class CustomService extends ServiceBase {
     protected async _onInitialize(): Promise<void> {
         await super._onInitialize();
         this.handles.push(
-            this.messages.events.ui.activated.subscribe((id: string) => {
-                console.log(`Component '${id}' activated.`);
-            })
+            this.messages.events.ui.activated.subscribe(
+                (id: string) => {
+                    console.log(`Component '${id}' activated.`);
+                }
+            )
         );
     }
 

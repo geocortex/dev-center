@@ -13,16 +13,12 @@ A custom form element can be styled using CSS in a few different ways:
 Inline CSS is the simplest way to style your elements, but doesn't have the same flexibility as a CSS style sheet.
 
 ```tsx
-export default const CustomFormElement = (props: CustomFormElementProps) => {
-    return (
-        <div>
-            // highlight-next-line
-            <button style={{backgroundColor: "blue": color: "white"}}>
-                Click me
-            </button>
-        </div>
-    );
-};
+const CustomFormElement = (props: FormElementProps) => (
+    // highlight-next-line
+    <button style={{ backgroundColor: "blue", color: "white" }}>
+        Click me
+    </button>
+);
 ```
 
 ### CSS File
@@ -33,16 +29,10 @@ You can separate your element styles into a separate CSS style sheet alongside y
 // highlight-next-line
 import "./CustomFormElement.css";
 
-export default const CustomFormElement = (props: CustomFormElementProps) => {
-    return (
-        <div>
-            // highlight-next-line
-            <button className="CustomFormElement-button">
-                Click me
-            </button>
-        </div>
-    );
-};
+const CustomFormElement = (props: FormElementProps) => (
+    // highlight-next-line
+    <button className="CustomFormElement-button">Click me</button>
+);
 ```
 
 ```css title="CustomFormElement.css"
@@ -52,75 +42,145 @@ export default const CustomFormElement = (props: CustomFormElementProps) => {
 }
 ```
 
-## Raising Form Events
+## Properties of Form Elements
 
-Geocortex Workflow form elements can raise [events](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise events, including a `custom` event type.
+### `value`
 
-Events are raises through the `raiseEvent` function on the element `props`. The follow custom form element demonstrates how various form events can be raised.
+A custom form element may produce a `value` that a workflow needs to access at runtime. To update the `value` of your element, you can use the `setValue()` API provided on the `props` interface.
 
 ```tsx
-/**
- * A simple React Component that demonstrates raising events.
- */
-export default const CustomFormElement = (props: CustomFormElementProps) => {
-    const raiseClick = event => {
-        // Raise the clicked event.
-        props.raiseEvent("clicked", new Date());
-    };
+import * as React from "react";
+import {
+    FormElementProps,
+    FormElementRegistration,
+} from "@geocortex/workflow/runtime";
 
-    const raiseChange = event => {
-        // Raise the changed event.
-        props.raiseEvent("changed", new Date());
-    };
+// We've declared the type of `value` to be `string` here.
+// highlight-next-line
+interface CustomFormElementProps extends FormElementProps<string> {}
 
-    const raiseCustom = event => {
-        // Raise the custom event with a custom event value.
-        const eventValue = {
-            customEventType: "custom1",
-            data: new Date()
-        };
-        props.raiseEvent("custom", eventValue);
-    };
+const CustomFormElement = (props: CustomFormElementProps) => (
+    <input
+        onChange={(event) =>
+            // highlight-next-line
+            props.setValue(event.currentTarget.value)
+        }
+        // highlight-next-line
+        value={props.value}
+    />
+);
+```
 
+You can then use the [Get Form Element Property](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/get-form-element-property.htm) activity to access the `value` property, along with [other properties supported by custom form elements](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Element_Properties%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____1).
+
+### Custom Public Properties
+
+You can declare additional properties on your `props` interface that should be publicly accessible in the workflow.
+
+```tsx
+import {
+    FormElementProps,
+    FormElementRegistration,
+} from "@geocortex/workflow/runtime";
+
+interface CustomFormElementProps extends FormElementProps<string> {
+    // highlight-next-line
+    value2: string;
+}
+
+const CustomFormElement = (props: CustomFormElementProps) => {
     return (
         <div>
-            A simple custom form element
-            <br />
-            <button onClick={raiseClick}>Raise click</button>
-            <button onClick={raiseChange}>Raise change</button>
-            <button onClick={raiseCustom}>Raise custom</button>
+            <input
+                onChange={(event) =>
+                    props.setValue(event.currentTarget.value)
+                }
+                value={props.value}
+            />
+            <input
+                onChange={(event) =>
+                    // highlight-next-line
+                    props.setProperty(
+                        // highlight-next-line
+                        "value2",
+                        // highlight-next-line
+                        event.currentTarget.value
+                        // highlight-next-line
+                    )
+                }
+                // highlight-next-line
+                value={props.value2}
+            />
         </div>
     );
 };
 ```
 
-## Access Properties of Custom Form Elements
+### Internal State
 
-A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `props.element` object to expose that value to the form.
+For any state that you need to maintain for your element that _doesn't_ need to be public, you can use [React component state](https://reactjs.org/docs/hooks-state.html) to store your state locally within your element.
 
-```ts
-const CustomFormElement = (props: CustomFormElementProps>) => {
-    const handleClick = event => {
-        // highlight-next-line
-        const { element, raiseEvent } = props;
+```tsx
+import { useState } from "react";
+import {
+    FormElementProps,
+    FormElementRegistration,
+} from "@geocortex/workflow/runtime";
 
-        // Get the value from the button.
-        // Parse as an integer because the value will be a string.
-        const value = parseInt(event.target.value);
+interface CustomFormElementProps extends FormElementProps<string> {}
 
-        if (element.value !== value) {
+const CustomFormElement = (props: CustomFormElementProps) => {
+    // highlight-next-line
+    const [showInput, setShowInput] = useState(true);
 
-            // Update the element's value.
+    return (
+        <div>
             // highlight-next-line
-            element.value = value;
-
-            // Raise the changed event
-            raiseEvent("changed", value);
-        }
-    };
-
-    // ...
-}
+            <button onClick={() => setShowInput(!showInput)}>
+                Toggle input
+            </button>
+            // highlight-next-line
+            {showInput && (
+                <input
+                    onChange={(event) =>
+                        props.setValue(event.currentTarget.value)
+                    }
+                    value={props.value}
+                />
+            )}
+        </div>
+    );
+};
 ```
 
-You can then use the [Get Form Element Property](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/get-form-element-property.htm) activity to access the `value` property, along with [other properties supported by custom form elements](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Element_Properties%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____1).
+## Raising Events
+
+Workflow form elements can raise [events](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise a `custom` event.
+
+Events are raised through the `raiseEvent()` function on the element `props`. The following custom form element demonstrates how events can be raised.
+
+```tsx
+/**
+ * A simple React Component that demonstrates raising events.
+ */
+const CustomFormElement = (props: FormElementProps) => {
+    const raiseCustom = (event) => {
+        // Raise the custom event with a custom event value.
+        // The event value is arbitrary and can be defined
+        // however you would like.
+        const eventValue = {
+            customEventType: "custom1",
+            data: new Date(),
+        };
+
+        props.raiseEvent("custom", eventValue);
+    };
+
+    return (
+        <div>
+            <p>A simple custom form element</p>
+            <button onClick={raiseCustom}>Raise custom event</button>
+        </div>
+    );
+};
+```
