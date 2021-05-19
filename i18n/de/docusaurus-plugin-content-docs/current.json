@@ -1,0 +1,86 @@
+{
+    "version.label": {
+        "message": "Next"
+    },
+    "sidebar.web.category.Configuration": {
+        "message": "Configuration"
+    },
+    "sidebar.web.category.Layout": {
+        "message": "Layout"
+    },
+    "sidebar.web.category.App Config": {
+        "message": "App Config"
+    },
+    "sidebar.web.category.Tutorials": {
+        "message": "Tutorials"
+    },
+    "sidebar.web.category.Geocortex Workflow": {
+        "message": "Geocortex Workflow"
+    },
+    "sidebar.web.category.Geocortex Web SDK": {
+        "message": "Geocortex Web SDK"
+    },
+    "sidebar.web.category.Components": {
+        "message": "Components"
+    },
+    "sidebar.web.category.Services": {
+        "message": "Services"
+    },
+    "sidebar.web.category.Events": {
+        "message": "Events"
+    },
+    "sidebar.web.category.API": {
+        "message": "API"
+    },
+    "sidebar.workflow.category.Geocortex Workflow TypeScript SDK": {
+        "message": "Geocortex Workflow TypeScript SDK"
+    },
+    "sidebar.workflow.category.Tutorials": {
+        "message": "Tutorials"
+    },
+    "sidebar.workflow.category.Geocortex Workflow .NET SDK": {
+        "message": "Geocortex Workflow .NET SDK"
+    },
+    "sidebar.workflow.category.Geocortex Mobile": {
+        "message": "Geocortex Mobile"
+    },
+    "sidebar.workflow.category.Geocortex Workflow Server": {
+        "message": "Geocortex Workflow Server"
+    },
+    "sidebar.mobile.category.Configuration": {
+        "message": "Configuration"
+    },
+    "sidebar.mobile.category.Layout": {
+        "message": "Layout"
+    },
+    "sidebar.mobile.category.App Config": {
+        "message": "App Config"
+    },
+    "sidebar.mobile.category.Tutorials": {
+        "message": "Tutorials"
+    },
+    "sidebar.mobile.category.Geocortex Workflow": {
+        "message": "Geocortex Workflow"
+    },
+    "sidebar.mobile.category.Geocortex Mobile SDK": {
+        "message": "Geocortex Mobile SDK"
+    },
+    "sidebar.mobile.category.Components": {
+        "message": "Components"
+    },
+    "sidebar.mobile.category.Services": {
+        "message": "Services"
+    },
+    "sidebar.mobile.category.Events": {
+        "message": "Events"
+    },
+    "sidebar.mobile.category.API": {
+        "message": "API"
+    },
+    "sidebar.reporting.category.Geocortex Reporting SDK": {
+        "message": "Geocortex Reporting SDK"
+    },
+    "sidebar.reporting.category.Tutorials": {
+        "message": "Tutorials"
+    }
+}

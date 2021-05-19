@@ -49,6 +49,10 @@ module.exports = {
                     position: "left",
                     activeBasePath: "blog",
                 },
+                {
+                    type: "localeDropdown",
+                    position: "left",
+                },
             ],
         },
         footer: {
@@ -154,4 +158,8 @@ module.exports = {
             },
         ],
     ],
+    i18n: {
+        defaultLocale: "en",
+        locales: ["en", "de"],
+    },
 };

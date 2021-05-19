@@ -1,0 +1,26 @@
+{
+    "title": {
+        "message": "Developer Center",
+        "description": "The title in the navbar"
+    },
+    "item.label.Web": {
+        "message": "Web",
+        "description": "Navbar item with label Web"
+    },
+    "item.label.Mobile": {
+        "message": "Mobile",
+        "description": "Navbar item with label Mobile"
+    },
+    "item.label.Workflow": {
+        "message": "Workflow",
+        "description": "Navbar item with label Workflow"
+    },
+    "item.label.Reporting": {
+        "message": "Reporting",
+        "description": "Navbar item with label Reporting"
+    },
+    "item.label.Blog": {
+        "message": "Blog",
+        "description": "Navbar item with label Blog"
+    }
+}

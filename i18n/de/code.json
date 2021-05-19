@@ -1,0 +1,20 @@
+{
+    "lang-dev-center-title": {
+        "message": "Geocortex Developer Center"
+    },
+    "lang-dev-center-description": {
+        "message": "Extend your Geocortex applications to build virtually anything!"
+    },
+    "lang-web-description": {
+        "message": "Combine the 3D and 2D capabilities of Esri's latest JavaScript API to deliver cutting-edge mapping applications"
+    },
+    "lang-mobile-description": {
+        "message": "Develop field data collection apps and run them online or offline."
+    },
+    "lang-workflow-description": {
+        "message": "Extend your Geocortex applications to build virtually anything!"
+    },
+    "lang-report-description": {
+        "message": "Create sophisticated, professional-looking reports that include spatial and non-spatial data from ArcGIS map services, tables, databases, and other data sources."
+    }
+}

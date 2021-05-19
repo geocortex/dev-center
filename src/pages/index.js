@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import Translate from "@docusaurus/Translate";
 import Layout from "@theme/Layout";
 import styles from "./index.module.css";
 import ProductContainer from "../components/ProductContainer";
@@ -10,29 +11,25 @@ const products = [
     {
         title: "Geocortex Web",
         imageUrl: "img/web-viewer-product-icon.svg",
-        description:
-            "Combine the 3D and 2D capabilities of Esri's latest JavaScript API to deliver cutting-edge mapping applications.",
+        description: "lang-web-description",
         link: "docs/web/overview",
     },
     {
         title: "Geocortex Mobile",
         imageUrl: "img/mobile-viewer-product-icon.svg",
-        description:
-            "Develop field data collection apps and run them online or offline.",
+        description: "lang-mobile-description",
         link: "docs/mobile/overview",
     },
     {
         title: "Geocortex Workflow",
         imageUrl: "img/workflow-product-icon.svg",
-        description:
-            "Extend your Geocortex and Web AppBuilder for ArcGIS® applications by turning sophisticated business processes into a set of simple, guided end-user interactions.",
+        description: "lang-workflow-description",
         link: "docs/workflow/overview",
     },
     {
         title: "Geocortex Reporting",
         imageUrl: "img/reporting-product-icon.svg",
-        description:
-            "Create sophisticated, professional-looking reports that include spatial and non-spatial data from ArcGIS map services, tables, databases, and other data sources.",
+        description: "lang-report-description",
         link: "docs/reporting/overview",
     },
 ];
@@ -51,10 +48,11 @@ function Home() {
                 }}
             >
                 <div className="container">
-                    <h1 className="hero__title">Geocortex Developer Center</h1>
+                    <h1 className="hero__title">
+                        <Translate>lang-dev-center-title</Translate>
+                    </h1>
                     <h2 className="hero__subtitle">
-                        Extend your Geocortex applications to build virtually
-                        anything!
+                        <Translate>lang-dev-center-description</Translate>
                     </h2>
                 </div>
             </header>

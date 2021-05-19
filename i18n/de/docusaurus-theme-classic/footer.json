@@ -1,0 +1,70 @@
+{
+    "link.title.Geocortex Apps": {
+        "message": "Geocortex Apps",
+        "description": "The title of the footer links column with title=Geocortex Apps in the footer"
+    },
+    "link.title.More": {
+        "message": "Mehr",
+        "description": "The title of the footer links column with title=More in the footer"
+    },
+    "link.title.Legal": {
+        "message": "Legal",
+        "description": "The title of the footer links column with title=Legal in the footer"
+    },
+    "link.item.label.Geocortex Web": {
+        "message": "Geocortex Web",
+        "description": "The label of footer link with label=Geocortex Web linking to https://apps.geocortex.com/webviewer/designer/"
+    },
+    "link.item.label.Geocortex Mobile": {
+        "message": "Geocortex Mobile",
+        "description": "The label of footer link with label=Geocortex Mobile linking to https://apps.geocortex.com/mobileviewer/designer/"
+    },
+    "link.item.label.Geocortex Workflow": {
+        "message": "Geocortex Workflow",
+        "description": "The label of footer link with label=Geocortex Workflow linking to https://apps.geocortex.com/workflow/designer/"
+    },
+    "link.item.label.Geocortex Reporting": {
+        "message": "Geocortex Reporting",
+        "description": "The label of footer link with label=Geocortex Reporting linking to https://apps.geocortex.com/reporting/designer/"
+    },
+    "link.item.label.Geocortex Printing": {
+        "message": "Geocortex Printing",
+        "description": "The label of footer link with label=Geocortex Printing linking to https://apps.geocortex.com/printing/designer/"
+    },
+    "link.item.label.Geocortex Inline": {
+        "message": "Geocortex Inline",
+        "description": "The label of footer link with label=Geocortex Inline linking to https://apps.geocortex.com/inline/designer/"
+    },
+    "link.item.label.Geocortex Item Manager": {
+        "message": "Geocortex Item Manager",
+        "description": "The label of footer link with label=Geocortex Item Manager linking to https://apps.geocortex.com/itemmanager/"
+    },
+    "link.item.label.Blog": {
+        "message": "Blog",
+        "description": "The label of footer link with label=Blog linking to blog"
+    },
+    "link.item.label.GitHub": {
+        "message": "GitHub",
+        "description": "The label of footer link with label=GitHub linking to https://github.com/geocortex/dev-center"
+    },
+    "link.item.label.Geocortex Documentation Center": {
+        "message": "Geocortex Documentation Center",
+        "description": "The label of footer link with label=Geocortex Documentation Center linking to https://docs.geocortex.com"
+    },
+    "link.item.label.Geocortex.com": {
+        "message": "Geocortex.com",
+        "description": "The label of footer link with label=Geocortex.com linking to https://geocortex.com"
+    },
+    "link.item.label.Terms": {
+        "message": "Terms",
+        "description": "The label of footer link with label=Terms linking to https://www.geocortex.com/legal/#licensing-terms-of-use"
+    },
+    "link.item.label.Privacy": {
+        "message": "Privacy",
+        "description": "The label of footer link with label=Privacy linking to https://www.geocortex.com/legal/#privacy-statement"
+    },
+    "copyright": {
+        "message": "Copyright © 2021 VertiGIS North America Ltd. All rights reserved.",
+        "description": "The footer copyright"
+    }
+}

@@ -1,0 +1,342 @@
+{
+    "lang-dev-center-title": {
+        "message": "Geocortex Developer Center"
+    },
+    "lang-dev-center-description": {
+        "message": "Extend your Geocortex applications to build virtually anything!"
+    },
+    "lang-web-description": {
+        "message": "Combine the 3D and 2D capabilities of Esri's latest JavaScript API to deliver cutting-edge mapping applications"
+    },
+    "lang-mobile-description": {
+        "message": "Develop field data collection apps and run them online or offline."
+    },
+    "lang-workflow-description": {
+        "message": "Extend your Geocortex applications to build virtually anything!"
+    },
+    "lang-report-description": {
+        "message": "Create sophisticated, professional-looking reports that include spatial and non-spatial data from ArcGIS map services, tables, databases, and other data sources."
+    },
+    "lang-get-started": {
+        "message": "Get Started"
+    },
+    "lang-build-custom-form-title": {
+        "message": "Build Custom Form"
+    },
+    "lang-implement-custom-activity-title": {
+        "message": "Implement a Custom Activity"
+    },
+    "lang-implement-custom-workflow-sdk-activity": {
+        "message": "Learn how to implement a custom activity with the Geocortex Workflow SDK"
+    },
+    "lang-build-custom-form-description": {
+        "message": "Learn how to build a custom form with Geocortex Workflow"
+    },
+    "lang-learn-how-to-configure-commands-and-operations": {
+        "message": "Learn about Commands and Operations and how to configure them."
+    },
+    "lang-commands-and-operations": {
+        "message": "Commands and Operations"
+    },
+    "lang-commands-operations-events": {
+        "message": "Commands, Operations, and Events API"
+    },
+    "lang-commands-operations-events-description": {
+        "message": "Check out the available commands and operations"
+    },
+    "lang-configure-commands-operations": {
+        "message": "Configure Commands and Operations"
+    },
+    "lang-learn-about-commands-and-operations": {
+        "message": "Learn more about commands and operations"
+    },
+    "lang-change-built-in-behavior": {
+        "message": "Change Default Behavior with Commands and Operations"
+    },
+    "lang-change-built-in-behavior-description": {
+        "message": "Change built-in behavior or add new behavior using app config and layout"
+    },
+    "lang-learn-more-workflow": {
+        "message": "Learn more about Geocortex Workflow"
+    },
+    "lang-mobile-map-click": {
+        "message": "Change Geocortex Mobile's Default Map Click Behavior"
+    },
+    "lang-mobile-map-click-description": {
+        "message": "Learn how to Geocortex Workflow to override Geocortex Mobile's default map click behavior"
+    },
+    "lang-implement-custom-form-element": {
+        "message": "Implement a Custom Form Element"
+    },
+    "lang-build-own-command-operation": {
+        "message": "Build your own Commands and Operations"
+    },
+    "lang-mobile-events": {
+        "message": "Learn about Events built into Geocortex Mobile"
+    },
+    "lang-app-config": {
+        "message": "App Config"
+    },
+    "lang-app-config-description": {
+        "message": "Learn more about what you can accomplish with app config."
+    },
+    "lang-mobile-events-description": {
+        "message": "Learn about the global event infrastructure in Geocortex Mobile"
+    },
+    "lang-component-models": {
+        "message": "Component Models"
+    },
+    "lang-component-models-description": {
+        "message": "Take a deeper dive into the relationship between components and models in the layout"
+    },
+    "lang-core-components": {
+        "message": "Core Component Reference"
+    },
+    "lang-core-components-description": {
+        "message": "Learn more about core layout components like stacks and splits"
+    },
+    "lang-component-attributes": {
+        "message": "Component Attribute Reference"
+    },
+    "lang-component-attributes-description": {
+        "message": "See the full list of attributes available to all components"
+    },
+    "lang-layouts": {
+        "message": "Layouts"
+    },
+    "lang-layouts-description": {
+        "message": "Learn more about what you can accomplish with layouts"
+    },
+    "lang-layout-and-app-config": {
+        "message": "Layout and App Config"
+    },
+    "lang-layout-and-app-config-description": {
+        "message": "Learn more about the layout and app config"
+    },
+    "lang-run-mobile-workflow": {
+        "message": "Running Workflows in Geocortex Mobile"
+    },
+    "lang-run-mobile-workflow-description": {
+        "message": "Learn how to build and run a workflow in Geocortex Mobile"
+    },
+    "lang-build-custom-workflow": {
+        "message": "Building Custom Workflow Activities"
+    },
+    "lang-build-custom-workflow-description": {
+        "message": "Learn how to build custom workflow activities"
+    },
+    "lang-mobile-sdk": {
+        "message": "Geocortex Mobile SDK"
+    },
+    "lang-web-mobile-description": {
+        "message": "Develop custom commands and operations, components, and services using the Geocortex Mobile SDK"
+    },
+    "lang-web-sdk": {
+        "message": "Geocortex Web SDK"
+    },
+    "lang-web-sdk-description": {
+        "message": "Develop custom commands and operations, components, and services using the Geocortex Web SDK"
+    },
+    "lang-create-custom-service": {
+        "message": "Create a Custom Service"
+    },
+    "lang-create-custom-service-description": {
+        "message": "Learn how to create a custom service with the SDK"
+    },
+    "lang-component-reference": {
+        "message": "Check out the Component Reference"
+    },
+    "lang-component-reference-description": {
+        "message": "Take a deep dive into components in the SDK"
+    },
+    "lang-create-complex-ui": {
+        "message": "Create a Component with a Complex UI"
+    },
+    "lang-create-complex-ui-description": {
+        "message": "Follow along with a more in depth component example"
+    },
+    "lang-implement-custom-service": {
+        "message": "Implement a Custom Service"
+    },
+    "lang-implement-custom-service-description": {
+        "message": "Learn how to implement a custom service using the Geocortex Mobile SDK"
+    },
+    "lang-create-component-consumes-app-config": {
+        "message": "Create a Component that Consumes App Config"
+    },
+    "lang-create-component-consumes-app-config-description": {
+        "message": "Learn more about writing components that consume configuration values"
+    },
+    "lang-create-component": {
+        "message": "Create a Component"
+    },
+    "lang-create-component-description": {
+        "message": "Learn how to create a basic component"
+    },
+    "lang-add-layer": {
+        "message": "Add a Layer to the Map with a Custom Activity"
+    },
+    "lang-add-layer-description": {
+        "message": "Access application properties like the map in custom activities for Web Applications"
+    },
+    "lang-component-interactions": {
+        "message": "Learn about Component Interactions"
+    },
+    "lang-component-interactions-description": {
+        "message": "Learn about how components and services can interact with each other"
+    },
+    "lang-component-configuration-reference": {
+        "message": "Check out the Component Reference for Configuration"
+    },
+    "lang-component-configuration-reference-description": {
+        "message": "Learn more about how components interact with configuration"
+    },
+    "lang-service-configuration-reference": {
+        "message": "Check out the Service Reference for Configuration"
+    },
+    "lang-service-configuration-reference-description": {
+        "message": "Learn more about how services interact with configuration"
+    },
+    "lang-service-create-custom-component": {
+        "message": "Create a Custom Component"
+    },
+    "lang-service-create-custom-component-description": {
+        "message": "Learn how to create a custom component with the SDK"
+    },
+    "lang-deploy-custom-layout-app-config": {
+        "message": "Deploy your Custom Layout and App Config"
+    },
+    "lang-deploy-custom-layout-app-config-description": {
+        "message": "Deploy your custom layout and app config to a Geocortex Mobile Application"
+    },
+    "lang-create-qr-form-element": {
+        "message": "Learn how to create a QR Code form element"
+    },
+    "lang-create-qr-form-element-description": {
+        "message": "Learn how to to use this same third party library to create a form element that generates and displays QR codes"
+    },
+    "lang-create-qr-activity": {
+        "message": "Learn how to create a QR Code activity"
+    },
+    "lang-create-qr-activity-description": {
+        "message": "Learn how to to use this same third party library to create an activity that creates QR codes"
+    },
+    "lang-commands-operations-with-components": {
+        "message": "Learn how to use Commands and Operations with Components"
+    },
+    "lang-commands-operations-with-components-description": {
+        "message": "Learn how to run and implement commands and operations with custom components"
+    },
+    "lang-component-incubator": {
+        "message": "Component Incubator"
+    },
+    "lang-component-incubator-description": {
+        "message": "Check out a collection of experimental components built using the Geocortex Web SDK"
+    },
+    "lang-create-service": {
+        "message": "Create a Service"
+    },
+    "lang-create-service-description": {
+        "message": "Learn how to create a basic service"
+    },
+    "lang-sdk-samples": {
+        "message": "SDK Samples"
+    },
+    "lang-sdk-samples-demo": {
+        "message": "Check out a collection of samples that demonstrate how to configure and customize Geocortex Web apps using the Geocortex Web SDK"
+    },
+    "lang-sdk-samples-mobile": {
+        "message": "Check out the Geocortex Mobile SDK Samples Project"
+    },
+    "lang-deploy-app": {
+        "message": "Deploy your Application"
+    },
+    "lang-deploy-app-description": {
+        "message": "Learn how to deploy your custom library, layout and app config"
+    },
+    "lang-sdk": {
+        "message": "SDK"
+    },
+    "lang-sdk-web-description": {
+        "message": "Check out the Geocortex Web SDK"
+    },
+    "lang-quickstart-mobile": {
+        "message": "Quickstart"
+    },
+    "lang-quickstart-mobile-description": {
+        "message": "Check out the Geocortex Mobile SDK Quickstart Project."
+    },
+    "lang-learn-more-layout-app-config": {
+        "message": "Learn More About Layout and App Config"
+    },
+    "lang-learn-more-layout-app-config-description": {
+        "message": "Check out the concepts to learn more about the layout and app config"
+    },
+    "lang-explore-tutorials": {
+        "message": "Explore the Tutorials"
+    },
+    "lang-explore-tutorials-description": {
+        "message": "Check out the the various tutorials on configuring Geocortex Mobile"
+    },
+    "lang-components-reference": {
+        "message": "Component Reference"
+    },
+    "lang-components-reference-description": {
+        "message": "Learn more about components in Geocortex Mobile"
+    },
+    "lang-components-service-interactions": {
+        "message": "Component and Service Interactions"
+    },
+    "lang-components-service-interactions-description": {
+        "message": "Learn how components and services interact in Geocortex Mobile"
+    },
+    "lang-add-mobile-workflow": {
+        "message": "Add a Workflow to a Geocortex Mobile Application"
+    },
+    "lang-add-mobile-workflow-description": {
+        "message": "Learn how to add a workflow to a Geocortex Mobile Application"
+    },
+    "lang-add-web-workflow": {
+        "message": "Add a Workflow to a Geocortex Web Application"
+    },
+    "lang-add-web-workflow-description": {
+        "message": "Learn how to add a workflow to a Geocortex Web Application"
+    },
+    "lang-mobile-event": {
+        "message": "Check out the Event Reference"
+    },
+    "lang-mobile-event-description": {
+        "message": "Take a deep dive into events in the Geocortex Mobile SDK"
+    },
+    "lang-mobile-events-api": {
+        "message": "Events API"
+    },
+    "lang-mobile-events-api-description": {
+        "message": "Check out the full list of Events available in Geocortex Mobile"
+    },
+    "lang-i18n-app-config": {
+        "message": "Internationalization in App Config"
+    },
+    "lang-i18n-app-config-description": {
+        "message": "Learn how to use language strings in the app config"
+    },
+    "lang-i18n-components": {
+        "message": "Internationalize Components"
+    },
+    "lang-i18n-components-description": {
+        "message": "Learn how to use language strings for user facing text in components"
+    },
+    "lang-workflow-sdk": {
+        "message": "Geocortex Workflow SDK"
+    },
+    "lang-workflow-sdk-description": {
+        "message": "Learn more about the Geocortex Workflow SDK"
+    },
+    "lang-build-workflow-form-element-description": {
+        "message": "Learn how to build a custom workflow form element in the Geocortex Workflow SDK"
+    },
+
+    "lang-build-own-command-operation-description": {
+        "message": "Use the SDK to implement custom commands and operations"
+    }
+}
