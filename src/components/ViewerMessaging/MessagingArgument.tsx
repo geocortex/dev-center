@@ -50,7 +50,7 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
                     <>
                         {items.map((option, index) => (
                             // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
-                            <div key={option.$ref || index}>
+                            <div key={`${option.$ref}-${index}` || index}>
                                 <MessagingArgument
                                     definition={option}
                                     schema={schema}
@@ -112,7 +112,7 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
                 {types.length > 1 && <div>Any of:</div>}
                 {types.map((option, index) => (
                     // There's not a guaranteed safe identifier we can use for the key prop, fall back to index.
-                    <div key={option.$ref || index}>
+                    <div key={`${option.$ref}-${index}` || index}>
                         <MessagingArgument
                             definition={option}
                             schema={schema}
