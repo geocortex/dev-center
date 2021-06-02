@@ -52,12 +52,12 @@ function ViewerMessaging(props: ViewerMessagingProps) {
             if (schemaType && !cachedRequests[product][schemaType]) {
                 if (type === "config") {
                     cachedRequests["common"][schemaType] = fetch(
-                        `http://localhost:8082/common-app-config.schema.json`
+                        `https://apps.geocortex.com/webviewer/common-app-config.schema.json`
                     );
                     cachedRequests[product][schemaType] = fetch(
-                        `http://localhost:8082/${product}-app-config.schema.json`
+                        `https://apps.geocortex.com/webviewer/${product}-app-config.schema.json`
                     );
-                } else if (type) {
+                } else {
                     cachedRequests[product][schemaType] = fetch(
                         `https://apps.geocortex.com/webviewer/${product}-${schemaType}.schema.json`
                     );
@@ -68,17 +68,21 @@ function ViewerMessaging(props: ViewerMessagingProps) {
             if (schemaType === "config") {
                 const commonConfigResponse = await cachedRequests["common"]
                     .config!;
+                const configResponse = await cachedRequests[product].config!;
+
+                // Clone to avoid error when reading json multiple times
                 const commonConfigResponseJson: MessageSchema =
                     await commonConfigResponse.clone().json();
-                messageSchemas.push(commonConfigResponseJson);
-                const configResponse = await cachedRequests[product].config!;
                 const configResponseJson: MessageSchema = await configResponse
                     .clone()
                     .json();
+
+                messageSchemas.push(commonConfigResponseJson);
                 messageSchemas.push(configResponseJson);
-            } else if (schemaType) {
+            } else {
                 const actionResponse = await cachedRequests[product].action!;
                 const eventResponse = await cachedRequests[product].event!;
+
                 // Clone to avoid error when reading json multiple times
                 const actionResponseJson: MessageSchema = await actionResponse
                     .clone()
@@ -86,11 +90,9 @@ function ViewerMessaging(props: ViewerMessagingProps) {
                 const eventResponseJson: MessageSchema = await eventResponse
                     .clone()
                     .json();
+
                 messageSchemas.push(actionResponseJson);
                 messageSchemas.push(eventResponseJson);
-            }
-            if (didCancel) {
-                return;
             }
             if (didCancel) {
                 return;
