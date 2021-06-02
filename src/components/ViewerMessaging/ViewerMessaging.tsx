@@ -141,9 +141,7 @@ function ViewerMessaging(props: ViewerMessagingProps) {
                       } as any)
                     : {};
 
-            const schema = {
-                definitions,
-            };
+            const schema = { definitions };
 
             messageSchemas.forEach((messageSchema) => {
                 Object.keys(messageSchema.definitions).forEach((key) => {

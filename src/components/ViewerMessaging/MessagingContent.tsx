@@ -13,10 +13,9 @@ export default function MessagingContent(props: MessagingContentProps) {
 
     return (
         <>
-            {type === "argument" ||
-                (type === "config" && (
-                    <MessagingDefinitionsSummary schema={schema} />
-                ))}
+            {(type === "argument" || type === "config") && (
+                <MessagingDefinitionsSummary schema={schema} />
+            )}
             {type === "command" && (
                 <MessagingTypeSummary schema={schema} type="command" />
             )}
