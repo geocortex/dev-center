@@ -171,3 +171,7 @@ Geocortex Mobile screenshots should be roughly taken with a certain window size 
 ```html
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
 ```
+
+#### Prettier
+
+If you've added a file or made non-trivial changes, run `npm prettier:write` in the root of this directory. This will fix the formatting of the file(s) in case there are any issues. Forgetting to do this could result in your PR build failing the linting check.

@@ -3,7 +3,7 @@ title: Memory Management
 description: Geocortex Mobile - Learn about memory management in Geocortex Mobile
 ---
 
-It is important to ensure that unmanaged resources are released when they are no longer required, in order to avoid creating memory leaks. This is accomplished using the `IDisposable` interface. 
+It is important to ensure that unmanaged resources are released when they are no longer required, in order to avoid creating memory leaks. This is accomplished using the `IDisposable` interface.
 If a class creates unmanaged resources, or creates instances of classes which implement `IDisposable` themselves, it should implement `IDisposable` and release these resources in the `Dispose()` method. Detailed information on how to implement `Dispose()` can be found in [Microsoft's documentation, here](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose).
 
 :::note
@@ -12,7 +12,7 @@ Classes instantiated in Mobile via [dependency injection](sdk-dependency-injecti
 
 ## Using Mobile's IDisposableTracker Interface
 
-Mobile's toolkit also includes a helpful interface and extension methods to make tracking disposable resources easier: `IDisposableTracker` and `DisposableUtilities`. 
+Mobile's toolkit also includes a helpful interface and extension methods to make tracking disposable resources easier: `IDisposableTracker` and `DisposableUtilities`.
 `ComponentBase` and `ServiceBase` already implement `IDisposableTracker`, so any custom components or services extending these base classes can take advantage of this functionality right away. Here is a brief example of how to use it in a new class:
 
 ```cs
