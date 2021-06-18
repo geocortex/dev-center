@@ -13,6 +13,87 @@ Geocortex Mobile Components are styled using [XAML styles](https://docs.microsof
 
 Geocortex Mobile XAML Elements, like the `EnhancedButton` or `EnhancedSwitch` can ease the development of custom components with the SDK. Check out the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/GeocortexMobileElements) for an end to end example of their use.
 
+<!-- Leaving DatePickerView commented out for now, since there is a bug in the language strings on the OK/cancel buttons on iOS and Android when used outside of Workflow.
+### DatePickerView
+
+A date picker which allows the date value to be `null`.
+
+```xml
+<toolkit:DatePickerView PlaceHolder="Enter date here"/>
+```
+
+<img src={useBaseUrl("img/mobile-datePickerView-example-uwp.png")}/>
+
+-->
+
+### EnhancedActivityIndicator
+
+`EnhancedActivityIndicator` is an extension of [Xamarin Forms' `ActivityIndicator`](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/activityindicator). `ActivityIndicator` appears as a progress ring on iOS and Android, and an indeterminate progress bar on UWP; `EnhancedActivityIndicator` is rendered as a progress ring on UWP as well for a more uniform experience.
+
+```xml
+<toolkit:EnhancedActivityIndicator IndicatorHeightRequest="40" IndicatorWidthRequest="40" IsRunning="True"/>
+```
+
+### EnhancedButton
+
+`EnhancedButton` is an extension of the [Xamarin Forms `Button`](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/button), with some additional properties and functionality. These include Entered and Exited events for the cursor on UWP, additional color properties, and the ability to underline the button text.
+
+```xml
+<StackLayout>
+    <toolkit:EnhancedButton ImageSource="cog" ImageTintColor="MediumPurple" HandCursorOnHover="True"/>
+    <toolkit:EnhancedButton Text="Hyperlink style button" BorderWidth="0" TextUnderline="True"/>
+</StackLayout>
+```
+
+<img src={useBaseUrl("img/mobile-enhancedButtons.png")} />
+
+### EnhancedEntry
+
+`EnhancedEntry` is an extension of [Xamarin Forms' `Entry`](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/entry), with some additional theming on Android.
+
+<img src={useBaseUrl("img/mobile-enhancedEntry-android.png")} />
+
+### EnhancedSwitch
+
+`EnhancedSwitch` is an extension of the [Xamarin Forms `Switch`](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/switch), with some additional color properties.
+
+```xml
+<toolkit:EnhancedSwitch BorderColor="Purple" AndroidColor="Purple" ThumbColor="HotPink" OnColor="LightPink" />
+```
+
+<img src={useBaseUrl("img/mobile-switches.png")} />
+
+### EnhancedTableView
+
+`EnhancedTableView` is an extension of the [Xamarin Forms `TableView`](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/tableview), with some additional color properties.
+
+<img src={useBaseUrl("img/mobile-enhancedTableView.png")} />
+
+### ShadowFrame
+
+`ShadowFrame` is an extension of [Xamarin Forms' `Frame`](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/frame) which allows for a drop shadow on UWP.
+
+```xml
+<toolkit:ShadowFrame Padding="0" HorizontalOptions="Center">
+    <toolkit:EnhancedButton Text="My button" Margin="0" BorderWidth="0"/>
+</toolkit:ShadowFrame>
+```
+
+<img src={useBaseUrl("img/mobile-shadowFrame-uwp.png")} />
+
+### TintedImage
+
+`TintedImage` is an extension of [Xamarin Forms' `Image`](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/images?tabs=windows) which supports image tinting. Currently only supports FileImageSource sources.
+
+```xml
+<StackLayout Orientation="Horizontal">
+    <toolkit:TintedImage TintColor="DarkGoldenrod" Source="{Binding CogIcon, Converter={StaticResource IconConverter}, ConverterParameter='cog'}"/>
+    <toolkit:TintedImage TintColor="MediumPurple" Source="{Binding CogIcon, Converter={StaticResource IconConverter}, ConverterParameter='cog'}"/>
+</StackLayout>
+```
+
+<img src={useBaseUrl("img/mobile-tintedImage.png")} />
+
 ## Using Theme Colors in Custom Components
 
 If you need to use plain XAML elements when building your component, the various [theming colors](configuration-theme.mdx#theme-color-reference) can be used in XAML styling.
@@ -64,7 +145,7 @@ class CustomComponent : ComponentBase
 </TabItem>
 </Tabs>
 
-## Relevant SDK Sample
+## Relevant SDK Samples
 
 Check out the relevant Geocortex Mobile SDK Samples:
 
