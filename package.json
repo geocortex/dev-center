@@ -11,20 +11,20 @@
     "lint:links:ext": "linkinator ./build -r --silent --concurrency 10",
     "lint:spelling": "cspell \"{docs,src}/**\"",
     "lint:style": "npm run prettier -- --check",
-    "prettier": "prettier --write \"**/*.md\" \"**/*.mdx\" \"**/*.css\" \"**/*.js\" \"**/*.jsx\" \"**/*.json\" \"**/*.ts\" \"**/*.tsx\" \"**/*.scss\"",
+    "prettier": "prettier --write \"**/*.md\" \"**/*.mdx\" \"**/*.css\" \"**/*.js\" \"**/*.jsx\" \"**/*.json\" \"**/*.ts\" \"**/*.tsx\"",
     "serve": "docusaurus serve",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.0",
-    "@docusaurus/preset-classic": "2.0.0-beta.0",
+    "@docusaurus/core": "2.0.0-beta.1",
+    "@docusaurus/preset-classic": "2.0.0-beta.1",
     "@types/react": "^17.0.9",
     "clsx": "^1.1.1",
-    "cspell": "^5.5.2",
+    "cspell": "^5.6.4",
     "linkinator": "^2.13.6",
-    "prettier": "^2.3.0",
-    "pretty-quick": "^3.1.0",
+    "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remark-cli": "^9.0.0",
@@ -43,6 +43,6 @@
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*.{css,js,jsx,json,ts,tsx,md,mdx,scss}": "prettier --write"
+    "*.{css,js,jsx,json,ts,tsx,md,mdx}": "prettier --write"
   }
 }
