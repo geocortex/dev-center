@@ -149,7 +149,8 @@ Geocortex Web screenshots should be taken at a certain window size for consisten
     - "Capture Screenshot"
 8. Rename the downloaded screenshot to something appropriate.
 9. **Run the screenshot through [Tiny PNG](https://tinypng.com/)** to compress it.
-10. Add it to the appropriate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
+10. Place the resulting .png in the static/img folder.
+11. Add it to the appropriate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
 
 ```html
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
@@ -164,8 +165,13 @@ Geocortex Mobile screenshots should be roughly taken with a certain window size 
 2. Using the `Windows + Left` then `Windows + Up` shortcuts to move the app window to occupy a corner of the screen.
 3. Using Windows [snipping tool](https://support.microsoft.com/en-ca/help/13776/windows-10-use-snipping-tool-to-capture-screenshots), capture a window screenshot of the application.
 4. **Run the screenshot through [Tiny PNG](https://tinypng.com/)** to compress it.
-5. Add it to the appropriate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
+5. Place the resulting .png in the static/img folder.
+6. Add it to the appropriate markdown file(s), using the `useBaseUrl` helper function to generate the qualified image url.
 
 ```html
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
 ```
+
+#### Prettier
+
+If you've added a file or made non-trivial changes, run `npm prettier:write` in the root of this directory. This will fix the formatting of the file(s) in case there are any issues. Forgetting to do this could result in your PR build failing the linting check.
