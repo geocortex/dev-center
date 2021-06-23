@@ -3,8 +3,46 @@ title: Memory Management
 description: Geocortex Mobile - Learn about memory management in Geocortex Mobile
 ---
 
-# Coming Soon...
+It is important to ensure that unmanaged resources are released when they are no longer required, in order to avoid creating memory leaks. This is accomplished using the `IDisposable` interface.
+If a class creates unmanaged resources, or creates instances of classes which implement `IDisposable` themselves, it should implement `IDisposable` and release these resources in the `Dispose()` method. Detailed information on how to implement `Dispose()` can be found in [Microsoft's documentation, here](https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose).
 
-This documentation is under active development.
+:::note
+Classes instantiated via [dependency injection](sdk-dependency-injection.mdx) that implement `IDisposable` will automatically have `Dispose()` called by Autofac once their lifetime scope has ended, so `Dispose()` does not need to be called explicitly for such classes.
+:::
 
-For now, check out the sample on the [disposal pattern in Geocortex Mobile](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
+## Using Mobile's IDisposableTracker Interface
+
+Mobile's toolkit also includes a helpful interface and extension methods to make tracking disposable resources easier: `IDisposableTracker` and `DisposableUtilities`.
+`ComponentBase` and `ServiceBase` already implement `IDisposableTracker`, so any custom components or services extending these base classes can take advantage of this functionality right away.
+Here is a brief example of how to use it in a new class:
+
+```cs
+public class DisposableTrackerExample: IDisposableTracker, IDisposable
+{
+	// Implement the IDisposableTracker interface
+	public IList<IDisposable> Disposables => new List<IDisposable>();
+
+	public DisposableTrackerExample()
+	{
+		// Pointer to a fictitious external unmanaged resource.
+		SafeFileHandle handle = new SafeFileHandle(IntPtr.Zero, true);
+
+		// Track the file handle in the Disposables list
+		Disposables.Add(handle);
+	}
+
+	public void Dispose()
+	{
+		// This will dispose of the FileSafeHandle created in the constructor
+		this.DisposeTrackers();
+	}
+}
+```
+
+Using `DisposeTrackers()` is a shortcut which is functionally identical to calling `Dispose()` on each `IDisposable` in the `Disposables` list.
+
+`IDisposableTracker` is also used when registering commands and operations, as described [here](sdk-commands-operations.mdx#direct-registration-and-implementation), and subscribing to events, described [here](sdk-events-reference.mdx#subscribing-to-events).
+
+## Relevant SDK Sample
+
+Check out the sample on the [disposal pattern in Geocortex Mobile](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
