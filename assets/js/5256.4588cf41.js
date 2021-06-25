@@ -1,0 +1,1 @@
+(globalThis.webpackChunkgeocortex_dev_center=globalThis.webpackChunkgeocortex_dev_center||[]).push([[5256],{5256:(e,c,o)=>{"use strict";o.r(c)}}]);

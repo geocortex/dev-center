@@ -7,5 +7,5 @@
   <Image width="16" height="16" type="image/x-icon">https://developers.geocortex.com/img/favicon.png</Image>
   <Url type="text/html" method="get" template="https://developers.geocortex.com/search?q={searchTerms}"/>
   <Url type="application/opensearchdescription+xml" rel="self" template="https://developers.geocortex.com/opensearch.xml" />
-  <moz:SearchForm>https://developers.geocortex.com</moz:SearchForm>
+  <moz:SearchForm>https://developers.geocortex.com/</moz:SearchForm>
 </OpenSearchDescription>
