@@ -4,16 +4,12 @@ import MessagingContent from "./MessagingContent";
 import { MessageSchema, Definition } from "./schema";
 
 interface ViewerMessagingProps {
-    product: "mobile" | "web";
-    type: "argument" | "command" | "event" | "operation";
+    product: "mobile" | "web" | "common";
+    type: "argument" | "command" | "event" | "operation" | "config";
 }
 
 export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
-    // `BrowserOnly` prevents children from being rendered statically during build
-    // TODO: Simplify this once https://github.com/facebook/docusaurus/issues/3144 is fixed.
-    return (
-        BrowserOnly({ children: () => <ViewerMessaging {...props} /> }) || null
-    );
+    return BrowserOnly({ children: () => <ViewerMessaging {...props} /> });
 }
 
 // Cache the requests to allow this component to be rendered
@@ -22,10 +18,11 @@ export default function ViewerMessagingWrapper(props: ViewerMessagingProps) {
 // plays nicely with the docusaurus right TOC component.
 const cachedRequests: Record<
     ViewerMessagingProps["product"],
-    Record<"action" | "event", Promise<Response> | undefined>
+    Record<"action" | "event" | "config", Promise<Response> | undefined>
 > = {
-    web: { action: undefined, event: undefined },
-    mobile: { action: undefined, event: undefined },
+    web: { action: undefined, event: undefined, config: undefined },
+    mobile: { action: undefined, event: undefined, config: undefined },
+    common: { action: undefined, event: undefined, config: undefined },
 };
 
 function ViewerMessaging(props: ViewerMessagingProps) {
@@ -35,32 +32,68 @@ function ViewerMessaging(props: ViewerMessagingProps) {
     // Fetch schema
     useEffect(() => {
         let didCancel = false;
-        const schemaType =
-            type === "command" || type === "operation"
-                ? "action"
-                : type === "event"
-                ? "event"
-                : undefined;
+        let schemaType: "action" | "event" | "config" | undefined = undefined;
+        switch (type) {
+            case "command":
+            case "operation":
+                schemaType = "action";
+                break;
+            case "event":
+                schemaType = "event";
+                break;
+            case "config":
+                schemaType = "config";
+                break;
+            default:
+                break;
+        }
 
         (async () => {
             if (schemaType && !cachedRequests[product][schemaType]) {
-                cachedRequests[product][schemaType] = fetch(
-                    `https://apps.geocortex.com/webviewer/${product}-${schemaType}.schema.json`
-                );
+                if (type === "config") {
+                    cachedRequests["common"][schemaType] = fetch(
+                        `https://apps.geocortex.com/webviewer/common-app-config.schema.json`
+                    );
+                    cachedRequests[product][schemaType] = fetch(
+                        `https://apps.geocortex.com/webviewer/${product}-app-config.schema.json`
+                    );
+                } else {
+                    cachedRequests[product][schemaType] = fetch(
+                        `https://apps.geocortex.com/webviewer/${product}-${schemaType}.schema.json`
+                    );
+                }
             }
 
-            const actionResponse = await cachedRequests[product].action!;
-            const eventResponse = await cachedRequests[product].event!;
-            if (didCancel) {
-                return;
+            const messageSchemas: MessageSchema[] = [];
+            if (schemaType === "config") {
+                const commonConfigResponse = await cachedRequests["common"]
+                    .config!;
+                const configResponse = await cachedRequests[product].config!;
+
+                // Clone to avoid error when reading json multiple times
+                const commonConfigResponseJson: MessageSchema =
+                    await commonConfigResponse.clone().json();
+                const configResponseJson: MessageSchema = await configResponse
+                    .clone()
+                    .json();
+
+                messageSchemas.push(commonConfigResponseJson);
+                messageSchemas.push(configResponseJson);
+            } else {
+                const actionResponse = await cachedRequests[product].action!;
+                const eventResponse = await cachedRequests[product].event!;
+
+                // Clone to avoid error when reading json multiple times
+                const actionResponseJson: MessageSchema = await actionResponse
+                    .clone()
+                    .json();
+                const eventResponseJson: MessageSchema = await eventResponse
+                    .clone()
+                    .json();
+
+                messageSchemas.push(actionResponseJson);
+                messageSchemas.push(eventResponseJson);
             }
-            // Clone to avoid error when reading json multiple times
-            const actionResponseJson: MessageSchema = await actionResponse
-                .clone()
-                .json();
-            const eventResponseJson: MessageSchema = await eventResponse
-                .clone()
-                .json();
             if (didCancel) {
                 return;
             }
@@ -102,14 +135,21 @@ function ViewerMessaging(props: ViewerMessagingProps) {
                 ],
             };
 
-            const schema = {
-                definitions: {
-                    ...actionResponseJson.definitions,
-                    ...eventResponseJson.definitions,
-                    "viewer-spec.ActionObject": actionObject,
-                    "viewer-spec.Action": actionOverrideDef,
-                },
-            };
+            const definitions =
+                type !== "config"
+                    ? ({
+                          "viewer-spec.ActionObject": actionObject,
+                          "viewer-spec.Action": actionOverrideDef,
+                      } as any)
+                    : {};
+
+            const schema = { definitions };
+
+            messageSchemas.forEach((messageSchema) => {
+                Object.keys(messageSchema.definitions).forEach((key) => {
+                    schema.definitions[key] = messageSchema.definitions[key];
+                });
+            });
 
             setMessagingJson(schema);
         })();

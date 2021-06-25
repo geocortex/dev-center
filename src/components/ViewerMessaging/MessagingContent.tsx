@@ -5,7 +5,7 @@ import MessagingDefinitionsSummary from "./MessagingDefinitionsSummary";
 
 interface MessagingContentProps {
     schema: MessageSchema;
-    type: "argument" | "command" | "event" | "operation";
+    type: "argument" | "command" | "event" | "operation" | "config";
 }
 
 export default function MessagingContent(props: MessagingContentProps) {
@@ -13,7 +13,7 @@ export default function MessagingContent(props: MessagingContentProps) {
 
     return (
         <>
-            {type === "argument" && (
+            {(type === "argument" || type === "config") && (
                 <MessagingDefinitionsSummary schema={schema} />
             )}
             {type === "command" && (

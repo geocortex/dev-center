@@ -299,7 +299,10 @@ module.exports = {
         {
             type: "category",
             label: "API",
-            items: ["mobile/api-commands-operations-events"],
+            items: [
+                "mobile/api-commands-operations-events",
+                "mobile/api-components",
+            ],
         },
     ],
     reporting: [
