@@ -13,8 +13,19 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
 
     let definition = props.definition;
 
+    // These don't provide value so ignore them
+    const isCommandArgument = (definition: Definition) => {
+        return (
+            definition.properties &&
+            Object.keys(definition.properties).length === 2 &&
+            definition.required?.length === 2 &&
+            definition.required[0] === "name" &&
+            definition.required[1] === "arguments"
+        );
+    };
+
     if (typeof definition === "string") {
-        const foundDefinition = getReferencedDefinition(name, schema);
+        const foundDefinition = getReferencedDefinition(definition, schema);
         console.warn("Couldn't find definition:", definition);
         definition = foundDefinition;
     }
@@ -73,8 +84,62 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
             }
             return <code>{(definition.items as Definition).type}[]</code>;
         } else if (definition.type === "object") {
-            // We don't support rendering object type inline, should only reference by link.
-            return <code>unknown</code>;
+            if (isCommandArgument(definition)) {
+                return null;
+            }
+            if (definition.properties) {
+                return (
+                    <div className="margin-left--sm">
+                        {Object.entries(definition.properties).map(
+                            ([propName, propDef]) => (
+                                <div
+                                    key={propName}
+                                    className="margin-bottom--md"
+                                >
+                                    <div className="margin-bottom--sm">
+                                        <code>{propName}</code>
+                                        {(
+                                            definition as Definition
+                                        ).required?.includes(propName) && (
+                                            <span className="badge badge--secondary">
+                                                Required
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div className="margin-left--sm">
+                                        <MessagingArgument
+                                            definition={propDef}
+                                            schema={schema}
+                                        />
+                                        {propDef.description && (
+                                            <div className="margin-top--sm">
+                                                {propDef.description}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            )
+                        )}
+                    </div>
+                );
+            }
+            if (
+                definition.additionalProperties &&
+                definition.additionalProperties !== true
+            ) {
+                if (definition.additionalProperties.type === "string") {
+                    return (
+                        <code>
+                            {(
+                                definition.additionalProperties as Definition
+                            ).enum
+                                ?.map((e) => `"${e}"`)
+                                .join(" | ")}
+                        </code>
+                    );
+                }
+            }
+            return <code>object</code>;
         } else if (Array.isArray(definition.type)) {
             // We already take care of calling out that an argument is optional
             // if one of the allowed types is "null" so we don't need to
@@ -107,6 +172,8 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
         const types = definition.anyOf.filter(
             (def) => !((def.type as string) === "null")
         );
+        // TODO: CreateLocationMarkerArgs returns multiple empty `Any of:`
+        // because all of the MessagingArgument's return null.
         return (
             <>
                 {types.length > 1 && <div>Any of:</div>}
@@ -124,5 +191,5 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
     }
 
     // Didn't contain an appropriate type. Hopefully the description was useful.
-    return <code>unknown</code>;
+    return null;
 }
