@@ -1,6 +1,6 @@
 import Heading from "@theme/Heading";
 import React from "react";
-import MessagingArgument from "./MessagingArgument";
+import MessagingArgument, { getDescription } from "./MessagingArgument";
 import { MessageSchema, Definition } from "./schema";
 import { getActionOrEventDefinitionLinkId, trimDefinitionsName } from "./utils";
 
@@ -59,11 +59,7 @@ export default function MessagingTypeSummary(props: MessagingTypeSummaryProps) {
                 return (
                     <div key={key} className="margin-bottom--lg">
                         <H3 id={linkId}>{key}</H3>
-                        {item.description && (
-                            <div className="margin-bottom--md">
-                                {item.description}
-                            </div>
-                        )}
+                        {getDescription(item, schema, "margin-bottom--md")}
                         <div className="margin-bottom--md">
                             <div>{`Argument ${
                                 typeIsOptional(inputItem) === true
