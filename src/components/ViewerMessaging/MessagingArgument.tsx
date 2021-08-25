@@ -179,7 +179,12 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
                 return null;
             }
             if (definition.properties) {
-                return listProperties(definition, schema);
+                return (
+                    <>
+                        <code>object</code>
+                        {listProperties(definition, schema)}
+                    </>
+                );
             }
             if (
                 definition.additionalProperties &&
