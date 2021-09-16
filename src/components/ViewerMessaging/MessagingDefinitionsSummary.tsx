@@ -31,16 +31,19 @@ export default function MessagingDefinitionsSummary(
                 // properties should all come after TODO: Better sort so
                 // components are in one section and services are in another
                 .sort((a, b) => {
-                    if (
-                        a.toLocaleLowerCase().includes("modelproperties") &&
-                        b.toLocaleLowerCase().includes("modelproperties")
-                    ) {
+                    const aHasModelProps = a
+                        .toLocaleLowerCase()
+                        .includes("modelproperties");
+                    const bHasModelProps = b
+                        .toLocaleLowerCase()
+                        .includes("modelproperties");
+                    if (aHasModelProps && bHasModelProps) {
                         return a.localeCompare(b);
                     }
-                    if (a.toLocaleLowerCase().includes("modelproperties")) {
+                    if (aHasModelProps) {
                         return -1;
                     }
-                    if (b.toLocaleLowerCase().includes("modelproperties")) {
+                    if (bHasModelProps) {
                         return 1;
                     }
                     return a.localeCompare(b);
