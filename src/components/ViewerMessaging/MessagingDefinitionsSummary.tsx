@@ -27,7 +27,27 @@ export default function MessagingDefinitionsSummary(
     return (
         <div>
             {Object.keys(filteredDefinitions)
-                .sort((a, b) => a.localeCompare(b))
+                // Rudimentary sort of components / services first and then the
+                // properties should all come after TODO: Better sort so
+                // components are in one section and services are in another
+                .sort((a, b) => {
+                    const aHasModelProps = a
+                        .toLocaleLowerCase()
+                        .includes("modelproperties");
+                    const bHasModelProps = b
+                        .toLocaleLowerCase()
+                        .includes("modelproperties");
+                    if (aHasModelProps && bHasModelProps) {
+                        return a.localeCompare(b);
+                    }
+                    if (aHasModelProps) {
+                        return -1;
+                    }
+                    if (bHasModelProps) {
+                        return 1;
+                    }
+                    return a.localeCompare(b);
+                })
                 .map((name) => (
                     <MessagingDefinition
                         key={name}

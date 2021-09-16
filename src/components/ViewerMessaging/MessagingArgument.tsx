@@ -8,13 +8,115 @@ interface MessagingArgumentProps {
     schema: MessageSchema;
 }
 
+export function getDescription(
+    definition: Definition,
+    schema: MessageSchema,
+    className: string
+) {
+    let definitionToUse = definition;
+    if (!definitionToUse.description) {
+        return null;
+    }
+    if (
+        definitionToUse.description.toLocaleLowerCase().startsWith("see {@link")
+    ) {
+        let referencedDef;
+        if (definitionToUse.$ref) {
+            referencedDef = getReferencedDefinition(
+                definitionToUse.$ref,
+                schema
+            );
+        } else {
+            // See if we can just find the description
+            const result = definitionToUse.description
+                .toLocaleLowerCase()
+                .match(/(see {@link )([a-zA-Z\.]*)/);
+            const key = result?.[2].split(".")[0];
+            const property = result?.[2].split(".")[1];
+            if (key && property) {
+                referencedDef = schema.definitions[key]?.properties?.[property];
+            }
+        }
+
+        if (referencedDef) {
+            definitionToUse = referencedDef;
+        }
+
+        // Get rid of "See {@link example.Example}" as not helpful if there is
+        // no link.
+        const link = definitionToUse.description
+            ?.toLocaleLowerCase()
+            .match(/see \{\@link [a-zA-Z\.}.]*/)?.[0];
+        if (link) {
+            definitionToUse.description = definitionToUse.description!.replace(
+                link,
+                ""
+            );
+        }
+    }
+    return (
+        definitionToUse.description && (
+            <div className={className}>{definitionToUse.description}</div>
+        )
+    );
+}
+
+export function listProperties(definition: Definition, schema: MessageSchema) {
+    if (!definition.properties) {
+        return null;
+    }
+
+    return (
+        <div className="margin-left--sm">
+            {Object.entries(definition.properties).map(
+                ([propName, propDef]) => {
+                    return (
+                        <div key={propName} className="margin-bottom--md">
+                            <div className="margin-bottom--sm">
+                                <code>{propName}</code>
+                                {definition.required?.includes(propName) && (
+                                    <span className="badge badge--secondary">
+                                        Required
+                                    </span>
+                                )}
+                            </div>
+                            <div className="margin-left--sm">
+                                <MessagingArgument
+                                    definition={propDef}
+                                    schema={schema}
+                                />
+                                {getDescription(
+                                    propDef,
+                                    schema,
+                                    "margin-top--sm"
+                                )}
+                            </div>
+                        </div>
+                    );
+                }
+            )}
+        </div>
+    );
+}
+
 export default function MessagingArgument(props: MessagingArgumentProps) {
     const { schema } = props;
 
     let definition = props.definition;
 
+    // These don't provide value so ignore them
+    const isCommandArgument = (definition: Definition) => {
+        return (
+            definition.properties &&
+            Object.keys(definition.properties).length === 2 &&
+            definition.required?.length === 2 &&
+            definition.required[0] === "name" &&
+            definition.required[1] === "arguments"
+        );
+    };
+
     if (typeof definition === "string") {
-        const foundDefinition = getReferencedDefinition(name, schema);
+        const foundDefinition = getReferencedDefinition(definition, schema);
         console.warn("Couldn't find definition:", definition);
         definition = foundDefinition;
     }
@@ -73,8 +175,34 @@ export default function MessagingArgument(props: MessagingArgumentProps) {
             }
             return <code>{(definition.items as Definition).type}[]</code>;
         } else if (definition.type === "object") {
-            // We don't support rendering object type inline, should only reference by link.
-            return <code>unknown</code>;
+            if (isCommandArgument(definition)) {
+                return null;
+            }
+            if (definition.properties) {
+                return (
+                    <>
+                        <code>object</code>
+                        {listProperties(definition, schema)}
+                    </>
+                );
+            }
+            if (
+                definition.additionalProperties &&
+                definition.additionalProperties !== true
+            ) {
+                if (definition.additionalProperties.type === "string") {
+                    return (
+                        <code>
+                            {(
+                                definition.additionalProperties as Definition
+                            ).enum
+                                ?.map((e) => `"${e}"`)
+                                .join(" | ")}
+                        </code>
+                    );
+                }
+            }
+            return <code>object</code>;
         } else if (Array.isArray(definition.type)) {
             // We already take care of calling out that an argument is optional
             // if one of the allowed types is "null" so we don't need to
