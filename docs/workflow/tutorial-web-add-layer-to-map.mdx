@@ -23,9 +23,9 @@ This article will walk you through creating a custom activity that adds a new la
 
 ## Modify the Activity to Access App Properties
 
-1. Add an import for the `AppActivity` base class at the top of the `AddLayerToMap.ts` file.  
+1. Add an import for the `AppActivity` base class at the top of the `AddLayerToMap.ts` file.
    `import { AppActivity } from "@geocortex/workflow/runtime/app/AppActivity";`
-1. Modify the activity class declaration to extend the `AppActivity` base class.  
+1. Modify the activity class declaration to extend the `AppActivity` base class.
    `export class AddLayerToMap extends AppActivity`
 
 ```ts title="src/activities/AddLayerToMap.ts"
@@ -48,10 +48,10 @@ export class AddLayerToMap extends AppActivity {
 
 ## Add a New Map Layer with the Activity
 
-Next, we can use the [ArcGIS Runtime SDK for .NET](sdk-web-integrating-the-arcgis-api.mdx) and the `AppActivity` class to create a graphics layer and add it to the host's map through the `this.map` property.
+Next, we can use the [ArcGIS API for JavaScript](sdk-web-integrating-the-arcgis-api.mdx) and the `AppActivity` class to create a graphics layer and add it to the host's map through the `this.map` property.
 
 :::note
-This activity assumes that it will be running in Geocortex Web, and so [it uses the 4.x ArcGIS API for Javascript](sdk-web-integrating-the-arcgis-api.mdx#add-arcgis-api-for-javascript-typings).
+This activity assumes that it will be running in Geocortex Web, and so [it uses the 4.x ArcGIS API for JavaScript](sdk-web-integrating-the-arcgis-api.mdx#add-arcgis-api-for-javascript-typings).
 :::
 
 ```ts title="src/activities/AddLayerToMap.ts"
