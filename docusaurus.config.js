@@ -3,7 +3,7 @@ module.exports = {
     tagline: "by developers, for developers",
     url: "https://developers.geocortex.com",
     baseUrl: "/",
-    favicon: "img/favicon.png",
+    favicon: "img/favicon.ico",
     organizationName: "geocortex", // Usually your GitHub org/user name.
     projectName: "dev-center", // Usually your repo name.
     themeConfig: {
