@@ -1,6 +1,6 @@
 ---
 title: Component Interactions
-description: Geocortex Web - Learn how to make custom components interact in with the larger application
+description: VertiGIS Studio Web - Learn how to make custom components interact in with the larger application
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -46,7 +46,7 @@ export class ScaleBarModel implements ComponentModel {
 Custom components can also import models and interact with them. The import must be done in the model of the component. This tight coupling can allow deeper access to other components models, but also negates the advantages of the abstraction of commands and operations.
 
 :::note
-The property decorated by `@importModel` is completely managed by Geocortex Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.
+The property decorated by `@importModel` is completely managed by VertiGIS Studio Web and should never be modified or serialized in app config. Its value can change at any time, e.g. to and from undefined, or from one model instance to a completely different one. The component needs to react appropriately to these changes and not make any assumptions about its current value.
 :::
 
 ```ts
@@ -183,7 +183,7 @@ export default function CustomComponent(
 
 ## Interacting with Application Services with Dependency Injection
 
-Components can interact with built-in Geocortex Web [services](sdk-services-overview.mdx). Through services, they can interact with the map, application context, workflows, and more. Services can only be injected into a components through their [associated models](sdk-components-reference.mdx#models). Learn more about how to [inject a service into a component](sdk-components-injecting-services.mdx).
+Components can interact with built-in VertiGIS Studio Web [services](sdk-services-overview.mdx). Through services, they can interact with the map, application context, workflows, and more. Services can only be injected into a components through their [associated models](sdk-components-reference.mdx#models). Learn more about how to [inject a service into a component](sdk-components-injecting-services.mdx).
 
 ## Next Steps
 

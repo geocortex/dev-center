@@ -1,6 +1,6 @@
 ---
 title: UIContext
-description: Geocortex Web - Accessing the UIContext in Components
+description: VertiGIS Studio Web - Accessing the UIContext in Components
 ---
 
 [Custom components](sdk-components-create.mdx) often need to access the application context to run [commands and operations](configuration-commands-operations.mdx), subscribe and publish to [events](sdk-events-overview.mdx), and more. A component has two ways of accessing the application context.
@@ -20,13 +20,8 @@ import { UIContext } from "@vertigis/web/ui";
 import { useContext } from "react";
 
 export default function CustomComponent(props) {
-    const {
-        command,
-        event,
-        operation,
-        translate,
-        hostElement,
-    } = useContext(UIContext);
+    const { command, event, operation, translate, hostElement } =
+        useContext(UIContext);
     // ...
 }
 ```

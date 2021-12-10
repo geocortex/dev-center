@@ -1,6 +1,6 @@
 ---
 title: Add a Layer to a Map with an Activity
-description: Geocortex Workflow - Learn how to use special activity properties to access and mutate the application map
+description: VertiGIS Studio Workflow - Learn how to use special activity properties to access and mutate the application map
 ---
 
 import WebPrereqs from "./snippets/prereqs-web.mdx";
@@ -51,7 +51,7 @@ export class AddLayerToMap extends AppActivity {
 Next, we can use the [ArcGIS API for JavaScript](sdk-web-integrating-the-arcgis-api.mdx) and the `AppActivity` class to create a graphics layer and add it to the host's map through the `this.map` property.
 
 :::note
-This activity assumes that it will be running in Geocortex Web, and so [it uses the 4.x ArcGIS API for JavaScript](sdk-web-integrating-the-arcgis-api.mdx#add-arcgis-api-for-javascript-typings).
+This activity assumes that it will be running in VertiGIS Studio Web, and so [it uses the 4.x ArcGIS API for JavaScript](sdk-web-integrating-the-arcgis-api.mdx#add-arcgis-api-for-javascript-typings).
 :::
 
 ```ts title="src/activities/AddLayerToMap.ts"
@@ -104,7 +104,7 @@ Follow the instructions to [build and deploy the activity pack](sdk-web-overview
 
 ## Test the Activity
 
-Once your activity pack is hosted and registered, your custom activity should appear in the activity toolbox in Geocortex Workflow Designer alongside the built-in activities, and can be used in the graphical interface like any other activity.
+Once your activity pack is hosted and registered, your custom activity should appear in the activity toolbox in VertiGIS Studio Workflow Designer alongside the built-in activities, and can be used in the graphical interface like any other activity.
 
 Now you can build a workflow that uses your new custom activity!
 
@@ -126,7 +126,7 @@ Now you can build a workflow that uses your new custom activity!
         target="_blank"
     >
         {" "}
-        import it into the Geocortex Workflow Designer.{" "}
+        import it into the VertiGIS Studio Workflow Designer.{" "}
     </a>
     You will have to{" "}
     <a

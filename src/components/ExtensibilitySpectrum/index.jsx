@@ -148,7 +148,7 @@ export default function ExtensibilitySpectrum({
             </IconContainer>
             <SvgLineWithArrow />
             <IconContainer
-                iconLabel="Geocortex Workflow"
+                iconLabel="VertiGIS Studio Workflow"
                 linkUrl={workflowLink}
             >
                 <svg viewBox="-12 -11 48 48">

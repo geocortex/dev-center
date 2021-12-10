@@ -1,22 +1,22 @@
 ---
-title: Geocortex Workflow TypeScript SDK Overview
+title: VertiGIS Studio Workflow TypeScript SDK Overview
 sidebar_label: SDK Overview
-description: Geocortex Workflow - Overview of extending workflow for web applications
+description: VertiGIS Studio Workflow - Overview of extending workflow for web applications
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 import UseCaseCard from "../../src/components/UseCaseCard";
 
-The Geocortex Workflow for Web Applications SDK consists of a TypeScript project that eases development of custom Workflow activities and form elements. It produces a [Workflow activity pack](key-concepts.mdx#activity-packs) that can be consumed by [web applications that use Workflow](key-concepts.mdx#geocortex-workflow-hosts).
+The VertiGIS Studio Workflow for Web Applications SDK consists of a TypeScript project that eases development of custom Workflow activities and form elements. It produces a [Workflow activity pack](key-concepts.mdx#activity-packs) that can be consumed by [web applications that use Workflow](key-concepts.mdx#geocortex-workflow-hosts).
 
 ## Overview
 
-The Geocortex Workflow SDK provides a [development toolkit](https://github.com/geocortex/vertigis-workflow-sdk/) for building custom Workflow activities and form elements into a package that can be deployed to Geocortex Web called an activity pack. Once the activity pack has been developed, it can then be deployed to your SaaS or on-premises environment.
+The VertiGIS Studio Workflow SDK provides a [development toolkit](https://github.com/geocortex/vertigis-workflow-sdk/) for building custom Workflow activities and form elements into a package that can be deployed to VertiGIS Studio Web called an activity pack. Once the activity pack has been developed, it can then be deployed to your SaaS or on-premises environment.
 
 ## Requirements
 
--   Geocortex Workflow 5.21 or later if running on-premises.
+-   VertiGIS Studio Workflow 5.21 or later if running on-premises.
 -   The latest LTS version of [Node.js](https://nodejs.org/en/).
 -   A code editor of your choice. We recommend [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -79,7 +79,7 @@ To get started with the development server, run `npm start` in the terminal to s
 -   The development server supports CORS requests from any origin by default.
 
 :::note
-As `localhost` is only accessible to your host machine, activity packs hosted in this manner will not be accessible when running Geocortex Workflow Designer on a different machine.
+As `localhost` is only accessible to your host machine, activity packs hosted in this manner will not be accessible when running VertiGIS Studio Workflow Designer on a different machine.
 :::
 
 ### Configuring a HTTPS Certificate
@@ -117,8 +117,8 @@ The extra `--` used in the `npm start` script is necessary to forward the argume
 
 Deploying Workflow activities consists of two steps:
 
-1. Hosting the Workflow activity pack on a server accessible to the Geocortex Workflow Designer
-2. Making the Workflow activity pack known to Geocortex Workflow Designer and Workflow Applications by registering it as an ArcGIS item.
+1. Hosting the Workflow activity pack on a server accessible to the VertiGIS Studio Workflow Designer
+2. Making the Workflow activity pack known to VertiGIS Studio Workflow Designer and Workflow Applications by registering it as an ArcGIS item.
 
 ### Creating a Production Build
 
@@ -136,17 +136,17 @@ Activity packs must be hosted by a web server that supports HTTPS and CORS.
 #### Server Requirements
 
 -   The server must have a valid HTTPS certificate.
--   The server must support [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and allow CORS requests from the `https://apps.geocortex.com` origin or the origin of your Geocortex Workflow if running on-premises.
+-   The server must support [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and allow CORS requests from the `https://apps.geocortex.com` origin or the origin of your VertiGIS Studio Workflow if running on-premises.
 
 :::note
-If you sign in to Geocortex Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, `https://acme.apps.geocortex.com`.
+If you sign in to VertiGIS Studio Workflow Designer using Portal for ArcGIS your server will need to allow CORS requests from your custom origin. For example, `https://acme.apps.geocortex.com`.
 :::
 
-Hosting Workflow activity packs in this manner allows Geocortex Workflow Designer to read the list of custom activities and their associated metadata.
+Hosting Workflow activity packs in this manner allows VertiGIS Studio Workflow Designer to read the list of custom activities and their associated metadata.
 
 ### Register the Activity Pack
 
-To make an activity pack available to workflow authors in Geocortex Workflow Designer you must create a special item in ArcGIS Online or Portal for ArcGIS that references it.
+To make an activity pack available to workflow authors in VertiGIS Studio Workflow Designer you must create a special item in ArcGIS Online or Portal for ArcGIS that references it.
 
 1. Sign in to ArcGIS Online or Portal for ArcGIS.
 1. Go to **My Content**.
@@ -165,12 +165,12 @@ The activity pack will **not** be registered unless it includes the `geocortex-w
 
 ### Sharing the Activity Pack
 
-As a workflow author, you will see custom activities in Geocortex Workflow Designer from the activity packs you have registered. You will also see activity packs that have been shared with you via groups you are a member of.
+As a workflow author, you will see custom activities in VertiGIS Studio Workflow Designer from the activity packs you have registered. You will also see activity packs that have been shared with you via groups you are a member of.
 
 To share an activity pack with other workflow authors in your organization share the ArcGIS item that represents the activity pack with a group that contains the target users.
 
 :::note
-You do not need to share the activity pack Portal item with the end users of your applications that run workflows containing custom activities. It only affects the visibility of the activity pack in the Geocortex Workflow Designer.
+You do not need to share the activity pack Portal item with the end users of your applications that run workflows containing custom activities. It only affects the visibility of the activity pack in the VertiGIS Studio Workflow Designer.
 :::
 
 ## Migrating from the Legacy SDK

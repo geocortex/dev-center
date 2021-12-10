@@ -1,7 +1,7 @@
 ---
 title: Layout
 sidebar_label: Getting Started
-description: Geocortex Web - Learn about layout concepts
+description: VertiGIS Studio Web - Learn about layout concepts
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -13,7 +13,7 @@ import FollowAlongSnippet from "./snippets/follow-along.mdx";
 Check out the [Key Concepts](key-concepts.mdx).
 :::
 
-A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Web Application is built.
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a VertiGIS Studio Web Application is built.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -66,7 +66,7 @@ See [presentation attributes](configuration-layout-reference.mdx#presentation-at
 
 ## Panels
 
-Another core concept that Geocortex Web uses to organize elements in a layout is **panels**.
+Another core concept that VertiGIS Studio Web uses to organize elements in a layout is **panels**.
 Panels are a container component that enable hierarchal navigation between different components.
 
 For a deeper dive into Panels, [check out the API reference](configuration-layout-reference.mdx#panels).
@@ -108,7 +108,7 @@ Every component in the xml file has a definition that lives in an xml namespace.
 </layout>
 ```
 
-Geocortex Web has a specific namespace `https://geocortex.com/layout/web/v1` in which components like `<bookmarks>` live. You can add this namespace to your layout to use these components.
+VertiGIS Studio Web has a specific namespace `https://geocortex.com/layout/web/v1` in which components like `<bookmarks>` live. You can add this namespace to your layout to use these components.
 
 ```xml
 <layout xmlns="https://geocortex.com/layout/v1"
@@ -125,7 +125,7 @@ When adding custom components, you will need to [add their custom namespace](sdk
 
 ## Next Steps: Components and App Config
 
-In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in Geocortex Web. Each component has its own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful, flexible applications with responsive, declarative layouts.
+In our examples so far, xml elements like `<text>` or `<stack>` have been used. Each of these xml elements corresponds to a Component in VertiGIS Studio Web. Each component has its own configuration, such as the `text` property for `<text>` elements. Most components have required configuration, and this configuration is defined in an App, specifically, in the `app.json` file. This allows a separation of the visual structure of how components appear in the viewer, and the functional content these components host. Combining layouts with app configuration allows you to create powerful, flexible applications with responsive, declarative layouts.
 
 <UseCaseContainer>
     <UseCaseCard

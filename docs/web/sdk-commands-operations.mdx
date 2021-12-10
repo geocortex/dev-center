@@ -1,6 +1,6 @@
 ---
 title: Commands and Operations
-description: Geocortex Web - Learn how to register and run commands and operations in custom components and services
+description: VertiGIS Studio Web - Learn how to register and run commands and operations in custom components and services
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 
-When writing custom components you may want to take advantage of Geocortex Web's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own custom commands and operations.
+When writing custom components you may want to take advantage of VertiGIS Studio Web's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own custom commands and operations.
 
 ## Running Commands and Operations
 
@@ -63,12 +63,8 @@ Services can run commands and operations through the `messages` property.
 export default class ExampleService extends ServiceBase {
     protected async someMethod(): Promise<void> {
         // highlight-next-line
-        const {
-            commands,
-            command,
-            operations,
-            operation,
-        } = this.messages;
+        const { commands, command, operations, operation } =
+            this.messages;
 
         // Execute a named, built-in, command.
         commands.ui.setTheme.execute("dark");

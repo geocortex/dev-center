@@ -1,6 +1,6 @@
 ---
 title: Commands and Operations
-description: Geocortex Mobile - Learn how to register and run commands and operations in custom services and components
+description: VertiGIS Studio Mobile - Learn how to register and run commands and operations in custom services and components
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -8,7 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CleanupHandlesSnippet from "./snippets/cleanup-handles.mdx";
 
-When writing custom components you may want to take advantage of Geocortex Mobile's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own [custom commands and operations](sdk-commands-operations.mdx#implementing-commands-and-operations).
+When writing custom components you may want to take advantage of VertiGIS Studio Mobile's large [built-in suite of command and operations](api-commands-operations-events.mdx) or your own [custom commands and operations](sdk-commands-operations.mdx#implementing-commands-and-operations).
 
 ## Running Commands and Operations
 
@@ -89,7 +89,7 @@ public IOperation<Deuterium, WarpSpeed> SomeInputSomeOutput => GetOperation<Deut
 ```
 
 :::note
-Operation names in Geocortex Mobile generally take the format `<category>.<name>`, with multiple words `kebab-cased`.
+Operation names in VertiGIS Studio Mobile generally take the format `<category>.<name>`, with multiple words `kebab-cased`.
 :::
 
 These types can be used to define a set of operations in an `OperationsBase` class that is registered with Autofac. Implementations for the operations can then be registered in a service or component.
@@ -195,4 +195,4 @@ class CustomService : ServiceBase
 
 ## Relevant SDK Sample
 
-The Geocortex Mobile SDK Samples project has a sample of [implementing a command with a custom service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service).
+The VertiGIS Studio Mobile SDK Samples project has a sample of [implementing a command with a custom service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service).

@@ -1,6 +1,6 @@
 ---
 title: Show a Callout on the Map with an Activity
-description: Geocortex Workflow - Access the map and show a callout through a custom activity.
+description: VertiGIS Studio Workflow - Access the map and show a callout through a custom activity.
 ---
 
 import Tabs from "@theme/Tabs";
@@ -9,7 +9,7 @@ import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
-Some activities may need access to the map embedded in the Geocortex Mobile Application. The `MapProviderBase` class can be injected in an activity and used to access the [Map](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Mapping_Map.htm) and [MapView](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_UI_Controls_MapView.htm) for the application.
+Some activities may need access to the map embedded in the VertiGIS Studio Mobile Application. The `MapProviderBase` class can be injected in an activity and used to access the [Map](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_Mapping_Map.htm) and [MapView](https://developers.arcgis.com/net/latest/uwp/api-reference/html/T_Esri_ArcGISRuntime_UI_Controls_MapView.htm) for the application.
 
 This article will walk you through accessing the map from an activity and displaying a callout at the map center point.
 
@@ -267,10 +267,10 @@ namespace App1.Workflow
 
 ## Test your Activity
 
-Now you can [build a workflow for Geocortex Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new activity!
+Now you can [build a workflow for VertiGIS Studio Mobile](https://docs.geocortex.com/mobileviewer/latest/admin-help/Default.htm#gmv/designer/add-a-workflow-to-an-app.htm) that uses your new activity!
 
 :::tip
-If you want your custom activity to show up with a friendly user interface in Geocortex Workflow Designer, check out [Registering .NET Activities with Geocortex Workflow Designer](sdk-net-register-activities.mdx).
+If you want your custom activity to show up with a friendly user interface in VertiGIS Studio Workflow Designer, check out [Registering .NET Activities with VertiGIS Studio Workflow Designer](sdk-net-register-activities.mdx).
 :::
 
 The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity can be used to execute your activity by the name defined in `PlaceCalloutAtCenter.cs` (for this example, `uuid:<uuid>::PlaceCalloutAtCenter`).
@@ -292,12 +292,12 @@ The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#
         target="_blank"
     >
         {" "}
-        import it into the Geocortex Workflow Designer.{" "}
+        import it into the VertiGIS Studio Workflow Designer.{" "}
     </a>
 </p>
 :::
 
-Next you need to run the workflow you just created in your Geocortex Mobile SDK project.
+Next you need to run the workflow you just created in your VertiGIS Studio Mobile SDK project.
 
 You can do this by configuring the layout and app config to run a workflow. You will need to copy the ID of the the workflow you created into the app.json
 

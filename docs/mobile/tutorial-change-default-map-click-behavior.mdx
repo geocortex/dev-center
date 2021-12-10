@@ -1,6 +1,6 @@
 ---
 title: Change Default Map Click Behavior
-description: Geocortex Mobile - Learn how to configure Geocortex Mobile to change the default map click behavior
+description: VertiGIS Studio Mobile - Learn how to configure VertiGIS Studio Mobile to change the default map click behavior
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -12,10 +12,10 @@ import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 import RelevantWorkflowSamples from "./snippets/relevant-workflow-samples.mdx";
 
-Geocortex Mobile comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](configuration-app-config-getting-started.mdx).
+VertiGIS Studio Mobile comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [VertiGIS Studio Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](configuration-app-config-getting-started.mdx).
 
 :::note
-It's actually possible to configure the Map's `onClick` event in [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this tutorial is to demonstrate the concept of configuring actions using the app config.
+It's actually possible to configure the Map's `onClick` event in [VertiGIS Studio Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this tutorial is to demonstrate the concept of configuring actions using the app config.
 :::
 
 ## What you're Building
@@ -35,7 +35,7 @@ We will modify the default map on click behavior to buffer the click geometry by
 
 ## Initial Set up
 
-Start the Geocortex Mobile SDK with the following layout and app JSON. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.
+Start the VertiGIS Studio Mobile SDK with the following layout and app JSON. You should see a simple application with one layer, Fire Hydrants, which has a related table Fire Hydrant Surveys.
 
 Try clicking the map. It should return results for the point you clicked in the results list.
 
@@ -179,7 +179,7 @@ The first thing we need to do is override the default map click behavior. We can
 
 First, we are going to replace the command chain with a `workflow.run` command that replicates this behavior.
 
-1. Open up [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
+1. Open up [VertiGIS Studio Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
 2. Add an "Alert" activity as a test.
 3. Copy the ID of the the workflow from the URL
 
@@ -231,7 +231,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
     alt="Map Click Workflow with Alert"
 />
 
-7. Open up your workflow in the Geocortex Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.identify` is an operation, so it needs a RunOperation activity, and `highlights.pulse` and `results.display` are commands, so they need RunCommand Activities. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.identify` and then passing the output of that operation to `highlights.pulse`, and `results.display`.
+7. Open up your workflow in the VertiGIS Studio Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `tasks.identify` is an operation, so it needs a RunOperation activity, and `highlights.pulse` and `results.display` are commands, so they need RunCommand Activities. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `tasks.identify` and then passing the output of that operation to `highlights.pulse`, and `results.display`.
 
 :::note
 
@@ -251,7 +251,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
         href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
-        import it into the Geocortex Workflow Designer.
+        import it into the VertiGIS Studio Workflow Designer.
     </a>
 </p>
 :::
@@ -267,7 +267,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
 
 ## Extend the Workflow to Create a Graphic Buffering the Click Geometry
 
-At this point, you can choose to extend the map click behavior with Geocortex Workflow in whatever way is appropriate for your use case. You could execute a different "identify" for external results and add them to the set of results displayed, or zoom the map to a specific orientation and scale, or display a form for the user to fill out with relevant information to that location. For this example, a workflow was created which asks a user for a buffer distance, and creates a graphic showing the buffer around the click location.
+At this point, you can choose to extend the map click behavior with VertiGIS Studio Workflow in whatever way is appropriate for your use case. You could execute a different "identify" for external results and add them to the set of results displayed, or zoom the map to a specific orientation and scale, or display a form for the user to fill out with relevant information to that location. For this example, a workflow was created which asks a user for a buffer distance, and creates a graphic showing the buffer around the click location.
 
 :::note
 
@@ -287,7 +287,7 @@ At this point, you can choose to extend the map click behavior with Geocortex Wo
         href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
-        import it into the Geocortex Workflow Designer.
+        import it into the VertiGIS Studio Workflow Designer.
     </a>
 </p>
 :::
@@ -309,8 +309,8 @@ This pattern of configuring behavior with a workflow can be applied to numerous 
 
 <UseCaseContainer>
     <UseCaseCard
-        title="Geocortex Workflow"
-        description="Learn more about Geocortex Workflow"
+        title="VertiGIS Studio Workflow"
+        description="Learn more about VertiGIS Studio Workflow"
         link={useBaseUrl("docs/workflow/overview")}
     />
     <UseCaseCard

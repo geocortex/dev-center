@@ -1,13 +1,13 @@
 ---
 title: Workflow Activity Reference
 sidebar_label: Activity Reference
-description: Geocortex Workflow - Reference for workflow activities for Geocortex Mobile
+description: VertiGIS Studio Workflow - Reference for workflow activities for VertiGIS Studio Mobile
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-In the Geocortex Workflow .NET SDK, activities are represented as simple classes with an `Execute` method.
+In the VertiGIS Studio Workflow .NET SDK, activities are represented as simple classes with an `Execute` method.
 
 :::tip
 Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.  
@@ -33,12 +33,12 @@ namespace App1.Workflow
 
 ## Registering Activities
 
-Every Geocortex Mobile application that implements custom workflow activities needs to implement an `IActivityHandlerFactory`. The `IActivityHandlerFactory` is responsible for registering the custom activities with Geocortex Mobile so they can be created by Geocortex Workflow at runtime.
+Every VertiGIS Studio Mobile application that implements custom workflow activities needs to implement an `IActivityHandlerFactory`. The `IActivityHandlerFactory` is responsible for registering the custom activities with VertiGIS Studio Mobile so they can be created by VertiGIS Studio Workflow at runtime.
 
-The `ActivityLoader` registers custom activities in its constructor. Only one instance of the loader is required per Geocortex Mobile Application, as it can register multiple activities.
+The `ActivityLoader` registers custom activities in its constructor. Only one instance of the loader is required per VertiGIS Studio Mobile Application, as it can register multiple activities.
 
 :::info
-Two key components of this snippet are the `[assembly: Export(...)]` tag and the class extension `ActivityLoader : IActivityHandlerFactory`. These two pieces register the `ActivityLoader` with Geocortex Mobile and cause it to be initialized on startup.
+Two key components of this snippet are the `[assembly: Export(...)]` tag and the class extension `ActivityLoader : IActivityHandlerFactory`. These two pieces register the `ActivityLoader` with VertiGIS Studio Mobile and cause it to be initialized on startup.
 :::
 
 ```cs title="App1/App1/ActivityLoader.cs"
@@ -94,9 +94,9 @@ namespace App1.Workflow
 }
 ```
 
-## Access Geocortex Mobile Functionality
+## Access VertiGIS Studio Mobile Functionality
 
-You can access Geocortex Mobile functionality in custom workflow activities by using the built-in [dependency injection pattern](../mobile/sdk-dependency-injection.mdx) to inject shared Geocortex Mobile [services](../mobile/sdk-services-overview.mdx) such as the `UIOperations` service.
+You can access VertiGIS Studio Mobile functionality in custom workflow activities by using the built-in [dependency injection pattern](../mobile/sdk-dependency-injection.mdx) to inject shared VertiGIS Studio Mobile [services](../mobile/sdk-services-overview.mdx) such as the `UIOperations` service.
 
 First, add the class you want to inject to the constructor of the custom activity.
 
@@ -145,7 +145,7 @@ public class ActivityLoader : IActivityHandlerFactory
 }
 ```
 
-Finally, you can implement your activity using the referenced Geocortex Mobile class.
+Finally, you can implement your activity using the referenced VertiGIS Studio Mobile class.
 
 <Tabs
   defaultValue="custom-activity"

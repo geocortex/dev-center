@@ -1,6 +1,6 @@
 ---
 title: SDK Overview
-description: Geocortex Web - Learn how to get started with the Geocortex Web SDK
+description: VertiGIS Studio Web - Learn how to get started with the VertiGIS Studio Web SDK
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -8,15 +8,15 @@ import DesignerCallout from "./snippets/designer-callout.mdx";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
-If the built-in configurability of Geocortex Web does not serve your purposes, then it might be time to dive into the Geocortex Web SDK. Building applications on top of the Geocortex Web SDK requires engaging in the development, testing, and deployment of custom code, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](overview.mdx).
+If the built-in configurability of VertiGIS Studio Web does not serve your purposes, then it might be time to dive into the VertiGIS Studio Web SDK. Building applications on top of the VertiGIS Studio Web SDK requires engaging in the development, testing, and deployment of custom code, so it's worthwhile to make sure your problem cannot be solved [with workflow or other advanced configuration](overview.mdx).
 
-If you still think you need to use the Geocortex Web SDK, then let's get started!
+If you still think you need to use the VertiGIS Studio Web SDK, then let's get started!
 
 <DesignerCallout />
 
 ## Overview
 
-The Geocortex Web SDK provides a [development toolkit](https://github.com/geocortex/vertigis-web-sdk) for building [custom components](sdk-components-create.mdx), [services](sdk-services-create.mdx), and more into a package that can be deployed to Geocortex Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises environment.
+The VertiGIS Studio Web SDK provides a [development toolkit](https://github.com/geocortex/vertigis-web-sdk) for building [custom components](sdk-components-create.mdx), [services](sdk-services-create.mdx), and more into a package that can be deployed to VertiGIS Studio Web called a _library_. Once the _library_ has been developed, it can then be [deployed](sdk-deployment.mdx) to your SaaS or on-premises environment.
 
 ## Extension Points
 
@@ -24,7 +24,7 @@ There are three main extension points in the SDK:
 
 ### Components
 
-Components power the UI experience of Geocortex Web. Components are composed of a React Component and a backing data model. Layout files are composed of a nested hierarchy of components which are instantiated at runtime.
+Components power the UI experience of VertiGIS Studio Web. Components are composed of a React Component and a backing data model. Layout files are composed of a nested hierarchy of components which are instantiated at runtime.
 
 ### Services
 
@@ -38,7 +38,7 @@ Commands and operations provide a framework for executing application wide behav
 
 <!-- TODO-API links to components -->
 
-Components, services, and commands and operations interact to form a Geocortex Web Application.
+Components, services, and commands and operations interact to form a VertiGIS Studio Web Application.
 
 -   Services are used to implement application wide behavior, such as theming or authentication, and then expose that logic through commands and operations, such as `ui.set-theme` (implemented by the `BrandingService`) or `auth.sign` (implemented by the `AuthenticationService`).
 -   Components can run commands and operations to interact with services or other components. Components can also implement commands and operations to allow themselves to be affected by other services and components.
@@ -68,7 +68,7 @@ The created project contains a few important directories:
 
 ### Library Entry Point
 
-The Geocortex Web SDK compiles custom components, services, and commands and operations into a library. The library is defined by the registration function exported from `src/index.ts`. This registration code informs Geocortex Web about the components, services, and commands and operations in your library so that they can be referenced in the app config and layout.
+The VertiGIS Studio Web SDK compiles custom components, services, and commands and operations into a library. The library is defined by the registration function exported from `src/index.ts`. This registration code informs VertiGIS Studio Web about the components, services, and commands and operations in your library so that they can be referenced in the app config and layout.
 
 ```ts title="src/index.ts"
 export default function (registry: LibraryRegistry) {
@@ -102,9 +102,9 @@ export default function (registry: LibraryRegistry) {
 
 If you are developing custom code that is mostly independent of app context, we suggest that you use the minimal layout and app config with only the required components.
 
-If you need to develop custom code that requires the context of a custom application built in Geocortex Web Designer, take the following steps to import your SaaS or on-premises application into your local Web SDK environment.
+If you need to develop custom code that requires the context of a custom application built in VertiGIS Studio Web Designer, take the following steps to import your SaaS or on-premises application into your local Web SDK environment.
 
-1. Open your application in Geocortex Web Designer.
+1. Open your application in VertiGIS Studio Web Designer.
 1. [Download the application configuration](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/download-app-configuration.htm).
 1. Delete the contents of the `app` directory.
 1. Extract the contents to you in your Web SDK Applications `app` directory, overwriting existing app config and layout.
@@ -134,7 +134,7 @@ You may need to rename the downloaded layout file to `layout.xml`.
     />
     <UseCaseCard
         title="SDK Samples"
-        description="Check out a collection of samples that demonstrate how to configure and customize Geocortex Web apps using the Geocortex Web SDK"
+        description="Check out a collection of samples that demonstrate how to configure and customize VertiGIS Studio Web apps using the VertiGIS Studio Web SDK"
         link={useBaseUrl("docs/web/sdk-samples")}
     />
 </UseCaseContainer>

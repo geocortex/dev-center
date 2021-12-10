@@ -1,6 +1,6 @@
 ---
 title: Run a Workflow from App Config
-description: Geocortex Mobile - Learn how to run a workflow using app config and layout
+description: VertiGIS Studio Mobile - Learn how to run a workflow using app config and layout
 ---
 
 import Tabs from "@theme/Tabs";
@@ -15,7 +15,7 @@ import RelevantWorkflowSamples from "./snippets/relevant-workflow-samples.mdx";
 In this article, we can configure a workflow to run when the map is initialized.
 
 :::important
-Configuring a workflow to run when the map is initialized can be done through [Geocortex Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) and this is the preferred method of configurable if Designer can be used. The goal of this article is to demonstrate the pattern of overriding behaviors with workflows.
+Configuring a workflow to run when the map is initialized can be done through [VertiGIS Studio Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/) and this is the preferred method of configurable if Designer can be used. The goal of this article is to demonstrate the pattern of overriding behaviors with workflows.
 :::
 
 ## Prerequisites
@@ -129,7 +129,7 @@ Next, add an [app item](configuration-app-config-reference.mdx#app-items) to the
 
 The next step is going to be replacing the `ui.display-notification` command with a `workflow.run-*` command. First, we need to create a workflow to use for the command.
 
-1. Open up [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
+1. Open up [VertiGIS Studio Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
 
 :::tip
 
@@ -147,7 +147,7 @@ The next step is going to be replacing the `ui.display-notification` command wit
         href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
-        import it into the Geocortex Workflow Designer.
+        import it into the VertiGIS Studio Workflow Designer.
     </a>
 </p>
 :::
@@ -282,8 +282,8 @@ Finally, you can configure the map to run this workflow on initialization.
 
 <UseCaseContainer>
     <UseCaseCard
-        title="Geocortex Workflow"
-        description="Learn more about Geocortex Workflow"
+        title="VertiGIS Studio Workflow"
+        description="Learn more about VertiGIS Studio Workflow"
         link={useBaseUrl("docs/workflow/overview")}
     />
     <UseCaseCard

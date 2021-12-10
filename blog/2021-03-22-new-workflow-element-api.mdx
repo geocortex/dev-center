@@ -9,12 +9,12 @@ tags: [workflow]
 
 import Link from "@docusaurus/Link";
 
-Workflow `5.21` includes a new TypeScript form element API that you can use for building custom form elements using the <Link to="/docs/workflow/sdk-web-overview">Geocortex Workflow TypeScript SDK</Link>. The existing patterns and APIs you've been using for years to build custom form elements will continue to work, but we encourage you to try the new API when building new form elements.
+Workflow `5.21` includes a new TypeScript form element API that you can use for building custom form elements using the <Link to="/docs/workflow/sdk-web-overview">VertiGIS Studio Workflow TypeScript SDK</Link>. The existing patterns and APIs you've been using for years to build custom form elements will continue to work, but we encourage you to try the new API when building new form elements.
 
 <!--truncate-->
 
 :::note
-To use these new features, you will need the latest version of Geocortex Workflow, as well as the Geocortex Workflow SDK.
+To use these new features, you will need the latest version of VertiGIS Studio Workflow, as well as the VertiGIS Studio Workflow SDK.
 :::
 
 The new form element API provides a number of new features and benefits:
@@ -115,10 +115,11 @@ This added some extra boilerplate that we felt was unnecessary. More importantly
 When registering your element using the new API and the latest version of the Workflow SDK, it is no longer necessary to run the activity prior to _Display Form_:
 
 ```ts
-const DemoElementRegistration: FormElementRegistration<DemoElementProps> = {
-    component: DemoElement,
-    id: "Demo",
-};
+const DemoElementRegistration: FormElementRegistration<DemoElementProps> =
+    {
+        component: DemoElement,
+        id: "Demo",
+    };
 
 export default DemoElementRegistration;
 ```
@@ -374,32 +375,36 @@ function RangeSlider(props: RangeSliderProps): React.ReactElement {
     );
 }
 
-const RangeSliderElementRegistration: FormElementRegistration<RangeSliderProps> = {
-    component: RangeSlider,
-    getInitialProperties: () => ({
-        max: 100,
-        min: 0,
-        step: 5,
-        value: 50,
-    }),
-    id: "RangeSlider",
-    onPropertyChange: ({ properties, property }) => {
-        if (
-            property === "max" ||
-            property === "min" ||
-            property === "step" ||
-            property === "value"
-        ) {
-            const value = properties[property];
+const RangeSliderElementRegistration: FormElementRegistration<RangeSliderProps> =
+    {
+        component: RangeSlider,
+        getInitialProperties: () => ({
+            max: 100,
+            min: 0,
+            step: 5,
+            value: 50,
+        }),
+        id: "RangeSlider",
+        onPropertyChange: ({ properties, property }) => {
+            if (
+                property === "max" ||
+                property === "min" ||
+                property === "step" ||
+                property === "value"
+            ) {
+                const value = properties[property];
 
-            // Ensure we always have the type we expect assigned to the element
-            // properties.
-            if (typeof value !== "number" || Number.isNaN(value)) {
-                throw new Error("Unexpected type");
+                // Ensure we always have the type we expect assigned to the element
+                // properties.
+                if (
+                    typeof value !== "number" ||
+                    Number.isNaN(value)
+                ) {
+                    throw new Error("Unexpected type");
+                }
             }
-        }
-    },
-};
+        },
+    };
 
 export default RangeSliderElementRegistration;
 ```

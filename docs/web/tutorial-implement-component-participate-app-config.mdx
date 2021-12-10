@@ -1,6 +1,6 @@
 ---
 title: Pull Component Data from App Config
-description: Geocortex Web - Learn how to make a component participate in app config.
+description: VertiGIS Studio Web - Learn how to make a component participate in app config.
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -11,7 +11,7 @@ import TabItem from "@theme/TabItem";
 import FrameworkComponentsSnippet from "./snippets/framework-components.mdx";
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
 
-Geocortex Web has a powerful [app configuration](configuration-app-config-getting-started.mdx) model which can be used to easily change the behavior of an application without modifying custom code. Using app config to power a components behavior increases its reusability and customizability.
+VertiGIS Studio Web has a powerful [app configuration](configuration-app-config-getting-started.mdx) model which can be used to easily change the behavior of an application without modifying custom code. Using app config to power a components behavior increases its reusability and customizability.
 
 By the end of this article, you'll have the knowledge to build a component that displays relevant news items at the top of your map. These news items will be populated from config, along with a value that tells the news component whether or not to be visible by default.
 
@@ -198,7 +198,7 @@ export default class NewsFeedModel extends ComponentModelBase<NewsFeedModelPrope
 
 ## Participate in the Configuration
 
-Next, we have to inform Geocortex Web about how to serialize and deserialize these properties between the app config and the model, as well as provide default values. We do this by [implementing the `_getSerializableProperties` method](sdk-serializable-properties.mdx).
+Next, we have to inform VertiGIS Studio Web about how to serialize and deserialize these properties between the app config and the model, as well as provide default values. We do this by [implementing the `_getSerializableProperties` method](sdk-serializable-properties.mdx).
 
 ```ts title="src/components/NewsFeed/NewsFeedModel.ts"
 import {
@@ -511,7 +511,7 @@ export default function (registry: LibraryRegistry) {
 <UseCaseContainer>
     <UseCaseCard
         title="Check out the Component Reference"
-        description="Take a deep dive into components in the Geocortex Web SDK"
+        description="Take a deep dive into components in the VertiGIS Studio Web SDK"
         link={useBaseUrl("docs/web/sdk-components-reference")}
     />
 </UseCaseContainer>

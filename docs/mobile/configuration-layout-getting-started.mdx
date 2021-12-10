@@ -1,7 +1,7 @@
 ---
 title: Layout
 sidebar_label: Getting Started
-description: Geocortex Mobile - Learn about layout concepts
+description: VertiGIS Studio Mobile - Learn about layout concepts
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -15,7 +15,7 @@ import FollowAlongSnippet from "./snippets/follow-along.mdx";
 Check out the [Key Concepts](key-concepts.mdx).
 :::
 
-A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a Geocortex Mobile Application is built.
+A layout consists of declarative XML that defines an applications visual structure and data sources. Think of it as the blueprints on which a VertiGIS Studio Mobile Application is built.
 
 Take this example of a layout with a map and a zoom widget.
 
@@ -74,7 +74,7 @@ See [presentation attributes](configuration-layout-reference.mdx#presentation-at
 
 ## Panels
 
-Another core concept that Geocortex Mobile uses to organize elements in a layout is **panels**.
+Another core concept that VertiGIS Studio Mobile uses to organize elements in a layout is **panels**.
 Panels are a container component that enable hierarchal navigation between different components.
 
 For a deeper dive into Panels, [check out the layout reference](configuration-layout-reference.mdx#panels).
@@ -87,10 +87,10 @@ These are just a few examples of the building blocks available to help you organ
 
 ## Device Form factors
 
-Geocortex Mobile has built-in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target desktop and laptop devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropriate.
+VertiGIS Studio Mobile has built-in support for loading different layouts depending on the form factor of the target device. The three possible form factors are 'small', 'medium', and 'large'. The 'large' layout is intended to target desktop and laptop devices, the 'medium' layout is intended to target tablet devices, and the 'small' layout is intended to target phone devices. All three of these layouts are intended to target the same app config, allowing config to be shared when appropriate.
 
 :::tip
-The Geocortex Mobile SDK [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) includes a large and small layout.
+The VertiGIS Studio Mobile SDK [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) includes a large and small layout.
 :::
 
 In order for the correct layout to be loaded for the correct form factor, the layout needs to be loaded by the app config.
@@ -126,7 +126,7 @@ The [Quickstart](https://github.com/geocortex/vertigis-mobile-quickstart) does n
 
 ### Fallback Layouts
 
-If a layout that matches the device form factor is not available, then Geocortex Mobile will attempt to load the layout with the most similar form factor. For the example above, if Geocortex Mobile was loaded on a phone device, `layout-medium.xml` would be loaded, as it is the closest form factor to small. If the medium layout was also missing, `layout-large.xml` would be loaded instead, and vice versa.
+If a layout that matches the device form factor is not available, then VertiGIS Studio Mobile will attempt to load the layout with the most similar form factor. For the example above, if VertiGIS Studio Mobile was loaded on a phone device, `layout-medium.xml` would be loaded, as it is the closest form factor to small. If the medium layout was also missing, `layout-large.xml` would be loaded instead, and vice versa.
 
 ## Namespaces
 
@@ -138,7 +138,7 @@ Every component in the xml file has a definition that lives in an xml namespace.
 </layout>
 ```
 
-Geocortex Mobile has a specific namespace `https://geocortex.com/layout/mobile/v1` in which components like `<gxm:taskbar>` live. You can add this namespace to your layout to use these components.
+VertiGIS Studio Mobile has a specific namespace `https://geocortex.com/layout/mobile/v1` in which components like `<gxm:taskbar>` live. You can add this namespace to your layout to use these components.
 
 ```xml
 <layout xmlns="https://geocortex.com/layout/v1"
@@ -154,7 +154,7 @@ When adding custom components, you will need to [add their custom namespace](sdk
 
 ## Relevant SDK Samples
 
-The Geocortex Mobile SDK Samples project has a variety of layout configuration samples:
+The VertiGIS Studio Mobile SDK Samples project has a variety of layout configuration samples:
 
 -   [Layout Configuration Samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Layout)
 

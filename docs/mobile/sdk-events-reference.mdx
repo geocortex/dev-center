@@ -1,6 +1,6 @@
 ---
 title: Events Reference
-description: Geocortex Mobile - Events Reference
+description: VertiGIS Studio Mobile - Events Reference
 ---
 
 import CleanupHandlesSnippet from "./snippets/cleanup-handles.mdx";
@@ -14,7 +14,7 @@ Events can be published by calling the `.publish` method on the event object.
 In both components and services, event objects are accessed by injecting the relevant event reference class.
 
 :::tip
-The `AllEvents` class is a repository of all available events in the Geocortex Mobile SDK
+The `AllEvents` class is a repository of all available events in the VertiGIS Studio Mobile SDK
 :::
 
 ```cs
@@ -65,7 +65,7 @@ public class CustomServiceOrComponent : ServiceBase
 
 ## Creating Custom Events
 
-Custom events in Geocortex Mobile are created through the `IEventRegistry`. Events can be directly created in any component or service that can inject this class, but it is best practice to define events in a class that extends `EventsBase` and registers with Autofac. This allows your events to be injected and referenced by any component or service across the app.
+Custom events in VertiGIS Studio Mobile are created through the `IEventRegistry`. Events can be directly created in any component or service that can inject this class, but it is best practice to define events in a class that extends `EventsBase` and registers with Autofac. This allows your events to be injected and referenced by any component or service across the app.
 
 ```cs
 // highlight-next-line

@@ -1,6 +1,6 @@
 ---
 title: Create an Activity
-description: Geocortex Workflow - Create a workflow activity for web applications
+description: VertiGIS Studio Workflow - Create a workflow activity for web applications
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -11,7 +11,7 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import MobilePrereqs from "./snippets/prereqs-mobile.mdx";
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
-This article will walk you through creating a new workflow activity for Geocortex Mobile applications.
+This article will walk you through creating a new workflow activity for VertiGIS Studio Mobile applications.
 
 <img src={useBaseUrl("img/workflow-mobile-create-activity.png")} />
 
@@ -21,7 +21,7 @@ This article will walk you through creating a new workflow activity for Geocorte
 
 ## Create the Activity
 
-1. Create a new file `CustomActivity.cs` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-overview.mdx).
+1. Create a new file `CustomActivity.cs` in the platform agnostic project of the VertiGIS Studio Mobile [Quickstart](../mobile/sdk-overview.mdx).
 2. Add a new skeleton workflow activity that implements `IActivityHandler`.
 
 ```cs title="App1/App1/CustomActivity.cs"
@@ -50,7 +50,7 @@ namespace App1.Workflow
 
 ## Register the Activity with the `IActivityHandlerFactory`
 
-1. Create a new file, `ActivityLoader.cs` in the platform agnostic project of the Geocortex Mobile [Quickstart](../mobile/sdk-overview.mdx).
+1. Create a new file, `ActivityLoader.cs` in the platform agnostic project of the VertiGIS Studio Mobile [Quickstart](../mobile/sdk-overview.mdx).
 2. Implement the `IActivityHandlerFactory` interface and register the activity skeleton we created in the constructor.
 
 ```cs title="App1/App1/ActivityLoader.cs"
@@ -109,10 +109,10 @@ namespace App1.Workflow
 
 ## Use the Activity in a Workflow
 
-Workflows that run in your custom Geocortex Mobile application can now run this custom activity.
+Workflows that run in your custom VertiGIS Studio Mobile application can now run this custom activity.
 
 :::tip
-[Registering stubs for .NET activities](sdk-net-register-activities.mdx) provides a user friendly interface for your custom activities in Geocortex Workflow Designer.
+[Registering stubs for .NET activities](sdk-net-register-activities.mdx) provides a user friendly interface for your custom activities in VertiGIS Studio Workflow Designer.
 :::
 
 The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____167) activity can be used to execute your activity by the name defined in `CustomActivity.cs` (for this example, `uuid:<uuid>::CustomActivity`).
@@ -134,12 +134,12 @@ The [`RunActivity`](https://docs.geocortex.com/workflow/latest/help/Default.htm#
         target="_blank"
     >
         {" "}
-        import it into the Geocortex Workflow Designer.{" "}
+        import it into the VertiGIS Studio Workflow Designer.{" "}
     </a>
 </p>
 :::
 
-Next you need to run the workflow you just created in your Geocortex Mobile SDK project.
+Next you need to run the workflow you just created in your VertiGIS Studio Mobile SDK project.
 
 <!-- TODO-after-mobile-restructure add link to running workflow and app config tutorial in mobile -->
 
@@ -233,14 +233,14 @@ You can do this by configuring the layout and app config to run a workflow. You 
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
-        description="Implement a custom form element for applications like Geocortex Mobile"
+        description="Implement a custom form element for applications like VertiGIS Studio Mobile"
         link={useBaseUrl(
             "docs/workflow/tutorial-mobile-activity-indicator-form-element"
         )}
     />
     <UseCaseCard
         title="Add a Callout to the Map through a Custom Activity"
-        description="Access the map in custom activities for Geocortex Mobile"
+        description="Access the map in custom activities for VertiGIS Studio Mobile"
         link={useBaseUrl(
             "docs/workflow/tutorial-mobile-show-map-callout"
         )}

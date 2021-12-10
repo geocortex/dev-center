@@ -1,6 +1,6 @@
 ---
 title: Create a Component
-description: Geocortex Web - Create a component for Geocortex Web
+description: VertiGIS Studio Web - Create a component for VertiGIS Studio Web
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -9,7 +9,7 @@ import TabItem from "@theme/TabItem";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
-The [Geocortex Web SDK](sdk-overview.mdx) project template includes an example of a [custom component](sdk-components-create.mdx) following our best practices. Creating a new custom component involves a few important steps:
+The [VertiGIS Studio Web SDK](sdk-overview.mdx) project template includes an example of a [custom component](sdk-components-create.mdx) following our best practices. Creating a new custom component involves a few important steps:
 
 1. [Create the component source file](#create-the-component)
 1. [Create the component model](#create-the-component-model)
@@ -91,7 +91,7 @@ export default class ExampleComponentModel extends ComponentModelBase<ExampleCom
 
 ## Register the Component
 
-Finally we need to register the component and component model with the Geocortex Web component registry so that it is aware of your new component.
+Finally we need to register the component and component model with the VertiGIS Studio Web component registry so that it is aware of your new component.
 
 To simplify the module imports, we'll make a new file in the `ExampleComponent` folder called `index.ts`. Note that this file is for convenience, and is not required:
 
@@ -164,7 +164,7 @@ You can now add the component to your `layout.xml` file and run the development 
 <UseCaseContainer>
     <UseCaseCard
         title="Check out the Component Reference"
-        description="Take a deep dive into components in the Geocortex Web SDK"
+        description="Take a deep dive into components in the VertiGIS Studio Web SDK"
         link={useBaseUrl("docs/web/sdk-components-reference")}
     />
     <UseCaseCard

@@ -1,11 +1,11 @@
 ---
 title: Integrating the ArcGIS API for JavaScript
-description: Geocortex Workflow - Integrate the ArcGIS API for JavaScript into custom activities for web applications
+description: VertiGIS Studio Workflow - Integrate the ArcGIS API for JavaScript into custom activities for web applications
 ---
 
 import WebPrereqs from "./snippets/prereqs-web.mdx";
 
-[Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) was designed to be a flexible tool for implementing business logic for mapping applications, and tightly integrates with ArcGIS API for JavaScript. You may want to use the ArcGIS API in your own custom activities; this article will explain how to reference ArcGIS API types in your custom activity or custom form element for web applications.
+[VertiGIS Studio Workflow](https://apps.geocortex.com/workflow/designer/) was designed to be a flexible tool for implementing business logic for mapping applications, and tightly integrates with ArcGIS API for JavaScript. You may want to use the ArcGIS API in your own custom activities; this article will explain how to reference ArcGIS API types in your custom activity or custom form element for web applications.
 
 ## Prerequisites
 
@@ -18,7 +18,7 @@ Type information for the ArcGIS API for JavaScript is provided by the [@types/ar
 1. Open up a terminal shell in the SDK folder.
 1. Run the `npm install @types/arcgis-js-api` command for the desired version of the ArcGIS API for JavaScript.
 
-For applications like [Geocortex Web](https://www.geocortex.com/products/gxw/) that use the 4.x ArcGIS API for JavaScript use:
+For applications like [VertiGIS Studio Web](https://www.geocortex.com/products/gxw/) that use the 4.x ArcGIS API for JavaScript use:
 
 ```sh
 npm install @types/arcgis-js-api@4.17.0
@@ -101,7 +101,7 @@ export class ExpandPolygon implements IActivityHandler {
 
 ## Build Activities to work with both 3.x and 4.x ArcGIS API for JavaScript Versions
 
-Geocortex Workflow is designed to work with both the 3.x and 4.x versions of the ArcGIS API for JavaScript; however, many custom activity implementations only bother to support one or the other.
+VertiGIS Studio Workflow is designed to work with both the 3.x and 4.x versions of the ArcGIS API for JavaScript; however, many custom activity implementations only bother to support one or the other.
 
 If you need to support both ArcGIS API versions, then you may need to account for differences between the APIs in your code. For more details on these differences, see the developer documentation for the [4.x ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/) and the [3.x ArcGIS API for JavaScript](https://developers.arcgis.com/javascript/3/) respectively.
 

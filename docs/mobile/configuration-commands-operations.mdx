@@ -1,6 +1,6 @@
 ---
 title: Commands and Operations
-description: Geocortex Mobile - Learn about commands and operations
+description: VertiGIS Studio Mobile - Learn about commands and operations
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -14,10 +14,10 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 Check out the [Key Concepts](key-concepts.mdx).
 :::
 
-**Commands and operations** are runnable, independent units of work within Geocortex Mobile. Commands and operations act as global functions which can be
+**Commands and operations** are runnable, independent units of work within VertiGIS Studio Mobile. Commands and operations act as global functions which can be
 executed from any component or service.
 
-In Geocortex Mobile, commands and operations are compatible extensions of the [ICommand interface](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/commanding) with strongly typed arguments and return values. Operations are implementations of `ICommand` that have been extended to have an `ExecuteAsync` method, which allows the operation to run asynchronously and return a value. Commands and Operations are registered with the globally available service `IOperationRegistry`, in which they can be looked up by their `name`. Commands and Operations are grouped by namespaces, such as `auth` or `edit`.
+In VertiGIS Studio Mobile, commands and operations are compatible extensions of the [ICommand interface](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/commanding) with strongly typed arguments and return values. Operations are implementations of `ICommand` that have been extended to have an `ExecuteAsync` method, which allows the operation to run asynchronously and return a value. Commands and Operations are registered with the globally available service `IOperationRegistry`, in which they can be looked up by their `name`. Commands and Operations are grouped by namespaces, such as `auth` or `edit`.
 
 ```
 auth.sign-in
@@ -27,10 +27,10 @@ edit.delete-features
 ```
 
 :::tip
-The full list of existing commands and operations available in Geocortex Mobile can be [found in the API documentation](api-commands-operations-events.mdx).
+The full list of existing commands and operations available in VertiGIS Studio Mobile can be [found in the API documentation](api-commands-operations-events.mdx).
 :::
 
-Commands and operations are used to power much of Geocortex Mobile's built in behavior and interactions. They can be run through configuration, or through [custom services](sdk-commands-operations.mdx) or [components](sdk-commands-operations.mdx).
+Commands and operations are used to power much of VertiGIS Studio Mobile's built in behavior and interactions. They can be run through configuration, or through [custom services](sdk-commands-operations.mdx) or [components](sdk-commands-operations.mdx).
 
 One thing that makes commands and operations so powerful is that built in components have properties in the app config which take them as values. They power everything from basic components like the IWTM, to advanced functionality like the results list. This allows built-in component's internal behavior to be configured with different commands and operations.
 
@@ -84,7 +84,7 @@ One thing that makes commands and operations so powerful is that built in compon
 
 ## Workflow Command
 
-[Geocortex Workflow](https://docs.geocortex.com/workflow/) can allow for the creation of completely customized behavior without writing custom code. Geocortex Mobile has a special command, `workflow.run`, which allows you to run workflows anywhere you would run a command or operation. Using workflow, you can take custom behavior in Geocortex Mobile further without having to write custom code.
+[VertiGIS Studio Workflow](https://docs.geocortex.com/workflow/) can allow for the creation of completely customized behavior without writing custom code. VertiGIS Studio Mobile has a special command, `workflow.run`, which allows you to run workflows anywhere you would run a command or operation. Using workflow, you can take custom behavior in VertiGIS Studio Mobile further without having to write custom code.
 
 Check out this example of [running a workflow from app config](tutorial-run-workflow-app-config.mdx).
 
@@ -333,7 +333,7 @@ The second command/operation in this application is a `map.zoom-to-initial-viewp
 
 ## Relevant SDK Samples
 
-Check out the relevant Geocortex Mobile SDK Samples:
+Check out the relevant VertiGIS Studio Mobile SDK Samples:
 
 -   [Commands](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/AppConfiguration/Commands)
 
@@ -341,7 +341,7 @@ Check out the relevant Geocortex Mobile SDK Samples:
 
 ## Next Steps
 
-Geocortex Mobile has a large array of built-in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.
+VertiGIS Studio Mobile has a large array of built-in command and operations that you can chain to power custom behavior. Custom commands and operations can also be implemented with the SDK.
 
 <UseCaseContainer>
     <UseCaseCard
@@ -366,8 +366,8 @@ Geocortex Mobile has a large array of built-in command and operations that you c
         )}
     />
     <UseCaseCard
-        title="Learn about Events built into Geocortex Mobile"
-        description="Learn about the global event infrastructure in Geocortex Mobile"
+        title="Learn about Events built into VertiGIS Studio Mobile"
+        description="Learn about the global event infrastructure in VertiGIS Studio Mobile"
         link={useBaseUrl("docs/mobile/sdk-events-reference")}
     />
 </UseCaseContainer>

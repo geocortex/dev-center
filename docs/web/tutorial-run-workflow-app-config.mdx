@@ -1,6 +1,6 @@
 ---
 title: Run a Workflow from App Config
-description: Geocortex Web - Learn how to run a workflow using app config and layout
+description: VertiGIS Studio Web - Learn how to run a workflow using app config and layout
 ---
 
 import Tabs from "@theme/Tabs";
@@ -16,7 +16,7 @@ Many components have default behaviors which can be [configured through the app 
 In this article, we can configure a workflow to run when the map is initialized.
 
 :::important
-Configuring a workflow to run when the map is initialized can be done through [Geocortex Web Designer](https://apps.geocortex.com/webviewer/designer/) and this is the preferred method of configurable if Designer can be used. The goal of this article is to demonstrate the pattern of overriding behaviors with workflows.
+Configuring a workflow to run when the map is initialized can be done through [VertiGIS Studio Web Designer](https://apps.geocortex.com/webviewer/designer/) and this is the preferred method of configurable if Designer can be used. The goal of this article is to demonstrate the pattern of overriding behaviors with workflows.
 :::
 
 ## Prerequisites
@@ -100,7 +100,7 @@ Next, add an [app item](configuration-app-config-getting-started.mdx#anatomy-of-
 
 The next step is going to be replacing the `ui.display-notification` command with a `workflow.run-*` command. First, we need to create a workflow to use for the command.
 
-1. Open up [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
+1. Open up [VertiGIS Studio Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
 
 :::tip
 
@@ -118,7 +118,7 @@ The next step is going to be replacing the `ui.display-notification` command wit
         href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
-        import it into the Geocortex Workflow Designer.
+        import it into the VertiGIS Studio Workflow Designer.
     </a>
 </p>
 :::
@@ -227,26 +227,26 @@ For a more in depth example, check out the tutorial on [overriding default map c
 <UseCaseContainer>
     <UseCaseCard
         title="Build a Custom Form"
-        description="Learn how to build a custom form with Geocortex Workflow"
+        description="Learn how to build a custom form with VertiGIS Studio Workflow"
         link="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm"
     />
     <UseCaseCard
         title="Implement a Custom Activity"
-        description="Learn how to implement a custom activity with the Geocortex Workflow SDK"
+        description="Learn how to implement a custom activity with the VertiGIS Studio Workflow SDK"
         link={useBaseUrl(
             "docs/web/tutorial-implement-custom-activity"
         )}
     />
     <UseCaseCard
         title="Implement a Custom Form Element"
-        description="Learn how to implement a custom form element with the Geocortex Workflow SDK"
+        description="Learn how to implement a custom form element with the VertiGIS Studio Workflow SDK"
         link={useBaseUrl(
             "docs/web/tutorial-implement-custom-form-elements"
         )}
     />
     <UseCaseCard
-        title="Change Geocortex Web's Default Map Click Behavior"
-        description="Learn how to use Geocortex Workflow to override Geocortex Web's default map click behavior"
+        title="Change VertiGIS Studio Web's Default Map Click Behavior"
+        description="Learn how to use VertiGIS Studio Workflow to override VertiGIS Studio Web's default map click behavior"
         link={useBaseUrl(
             "docs/web/tutorial-change-default-map-click-behavior"
         )}

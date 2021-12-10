@@ -1,12 +1,12 @@
 ---
 title: Implement an Activity that Calculates a Logarithm
-description: Geocortex Workflow - Implement a custom activity for Geocortex Workflow Server that calculates the logarithm of a number
+description: VertiGIS Studio Workflow - Implement a custom activity for VertiGIS Studio Workflow Server that calculates the logarithm of a number
 ---
 
 import ServerPrereqs from "./snippets/prereqs-server.mdx";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-Implementing a custom [activity](key-concepts.mdx#activities) allows you to build a reusable, completely custom behavior to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with Geocortex Workflow.
+Implementing a custom [activity](key-concepts.mdx#activities) allows you to build a reusable, completely custom behavior to augment the [existing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activity-reference.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____0) that come with VertiGIS Studio Workflow.
 
 In this article, you will learn how to create a custom activity that calculates the logarithm of a number with a given base.
 
@@ -45,13 +45,13 @@ namespace App1.Workflow
 ## Register the Activity with an Assembly Attribute
 
 1. Create a new file, `Properties\AssemblyInfo.cs`
-1. Add the custom Geocortex Workflow attribute to `AssemblyInfo.cs`:
+1. Add the custom VertiGIS Studio Workflow attribute to `AssemblyInfo.cs`:
 
 ```cs title="YourProjectName/Properties/AssemblyInfo.cs"
 [assembly: Geocortex.Workflow.Runtime.WorkflowActivities]`
 ```
 
-This registers the assembly to a namespace that Geocortex Workflow Server can discover.
+This registers the assembly to a namespace that VertiGIS Studio Workflow Server can discover.
 
 :::note
 By convention, assembly attributes are typically added to a file called `"Properties\AssemblyInfo.cs"`, but they can be added to any code file.
@@ -59,7 +59,7 @@ By convention, assembly attributes are typically added to a file called `"Proper
 
 ## Implement the Custom Activity
 
-We now have a empty activity that Geocortex Workflow Server can use that takes no inputs and produces no outputs. By changing the inputs, outputs, and execute logic, you can create your own custom activity that calculates the logarithm of a number.
+We now have a empty activity that VertiGIS Studio Workflow Server can use that takes no inputs and produces no outputs. By changing the inputs, outputs, and execute logic, you can create your own custom activity that calculates the logarithm of a number.
 
 First, let's change the execute logic to parse inputs that make sense for a logarithm activity.
 
@@ -138,14 +138,14 @@ namespace App1.Workflow
 
 ## Deploy the Activity
 
-Follow the instructions to [deploy Geocortex Workflow Server activities](sdk-server-overview.mdx#deploying-geocortex-workflow-server-activities).
+Follow the instructions to [deploy VertiGIS Studio Workflow Server activities](sdk-server-overview.mdx#deploying-geocortex-workflow-server-activities).
 
 ## Test your Activity
 
-[Server workflows](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm) that run on your Geocortex Workflow Server deployment can now run this custom activity.
+[Server workflows](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/server-workflows.htm) that run on your VertiGIS Studio Workflow Server deployment can now run this custom activity.
 
 :::tip
-[Registering .NET activity stubs](sdk-net-register-activities.mdx) provides a user friendly interface for your custom activities in Geocortex Workflow Designer.
+[Registering .NET activity stubs](sdk-net-register-activities.mdx) provides a user friendly interface for your custom activities in VertiGIS Studio Workflow Designer.
 :::
 
 You can run the custom activity by referencing it by action with [the `RunActivity` activity](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-activity.htm).
@@ -169,7 +169,7 @@ You can run the custom activity by referencing it by action with [the `RunActivi
         target="_blank"
     >
         {" "}
-        import it into the Geocortex Workflow Designer.{" "}
+        import it into the VertiGIS Studio Workflow Designer.{" "}
     </a>
 </p>
 :::

@@ -1,9 +1,9 @@
 ---
 title: Activity Block Tags
-description: Geocortex Workflow - Learn about the typescript activity metadata tags
+description: VertiGIS Studio Workflow - Learn about the typescript activity metadata tags
 ---
 
-[Custom Workflow activities](tutorial-web-calculate-logarithm-activity.mdx) implemented in [TypeScript](https://www.typescriptlang.org/) use [block tags](https://jsdoc.app/about-block-inline-tags.html) to describe the activity metadata that the [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) consumes.
+[Custom Workflow activities](tutorial-web-calculate-logarithm-activity.mdx) implemented in [TypeScript](https://www.typescriptlang.org/) use [block tags](https://jsdoc.app/about-block-inline-tags.html) to describe the activity metadata that the [VertiGIS Studio Workflow Designer](https://apps.geocortex.com/workflow/designer/) consumes.
 
 ## Basic Tags
 
@@ -51,7 +51,7 @@ The `@required` tag only applies to the validation in Workflow Designer. Runtime
 
 ## Activity Compatibility Tags
 
-You can specify which environments an activity is compatible with by adding the appropriate tags to the activity class. This will cause Geocortex Workflow Designer to only display the activity when the workflow's [deployment settings](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/deployment-settings.htm) indicate it is compatible, and generate warnings if the activity is used in an incompatible environment. You can use the following tags on the activity class;
+You can specify which environments an activity is compatible with by adding the appropriate tags to the activity class. This will cause VertiGIS Studio Workflow Designer to only display the activity when the workflow's [deployment settings](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/deployment-settings.htm) indicate it is compatible, and generate warnings if the activity is used in an incompatible environment. You can use the following tags on the activity class;
 
 -   `@onlineOnly`
     -   Indicates that the activity will not work without network connectivity. It is sufficient to add the tag without any text beside it.
@@ -64,12 +64,12 @@ You can specify which environments an activity is compatible with by adding the 
 -   `@unsupportedApps`
     -   A comma-separated list of apps not supported by the activity. Workflows targeting an app that is listed here should not use this activity.
 
-App values that currently supported in Geocortex Workflow Designer:
+App values that currently supported in VertiGIS Studio Workflow Designer:
 
 -   `WAB` (Web AppBuilder for ArcGIS)
 -   `GVH` (Geocortex Viewer for HTML5)
--   `GWV` (Geocortex Web Viewer)
--   `GMV` (Geocortex Mobile Viewer)
+-   `VSW` (VertiGIS Studio Web)
+-   `VSM` (VertiGIS Studio Mobile)
 
 If you do not want to limit the use of an activity, do not add any of the above tags. It will appear in the toolbox and will not generate any warnings when used.
 
@@ -79,7 +79,7 @@ The intention is that you use either `@supportedApps` or `@unsupportedApps`, dep
 
 ### Example: Activity Compatibility Tags
 
-The following example declares that an activity will only work on Geocortex Web or Web AppBuilder for ArcGIS in an online and client side environment. The display name will default to "Does Not Work On Mobile".
+The following example declares that an activity will only work on VertiGIS Studio Web or Web AppBuilder for ArcGIS in an online and client side environment. The display name will default to "Does Not Work On Mobile".
 
 ```ts
 /**
