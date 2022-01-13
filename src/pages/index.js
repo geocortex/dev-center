@@ -51,7 +51,9 @@ function Home() {
                 }}
             >
                 <div className="container">
-                    <h1 className="hero__title">VertiGIS Studio Center</h1>
+                    <h1 className="hero__title">
+                        VertiGIS Studio Developer Center
+                    </h1>
                     <h2 className="hero__subtitle">
                         Extend your VertiGIS Studio applications to build
                         virtually anything!

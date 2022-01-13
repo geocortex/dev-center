@@ -1,4 +1,4 @@
-# VertiGIS Studio Center
+# VertiGIS Studio Developer Center
 
 ![CI/CD](https://github.com/geocortex/dev-center/workflows/CI/CD/badge.svg)
 
