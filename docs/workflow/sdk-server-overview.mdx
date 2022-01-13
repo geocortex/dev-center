@@ -21,7 +21,7 @@ Visual Studio 2019 is the only officially supported development environment for 
 
 ## Setting up a VertiGIS Studio Workflow Server Extension Project
 
-Extending VertiGIS Studio Workflow Server requires you to produce a separate assembly with your custom activities, and copy that into your on-premises deployment of VertiGIS Studio Workflow. We first need to set up a project using Visual Studio that references the [workflow runtime](key-concepts.mdx#geocortex-workflow-designer-and-runtime).
+Extending VertiGIS Studio Workflow Server requires you to produce a separate assembly with your custom activities, and copy that into your on-premises deployment of VertiGIS Studio Workflow. We first need to set up a project using Visual Studio that references the [workflow runtime](key-concepts.mdx#vertigis-studio-workflow-designer-and-runtime).
 
 1. Launch Microsoft Visual Studio 2019.
 1. Create a new project of type _Class Library_ (.NET Standard)
@@ -96,7 +96,7 @@ You can debug custom VertiGIS Studio Workflow Server activities by attaching to 
 To automate the deployment to VertiGIS Studio Workflow Server, we have to add a post build step to the project that copies the build output.
 
 1. Locate the `Custom Assemblies` folder in the VertiGIS Studio Workflow Server installation. The default location is `C:\Program Files\Latitude Geographics\VertiGIS Studio Workflow\CustomAssemblies`
-2. Create a file `excluded_files.txt` at the root of the project that excludes the appropriate build output files as described in the [deployment section](#deploying-geocortex-workflow-server-activities).
+2. Create a file `excluded_files.txt` at the root of the project that excludes the appropriate build output files as described in the [deployment section](#deploying-vertigis-studio-workflow-server-activities).
 
 ```
 Geocortex.Workflow.Runtime.dll

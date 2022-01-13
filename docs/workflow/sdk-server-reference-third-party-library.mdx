@@ -4,7 +4,7 @@ sidebar_label: Reference a Third Party Library
 description: VertiGIS Studio Workflow - Reference a third party library in a VertiGIS Studio Workflow Server extension
 ---
 
-As discussed in [VertiGIS Studio Workflow Server](sdk-server-overview.mdx#setting-up-a-geocortex-workflow-server-extension-project), deploying a custom activity to VertiGIS Studio Workflow Server involves creating a .NET project that generates compatible assemblies and then copying them to the build folder. Adding a third party assembly is as simple as adding the library to your .NET project and then ensuring it is copied along with the user defined code.
+As discussed in [VertiGIS Studio Workflow Server](sdk-server-overview.mdx#setting-up-a-vertigis-studio-workflow-server-extension-project), deploying a custom activity to VertiGIS Studio Workflow Server involves creating a .NET project that generates compatible assemblies and then copying them to the build folder. Adding a third party assembly is as simple as adding the library to your .NET project and then ensuring it is copied along with the user defined code.
 
 ## Adding Third Party Libraries
 
@@ -12,7 +12,7 @@ Any nuget package can be added to the project and used in custom activities.
 
 ## Deploying Third Party Libraries
 
-Build the project to output the project assemblies. Follow the instructions to [Deploy the Activity](sdk-server-overview.mdx#deploying-geocortex-workflow-server-activities). Ensure that you locate and copy the third party assemblies. If you don't see them in the build output folder, [review the instructions](sdk-server-overview.mdx#setting-up-a-geocortex-workflow-server-extension-project) and ensure you have followed all the steps.
+Build the project to output the project assemblies. Follow the instructions to [Deploy the Activity](sdk-server-overview.mdx#deploying-vertigis-studio-workflow-server-activities). Ensure that you locate and copy the third party assemblies. If you don't see them in the build output folder, [review the instructions](sdk-server-overview.mdx#setting-up-a-vertigis-studio-workflow-server-extension-project) and ensure you have followed all the steps.
 
 :::important
 An important step not to miss is adding the `CopyLocalLockFileAssemblies` attribute to the `.csproj` file if you created a .NET Standard class library. Without this attribute, your nuget package reference assemblies will not be output to the build folder.
