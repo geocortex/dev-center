@@ -12,10 +12,10 @@ import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 import RelevantWorkflowSamples from "./snippets/relevant-workflow-samples.mdx";
 
-VertiGIS Studio Mobile comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [VertiGIS Studio Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](configuration-app-config-getting-started.mdx).
+VertiGIS Studio Mobile comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [VertiGIS Studio Workflow](https://apps.vertigisstudio.com/workflow/designer/) and editing the [app config](configuration-app-config-getting-started.mdx).
 
 :::note
-It's actually possible to configure the Map's `onClick` event in [VertiGIS Studio Mobile Designer](https://apps.geocortex.com/mobileviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this tutorial is to demonstrate the concept of configuring actions using the app config.
+It's actually possible to configure the Map's `onClick` event in [VertiGIS Studio Mobile Designer](https://apps.vertigisstudio.com/mobile/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this tutorial is to demonstrate the concept of configuring actions using the app config.
 :::
 
 ## What you're Building
@@ -179,7 +179,7 @@ The first thing we need to do is override the default map click behavior. We can
 
 First, we are going to replace the command chain with a `workflow.run` command that replicates this behavior.
 
-1. Open up [VertiGIS Studio Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
+1. Open up [VertiGIS Studio Workflow Designer](https://apps.vertigisstudio.com/workflow/designer/) and create and save a new workflow.
 2. Add an "Alert" activity as a test.
 3. Copy the ID of the the workflow from the URL
 

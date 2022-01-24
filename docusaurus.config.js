@@ -60,11 +60,11 @@ module.exports = {
                     items: [
                         {
                             label: "VertiGIS Studio Web",
-                            to: "https://apps.vertigisstudio.com/webviewer/designer/",
+                            to: "https://apps.vertigisstudio.com/web/designer/",
                         },
                         {
                             label: "VertiGIS Studio Mobile",
-                            to: "https://apps.vertigisstudio.com/mobileviewer/designer/",
+                            to: "https://apps.vertigisstudio.com/mobile/designer/",
                         },
                         {
                             label: "VertiGIS Studio Workflow",

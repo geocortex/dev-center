@@ -52,14 +52,14 @@ function ViewerMessaging(props: ViewerMessagingProps) {
             if (schemaType && !cachedRequests[product][schemaType]) {
                 if (type === "config") {
                     cachedRequests["common"][schemaType] = fetch(
-                        `https://apps.geocortex.com/webviewer/common-app-config.schema.json`
+                        `https://apps.vertigisstudio.com/web/common-app-config.schema.json`
                     );
                     cachedRequests[product][schemaType] = fetch(
-                        `https://apps.geocortex.com/webviewer/${product}-app-config.schema.json`
+                        `https://apps.vertigisstudio.com/web/${product}-app-config.schema.json`
                     );
                 } else {
                     cachedRequests[product][schemaType] = fetch(
-                        `https://apps.geocortex.com/webviewer/${product}-${schemaType}.schema.json`
+                        `https://apps.vertigisstudio.com/web/${product}-${schemaType}.schema.json`
                     );
                 }
             }
