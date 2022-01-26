@@ -60,31 +60,31 @@ module.exports = {
                     items: [
                         {
                             label: "VertiGIS Studio Web",
-                            to: "https://apps.vertigisstudio.com/web/designer/",
+                            to: "https://apps.geocortex.com/webviewer/designer/",
                         },
                         {
                             label: "VertiGIS Studio Mobile",
-                            to: "https://apps.vertigisstudio.com/mobile/designer/",
+                            to: "https://apps.geocortex.com/mobileviewer/designer/",
                         },
                         {
                             label: "VertiGIS Studio Workflow",
-                            to: "https://apps.vertigisstudio.com/workflow/designer/",
+                            to: "https://apps.geocortex.com/workflow/designer/",
                         },
                         {
                             label: "VertiGIS Studio Reporting",
-                            to: "https://apps.vertigisstudio.com/reporting/designer/",
+                            to: "https://apps.geocortex.com/reporting/designer/",
                         },
                         {
                             label: "VertiGIS Studio Printing",
-                            to: "https://apps.vertigisstudio.com/printing/designer/",
+                            to: "https://apps.geocortex.com/printing/designer/",
                         },
                         {
                             label: "VertiGIS Studio Inline",
-                            to: "https://apps.vertigisstudio.com/inline/designer/",
+                            to: "https://apps.geocortex.com/inline/designer/",
                         },
                         {
                             label: "VertiGIS Studio Item Manager",
-                            to: "https://apps.vertigisstudio.com/itemmanager/",
+                            to: "https://apps.geocortex.com/itemmanager/",
                         },
                     ],
                 },
