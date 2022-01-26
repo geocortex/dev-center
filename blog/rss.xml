@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>Geocortex Developer Center Blog</title>
-        <link>https://developers.geocortex.com/blog</link>
-        <description>Geocortex Developer Center Blog</description>
+        <title>VertiGIS Studio Developer Center Blog</title>
+        <link>https://developers.vertigisstudio.com/blog</link>
+        <description>VertiGIS Studio Developer Center Blog</description>
         <lastBuildDate>Mon, 22 Mar 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[New Workflow Form Element API]]></title>
-            <link>https://developers.geocortex.com/blog/2021/03/22/new-workflow-element-api</link>
+            <link>https://developers.vertigisstudio.com/blog/2021/03/22/new-workflow-element-api</link>
             <guid>New Workflow Form Element API</guid>
             <pubDate>Mon, 22 Mar 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Workflow 5.21 includes a new TypeScript form element API that you can use for building custom form elements using the Geocortex Workflow TypeScript SDK. The existing patterns and APIs you've been using for years to build custom form elements will continue to work, but we encourage you to try the new API when building new form elements.]]></description>
+            <description><![CDATA[Workflow 5.21 includes a new TypeScript form element API that you can use for building custom form elements using the VertiGIS Studio Workflow TypeScript SDK. The existing patterns and APIs you've been using for years to build custom form elements will continue to work, but we encourage you to try the new API when building new form elements.]]></description>
         </item>
     </channel>
 </rss>
