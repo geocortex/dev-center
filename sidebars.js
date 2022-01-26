@@ -45,7 +45,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Geocortex Workflow",
+            label: "VertiGIS Studio Workflow",
             items: [
                 "web/tutorial-run-workflow-app-config",
                 "web/tutorial-display-custom-form",
@@ -56,7 +56,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Geocortex Web SDK",
+            label: "VertiGIS Studio Web SDK",
             items: [
                 "web/sdk-overview",
                 "web/sdk-samples",
@@ -126,7 +126,7 @@ module.exports = {
         "workflow/key-concepts",
         {
             type: "category",
-            label: "Geocortex Workflow TypeScript SDK",
+            label: "VertiGIS Studio Workflow TypeScript SDK",
             items: [
                 "workflow/sdk-web-overview",
                 "workflow/sdk-web-create-activity",
@@ -154,14 +154,14 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Geocortex Workflow .NET SDK",
+            label: "VertiGIS Studio Workflow .NET SDK",
             items: [
                 "workflow/sdk-net-overview",
                 "workflow/sdk-net-register-activities",
                 "workflow/sdk-net-integrating-the-arcgis-api",
                 {
                     type: "category",
-                    label: "Geocortex Mobile",
+                    label: "VertiGIS Studio Mobile",
                     items: [
                         "workflow/sdk-mobile-overview",
                         "workflow/sdk-mobile-create-activity",
@@ -181,7 +181,7 @@ module.exports = {
                 },
                 {
                     type: "category",
-                    label: "Geocortex Workflow Server",
+                    label: "VertiGIS Studio Workflow Server",
                     items: [
                         "workflow/sdk-server-overview",
                         "workflow/sdk-server-create-activity",
@@ -232,7 +232,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Geocortex Workflow",
+            label: "VertiGIS Studio Workflow",
             items: [
                 "mobile/tutorial-run-workflow-app-config",
                 "mobile/tutorial-display-custom-form",
@@ -243,7 +243,7 @@ module.exports = {
         },
         {
             type: "category",
-            label: "Geocortex Mobile SDK",
+            label: "VertiGIS Studio Mobile SDK",
             items: [
                 "mobile/sdk-overview",
                 "mobile/sdk-edit-layout-app-config",
@@ -310,7 +310,7 @@ module.exports = {
         "reporting/key-concepts",
         {
             type: "category",
-            label: "Geocortex Reporting SDK",
+            label: "VertiGIS Studio Reporting SDK",
             items: [
                 "reporting/sdk-overview",
                 "reporting/sdk-js-overview",

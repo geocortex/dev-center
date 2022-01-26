@@ -1,12 +1,12 @@
 ---
 title: Workflow Activity Reference
 sidebar_label: Activity Reference
-description: Geocortex Workflow - Reference for workflow activities for web applications
+description: VertiGIS Studio Workflow - Reference for workflow activities for web applications
 ---
 
 ## Inputs and Outputs
 
-The `execute` method of an activity class has typed inputs and outputs. These inputs and outputs are decorated with [block tags](sdk-web-activity-block-tags.mdx) to provide display hints in Geocortex Workflow Designer.
+The `execute` method of an activity class has typed inputs and outputs. These inputs and outputs are decorated with [block tags](sdk-web-activity-block-tags.mdx) to provide display hints in VertiGIS Studio Workflow Designer.
 
 ```ts title="src/activities/CustomActivity.ts"
 import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
@@ -55,7 +55,7 @@ export class CustomActivity implements IActivityHandler {
 
 ## App Activities
 
-The Geocortex Workflow TypeScript SDK has a concept of an `AppActivity`, which is an activity that needs access to its [host](key-concepts.mdx#geocortex-workflow-hosts).
+The VertiGIS Studio Workflow TypeScript SDK has a concept of an `AppActivity`, which is an activity that needs access to its [host](key-concepts.mdx#vertigis-studio-workflow-hosts).
 
 Activities that extend the `AppActivity` gain access to the `map`, `app`, or `widget` properties.
 

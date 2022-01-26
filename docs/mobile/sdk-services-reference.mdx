@@ -1,6 +1,6 @@
 ---
 title: Service Reference
-description: Geocortex Mobile - Service reference
+description: VertiGIS Studio Mobile - Service reference
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -14,7 +14,7 @@ Services act as a repository of accessible behavior and data, and can be used fo
 
 ## Service Registration
 
-All services need to be registered with Geocortex Mobile. A service is created by extending the `ServiceBase` class and registering the service class with Autofac through an assembly attribute.
+All services need to be registered with VertiGIS Studio Mobile. A service is created by extending the `ServiceBase` class and registering the service class with Autofac through an assembly attribute.
 
 <AutofacSnippet />
 
@@ -33,9 +33,9 @@ namespace App1.Services
 
 ## Service Lifecycle
 
-On application load, all services that have been registered with wih Geocortex Mobile are first created and then initialized.
+On application load, all services that have been registered with wih VertiGIS Studio Mobile are first created and then initialized.
 
-Services are destroyed (i.e. the `_onDestroy` method is invoked) when the application is destroyed, e.g. when killing the application or switching applications in Geocortex Go.
+Services are destroyed (i.e. the `_onDestroy` method is invoked) when the application is destroyed, e.g. when killing the application or switching applications in VertiGIS Studio Go.
 
 ## Initialization and Teardown
 
@@ -45,7 +45,7 @@ Services have an initialization method, which can be used to perform asynchronou
 Always call `base.Dispose(disposing)` when overriding the `Dispose` method. `ServiceBase` already implements `IDisposable` and `IDisposableTracker`, so only override the `Dispose` method if you have created new managed resources which need to be cleaned up.
 :::
 
-To learn more about memory management in Geocortex Mobile, check out [this article](sdk-memory-leaks.mdx), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
+To learn more about memory management in VertiGIS Studio Mobile, check out [this article](sdk-memory-leaks.mdx), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
 
 ```cs
 [assembly: Service(typeof(CustomService), PropertiesAutowired = true)]
@@ -231,7 +231,7 @@ namespace App1.Services
 
 ## Relevant SDK Samples
 
-Check out the relevant Geocortex Mobile SDK Samples:
+Check out the relevant VertiGIS Studio Mobile SDK Samples:
 
 -   [Custom Service](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Service)
 

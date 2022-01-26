@@ -1,13 +1,13 @@
 ---
 title: Integrating the ArcGIS Runtime SDK for .NET
-description: Geocortex Workflow - Integrate the ArcGIS Runtime SDK for .NET into custom activities for .NET applications
+description: VertiGIS Studio Workflow - Integrate the ArcGIS Runtime SDK for .NET into custom activities for .NET applications
 ---
 
-[Geocortex Workflow](https://apps.geocortex.com/workflow/designer/) was designed to be a flexible tool for implementing business logic for mapping applications, and tightly integrates with ArcGIS Runtime SDK for .NET. You may want to use the ArcGIS Runtime SDK in your own custom activities; this article will explain how to reference ArcGIS Runtime SDK types in your custom activity or custom form elements for .NET applications.
+[VertiGIS Studio Workflow](https://apps.geocortex.com/workflow/designer/) was designed to be a flexible tool for implementing business logic for mapping applications, and tightly integrates with ArcGIS Runtime SDK for .NET. You may want to use the ArcGIS Runtime SDK in your own custom activities; this article will explain how to reference ArcGIS Runtime SDK types in your custom activity or custom form elements for .NET applications.
 
-## Geocortex Mobile
+## VertiGIS Studio Mobile
 
-The Geocortex Mobile [Quickstart](../mobile/sdk-overview.mdx) already references the [ArcGIS Runtime SDK for .NET](https://developers.arcgis.com/net/latest/api-reference/), so integrating the ArcGIS API is as easy as adding a `using` statement to the top of your custom activity or form element.
+The VertiGIS Studio Mobile [Quickstart](../mobile/sdk-overview.mdx) already references the [ArcGIS Runtime SDK for .NET](https://developers.arcgis.com/net/latest/api-reference/), so integrating the ArcGIS API is as easy as adding a `using` statement to the top of your custom activity or form element.
 
 For example,
 
@@ -15,9 +15,9 @@ For example,
 using Esri.ArcGISRuntime.Data;
 ```
 
-## Geocortex Workflow Server
+## VertiGIS Studio Workflow Server
 
-It is **not possible** to reference the [ArcGIS Runtime SDK for .NET](https://developers.arcgis.com/net/latest/api-reference/) in Geocortex Workflow Server, as the licensing does not allow for this usage.
+It is **not possible** to reference the [ArcGIS Runtime SDK for .NET](https://developers.arcgis.com/net/latest/api-reference/) in VertiGIS Studio Workflow Server, as the licensing does not allow for this usage.
 
 :::tip
 Consider using the [Geoprocessing activities](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/geometries.htm#Work_with_Geometries%3FTocPath%3DWork%2520with%2520Geometries%7C_____0) in a client workflow or the [`Run Python`](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-python.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____174) activity on the server to have your workflow offload any operations that require server processing of ArcGIS types.

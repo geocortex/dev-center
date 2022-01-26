@@ -1,9 +1,9 @@
 ---
 title: Component Hooks
-description: Geocortex Web - Learn about the React hooks used to react to changes on a component's model
+description: VertiGIS Studio Web - Learn about the React hooks used to react to changes on a component's model
 ---
 
-Geocortex Web provides a number of [React hooks](https://reactjs.org/docs/hooks-intro.html) to ease development of custom components bound to [models](sdk-components-reference.mdx#models). These hooks make it simple to follow the recommended [observable properties pattern](https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#properties) for model interactions within your functional components.
+VertiGIS Studio Web provides a number of [React hooks](https://reactjs.org/docs/hooks-intro.html) to ease development of custom components bound to [models](sdk-components-reference.mdx#models). These hooks make it simple to follow the recommended [observable properties pattern](https://developers.arcgis.com/javascript/latest/guide/programming-patterns/#properties) for model interactions within your functional components.
 
 ## `useWatchAndRerender`
 
@@ -11,11 +11,11 @@ Watches an object for changes in one or more properties of a component model and
 
 ### The Problem
 
-In Geocortex Web, [component models](sdk-components-reference.mdx#models) provide a way to decouple components from data source concerns and app interactions. However, they raise the issue of consistency - how can a component stay up to date with changes in the data of the underlying model? E.g. how does the React component know when to re-render?
+In VertiGIS Studio Web, [component models](sdk-components-reference.mdx#models) provide a way to decouple components from data source concerns and app interactions. However, they raise the issue of consistency - how can a component stay up to date with changes in the data of the underlying model? E.g. how does the React component know when to re-render?
 
 ### The Solution
 
-Geocortex Web components solve this problem by providing a way to update the UI when the data in the underlying model changes using a React hook called `useWatchAndRerender`. The component render lifecycle is as follows:
+VertiGIS Studio Web components solve this problem by providing a way to update the UI when the data in the underlying model changes using a React hook called `useWatchAndRerender`. The component render lifecycle is as follows:
 
 1. The initial data is pulled from the model and rendered.
 1. The component **starts to watch for changes** to the specified properties on the model by using the `useWatchAndRerender` React hook.

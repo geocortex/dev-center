@@ -1,20 +1,20 @@
 ---
 title: Events Overview
 sidebar_label: Overview
-description: Geocortex Mobile - Overview of events
+description: VertiGIS Studio Mobile - Overview of events
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import UseCaseCard from "../../src/components/UseCaseCard";
 import UseCaseContainer from "../../src/components/UseCaseContainer";
 
-**Events** are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any component, service or [view](sdk-components-reference.mdx#xaml-view) registered with Geocortex Mobile, and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.
+**Events** are distinct, discrete messaging about a change or update that occurs in the viewer. They can be published or subscribed to by any component, service or [view](sdk-components-reference.mdx#xaml-view) registered with VertiGIS Studio Mobile, and can be used to initiate behaviors, communicate data changes, and more. Events themselves do not execute behavior, but merely provide messaging so subscribers can act on changes.
 
-Events are internal to Geocortex Mobile, so they can only be consumed by custom code. Custom components and services can access events through [dependency injection](sdk-dependency-injection.mdx).
+Events are internal to VertiGIS Studio Mobile, so they can only be consumed by custom code. Custom components and services can access events through [dependency injection](sdk-dependency-injection.mdx).
 
-The full list of existing events available in Geocortex Mobile can be [found in the API documentation](api-commands-operations-events.mdx#events).
+The full list of existing events available in VertiGIS Studio Mobile can be [found in the API documentation](api-commands-operations-events.mdx#events).
 
-Events in Geocortex Mobile are grouped by categories, such as `app` or `geolocation`.
+Events in VertiGIS Studio Mobile are grouped by categories, such as `app` or `geolocation`.
 
 ```
 app.activated
@@ -30,12 +30,12 @@ Events can publish custom arguments with information about the change they are c
 <UseCaseContainer>
     <UseCaseCard
         title="Check out the Event Reference"
-        description="Take a deep dive into events in the Geocortex Mobile SDK"
+        description="Take a deep dive into events in the VertiGIS Studio Mobile SDK"
         link={useBaseUrl("docs/mobile/sdk-events-reference")}
     />
     <UseCaseCard
         title="Events API"
-        description="Check out the full list of Events available in Geocortex Mobile"
+        description="Check out the full list of Events available in VertiGIS Studio Mobile"
         link={useBaseUrl(
             "docs/mobile/api-commands-operations-events#events"
         )}

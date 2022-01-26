@@ -1,6 +1,6 @@
 ---
 title: Component Reference
-description: Geocortex Mobile - Reference for custom components in Geocortex Mobile
+description: VertiGIS Studio Mobile - Reference for custom components in VertiGIS Studio Mobile
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -10,10 +10,10 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
 :::tip
-Did you know Geocortex Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
+Did you know VertiGIS Studio Workflow allows you to [create custom forms](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Overview_of_Forms%3FTocPath%3DForms%7COverview%2520of%2520Forms%7C_____0) you can present to an end user?
 :::
 
-Implementing a custom component in Geocortex Mobile gives you the highest degree of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-change-default-map-click-behavior.mdx) first.
+Implementing a custom component in VertiGIS Studio Mobile gives you the highest degree of flexibility with what you can do. Components can display custom, dynamic UI, register operation implementations, store persistent data, and more. They are also one of the most complex ways of customizing your mobile app, so it might be worthwhile to review simpler options like [Commands and Operations](configuration-commands-operations.mdx) or [Workflow](tutorial-change-default-map-click-behavior.mdx) first.
 
 ```cs
 [assembly: Component(typeof(CustomComponent), "custom-component", XmlNamespace = XmlNamespaces.App1Namespace)]
@@ -31,7 +31,7 @@ namespace App1.Components
 
 ## Component Registration
 
-Geocortex Mobile uses
+VertiGIS Studio Mobile uses
 [Autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register,
 locate, and inject components, services and other classes.
 
@@ -73,7 +73,7 @@ Once a component has been registered, it can be used in a layout by referring it
 
 ## Component Anatomy
 
-Geocortex Mobile is built on top of the [Xamarin Platform](https://docs.microsoft.com/en-us/xamarin/). In general, [XAML Views](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) are used to define reactive component UI. Component Views in Geocortex Mobile are built with the [Model-View-ViewModel (MVVM) pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm). The model for components is usually either [app config](configuration-app-config-getting-started.mdx) or a service hosting shared application data.
+VertiGIS Studio Mobile is built on top of the [Xamarin Platform](https://docs.microsoft.com/en-us/xamarin/). In general, [XAML Views](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/) are used to define reactive component UI. Component Views in VertiGIS Studio Mobile are built with the [Model-View-ViewModel (MVVM) pattern](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm). The model for components is usually either [app config](configuration-app-config-getting-started.mdx) or a service hosting shared application data.
 
 ### Component Class
 
@@ -103,7 +103,7 @@ The preferred way to provide sub-dependencies to classes associated with compone
 
 XAML views and their respective "code-behind" are responsible for the presentation concerns of a component. Check out a [complete example in the SDK samples](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/XamlComponent).
 
-XAML views can use any [XAML Controls](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-controls) along with built-in [Geocortex Mobile XAML Elements and styling](sdk-components-styling.mdx#using-geocortex-mobile-views).
+XAML views can use any [XAML Controls](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/xaml-controls) along with built-in [VertiGIS Studio Mobile XAML Elements and styling](sdk-components-styling.mdx#using-vertigis-studio-mobile-views).
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -285,7 +285,7 @@ Components have an initialization method, which can be used to perform asynchron
 Always call `base.Dispose(disposing)` when overriding the `Dispose` method. `ComponentBase` already implements `IDisposable` and `IDisposableTracker`, so only override the `Dispose` method if you have created new managed resources which need to be cleaned up.
 :::
 
-To learn more about memory management in Geocortex Mobile, check out [this article](sdk-memory-leaks.mdx), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
+To learn more about memory management in VertiGIS Studio Mobile, check out [this article](sdk-memory-leaks.mdx), and the [relevant SDK sample](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/Disposal).
 
 ```cs
 [assembly: Component(typeof(CustomComponent), "component", XmlNamespace = XmlNamespaces.SamplesNamespace)]
@@ -333,7 +333,7 @@ namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 
 ## Component Lifecycle
 
-When a Geocortex Mobile Application boots up, the set of components which are in the layout are created. Next, any components that are initially active, depending on the layout, will be activated and initialized. [Components like the `Panel`](configuration-layout-reference.mdx#panels) will only activate their first child.
+When a VertiGIS Studio Mobile Application boots up, the set of components which are in the layout are created. Next, any components that are initially active, depending on the layout, will be activated and initialized. [Components like the `Panel`](configuration-layout-reference.mdx#panels) will only activate their first child.
 
 ### Activation and Deactivation
 
@@ -367,7 +367,7 @@ class CustomComponent : ComponentBase
 
 ## Relevant SDK Samples
 
-Check out the relevant Geocortex Mobile SDK Samples:
+Check out the relevant VertiGIS Studio Mobile SDK Samples:
 
 -   [Custom Component](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Custom/Component)
 

@@ -1,9 +1,9 @@
 module.exports = {
-    title: "Geocortex Developer Center",
+    title: "VertiGIS Studio Developer Center",
     tagline: "by developers, for developers",
-    url: "https://developers.geocortex.com",
+    url: "https://developers.vertigisstudio.com",
     baseUrl: "/",
-    favicon: "img/favicon.png",
+    favicon: "img/favicon.ico",
     organizationName: "geocortex", // Usually your GitHub org/user name.
     projectName: "dev-center", // Usually your repo name.
     themeConfig: {
@@ -15,7 +15,7 @@ module.exports = {
         navbar: {
             title: "Developer Center",
             logo: {
-                alt: "Geocortex Logo",
+                alt: "VertiGIS Logo",
                 src: "img/logo.png",
             },
             items: [
@@ -56,37 +56,34 @@ module.exports = {
             copyright: `Copyright © ${new Date().getFullYear()} VertiGIS North America Ltd. All rights reserved.`,
             links: [
                 {
-                    title: "Geocortex Apps",
+                    title: "VertiGIS Studio Apps",
                     items: [
                         {
-                            label: "Geocortex Web",
-                            to:
-                                "https://apps.geocortex.com/webviewer/designer/",
+                            label: "VertiGIS Studio Web",
+                            to: "https://apps.geocortex.com/webviewer/designer/",
                         },
                         {
-                            label: "Geocortex Mobile",
-                            to:
-                                "https://apps.geocortex.com/mobileviewer/designer/",
+                            label: "VertiGIS Studio Mobile",
+                            to: "https://apps.geocortex.com/mobileviewer/designer/",
                         },
                         {
-                            label: "Geocortex Workflow",
+                            label: "VertiGIS Studio Workflow",
                             to: "https://apps.geocortex.com/workflow/designer/",
                         },
                         {
-                            label: "Geocortex Reporting",
-                            to:
-                                "https://apps.geocortex.com/reporting/designer/",
+                            label: "VertiGIS Studio Reporting",
+                            to: "https://apps.geocortex.com/reporting/designer/",
                         },
                         {
-                            label: "Geocortex Printing",
+                            label: "VertiGIS Studio Printing",
                             to: "https://apps.geocortex.com/printing/designer/",
                         },
                         {
-                            label: "Geocortex Inline",
+                            label: "VertiGIS Studio Inline",
                             to: "https://apps.geocortex.com/inline/designer/",
                         },
                         {
-                            label: "Geocortex Item Manager",
+                            label: "VertiGIS Studio Item Manager",
                             to: "https://apps.geocortex.com/itemmanager/",
                         },
                     ],
@@ -103,12 +100,12 @@ module.exports = {
                             to: "https://github.com/geocortex/dev-center",
                         },
                         {
-                            label: "Geocortex Documentation Center",
+                            label: "VertiGIS Studio Documentation Center",
                             to: "https://docs.geocortex.com",
                         },
                         {
-                            label: "Geocortex.com",
-                            to: "https://geocortex.com",
+                            label: "VertiGIS.com",
+                            to: "https://vertigis.com",
                         },
                     ],
                 },
@@ -117,13 +114,11 @@ module.exports = {
                     items: [
                         {
                             label: "Terms",
-                            to:
-                                "https://www.geocortex.com/legal/#licensing-terms-of-use",
+                            to: "https://www.vertigisstudio.com/legal/#licensing-terms-of-use",
                         },
                         {
                             label: "Privacy",
-                            to:
-                                "https://www.geocortex.com/legal/#privacy-statement",
+                            to: "https://www.vertigisstudio.com/legal/#privacy-statement",
                         },
                     ],
                 },

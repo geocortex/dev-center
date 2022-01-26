@@ -1,6 +1,6 @@
 ---
 title: Dependency Injection
-description: Geocortex Mobile - Learn about dependency injection in Geocortex Mobile
+description: VertiGIS Studio Mobile - Learn about dependency injection in VertiGIS Studio Mobile
 ---
 
 import Tabs from "@theme/Tabs";
@@ -10,7 +10,7 @@ import TabItem from "@theme/TabItem";
 If you are new to the concepts of **inversion of control** and **dependency injection**, check out [this article by Martin Fowler](https://martinfowler.com/articles/injection.html).
 :::
 
-Geocortex Mobile relies heavily on inversion of control patterns to inject dependencies into its components and services. Under the hood, Geocortex Mobile uses [Autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in Geocortex Mobile, two things must happen.
+VertiGIS Studio Mobile relies heavily on inversion of control patterns to inject dependencies into its components and services. Under the hood, VertiGIS Studio Mobile uses [Autofac](https://autofaccn.readthedocs.io/en/latest/index.html) to register and inject components, services and other classes. To inject a dependency into a class in VertiGIS Studio Mobile, two things must happen.
 
 1. The class to be injected must register itself with the autofac container.
 2. The class that requires the dependency must accept a concrete class or abstract interface in its constructor as a placeholder for the injected class.
@@ -37,8 +37,8 @@ namespace App1.Services.AlertOperations
 ```
 
 -   This class both registers itself as a dependency, and has dependencies injected itself.
--   The assembly attribute `Export` is part of the Geocortex Mobile SDK, and registers the class with Autofac as a singleton.
--   The constructor of the class takes an object of the type `IOperationRegistry`. This dependency will be resolved by Autofac at runtime **when** `AlertOperations` is injected by another class. Chaining dependency injection in this manner is both a common and best practice pattern in Geocortex Mobile.
+-   The assembly attribute `Export` is part of the VertiGIS Studio Mobile SDK, and registers the class with Autofac as a singleton.
+-   The constructor of the class takes an object of the type `IOperationRegistry`. This dependency will be resolved by Autofac at runtime **when** `AlertOperations` is injected by another class. Chaining dependency injection in this manner is both a common and best practice pattern in VertiGIS Studio Mobile.
 
 This is an example of a class that injects `AlertOperations`, which will in turn inject an `IOperationRegistry` into itself.
 
@@ -64,11 +64,11 @@ Autofac has a number of ways to inject dependencies, including factory functions
 
 ## Components and Services
 
-Components and services in Geocortex Mobile are almost always initialized by Autofac. This means that they can inject any class that has been registered with Autofac in their constructor, allowing classes used for behavior like [commands and operations](configuration-commands-operations.mdx) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with Autofac to be correctly initialized, and it is best practice to use dependency injection to initialize instances of any other custom classes, services or components that the root level component depends on.
+Components and services in VertiGIS Studio Mobile are almost always initialized by Autofac. This means that they can inject any class that has been registered with Autofac in their constructor, allowing classes used for behavior like [commands and operations](configuration-commands-operations.mdx) to be easily shared and loosely coupled to many components and services. Root level components (components that are instantiated from a layout definition) must **always** register with Autofac to be correctly initialized, and it is best practice to use dependency injection to initialize instances of any other custom classes, services or components that the root level component depends on.
 
 ## List of Registration Assembly Attributes
 
-There's a number of different Geocortex Mobile specific assembly attributes which allow classes to register themselves with Geocortex Mobile's Autofac container.
+There's a number of different VertiGIS Studio Mobile specific assembly attributes which allow classes to register themselves with VertiGIS Studio Mobile's Autofac container.
 
 ### `Export`
 
@@ -104,7 +104,7 @@ Used for registering a service. For a more detailed example, see [create a servi
 
 ### `AppItem`
 
-Used for registering the definition for an [app item](configuration-app-config-reference.mdx#app-items) with Geocortex Mobile. For a more detailed example, see the tutorial on [implementing a custom component with app configuration](tutorial-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
+Used for registering the definition for an [app item](configuration-app-config-reference.mdx#app-items) with VertiGIS Studio Mobile. For a more detailed example, see the tutorial on [implementing a custom component with app configuration](tutorial-implement-component-participate-app-config.mdx#create-a-skeleton-app-config-definition).
 
 ```cs
 [assembly: AppItem(CustomAppItem.AppItemType, typeof(CustomAppItem))]
@@ -112,7 +112,7 @@ Used for registering the definition for an [app item](configuration-app-config-r
 
 ### `View`
 
-Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the tutorial on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#use-xaml-to-define-your-ui).
+Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with VertiGIS Studio Mobile. For a more detailed example see the tutorial on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#use-xaml-to-define-your-ui).
 
 ```cs
 [assembly: View(typeof(CustomView))]
@@ -120,7 +120,7 @@ Used for registering a [view](https://docs.microsoft.com/en-us/xamarin/xamarin-f
 
 ### `ViewModel`
 
-Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with Geocortex Mobile. For a more detailed example see the tutorial on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#example-progress-bar).
+Used for registering a [view model](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/enterprise-application-patterns/mvvm) with VertiGIS Studio Mobile. For a more detailed example see the tutorial on [implementing a custom component with UI](tutorial-implement-component-with-ui.mdx#example-progress-bar).
 
 ```cs
 [assembly: ViewModel(typeof(CustomViewModel))]
@@ -206,4 +206,4 @@ namespace VertiGIS.Mobile.Samples.Samples.Custom.Component
 
 ## Relevant SDK Sample
 
-Check out the Geocortex Mobile SDK Sample for [dependency injection](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/DependencyInjection).
+Check out the VertiGIS Studio Mobile SDK Sample for [dependency injection](https://github.com/geocortex/vertigis-mobile-samples/tree/master/Geocortex.Mobile.Samples/Geocortex.Mobile.Samples/Samples/Conceptual/DependencyInjection).

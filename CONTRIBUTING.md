@@ -40,7 +40,7 @@ New pages can be added under each product within the `docs` folder (`docs/web`, 
 ```
 ---
 title: Overview
-description: Geocortex Web - Overview
+description: VertiGIS Studio Web - Overview
 ---
 ```
 
@@ -127,11 +127,11 @@ You can bring emphasis to certain lines of code by specifying line ranges after 
 
 The following guidelines apply to adding screenshots of the products, usually for example or demo purposes. All other images will be treated on a case by case basis, but should still be processed through [Tiny PNG](https://tinypng.com/).
 
-#### Geocortex Web
+#### VertiGIS Studio Web
 
-Geocortex Web screenshots should be taken at a certain window size for consistency. This can be easily achieved using the chrome developer tools.
+VertiGIS Studio Web screenshots should be taken at a certain window size for consistency. This can be easily achieved using the chrome developer tools.
 
-1. Open the Geocortex Web page you want to screenshot.
+1. Open the VertiGIS Studio Web page you want to screenshot.
 2. Open the dev tools.
 3. Go to settings / devices
 4. [Add a custom device](https://developers.google.com/web/tools/chrome-devtools/device-mode#custom) with the following settings:
@@ -156,11 +156,11 @@ Geocortex Web screenshots should be taken at a certain window size for consisten
 <img src={useBaseUrl("img/layout-multi-component-config.png")}/>
 ```
 
-#### Geocortex Mobile
+#### VertiGIS Studio Mobile
 
-Geocortex Mobile screenshots should be roughly taken with a certain window size for consistency.
+VertiGIS Studio Mobile screenshots should be roughly taken with a certain window size for consistency.
 
-1. Open the Geocortex Mobile application you want to screenshot.
+1. Open the VertiGIS Studio Mobile application you want to screenshot.
     - Unless demonstrating theming functionality, all screenshots should be taken with the dark theme.
 2. Using the `Windows + Left` then `Windows + Up` shortcuts to move the app window to occupy a corner of the screen.
 3. Using Windows [snipping tool](https://support.microsoft.com/en-ca/help/13776/windows-10-use-snipping-tool-to-capture-screenshots), capture a window screenshot of the application.

@@ -1,6 +1,6 @@
 ---
 title: Translate a Component's Text
-description: Geocortex Web - Learn how to internationalize a custom component
+description: VertiGIS Studio Web - Learn how to internationalize a custom component
 ---
 
 import PrereqsCustomCodeSnippet from "./snippets/prereqs-custom-code.mdx";
@@ -172,7 +172,7 @@ Next, we are going to create the [language resources](sdk-internationalization.m
 
 ## Register the Language Resources
 
-Next we need to [register the language resources](sdk-internationalization.mdx#registering-language-resources) with Geocortex Web.
+Next we need to [register the language resources](sdk-internationalization.mdx#registering-language-resources) with VertiGIS Studio Web.
 
 ```ts title="src/index.ts"
 import { LibraryRegistry } from "@vertigis/web/config";
@@ -211,9 +211,9 @@ export default function (registry: LibraryRegistry) {
 
 ## Use the Language Strings
 
-<!-- TODO-API link to Geocortex layout components -->
+<!-- TODO-API link to VertiGIS Studio layout components -->
 
-Now that they have been registered, we can use the strings in our boilerplate component from earlier. Geocortex Web layout components, like `<Typography>`, will automatically detect and translate language keys like `language-translatable-text-content` in props and child content.
+Now that they have been registered, we can use the strings in our boilerplate component from earlier. VertiGIS Studio Web layout components, like `<Typography>`, will automatically detect and translate language keys like `language-translatable-text-content` in props and child content.
 
 If you need to manually translate a language key, you can use the [`useContext` react hook](https://reactjs.org/docs/hooks-reference.html#usecontext) with the [UIContext](sdk-components-ui-context.mdx) to access the `translate` function. Then you can pass the language key `language-translatable-text-content` you defined in the language resources files to the `translate` function and your text will be translated into whichever locale is most appropriate.
 

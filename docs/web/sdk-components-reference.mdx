@@ -1,6 +1,6 @@
 ---
 title: Component Reference
-description: Geocortex Web - Reference for custom components in Geocortex Web
+description: VertiGIS Studio Web - Reference for custom components in VertiGIS Studio Web
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -9,7 +9,7 @@ import UseCaseContainer from "../../src/components/UseCaseContainer";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-The following is an example of a custom component that has been created using the Geocortex Web SDK. In general, Geocortex Web components are functional React components extended with a few new behaviors and patterns.
+The following is an example of a custom component that has been created using the VertiGIS Studio Web SDK. In general, VertiGIS Studio Web components are functional React components extended with a few new behaviors and patterns.
 
 ```tsx
 import React, { useState } from "react";
@@ -63,7 +63,7 @@ export default function ExampleComponent(
 
 ## Component Registration
 
-All components need to be registered with the Geocortex Web API in order to be used in a layout.
+All components need to be registered with the VertiGIS Studio Web API in order to be used in a layout.
 
 ```ts
 export default function (registry: LibraryRegistry) {
@@ -95,11 +95,11 @@ Once a component has been registered, it can be used in a layout by referring it
 
 ## Component Anatomy
 
-At its core, each custom component is a React component that takes in props and renders a DOM element. However, custom components can implement a couple of patterns which are specific to Geocortex Web.
+At its core, each custom component is a React component that takes in props and renders a DOM element. However, custom components can implement a couple of patterns which are specific to VertiGIS Studio Web.
 
 ### Rendering
 
-Geocortex Web custom components return a DOM element, like any other React component, but with one restriction. The root DOM element must be a `<LayoutElement/>` node with all the layout attributes passed as props.
+VertiGIS Studio Web custom components return a DOM element, like any other React component, but with one restriction. The root DOM element must be a `<LayoutElement/>` node with all the layout attributes passed as props.
 
 ```tsx
 export default function ExampleComponent(
@@ -136,7 +136,7 @@ export default function ExampleComponent(
 
 ### State
 
-Geocortex Web uses two patterns to manage state in a component. First, any purely local UI or presentation logic state should be captured using the [React state hook](https://reactjs.org/docs/hooks-state.html) pattern. For data that comes from configuration or other sources, like a service, the components model should be treated as the state.
+VertiGIS Studio Web uses two patterns to manage state in a component. First, any purely local UI or presentation logic state should be captured using the [React state hook](https://reactjs.org/docs/hooks-state.html) pattern. For data that comes from configuration or other sources, like a service, the components model should be treated as the state.
 
 ```tsx
 export default function ExampleComponent(
@@ -231,7 +231,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 ### Configuration
 
-Geocortex Web provides a suite of flexible, highly configurable components, and this flexibility is powered in a large part by the relationship between app config, models, and components. Each model has the potential to consume static app config, which it can deserialize and transform before providing the data to its associated component for rendering.
+VertiGIS Studio Web provides a suite of flexible, highly configurable components, and this flexibility is powered in a large part by the relationship between app config, models, and components. Each model has the potential to consume static app config, which it can deserialize and transform before providing the data to its associated component for rendering.
 
 The following model defines a simple configurable property `items`.
 
@@ -348,7 +348,7 @@ export default class ExampleComponentModel extends ComponentModelBase {
 
 ## Component Lifecycle
 
-When a Geocortex Web Application boots up, the set of components which are initially active in the layout are created and initialized. [Components like the `Panel`](configuration-layout-reference.mdx#panels) will only activate their first child. All initially inactive components will only be created when they are activated in the layout.
+When a VertiGIS Studio Web Application boots up, the set of components which are initially active in the layout are created and initialized. [Components like the `Panel`](configuration-layout-reference.mdx#panels) will only activate their first child. All initially inactive components will only be created when they are activated in the layout.
 
 ### Activation and Deactivation
 

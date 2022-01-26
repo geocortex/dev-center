@@ -1,6 +1,6 @@
 ---
 title: Internationalization
-description: Geocortex Web - Learn about internationalization and language strings in Geocortex Web
+description: VertiGIS Studio Web - Learn about internationalization and language strings in VertiGIS Studio Web
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -12,7 +12,7 @@ import TranslationCallout from "./snippets/translation-callout.mdx";
 
 <TranslationCallout />
 
-Geocortex Web was designed to be fully internationalizable on all levels of the product, from app config to custom code. A major component of this is language strings. Language strings provide a couple advantages over hardcoding plain text in a component.
+VertiGIS Studio Web was designed to be fully internationalizable on all levels of the product, from app config to custom code. A major component of this is language strings. Language strings provide a couple advantages over hardcoding plain text in a component.
 
 1. Language strings can be easily translated or modified without having to change component code.
 2. Language strings can be shared across components.
@@ -31,7 +31,7 @@ Language strings are defined as properties in a plain JSON file. It's convention
 ```
 
 :::warning
-If you define a language string that Geocortex Web has already defined, it will override the existing language string with your custom string.
+If you define a language string that VertiGIS Studio Web has already defined, it will override the existing language string with your custom string.
 :::
 
 By convention, these files are named after the locale they represent. For example, a file of german language strings would be named `de.json`.
@@ -58,14 +58,14 @@ Once a set of language strings has been registered, they can be used [in the app
 
 ## Supported Locales
 
-Geocortex Web has full language tag support as specified in the [WC3 spec](https://www.w3.org/International/questions/qa-choosing-language-tags#regionsubtag). The casing of a language tag determines what is it parsed as.
+VertiGIS Studio Web has full language tag support as specified in the [WC3 spec](https://www.w3.org/International/questions/qa-choosing-language-tags#regionsubtag). The casing of a language tag determines what is it parsed as.
 
 -   All lowercase tags like `de` are parsed as a language code.
 -   Region codes, like `de-AT` are uppercase.
 -   Script codes like `ru-Latn` are pascal cased.
 
 :::warning
-Regional locales will **not** be used as fallback locales for a language. This means that if a browser is configured in the `de` locale, but language strings are registered with the `de-AT` locale in Geocortex Web, the fallback translation, **not** `de-AT`, will be shown.
+Regional locales will **not** be used as fallback locales for a language. This means that if a browser is configured in the `de` locale, but language strings are registered with the `de-AT` locale in VertiGIS Studio Web, the fallback translation, **not** `de-AT`, will be shown.
 :::
 
 ## Next Steps
