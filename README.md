@@ -1,8 +1,8 @@
 # VertiGIS Studio Developer Center
 
-![CI/CD](https://github.com/geocortex/dev-center/workflows/CI/CD/badge.svg)
+![CI/CD](https://github.com/vertigis/studio-dev-center/workflows/CI/CD/badge.svg)
 
-This is the source for the [VertiGIS Studio Developer Center](https://developers.geocortex.com) website; feel free to suggest changes to our docs!
+This is the source for the [VertiGIS Studio Developer Center](https://developers.vertigisstudio.com) website; feel free to suggest changes to our docs!
 
 ## Contributing
 
