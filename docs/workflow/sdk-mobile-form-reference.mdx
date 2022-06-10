@@ -47,7 +47,7 @@ namespace App1.Workflow
 
 ## Using Form Elements
 
-Custom form elements can be used in a form through the special ["custom" form element](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Elements%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____0). This form element displays custom form elements by referencing them by the `id` they were registered with.
+Custom form elements can be used in a form through the special ["custom" form element](https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Elements%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____0). This form element displays custom form elements by referencing them by the `id` they were registered with.
 
 :::important
 Custom form elements will **only** be available to a workflow if the form element registration activity is run beforehand. It's best practice to run the form element registration activity at the start of a workflow.
@@ -55,7 +55,7 @@ Custom form elements will **only** be available to a workflow if the form elemen
 
 ## Raising Form Events
 
-VertiGIS Studio Workflow form elements can raise [events](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise events, including a custom event type.
+VertiGIS Studio Workflow form elements can raise [events](https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/forms.htm#Events%3FTocPath%3DForms%7COverview%2520of%2520Forms%7CEvents%7C_____0). A custom form element can also raise events, including a custom event type.
 
 Events are raised through the `OnEventRaised` method of the form component. The following custom form elements demonstrates how various form events can be raised.
 
@@ -144,4 +144,4 @@ namespace App1.Workflow
 }
 ```
 
-You can then use the [Get Form Element Property](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/get-form-element-property.htm) activity to access the `value` property, along with [other properties supported by custom form elements](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Element_Properties%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____1).
+You can then use the [Get Form Element Property](https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/activities/get-form-element-property.htm) activity to access the `value` property, along with [other properties supported by custom form elements](https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Element_Properties%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____1).

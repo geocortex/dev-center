@@ -34,7 +34,7 @@ The website is automatically built and deployed on commit to master.
 
 New pages can be added under each product within the `docs` folder (`docs/web`, `docs/mobile`, etc.). To add a new page:
 
-1. Create a new `.mdx` file within the appropriate product. When naming the file, look for existing or similar pages to follow a similar naming convention. The name of the file is important as it will become the name in the URL. For example, `docs/web/overview.mdx` becomes https://developers.geocortex.com/docs/web/overview
+1. Create a new `.mdx` file within the appropriate product. When naming the file, look for existing or similar pages to follow a similar naming convention. The name of the file is important as it will become the name in the URL. For example, `docs/web/overview.mdx` becomes https://developers.vertigisstudio.com/docs/web/overview
 2. Add appropriate markdown headers at the top of the file in the following format:
 
 ```

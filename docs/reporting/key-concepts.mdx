@@ -18,23 +18,23 @@ End users run reports from web applications that the author has configured to ho
 
 ## VertiGIS Studio Report Designer
 
-[VertiGIS Studio Report Designer](https://apps.geocortex.com/reporting/designer/) provides an extensive suite of tools for laying out reports, specifying the data that you want to include, and presenting the data using charts, tables, and a wide variety of other configurable elements. Organizations can sign into the cloud-hosted report designer, or they can host it themselves on their own web server. They can then author as many report templates as their application requirements demand and save them into ArcGIS Online or Portal for ArcGIS as items. Sharing reports with end users allows them to create on-demand, print-ready PDF reports about maps and features, using data from the user's current session.
+[VertiGIS Studio Report Designer](https://apps.vertigisstudio.com/reporting/designer/) provides an extensive suite of tools for laying out reports, specifying the data that you want to include, and presenting the data using charts, tables, and a wide variety of other configurable elements. Organizations can sign into the cloud-hosted report designer, or they can host it themselves on their own web server. They can then author as many report templates as their application requirements demand and save them into ArcGIS Online or Portal for ArcGIS as items. Sharing reports with end users allows them to create on-demand, print-ready PDF reports about maps and features, using data from the user's current session.
 
 Report Designer has a built-in preview environment for running reports. Using the preview is the quickest way to test a report while you are designing it.
 
 ## VertiGIS Studio Reporting Service
 
-The [VertiGIS Studio Reporting REST API](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/) can be used to asynchronously run a report, watch for report completion and download the completed report as a PDF.
+The [VertiGIS Studio Reporting REST API](https://apps.vertigisstudio.com/reporting/service/) can be used to asynchronously run a report, watch for report completion and download the completed report as a PDF.
 
 :::note
-Prior to running a report, you must create a new report template using [VertiGIS Studio Report Designer](https://apps.geocortex.com/reporting/designer/).
+Prior to running a report, you must create a new report template using [VertiGIS Studio Report Designer](https://apps.vertigisstudio.com/reporting/designer/).
 :::
 
 The basic steps for running a report are:
 
-1.  Obtain a run token from the [/auth/token/run](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/auth/post_auth_token_run) endpoint.
+1.  Obtain a run token from the [/auth/token/run](https://apps.vertigisstudio.com/reporting/service/specification/#post-/auth/token/run) endpoint.
     -   Only required if the report is secured or accesses secured content
-2.  Run the report with a request to [/job/run](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/job/post_job_run).
+2.  Run the report with a request to [/job/run](https://apps.vertigisstudio.com/reporting/service/specification/#post-/job/run).
 
     -   The request body requires a template object which consists of a `portalUrl` and `itemid`. An optional array of `parameters` may also be passed to the report.
 
@@ -73,5 +73,5 @@ The basic steps for running a report are:
 
     <!-- cspell:enable -->
 
-3.  Use the ticket received in response to the run request to watch for completion of the report via a websocket or polling strategy at [/job/artifacts](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/job/get_job_artifacts).
-4.  Use the ticket from the run request and the tag from the artifacts request (step 3) to download the completed report from [/job/result](https://apps.geocortex.com/reporting/service/api-viewer/index.html?url=../swagger.json#/job/get_job_result).
+3.  Use the ticket received in response to the run request to watch for completion of the report via a websocket or polling strategy at [/job/artifacts](https://apps.vertigisstudio.com/reporting/service/specification/#get-/job/artifacts).
+4.  Use the ticket from the run request and the tag from the artifacts request (step 3) to download the completed report from [/job/result](https://apps.vertigisstudio.com/reporting/service/specification/#get-/job/result).

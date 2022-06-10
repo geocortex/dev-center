@@ -84,7 +84,7 @@ One thing that makes commands and operations so powerful is that built in compon
 
 ## Workflow Command
 
-[VertiGIS Studio Workflow](https://docs.geocortex.com/workflow/) can allow for the creation of completely customized behavior without writing custom code. VertiGIS Studio Mobile has a special command, `workflow.run`, which allows you to run workflows anywhere you would run a command or operation. Using workflow, you can take custom behavior in VertiGIS Studio Mobile further without having to write custom code.
+[VertiGIS Studio Workflow](https://docs.vertigisstudio.com/workflow/) can allow for the creation of completely customized behavior without writing custom code. VertiGIS Studio Mobile has a special command, `workflow.run`, which allows you to run workflows anywhere you would run a command or operation. Using workflow, you can take custom behavior in VertiGIS Studio Mobile further without having to write custom code.
 
 Check out this example of [running a workflow from app config](tutorial-run-workflow-app-config.mdx).
 
@@ -160,7 +160,7 @@ You can find out what arguments a command or operation takes in the [commands an
 
 ### Passing Implicit Arguments
 
-If you do not pass explicit arguments, then implicit arguments will be passed to the command or operation. Implicit arguments come from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) that a command or operation is running in, or from a previous operation in the command chain
+If you do not pass explicit arguments, then implicit arguments will be passed to the command or operation. Implicit arguments come from the [context](https://docs.vertigisstudio.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) that a command or operation is running in, or from a previous operation in the command chain
 
 For example, let's look at the configuration for a `<feature-details>` component. `highlights.add-focus` has been configured as the command that runs `onFeatureShow`, but it is not passed any arguments explicitly. Instead, the command receives arguments from the **context** it is run in.
 
@@ -206,7 +206,7 @@ In this example, when a feature is deleted,
 -   The results details are hidden,
 -   The feature is removed from the results list.
 
-Since these commands and operations are running from the [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next step in line will receive one of two possible inputs.
+Since these commands and operations are running from the [context](https://docs.vertigisstudio.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input) of a `<feature-details>` component, the first command or operation will receive the relevant feature as its input. If the property is a command chain, the next step in line will receive one of two possible inputs.
 
 1. If the previous step was a command (which doesn't produce output), then the original input is passed on to the next step.
 2. If the previous step was an operation (which produces an output), then the output of that operation is passed onto the next step.
@@ -300,7 +300,7 @@ This example demonstrates two different types of argument passing behavior. The 
 -   `highlights.add-focus`
 -   `highlights.pulse`
 
-`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape:
+`tasks.identify` does not have any named arguments defined, so it will take arguments passed into it from its current [context](https://docs.vertigisstudio.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input). Since this chain is run on a map click, the context argument passed in has the shape:
 
 ```json
 {

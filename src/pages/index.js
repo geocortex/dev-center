@@ -45,9 +45,7 @@ function Home() {
                 // TODO: Find out correct approach to use this in CSS file,
                 // as it wasn't taking baseUrl into account.
                 style={{
-                    backgroundImage: `url("${useBaseUrl(
-                        "img/geocortex-rocket.png"
-                    )}")`,
+                    backgroundImage: `url("${useBaseUrl("img/rocket.png")}")`,
                 }}
             >
                 <div className="container">

@@ -11,12 +11,12 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsLayoutConfigSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
-Many components have default behaviors which can be [configured through the app config JSON](tutorial-change-default-behavior.mdx). Any configurable property which takes a [command or operation](configuration-commands-operations.mdx) as its value can also be configured with a special command, `workflow.run`. By using the `workflow.run` command, you can even execute a [workflow](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/geocortex-workflow.htm#Introduction_to_Geocortex_Workflow%3FTocPath%3D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520Introduction%2520to%2520Geocortex%2520Workflow%7C_____0) with completely configurable behavior.
+Many components have default behaviors which can be [configured through the app config JSON](tutorial-change-default-behavior.mdx). Any configurable property which takes a [command or operation](configuration-commands-operations.mdx) as its value can also be configured with a special command, `workflow.run`. By using the `workflow.run` command, you can even execute a [workflow](https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/geocortex-workflow.htm#Introduction_to_Geocortex_Workflow%3FTocPath%3D%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520Introduction%2520to%2520Geocortex%2520Workflow%7C_____0) with completely configurable behavior.
 
 In this article, we can configure a workflow to run when the map is initialized.
 
 :::important
-Configuring a workflow to run when the map is initialized can be done through [VertiGIS Studio Web Designer](https://apps.geocortex.com/webviewer/designer/) and this is the preferred method of configurable if Designer can be used. The goal of this article is to demonstrate the pattern of overriding behaviors with workflows.
+Configuring a workflow to run when the map is initialized can be done through [VertiGIS Studio Web Designer](https://apps.vertigisstudio.com/web/designer/) and this is the preferred method of configurable if Designer can be used. The goal of this article is to demonstrate the pattern of overriding behaviors with workflows.
 :::
 
 ## Prerequisites
@@ -100,7 +100,7 @@ Next, add an [app item](configuration-app-config-getting-started.mdx#anatomy-of-
 
 The next step is going to be replacing the `ui.display-notification` command with a `workflow.run-*` command. First, we need to create a workflow to use for the command.
 
-1. Open up [VertiGIS Studio Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
+1. Open up [VertiGIS Studio Workflow Designer](https://apps.vertigisstudio.com/workflow/designer/) and create and save a new workflow.
 
 :::tip
 
@@ -115,7 +115,7 @@ The next step is going to be replacing the `ui.display-notification` command wit
     </a>{" "}
     that displays an alert and then{" "}
     <a
-        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        href="https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
         import it into the VertiGIS Studio Workflow Designer.
@@ -228,7 +228,7 @@ For a more in depth example, check out the tutorial on [overriding default map c
     <UseCaseCard
         title="Build a Custom Form"
         description="Learn how to build a custom form with VertiGIS Studio Workflow"
-        link="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/forms.htm"
+        link="https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/forms.htm"
     />
     <UseCaseCard
         title="Implement a Custom Activity"

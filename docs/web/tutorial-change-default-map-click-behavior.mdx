@@ -11,10 +11,10 @@ import UseCaseCard from "../../src/components/UseCaseCard";
 import PrereqsLayoutConfigEditingSnippet from "./snippets/prereqs-layout-config-editing.mdx";
 import WorkflowUrlSnippet from "../snippets/workflow-url.mdx";
 
-VertiGIS Studio Web comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [VertiGIS Studio Workflow](https://apps.geocortex.com/workflow/designer/) and editing the [app config](configuration-app-config-getting-started.mdx).
+VertiGIS Studio Web comes with default behavior that runs on a map click. The default behavior will identify and display details for results in the nearby area. But what if you want to replace the functionality with your own behavior? This can be accomplished by leveraging [VertiGIS Studio Workflow](https://apps.vertigisstudio.com/workflow/designer/) and editing the [app config](configuration-app-config-getting-started.mdx).
 
 :::note
-It's actually possible to configure the Map's `onClick` event in [VertiGIS Studio Web Designer](https://apps.geocortex.com/webviewer/designer/), by setting a workflow as the action for the [Maps click event](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this tutorial is to demonstrate the concept of configuring actions using the app config.
+It's actually possible to configure the Map's `onClick` event in [VertiGIS Studio Web Designer](https://apps.vertigisstudio.com/web/designer/), by setting a workflow as the action for the [Maps click event](https://docs.vertigisstudio.com/webviewer/latest/admin-help/Default.htm#gwv/component-settings.htm%3FTocPath%3DConfiguration%7CComponent%2520Settings%7C_____0). However, the point of this tutorial is to demonstrate the concept of configuring actions using the app config.
 :::
 
 ## What you're Building
@@ -118,7 +118,7 @@ The first thing we need to do is override the default map click behavior. We can
 
 First, we are going to replace the command chain with a `workflow.run` command that replicates this behavior.
 
-1. Open up [VertiGIS Studio Workflow Designer](https://apps.geocortex.com/workflow/designer/) and create and save a new workflow.
+1. Open up [VertiGIS Studio Workflow Designer](https://apps.vertigisstudio.com/workflow/designer/) and create and save a new workflow.
 2. Add an "Alert" activity as a test.
 3. Copy the ID of the the workflow from the URL
 
@@ -167,7 +167,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
     alt="Map Click Workflow with Alert"
 />
 
-7. Open up your workflow in the VertiGIS Studio Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `geometry.add-pixel-tolerance` and `tasks.identify` are operations, so they need RunOperation activities, and `results.display-details` is a command so it needs a RunCommand Activity. Chain these three activities together, passing the [workflow context](https://docs.geocortex.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `geometry.add-pixel-tolerance` and then passing the output of that operation to `tasks.identify`, and finally passing the output of `tasks.identify` to `results.display-details`.
+7. Open up your workflow in the VertiGIS Studio Workflow Designer again. The default behavior we just overrode can be recreated with the use of [RunCommand](https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/activities/run-command.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____169) and [RunOperation](https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/activities/run-operation.htm%3FTocPath%3DActivities%7CActivity%2520Reference%7C_____173) activities. `geometry.add-pixel-tolerance` and `tasks.identify` are operations, so they need RunOperation activities, and `results.display-details` is a command so it needs a RunCommand Activity. Chain these three activities together, passing the [workflow context](https://docs.vertigisstudio.com/webviewer/latest/admin-help/Default.htm#gwv/add-a-workflow-to-an-app.htm#use-the-menu-context-as-a-workflow-input%3FTocPath%3DConfiguration%7CAdd%2520a%2520Workflow%2520to%2520an%2520App%7C_____4) to `geometry.add-pixel-tolerance` and then passing the output of that operation to `tasks.identify`, and finally passing the output of `tasks.identify` to `results.display-details`.
 
 :::note
 
@@ -184,7 +184,7 @@ First, we are going to replace the command chain with a `workflow.run` command t
     </a>{" "}
     and then{" "}
     <a
-        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        href="https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
         import it into the VertiGIS Studio Workflow Designer.
@@ -220,7 +220,7 @@ At this point, you can choose to extend the map click behavior with VertiGIS Stu
     </a>{" "}
     and then{" "}
     <a
-        href="https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
+        href="https://docs.vertigisstudio.com/workflow/latest/help/Default.htm#wf5/help/import-export-workflows.htm"
         target="_blank"
     >
         import it into the VertiGIS Studio Workflow Designer.
