@@ -1,1 +1,0 @@
-(globalThis.webpackChunkgeocortex_dev_center=globalThis.webpackChunkgeocortex_dev_center||[]).push([[2535],{6353:e=>{"use strict";e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"New Workflow Form Element API","permalink":"/blog/2021/03/22/new-workflow-element-api"}]}')}}]);
