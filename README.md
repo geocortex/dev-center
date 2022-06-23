@@ -1,4 +1,6 @@
-# VertiGIS Studio Developer Center
+> :warning: This project has moved to https://github.com/vertigis/studio-dev-center
+
+ # VertiGIS Studio Developer Center
 
 ![CI/CD](https://github.com/geocortex/dev-center/workflows/CI/CD/badge.svg)
 
