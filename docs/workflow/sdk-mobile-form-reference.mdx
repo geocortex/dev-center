@@ -4,21 +4,29 @@ sidebar_label: Form Element Reference
 description: VertiGIS Studio Workflow - Reference for workflow form elements for web applications
 ---
 
-In the VertiGIS Studio Workflow .NET SDK, form elements are represented by classes that extend the `FormComponent` class.
+In the VertiGIS Studio Workflow .NET SDK, the only requirement is that custom form elements must implement `IFormComponent`. However, it is typically easier to extend the `ContentComponent` class, which is the recommend practice. The examples shown here extend `ContentComponent`.
 
-```cs
+```xml title="App1/App1/workflow/CustomFormElement.xaml"
+<?xml version="1.0" encoding="UTF-8"?>
+<core:ContentComponent xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:core="clr-namespace:VertiGIS.Mobile.Workflow.Core;assembly=VertiGIS.Mobile.Workflow"
+                       xmlns:views="clr-namespace:VertiGIS.Mobile.Toolkit.Views;assembly=VertiGIS.Mobile.Toolkit"
+                       x:Class="App1.Workflow.CustomFormElement">
+    <Label Text="I'm a custom form element"/>
+</core:ContentComponent>
+```
+
+```cs title="App1/App1/workflow/CustomFormElement.xaml.cs"
 namespace App1.Workflow
 {
-    class CustomFormElement : FormComponent
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CustomFormElement : ContentComponent
     {
         public CustomFormElement(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
-            : base (element, name)
+            : base(element, name)
         {
-            _view = new Label(){
-                Text = "I'm a custom form element"
-            }
-
-            Add(new GenericComponent(_view));
+            InitializeComponent();
         }
     }
 }
@@ -28,7 +36,7 @@ namespace App1.Workflow
 
 Form Elements must be registered through a [custom workflow activity that extends `RegisterCustomFormElementBase`](sdk-mobile-activity-reference.mdx#registering-activities).
 
-```cs
+```cs title="App1/App1/workflow/RegisterComponent.cs"
 [assembly: Export(typeof(RegisterCustomFormElements))]
 namespace App1.Workflow
 {
@@ -59,55 +67,52 @@ VertiGIS Studio Workflow form elements can raise [events](https://docs.geocortex
 
 Events are raised through the `OnEventRaised` method of the form component. The following custom form elements demonstrates how various form events can be raised.
 
-```cs
+```xml title="App1/App1/workflow/CustomFormComponent.xaml"
+<?xml version="1.0" encoding="UTF-8"?>
+<core:ContentComponent  xmlns:core="clr-namespace:VertiGIS.Mobile.Workflow.Core;assembly=VertiGIS.Mobile.Workflow"
+                        xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:views="clr-namespace:VertiGIS.Mobile.Toolkit.Views;assembly=VertiGIS.Mobile.Toolkit"
+                        x:Class="App1.Workflow.CustomFormComponent">
+    <StackLayout>
+        <views:EnhancedButton Text="Raise Clicked Event" Clicked="RaiseClickedEvent"/>
+        <views:EnhancedButton Text="Raise Changed Event" Clicked="RaiseChangedEvent"/>
+        <views:EnhancedButton Text="Raise Custom Event" Clicked="RaiseCustomEvent"/>
+    </StackLayout>
+</core:ContentComponent>
+```
+
+```cs title="App1/App1/workflow/CustomFormComponent.xaml.cs"
 namespace App1.Workflow
 {
-    class CustomFormComponent : FormComponent
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CustomFormComponent : ContentComponent
     {
-        private readonly StackLayout _view;
-
         public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
-            : base (element, name)
+            : base(element, name)
         {
-            _view = new StackLayout();
-
-            _view.Children.Add(new EnhancedButton() {
-                Command = new Command(RaiseClickedEvent),
-                Text = "Raise Clicked Event"
-            });
-
-            _view.Children.Add(new EnhancedButton() {
-                Command = new Command(RaiseChangedEvent),
-                Text = "Raise Changed Event"
-            });
-
-            _view.Children.Add(new EnhancedButton() {
-                Command = new Command(RaiseCustomEvent),
-                Text = "Raise Custom Event"
-            });
-
-            Add(new GenericComponent(_view));
+            InitializeComponent();
         }
 
-        private void RaiseClickedEvent()
+        private void RaiseClickedEvent(object sender, EventArgs e)
         {
-            OnEventRaised(new Event()
+            RaiseEvent(new Event()
             {
                 Type = Event.CLICKED
             });
         }
 
-        private void RaiseChangedEvent()
+        private void RaiseChangedEvent(object sender, EventArgs e)
         {
-            OnEventRaised(new Event()
+            RaiseEvent(new Event()
             {
                 Type = Event.CHANGED
             });
         }
 
-        private void RaiseCustomEvent()
+        private void RaiseCustomEvent(object sender, EventArgs e)
         {
-            OnEventRaised(new Event()
+            RaiseEvent(new Event()
             {
                 Type = Event.CUSTOM,
                 Argument = "Custom Argument"
@@ -121,27 +126,41 @@ namespace App1.Workflow
 
 A custom form element may produce a value that a workflow needs to access at runtime. You can set a property on the `this.element` object to expose that value to the form.
 
-```cs
+```xml title="App1/App1/workflow/CustomFormComponent.xaml"
+<?xml version="1.0" encoding="UTF-8"?>
+<core:ContentComponent  xmlns:core="clr-namespace:VertiGIS.Mobile.Workflow.Core;assembly=VertiGIS.Mobile.Workflow"
+                        xmlns="http://xamarin.com/schemas/2014/forms"
+                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:views="clr-namespace:VertiGIS.Mobile.Toolkit.Views;assembly=VertiGIS.Mobile.Toolkit"
+                        x:Class="App1.Workflow.CustomFormComponent">
+    <StackLayout>
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="This form element has a value of: "/>
+                    <Span Text="{Binding Element.Value}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>
+</core:ContentComponent>
+```
+
+```cs title="App1/App1/workflow/CustomFormComponent.xaml.cs"
 namespace App1.Workflow
 {
-    class CustomFormComponent : FormComponent
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CustomFormComponent : ContentComponent
     {
-        private readonly View _view;
-
         public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
-            : base (element, name)
+            : base(element, name)
         {
-            _view = new Label() {
-                Text = "This form element has a static value of 42"
-            };
-
-            // highlight-next-line
-            this.Element.Value = 42;
-
-            Add(new GenericComponent(_view));
+            BindingContext = this;
+            Element.Value = 42;
+            InitializeComponent();
         }
     }
 }
 ```
 
-You can then use the [Get Form Element Property](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/get-form-element-property.htm) activity to access the `value` property, along with [other properties supported by custom form elements](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Element_Properties%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____1).
+You can then use the [Get Form Element Property](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/activities/get-form-element-property.htm) activity to access the `Value` property, along with [other properties supported by custom form elements](https://docs.geocortex.com/workflow/latest/help/Default.htm#wf5/help/form-elements/custom.htm#Custom_Form_Element_Properties%3FTocPath%3DForms%7CForm%2520Element%2520Reference%7CCustom%2520Form%2520Elements%7C_____1).
