@@ -58,7 +58,7 @@ namespace App1.Workflow
     // highlight-next-line
     public partial class LoadingIndicator : ContentComponent
     {
-        public LoadingIndicator(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+        public LoadingIndicator(VertiGIS.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base(element, name)
         {
             InitializeComponent();
@@ -79,8 +79,8 @@ Learn more about [implementing custom activities](sdk-mobile-activity-reference.
 :::
 
 ```cs title="App1/App1/workflow/FormElementRegistrationActivity.cs"
-using Geocortex.Workflow.Runtime;
-using Geocortex.Workflow.Runtime.Activities.App;
+using VertiGIS.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime.Activities.App;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -118,9 +118,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.Runtime;
-using Geocortex.Workflow.Runtime.Definition;
-using Geocortex.Workflow.Runtime.Execution;
+using VertiGIS.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime.Definition;
+using VertiGIS.Workflow.Runtime.Execution;
 
 [assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
 namespace App1.Workflow

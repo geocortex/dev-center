@@ -33,7 +33,7 @@ In this article, you will learn how to create a custom activity that calculates 
 ```cs title="App1/App1/CalculateLog.cs"
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -67,9 +67,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.Runtime;
-using Geocortex.Workflow.Runtime.Definition;
-using Geocortex.Workflow.Runtime.Execution;
+using VertiGIS.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime.Definition;
+using VertiGIS.Workflow.Runtime.Execution;
 using App1.Workflow;
 
 [assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
@@ -123,7 +123,7 @@ First, let's change the execute logic to parse inputs that make sense for a loga
 ```cs title="App1/App1/CalculateLog.cs"
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -157,7 +157,7 @@ Next, modify the `Execute` method of the activity to calculate the logarithm of 
 ```cs title="App1/App1/CalculateLog.cs"
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

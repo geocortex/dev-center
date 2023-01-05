@@ -36,8 +36,8 @@ First, the basic activity needs to be setup and registered. Below is an example 
 ```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.GIS.ArcGISRuntime;
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.GIS.ArcGISRuntime;
+using VertiGIS.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -70,9 +70,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.Runtime;
-using Geocortex.Workflow.Runtime.Definition;
-using Geocortex.Workflow.Runtime.Execution;
+using VertiGIS.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime.Definition;
+using VertiGIS.Workflow.Runtime.Execution;
 
 [assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
 namespace App1.Workflow
@@ -130,8 +130,8 @@ To inject the MapProviderBase, add a new [Autofac factory](https://autofaccn.rea
 ```cs title="App1/App1/workflow/PlaceCalloutAtCenter.cs"
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.GIS.ArcGISRuntime;
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.GIS.ArcGISRuntime;
+using VertiGIS.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -167,8 +167,8 @@ using App1.Workflow;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.Xamarin.Forms;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.GIS.ArcGISRuntime;
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.GIS.ArcGISRuntime;
+using VertiGIS.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -220,8 +220,8 @@ using Esri.ArcGISRuntime.Geometry;
 using Esri.ArcGISRuntime.UI;
 using Esri.ArcGISRuntime.Mapping;
 using Esri.ArcGISRuntime.Xamarin.Forms;
-using Geocortex.Workflow.GIS.ArcGISRuntime;
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.GIS.ArcGISRuntime;
+using VertiGIS.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

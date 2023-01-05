@@ -18,7 +18,7 @@ This article will walk you through creating a new workflow activity for VertiGIS
 2. Add a new skeleton workflow activity that implements `IActivityHandler`.
 
 ```cs title="App1/App1/CustomActivity.cs"
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -44,7 +44,7 @@ namespace App1.Workflow
 1. Add the custom VertiGIS Studio Workflow attribute to `AssemblyInfo.cs`:
 
 ```cs title="App1/App1/Properties/AssemblyInfo.cs"
-[assembly: Geocortex.Workflow.Runtime.WorkflowActivities]
+[assembly: VertiGIS.Workflow.Runtime.WorkflowActivities]
 ```
 
 This registers the assembly to a namespace that VertiGIS Studio Workflow Server can discover.

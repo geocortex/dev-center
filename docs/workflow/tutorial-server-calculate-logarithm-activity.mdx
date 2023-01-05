@@ -20,11 +20,11 @@ In this article, you will learn how to create a custom activity that calculates 
 2. Add a new skeleton workflow activity that implements `IActivityHandler`.
 
 :::tip
-Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.  
+Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.
 :::
 
 ```cs title="YourProjectName/CalculateLog.cs"
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -48,7 +48,7 @@ namespace App1.Workflow
 1. Add the custom VertiGIS Studio Workflow attribute to `AssemblyInfo.cs`:
 
 ```cs title="YourProjectName/Properties/AssemblyInfo.cs"
-[assembly: Geocortex.Workflow.Runtime.WorkflowActivities]`
+[assembly: VertiGIS.Workflow.Runtime.WorkflowActivities]`
 ```
 
 This registers the assembly to a namespace that VertiGIS Studio Workflow Server can discover.
@@ -64,7 +64,7 @@ We now have a empty activity that VertiGIS Studio Workflow Server can use that t
 First, let's change the execute logic to parse inputs that make sense for a logarithm activity.
 
 ```cs title="YourProjectName/CalculateLog.cs"
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -95,7 +95,7 @@ namespace App1.Workflow
 Next, modify the `Execute` method of the activity to calculate the logarithm of a number given an optional base
 
 ```cs title="YourProjectName/CalculateLog.cs"
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

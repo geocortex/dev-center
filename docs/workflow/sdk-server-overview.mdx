@@ -39,7 +39,7 @@ Extending VertiGIS Studio Workflow Server requires you to produce a separate ass
 
 -   This will copy the referenced nuget assemblies to the build output folder, which will be important for later.
 
-1. [Add a reference](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019) to the `Geocortex.Workflow.Runtime` assembly.
+1. [Add a reference](https://docs.microsoft.com/en-us/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019) to the `VertiGIS.Workflow.Runtime` assembly.
    By default, this is located in`C:\Program Files\Latitude Geographics\VertiGIS Studio Workflow\Deployment\service`
 
 :::important
@@ -62,7 +62,7 @@ For VertiGIS Studio Workflow Server to find your custom activities, you need to 
     1. In the `bin` folder, open either `Debug` or `Release`, depending on which build configuration you used.
     1. In the `bin\Debug` or `bin\Release` folder, there will be one final sub-directory which will be `netstandard2.0`
        or `netcore2.1`. Open this folder.
-    1. You should now see a number of files including `Geocortex.Workflow.Runtime.dll` and your own project, such as `AssemblyNamespace.dll`.
+    1. You should now see a number of files including `VertiGIS.Workflow.Runtime.dll` and your own project, such as `AssemblyNamespace.dll`.
 1. Find the `CustomAssemblies` folder on disk.
     1. VertiGIS Studio Workflow looks in a folder called `CustomAssemblies` for assemblies that contain custom activities.
        This is located in the folder that you chose when installing VertiGIS Studio Workflow. The default location is
@@ -71,7 +71,7 @@ For VertiGIS Studio Workflow Server to find your custom activities, you need to 
     1. Copy your project's assembly. (e.g. `AssemblyNamespace.dll`)
     1. Copy any third-party libraries that your project relies on (these should have been output to the build folder)
     1. Copy any other configuration files or resources that your project relies on.
-    1. **Do not** copy any files that start with `Geocortex.Workflow.` They are not required in this folder.
+    1. **Do not** copy any files that start with `VertiGIS.Workflow.` They are not required in this folder.
 
 :::note
 If you created a .NET Core Project and see `AssemblyNamespace.exe`, you need to change the project output type to `Class Library`.
@@ -99,8 +99,8 @@ To automate the deployment to VertiGIS Studio Workflow Server, we have to add a 
 2. Create a file `excluded_files.txt` at the root of the project that excludes the appropriate build output files as described in the [deployment section](#deploying-vertigis-studio-workflow-server-activities).
 
 ```
-Geocortex.Workflow.Runtime.dll
-Geocortex.Workflow.Runtime.xml
+VertiGIS.Workflow.Runtime.dll
+VertiGIS.Workflow.Runtime.xml
 ```
 
 2. Edit the post build event in the project properties.

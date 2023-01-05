@@ -23,7 +23,7 @@ namespace App1.Workflow
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CustomFormElement : ContentComponent
     {
-        public CustomFormElement(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+        public CustomFormElement(VertiGIS.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base(element, name)
         {
             InitializeComponent();
@@ -88,7 +88,7 @@ namespace App1.Workflow
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CustomFormComponent : ContentComponent
     {
-        public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+        public CustomFormComponent(VertiGIS.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base(element, name)
         {
             InitializeComponent();
@@ -152,7 +152,7 @@ namespace App1.Workflow
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CustomFormComponent : ContentComponent
     {
-        public CustomFormComponent(Geocortex.Workflow.Runtime.Definition.Forms.Element element, string name)
+        public CustomFormComponent(VertiGIS.Workflow.Runtime.Definition.Forms.Element element, string name)
             : base(element, name)
         {
             BindingContext = this;

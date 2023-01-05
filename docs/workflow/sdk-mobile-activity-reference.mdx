@@ -10,7 +10,7 @@ import TabItem from "@theme/TabItem";
 In the VertiGIS Studio Workflow .NET SDK, activities are represented as simple classes with an `Execute` method.
 
 :::tip
-Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.  
+Use a unique prefix on the `Action` property to avoid it conflicting with someone else's custom activities.
 :::
 
 ```cs
@@ -47,9 +47,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.Runtime;
-using Geocortex.Workflow.Runtime.Definition;
-using Geocortex.Workflow.Runtime.Execution;
+using VertiGIS.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime.Definition;
+using VertiGIS.Workflow.Runtime.Execution;
 using App1.Workflow;
 
 [assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
@@ -159,7 +159,7 @@ Finally, you can implement your activity using the referenced VertiGIS Studio Mo
 using App1.Workflow;
 using VertiGIS.Mobile.Composition;
 using VertiGIS.Mobile.Infrastructure.Messaging;
-using Geocortex.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -197,9 +197,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using VertiGIS.Mobile.Composition;
-using Geocortex.Workflow.Runtime;
-using Geocortex.Workflow.Runtime.Definition;
-using Geocortex.Workflow.Runtime.Execution;
+using VertiGIS.Workflow.Runtime;
+using VertiGIS.Workflow.Runtime.Definition;
+using VertiGIS.Workflow.Runtime.Execution;
 using App1.Workflow;
 
 [assembly: Export(typeof(ActivityLoader), SingleInstance = true, AsImplementedInterfaces = true)]
